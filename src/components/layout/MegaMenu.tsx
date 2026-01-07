@@ -45,8 +45,26 @@ const menuContent: Record<string, MenuContent> = {
       {
         title: 'Smarter Solutions',
         items: [
-          { icon: Brain, label: 'AI Solutions', desc: 'Gemini Enterprise, Google AI Ultra, Glean' },
-          { icon: Mail, label: 'Email & Collaboration', desc: 'Google Workspace, Microsoft 365, Zoho' },
+          { 
+            icon: Brain, 
+            label: 'AI Solutions', 
+            desc: 'Enterprise AI & productivity',
+            subItems: [
+              { icon: Brain, label: 'Gemini Enterprise', desc: 'Google AI assistant' },
+              { icon: Zap, label: 'Google AI Ultra', desc: 'Advanced AI capabilities' },
+              { icon: FileCheck, label: 'Glean', desc: 'Enterprise knowledge search' },
+            ]
+          },
+          { 
+            icon: Mail, 
+            label: 'Email & Collaboration', 
+            desc: 'Communication & productivity',
+            subItems: [
+              { icon: Mail, label: 'Google Workspace', desc: 'Gmail, Docs, Drive, Meet' },
+              { icon: Cloud, label: 'Microsoft 365', desc: 'Office suite & Teams' },
+              { icon: Server, label: 'Zoho', desc: 'Complete business suite' },
+            ]
+          },
         ],
       },
       {
