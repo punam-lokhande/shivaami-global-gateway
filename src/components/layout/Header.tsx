@@ -75,7 +75,7 @@ export default function Header() {
       </div>
 
       {/* Main Navigation */}
-      <nav className="glass border-b border-border/50">
+      <nav className="glass border-b border-border/30 backdrop-blur-xl" style={{ background: 'hsl(222 47% 8% / 0.9)' }}>
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
