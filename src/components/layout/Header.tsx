@@ -4,6 +4,7 @@ import { Search, Phone, LogIn, HelpCircle, ChevronDown, Menu, X } from 'lucide-r
 import { useRegion } from '@/contexts/RegionContext';
 import { Button } from '@/components/ui/button';
 import MegaMenu from './MegaMenu';
+import MobileMenu from './MobileMenu';
 
 const navItems = [
   { label: 'Solutions & Services', hasMenu: true, key: 'solutions' },
@@ -90,15 +91,29 @@ export default function Header() {
                 <div
                   key={item.key}
                   className="relative"
-                  onMouseEnter={() => setActiveMenu(item.key)}
-                  onMouseLeave={() => setActiveMenu(null)}
+                  onMouseEnter={() => item.hasMenu && setActiveMenu(item.key)}
                 >
-                  <button className="flex items-center gap-1 px-4 py-2 text-sm font-medium text-foreground/80 hover:text-foreground transition-colors">
+                  <a
+                    href={`#${item.key}`}
+                    onClick={(e) => {
+                      // Allow click even when dropdown is showing
+                      console.log('Navigating to:', item.key);
+                    }}
+                    className={`flex items-center gap-1.5 px-4 py-2.5 text-sm font-medium transition-all duration-200 rounded-lg ${
+                      activeMenu === item.key 
+                        ? 'text-primary bg-accent' 
+                        : 'text-foreground/80 hover:text-foreground hover:bg-accent/50'
+                    }`}
+                  >
                     {item.label}
                     {item.hasMenu && (
-                      <ChevronDown className={`w-4 h-4 transition-transform ${activeMenu === item.key ? 'rotate-180' : ''}`} />
+                      <ChevronDown 
+                        className={`w-4 h-4 transition-transform duration-200 ${
+                          activeMenu === item.key ? 'rotate-180' : ''
+                        }`} 
+                      />
                     )}
-                  </button>
+                  </a>
                 </div>
               ))}
             </div>
@@ -123,40 +138,21 @@ export default function Header() {
         {/* Mega Menu */}
         <AnimatePresence>
           {activeMenu && (
-            <MegaMenu 
-              activeKey={activeMenu} 
-              onClose={() => setActiveMenu(null)}
-            />
+            <div 
+              onMouseEnter={() => setActiveMenu(activeMenu)}
+              onMouseLeave={() => setActiveMenu(null)}
+            >
+              <MegaMenu 
+                activeKey={activeMenu} 
+                onClose={() => setActiveMenu(null)}
+              />
+            </div>
           )}
         </AnimatePresence>
       </nav>
 
       {/* Mobile Menu */}
-      <AnimatePresence>
-        {mobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden bg-card border-b border-border"
-          >
-            <div className="container mx-auto px-4 py-4">
-              {navItems.map((item) => (
-                <a
-                  key={item.key}
-                  href={`#${item.key}`}
-                  className="block py-3 text-foreground/80 hover:text-foreground font-medium border-b border-border/50"
-                >
-                  {item.label}
-                </a>
-              ))}
-              <Button className="w-full mt-4 bg-primary hover:bg-primary/90 text-primary-foreground">
-                Let's Connect
-              </Button>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      <MobileMenu isOpen={mobileMenuOpen} onClose={() => setMobileMenuOpen(false)} />
     </header>
   );
 }
