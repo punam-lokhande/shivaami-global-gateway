@@ -44,11 +44,11 @@ export default function CTASection() {
           transition={{ duration: 0.6 }}
           className="text-center max-w-3xl mx-auto"
         >
-          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-primary-foreground mb-6">
+          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
             Ready to make work{' '}
-            <span className="text-sky">smarter, safer, and smoother</span>?
+            <span className="text-gradient">smarter, safer, and smoother</span>?
           </h2>
-          <p className="text-lg text-primary-foreground/70 mb-10">
+          <p className="text-lg text-muted-foreground mb-10">
             Let's discuss how Shivaami can transform your organization's IT infrastructure 
             and empower your teams to do their best work.
           </p>

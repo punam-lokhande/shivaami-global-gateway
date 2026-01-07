@@ -71,10 +71,10 @@ export default function TrustSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-primary-foreground mb-4">
-            Trusted. Experienced. <span className="text-sky">Global.</span>
+          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
+            Trusted. Experienced. <span className="text-gradient">Global.</span>
           </h2>
-          <p className="text-lg text-primary-foreground/70 max-w-2xl mx-auto">
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Numbers that reflect our commitment to excellence and customer success
           </p>
         </motion.div>
@@ -94,7 +94,7 @@ export default function TrustSection() {
                   <Icon className="w-6 h-6 text-sky" />
                 </div>
                 <AnimatedCounter end={stat.value} suffix={stat.suffix} />
-                <p className="text-sm text-primary-foreground/70 mt-2">{stat.label}</p>
+                <p className="text-sm text-muted-foreground mt-2">{stat.label}</p>
               </motion.div>
             );
           })}
