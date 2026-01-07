@@ -25,6 +25,7 @@ interface MenuItem {
   label: string;
   desc: string;
   subItems?: SubMenuItem[];
+  isPageLink?: boolean;
 }
 
 interface MenuSection {
@@ -51,15 +52,61 @@ const menuContent: Record<string, MenuContent> = {
       {
         title: 'Safer Solutions',
         items: [
-          { icon: Shield, label: 'Identity & Device', desc: 'JumpCloud, Viami, Scalefusion, Jamf, Okta' },
-          { icon: Server, label: 'Endpoint Management', desc: 'SuperOps, Atera' },
-          { icon: Cloud, label: 'Cloud Infrastructure', desc: 'GCP, AWS, Azure, JioCloud' },
-          { icon: Lock, label: 'Cyber Security', desc: 'Palo Alto, Wiz, Check Point, Tenable' },
-        ],
-      },
-      {
-        title: 'Cloud Capabilities',
-        items: [
+          { 
+            icon: Shield, 
+            label: 'Identity & Device', 
+            desc: 'Identity & device management',
+            subItems: [
+              { icon: Shield, label: 'JumpCloud', desc: 'Directory platform' },
+              { icon: Users, label: 'Viami', desc: 'Identity management' },
+              { icon: Smartphone, label: 'Scalefusion', desc: 'Device management' },
+              { icon: Laptop, label: 'Jamf', desc: 'Apple device management' },
+              { icon: Lock, label: 'Okta', desc: 'Identity provider' },
+              { icon: Settings, label: 'miniOrange', desc: 'SSO & MFA solutions' },
+            ]
+          },
+          { 
+            icon: Server, 
+            label: 'Endpoint Management', 
+            desc: 'Manage all endpoints',
+            subItems: [
+              { icon: Server, label: 'SuperOps', desc: 'RMM & PSA platform' },
+              { icon: Monitor, label: 'Atera', desc: 'IT management platform' },
+            ]
+          },
+          { 
+            icon: Cloud, 
+            label: 'Cloud Infrastructure', 
+            desc: 'Enterprise cloud platforms',
+            subItems: [
+              { icon: Cloud, label: 'Google Cloud Platform', desc: 'GCP services' },
+              { icon: Server, label: 'AWS', desc: 'Amazon Web Services' },
+              { icon: Cloud, label: 'Microsoft Azure', desc: 'Azure cloud services' },
+              { icon: Cloud, label: 'JioCloud', desc: 'Jio cloud infrastructure' },
+            ]
+          },
+          { 
+            icon: Lock, 
+            label: 'Cyber Security', 
+            desc: 'Enterprise security solutions',
+            subItems: [
+              { icon: Shield, label: 'Palo Alto', desc: 'Network security' },
+              { icon: Lock, label: 'Wiz', desc: 'Cloud security platform' },
+              { icon: Shield, label: 'Check Point', desc: 'Threat prevention' },
+              { icon: Lock, label: 'Tenable', desc: 'Vulnerability management' },
+            ]
+          },
+          { 
+            icon: Lock, 
+            label: 'Cloud Security', 
+            desc: 'Secure your cloud assets',
+            subItems: [
+              { icon: Shield, label: 'SSL Certificates', desc: 'Secure connections' },
+              { icon: Lock, label: 'GoSimulator', desc: 'Security simulation' },
+              { icon: Mail, label: 'GoDmarc', desc: 'Email authentication' },
+              { icon: Shield, label: 'VMC', desc: 'Verified Mark Certificates' },
+            ]
+          },
           { 
             icon: Laptop, 
             label: 'Chrome Enterprise', 
@@ -82,6 +129,12 @@ const menuContent: Record<string, MenuContent> = {
               { icon: Smartphone, label: 'Meet Desk', desc: 'Personal video conferencing' },
               { icon: Cpu, label: 'Meet Compute System', desc: 'Room controller hardware' },
             ]
+          },
+          { 
+            icon: Layers, 
+            label: 'Cloud Capabilities', 
+            desc: 'Explore all cloud solutions',
+            isPageLink: true,
           },
         ],
       },
@@ -176,6 +229,33 @@ export default function MegaMenu({ activeKey, onClose }: MegaMenuProps) {
                   const itemKey = `${section.title}-${item.label}`;
                   const isHovered = hoveredItem === itemKey;
                   
+                  // Handle page link items (like Cloud Capabilities)
+                  if (item.isPageLink) {
+                    return (
+                      <li key={itemIdx}>
+                        <a
+                          href="/cloud-capabilities"
+                          className="group flex items-start gap-3 p-2.5 -m-1 rounded-lg hover:bg-accent transition-all duration-200 border border-dashed border-primary/30 bg-primary/5"
+                        >
+                          <div className="w-9 h-9 rounded-lg bg-primary flex items-center justify-center flex-shrink-0 text-primary-foreground">
+                            <Icon className="w-4 h-4" />
+                          </div>
+                          <div className="flex-1 min-w-0">
+                            <div className="flex items-center gap-1">
+                              <span className="font-medium text-sm text-primary">
+                                {item.label}
+                              </span>
+                              <ChevronRight className="w-4 h-4 text-primary" />
+                            </div>
+                            <p className="text-xs text-muted-foreground line-clamp-1 mt-0.5">
+                              {item.desc}
+                            </p>
+                          </div>
+                        </a>
+                      </li>
+                    );
+                  }
+
                   return (
                     <li 
                       key={itemIdx} 

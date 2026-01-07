@@ -19,11 +19,27 @@ const mobileMenuData = [
       },
       {
         title: 'Safer Solutions',
-        items: ['Identity & Device', 'Endpoint Management', 'Cloud Infrastructure', 'Cyber Security'],
-      },
-      {
-        title: 'Cloud Capabilities',
         items: [
+          { 
+            name: 'Identity & Device', 
+            subItems: ['JumpCloud', 'Viami', 'Scalefusion', 'Jamf', 'Okta', 'miniOrange'] 
+          },
+          { 
+            name: 'Endpoint Management', 
+            subItems: ['SuperOps', 'Atera'] 
+          },
+          { 
+            name: 'Cloud Infrastructure', 
+            subItems: ['Google Cloud Platform', 'AWS', 'Microsoft Azure', 'JioCloud'] 
+          },
+          { 
+            name: 'Cyber Security', 
+            subItems: ['Palo Alto', 'Wiz', 'Check Point', 'Tenable'] 
+          },
+          { 
+            name: 'Cloud Security', 
+            subItems: ['SSL Certificates', 'GoSimulator', 'GoDmarc', 'VMC'] 
+          },
           { 
             name: 'Chrome Enterprise', 
             subItems: ['Chromebook', 'Chromebox', 'ChromeOS Flex', 'Chrome Browser Cloud', 'Chrome Enterprise Premium'] 
@@ -31,6 +47,10 @@ const mobileMenuData = [
           { 
             name: 'Google Meet Hardware', 
             subItems: ['Meet Series One', 'Meet Board', 'Meet Desk', 'Meet Compute System'] 
+          },
+          { 
+            name: 'Cloud Capabilities', 
+            isPageLink: true 
           },
         ],
       },
@@ -160,6 +180,17 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                                         {item}
                                       </a>
                                     );
+                                  } else if (item.isPageLink) {
+                                    return (
+                                      <a
+                                        key={idx}
+                                        href="/cloud-capabilities"
+                                        className="flex items-center gap-2 py-2 text-sm text-primary font-medium hover:text-primary/80 transition-colors"
+                                      >
+                                        <span>{item.name}</span>
+                                        <ChevronRight className="w-4 h-4" />
+                                      </a>
+                                    );
                                   } else {
                                     return (
                                       <div key={idx}>
@@ -176,7 +207,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                                         </button>
                                         
                                         <AnimatePresence>
-                                          {expandedSubItem === item.name && (
+                                          {expandedSubItem === item.name && item.subItems && (
                                             <motion.div
                                               initial={{ opacity: 0, height: 0 }}
                                               animate={{ opacity: 1, height: 'auto' }}
