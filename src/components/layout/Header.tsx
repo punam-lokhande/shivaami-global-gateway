@@ -5,7 +5,6 @@ import { useRegion } from '@/contexts/RegionContext';
 import { Button } from '@/components/ui/button';
 import MegaMenu from './MegaMenu';
 import MobileMenu from './MobileMenu';
-import shivaamiLogo from '@/assets/shivaami-logo.png';
 
 const navItems = [
   { label: 'Solutions & Services', hasMenu: true, key: 'solutions' },
@@ -79,12 +78,11 @@ export default function Header() {
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
-            <a href="/" className="flex items-center">
-              <img 
-                src={shivaamiLogo} 
-                alt="Shivaami" 
-                className="h-10 md:h-12 w-auto"
-              />
+            <a href="/" className="flex items-center gap-2">
+              <div className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center">
+                <span className="text-primary-foreground font-bold text-xl">S</span>
+              </div>
+              <span className="font-display font-bold text-xl text-foreground">Shivaami</span>
             </a>
 
             {/* Desktop Navigation */}

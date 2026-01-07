@@ -15,16 +15,7 @@ const mobileMenuData = [
     sections: [
       {
         title: 'Smarter Solutions',
-        items: [
-          { 
-            name: 'AI Solutions', 
-            subItems: ['Gemini Enterprise', 'Google AI Ultra', 'Glean'] 
-          },
-          { 
-            name: 'Email & Collaboration', 
-            subItems: ['Google Workspace', 'Microsoft 365', 'Zoho'] 
-          },
-        ],
+        items: ['AI Solutions', 'Email & Collaboration'],
       },
       {
         title: 'Safer Solutions',
