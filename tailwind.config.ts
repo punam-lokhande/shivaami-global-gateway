@@ -61,18 +61,17 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
-        // Enterprise custom colors
-        navy: {
-          DEFAULT: "hsl(var(--navy))",
-          light: "hsl(var(--navy-light))",
+        // Neon Dark Theme Colors
+        neon: {
+          blue: "hsl(var(--neon-blue))",
+          cyan: "hsl(var(--neon-cyan))",
+          purple: "hsl(var(--neon-purple))",
         },
-        royal: {
-          DEFAULT: "hsl(var(--royal-blue))",
-          dark: "hsl(var(--royal-blue-dark))",
-          light: "hsl(var(--royal-blue-light))",
+        midnight: {
+          DEFAULT: "hsl(var(--midnight))",
+          light: "hsl(var(--midnight-light))",
+          lighter: "hsl(var(--midnight-lighter))",
         },
-        sky: "hsl(var(--sky-blue))",
-        ice: "hsl(var(--ice-blue))",
       },
       borderRadius: {
         lg: "var(--radius)",
