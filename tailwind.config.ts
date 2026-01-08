@@ -14,8 +14,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
-        display: ['Plus Jakarta Sans', 'Inter', 'system-ui', 'sans-serif'],
+        sans: ['Roboto', 'system-ui', 'sans-serif'],
+        display: ['Montserrat', 'Roboto', 'system-ui', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -61,16 +61,12 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
-        // Neon Dark Theme Colors
-        neon: {
-          blue: "hsl(var(--neon-blue))",
-          cyan: "hsl(var(--neon-cyan))",
-          purple: "hsl(var(--neon-purple))",
-        },
-        midnight: {
-          DEFAULT: "hsl(var(--midnight))",
-          light: "hsl(var(--midnight-light))",
-          lighter: "hsl(var(--midnight-lighter))",
+        // Shivaami Brand Colors
+        shivaami: {
+          picton: "hsl(var(--shivaami-picton))",
+          "deep-blue": "hsl(var(--shivaami-deep-blue))",
+          "light-cyan": "hsl(var(--shivaami-light-cyan))",
+          red: "hsl(var(--shivaami-red))",
         },
       },
       borderRadius: {
