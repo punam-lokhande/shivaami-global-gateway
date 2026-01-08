@@ -369,9 +369,9 @@ export default function InteractiveGlobeBackground() {
       canvas.width = rect.width;
       canvas.height = rect.height;
       
-      const centerX = canvas.width * 0.6;
+      const centerX = canvas.width * 0.55;
       const centerY = canvas.height * 0.5;
-      const radius = Math.min(canvas.width, canvas.height) * 0.35;
+      const radius = Math.min(canvas.width, canvas.height) * 0.5;
       
       particlesRef.current = initParticles(canvas.width, canvas.height);
       nodesRef.current = initNodes(centerX, centerY, radius);
@@ -406,9 +406,9 @@ export default function InteractiveGlobeBackground() {
 
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      const centerX = canvas.width * 0.6;
+      const centerX = canvas.width * 0.55;
       const centerY = canvas.height * 0.5;
-      const radius = Math.min(canvas.width, canvas.height) * 0.35;
+      const radius = Math.min(canvas.width, canvas.height) * 0.5;
 
       const parallaxX = springX.get();
       const parallaxY = springY.get();
@@ -457,7 +457,7 @@ export default function InteractiveGlobeBackground() {
       />
       {/* Additional ambient glow layers */}
       <motion.div
-        className="absolute top-1/2 left-[60%] -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full pointer-events-none"
+        className="absolute top-1/2 left-[55%] -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full pointer-events-none"
         style={{
           background: 'radial-gradient(circle, rgba(0,150,255,0.15) 0%, rgba(100,50,200,0.08) 40%, transparent 70%)',
           x: springX,
