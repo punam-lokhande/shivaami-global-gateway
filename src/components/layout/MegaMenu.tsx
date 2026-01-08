@@ -253,7 +253,7 @@ export default function MegaMenu({ activeKey, onClose }: MegaMenuProps) {
                       <li key={itemIdx}>
                         <a
                           href="/cloud-capabilities"
-                          className="group flex items-start gap-3 p-2.5 -m-1 rounded-lg hover:bg-accent transition-all duration-200 border border-dashed border-primary/30 bg-primary/5"
+                          className="group flex items-start gap-3 p-2.5 -m-1 rounded-lg border border-dashed border-primary/30 transition-all duration-200 hover:border-primary"
                         >
                           <div className="w-9 h-9 rounded-lg bg-primary flex items-center justify-center flex-shrink-0 text-primary-foreground">
                             <Icon className="w-4 h-4" />
