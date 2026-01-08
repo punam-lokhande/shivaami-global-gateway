@@ -1,8 +1,7 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { useRef, Suspense } from 'react';
+import { useRef } from 'react';
 import { ArrowRight, Calendar, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import GlobeScene from './GlobeScene';
 
 export default function HeroSection() {
   const ref = useRef<HTMLDivElement>(null);
@@ -18,11 +17,6 @@ export default function HeroSection() {
     <section ref={ref} className="relative min-h-screen flex items-center justify-center overflow-hidden pt-28">
       {/* Dark blue gradient background */}
       <div className="absolute inset-0 z-0 bg-gradient-to-b from-[#001428] via-[#00264d] to-[#001a33]" />
-      
-      {/* 3D Globe */}
-      <Suspense fallback={null}>
-        <GlobeScene />
-      </Suspense>
       
       {/* Subtle radial glow */}
       <div className="absolute inset-0 z-[1] pointer-events-none">
