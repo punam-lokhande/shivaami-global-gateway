@@ -57,11 +57,11 @@ export default function TrustSection() {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section ref={ref} className="py-24 section-navy relative overflow-hidden">
+    <section ref={ref} className="py-24 bg-primary relative overflow-hidden">
       {/* Background decoration */}
-      <div className="absolute inset-0 opacity-20">
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/30 rounded-full blur-[100px]" />
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-sky/30 rounded-full blur-[100px]" />
+      <div className="absolute inset-0 opacity-30">
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-accent/30 rounded-full blur-[100px]" />
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-accent/20 rounded-full blur-[100px]" />
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
@@ -71,10 +71,10 @@ export default function TrustSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
-            Trusted. Experienced. <span className="text-gradient">Global.</span>
+          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-primary-foreground mb-4">
+            Trusted. Experienced. <span className="text-accent">Global.</span>
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-lg text-primary-foreground/80 max-w-2xl mx-auto">
             Numbers that reflect our commitment to excellence and customer success
           </p>
         </motion.div>
@@ -91,10 +91,10 @@ export default function TrustSection() {
                 className="text-center"
               >
                 <div className="w-12 h-12 mx-auto mb-4 rounded-xl bg-primary-foreground/10 flex items-center justify-center">
-                  <Icon className="w-6 h-6 text-sky" />
+                  <Icon className="w-6 h-6 text-accent" />
                 </div>
                 <AnimatedCounter end={stat.value} suffix={stat.suffix} />
-                <p className="text-sm text-muted-foreground mt-2">{stat.label}</p>
+                <p className="text-sm text-primary-foreground/70 mt-2">{stat.label}</p>
               </motion.div>
             );
           })}

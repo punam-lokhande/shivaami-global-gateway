@@ -51,26 +51,27 @@ export default function AnimatedBackground() {
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, [mouseX, mouseY]);
 
+  // Brand colors: Deep Blue #0C4594 and Picton Blue #38B6FF
   const getParticleColor = (color: 'blue' | 'cyan' | 'purple') => {
     switch (color) {
-      case 'blue': return 'hsl(210 100% 60%)';
-      case 'cyan': return 'hsl(185 100% 50%)';
-      case 'purple': return 'hsl(270 100% 65%)';
+      case 'blue': return 'hsl(213 85% 31%)'; // Cool Deep Blue
+      case 'cyan': return 'hsl(202 100% 61%)'; // Picton Blue
+      case 'purple': return 'hsl(213 70% 45%)'; // Lighter Deep Blue
     }
   };
 
   return (
     <div ref={containerRef} className="absolute inset-0 overflow-hidden bg-background">
-      {/* Deep midnight base */}
-      <div className="absolute inset-0" style={{ background: 'hsl(222 47% 5%)' }} />
+      {/* White/light base with subtle brand color accents */}
+      <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-secondary/30" />
       
-      {/* Geometric grid pattern */}
-      <div className="absolute inset-0 grid-pattern" />
+      {/* Subtle grid pattern */}
+      <div className="absolute inset-0 grid-pattern opacity-50" />
       
       {/* Hexagon pattern overlay */}
-      <div className="absolute inset-0 hex-pattern opacity-60" />
+      <div className="absolute inset-0 hex-pattern opacity-40" />
 
-      {/* Neon glow orbs */}
+      {/* Brand color glow orbs */}
       <motion.div
         style={{ x: springX, y: springY }}
         className="absolute top-1/4 left-1/4 w-[700px] h-[700px] rounded-full"
@@ -78,7 +79,7 @@ export default function AnimatedBackground() {
         <div 
           className="absolute inset-0 rounded-full blur-[120px]"
           style={{ 
-            background: 'radial-gradient(circle, hsl(210 100% 60% / 0.25) 0%, transparent 70%)',
+            background: 'radial-gradient(circle, hsl(213 85% 31% / 0.12) 0%, transparent 70%)',
           }}
         />
       </motion.div>
@@ -90,7 +91,7 @@ export default function AnimatedBackground() {
         <div 
           className="absolute inset-0 rounded-full blur-[100px] animate-pulse-soft"
           style={{ 
-            background: 'radial-gradient(circle, hsl(185 100% 50% / 0.2) 0%, transparent 70%)',
+            background: 'radial-gradient(circle, hsl(202 100% 61% / 0.15) 0%, transparent 70%)',
           }}
         />
       </motion.div>
@@ -102,24 +103,24 @@ export default function AnimatedBackground() {
         <div 
           className="absolute inset-0 rounded-full blur-[100px] animate-pulse-soft"
           style={{ 
-            background: 'radial-gradient(circle, hsl(270 100% 65% / 0.15) 0%, transparent 70%)',
+            background: 'radial-gradient(circle, hsl(213 70% 45% / 0.1) 0%, transparent 70%)',
             animationDelay: '2s'
           }}
         />
       </motion.div>
 
-      {/* Neon grid lines */}
-      <svg className="absolute inset-0 w-full h-full opacity-30">
+      {/* Subtle grid lines with brand colors */}
+      <svg className="absolute inset-0 w-full h-full opacity-20">
         <defs>
-          <linearGradient id="neonLineGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="hsl(210 100% 60%)" stopOpacity="0" />
-            <stop offset="50%" stopColor="hsl(185 100% 50%)" stopOpacity="0.8" />
-            <stop offset="100%" stopColor="hsl(270 100% 65%)" stopOpacity="0" />
+          <linearGradient id="brandLineGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="hsl(213 85% 31%)" stopOpacity="0" />
+            <stop offset="50%" stopColor="hsl(202 100% 61%)" stopOpacity="0.6" />
+            <stop offset="100%" stopColor="hsl(213 85% 31%)" stopOpacity="0" />
           </linearGradient>
-          <linearGradient id="horizontalGlow" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="hsl(210 100% 60%)" stopOpacity="0" />
-            <stop offset="50%" stopColor="hsl(210 100% 60%)" stopOpacity="0.6" />
-            <stop offset="100%" stopColor="hsl(210 100% 60%)" stopOpacity="0" />
+          <linearGradient id="horizontalBrandGlow" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor="hsl(202 100% 61%)" stopOpacity="0" />
+            <stop offset="50%" stopColor="hsl(202 100% 61%)" stopOpacity="0.5" />
+            <stop offset="100%" stopColor="hsl(202 100% 61%)" stopOpacity="0" />
           </linearGradient>
         </defs>
         
@@ -131,10 +132,10 @@ export default function AnimatedBackground() {
             y1="0%"
             x2={`${15 + i * 15}%`}
             y2="100%"
-            stroke="url(#neonLineGradient)"
+            stroke="url(#brandLineGradient)"
             strokeWidth="1"
             initial={{ opacity: 0 }}
-            animate={{ opacity: [0, 0.6, 0] }}
+            animate={{ opacity: [0, 0.4, 0] }}
             transition={{
               duration: 5,
               delay: i * 0.5,
@@ -152,10 +153,10 @@ export default function AnimatedBackground() {
             y1={`${20 + i * 20}%`}
             x2="100%"
             y2={`${20 + i * 20}%`}
-            stroke="url(#horizontalGlow)"
+            stroke="url(#horizontalBrandGlow)"
             strokeWidth="1"
             initial={{ opacity: 0, pathLength: 0 }}
-            animate={{ opacity: [0, 0.4, 0], pathLength: [0, 1, 0] }}
+            animate={{ opacity: [0, 0.3, 0], pathLength: [0, 1, 0] }}
             transition={{
               duration: 4,
               delay: i * 0.8 + 1,
@@ -166,7 +167,7 @@ export default function AnimatedBackground() {
         ))}
       </svg>
 
-      {/* Floating neon particles */}
+      {/* Floating brand particles */}
       <div className="absolute inset-0">
         {particles.map((particle, i) => (
           <motion.div
@@ -178,8 +179,8 @@ export default function AnimatedBackground() {
               width: particle.size,
               height: particle.size,
               backgroundColor: getParticleColor(particle.color),
-              boxShadow: `0 0 ${particle.size * 3}px ${getParticleColor(particle.color)}`,
-              opacity: particle.opacity,
+              boxShadow: `0 0 ${particle.size * 2}px ${getParticleColor(particle.color)}`,
+              opacity: particle.opacity * 0.6,
             }}
             animate={{
               x: [0, particle.speedX * 100, 0],
@@ -199,30 +200,30 @@ export default function AnimatedBackground() {
       <div 
         className="absolute top-0 left-0 w-96 h-96"
         style={{
-          background: 'radial-gradient(circle at top left, hsl(210 100% 60% / 0.1) 0%, transparent 70%)',
+          background: 'radial-gradient(circle at top left, hsl(213 85% 31% / 0.08) 0%, transparent 70%)',
         }}
       />
       <div 
         className="absolute bottom-0 right-0 w-96 h-96"
         style={{
-          background: 'radial-gradient(circle at bottom right, hsl(185 100% 50% / 0.1) 0%, transparent 70%)',
+          background: 'radial-gradient(circle at bottom right, hsl(202 100% 61% / 0.08) 0%, transparent 70%)',
         }}
       />
 
-      {/* Scan line effect overlay */}
+      {/* Subtle scan line effect overlay */}
       <motion.div
         className="absolute inset-0 pointer-events-none"
         style={{
-          background: 'linear-gradient(180deg, transparent 0%, hsl(210 100% 60% / 0.03) 50%, transparent 100%)',
+          background: 'linear-gradient(180deg, transparent 0%, hsl(213 85% 31% / 0.02) 50%, transparent 100%)',
           backgroundSize: '100% 4px',
         }}
       />
 
-      {/* Bottom gradient fade */}
+      {/* Bottom gradient fade to white */}
       <div 
         className="absolute bottom-0 left-0 right-0 h-48"
         style={{
-          background: 'linear-gradient(180deg, transparent 0%, hsl(222 47% 5% / 0.8) 100%)',
+          background: 'linear-gradient(180deg, transparent 0%, hsl(0 0% 100% / 0.8) 100%)',
         }}
       />
     </div>

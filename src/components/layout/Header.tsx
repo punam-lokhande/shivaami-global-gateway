@@ -21,40 +21,40 @@ export default function Header() {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50">
-      {/* Utility Bar */}
-      <div className="bg-midnight-darker border-b border-neon-cyan/10">
+      {/* Utility Bar - Deep Blue Background */}
+      <div className="bg-primary border-b border-accent/20">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-end h-10 gap-4 text-sm">
-            <button className="flex items-center gap-2 text-foreground/70 hover:text-neon-cyan transition-colors">
+            <button className="flex items-center gap-2 text-primary-foreground/80 hover:text-accent transition-colors">
               <Search className="w-4 h-4" />
             </button>
             
             <a 
               href={`tel:${content.phone}`} 
-              className="flex items-center gap-2 text-foreground/70 hover:text-neon-cyan transition-colors"
+              className="flex items-center gap-2 text-primary-foreground/80 hover:text-accent transition-colors"
             >
               <Phone className="w-4 h-4" />
               <span className="hidden sm:inline">{content.phone}</span>
             </a>
             
-            <button className="flex items-center gap-2 text-foreground/70 hover:text-neon-cyan transition-colors">
+            <button className="flex items-center gap-2 text-primary-foreground/80 hover:text-accent transition-colors">
               <LogIn className="w-4 h-4" />
               <span className="hidden sm:inline">Login</span>
             </button>
             
-            <button className="flex items-center gap-2 text-foreground/70 hover:text-neon-cyan transition-colors">
+            <button className="flex items-center gap-2 text-primary-foreground/80 hover:text-accent transition-colors">
               <HelpCircle className="w-4 h-4" />
               <span className="hidden sm:inline">Support</span>
             </button>
             
             {/* Region Toggle */}
-            <div className="flex items-center gap-1 ml-4 bg-neon-cyan/10 rounded-full p-1 border border-neon-cyan/20">
+            <div className="flex items-center gap-1 ml-4 bg-primary-foreground/10 rounded-full p-1 border border-accent/30">
               <button
                 onClick={() => setRegion('india')}
                 className={`px-3 py-1 rounded-full text-xs font-medium transition-all ${
                   region === 'india'
-                    ? 'bg-neon-cyan text-midnight-darker'
-                    : 'text-foreground/70 hover:text-neon-cyan'
+                    ? 'bg-accent text-primary'
+                    : 'text-primary-foreground/80 hover:text-accent'
                 }`}
               >
                 India
@@ -63,8 +63,8 @@ export default function Header() {
                 onClick={() => setRegion('usa')}
                 className={`px-3 py-1 rounded-full text-xs font-medium transition-all ${
                   region === 'usa'
-                    ? 'bg-neon-cyan text-midnight-darker'
-                    : 'text-foreground/70 hover:text-neon-cyan'
+                    ? 'bg-accent text-primary'
+                    : 'text-primary-foreground/80 hover:text-accent'
                 }`}
               >
                 USA
@@ -74,8 +74,8 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Main Navigation */}
-      <nav className="glass border-b border-border/30 backdrop-blur-xl" style={{ background: 'hsl(222 47% 8% / 0.9)' }}>
+      {/* Main Navigation - White Background */}
+      <nav className="bg-background border-b border-border/50 backdrop-blur-xl">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
