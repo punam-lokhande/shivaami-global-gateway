@@ -94,21 +94,16 @@ export default function IndustriesSection() {
                 className="group relative"
               >
                 <div className={`
-                  glass-card-subtle h-full cursor-pointer glow-border relative overflow-hidden
-                  ${isHovered ? 'bg-midnight-light/60' : ''}
+                  card-enterprise h-full cursor-pointer relative overflow-hidden p-6
+                  transition-all duration-300
+                  ${isHovered ? 'border-primary shadow-[0_0_30px_rgba(var(--primary-rgb),0.15)]' : ''}
                 `}>
-                  {/* Hover glow */}
                   <div className={`
-                    absolute inset-0 bg-gradient-to-br from-accent/10 to-transparent
-                    transition-opacity duration-300 ${isHovered ? 'opacity-100' : 'opacity-0'}
-                  `} />
-
-                  <div className={`
-                    w-12 h-12 rounded-xl bg-gradient-to-br from-accent/20 to-secondary/20
+                    w-12 h-12 rounded-xl bg-primary/10
                     flex items-center justify-center mb-4
-                    transition-all duration-300 ${isHovered ? 'scale-110 from-accent to-secondary' : ''}
+                    transition-all duration-300 ${isHovered ? 'scale-110 bg-primary/20' : ''}
                   `}>
-                    <Icon className={`w-6 h-6 transition-colors ${isHovered ? 'text-accent-foreground' : 'text-accent'}`} />
+                    <Icon className={`w-6 h-6 transition-colors ${isHovered ? 'text-primary' : 'text-primary/70'}`} />
                   </div>
 
                   <h3 className="font-display font-semibold text-foreground mb-2 relative z-10">
