@@ -32,16 +32,21 @@ export default function TestimonialsSection() {
           </p>
         </motion.div>
 
-        {/* Auto-scrolling testimonials - left to right with pause on hover */}
-        <div className="relative overflow-hidden mb-12 group">
+        {/* Auto-scrolling testimonials */}
+        <div className="relative overflow-hidden mb-12">
           {/* Gradient masks */}
           <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-secondary/30 to-transparent z-10" />
           <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-secondary/30 to-transparent z-10" />
 
           <motion.div
-            className="flex gap-6 group-hover:[animation-play-state:paused]"
-            style={{
-              animation: 'scroll-left-to-right 30s linear infinite',
+            className="flex gap-6"
+            animate={{ x: [0, -1600] }}
+            transition={{
+              x: {
+                duration: 30,
+                repeat: Infinity,
+                ease: 'linear',
+              },
             }}
           >
             {allTestimonials.map((testimonial, index) => (
@@ -49,7 +54,7 @@ export default function TestimonialsSection() {
                 key={`${testimonial.name}-${index}`}
                 className="flex-shrink-0 w-[400px]"
               >
-                <div className="bg-card border border-border rounded-xl p-8 h-full flex flex-col">
+                <div className="card-enterprise p-8 h-full flex flex-col">
                   <Quote className="w-10 h-10 text-primary/30 mb-4" />
                   <p className="text-foreground/90 mb-6 flex-grow italic line-clamp-4">
                     "{testimonial.quote}"
