@@ -17,24 +17,22 @@ export default function HeroSection() {
   return (
     <section ref={ref} className="relative min-h-screen flex items-center justify-center overflow-hidden pt-28">
       {/* Animated Background Image with rotation */}
-      <motion.div 
-        className="absolute inset-0 z-0 scale-125"
-        animate={{ 
-          rotate: [0, 360],
-        }}
-        transition={{ 
-          duration: 120, 
-          repeat: Infinity, 
-          ease: "linear" 
-        }}
-        style={{ transformOrigin: 'center 150%' }}
-      >
-        <img 
+      <div className="absolute inset-0 z-0 overflow-hidden">
+        <motion.img 
           src={globalNetworkBg} 
           alt="" 
-          className="w-full h-full object-cover object-center"
+          className="absolute w-[200%] h-[200%] object-cover -left-1/2 -top-1/4"
+          animate={{ 
+            x: ['0%', '-50%'],
+          }}
+          transition={{ 
+            duration: 60, 
+            repeat: Infinity, 
+            ease: "linear",
+            repeatType: "loop"
+          }}
         />
-      </motion.div>
+      </div>
       
       {/* Animated dots overlay */}
       <div className="absolute inset-0 z-[1] pointer-events-none overflow-hidden">
