@@ -24,14 +24,12 @@ export default function HeroSection() {
         style={{ y, opacity }}
         className="relative z-10 container mx-auto px-4 text-center"
       >
-        {/* Glass badge */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          <span className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full backdrop-blur-md bg-white/10 border border-white/20 text-white/90 text-sm font-medium mb-8 shimmer-effect">
-            <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
+          <span className="inline-block px-4 py-2 rounded-full bg-secondary text-secondary-foreground text-sm font-medium mb-6">
             Trusted by 20,000+ Organizations Worldwide
           </span>
         </motion.div>
@@ -40,17 +38,17 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 text-balance"
+          className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-foreground mb-6 text-balance"
         >
           Smarter, Safer, Smoother{' '}
-          <span className="text-gradient-glow">Work with Shivaami</span>
+          <span className="text-gradient">Work with Shivaami</span>
         </motion.h1>
 
         <motion.p
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-lg md:text-xl text-white/70 max-w-3xl mx-auto mb-12 text-balance"
+          className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-10 text-balance"
         >
           Empower your teams with secure cloud and AI solutions. We combine the right 
           technology with expert services to simplify your IT challenges.
@@ -62,66 +60,35 @@ export default function HeroSection() {
           transition={{ duration: 0.8, delay: 0.5 }}
           className="flex flex-col sm:flex-row items-center justify-center gap-4"
         >
-          {/* Outlined Modern Primary Button */}
           <Button 
-            size="xl" 
-            variant="outline"
-            className="group"
+            size="lg" 
+            className="btn-glow bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8 py-6 text-lg group"
           >
             Let's Connect
             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
           </Button>
-          {/* Outlined Modern Light Variant */}
           <Button 
-            size="xl" 
-            variant="outline-light"
-            className="group"
+            size="lg" 
+            variant="outline" 
+            className="border-2 border-primary/20 hover:border-primary hover:bg-secondary font-semibold px-8 py-6 text-lg group"
           >
             <Calendar className="mr-2 w-5 h-5" />
             Book a Meeting
           </Button>
         </motion.div>
 
-        {/* Glass Stats Cards */}
-        <motion.div
-          initial={{ opacity: 0, y: 60 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.7 }}
-          className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto"
-        >
-          {[
-            { value: '20K+', label: 'Organizations' },
-            { value: '50+', label: 'Countries' },
-            { value: '99.9%', label: 'Uptime' },
-            { value: '24/7', label: 'Support' },
-          ].map((stat, i) => (
-            <motion.div
-              key={stat.label}
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.8 + i * 0.1 }}
-              className="glass-card-dark p-5 text-center"
-            >
-              <div className="text-2xl md:text-3xl font-display font-bold text-accent mb-1">
-                {stat.value}
-              </div>
-              <div className="text-white/60 text-sm">{stat.label}</div>
-            </motion.div>
-          ))}
-        </motion.div>
-
         {/* Scroll Indicator */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 1.2, duration: 0.5 }}
+          transition={{ delay: 1, duration: 0.5 }}
           className="absolute bottom-8 left-1/2 -translate-x-1/2"
         >
-          <div className="w-7 h-11 rounded-full border-2 border-white/30 flex justify-center pt-2 backdrop-blur-sm">
+          <div className="w-6 h-10 rounded-full border-2 border-muted-foreground/30 flex justify-center pt-2">
             <motion.div
-              animate={{ y: [0, 14, 0] }}
+              animate={{ y: [0, 12, 0] }}
               transition={{ duration: 1.5, repeat: Infinity }}
-              className="w-1.5 h-1.5 rounded-full bg-accent"
+              className="w-1.5 h-1.5 rounded-full bg-primary"
             />
           </div>
         </motion.div>
