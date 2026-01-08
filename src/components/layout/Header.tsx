@@ -101,10 +101,10 @@ export default function Header() {
                       // Allow click even when dropdown is showing
                       console.log('Navigating to:', item.key);
                     }}
-                    className={`flex items-center gap-1.5 px-4 py-2.5 text-sm font-medium transition-all duration-200 rounded-lg ${
+                    className={`flex items-center gap-1.5 px-4 py-2.5 text-sm font-medium transition-all duration-200 ${
                       activeMenu === item.key 
-                        ? 'text-primary bg-accent' 
-                        : 'text-foreground/80 hover:text-foreground hover:bg-accent/50'
+                        ? 'text-primary' 
+                        : 'text-foreground/80 hover:text-primary'
                     }`}
                   >
                     {item.label}

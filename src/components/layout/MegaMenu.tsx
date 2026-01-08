@@ -288,10 +288,10 @@ export default function MegaMenu({ activeKey, onClose }: MegaMenuProps) {
                           // Handle click navigation here
                           console.log('Navigating to:', item.label);
                         }}
-                        className="group flex items-start gap-3 p-2.5 -m-1 rounded-lg hover:bg-accent transition-all duration-200"
+                        className="group flex items-start gap-3 p-2.5 -m-1 rounded-lg border border-transparent hover:border-dashed hover:border-primary/40 transition-all duration-200"
                       >
-                        <div className="w-9 h-9 rounded-lg bg-secondary flex items-center justify-center flex-shrink-0 group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-200 group-hover:scale-105">
-                          <Icon className="w-4 h-4" />
+                        <div className="w-9 h-9 rounded-lg bg-secondary flex items-center justify-center flex-shrink-0 group-hover:bg-primary/10 transition-all duration-200">
+                          <Icon className="w-4 h-4 group-hover:text-primary transition-colors" />
                         </div>
                         <div className="flex-1 min-w-0">
                           <div className="flex items-center gap-1">
@@ -334,10 +334,10 @@ export default function MegaMenu({ activeKey, onClose }: MegaMenuProps) {
                                         e.preventDefault();
                                         console.log('Navigating to:', subItem.label);
                                       }}
-                                      className="group flex items-center gap-3 p-2 rounded-lg hover:bg-accent transition-all duration-200"
+                                      className="group flex items-center gap-3 p-2 rounded-lg border border-transparent hover:border-dashed hover:border-primary/40 transition-all duration-200"
                                     >
-                                      <div className="w-8 h-8 rounded-md bg-secondary/70 flex items-center justify-center flex-shrink-0 group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-200">
-                                        <SubIcon className="w-3.5 h-3.5" />
+                                      <div className="w-8 h-8 rounded-md bg-secondary/70 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/10 transition-all duration-200">
+                                        <SubIcon className="w-3.5 h-3.5 group-hover:text-primary transition-colors" />
                                       </div>
                                       <div className="flex-1 min-w-0">
                                         <div className="font-medium text-sm text-foreground group-hover:text-primary transition-colors">
