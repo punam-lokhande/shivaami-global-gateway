@@ -1,8 +1,11 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { useRef } from 'react';
+import { useRef, Suspense, lazy } from 'react';
 import { ArrowRight, Calendar, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import AnimatedBackground from './AnimatedBackground';
+
+// Lazy load Globe for better performance
+const GlobeScene = lazy(() => import('./GlobeScene'));
 
 export default function HeroSection() {
   const ref = useRef<HTMLDivElement>(null);
@@ -18,6 +21,11 @@ export default function HeroSection() {
     <section ref={ref} className="relative min-h-screen flex items-center justify-center overflow-hidden pt-28 section-dark noise-overlay">
       {/* Animated Background */}
       <AnimatedBackground />
+      
+      {/* 3D Globe with Particles */}
+      <Suspense fallback={null}>
+        <GlobeScene />
+      </Suspense>
       
       {/* Floating Orbs */}
       <div className="floating-orb w-96 h-96 bg-accent/20 top-20 -left-48" />
