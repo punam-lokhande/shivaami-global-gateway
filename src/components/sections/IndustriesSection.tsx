@@ -2,7 +2,7 @@ import { motion, useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
 import { 
   Heart, Banknote, ShoppingCart, Factory, 
-  Megaphone, Cpu, Hotel, Truck, Leaf,
+  Megaphone, Cpu, Hotel, Truck,
   ArrowRight
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -12,49 +12,41 @@ const industries = [
     icon: Heart, 
     name: 'Healthcare', 
     description: 'HIPAA-compliant cloud solutions for patient care excellence',
-    color: 'from-rose-500 to-pink-500'
   },
   { 
     icon: Banknote, 
     name: 'Financial Services', 
     description: 'Secure fintech infrastructure with regulatory compliance',
-    color: 'from-emerald-500 to-teal-500'
   },
   { 
     icon: ShoppingCart, 
     name: 'Retail', 
     description: 'Omnichannel commerce and customer experience platforms',
-    color: 'from-orange-500 to-amber-500'
   },
   { 
     icon: Factory, 
     name: 'Manufacturing', 
     description: 'Industry 4.0 enablement with connected operations',
-    color: 'from-slate-500 to-zinc-500'
   },
   { 
     icon: Megaphone, 
     name: 'Advertising & Media', 
     description: 'Creative collaboration and digital content delivery',
-    color: 'from-violet-500 to-purple-500'
   },
   { 
     icon: Cpu, 
     name: 'Technology', 
     description: 'Developer-first infrastructure and DevOps solutions',
-    color: 'from-blue-500 to-cyan-500'
   },
   { 
     icon: Hotel, 
     name: 'Hospitality', 
     description: 'Guest experience platforms and property management',
-    color: 'from-amber-500 to-yellow-500'
   },
   { 
     icon: Truck, 
     name: 'Logistics', 
     description: 'Supply chain optimization and fleet management',
-    color: 'from-indigo-500 to-blue-500'
   },
 ];
 
@@ -64,8 +56,12 @@ export default function IndustriesSection() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   return (
-    <section ref={ref} className="py-24 bg-background">
-      <div className="container mx-auto px-4">
+    <section ref={ref} className="py-24 section-dark relative overflow-hidden">
+      {/* Background */}
+      <div className="absolute inset-0 grid-pattern opacity-20" />
+      <div className="floating-orb w-96 h-96 bg-accent/10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
+      
+      <div className="container mx-auto px-4 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -81,6 +77,7 @@ export default function IndustriesSection() {
           </p>
         </motion.div>
 
+        {/* Bento Grid */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
           {industries.map((industry, index) => {
             const Icon = industry.icon;
@@ -97,30 +94,29 @@ export default function IndustriesSection() {
                 className="group relative"
               >
                 <div className={`
-                  relative p-6 rounded-2xl border border-border/50 bg-card 
-                  transition-all duration-300 cursor-pointer overflow-hidden
-                  ${isHovered ? 'shadow-elevated border-primary/30' : 'hover:shadow-card'}
+                  glass-card-subtle h-full cursor-pointer glow-border relative overflow-hidden
+                  ${isHovered ? 'bg-midnight-light/60' : ''}
                 `}>
-                  {/* Background gradient on hover */}
+                  {/* Hover glow */}
                   <div className={`
-                    absolute inset-0 bg-gradient-to-br ${industry.color} opacity-0
-                    transition-opacity duration-300 ${isHovered ? 'opacity-5' : ''}
+                    absolute inset-0 bg-gradient-to-br from-accent/10 to-transparent
+                    transition-opacity duration-300 ${isHovered ? 'opacity-100' : 'opacity-0'}
                   `} />
 
                   <div className={`
-                    w-12 h-12 rounded-xl bg-gradient-to-br ${industry.color} 
+                    w-12 h-12 rounded-xl bg-gradient-to-br from-accent/20 to-secondary/20
                     flex items-center justify-center mb-4
-                    transition-transform duration-300 ${isHovered ? 'scale-110' : ''}
+                    transition-all duration-300 ${isHovered ? 'scale-110 from-accent to-secondary' : ''}
                   `}>
-                    <Icon className="w-6 h-6 text-primary-foreground" />
+                    <Icon className={`w-6 h-6 transition-colors ${isHovered ? 'text-accent-foreground' : 'text-accent'}`} />
                   </div>
 
-                  <h3 className="font-display font-semibold text-foreground mb-2">
+                  <h3 className="font-display font-semibold text-foreground mb-2 relative z-10">
                     {industry.name}
                   </h3>
 
                   <p className={`
-                    text-sm text-muted-foreground transition-all duration-300
+                    text-sm text-muted-foreground transition-all duration-300 relative z-10
                     ${isHovered ? 'opacity-100 max-h-20' : 'opacity-0 max-h-0 overflow-hidden'}
                   `}>
                     {industry.description}
@@ -137,7 +133,7 @@ export default function IndustriesSection() {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="text-center"
         >
-          <Button className="bg-primary hover:bg-primary/90 text-primary-foreground">
+          <Button className="btn-glow bg-accent hover:bg-accent/90 text-accent-foreground rounded-xl px-8 py-6 text-base font-semibold">
             Get Industry-Specific Solutions
             <ArrowRight className="ml-2 w-4 h-4" />
           </Button>

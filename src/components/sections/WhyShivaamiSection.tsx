@@ -40,8 +40,13 @@ export default function WhyShivaamiSection() {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section ref={ref} className="py-24 bg-background">
-      <div className="container mx-auto px-4">
+    <section ref={ref} className="py-24 section-dark relative overflow-hidden">
+      {/* Background effects */}
+      <div className="absolute inset-0 dot-pattern opacity-30" />
+      <div className="floating-orb w-80 h-80 bg-secondary/20 -bottom-20 -left-20" />
+      <div className="floating-orb w-64 h-64 bg-accent/10 top-20 -right-20" style={{ animationDelay: '-3s' }} />
+      
+      <div className="container mx-auto px-4 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -56,7 +61,8 @@ export default function WhyShivaamiSection() {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* Bento Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
           {reasons.map((reason, index) => {
             const Icon = reason.icon;
             return (
@@ -67,15 +73,15 @@ export default function WhyShivaamiSection() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="group"
               >
-                <div className="flex items-start gap-4 p-6 rounded-2xl bg-card border border-border/50 hover:border-primary/30 hover:shadow-card transition-all duration-300">
-                  <div className="w-12 h-12 rounded-xl bg-secondary flex items-center justify-center flex-shrink-0 group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
-                    <Icon className="w-6 h-6" />
+                <div className="glass-card-subtle flex items-start gap-4 h-full glow-border">
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-muted to-muted-foreground/10 flex items-center justify-center flex-shrink-0 group-hover:from-accent group-hover:to-secondary transition-all duration-300 icon-glow">
+                    <Icon className="w-6 h-6 text-foreground group-hover:text-accent-foreground transition-colors" />
                   </div>
                   <div>
                     <h3 className="font-display font-semibold text-foreground mb-2">
                       {reason.title}
                     </h3>
-                    <p className="text-sm text-muted-foreground">
+                    <p className="text-sm text-muted-foreground leading-relaxed">
                       {reason.description}
                     </p>
                   </div>
