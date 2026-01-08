@@ -16,17 +16,18 @@ export default function HeroSection() {
 
   return (
     <section ref={ref} className="relative min-h-screen flex items-center justify-center overflow-hidden pt-28">
-      {/* Animated Background Image */}
+      {/* Animated Background Image with rotation */}
       <motion.div 
-        className="absolute inset-0 z-0"
+        className="absolute inset-0 z-0 scale-125"
         animate={{ 
-          scale: [1, 1.05, 1],
+          rotate: [0, 360],
         }}
         transition={{ 
-          duration: 20, 
+          duration: 120, 
           repeat: Infinity, 
-          ease: "easeInOut" 
+          ease: "linear" 
         }}
+        style={{ transformOrigin: 'center 150%' }}
       >
         <img 
           src={globalNetworkBg} 
@@ -35,12 +36,60 @@ export default function HeroSection() {
         />
       </motion.div>
       
+      {/* Animated dots overlay */}
+      <div className="absolute inset-0 z-[1] pointer-events-none overflow-hidden">
+        {[...Array(20)].map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute w-2 h-2 rounded-full bg-accent"
+            style={{
+              left: `${15 + Math.random() * 70}%`,
+              top: `${20 + Math.random() * 50}%`,
+              boxShadow: '0 0 10px 2px hsl(var(--accent))',
+            }}
+            animate={{
+              opacity: [0.3, 1, 0.3],
+              scale: [0.8, 1.2, 0.8],
+              y: [0, -10, 0],
+            }}
+            transition={{
+              duration: 2 + Math.random() * 2,
+              repeat: Infinity,
+              delay: Math.random() * 2,
+              ease: "easeInOut",
+            }}
+          />
+        ))}
+        {/* Animated vertical lines */}
+        {[...Array(8)].map((_, i) => (
+          <motion.div
+            key={`line-${i}`}
+            className="absolute w-[1px] bg-gradient-to-t from-accent to-transparent"
+            style={{
+              left: `${20 + Math.random() * 60}%`,
+              bottom: `${30 + Math.random() * 20}%`,
+              height: `${30 + Math.random() * 50}px`,
+            }}
+            animate={{
+              opacity: [0.2, 0.8, 0.2],
+              scaleY: [0.8, 1, 0.8],
+            }}
+            transition={{
+              duration: 1.5 + Math.random() * 1.5,
+              repeat: Infinity,
+              delay: Math.random() * 2,
+              ease: "easeInOut",
+            }}
+          />
+        ))}
+      </div>
+      
       {/* Gradient Overlay for text readability */}
-      <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-background/30 z-[1]" />
+      <div className="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-background/40 z-[2]" />
       
       {/* Animated glow effect */}
       <motion.div 
-        className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] rounded-full bg-accent/20 blur-[100px] z-[1]"
+        className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] rounded-full bg-accent/20 blur-[100px] z-[2]"
         animate={{ 
           opacity: [0.3, 0.6, 0.3],
           scale: [1, 1.1, 1],
