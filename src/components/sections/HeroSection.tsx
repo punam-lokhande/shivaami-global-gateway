@@ -2,7 +2,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 import { ArrowRight, Calendar, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import AnimatedBackground from './AnimatedBackground';
+import globalNetworkBg from '@/assets/global-network-bg.jpg';
 
 export default function HeroSection() {
   const ref = useRef<HTMLDivElement>(null);
@@ -15,17 +15,42 @@ export default function HeroSection() {
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
   return (
-    <section ref={ref} className="relative min-h-screen flex items-center justify-center overflow-hidden pt-28 section-dark noise-overlay">
-      {/* Animated Background */}
-      <AnimatedBackground />
+    <section ref={ref} className="relative min-h-screen flex items-center justify-center overflow-hidden pt-28">
+      {/* Animated Background Image */}
+      <motion.div 
+        className="absolute inset-0 z-0"
+        animate={{ 
+          scale: [1, 1.05, 1],
+        }}
+        transition={{ 
+          duration: 20, 
+          repeat: Infinity, 
+          ease: "easeInOut" 
+        }}
+      >
+        <img 
+          src={globalNetworkBg} 
+          alt="" 
+          className="w-full h-full object-cover object-center"
+        />
+      </motion.div>
       
-      {/* Floating Orbs */}
-      <div className="floating-orb w-96 h-96 bg-accent/20 top-20 -left-48" />
-      <div className="floating-orb w-80 h-80 bg-secondary/30 bottom-20 -right-40" style={{ animationDelay: '-4s' }} />
-      <div className="floating-orb w-64 h-64 bg-accent/10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" style={{ animationDelay: '-2s' }} />
-
-      {/* Grid Pattern Overlay */}
-      <div className="absolute inset-0 grid-pattern opacity-50" />
+      {/* Gradient Overlay for text readability */}
+      <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-background/30 z-[1]" />
+      
+      {/* Animated glow effect */}
+      <motion.div 
+        className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] rounded-full bg-accent/20 blur-[100px] z-[1]"
+        animate={{ 
+          opacity: [0.3, 0.6, 0.3],
+          scale: [1, 1.1, 1],
+        }}
+        transition={{ 
+          duration: 4, 
+          repeat: Infinity, 
+          ease: "easeInOut" 
+        }}
+      />
 
       {/* Content */}
       <motion.div
