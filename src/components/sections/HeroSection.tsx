@@ -2,7 +2,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 import { ArrowRight, Calendar, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import digitalGlobeBg from '@/assets/digital-globe-bg.jpg';
+import InteractiveGlobeBackground from './InteractiveGlobeBackground';
 
 export default function HeroSection() {
   const ref = useRef<HTMLDivElement>(null);
@@ -17,55 +17,13 @@ export default function HeroSection() {
   return (
     <section ref={ref} className="relative min-h-screen flex items-center justify-center overflow-hidden pt-28">
       {/* Dark blue gradient background */}
-      <div className="absolute inset-0 z-0 bg-gradient-to-b from-[#001428] via-[#00264d] to-[#001a33]" />
+      <div className="absolute inset-0 z-0 bg-gradient-to-b from-[#001020] via-[#001a35] to-[#000d1a]" />
       
-      {/* Animated digital globe background */}
-      <div className="absolute inset-0 z-[1] overflow-hidden">
-        <motion.div
-          className="absolute inset-0 flex items-center justify-end"
-          animate={{ 
-            scale: [1, 1.05, 1],
-          }}
-          transition={{ 
-            duration: 8, 
-            repeat: Infinity, 
-            ease: "easeInOut" 
-          }}
-        >
-          <motion.img
-            src={digitalGlobeBg}
-            alt=""
-            className="h-full w-auto max-w-none object-cover opacity-70"
-            animate={{ 
-              rotate: [0, 2, 0, -2, 0],
-              x: [0, 10, 0, -10, 0],
-            }}
-            transition={{ 
-              duration: 12, 
-              repeat: Infinity, 
-              ease: "easeInOut" 
-            }}
-          />
-        </motion.div>
-        {/* Overlay gradient for blending */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#001428] via-[#001428]/80 to-transparent" />
-      </div>
+      {/* Interactive globe background with particles */}
+      <InteractiveGlobeBackground />
       
-      {/* Subtle radial glow */}
-      <div className="absolute inset-0 z-[2] pointer-events-none">
-        <motion.div 
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-[radial-gradient(circle,rgba(0,170,255,0.2)_0%,transparent_70%)]"
-          animate={{ 
-            opacity: [0.5, 1, 0.5],
-            scale: [1, 1.1, 1],
-          }}
-          transition={{ 
-            duration: 4, 
-            repeat: Infinity, 
-            ease: "easeInOut" 
-          }}
-        />
-      </div>
+      {/* Gradient overlay for text readability on left */}
+      <div className="absolute inset-0 z-[2] bg-gradient-to-r from-[#001020]/90 via-[#001020]/60 to-transparent pointer-events-none" />
       
       {/* Bottom gradient for content readability */}
       <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent z-[5]" />
