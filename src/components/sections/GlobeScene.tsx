@@ -1,121 +1,298 @@
 import { useRef, useMemo } from 'react';
-import { Canvas, useFrame } from '@react-three/fiber';
+import { Canvas, useFrame, useLoader } from '@react-three/fiber';
 import { Points, PointMaterial } from '@react-three/drei';
 import * as THREE from 'three';
+import earthTexture from '@/assets/earth-texture.jpg';
 
-// Earth surface with dotted continents effect
-function DottedEarth() {
-  const earthRef = useRef<THREE.Group>(null);
+// Realistic 3D Earth with texture
+function TexturedEarth() {
+  const earthRef = useRef<THREE.Mesh>(null);
+  const texture = useLoader(THREE.TextureLoader, earthTexture);
   
-  const { positions, colors } = useMemo(() => {
-    const count = 4000;
-    const positions = new Float32Array(count * 3);
-    const colors = new Float32Array(count * 3);
-    const radius = 3;
-    
-    // Create dots distributed on sphere surface with continent-like patterns
-    for (let i = 0; i < count; i++) {
-      const phi = Math.acos(-1 + (2 * i) / count);
-      const theta = Math.sqrt(count * Math.PI) * phi;
-      
-      // Simulate continent patterns with noise
-      const noise1 = Math.sin(phi * 5) * Math.cos(theta * 4);
-      const noise2 = Math.sin(phi * 8 + 1) * Math.cos(theta * 6 + 2);
-      const noise3 = Math.sin(phi * 3) * Math.cos(theta * 2);
-      const combinedNoise = (noise1 + noise2 * 0.5 + noise3 * 0.3) / 1.8;
-      
-      if (combinedNoise > -0.2 && Math.random() < 0.7) {
-        positions[i * 3] = radius * Math.sin(phi) * Math.cos(theta);
-        positions[i * 3 + 1] = radius * Math.cos(phi);
-        positions[i * 3 + 2] = radius * Math.sin(phi) * Math.sin(theta);
-        
-        // Blue gradient colors
-        const intensity = 0.6 + Math.random() * 0.4;
-        colors[i * 3] = 0.0;
-        colors[i * 3 + 1] = 0.6 * intensity;
-        colors[i * 3 + 2] = 1.0 * intensity;
-      }
-    }
-    return { positions, colors };
-  }, []);
-
   useFrame(({ clock }) => {
     if (earthRef.current) {
-      earthRef.current.rotation.y = clock.getElapsedTime() * 0.03;
+      earthRef.current.rotation.y = clock.getElapsedTime() * 0.08;
     }
   });
 
   return (
-    <group ref={earthRef}>
-      <Points positions={positions}>
-        <PointMaterial
-          vertexColors
+    <mesh ref={earthRef}>
+      <sphereGeometry args={[3, 64, 64]} />
+      <meshStandardMaterial
+        map={texture}
+        roughness={0.8}
+        metalness={0.1}
+        emissive="#001122"
+        emissiveIntensity={0.3}
+      />
+    </mesh>
+  );
+}
+
+// Atmospheric glow around Earth's edge
+function AtmosphereGlow() {
+  const atmosphereRef = useRef<THREE.Mesh>(null);
+  
+  useFrame(({ clock }) => {
+    if (atmosphereRef.current) {
+      const pulse = Math.sin(clock.getElapsedTime() * 0.5) * 0.02 + 1;
+      atmosphereRef.current.scale.setScalar(pulse);
+    }
+  });
+
+  const atmosphereShader = useMemo(() => ({
+    uniforms: {
+      glowColor: { value: new THREE.Color('#00aaff') },
+      coefficient: { value: 0.8 },
+      power: { value: 3.5 },
+    },
+    vertexShader: `
+      varying vec3 vNormal;
+      varying vec3 vPositionNormal;
+      void main() {
+        vNormal = normalize(normalMatrix * normal);
+        vPositionNormal = normalize((modelViewMatrix * vec4(position, 1.0)).xyz);
+        gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+      }
+    `,
+    fragmentShader: `
+      uniform vec3 glowColor;
+      uniform float coefficient;
+      uniform float power;
+      varying vec3 vNormal;
+      varying vec3 vPositionNormal;
+      void main() {
+        float intensity = pow(coefficient - dot(vNormal, vPositionNormal), power);
+        gl_FragColor = vec4(glowColor, intensity * 0.6);
+      }
+    `,
+    transparent: true,
+    blending: THREE.AdditiveBlending,
+    side: THREE.BackSide,
+  }), []);
+
+  return (
+    <>
+      {/* Inner atmosphere */}
+      <mesh ref={atmosphereRef}>
+        <sphereGeometry args={[3.15, 64, 64]} />
+        <shaderMaterial {...atmosphereShader} />
+      </mesh>
+      
+      {/* Outer glow */}
+      <mesh>
+        <sphereGeometry args={[3.4, 64, 64]} />
+        <meshBasicMaterial
+          color="#0066aa"
           transparent
-          size={0.025}
-          sizeAttenuation
-          depthWrite={false}
-          opacity={0.95}
+          opacity={0.08}
+          side={THREE.BackSide}
           blending={THREE.AdditiveBlending}
         />
-      </Points>
+      </mesh>
+      
+      {/* Bright rim light */}
+      <mesh>
+        <sphereGeometry args={[3.08, 64, 64]} />
+        <meshBasicMaterial
+          color="#00ccff"
+          transparent
+          opacity={0.15}
+          blending={THREE.AdditiveBlending}
+        />
+      </mesh>
+    </>
+  );
+}
+
+// Glowing network nodes that all pulse and animate
+function GlowingNodes() {
+  const nodesRef = useRef<THREE.Group>(null);
+  const nodeCount = 80;
+  
+  const nodes = useMemo(() => {
+    const nodeData: { position: THREE.Vector3; size: number; phase: number; speed: number }[] = [];
+    const radius = 3.05;
+    
+    for (let i = 0; i < nodeCount; i++) {
+      const phi = Math.acos(-1 + (2 * i) / nodeCount);
+      const theta = Math.sqrt(nodeCount * Math.PI) * phi + Math.random() * 0.5;
+      
+      const position = new THREE.Vector3(
+        radius * Math.sin(phi) * Math.cos(theta),
+        radius * Math.cos(phi),
+        radius * Math.sin(phi) * Math.sin(theta)
+      );
+      
+      nodeData.push({
+        position,
+        size: 0.03 + Math.random() * 0.04,
+        phase: Math.random() * Math.PI * 2,
+        speed: 1.5 + Math.random() * 2,
+      });
+    }
+    return nodeData;
+  }, []);
+
+  useFrame(({ clock }) => {
+    if (nodesRef.current) {
+      nodesRef.current.rotation.y = clock.getElapsedTime() * 0.08;
+      
+      // Animate each node's glow
+      nodesRef.current.children.forEach((child, index) => {
+        if (child instanceof THREE.Group) {
+          const node = nodes[index];
+          const time = clock.getElapsedTime();
+          const pulse = 0.5 + 0.5 * Math.sin(time * node.speed + node.phase);
+          
+          // Scale the outer glow based on pulse
+          const innerMesh = child.children[0] as THREE.Mesh;
+          const outerMesh = child.children[1] as THREE.Mesh;
+          
+          if (innerMesh && innerMesh.material instanceof THREE.MeshBasicMaterial) {
+            innerMesh.material.opacity = 0.7 + pulse * 0.3;
+          }
+          if (outerMesh) {
+            outerMesh.scale.setScalar(1 + pulse * 0.5);
+            if (outerMesh.material instanceof THREE.MeshBasicMaterial) {
+              outerMesh.material.opacity = 0.3 + pulse * 0.4;
+            }
+          }
+        }
+      });
+    }
+  });
+
+  return (
+    <group ref={nodesRef}>
+      {nodes.map((node, i) => (
+        <group key={i} position={node.position}>
+          {/* Core bright node */}
+          <mesh>
+            <sphereGeometry args={[node.size, 16, 16]} />
+            <meshBasicMaterial
+              color="#00ffff"
+              transparent
+              opacity={0.9}
+              blending={THREE.AdditiveBlending}
+            />
+          </mesh>
+          {/* Outer glow */}
+          <mesh>
+            <sphereGeometry args={[node.size * 2.5, 16, 16]} />
+            <meshBasicMaterial
+              color="#00aaff"
+              transparent
+              opacity={0.4}
+              blending={THREE.AdditiveBlending}
+            />
+          </mesh>
+          {/* Bloom effect */}
+          <mesh>
+            <sphereGeometry args={[node.size * 4, 8, 8]} />
+            <meshBasicMaterial
+              color="#0066ff"
+              transparent
+              opacity={0.15}
+              blending={THREE.AdditiveBlending}
+            />
+          </mesh>
+        </group>
+      ))}
     </group>
   );
 }
 
-// Network mesh lines on the globe surface
-function NetworkMesh() {
-  const meshRef = useRef<THREE.Group>(null);
+// Animated connection lines between nodes
+function ConnectionLines() {
+  const linesRef = useRef<THREE.Group>(null);
+  const lineCount = 40;
   
-  const lines = useMemo(() => {
-    const lineData: { points: THREE.Vector3[]; opacity: number }[] = [];
-    const radius = 3.02;
+  const connections = useMemo(() => {
+    const connectionData: { 
+      start: THREE.Vector3; 
+      end: THREE.Vector3; 
+      curve: THREE.Vector3[];
+      phase: number;
+      speed: number;
+    }[] = [];
+    const radius = 3.05;
     
-    for (let i = 0; i < 50; i++) {
+    for (let i = 0; i < lineCount; i++) {
       const phi1 = Math.random() * Math.PI;
       const theta1 = Math.random() * Math.PI * 2;
-      const phi2 = phi1 + (Math.random() - 0.5) * 0.5;
-      const theta2 = theta1 + (Math.random() - 0.5) * 0.5;
+      const phi2 = Math.random() * Math.PI;
+      const theta2 = Math.random() * Math.PI * 2;
       
-      const points: THREE.Vector3[] = [];
-      const segments = 15;
+      const start = new THREE.Vector3(
+        radius * Math.sin(phi1) * Math.cos(theta1),
+        radius * Math.cos(phi1),
+        radius * Math.sin(phi1) * Math.sin(theta1)
+      );
+      
+      const end = new THREE.Vector3(
+        radius * Math.sin(phi2) * Math.cos(theta2),
+        radius * Math.cos(phi2),
+        radius * Math.sin(phi2) * Math.sin(theta2)
+      );
+      
+      // Create curved path
+      const curve: THREE.Vector3[] = [];
+      const segments = 30;
+      const arcHeight = 0.2 + Math.random() * 0.5;
       
       for (let j = 0; j <= segments; j++) {
         const t = j / segments;
-        const phi = phi1 + (phi2 - phi1) * t;
-        const theta = theta1 + (theta2 - theta1) * t;
-        
-        points.push(new THREE.Vector3(
-          radius * Math.sin(phi) * Math.cos(theta),
-          radius * Math.cos(phi),
-          radius * Math.sin(phi) * Math.sin(theta)
-        ));
+        const point = start.clone().lerp(end, t);
+        const lift = Math.sin(t * Math.PI) * arcHeight;
+        point.normalize().multiplyScalar(radius + lift);
+        curve.push(point);
       }
       
-      lineData.push({ points, opacity: 0.15 + Math.random() * 0.15 });
+      connectionData.push({
+        start,
+        end,
+        curve,
+        phase: Math.random() * Math.PI * 2,
+        speed: 0.5 + Math.random() * 1.5,
+      });
     }
-    return lineData;
+    return connectionData;
   }, []);
 
   useFrame(({ clock }) => {
-    if (meshRef.current) {
-      meshRef.current.rotation.y = clock.getElapsedTime() * 0.03;
+    if (linesRef.current) {
+      linesRef.current.rotation.y = clock.getElapsedTime() * 0.08;
+      
+      // Animate line opacity
+      linesRef.current.children.forEach((child, index) => {
+        if (child instanceof THREE.Line) {
+          const connection = connections[index];
+          const time = clock.getElapsedTime();
+          const pulse = 0.3 + 0.7 * Math.abs(Math.sin(time * connection.speed + connection.phase));
+          
+          if (child.material instanceof THREE.LineBasicMaterial) {
+            child.material.opacity = pulse * 0.6;
+          }
+        }
+      });
     }
   });
 
   return (
-    <group ref={meshRef}>
-      {lines.map((line, i) => {
-        const geometry = new THREE.BufferGeometry().setFromPoints(line.points);
+    <group ref={linesRef}>
+      {connections.map((connection, i) => {
+        const geometry = new THREE.BufferGeometry().setFromPoints(connection.curve);
         return (
           <primitive
             key={i}
             object={new THREE.Line(
               geometry,
               new THREE.LineBasicMaterial({
-                color: '#0099ff',
+                color: '#00ccff',
                 transparent: true,
-                opacity: line.opacity,
-                blending: THREE.AdditiveBlending
+                opacity: 0.4,
+                blending: THREE.AdditiveBlending,
               })
             )}
           />
@@ -125,95 +302,26 @@ function NetworkMesh() {
   );
 }
 
-// Vertical connection pins rising from globe surface
-function ConnectionPins() {
-  const pinsRef = useRef<THREE.Group>(null);
-  
-  const pins = useMemo(() => {
-    const pinData: { base: THREE.Vector3; top: THREE.Vector3; height: number }[] = [];
-    const radius = 3;
-    
-    for (let i = 0; i < 60; i++) {
-      // Focus pins more on the visible hemisphere
-      const phi = Math.PI * 0.15 + Math.random() * Math.PI * 0.5;
-      const theta = Math.random() * Math.PI * 2;
-      
-      const base = new THREE.Vector3(
-        radius * Math.sin(phi) * Math.cos(theta),
-        radius * Math.cos(phi),
-        radius * Math.sin(phi) * Math.sin(theta)
-      );
-      
-      const direction = base.clone().normalize();
-      const height = 0.2 + Math.random() * 0.8;
-      const top = base.clone().add(direction.multiplyScalar(height));
-      
-      pinData.push({ base, top, height });
-    }
-    return pinData;
-  }, []);
-
-  useFrame(({ clock }) => {
-    if (pinsRef.current) {
-      pinsRef.current.rotation.y = clock.getElapsedTime() * 0.03;
-    }
-  });
-
-  return (
-    <group ref={pinsRef}>
-      {pins.map((pin, i) => {
-        const geometry = new THREE.BufferGeometry().setFromPoints([pin.base, pin.top]);
-        
-        return (
-          <group key={i}>
-            {/* Pin line */}
-            <primitive
-              object={new THREE.Line(
-                geometry,
-                new THREE.LineBasicMaterial({
-                  color: '#00ccff',
-                  transparent: true,
-                  opacity: 0.6,
-                  blending: THREE.AdditiveBlending
-                })
-              )}
-            />
-            {/* Pin tip glow */}
-            <mesh position={pin.top}>
-              <sphereGeometry args={[0.04 + Math.random() * 0.02, 12, 12]} />
-              <meshBasicMaterial
-                color="#00e5ff"
-                transparent
-                opacity={0.95}
-                blending={THREE.AdditiveBlending}
-              />
-            </mesh>
-          </group>
-        );
-      })}
-    </group>
-  );
-}
-
-// Network arcs connecting points (curved dashed lines over the globe)
-function NetworkArcs() {
+// Network arcs with flowing animation
+function FlowingArcs() {
   const arcsRef = useRef<THREE.Group>(null);
   
   const arcs = useMemo(() => {
-    const arcData: { points: THREE.Vector3[]; color: string }[] = [];
+    const arcData: { points: THREE.Vector3[]; dashOffset: number; speed: number }[] = [];
     const radius = 3;
     
-    // Create prominent arcing connections
     const arcConfigs = [
-      { phi1: 0.4, theta1: 0.5, phi2: 0.6, theta2: 2.5, arcHeight: 1.2 },
-      { phi1: 0.5, theta1: 1.2, phi2: 0.3, theta2: 4.0, arcHeight: 1.5 },
-      { phi1: 0.35, theta1: 2.0, phi2: 0.55, theta2: 5.0, arcHeight: 1.0 },
-      { phi1: 0.45, theta1: 3.5, phi2: 0.4, theta2: 0.8, arcHeight: 1.3 },
-      { phi1: 0.3, theta1: 4.5, phi2: 0.5, theta2: 1.5, arcHeight: 1.4 },
-      { phi1: 0.55, theta1: 0.2, phi2: 0.35, theta2: 3.2, arcHeight: 1.1 },
+      { phi1: 0.3, theta1: 0.5, phi2: 0.7, theta2: 2.5, arcHeight: 1.5 },
+      { phi1: 0.5, theta1: 1.2, phi2: 0.3, theta2: 4.0, arcHeight: 1.8 },
+      { phi1: 0.25, theta1: 2.0, phi2: 0.6, theta2: 5.0, arcHeight: 1.3 },
+      { phi1: 0.45, theta1: 3.5, phi2: 0.35, theta2: 0.8, arcHeight: 1.6 },
+      { phi1: 0.35, theta1: 4.5, phi2: 0.55, theta2: 1.5, arcHeight: 2.0 },
+      { phi1: 0.6, theta1: 0.2, phi2: 0.25, theta2: 3.2, arcHeight: 1.4 },
+      { phi1: 0.4, theta1: 5.5, phi2: 0.5, theta2: 2.8, arcHeight: 1.7 },
+      { phi1: 0.55, theta1: 1.8, phi2: 0.4, theta2: 4.5, arcHeight: 1.9 },
     ];
     
-    arcConfigs.forEach((config, idx) => {
+    arcConfigs.forEach((config) => {
       const start = new THREE.Vector3(
         radius * Math.sin(config.phi1 * Math.PI) * Math.cos(config.theta1),
         radius * Math.cos(config.phi1 * Math.PI),
@@ -227,22 +335,20 @@ function NetworkArcs() {
       );
       
       const points: THREE.Vector3[] = [];
-      const segments = 60;
+      const segments = 80;
       
       for (let j = 0; j <= segments; j++) {
         const t = j / segments;
         const mid = start.clone().lerp(end, t);
-        
-        // Create smooth arc
         const arcLift = Math.sin(t * Math.PI) * config.arcHeight;
         mid.normalize().multiplyScalar(radius + arcLift);
-        
         points.push(mid);
       }
       
       arcData.push({ 
         points, 
-        color: idx % 2 === 0 ? '#00ccff' : '#0099ff'
+        dashOffset: 0,
+        speed: 0.5 + Math.random() * 0.5,
       });
     });
     
@@ -251,7 +357,17 @@ function NetworkArcs() {
 
   useFrame(({ clock }) => {
     if (arcsRef.current) {
-      arcsRef.current.rotation.y = clock.getElapsedTime() * 0.03;
+      arcsRef.current.rotation.y = clock.getElapsedTime() * 0.08;
+      
+      // Animate dash offset for flowing effect
+      arcsRef.current.children.forEach((child, index) => {
+        if (child instanceof THREE.Line) {
+          const arc = arcs[index];
+          if (child.material instanceof THREE.LineDashedMaterial) {
+            child.material.dashSize = 0.2 + Math.sin(clock.getElapsedTime() * arc.speed) * 0.1;
+          }
+        }
+      });
     }
   });
 
@@ -262,12 +378,12 @@ function NetworkArcs() {
         const line = new THREE.Line(
           geometry,
           new THREE.LineDashedMaterial({
-            color: arc.color,
+            color: '#00ddff',
             transparent: true,
-            opacity: 0.7,
-            dashSize: 0.15,
-            gapSize: 0.08,
-            blending: THREE.AdditiveBlending
+            opacity: 0.8,
+            dashSize: 0.2,
+            gapSize: 0.15,
+            blending: THREE.AdditiveBlending,
           })
         );
         line.computeLineDistances();
@@ -278,97 +394,50 @@ function NetworkArcs() {
   );
 }
 
-// Bright horizon glow effect
-function HorizonGlow() {
-  const glowRef = useRef<THREE.Group>(null);
+// Wireframe overlay for futuristic look
+function WireframeOverlay() {
+  const wireRef = useRef<THREE.Mesh>(null);
   
   useFrame(({ clock }) => {
-    if (glowRef.current) {
-      const pulse = Math.sin(clock.getElapsedTime() * 0.3) * 0.02 + 1;
-      glowRef.current.scale.setScalar(pulse);
+    if (wireRef.current) {
+      wireRef.current.rotation.y = clock.getElapsedTime() * 0.08;
     }
   });
 
   return (
-    <group ref={glowRef}>
-      {/* Core glow sphere */}
-      <mesh>
-        <sphereGeometry args={[3.05, 64, 64]} />
-        <meshBasicMaterial
-          color="#0088dd"
-          transparent
-          opacity={0.12}
-          blending={THREE.AdditiveBlending}
-        />
-      </mesh>
-      
-      {/* Bright horizon line */}
-      <mesh position={[0, 1.8, 0]} rotation={[Math.PI / 2.2, 0, 0]}>
-        <torusGeometry args={[2.5, 0.3, 16, 100]} />
-        <meshBasicMaterial
-          color="#00ccff"
-          transparent
-          opacity={0.25}
-          blending={THREE.AdditiveBlending}
-        />
-      </mesh>
-      
-      {/* Lens flare effect */}
-      <mesh position={[0.5, 2.2, 1]}>
-        <sphereGeometry args={[0.4, 32, 32]} />
-        <meshBasicMaterial
-          color="#ffffff"
-          transparent
-          opacity={0.3}
-          blending={THREE.AdditiveBlending}
-        />
-      </mesh>
-      
-      {/* Secondary flare */}
-      <mesh position={[-0.2, 2.0, 1.2]}>
-        <sphereGeometry args={[0.15, 16, 16]} />
-        <meshBasicMaterial
-          color="#00ddff"
-          transparent
-          opacity={0.5}
-          blending={THREE.AdditiveBlending}
-        />
-      </mesh>
-      
-      {/* Outer atmosphere */}
-      <mesh>
-        <sphereGeometry args={[3.5, 64, 64]} />
-        <meshBasicMaterial
-          color="#004488"
-          transparent
-          opacity={0.04}
-          side={THREE.BackSide}
-          blending={THREE.AdditiveBlending}
-        />
-      </mesh>
-    </group>
+    <mesh ref={wireRef}>
+      <icosahedronGeometry args={[3.02, 3]} />
+      <meshBasicMaterial
+        color="#0088ff"
+        wireframe
+        transparent
+        opacity={0.15}
+        blending={THREE.AdditiveBlending}
+      />
+    </mesh>
   );
 }
 
-// Ambient floating particles
+// Ambient floating particles with bloom
 function AmbientParticles() {
   const pointsRef = useRef<THREE.Points>(null);
   
   const positions = useMemo(() => {
-    const count = 150;
+    const count = 200;
     const positions = new Float32Array(count * 3);
     
     for (let i = 0; i < count; i++) {
-      positions[i * 3] = (Math.random() - 0.5) * 20;
-      positions[i * 3 + 1] = (Math.random() - 0.5) * 12;
-      positions[i * 3 + 2] = (Math.random() - 0.5) * 10 - 3;
+      positions[i * 3] = (Math.random() - 0.5) * 25;
+      positions[i * 3 + 1] = (Math.random() - 0.5) * 15;
+      positions[i * 3 + 2] = (Math.random() - 0.5) * 15 - 5;
     }
     return positions;
   }, []);
 
   useFrame(({ clock }) => {
     if (pointsRef.current) {
-      pointsRef.current.rotation.y = clock.getElapsedTime() * 0.008;
+      pointsRef.current.rotation.y = clock.getElapsedTime() * 0.01;
+      pointsRef.current.rotation.x = Math.sin(clock.getElapsedTime() * 0.1) * 0.02;
     }
   });
 
@@ -376,14 +445,49 @@ function AmbientParticles() {
     <Points ref={pointsRef} positions={positions}>
       <PointMaterial
         transparent
-        color="#00aaff"
-        size={0.02}
+        color="#00ccff"
+        size={0.03}
         sizeAttenuation
         depthWrite={false}
-        opacity={0.5}
+        opacity={0.6}
         blending={THREE.AdditiveBlending}
       />
     </Points>
+  );
+}
+
+// Lens flare effect at top
+function LensFlare() {
+  const flareRef = useRef<THREE.Group>(null);
+  
+  useFrame(({ clock }) => {
+    if (flareRef.current) {
+      const pulse = 0.8 + 0.2 * Math.sin(clock.getElapsedTime() * 0.8);
+      flareRef.current.scale.setScalar(pulse);
+    }
+  });
+
+  return (
+    <group ref={flareRef} position={[0, 2.5, 1]}>
+      <mesh>
+        <sphereGeometry args={[0.5, 32, 32]} />
+        <meshBasicMaterial
+          color="#ffffff"
+          transparent
+          opacity={0.4}
+          blending={THREE.AdditiveBlending}
+        />
+      </mesh>
+      <mesh>
+        <sphereGeometry args={[0.8, 16, 16]} />
+        <meshBasicMaterial
+          color="#00ccff"
+          transparent
+          opacity={0.2}
+          blending={THREE.AdditiveBlending}
+        />
+      </mesh>
+    </group>
   );
 }
 
@@ -391,31 +495,45 @@ export default function GlobeScene() {
   return (
     <div className="absolute inset-0 pointer-events-none">
       <Canvas
-        camera={{ position: [0, -2, 6], fov: 55, near: 0.1, far: 100 }}
+        camera={{ position: [0, 0, 8], fov: 50, near: 0.1, far: 100 }}
         style={{ background: 'transparent' }}
         gl={{
           alpha: true,
           antialias: true,
-          powerPreference: 'high-performance'
+          powerPreference: 'high-performance',
+          toneMapping: THREE.ACESFilmicToneMapping,
+          toneMappingExposure: 1.2,
         }}
         dpr={[1, 2]}
       >
-        {/* Ambient light */}
-        <ambientLight intensity={0.2} />
+        {/* Realistic lighting */}
+        <ambientLight intensity={0.3} color="#003366" />
         
-        {/* Blue lighting for the globe */}
-        <pointLight position={[5, 5, 5]} intensity={0.5} color="#00ccff" />
-        <pointLight position={[-5, 3, 3]} intensity={0.4} color="#0088ff" />
-        <pointLight position={[0, -3, 5]} intensity={0.3} color="#00aaff" />
-        <pointLight position={[2, 4, -2]} intensity={0.3} color="#00ddff" />
+        {/* Key light - main illumination */}
+        <directionalLight
+          position={[5, 5, 5]}
+          intensity={1.5}
+          color="#ffffff"
+        />
         
-        {/* Globe positioned to show horizon view */}
-        <group position={[0, -1, 0]}>
-          <DottedEarth />
-          <NetworkMesh />
-          <ConnectionPins />
-          <NetworkArcs />
-          <HorizonGlow />
+        {/* Fill light - softer blue */}
+        <pointLight position={[-5, 3, 3]} intensity={0.6} color="#0088ff" />
+        
+        {/* Rim light - edge glow */}
+        <pointLight position={[0, -5, 5]} intensity={0.4} color="#00ccff" />
+        
+        {/* Top light for lens flare effect */}
+        <pointLight position={[0, 6, 2]} intensity={0.5} color="#ffffff" />
+        
+        {/* Globe group */}
+        <group position={[0, 0, 0]}>
+          <TexturedEarth />
+          <AtmosphereGlow />
+          <WireframeOverlay />
+          <GlowingNodes />
+          <ConnectionLines />
+          <FlowingArcs />
+          <LensFlare />
         </group>
         
         <AmbientParticles />

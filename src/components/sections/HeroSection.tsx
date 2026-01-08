@@ -1,8 +1,8 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { useRef } from 'react';
+import { useRef, Suspense } from 'react';
 import { ArrowRight, Calendar, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import globalNetworkBg from '@/assets/global-network-bg.jpg';
+import GlobeScene from './GlobeScene';
 
 export default function HeroSection() {
   const ref = useRef<HTMLDivElement>(null);
@@ -16,84 +16,31 @@ export default function HeroSection() {
 
   return (
     <section ref={ref} className="relative min-h-screen flex items-center justify-center overflow-hidden pt-28">
-      {/* Animated Background Image with rotation */}
-      <div className="absolute inset-0 z-0 overflow-hidden">
-        <motion.img 
-          src={globalNetworkBg} 
-          alt="" 
-          className="absolute w-[200%] h-[200%] object-cover -left-1/2 -top-1/4"
-          animate={{ 
-            x: ['0%', '-50%'],
-          }}
-          transition={{ 
-            duration: 60, 
-            repeat: Infinity, 
-            ease: "linear",
-            repeatType: "loop"
-          }}
-        />
+      {/* Dark blue gradient background */}
+      <div className="absolute inset-0 z-0 bg-gradient-to-b from-[#001428] via-[#00264d] to-[#001a33]" />
+      
+      {/* 3D Globe */}
+      <Suspense fallback={null}>
+        <GlobeScene />
+      </Suspense>
+      
+      {/* Subtle radial glow */}
+      <div className="absolute inset-0 z-[1] pointer-events-none">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-[radial-gradient(circle,rgba(0,170,255,0.15)_0%,transparent_70%)]" />
       </div>
       
-      {/* Animated dots overlay */}
-      <div className="absolute inset-0 z-[1] pointer-events-none overflow-hidden">
-        {[...Array(20)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-2 h-2 rounded-full bg-accent"
-            style={{
-              left: `${15 + Math.random() * 70}%`,
-              top: `${20 + Math.random() * 50}%`,
-              boxShadow: '0 0 10px 2px hsl(var(--accent))',
-            }}
-            animate={{
-              opacity: [0.3, 1, 0.3],
-              scale: [0.8, 1.2, 0.8],
-              y: [0, -10, 0],
-            }}
-            transition={{
-              duration: 2 + Math.random() * 2,
-              repeat: Infinity,
-              delay: Math.random() * 2,
-              ease: "easeInOut",
-            }}
-          />
-        ))}
-        {/* Animated vertical lines */}
-        {[...Array(8)].map((_, i) => (
-          <motion.div
-            key={`line-${i}`}
-            className="absolute w-[1px] bg-gradient-to-t from-accent to-transparent"
-            style={{
-              left: `${20 + Math.random() * 60}%`,
-              bottom: `${30 + Math.random() * 20}%`,
-              height: `${30 + Math.random() * 50}px`,
-            }}
-            animate={{
-              opacity: [0.2, 0.8, 0.2],
-              scaleY: [0.8, 1, 0.8],
-            }}
-            transition={{
-              duration: 1.5 + Math.random() * 1.5,
-              repeat: Infinity,
-              delay: Math.random() * 2,
-              ease: "easeInOut",
-            }}
-          />
-        ))}
-      </div>
+      {/* Bottom gradient for content readability */}
+      <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent z-[5]" />
       
-      {/* Gradient Overlay for text readability */}
-      <div className="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-background/40 z-[2]" />
-      
-      {/* Animated glow effect */}
+      {/* Animated glow effect at bottom */}
       <motion.div 
-        className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] rounded-full bg-accent/20 blur-[100px] z-[2]"
+        className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] rounded-full bg-accent/10 blur-[120px] z-[4]"
         animate={{ 
-          opacity: [0.3, 0.6, 0.3],
+          opacity: [0.2, 0.4, 0.2],
           scale: [1, 1.1, 1],
         }}
         transition={{ 
-          duration: 4, 
+          duration: 5, 
           repeat: Infinity, 
           ease: "easeInOut" 
         }}
