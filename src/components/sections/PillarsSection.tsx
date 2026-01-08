@@ -8,21 +8,21 @@ const pillars = [
     title: 'Smarter Solutions',
     description: 'AI-powered productivity with Gemini Enterprise, Google AI Ultra, and intelligent collaboration tools.',
     items: ['Google Workspace', 'Microsoft 365', 'Gemini AI', 'Glean'],
-    gradient: 'from-blue-500 to-cyan-500',
+    gradient: 'from-primary to-accent',
   },
   {
     icon: Shield,
     title: 'Safer Solutions',
     description: 'Enterprise-grade security from identity management to cloud infrastructure protection.',
     items: ['JumpCloud', 'Palo Alto', 'Chrome Enterprise', 'SSL & DMARC'],
-    gradient: 'from-indigo-500 to-purple-500',
+    gradient: 'from-primary to-primary/70',
   },
   {
     icon: Zap,
     title: 'Smoother Services',
     description: 'Expert services that ensure seamless migration, ongoing support, and continuous optimization.',
     items: ['SwiftMove', 'Pulse360', 'ChangePath', '24/7 Support'],
-    gradient: 'from-primary to-sky',
+    gradient: 'from-accent to-primary',
   },
 ];
 
