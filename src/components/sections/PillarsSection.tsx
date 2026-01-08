@@ -8,18 +8,21 @@ const pillars = [
     title: 'Smarter Solutions',
     description: 'AI-powered productivity with Gemini Enterprise, Google AI Ultra, and intelligent collaboration tools.',
     items: ['Google Workspace', 'Microsoft 365', 'Gemini AI', 'Glean'],
+    span: 'bento-span-2',
   },
   {
     icon: Shield,
     title: 'Safer Solutions',
     description: 'Enterprise-grade security from identity management to cloud infrastructure protection.',
     items: ['JumpCloud', 'Palo Alto', 'Chrome Enterprise', 'SSL & DMARC'],
+    span: '',
   },
   {
     icon: Zap,
     title: 'Smoother Services',
     description: 'Expert services that ensure seamless migration, ongoing support, and continuous optimization.',
     items: ['SwiftMove', 'Pulse360', 'ChangePath', '24/7 Support'],
+    span: '',
   },
 ];
 
@@ -48,8 +51,8 @@ export default function PillarsSection() {
           </p>
         </motion.div>
 
-        {/* Equal Grid Layout */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* Bento Grid Layout */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {pillars.map((pillar, index) => {
             const Icon = pillar.icon;
             return (
@@ -58,7 +61,7 @@ export default function PillarsSection() {
                 initial={{ opacity: 0, y: 40 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: index * 0.15 }}
-                className="group"
+                className={`group ${pillar.span}`}
               >
                 <div className="glass-card h-full glow-border relative overflow-hidden">
                   {/* Hover glow effect */}
