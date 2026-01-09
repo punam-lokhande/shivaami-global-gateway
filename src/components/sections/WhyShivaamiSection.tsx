@@ -53,7 +53,7 @@ export default function WhyShivaamiSection() {
           className="text-center mb-16"
         >
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-[#0C4594] mb-4">
-            Why <span className="text-[#38B6FF]">Shivaami</span>?
+            Why <span className="text-[#010203]">Shivaami</span>?
           </h2>
           <p className="text-lg text-[#475569] max-w-2xl mx-auto">
             We don't just implement technology—we transform how businesses work

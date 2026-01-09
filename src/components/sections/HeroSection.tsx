@@ -64,7 +64,7 @@ export default function HeroSection() {
           transition={{ duration: 0.8, delay: 0.3 }}
           className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-foreground mb-8 text-balance leading-tight"
         >
-          Smarter, Safer, Smoother{' '}
+          Smarter, Safer and Smoother{' '}
           <br className="hidden sm:block" />
           <span className="text-gradient-glow">Work with Shivaami</span>
         </motion.h1>

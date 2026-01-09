@@ -29,7 +29,7 @@ export default function AchievementsSection() {
           className="text-center mb-16"
         >
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-[#0C4594] mb-4">
-            Achievements & <span className="text-[#38B6FF]">Recognition</span>
+            Achievements & <span className="text-[#010203]">Recognition</span>
           </h2>
           <p className="text-lg text-[#475569] max-w-2xl mx-auto">
             Industry certifications and partner accolades that reflect our commitment to excellence

@@ -25,7 +25,7 @@ export default function TestimonialsSection() {
             Customer Stories • {region === 'india' ? '🇮🇳 India' : '🇺🇸 USA'}
           </div>
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-[#0C4594] mb-4">
-            What Our <span className="text-[#38B6FF]">Clients Say</span>
+            What Our <span className="text-[#010203]">Clients Say</span>
           </h2>
           <p className="text-lg text-[#475569] max-w-2xl mx-auto">
             Real stories from organizations we've helped transform
@@ -84,7 +84,7 @@ export default function TestimonialsSection() {
           transition={{ duration: 0.6, delay: 0.6 }}
           className="text-center"
         >
-          <Button variant="outline" className="border-[#0C4594]/20 text-[#0C4594] hover:border-[#0C4594] hover:bg-[#0C4594]/5">
+          <Button className="bg-[#0C4594] hover:bg-[#0C4594]/90 text-white rounded-xl px-8 py-6 text-base font-semibold shadow-lg hover:shadow-xl transition-all">
             Read More Case Studies
             <ArrowRight className="ml-2 w-4 h-4" />
           </Button>
