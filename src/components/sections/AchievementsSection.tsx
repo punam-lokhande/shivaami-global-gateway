@@ -16,10 +16,10 @@ export default function AchievementsSection() {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section ref={ref} className="py-24 bg-gradient-to-b from-secondary/5 to-accent/5 relative overflow-hidden">
-      {/* Background */}
-      <div className="absolute inset-0 dot-pattern opacity-5" />
-      <div className="absolute w-64 h-64 bg-accent/5 rounded-full blur-[80px] top-10 left-10" />
+    <section ref={ref} className="py-24 bg-[#f8fafc] relative overflow-hidden">
+      {/* Subtle background */}
+      <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-[#38B6FF]/5 rounded-full blur-[120px]" />
+      <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-[#0C4594]/5 rounded-full blur-[100px]" />
       
       <div className="container mx-auto px-4 relative z-10">
         <motion.div
@@ -28,10 +28,10 @@ export default function AchievementsSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-4">
-            Achievements & <span className="text-accent">Recognition</span>
+          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-[#0C4594] mb-4">
+            Achievements & <span className="text-[#38B6FF]">Recognition</span>
           </h2>
-          <p className="text-lg text-primary/70 max-w-2xl mx-auto">
+          <p className="text-lg text-[#475569] max-w-2xl mx-auto">
             Industry certifications and partner accolades that reflect our commitment to excellence
           </p>
         </motion.div>
@@ -48,17 +48,14 @@ export default function AchievementsSection() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="group"
               >
-                <div className="bg-white text-center h-full rounded-xl p-5 border border-border/30 shadow-sm hover:shadow-md hover:border-accent/30 transition-all duration-300 relative overflow-hidden">
-                  {/* Hover effect */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  
-                  <div className="w-12 h-12 mx-auto mb-4 rounded-xl bg-accent/10 flex items-center justify-center group-hover:bg-accent/20 transition-all duration-300 relative z-10">
-                    <Icon className="w-6 h-6 text-accent" />
+                <div className="bg-white text-center h-full rounded-2xl p-5 border border-[#e2e8f0] shadow-[0_2px_10px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_25px_rgba(0,0,0,0.08)] hover:border-[#38B6FF]/30 transition-all duration-300 relative overflow-hidden">
+                  <div className="w-14 h-14 mx-auto mb-4 rounded-xl bg-gradient-to-br from-[#0C4594] to-[#38B6FF] flex items-center justify-center">
+                    <Icon className="w-7 h-7 text-white" />
                   </div>
-                  <h3 className="font-semibold text-sm text-primary mb-1 line-clamp-2 relative z-10">
+                  <h3 className="font-semibold text-sm text-[#0C4594] mb-1 line-clamp-2">
                     {achievement.title}
                   </h3>
-                  <span className="text-xs text-accent font-medium relative z-10">
+                  <span className="text-xs text-[#38B6FF] font-semibold">
                     {achievement.year}
                   </span>
                 </div>

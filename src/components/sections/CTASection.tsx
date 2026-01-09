@@ -30,11 +30,11 @@ export default function CTASection() {
   };
 
   return (
-    <section ref={ref} className="py-24 bg-white border-y border-border/30 relative overflow-hidden">
+    <section ref={ref} className="py-24 bg-gradient-to-br from-[#0C4594] to-[#0a3a7a] relative overflow-hidden">
       {/* Animated background */}
       <div className="absolute inset-0">
-        <div className="absolute top-1/4 left-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[150px]" />
-        <div className="absolute bottom-1/4 right-0 w-[500px] h-[500px] bg-accent/5 rounded-full blur-[150px]" />
+        <div className="absolute top-1/4 left-0 w-[600px] h-[600px] bg-[#38B6FF]/20 rounded-full blur-[150px]" />
+        <div className="absolute bottom-1/4 right-0 w-[500px] h-[500px] bg-[#38B6FF]/10 rounded-full blur-[150px]" />
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
@@ -44,11 +44,11 @@ export default function CTASection() {
           transition={{ duration: 0.6 }}
           className="text-center max-w-3xl mx-auto"
         >
-          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-6">
+          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
             Ready to make work{' '}
-            <span className="text-accent">smarter, safer, and smoother</span>?
+            <span className="text-[#38B6FF]">smarter, safer, and smoother</span>?
           </h2>
-          <p className="text-lg text-primary/70 mb-10">
+          <p className="text-lg text-white/80 mb-10">
             Let's discuss how Shivaami can transform your organization's IT infrastructure 
             and empower your teams to do their best work.
           </p>
@@ -58,7 +58,7 @@ export default function CTASection() {
               <DialogTrigger asChild>
                 <Button 
                   size="lg" 
-                  className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold px-8 py-6 text-lg group"
+                  className="bg-[#38B6FF] text-white hover:bg-[#38B6FF]/90 font-semibold px-8 py-6 text-lg group shadow-lg"
                 >
                   Connect With Our Team
                   <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -99,7 +99,7 @@ export default function CTASection() {
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   />
-                  <Button type="submit" className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
+                  <Button type="submit" className="w-full bg-[#0C4594] hover:bg-[#0C4594]/90 text-white">
                     <Send className="mr-2 w-4 h-4" />
                     Speak with an Expert
                   </Button>
@@ -110,7 +110,7 @@ export default function CTASection() {
             <Button 
               size="lg" 
               variant="outline" 
-              className="border-2 border-primary/30 text-foreground hover:border-primary font-semibold px-8 py-6 text-lg"
+              className="border-2 border-white/30 text-white hover:border-white hover:bg-white/10 font-semibold px-8 py-6 text-lg"
             >
               <Calendar className="mr-2 w-5 h-5" />
               Schedule a Demo

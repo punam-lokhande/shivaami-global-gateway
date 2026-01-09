@@ -37,7 +37,7 @@ function AnimatedCounter({ end, suffix, duration = 2 }: CounterProps) {
   }, [end, duration, isInView]);
 
   return (
-    <span ref={ref} className="counter-value">
+    <span ref={ref} className="text-3xl md:text-4xl font-bold text-primary">
       {count.toLocaleString()}{suffix}
     </span>
   );
@@ -57,12 +57,10 @@ export default function TrustSection() {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section ref={ref} className="py-24 bg-white border-y border-border/30 relative overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute inset-0">
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-[100px]" />
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-accent/5 rounded-full blur-[100px]" />
-      </div>
+    <section ref={ref} className="py-24 bg-[#f8fafc] relative overflow-hidden">
+      {/* Subtle background */}
+      <div className="absolute inset-0 bg-gradient-to-b from-white to-[#f1f5f9]" />
+      <div className="absolute inset-0 opacity-30" style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, #cbd5e1 1px, transparent 0)', backgroundSize: '40px 40px' }} />
 
       <div className="container mx-auto px-4 relative z-10">
         <motion.div
@@ -71,10 +69,10 @@ export default function TrustSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-4">
-            Trusted. Experienced. <span className="text-accent">Global.</span>
+          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-[#0C4594] mb-4">
+            Trusted. Experienced. <span className="text-[#38B6FF]">Global.</span>
           </h2>
-          <p className="text-lg text-primary/70 max-w-2xl mx-auto">
+          <p className="text-lg text-[#475569] max-w-2xl mx-auto">
             Numbers that reflect our commitment to excellence and customer success
           </p>
         </motion.div>
@@ -90,13 +88,13 @@ export default function TrustSection() {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 className="text-center"
               >
-                <div className="w-12 h-12 mx-auto mb-4 rounded-xl bg-accent/10 flex items-center justify-center">
-                  <Icon className="w-6 h-6 text-accent" />
+                <div className="w-14 h-14 mx-auto mb-4 rounded-2xl bg-[#0C4594]/10 flex items-center justify-center">
+                  <Icon className="w-7 h-7 text-[#0C4594]" />
                 </div>
-                <span className="text-3xl md:text-4xl font-bold text-primary">
+                <span className="text-3xl md:text-4xl font-bold text-[#0C4594]">
                   <AnimatedCounter end={stat.value} suffix={stat.suffix} />
                 </span>
-                <p className="text-sm text-primary/60 mt-2">{stat.label}</p>
+                <p className="text-sm text-[#64748b] mt-2 font-medium">{stat.label}</p>
               </motion.div>
             );
           })}

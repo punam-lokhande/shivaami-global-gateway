@@ -40,11 +40,10 @@ export default function WhyShivaamiSection() {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section ref={ref} className="py-24 bg-gradient-to-b from-secondary/5 to-accent/5 relative overflow-hidden">
-      {/* Background effects */}
-      <div className="absolute inset-0 dot-pattern opacity-10" />
-      <div className="absolute w-80 h-80 bg-primary/5 rounded-full blur-[100px] -bottom-20 -left-20" />
-      <div className="absolute w-64 h-64 bg-accent/5 rounded-full blur-[100px] top-20 -right-20" />
+    <section ref={ref} className="py-24 bg-white relative overflow-hidden">
+      {/* Clean minimal background */}
+      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#38B6FF]/5 rounded-full blur-[120px]" />
+      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[#0C4594]/5 rounded-full blur-[100px]" />
       
       <div className="container mx-auto px-4 relative z-10">
         <motion.div
@@ -53,10 +52,10 @@ export default function WhyShivaamiSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-4">
-            Why <span className="text-accent">Shivaami</span>?
+          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-[#0C4594] mb-4">
+            Why <span className="text-[#38B6FF]">Shivaami</span>?
           </h2>
-          <p className="text-lg text-primary/70 max-w-2xl mx-auto">
+          <p className="text-lg text-[#475569] max-w-2xl mx-auto">
             We don't just implement technology—we transform how businesses work
           </p>
         </motion.div>
@@ -73,15 +72,15 @@ export default function WhyShivaamiSection() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="group"
               >
-                <div className="bg-white rounded-xl p-5 shadow-sm border border-border/30 flex items-start gap-4 h-full hover:shadow-md hover:border-accent/30 transition-all duration-300">
-                  <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center flex-shrink-0 group-hover:bg-accent/20 transition-all duration-300">
-                    <Icon className="w-6 h-6 text-accent" />
+                <div className="bg-white rounded-2xl p-6 shadow-[0_2px_20px_rgba(0,0,0,0.06)] border border-[#e2e8f0] flex items-start gap-4 h-full hover:shadow-[0_8px_30px_rgba(0,0,0,0.1)] hover:border-[#38B6FF]/30 transition-all duration-300">
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#0C4594] to-[#38B6FF] flex items-center justify-center flex-shrink-0">
+                    <Icon className="w-6 h-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="font-display font-semibold text-primary mb-2">
+                    <h3 className="font-display font-semibold text-[#0C4594] mb-2">
                       {reason.title}
                     </h3>
-                    <p className="text-sm text-primary/60 leading-relaxed">
+                    <p className="text-sm text-[#64748b] leading-relaxed">
                       {reason.description}
                     </p>
                   </div>

@@ -26,7 +26,7 @@ export default function PartnersSection() {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section ref={ref} className="py-20 bg-gradient-to-b from-accent/5 to-white border-y border-border/30">
+    <section ref={ref} className="py-20 bg-white border-y border-[#e2e8f0]">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -34,10 +34,10 @@ export default function PartnersSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h2 className="font-display text-2xl md:text-3xl font-bold text-primary mb-2">
+          <h2 className="font-display text-2xl md:text-3xl font-bold text-[#0C4594] mb-2">
             Technology Partners
           </h2>
-          <p className="text-primary/70">
+          <p className="text-[#64748b]">
             Partnering with industry leaders to deliver best-in-class solutions
           </p>
         </motion.div>
@@ -63,7 +63,7 @@ export default function PartnersSection() {
             {[...partners, ...partners].map((partner, index) => (
               <div
                 key={`${partner.name}-${index}`}
-                className="flex-shrink-0 px-6 py-4 rounded-xl bg-white border border-border/30 hover:border-accent/30 shadow-sm transition-colors flex items-center justify-center min-w-[140px] h-[70px]"
+                className="flex-shrink-0 px-6 py-4 rounded-xl bg-[#f8fafc] border border-[#e2e8f0] hover:border-[#38B6FF]/40 hover:shadow-sm transition-all flex items-center justify-center min-w-[140px] h-[70px]"
               >
                 <img 
                   src={partner.logo} 
