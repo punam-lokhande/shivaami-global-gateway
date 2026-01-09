@@ -30,11 +30,11 @@ export default function CTASection() {
   };
 
   return (
-    <section ref={ref} className="py-24 bg-card border-y border-border relative overflow-hidden">
+    <section ref={ref} className="py-24 bg-white border-y border-border/30 relative overflow-hidden">
       {/* Animated background */}
       <div className="absolute inset-0">
-        <div className="absolute top-1/4 left-0 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[150px] animate-pulse-soft" />
-        <div className="absolute bottom-1/4 right-0 w-[500px] h-[500px] bg-accent/10 rounded-full blur-[150px] animate-pulse-soft" style={{ animationDelay: '1s' }} />
+        <div className="absolute top-1/4 left-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[150px]" />
+        <div className="absolute bottom-1/4 right-0 w-[500px] h-[500px] bg-accent/5 rounded-full blur-[150px]" />
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
@@ -44,11 +44,11 @@ export default function CTASection() {
           transition={{ duration: 0.6 }}
           className="text-center max-w-3xl mx-auto"
         >
-          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
+          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-6">
             Ready to make work{' '}
-            <span className="text-gradient">smarter, safer, and smoother</span>?
+            <span className="text-accent">smarter, safer, and smoother</span>?
           </h2>
-          <p className="text-lg text-muted-foreground mb-10">
+          <p className="text-lg text-primary/70 mb-10">
             Let's discuss how Shivaami can transform your organization's IT infrastructure 
             and empower your teams to do their best work.
           </p>

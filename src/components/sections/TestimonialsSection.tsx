@@ -13,7 +13,7 @@ export default function TestimonialsSection() {
   const allTestimonials = [...content.testimonials, ...content.testimonials];
 
   return (
-    <section ref={ref} className="py-24 bg-secondary/30 tech-pattern overflow-hidden">
+    <section ref={ref} className="py-24 bg-white overflow-hidden">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -21,13 +21,13 @@ export default function TestimonialsSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <div className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
+          <div className="inline-block px-4 py-1.5 rounded-full bg-accent/10 text-accent text-sm font-medium mb-4">
             Customer Stories • {region === 'india' ? '🇮🇳 India' : '🇺🇸 USA'}
           </div>
-          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
-            What Our <span className="text-gradient">Clients Say</span>
+          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-4">
+            What Our <span className="text-accent">Clients Say</span>
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-lg text-primary/70 max-w-2xl mx-auto">
             Real stories from organizations we've helped transform
           </p>
         </motion.div>
@@ -35,8 +35,8 @@ export default function TestimonialsSection() {
         {/* Auto-scrolling testimonials */}
         <div className="relative overflow-hidden mb-12">
           {/* Gradient masks */}
-          <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-secondary/30 to-transparent z-10" />
-          <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-secondary/30 to-transparent z-10" />
+          <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-white to-transparent z-10" />
+          <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-white to-transparent z-10" />
 
           <motion.div
             className="flex gap-6"
@@ -54,20 +54,20 @@ export default function TestimonialsSection() {
                 key={`${testimonial.name}-${index}`}
                 className="flex-shrink-0 w-[400px]"
               >
-                <div className="card-enterprise p-8 h-full flex flex-col">
-                  <Quote className="w-10 h-10 text-primary/30 mb-4" />
-                  <p className="text-foreground/90 mb-6 flex-grow italic line-clamp-4">
+                <div className="bg-gradient-to-b from-secondary/5 to-accent/5 border border-border/30 rounded-xl p-8 h-full flex flex-col">
+                  <Quote className="w-10 h-10 text-accent/40 mb-4" />
+                  <p className="text-primary/80 mb-6 flex-grow italic line-clamp-4">
                     "{testimonial.quote}"
                   </p>
-                  <div className="flex items-center gap-4 pt-4 border-t border-border">
-                    <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
-                      <span className="text-primary font-bold text-lg">
+                  <div className="flex items-center gap-4 pt-4 border-t border-border/30">
+                    <div className="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center">
+                      <span className="text-accent font-bold text-lg">
                         {testimonial.name.charAt(0)}
                       </span>
                     </div>
                     <div>
-                      <div className="font-semibold text-foreground">{testimonial.name}</div>
-                      <div className="text-sm text-muted-foreground">
+                      <div className="font-semibold text-primary">{testimonial.name}</div>
+                      <div className="text-sm text-primary/60">
                         {testimonial.role}, {testimonial.company}
                       </div>
                     </div>

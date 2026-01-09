@@ -23,13 +23,13 @@ export default function Header() {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50">
-      {/* Utility Bar - Deep Blue Background */}
-      <div className="bg-primary border-b border-accent/20">
+      {/* Utility Bar - White Background */}
+      <div className="bg-white border-b border-border/30">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-end h-10 gap-4 text-sm">
             <button 
               onClick={() => setSearchOpen(true)}
-              className="flex items-center gap-2 text-primary-foreground/90 hover:text-accent transition-colors"
+              className="flex items-center gap-2 text-primary hover:text-accent transition-colors"
             >
               <Search className="w-4 h-4" />
               <span className="hidden sm:inline text-xs">Search</span>
@@ -37,30 +37,30 @@ export default function Header() {
             
             <a 
               href={`tel:${content.phone}`} 
-              className="flex items-center gap-2 text-primary-foreground/90 hover:text-accent transition-colors"
+              className="flex items-center gap-2 text-primary hover:text-accent transition-colors"
             >
               <Phone className="w-4 h-4" />
               <span className="hidden sm:inline">{content.phone}</span>
             </a>
             
-            <button className="flex items-center gap-2 text-primary-foreground/90 hover:text-accent transition-colors">
+            <button className="flex items-center gap-2 text-primary hover:text-accent transition-colors">
               <LogIn className="w-4 h-4" />
               <span className="hidden sm:inline">Login</span>
             </button>
             
-            <button className="flex items-center gap-2 text-primary-foreground/90 hover:text-accent transition-colors">
+            <button className="flex items-center gap-2 text-primary hover:text-accent transition-colors">
               <HelpCircle className="w-4 h-4" />
               <span className="hidden sm:inline">Support</span>
             </button>
             
-            {/* Region Toggle - More readable */}
-            <div className="flex items-center gap-0.5 ml-4 bg-background/20 rounded-full p-0.5 border border-white/20">
+            {/* Region Toggle */}
+            <div className="flex items-center gap-0.5 ml-4 bg-secondary/10 rounded-full p-0.5 border border-primary/20">
               <button
                 onClick={() => setRegion('india')}
                 className={`px-3 py-1.5 rounded-full text-xs font-semibold transition-all ${
                   region === 'india'
-                    ? 'bg-accent text-white shadow-md'
-                    : 'text-white/90 hover:bg-white/10'
+                    ? 'bg-primary text-white shadow-md'
+                    : 'text-primary hover:bg-primary/10'
                 }`}
               >
                 India
@@ -69,8 +69,8 @@ export default function Header() {
                 onClick={() => setRegion('usa')}
                 className={`px-3 py-1.5 rounded-full text-xs font-semibold transition-all ${
                   region === 'usa'
-                    ? 'bg-accent text-white shadow-md'
-                    : 'text-white/90 hover:bg-white/10'
+                    ? 'bg-primary text-white shadow-md'
+                    : 'text-primary hover:bg-primary/10'
                 }`}
               >
                 USA
