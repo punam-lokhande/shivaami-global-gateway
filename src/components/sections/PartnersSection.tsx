@@ -26,7 +26,7 @@ export default function PartnersSection() {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section ref={ref} className="py-20 bg-background border-y border-border/50">
+    <section ref={ref} className="py-20 bg-gradient-to-b from-accent/5 to-white border-y border-border/30">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -34,10 +34,10 @@ export default function PartnersSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground mb-2">
+          <h2 className="font-display text-2xl md:text-3xl font-bold text-primary mb-2">
             Technology Partners
           </h2>
-          <p className="text-muted-foreground">
+          <p className="text-primary/70">
             Partnering with industry leaders to deliver best-in-class solutions
           </p>
         </motion.div>
@@ -45,8 +45,8 @@ export default function PartnersSection() {
         {/* Auto-scrolling logo strip */}
         <div className="relative overflow-hidden">
           {/* Gradient masks */}
-          <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-background to-transparent z-10" />
-          <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-background to-transparent z-10" />
+          <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-white to-transparent z-10" />
+          <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-white to-transparent z-10" />
 
           <motion.div
             className="flex gap-8 items-center"
@@ -63,7 +63,7 @@ export default function PartnersSection() {
             {[...partners, ...partners].map((partner, index) => (
               <div
                 key={`${partner.name}-${index}`}
-                className="flex-shrink-0 px-6 py-4 rounded-xl bg-card border border-border/50 hover:border-primary/30 transition-colors flex items-center justify-center min-w-[140px] h-[70px]"
+                className="flex-shrink-0 px-6 py-4 rounded-xl bg-white border border-border/30 hover:border-accent/30 shadow-sm transition-colors flex items-center justify-center min-w-[140px] h-[70px]"
               >
                 <img 
                   src={partner.logo} 

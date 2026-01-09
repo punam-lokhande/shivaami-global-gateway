@@ -57,11 +57,11 @@ export default function TrustSection() {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section ref={ref} className="py-24 bg-card border-y border-border/50 relative overflow-hidden">
+    <section ref={ref} className="py-24 bg-white border-y border-border/30 relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute inset-0">
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-[100px]" />
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-accent/10 rounded-full blur-[100px]" />
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-[100px]" />
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-accent/5 rounded-full blur-[100px]" />
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
@@ -71,10 +71,10 @@ export default function TrustSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
+          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-4">
             Trusted. Experienced. <span className="text-accent">Global.</span>
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-lg text-primary/70 max-w-2xl mx-auto">
             Numbers that reflect our commitment to excellence and customer success
           </p>
         </motion.div>
@@ -90,13 +90,13 @@ export default function TrustSection() {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 className="text-center"
               >
-                <div className="w-12 h-12 mx-auto mb-4 rounded-xl bg-primary/10 flex items-center justify-center">
-                  <Icon className="w-6 h-6 text-primary" />
+                <div className="w-12 h-12 mx-auto mb-4 rounded-xl bg-accent/10 flex items-center justify-center">
+                  <Icon className="w-6 h-6 text-accent" />
                 </div>
-                <span className="text-3xl md:text-4xl font-bold text-foreground">
+                <span className="text-3xl md:text-4xl font-bold text-primary">
                   <AnimatedCounter end={stat.value} suffix={stat.suffix} />
                 </span>
-                <p className="text-sm text-muted-foreground mt-2">{stat.label}</p>
+                <p className="text-sm text-primary/60 mt-2">{stat.label}</p>
               </motion.div>
             );
           })}
