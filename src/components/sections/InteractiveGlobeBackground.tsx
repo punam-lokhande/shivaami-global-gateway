@@ -1,5 +1,5 @@
-import { useRef, useEffect, useCallback } from 'react';
-import { motion, useMotionValue, useSpring } from 'framer-motion';
+import { useRef, useEffect, useCallback, useState } from 'react';
+import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 
 interface Particle {
   x: number;
@@ -448,6 +448,9 @@ export default function InteractiveGlobeBackground() {
     };
   }, [initParticles, initNodes, drawGlobe, drawWaves, drawNodes, drawParticles, mouseX, mouseY, springX, springY]);
 
+  const translateX = useTransform(springX, (v) => v * 20);
+  const translateY = useTransform(springY, (v) => v * 15);
+
   return (
     <div ref={containerRef} className="absolute inset-0 z-[1]">
       <canvas
@@ -460,8 +463,8 @@ export default function InteractiveGlobeBackground() {
         className="absolute top-1/2 left-[55%] -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full pointer-events-none"
         style={{
           background: 'radial-gradient(circle, rgba(0,150,255,0.15) 0%, rgba(100,50,200,0.08) 40%, transparent 70%)',
-          x: springX,
-          y: springY,
+          x: translateX,
+          y: translateY,
         }}
         animate={{
           scale: [1, 1.1, 1],
