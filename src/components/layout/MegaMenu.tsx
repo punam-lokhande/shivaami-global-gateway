@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   Brain, Mail, Shield, Server, Cloud, Lock, Monitor, 
@@ -18,6 +19,7 @@ interface SubMenuItem {
   icon: React.ElementType;
   label: string;
   desc: string;
+  href?: string;
 }
 
 interface MenuItem {
@@ -26,6 +28,7 @@ interface MenuItem {
   desc: string;
   subItems?: SubMenuItem[];
   isPageLink?: boolean;
+  href?: string;
 }
 
 interface MenuSection {
@@ -50,7 +53,7 @@ const menuContent: Record<string, MenuContent> = {
             label: 'AI Solutions', 
             desc: 'Enterprise AI & automation tools',
             subItems: [
-              { icon: Brain, label: 'Gemini Enterprise', desc: 'AI-powered productivity' },
+              { icon: Brain, label: 'Gemini Enterprise', desc: 'AI-powered productivity', href: '/gemini-enterprise' },
               { icon: Cpu, label: 'Google AI Ultra', desc: 'Advanced AI capabilities' },
               { icon: Zap, label: 'Glean', desc: 'Enterprise search & knowledge' },
             ]
@@ -220,9 +223,17 @@ const menuContent: Record<string, MenuContent> = {
 
 export default function MegaMenu({ activeKey, onClose }: MegaMenuProps) {
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
+  const navigate = useNavigate();
   const menu = menuContent[activeKey];
   
   if (!menu) return null;
+
+  const handleNavigation = (href?: string) => {
+    if (href) {
+      navigate(href);
+      onClose();
+    }
+  };
 
   return (
     <motion.div
@@ -252,7 +263,11 @@ export default function MegaMenu({ activeKey, onClose }: MegaMenuProps) {
                     return (
                       <li key={itemIdx}>
                         <a
-                          href="/cloud-capabilities"
+                          href={item.href || "/cloud-capabilities"}
+                          onClick={(e) => {
+                            e.preventDefault();
+                            handleNavigation(item.href || "/cloud-capabilities");
+                          }}
                           className="group flex items-start gap-3 p-2.5 -m-1 rounded-lg border border-dashed border-primary/30 transition-all duration-200 hover:border-primary"
                         >
                           <div className="w-9 h-9 rounded-lg bg-primary flex items-center justify-center flex-shrink-0 text-primary-foreground">
@@ -282,11 +297,12 @@ export default function MegaMenu({ activeKey, onClose }: MegaMenuProps) {
                       onMouseLeave={() => setHoveredItem(null)}
                     >
                       <a
-                        href="#"
+                        href={item.href || "#"}
                         onClick={(e) => {
                           e.preventDefault();
-                          // Handle click navigation here
-                          console.log('Navigating to:', item.label);
+                          if (item.href) {
+                            handleNavigation(item.href);
+                          }
                         }}
                         className="group flex items-start gap-3 p-2.5 -m-1 rounded-lg border border-transparent hover:border-dashed hover:border-primary/40 transition-all duration-200"
                       >
@@ -329,10 +345,12 @@ export default function MegaMenu({ activeKey, onClose }: MegaMenuProps) {
                                 return (
                                   <li key={subIdx}>
                                     <a
-                                      href="#"
+                                      href={subItem.href || "#"}
                                       onClick={(e) => {
                                         e.preventDefault();
-                                        console.log('Navigating to:', subItem.label);
+                                        if (subItem.href) {
+                                          handleNavigation(subItem.href);
+                                        }
                                       }}
                                       className="group flex items-center gap-3 p-2 rounded-lg border border-transparent hover:border-dashed hover:border-primary/40 transition-all duration-200"
                                     >
