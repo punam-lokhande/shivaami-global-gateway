@@ -68,7 +68,7 @@ export default function IndustriesSection() {
           className="text-center mb-16"
         >
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-[#0C4594] mb-4">
-            Your Industry, <span className="text-[#38B6FF]">Our Expertise</span>
+            Your Industry, <span className="text-[#010203]">Our Expertise</span>
           </h2>
           <p className="text-lg text-[#475569] max-w-3xl mx-auto">
             Every industry has unique challenges. We bring deep domain expertise combined 
