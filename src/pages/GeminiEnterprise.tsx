@@ -1,8 +1,9 @@
 import { motion } from 'framer-motion';
 import { 
-  Brain, Sparkles, FileText, BarChart3, Mail, Video, Shield, Lock, 
+  Brain, Search, Shield, Lock, 
   Users, Briefcase, TrendingUp, HeadphonesIcon, Megaphone, Code, LineChart,
-  CheckCircle2, ArrowRight, Play, Calendar, Phone, Building2, Award, Globe, Clock
+  CheckCircle2, ArrowRight, Play, Calendar, Phone, Building2, Award, Globe, Clock,
+  Zap, Settings, Blocks, Workflow
 } from 'lucide-react';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
@@ -50,17 +51,25 @@ function HeroSection() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-6"
           >
-            Gemini Enterprise
+            Gemini Enterprise: The Future of Enterprise AI
           </motion.h1>
 
           <motion.p
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-lg md:text-xl text-white/80 mb-4 max-w-3xl mx-auto leading-relaxed"
+          >
+            Gemini Enterprise is Google's agentic AI platform built to automate business operations across every department. As an official Gemini Enterprise onboarding partner, Shivaami helps organizations deploy AI agents for business that integrate with Google Workspace, Salesforce, Jira, and Slack.
+          </motion.p>
+
+          <motion.p
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.25 }}
             className="text-lg md:text-xl text-white/80 mb-8 max-w-3xl mx-auto leading-relaxed"
           >
-            Unlock the power of enterprise-grade AI across Google Workspace. Transform productivity, 
-            enhance collaboration, and drive innovation with intelligent assistance in every app you use.
+            Shivaami makes it happen. We architect your AI agent deployment, build custom agents, and train your teams to work smarter from day one. Every minute you wait is productivity you'll never get back.
           </motion.p>
 
           <motion.div
@@ -71,15 +80,8 @@ function HeroSection() {
           >
             <Button size="lg" className="bg-[#38B6FF] hover:bg-[#2da8f0] text-white font-semibold px-8">
               <Play className="w-4 h-4 mr-2" />
-              Request Demo
-            </Button>
-            <Button size="lg" variant="outline" className="border-white/30 text-white hover:bg-white/10 font-semibold px-8">
-              <Calendar className="w-4 h-4 mr-2" />
-              Book a Meeting
-            </Button>
-            <Button size="lg" variant="outline" className="border-white/30 text-white hover:bg-white/10 font-semibold px-8">
-              <Phone className="w-4 h-4 mr-2" />
-              Talk to Sales
+              Book a Live Demo
+              <ArrowRight className="w-4 h-4 ml-2" />
             </Button>
           </motion.div>
         </div>
@@ -88,120 +90,38 @@ function HeroSection() {
   );
 }
 
-// Overview Section
-function OverviewSection() {
-  const integrations = [
-    { name: 'Gmail', icon: Mail },
-    { name: 'Docs', icon: FileText },
-    { name: 'Sheets', icon: BarChart3 },
-    { name: 'Meet', icon: Video },
-    { name: 'Drive', icon: Building2 },
-    { name: 'Slides', icon: Sparkles },
-  ];
-
-  return (
-    <section className="py-20 bg-white">
-      <div className="container mx-auto px-4">
-        <motion.div {...fadeInUp} className="max-w-4xl mx-auto text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#0C4594] mb-6">
-            What is Gemini Enterprise?
-          </h2>
-          <p className="text-lg text-[#475569] leading-relaxed mb-8">
-            Gemini Enterprise is Google's most advanced AI assistant, purpose-built for businesses. 
-            It seamlessly integrates across your entire Google Workspace, enhancing productivity, 
-            automating workflows, and enabling smarter decision-making at enterprise scale.
-          </p>
-          <div className="bg-[#f8fafc] rounded-2xl p-8 border border-[#e2e8f0]">
-            <h3 className="text-lg font-semibold text-[#0C4594] mb-6">Works Seamlessly Across</h3>
-            <div className="grid grid-cols-3 md:grid-cols-6 gap-4">
-              {integrations.map((app, idx) => {
-                const Icon = app.icon;
-                return (
-                  <motion.div
-                    key={idx}
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: idx * 0.1 }}
-                    className="flex flex-col items-center gap-2 p-4 rounded-xl hover:bg-white hover:shadow-md transition-all duration-300"
-                  >
-                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#0C4594] to-[#38B6FF] flex items-center justify-center">
-                      <Icon className="w-6 h-6 text-white" />
-                    </div>
-                    <span className="text-sm font-medium text-[#475569]">{app.name}</span>
-                  </motion.div>
-                );
-              })}
-            </div>
-          </div>
-        </motion.div>
-
-        <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-          {[
-            { icon: Brain, title: 'AI-Powered Intelligence', desc: 'Advanced language understanding and generation capabilities that adapt to your business context.' },
-            { icon: Shield, title: 'Enterprise-Grade Security', desc: 'Built on Google\'s secure infrastructure with data protection, compliance, and admin controls.' },
-            { icon: Globe, title: 'Cloud-Native Architecture', desc: 'Seamlessly scales with your organization, from startups to global enterprises.' },
-          ].map((item, idx) => {
-            const Icon = item.icon;
-            return (
-              <motion.div
-                key={idx}
-                {...fadeInUp}
-                transition={{ delay: idx * 0.1 }}
-                className="bg-[#f8fafc] rounded-2xl p-6 border border-[#e2e8f0] hover:shadow-lg transition-all duration-300"
-              >
-                <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-[#0C4594] to-[#38B6FF] flex items-center justify-center mb-4">
-                  <Icon className="w-7 h-7 text-white" />
-                </div>
-                <h3 className="text-lg font-semibold text-[#0C4594] mb-2">{item.title}</h3>
-                <p className="text-[#475569] text-sm leading-relaxed">{item.desc}</p>
-              </motion.div>
-            );
-          })}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-// Key Features Section
+// What Gemini Enterprise Delivers Section
 function FeaturesSection() {
   const features = [
     {
-      icon: Sparkles,
-      title: 'AI Content Generation',
-      desc: 'Create documents, presentations, and emails in seconds. Generate first drafts, refine tone, and translate across languages.',
-      highlights: ['Smart drafting', 'Tone adjustment', 'Multi-language support']
+      icon: Search,
+      title: 'Unified Enterprise Search',
+      desc: 'Access a single, intelligent search experience across your entire organization. Gemini Enterprise securely connects you to various tools, enabling employees to find the right information instantly. No more switching between apps or searching through folders to find what you need.',
     },
     {
-      icon: BarChart3,
-      title: 'Smart Data Insights',
-      desc: 'Transform raw data into actionable insights. Ask questions in natural language and get visualizations instantly.',
-      highlights: ['Natural language queries', 'Auto-generated charts', 'Trend analysis']
+      icon: Brain,
+      title: "Access to Google's Latest AI Models",
+      desc: 'Empower your workforce with Google\'s most advanced AI capabilities, including Gemini 3 and Flash, NotebookLM Enterprise, Deep Research, Imagen, and Veo. All models are delivered through a secure, enterprise-ready, and compliant framework.',
     },
     {
-      icon: Mail,
-      title: 'AI-Powered Email & Communication',
-      desc: 'Summarize long threads, draft contextual replies, and prioritize your inbox with intelligent assistance.',
-      highlights: ['Email summaries', 'Smart replies', 'Priority inbox']
-    },
-    {
-      icon: Video,
-      title: 'Meeting Notes & Summaries',
-      desc: 'Never miss a detail. Get AI-generated meeting notes, action items, and follow-up reminders automatically.',
-      highlights: ['Auto transcription', 'Action item extraction', 'Meeting highlights']
+      icon: Blocks,
+      title: 'Comprehensive AI Agent Ecosystem',
+      desc: 'Build custom agents using the no-code Agent Designer, integrate third-party agents from Box, Salesforce, and ServiceNow, or use Google-built agents from the Agent Gallery. Gemini Enterprise centralizes management through Workbench, creating one of the most powerful AI agent ecosystems for enterprises.',
     },
     {
       icon: Shield,
-      title: 'Enterprise Security & Governance',
-      desc: 'Maintain complete control with admin policies, data residency options, and comprehensive audit logs.',
-      highlights: ['Admin controls', 'Data residency', 'Audit logging']
+      title: 'Enterprise-Grade Security & Compliance',
+      desc: 'Gemini Enterprise is built with world-class security features such as VPC Security Controls, CMEK, Access Transparency, tenant isolation, and role-based access control. Shivaami ensures your AI agents operate in a fully governed, compliant environment following least-privilege principles.',
     },
     {
-      icon: Lock,
-      title: 'Workspace Integration',
-      desc: 'Seamlessly works across all Google Workspace apps, providing consistent AI assistance everywhere.',
-      highlights: ['Cross-app intelligence', 'Context awareness', 'Unified experience']
+      icon: Zap,
+      title: 'No-Code AI Agent Development',
+      desc: 'Create enterprise-grade AI agents that understand natural language, automate workflows, and deliver insights, without writing any code. Agent Designer enables business users to build tailored automation without dependency on development teams.',
+    },
+    {
+      icon: Workflow,
+      title: 'Seamlessly Integrated Into Your Workflow',
+      desc: 'Enable AI agents directly within Gmail, Docs, Sheets, and Drive, where your teams already work every day. As a standalone Google Cloud platform, Gemini Enterprise delivers complete AI agent infrastructure beyond just a Workspace add-on.',
     },
   ];
 
@@ -210,11 +130,8 @@ function FeaturesSection() {
       <div className="container mx-auto px-4">
         <motion.div {...fadeInUp} className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-[#0C4594] mb-4">
-            Key Features & Capabilities
+            What Gemini Enterprise Delivers
           </h2>
-          <p className="text-lg text-[#475569] max-w-2xl mx-auto">
-            Discover how Gemini Enterprise transforms every aspect of your work
-          </p>
         </motion.div>
 
         <motion.div {...staggerContainer} className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
@@ -233,18 +150,7 @@ function FeaturesSection() {
                   <Icon className="w-6 h-6 text-white" />
                 </div>
                 <h3 className="text-lg font-semibold text-[#0C4594] mb-2">{feature.title}</h3>
-                <p className="text-[#475569] text-sm leading-relaxed mb-4">{feature.desc}</p>
-                <div className="flex flex-wrap gap-2">
-                  {feature.highlights.map((highlight, hIdx) => (
-                    <span
-                      key={hIdx}
-                      className="inline-flex items-center gap-1 text-xs bg-[#0C4594]/5 text-[#0C4594] px-2 py-1 rounded-full"
-                    >
-                      <CheckCircle2 className="w-3 h-3" />
-                      {highlight}
-                    </span>
-                  ))}
-                </div>
+                <p className="text-[#475569] text-sm leading-relaxed">{feature.desc}</p>
               </motion.div>
             );
           })}
@@ -254,50 +160,37 @@ function FeaturesSection() {
   );
 }
 
-// Use Cases Section
-function UseCasesSection() {
-  const useCases = [
+// How Shivaami Activates Gemini Enterprise Section
+function ActivationSection() {
+  const steps = [
     {
-      icon: Briefcase,
-      role: 'Leadership',
-      desc: 'Get executive summaries, strategic insights, and data-driven decision support across all business operations.',
-      benefits: ['Board deck creation', 'Performance dashboards', 'Strategic planning']
+      icon: Settings,
+      title: 'Strategic AI Agent Planning',
+      desc: 'We start by understanding your business processes, identifying high-impact automation opportunities. We then design an AI agent roadmap that delivers measurable ROI within 90 days. No generic deployment. Every agent we build solves a real problem.',
     },
     {
-      icon: TrendingUp,
-      role: 'Sales',
-      desc: 'Accelerate deal cycles with AI-powered proposals, customer insights, and personalized communication.',
-      benefits: ['Proposal generation', 'CRM insights', 'Follow-up automation']
+      icon: Zap,
+      title: 'Zero-Friction Technical Deployment',
+      desc: 'We handle the complete technical setup: platform configuration, security controls, integration with your existing tools (Salesforce, Jira, Slack, SharePoint), and access management. Your team logs in to AI agents that are ready to work from day one.',
+    },
+    {
+      icon: Shield,
+      title: 'Enterprise Security Configuration',
+      desc: 'We implement VPC Security Controls, CMEK encryption, Access Transparency, role-based access controls, and audit logging. Your Gemini Enterprise deployment meets your compliance requirements from the start, whether you\'re in healthcare, finance, or any regulated industry.',
     },
     {
       icon: Users,
-      role: 'Operations',
-      desc: 'Streamline processes with intelligent workflow automation and real-time operational analytics.',
-      benefits: ['Process optimization', 'Resource planning', 'Compliance tracking']
+      title: 'Team Enablement & Agent Training',
+      desc: "We don't just hand over technology. We train your teams on how to use prebuilt agents, build their own with no-code tools, and integrate AI into daily workflows. Hands-on workshops, department-specific use cases, and ongoing support ensure adoption.",
     },
     {
       icon: HeadphonesIcon,
-      role: 'Support',
-      desc: 'Resolve issues faster with AI-assisted ticket handling, knowledge base search, and response drafting.',
-      benefits: ['Ticket summarization', 'Knowledge search', 'Response templates']
-    },
-    {
-      icon: Megaphone,
-      role: 'Marketing',
-      desc: 'Create compelling content at scale, analyze campaign performance, and personalize customer journeys.',
-      benefits: ['Content creation', 'Campaign analysis', 'Audience insights']
-    },
-    {
-      icon: Code,
-      role: 'Engineering & IT',
-      desc: 'Enhance development workflows with code assistance, documentation generation, and incident analysis.',
-      benefits: ['Code review', 'Documentation', 'Incident response']
-    },
-    {
-      icon: LineChart,
-      role: 'Analysts & Data Teams',
-      desc: 'Unlock data potential with natural language queries, automated reporting, and predictive analytics.',
-      benefits: ['Data exploration', 'Report automation', 'Trend forecasting']
+      title: 'Ongoing Support & Updates',
+      desc: 'Google releases new AI models and agent capabilities monthly. We keep your platform updated, help you leverage new features, and provide 24/7 technical support.',
+      stats: [
+        { label: 'Average response time', value: '4 minutes' },
+        { label: 'Resolution time', value: 'under 40 minutes' },
+      ],
     },
   ];
 
@@ -306,38 +199,41 @@ function UseCasesSection() {
       <div className="container mx-auto px-4">
         <motion.div {...fadeInUp} className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-[#0C4594] mb-4">
-            Use Cases by Role
+            How Shivaami Activates Gemini Enterprise Across Your Organization
           </h2>
-          <p className="text-lg text-[#475569] max-w-2xl mx-auto">
-            Real-world enterprise value for every team in your organization
-          </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 max-w-7xl mx-auto">
-          {useCases.map((useCase, idx) => {
-            const Icon = useCase.icon;
+        <div className="max-w-4xl mx-auto space-y-6">
+          {steps.map((step, idx) => {
+            const Icon = step.icon;
             return (
               <motion.div
                 key={idx}
                 {...fadeInUp}
-                transition={{ delay: idx * 0.05 }}
-                className="bg-[#f8fafc] rounded-2xl p-6 border border-[#e2e8f0] hover:bg-white hover:shadow-lg hover:border-[#38B6FF]/30 transition-all duration-300"
+                transition={{ delay: idx * 0.1 }}
+                className="bg-[#f8fafc] rounded-2xl p-6 border border-[#e2e8f0] hover:shadow-lg transition-all duration-300"
               >
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-[#0C4594] to-[#38B6FF] flex items-center justify-center">
-                    <Icon className="w-5 h-5 text-white" />
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#0C4594] to-[#38B6FF] flex items-center justify-center flex-shrink-0">
+                    <Icon className="w-6 h-6 text-white" />
                   </div>
-                  <h3 className="text-lg font-semibold text-[#0C4594]">{useCase.role}</h3>
+                  <div className="flex-1">
+                    <h3 className="text-lg font-semibold text-[#0C4594] mb-2">{step.title}</h3>
+                    <p className="text-[#475569] text-sm leading-relaxed">{step.desc}</p>
+                    {step.stats && (
+                      <div className="flex flex-wrap gap-6 mt-4">
+                        {step.stats.map((stat, statIdx) => (
+                          <div key={statIdx} className="flex items-center gap-2">
+                            <Clock className="w-4 h-4 text-[#38B6FF]" />
+                            <span className="text-[#475569] text-sm">
+                              {stat.label}: <span className="text-[#38B6FF] font-semibold">{stat.value}</span>
+                            </span>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                  </div>
                 </div>
-                <p className="text-[#475569] text-sm leading-relaxed mb-4">{useCase.desc}</p>
-                <ul className="space-y-2">
-                  {useCase.benefits.map((benefit, bIdx) => (
-                    <li key={bIdx} className="flex items-center gap-2 text-sm text-[#475569]">
-                      <CheckCircle2 className="w-4 h-4 text-[#38B6FF] flex-shrink-0" />
-                      {benefit}
-                    </li>
-                  ))}
-                </ul>
               </motion.div>
             );
           })}
@@ -347,246 +243,45 @@ function UseCasesSection() {
   );
 }
 
-// Pricing Section
-function PricingSection() {
-  const tiers = [
-    {
-      name: 'Gemini Business',
-      price: '$20',
-      period: '/user/month',
-      desc: 'AI assistant for growing teams',
-      features: [
-        'AI in Gmail, Docs, Sheets, Slides, Meet',
-        '1TB cloud storage per user',
-        'Standard security controls',
-        'Email & chat support',
-      ],
-      highlighted: false
-    },
-    {
-      name: 'Gemini Enterprise',
-      price: '$30',
-      period: '/user/month',
-      desc: 'Advanced AI for large organizations',
-      features: [
-        'Everything in Business, plus:',
-        'Enhanced AI capabilities',
-        'Advanced security & compliance',
-        'Admin controls & audit logs',
-        'Priority 24/7 support',
-        'Data residency options',
-      ],
-      highlighted: true
-    },
+// Calendar CTA Section
+function CalendarCTASection() {
+  const demoPoints = [
+    'Live AI agents in action — watch them automate real tasks from your business',
+    'ROI projections — see exactly how much time and money you\'ll save',
+    'Custom agent roadmap — which processes to automate first for maximum impact',
+    'Security walkthrough — how we keep your data protected and compliant',
   ];
 
   return (
-    <section className="py-20 bg-[#f8fafc]">
-      <div className="container mx-auto px-4">
-        <motion.div {...fadeInUp} className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#0C4594] mb-4">
-            Flexible Pricing for Every Organization
-          </h2>
-          <p className="text-lg text-[#475569] max-w-2xl mx-auto">
-            Choose the plan that fits your needs. Volume discounts available for large organizations.
-          </p>
-        </motion.div>
-
-        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-12">
-          {tiers.map((tier, idx) => (
-            <motion.div
-              key={idx}
-              {...fadeInUp}
-              transition={{ delay: idx * 0.1 }}
-              className={`rounded-2xl p-8 border-2 ${
-                tier.highlighted 
-                  ? 'bg-gradient-to-br from-[#0C4594] to-[#0a3a7a] border-[#38B6FF] text-white' 
-                  : 'bg-white border-[#e2e8f0] text-[#0C4594]'
-              }`}
-            >
-              {tier.highlighted && (
-                <div className="inline-block bg-[#38B6FF] text-white text-xs font-semibold px-3 py-1 rounded-full mb-4">
-                  RECOMMENDED
-                </div>
-              )}
-              <h3 className={`text-2xl font-bold mb-2 ${tier.highlighted ? 'text-white' : 'text-[#0C4594]'}`}>
-                {tier.name}
-              </h3>
-              <p className={`text-sm mb-4 ${tier.highlighted ? 'text-white/80' : 'text-[#475569]'}`}>
-                {tier.desc}
-              </p>
-              <div className="flex items-baseline gap-1 mb-6">
-                <span className={`text-4xl font-bold ${tier.highlighted ? 'text-white' : 'text-[#0C4594]'}`}>
-                  {tier.price}
-                </span>
-                <span className={tier.highlighted ? 'text-white/70' : 'text-[#475569]'}>
-                  {tier.period}
-                </span>
-              </div>
-              <ul className="space-y-3 mb-8">
-                {tier.features.map((feature, fIdx) => (
-                  <li key={fIdx} className="flex items-start gap-2">
-                    <CheckCircle2 className={`w-5 h-5 flex-shrink-0 mt-0.5 ${tier.highlighted ? 'text-[#38B6FF]' : 'text-[#38B6FF]'}`} />
-                    <span className={`text-sm ${tier.highlighted ? 'text-white/90' : 'text-[#475569]'}`}>
-                      {feature}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-              <Button 
-                className={`w-full ${
-                  tier.highlighted 
-                    ? 'bg-[#38B6FF] hover:bg-[#2da8f0] text-white' 
-                    : 'bg-[#0C4594] hover:bg-[#0a3a7a] text-white'
-                }`}
-              >
-                Get Started
-              </Button>
-            </motion.div>
-          ))}
-        </div>
-
-        <motion.div {...fadeInUp} className="text-center">
-          <p className="text-[#475569] mb-4">
-            Need a custom solution? Enterprise pricing varies by organization size.
-          </p>
-          <Button variant="outline" className="border-[#0C4594] text-[#0C4594] hover:bg-[#0C4594] hover:text-white">
-            <Phone className="w-4 h-4 mr-2" />
-            Contact Sales for Enterprise Pricing
-          </Button>
-        </motion.div>
-      </div>
-    </section>
-  );
-}
-
-// Trust & Security Section
-function TrustSecuritySection() {
-  const securityFeatures = [
-    { icon: Shield, title: 'Enterprise-Grade Compliance', desc: 'SOC 2, ISO 27001, GDPR, HIPAA compliant infrastructure' },
-    { icon: Lock, title: 'Data Protection', desc: 'Your data is encrypted at rest and in transit, never used to train AI' },
-    { icon: Users, title: 'Admin Controls', desc: 'Granular access controls, user management, and policy enforcement' },
-    { icon: Globe, title: 'Data Residency', desc: 'Choose where your data is stored to meet regional requirements' },
-  ];
-
-  return (
-    <section className="py-20 bg-white">
-      <div className="container mx-auto px-4">
-        <motion.div {...fadeInUp} className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#0C4594] mb-4">
-            Enterprise Trust & Security
-          </h2>
-          <p className="text-lg text-[#475569] max-w-2xl mx-auto">
-            Built on Google's world-class security infrastructure with comprehensive compliance certifications
-          </p>
-        </motion.div>
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-          {securityFeatures.map((feature, idx) => {
-            const Icon = feature.icon;
-            return (
-              <motion.div
-                key={idx}
-                {...fadeInUp}
-                transition={{ delay: idx * 0.1 }}
-                className="text-center p-6"
-              >
-                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#0C4594]/10 to-[#38B6FF]/10 flex items-center justify-center mx-auto mb-4">
-                  <Icon className="w-8 h-8 text-[#0C4594]" />
-                </div>
-                <h3 className="text-lg font-semibold text-[#0C4594] mb-2">{feature.title}</h3>
-                <p className="text-sm text-[#475569]">{feature.desc}</p>
-              </motion.div>
-            );
-          })}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-// Why Buy From Shivaami Section
-function WhyShivaamiSection() {
-  const benefits = [
-    { icon: Award, title: 'Google Premier Partner', desc: 'Top-tier partnership with direct Google support and early access to features' },
-    { icon: Clock, title: '20+ Years Experience', desc: 'Two decades of enterprise cloud transformation expertise' },
-    { icon: Users, title: 'Full Deployment Support', desc: 'End-to-end migration, deployment, and onboarding assistance' },
-    { icon: Globe, title: 'Local + Global Support', desc: '24/7 support across time zones with local expertise' },
-  ];
-
-  return (
-    <section className="py-20 bg-gradient-to-br from-[#0C4594] to-[#0a3a7a]">
-      <div className="container mx-auto px-4">
-        <motion.div {...fadeInUp} className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Why Buy From Shivaami?
-          </h2>
-          <p className="text-lg text-white/80 max-w-2xl mx-auto">
-            Get more than just a product — partner with India's leading Google Cloud specialist
-          </p>
-        </motion.div>
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-          {benefits.map((benefit, idx) => {
-            const Icon = benefit.icon;
-            return (
-              <motion.div
-                key={idx}
-                {...fadeInUp}
-                transition={{ delay: idx * 0.1 }}
-                className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-6 text-center hover:bg-white/15 transition-all duration-300"
-              >
-                <div className="w-14 h-14 rounded-xl bg-[#38B6FF] flex items-center justify-center mx-auto mb-4">
-                  <Icon className="w-7 h-7 text-white" />
-                </div>
-                <h3 className="text-lg font-semibold text-white mb-2">{benefit.title}</h3>
-                <p className="text-sm text-white/70">{benefit.desc}</p>
-              </motion.div>
-            );
-          })}
-        </div>
-
-        <motion.div {...fadeInUp} className="mt-12 text-center">
-          <div className="inline-flex flex-wrap justify-center gap-4 bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
-            {['Deployment', 'Migration', 'Support', 'Training', 'AI Onboarding'].map((service, idx) => (
-              <span key={idx} className="inline-flex items-center gap-2 text-white/90 text-sm">
-                <CheckCircle2 className="w-4 h-4 text-[#38B6FF]" />
-                {service}
-              </span>
-            ))}
-          </div>
-        </motion.div>
-      </div>
-    </section>
-  );
-}
-
-// Bottom CTA Section
-function CTASection() {
-  return (
-    <section className="py-20 bg-[#f8fafc]">
+    <section className="py-20 bg-gradient-to-br from-[#0C4594] via-[#0a3a7a] to-[#082d61]">
       <div className="container mx-auto px-4">
         <motion.div {...fadeInUp} className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#0C4594] mb-6">
-            Ready to Transform Your Workplace with AI?
-          </h2>
-          <p className="text-lg text-[#475569] mb-8 max-w-2xl mx-auto">
-            Join thousands of enterprises already using Gemini Enterprise to boost productivity and drive innovation.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-[#0C4594] hover:bg-[#0a3a7a] text-white font-semibold px-8">
-              Request Pricing
-              <ArrowRight className="w-4 h-4 ml-2" />
-            </Button>
-            <Button size="lg" variant="outline" className="border-[#0C4594] text-[#0C4594] hover:bg-[#0C4594] hover:text-white font-semibold px-8">
-              <Phone className="w-4 h-4 mr-2" />
-              Talk to Sales
-            </Button>
-            <Button size="lg" variant="outline" className="border-[#0C4594] text-[#0C4594] hover:bg-[#0C4594] hover:text-white font-semibold px-8">
-              <Calendar className="w-4 h-4 mr-2" />
-              Book Demo
-            </Button>
+          <div className="w-16 h-16 rounded-2xl bg-[#38B6FF] flex items-center justify-center mx-auto mb-6">
+            <Calendar className="w-8 h-8 text-white" />
           </div>
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+            Book a 30-minute strategy session
+          </h2>
+          <p className="text-lg text-white/80 mb-8">We'll show you:</p>
+
+          <div className="grid md:grid-cols-2 gap-4 text-left max-w-3xl mx-auto mb-10">
+            {demoPoints.map((point, idx) => (
+              <motion.div
+                key={idx}
+                {...fadeInUp}
+                transition={{ delay: idx * 0.1 }}
+                className="flex items-start gap-3 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-4"
+              >
+                <CheckCircle2 className="w-5 h-5 text-[#38B6FF] flex-shrink-0 mt-0.5" />
+                <span className="text-white/90 text-sm">{point}</span>
+              </motion.div>
+            ))}
+          </div>
+
+          <Button size="lg" className="bg-[#38B6FF] hover:bg-[#2da8f0] text-white font-semibold px-8">
+            Book Your Live AI Agent Demo
+            <ArrowRight className="w-4 h-4 ml-2" />
+          </Button>
         </motion.div>
       </div>
     </section>
@@ -600,13 +295,9 @@ export default function GeminiEnterprise() {
       <Header />
       <main>
         <HeroSection />
-        <OverviewSection />
         <FeaturesSection />
-        <UseCasesSection />
-        <PricingSection />
-        <TrustSecuritySection />
-        <WhyShivaamiSection />
-        <CTASection />
+        <ActivationSection />
+        <CalendarCTASection />
       </main>
       <Footer />
     </div>
