@@ -13,7 +13,7 @@ export default function TestimonialsSection() {
   const allTestimonials = [...content.testimonials, ...content.testimonials];
 
   return (
-    <section ref={ref} className="py-24 bg-white overflow-hidden">
+    <section ref={ref} className="py-24 bg-[#f8fafc] overflow-hidden">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -21,13 +21,13 @@ export default function TestimonialsSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <div className="inline-block px-4 py-1.5 rounded-full bg-accent/10 text-accent text-sm font-medium mb-4">
+          <div className="inline-block px-4 py-1.5 rounded-full bg-[#0C4594]/10 text-[#0C4594] text-sm font-medium mb-4">
             Customer Stories • {region === 'india' ? '🇮🇳 India' : '🇺🇸 USA'}
           </div>
-          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-4">
-            What Our <span className="text-accent">Clients Say</span>
+          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-[#0C4594] mb-4">
+            What Our <span className="text-[#38B6FF]">Clients Say</span>
           </h2>
-          <p className="text-lg text-primary/70 max-w-2xl mx-auto">
+          <p className="text-lg text-[#475569] max-w-2xl mx-auto">
             Real stories from organizations we've helped transform
           </p>
         </motion.div>
@@ -35,8 +35,8 @@ export default function TestimonialsSection() {
         {/* Auto-scrolling testimonials */}
         <div className="relative overflow-hidden mb-12">
           {/* Gradient masks */}
-          <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-white to-transparent z-10" />
-          <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-white to-transparent z-10" />
+          <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-[#f8fafc] to-transparent z-10" />
+          <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-[#f8fafc] to-transparent z-10" />
 
           <motion.div
             className="flex gap-6"
@@ -54,20 +54,20 @@ export default function TestimonialsSection() {
                 key={`${testimonial.name}-${index}`}
                 className="flex-shrink-0 w-[400px]"
               >
-                <div className="bg-gradient-to-b from-secondary/5 to-accent/5 border border-border/30 rounded-xl p-8 h-full flex flex-col">
-                  <Quote className="w-10 h-10 text-accent/40 mb-4" />
-                  <p className="text-primary/80 mb-6 flex-grow italic line-clamp-4">
+                <div className="bg-white border border-[#e2e8f0] rounded-2xl p-8 h-full flex flex-col shadow-[0_2px_15px_rgba(0,0,0,0.04)]">
+                  <Quote className="w-10 h-10 text-[#38B6FF]/30 mb-4" />
+                  <p className="text-[#334155] mb-6 flex-grow italic line-clamp-4">
                     "{testimonial.quote}"
                   </p>
-                  <div className="flex items-center gap-4 pt-4 border-t border-border/30">
-                    <div className="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center">
-                      <span className="text-accent font-bold text-lg">
+                  <div className="flex items-center gap-4 pt-4 border-t border-[#e2e8f0]">
+                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#0C4594] to-[#38B6FF] flex items-center justify-center">
+                      <span className="text-white font-bold text-lg">
                         {testimonial.name.charAt(0)}
                       </span>
                     </div>
                     <div>
-                      <div className="font-semibold text-primary">{testimonial.name}</div>
-                      <div className="text-sm text-primary/60">
+                      <div className="font-semibold text-[#0C4594]">{testimonial.name}</div>
+                      <div className="text-sm text-[#64748b]">
                         {testimonial.role}, {testimonial.company}
                       </div>
                     </div>
@@ -84,7 +84,7 @@ export default function TestimonialsSection() {
           transition={{ duration: 0.6, delay: 0.6 }}
           className="text-center"
         >
-          <Button variant="outline" className="border-primary/20 hover:border-primary">
+          <Button variant="outline" className="border-[#0C4594]/20 text-[#0C4594] hover:border-[#0C4594] hover:bg-[#0C4594]/5">
             Read More Case Studies
             <ArrowRight className="ml-2 w-4 h-4" />
           </Button>

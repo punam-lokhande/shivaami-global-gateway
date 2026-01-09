@@ -56,10 +56,9 @@ export default function IndustriesSection() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   return (
-    <section ref={ref} className="py-24 bg-white relative overflow-hidden">
-      {/* Background */}
-      <div className="absolute inset-0 grid-pattern opacity-5" />
-      <div className="absolute w-96 h-96 bg-primary/5 rounded-full blur-[100px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
+    <section ref={ref} className="py-24 bg-[#f8fafc] relative overflow-hidden">
+      {/* Subtle background pattern */}
+      <div className="absolute inset-0 opacity-40" style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, #cbd5e1 1px, transparent 0)', backgroundSize: '32px 32px' }} />
       
       <div className="container mx-auto px-4 relative z-10">
         <motion.div
@@ -68,10 +67,10 @@ export default function IndustriesSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-4">
-            Your Industry, <span className="text-accent">Our Expertise</span>
+          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-[#0C4594] mb-4">
+            Your Industry, <span className="text-[#38B6FF]">Our Expertise</span>
           </h2>
-          <p className="text-lg text-primary/70 max-w-3xl mx-auto">
+          <p className="text-lg text-[#475569] max-w-3xl mx-auto">
             Every industry has unique challenges. We bring deep domain expertise combined 
             with cutting-edge technology to deliver solutions that drive real business outcomes.
           </p>
@@ -94,24 +93,24 @@ export default function IndustriesSection() {
                 className="group relative"
               >
                 <div className={`
-                  bg-gradient-to-b from-secondary/5 to-white border border-border/30 rounded-xl h-full cursor-pointer relative overflow-hidden p-6
-                  transition-all duration-300 hover:shadow-md
-                  ${isHovered ? 'border-accent/40 shadow-lg' : ''}
+                  bg-white border border-[#e2e8f0] rounded-2xl h-full cursor-pointer relative overflow-hidden p-6
+                  transition-all duration-300 shadow-[0_2px_10px_rgba(0,0,0,0.04)]
+                  ${isHovered ? 'border-[#38B6FF]/50 shadow-[0_8px_30px_rgba(56,182,255,0.15)]' : 'hover:shadow-[0_4px_20px_rgba(0,0,0,0.08)]'}
                 `}>
                   <div className={`
-                    w-12 h-12 rounded-xl bg-accent/10
+                    w-12 h-12 rounded-xl bg-[#0C4594]/10
                     flex items-center justify-center mb-4
-                    transition-all duration-300 ${isHovered ? 'scale-110 bg-accent/20' : ''}
+                    transition-all duration-300 ${isHovered ? 'scale-110 bg-gradient-to-br from-[#0C4594] to-[#38B6FF]' : ''}
                   `}>
-                    <Icon className={`w-6 h-6 transition-colors ${isHovered ? 'text-accent' : 'text-accent/70'}`} />
+                    <Icon className={`w-6 h-6 transition-colors ${isHovered ? 'text-white' : 'text-[#0C4594]'}`} />
                   </div>
 
-                  <h3 className="font-display font-semibold text-primary mb-2 relative z-10">
+                  <h3 className="font-display font-semibold text-[#0C4594] mb-2 relative z-10">
                     {industry.name}
                   </h3>
 
                   <p className={`
-                    text-sm text-primary/60 transition-all duration-300 relative z-10
+                    text-sm text-[#64748b] transition-all duration-300 relative z-10
                     ${isHovered ? 'opacity-100 max-h-20' : 'opacity-0 max-h-0 overflow-hidden'}
                   `}>
                     {industry.description}
@@ -128,7 +127,7 @@ export default function IndustriesSection() {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="text-center"
         >
-          <Button className="bg-primary hover:bg-primary/90 text-white rounded-xl px-8 py-6 text-base font-semibold shadow-md hover:shadow-lg transition-all">
+          <Button className="bg-[#0C4594] hover:bg-[#0C4594]/90 text-white rounded-xl px-8 py-6 text-base font-semibold shadow-lg hover:shadow-xl transition-all">
             Get Industry-Specific Solutions
             <ArrowRight className="ml-2 w-4 h-4" />
           </Button>
