@@ -55,7 +55,7 @@ const menuContent: Record<string, MenuContent> = {
             subItems: [
               { icon: Brain, label: 'Gemini Enterprise', desc: 'AI-powered productivity', href: '/gemini-enterprise' },
               { icon: Cpu, label: 'Google AI Ultra', desc: 'Advanced AI capabilities', href: '/google-ai-ultra' },
-              { icon: Zap, label: 'Glean', desc: 'Enterprise search & knowledge' },
+              { icon: Zap, label: 'Glean', desc: 'Enterprise search & knowledge', href: '/glean' },
             ]
           },
           { 
