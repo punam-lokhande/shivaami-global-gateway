@@ -22,7 +22,7 @@ const mobileMenuData = [
           },
           { 
             name: 'Email & Collaboration', 
-            subItems: ['Google Workspace', 'Microsoft 365', 'Zoho Workplace'] 
+            subItems: ['Google Workspace', 'Microsoft 365', 'Zoho Mail'] 
           },
         ],
       },
