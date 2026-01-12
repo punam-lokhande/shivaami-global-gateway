@@ -54,7 +54,7 @@ const menuContent: Record<string, MenuContent> = {
             desc: 'Enterprise AI & automation tools',
             subItems: [
               { icon: Brain, label: 'Gemini Enterprise', desc: 'AI-powered productivity', href: '/gemini-enterprise' },
-              { icon: Cpu, label: 'Google AI Ultra', desc: 'Advanced AI capabilities' },
+              { icon: Cpu, label: 'Google AI Ultra', desc: 'Advanced AI capabilities', href: '/google-ai-ultra' },
               { icon: Zap, label: 'Glean', desc: 'Enterprise search & knowledge' },
             ]
           },

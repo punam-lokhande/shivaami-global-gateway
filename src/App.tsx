@@ -7,6 +7,7 @@ import { RegionProvider } from "@/contexts/RegionContext";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import GeminiEnterprise from "./pages/GeminiEnterprise";
+import GoogleAIUltra from "./pages/GoogleAIUltra";
 
 const queryClient = new QueryClient();
 
@@ -20,6 +21,7 @@ const App = () => (
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/gemini-enterprise" element={<GeminiEnterprise />} />
+            <Route path="/google-ai-ultra" element={<GoogleAIUltra />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
