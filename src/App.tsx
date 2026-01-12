@@ -10,6 +10,7 @@ import GeminiEnterprise from "./pages/GeminiEnterprise";
 import GoogleAIUltra from "./pages/GoogleAIUltra";
 import Glean from "./pages/Glean";
 import GoogleWorkspace from "./pages/GoogleWorkspace";
+import Microsoft365 from "./pages/Microsoft365";
 
 const queryClient = new QueryClient();
 
@@ -26,6 +27,7 @@ const App = () => (
             <Route path="/google-ai-ultra" element={<GoogleAIUltra />} />
             <Route path="/glean" element={<Glean />} />
             <Route path="/google-workspace" element={<GoogleWorkspace />} />
+            <Route path="/microsoft-365" element={<Microsoft365 />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

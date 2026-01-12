@@ -64,7 +64,7 @@ const menuContent: Record<string, MenuContent> = {
             desc: 'Communication & productivity suites',
             subItems: [
               { icon: Mail, label: 'Google Workspace', desc: 'Gmail, Drive, Docs & more', href: '/google-workspace' },
-              { icon: Monitor, label: 'Microsoft 365', desc: 'Office apps & Teams' },
+              { icon: Monitor, label: 'Microsoft 365', desc: 'Office apps & Teams', href: '/microsoft-365' },
               { icon: Mail, label: 'Zoho Workplace', desc: 'Integrated office suite' },
             ]
           },
