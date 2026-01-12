@@ -9,6 +9,7 @@ import NotFound from "./pages/NotFound";
 import GeminiEnterprise from "./pages/GeminiEnterprise";
 import GoogleAIUltra from "./pages/GoogleAIUltra";
 import Glean from "./pages/Glean";
+import GoogleWorkspace from "./pages/GoogleWorkspace";
 
 const queryClient = new QueryClient();
 
@@ -24,6 +25,7 @@ const App = () => (
             <Route path="/gemini-enterprise" element={<GeminiEnterprise />} />
             <Route path="/google-ai-ultra" element={<GoogleAIUltra />} />
             <Route path="/glean" element={<Glean />} />
+            <Route path="/google-workspace" element={<GoogleWorkspace />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
