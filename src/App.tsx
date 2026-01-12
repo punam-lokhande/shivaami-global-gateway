@@ -11,6 +11,7 @@ import GoogleAIUltra from "./pages/GoogleAIUltra";
 import Glean from "./pages/Glean";
 import GoogleWorkspace from "./pages/GoogleWorkspace";
 import Microsoft365 from "./pages/Microsoft365";
+import ZohoMail from "./pages/ZohoMail";
 
 const queryClient = new QueryClient();
 
@@ -28,6 +29,7 @@ const App = () => (
             <Route path="/glean" element={<Glean />} />
             <Route path="/google-workspace" element={<GoogleWorkspace />} />
             <Route path="/microsoft-365" element={<Microsoft365 />} />
+            <Route path="/zoho-mail" element={<ZohoMail />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
