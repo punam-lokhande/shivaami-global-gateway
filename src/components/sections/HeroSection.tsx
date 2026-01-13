@@ -25,7 +25,7 @@ export default function HeroSection() {
         <img
           src={heroImage}
           alt="Enterprise cloud and AI solutions"
-          className="w-full h-full object-cover object-center"
+          className="w-full h-full object-cover object-center sm:object-center md:object-[70%_center] lg:object-center"
           loading="eager"
         />
         {/* Soft localized gradient - only behind text area, blends smoothly into image */}
@@ -47,18 +47,6 @@ export default function HeroSection() {
       {/* Content - Left aligned */}
       <motion.div style={{ opacity }} className="relative z-10 w-full px-8 lg:px-16 xl:px-24 pt-24 pb-16">
         <div className="max-w-2xl">
-          {/* Trust Badge */}
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="mb-8"
-          >
-            <span className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-background/80 backdrop-blur-md text-sm font-medium text-primary border border-primary/20 shadow-soft">
-              <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-              Trusted by 20,000+ Organizations Worldwide
-            </span>
-          </motion.div>
 
           {/* Headline */}
           <motion.h1
