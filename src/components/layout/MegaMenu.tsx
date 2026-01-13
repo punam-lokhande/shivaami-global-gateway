@@ -284,7 +284,7 @@ export default function MegaMenu({ activeKey, anchorRect, onClose }: MegaMenuPro
     }
   }
   
-  const topPx = (anchorRect?.bottom ?? 80) + 2;
+  const topPx = Math.max((anchorRect?.bottom ?? 80) - 10, 0);
 
   return (
     <motion.div
