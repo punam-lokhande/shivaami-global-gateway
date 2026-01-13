@@ -10,9 +10,9 @@ const pillars = [
     subtitle: 'Intelligence that drives productivity',
     description: 'AI-powered tools and intelligent collaboration platforms that transform how your teams work, communicate, and innovate.',
     items: ['Google Workspace', 'Microsoft 365', 'Gemini Enterprise', 'Glean AI Search'],
-    gradient: 'from-blue-500 via-cyan-500 to-blue-600',
-    lightGradient: 'from-blue-50 to-cyan-50',
-    accentColor: 'blue',
+    gradient: 'from-blue-600 via-blue-500 to-sky-500',
+    lightGradient: 'from-blue-500/10 to-sky-500/10',
+    iconColor: 'text-blue-500',
     image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=400&h=250&fit=crop',
   },
   {
@@ -22,9 +22,9 @@ const pillars = [
     subtitle: 'Protection you can trust',
     description: 'Enterprise-grade security from identity management to cloud infrastructure, keeping your data and operations secure.',
     items: ['JumpCloud', 'Palo Alto Networks', 'Chrome Enterprise', 'SSL & DMARC'],
-    gradient: 'from-emerald-500 via-teal-500 to-emerald-600',
-    lightGradient: 'from-emerald-50 to-teal-50',
-    accentColor: 'emerald',
+    gradient: 'from-blue-700 via-blue-600 to-blue-500',
+    lightGradient: 'from-blue-600/10 to-blue-400/10',
+    iconColor: 'text-blue-600',
     image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?w=400&h=250&fit=crop',
   },
   {
@@ -34,9 +34,9 @@ const pillars = [
     subtitle: 'Operations without friction',
     description: 'Expert migration, ongoing support, and continuous optimization services that ensure your technology works seamlessly.',
     items: ['SwiftMove Migration', 'Pulse360 Support', 'ChangePath Training', '24/7 Help Desk'],
-    gradient: 'from-violet-500 via-purple-500 to-violet-600',
-    lightGradient: 'from-violet-50 to-purple-50',
-    accentColor: 'violet',
+    gradient: 'from-sky-600 via-blue-500 to-indigo-500',
+    lightGradient: 'from-sky-500/10 to-indigo-500/10',
+    iconColor: 'text-sky-500',
     image: 'https://images.unsplash.com/photo-1551434678-e076c223a692?w=400&h=250&fit=crop',
   },
 ];
@@ -121,12 +121,8 @@ export default function PillarsSection() {
                     {/* Items with checkmarks */}
                     <ul className="space-y-2.5 mb-6">
                       {pillar.items.map((item) => (
-                        <li key={item} className="flex items-center gap-3 text-sm text-foreground/80">
-                          <CheckCircle2 className={`w-4 h-4 flex-shrink-0 ${
-                            pillar.accentColor === 'blue' ? 'text-blue-500' :
-                            pillar.accentColor === 'emerald' ? 'text-emerald-500' :
-                            'text-violet-500'
-                          }`} />
+                        <li key={item} className="flex items-center gap-3 text-sm text-foreground/80 group-hover:text-foreground transition-colors">
+                          <CheckCircle2 className={`w-4 h-4 flex-shrink-0 ${pillar.iconColor}`} />
                           {item}
                         </li>
                       ))}
@@ -138,16 +134,14 @@ export default function PillarsSection() {
                       className={`inline-flex items-center gap-2 text-sm font-semibold bg-gradient-to-r ${pillar.gradient} bg-clip-text text-transparent hover:gap-3 transition-all group/link`}
                     >
                       Learn More
-                      <ArrowRight className={`w-4 h-4 transition-transform group-hover/link:translate-x-1 ${
-                        pillar.accentColor === 'blue' ? 'text-blue-500' :
-                        pillar.accentColor === 'emerald' ? 'text-emerald-500' :
-                        'text-violet-500'
-                      }`} />
+                      <ArrowRight className={`w-4 h-4 transition-transform group-hover/link:translate-x-1 ${pillar.iconColor}`} />
                     </a>
                   </div>
 
-                  {/* Hover glow effect */}
-                  <div className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none bg-gradient-to-t ${pillar.lightGradient} mix-blend-overlay`} />
+                  {/* Hover glow effect - subtle blue tint that doesn't affect text readability */}
+                  <div className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none`}>
+                    <div className={`absolute inset-0 bg-gradient-to-t ${pillar.lightGradient}`} />
+                  </div>
                 </div>
               </motion.div>
             );
