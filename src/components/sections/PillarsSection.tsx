@@ -86,17 +86,19 @@ export default function PillarsSection() {
                 className="group"
               >
                 <div className={`relative h-full bg-card rounded-3xl border border-border/50 overflow-hidden shadow-soft hover:shadow-elevated transition-all duration-500 hover:-translate-y-2`}>
-                  {/* Image Header */}
-                  <div className="relative h-40 overflow-hidden">
-                    <img 
-                      src={pillar.image} 
-                      alt={pillar.title}
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                    />
-                    <div className={`absolute inset-0 bg-gradient-to-t ${pillar.gradient} opacity-60`} />
+                  {/* Image Header - Added padding-bottom to prevent icon cutoff */}
+                  <div className="relative h-48 overflow-visible">
+                    <div className="absolute inset-0 overflow-hidden rounded-t-3xl">
+                      <img 
+                        src={pillar.image} 
+                        alt={pillar.title}
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                      />
+                      <div className={`absolute inset-0 bg-gradient-to-t ${pillar.gradient} opacity-60`} />
+                    </div>
                     
-                    {/* Floating Icon */}
-                    <div className="absolute -bottom-6 left-6">
+                    {/* Floating Icon - positioned to not get cut off */}
+                    <div className="absolute -bottom-7 left-6 z-10">
                       <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${pillar.gradient} flex items-center justify-center shadow-lg ring-4 ring-background`}>
                         <Icon className="w-7 h-7 text-white" />
                       </div>
