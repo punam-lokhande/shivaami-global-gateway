@@ -3,7 +3,7 @@ import { useRef } from 'react';
 import { ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
-import heroImage from '@/assets/hero-enterprise-bg.jpg';
+import heroImage from '@/assets/hero-dark-enterprise.jpg';
 
 export default function HeroSection() {
   const ref = useRef<HTMLDivElement>(null);
@@ -104,24 +104,6 @@ export default function HeroSection() {
             </Link>
           </motion.div>
 
-          {/* Stats row - subtle trust indicators */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.6 }}
-            className="mt-16 flex flex-wrap gap-8 lg:gap-12"
-          >
-            {[
-              { value: '20K+', label: 'Organizations' },
-              { value: '50+', label: 'Countries' },
-              { value: '99.9%', label: 'Uptime SLA' },
-            ].map((stat) => (
-              <div key={stat.label} className="flex flex-col">
-                <span className="text-2xl lg:text-3xl font-bold text-foreground">{stat.value}</span>
-                <span className="text-sm text-muted-foreground">{stat.label}</span>
-              </div>
-            ))}
-          </motion.div>
         </div>
       </motion.div>
 
