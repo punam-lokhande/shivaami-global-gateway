@@ -1,7 +1,6 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { Mail, Phone, MapPin, Linkedin, Twitter, Youtube, ArrowRight } from 'lucide-react';
-import { useRegion } from '@/contexts/RegionContext';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 
@@ -56,7 +55,6 @@ const footerLinks = {
 export default function Footer() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
-  const { content, region } = useRegion();
 
   return (
     <footer ref={ref} className="bg-background text-foreground">
@@ -90,7 +88,7 @@ export default function Footer() {
       {/* Main Footer */}
       <div className="container mx-auto px-4 py-16">
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 mb-12">
-          {/* Logo & Contact */}
+          {/* Logo & Contact - Both Regions */}
           <div className="col-span-2 md:col-span-3 lg:col-span-1">
             <div className="flex items-center gap-2 mb-6">
               <div className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center">
@@ -98,19 +96,37 @@ export default function Footer() {
               </div>
               <span className="font-display font-bold text-xl text-foreground">Shivaami</span>
             </div>
-            <div className="space-y-3 text-sm text-muted-foreground">
-              <a href={`tel:${content.phone}`} className="flex items-center gap-2 hover:text-foreground transition-colors">
-                <Phone className="w-4 h-4" />
-                {content.phone}
-              </a>
+            <div className="space-y-4 text-sm text-muted-foreground">
               <a href="mailto:hello@shivaami.com" className="flex items-center gap-2 hover:text-foreground transition-colors">
                 <Mail className="w-4 h-4" />
                 hello@shivaami.com
               </a>
-              <p className="flex items-start gap-2">
-                <MapPin className="w-4 h-4 mt-0.5" />
-                <span>{content.offices}</span>
-              </p>
+              
+              {/* India Office */}
+              <div className="space-y-2">
+                <h5 className="font-semibold text-foreground text-xs uppercase tracking-wide">India</h5>
+                <a href="tel:+912248908000" className="flex items-center gap-2 hover:text-foreground transition-colors">
+                  <Phone className="w-4 h-4" />
+                  +91 22 4890 8000
+                </a>
+                <p className="flex items-start gap-2">
+                  <MapPin className="w-4 h-4 mt-0.5 flex-shrink-0" />
+                  <span>Mumbai, Delhi, Bangalore, Chennai</span>
+                </p>
+              </div>
+              
+              {/* USA Office */}
+              <div className="space-y-2">
+                <h5 className="font-semibold text-foreground text-xs uppercase tracking-wide">USA</h5>
+                <a href="tel:+16506008000" className="flex items-center gap-2 hover:text-foreground transition-colors">
+                  <Phone className="w-4 h-4" />
+                  +1 (650) 600-8000
+                </a>
+                <p className="flex items-start gap-2">
+                  <MapPin className="w-4 h-4 mt-0.5 flex-shrink-0" />
+                  <span>San Francisco, New York</span>
+                </p>
+              </div>
             </div>
           </div>
 
