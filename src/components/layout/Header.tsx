@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { useEffect, useRef, useState } from 'react';
+import { AnimatePresence } from 'framer-motion';
 import { Search, Phone, LogIn, HelpCircle, ChevronDown, Menu, X } from 'lucide-react';
 import { useRegion } from '@/contexts/RegionContext';
 import { Button } from '@/components/ui/button';
@@ -7,6 +7,12 @@ import MegaMenu from './MegaMenu';
 import MobileMenu from './MobileMenu';
 import SearchDialog from './SearchDialog';
 import shivaamiLogo from '@/assets/shivaami-logo.png';
+
+type AnchorRect = {
+  left: number;
+  width: number;
+  bottom: number;
+};
 
 const navItems = [
   { label: 'Solutions & Services', hasMenu: true, key: 'solutions' },
@@ -18,8 +24,15 @@ const navItems = [
 export default function Header() {
   const { region, setRegion, content } = useRegion();
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
+  const [menuAnchor, setMenuAnchor] = useState<AnchorRect | null>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
+
+  const navItemRefs = useRef<Record<string, HTMLDivElement | null>>({});
+
+  useEffect(() => {
+    if (!activeMenu) setMenuAnchor(null);
+  }, [activeMenu]);
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50">
@@ -101,15 +114,21 @@ export default function Header() {
               {navItems.map((item) => (
                 <div
                   key={item.key}
+                  ref={(el) => {
+                    navItemRefs.current[item.key] = el;
+                  }}
                   className="relative"
-                  onMouseEnter={() => item.hasMenu && setActiveMenu(item.key)}
+                  onMouseEnter={() => {
+                    if (!item.hasMenu) return;
+                    setActiveMenu(item.key);
+                    const el = navItemRefs.current[item.key];
+                    if (!el) return;
+                    const rect = el.getBoundingClientRect();
+                    setMenuAnchor({ left: rect.left, width: rect.width, bottom: rect.bottom });
+                  }}
                 >
                   <a
                     href={`#${item.key}`}
-                    onClick={(e) => {
-                      // Allow click even when dropdown is showing
-                      console.log('Navigating to:', item.key);
-                    }}
                     className={`flex items-center gap-1.5 px-4 py-2.5 text-sm font-medium transition-all duration-200 ${
                       activeMenu === item.key 
                         ? 'text-primary' 
@@ -149,13 +168,19 @@ export default function Header() {
         {/* Mega Menu */}
         <AnimatePresence>
           {activeMenu && (
-            <div 
-              onMouseEnter={() => setActiveMenu(activeMenu)}
-              onMouseLeave={() => setActiveMenu(null)}
+            <div
+              onMouseLeave={() => {
+                setActiveMenu(null);
+                setMenuAnchor(null);
+              }}
             >
-              <MegaMenu 
-                activeKey={activeMenu} 
-                onClose={() => setActiveMenu(null)}
+              <MegaMenu
+                activeKey={activeMenu}
+                anchorRect={menuAnchor}
+                onClose={() => {
+                  setActiveMenu(null);
+                  setMenuAnchor(null);
+                }}
               />
             </div>
           )}
