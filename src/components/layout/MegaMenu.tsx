@@ -241,10 +241,10 @@ export default function MegaMenu({ activeKey, onClose }: MegaMenuProps) {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -10 }}
       transition={{ duration: 0.2, ease: 'easeOut' }}
-      className="absolute top-full left-0 right-0 bg-card border-b border-border shadow-elevated z-50"
+      className="absolute top-full left-1/2 -translate-x-1/2 w-full max-w-6xl bg-card border border-border rounded-2xl shadow-elevated z-50 mt-2"
       onMouseLeave={onClose}
     >
-      <div className="container mx-auto px-4 py-8">
+      <div className="px-8 py-8">
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
           {menu.sections.map((section, idx) => (
             <div key={idx}>
