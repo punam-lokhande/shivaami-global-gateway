@@ -284,13 +284,13 @@ export default function MegaMenu({ activeKey, anchorRect, onClose }: MegaMenuPro
     }
   }
   
-  const topPx = (anchorRect?.bottom ?? 80) + 8;
+  const topPx = (anchorRect?.bottom ?? 80) + 2;
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: -10 }}
+      initial={{ opacity: 0, y: -8 }}
       animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -10 }}
+      exit={{ opacity: 0, y: -8 }}
       transition={{ duration: 0.2, ease: 'easeOut' }}
       style={{ left: leftPosition, top: topPx, maxWidth: menuWidth }}
       className="fixed bg-card border border-border rounded-2xl shadow-elevated z-50 overflow-hidden"
@@ -353,9 +353,9 @@ export default function MegaMenu({ activeKey, anchorRect, onClose }: MegaMenuPro
                               handleNavigation(item.href);
                             }
                           }}
-                          className="group flex items-center gap-2.5 p-2 rounded-lg hover:bg-secondary/50 transition-all duration-200"
+                          className="group flex items-center gap-2.5 p-2 rounded-lg hover:bg-primary/10 transition-all duration-200"
                         >
-                          <div className="w-8 h-8 rounded-lg bg-secondary flex items-center justify-center flex-shrink-0 group-hover:bg-primary/10 transition-all duration-200">
+                          <div className="w-8 h-8 rounded-lg bg-secondary flex items-center justify-center flex-shrink-0 group-hover:bg-primary/15 transition-all duration-200">
                             <Icon className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors" />
                           </div>
                           <div className="flex-1 min-w-0">
@@ -398,9 +398,9 @@ export default function MegaMenu({ activeKey, anchorRect, onClose }: MegaMenuPro
                                             handleNavigation(subItem.href);
                                           }
                                         }}
-                                        className="group flex items-center gap-2.5 p-2 rounded-lg hover:bg-secondary/50 transition-all duration-200"
+                                        className="group flex items-center gap-2.5 p-2 rounded-lg hover:bg-primary/10 transition-all duration-200"
                                       >
-                                        <div className="w-7 h-7 rounded-md bg-secondary/70 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/10 transition-all duration-200">
+                                        <div className="w-7 h-7 rounded-md bg-secondary/70 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/15 transition-all duration-200">
                                           <SubIcon className="w-3.5 h-3.5 text-muted-foreground group-hover:text-primary transition-colors" />
                                         </div>
                                         <div className="flex-1 min-w-0">
