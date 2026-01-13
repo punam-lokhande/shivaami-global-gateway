@@ -1,24 +1,34 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 
+// Import available partner logos
+import googleCloudLogo from '@/assets/partners/google-cloud.svg';
+import microsoftLogo from '@/assets/partners/microsoft.svg';
+import awsLogo from '@/assets/partners/aws.svg';
+import jamfLogo from '@/assets/partners/jamf.svg';
+import zohoLogo from '@/assets/partners/zoho.svg';
+import googleLogo from '@/assets/partners/google.svg';
+import oktaLogo from '@/assets/partners/okta.svg';
+import chromeLogo from '@/assets/partners/chrome.svg';
+
 const partners = [
-  'Google Cloud',
-  'Microsoft',
-  'AWS',
-  'Palo Alto',
-  'JumpCloud',
-  'Okta',
-  'Jamf',
-  'Scalefusion',
-  'MiniOrange',
-  'SuperOps',
-  'Atera',
-  'Wiz',
-  'Check Point',
-  'Tenable',
-  'Zoho',
-  'Glean',
-  'Chrome Enterprise',
+  { name: 'Google Cloud', logo: googleCloudLogo },
+  { name: 'Microsoft', logo: microsoftLogo },
+  { name: 'AWS', logo: awsLogo },
+  { name: 'Palo Alto', logo: null },
+  { name: 'JumpCloud', logo: null },
+  { name: 'Okta', logo: oktaLogo },
+  { name: 'Jamf', logo: jamfLogo },
+  { name: 'Scalefusion', logo: null },
+  { name: 'MiniOrange', logo: null },
+  { name: 'SuperOps', logo: null },
+  { name: 'Atera', logo: null },
+  { name: 'Wiz', logo: null },
+  { name: 'Check Point', logo: null },
+  { name: 'Tenable', logo: null },
+  { name: 'Zoho', logo: zohoLogo },
+  { name: 'Glean', logo: null },
+  { name: 'Chrome Enterprise', logo: chromeLogo },
 ];
 
 export default function PartnersSection() {
@@ -26,18 +36,18 @@ export default function PartnersSection() {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section ref={ref} className="py-20 bg-white border-y border-[#e2e8f0]">
-      <div className="container mx-auto px-4">
+    <section ref={ref} className="py-20 bg-white border-y border-border/30">
+      <div className="w-full px-8 lg:px-16 xl:px-24">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h2 className="font-display text-2xl md:text-3xl font-bold text-[#0C4594] mb-2">
-            Technology Partners
+          <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground mb-2">
+            Technology <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Partners</span>
           </h2>
-          <p className="text-[#64748b]">
+          <p className="text-muted-foreground">
             Partnering with industry leaders to deliver best-in-class solutions
           </p>
         </motion.div>
@@ -62,10 +72,18 @@ export default function PartnersSection() {
             {/* Double the partners for seamless loop */}
             {[...partners, ...partners].map((partner, index) => (
               <div
-                key={`${partner}-${index}`}
-                className="flex-shrink-0 px-6 py-4 rounded-xl bg-[#f8fafc] border border-[#e2e8f0] hover:border-[#38B6FF]/40 hover:shadow-md transition-all flex items-center justify-center min-w-[140px] h-[60px]"
+                key={`${partner.name}-${index}`}
+                className="flex-shrink-0 px-6 py-4 rounded-xl bg-secondary/30 border border-border/50 hover:border-primary/30 hover:shadow-md transition-all flex items-center justify-center min-w-[160px] h-[70px]"
               >
-                <span className="text-sm font-semibold text-[#0C4594] whitespace-nowrap">{partner}</span>
+                {partner.logo ? (
+                  <img 
+                    src={partner.logo} 
+                    alt={partner.name}
+                    className="h-8 w-auto object-contain max-w-[120px]"
+                  />
+                ) : (
+                  <span className="text-sm font-semibold text-foreground whitespace-nowrap">{partner.name}</span>
+                )}
               </div>
             ))}
           </motion.div>

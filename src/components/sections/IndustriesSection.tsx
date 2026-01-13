@@ -3,7 +3,7 @@ import { useRef, useState } from 'react';
 import { 
   Heart, Banknote, ShoppingCart, Factory, 
   Megaphone, Cpu, Hotel, Truck,
-  ArrowRight
+  ArrowRight, Sparkles
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
@@ -74,9 +74,12 @@ export default function IndustriesSection() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   return (
-    <section ref={ref} className="py-24 bg-[#f8fafc] relative overflow-hidden">
-      {/* Subtle background pattern */}
-      <div className="absolute inset-0 opacity-40" style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, #cbd5e1 1px, transparent 0)', backgroundSize: '32px 32px' }} />
+    <section ref={ref} className="py-24 bg-gradient-to-b from-background via-secondary/20 to-background relative overflow-hidden">
+      {/* Background decoration - matching Pillars section */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-accent/5 rounded-full blur-3xl" />
+      </div>
       
       <div className="w-full px-8 lg:px-16 xl:px-24 relative z-10">
         <motion.div
@@ -85,17 +88,21 @@ export default function IndustriesSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-[#0C4594] mb-4">
-            Your Industry, <span className="text-[#010203]">Our Expertise</span>
+          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-sm font-medium mb-6">
+            <Sparkles className="w-4 h-4 text-primary" />
+            <span className="text-primary">Industry Solutions</span>
+          </span>
+          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
+            Your Industry, <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Our Expertise</span>
           </h2>
-          <p className="text-lg text-[#475569] max-w-3xl mx-auto">
+          <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
             Every industry has unique challenges. We bring deep domain expertise combined 
             with cutting-edge technology to deliver solutions that drive real business outcomes.
           </p>
         </motion.div>
 
         {/* Bento Grid with Images */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
           {industries.map((industry, index) => {
             const Icon = industry.icon;
             const isHovered = hoveredIndex === index;
@@ -103,51 +110,59 @@ export default function IndustriesSection() {
             return (
               <motion.div
                 key={industry.name}
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                transition={{ duration: 0.5, delay: index * 0.05 }}
+                initial={{ opacity: 0, y: 40 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.5, delay: index * 0.08 }}
                 onMouseEnter={() => setHoveredIndex(index)}
                 onMouseLeave={() => setHoveredIndex(null)}
-                className="group relative"
+                className="group"
               >
                 <div className={`
-                  bg-white border border-[#e2e8f0] rounded-2xl h-full cursor-pointer relative overflow-hidden
-                  transition-all duration-300 shadow-[0_2px_10px_rgba(0,0,0,0.04)]
-                  ${isHovered ? 'border-[#38B6FF]/50 shadow-[0_8px_30px_rgba(56,182,255,0.15)]' : 'hover:shadow-[0_4px_20px_rgba(0,0,0,0.08)]'}
+                  bg-card border border-border/50 rounded-2xl h-full cursor-pointer relative overflow-hidden
+                  transition-all duration-500 shadow-soft hover:shadow-elevated hover:-translate-y-2
+                  ${isHovered ? 'border-primary/30' : ''}
                 `}>
                   {/* Industry Image */}
-                  <div className="relative h-32 overflow-hidden">
-                    <img 
-                      src={industry.image} 
-                      alt={industry.name}
-                      className={`w-full h-full object-cover transition-transform duration-500 ${isHovered ? 'scale-110' : 'scale-100'}`}
-                    />
-                    {/* Gradient overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-white via-white/20 to-transparent" />
+                  <div className="relative h-36 overflow-visible">
+                    <div className="absolute inset-0 overflow-hidden rounded-t-2xl">
+                      <img 
+                        src={industry.image} 
+                        alt={industry.name}
+                        className={`w-full h-full object-cover transition-transform duration-700 ${isHovered ? 'scale-110' : 'scale-100'}`}
+                      />
+                      {/* Gradient overlay matching Pillars style */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-blue-600/60 via-blue-500/30 to-transparent" />
+                    </div>
                     
-                    {/* Floating Icon */}
-                    <div className={`
-                      absolute bottom-3 left-4 w-10 h-10 rounded-xl
-                      flex items-center justify-center
-                      transition-all duration-300 backdrop-blur-sm
-                      ${isHovered ? 'bg-gradient-to-br from-[#0C4594] to-[#38B6FF] scale-110' : 'bg-white/90 border border-[#e2e8f0]'}
-                    `}>
-                      <Icon className={`w-5 h-5 transition-colors ${isHovered ? 'text-white' : 'text-[#0C4594]'}`} />
+                    {/* Floating Icon - matching Pillars style */}
+                    <div className="absolute -bottom-5 left-4 z-10">
+                      <div className={`
+                        w-10 h-10 rounded-xl flex items-center justify-center shadow-lg ring-4 ring-background
+                        transition-all duration-300
+                        ${isHovered ? 'bg-gradient-to-br from-primary to-accent scale-110' : 'bg-gradient-to-br from-blue-600 to-sky-500'}
+                      `}>
+                        <Icon className="w-5 h-5 text-white" />
+                      </div>
                     </div>
                   </div>
 
                   {/* Content */}
-                  <div className="p-4 pt-2">
-                    <h3 className="font-display font-semibold text-[#0C4594] mb-1">
+                  <div className="p-4 pt-7">
+                    <h3 className="font-display font-semibold text-foreground mb-1">
                       {industry.name}
                     </h3>
 
                     <p className={`
-                      text-sm text-[#64748b] transition-all duration-300
-                      ${isHovered ? 'opacity-100 max-h-20' : 'opacity-70 max-h-10 line-clamp-2'}
+                      text-sm text-muted-foreground transition-all duration-300 leading-relaxed
+                      ${isHovered ? 'opacity-100' : 'opacity-80'}
                     `}>
                       {industry.description}
                     </p>
+                  </div>
+
+                  {/* Hover glow effect */}
+                  <div className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none`}>
+                    <div className="absolute inset-0 bg-gradient-to-t from-primary/5 to-accent/5" />
                   </div>
                 </div>
               </motion.div>
@@ -156,15 +171,18 @@ export default function IndustriesSection() {
         </div>
 
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={isInView ? { opacity: 1 } : {}}
-          transition={{ duration: 0.6, delay: 0.4 }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.6 }}
           className="text-center"
         >
-          <Button className="bg-[#0C4594] hover:bg-[#0C4594]/90 text-white rounded-xl px-8 py-6 text-base font-semibold shadow-lg hover:shadow-xl transition-all">
+          <a
+            href="/industries"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-primary text-primary-foreground rounded-full font-semibold shadow-lg hover:shadow-xl hover:bg-primary/90 transition-all duration-300 group"
+          >
             Get Industry-Specific Solutions
-            <ArrowRight className="ml-2 w-4 h-4" />
-          </Button>
+            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+          </a>
         </motion.div>
       </div>
     </section>
