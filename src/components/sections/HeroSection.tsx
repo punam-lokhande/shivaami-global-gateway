@@ -36,8 +36,8 @@ export default function HeroSection() {
       </motion.div>
 
       {/* Content - Left aligned */}
-      <motion.div style={{ opacity }} className="relative z-10 container mx-auto px-4 lg:px-8 pt-24 pb-16">
-        <div className="max-w-3xl">
+      <motion.div style={{ opacity }} className="relative z-10 w-full px-8 lg:px-16 xl:px-24 pt-24 pb-16">
+        <div className="max-w-2xl">
           {/* Trust Badge */}
           <motion.div
             initial={{ opacity: 0, y: 24 }}
