@@ -25,14 +25,23 @@ export default function HeroSection() {
         <img
           src={heroImage}
           alt="Enterprise cloud and AI solutions"
-          className="w-full h-full object-cover object-right-top"
+          className="w-full h-full object-cover object-center"
           loading="eager"
         />
-        {/* Clean gradient overlay - strong left fade for text, subtle right */}
-        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/90 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-r from-background/80 via-background/40 to-transparent" />
-        {/* Subtle top/bottom fade */}
-        <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-transparent to-background/40" />
+        {/* Soft localized gradient - only behind text area, blends smoothly into image */}
+        <div 
+          className="absolute inset-0" 
+          style={{
+            background: 'linear-gradient(to right, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.85) 20%, rgba(255,255,255,0.5) 40%, rgba(255,255,255,0) 55%)'
+          }}
+        />
+        {/* Subtle blue/teal tint behind text for brand consistency */}
+        <div 
+          className="absolute inset-0" 
+          style={{
+            background: 'linear-gradient(to right, rgba(14,165,233,0.08) 0%, rgba(20,184,166,0.05) 30%, transparent 50%)'
+          }}
+        />
       </motion.div>
 
       {/* Content - Left aligned */}
