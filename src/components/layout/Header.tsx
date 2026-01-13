@@ -36,9 +36,9 @@ export default function Header() {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50">
-      {/* Utility Bar - White Background */}
+      {/* Utility Bar - Full Width */}
       <div className="bg-white border-b border-border/30">
-        <div className="container mx-auto px-4">
+        <div className="w-full px-8 lg:px-16 xl:px-24">
           <div className="flex items-center justify-end h-10 gap-4 text-sm">
             <button 
               onClick={() => setSearchOpen(true)}
@@ -96,12 +96,12 @@ export default function Header() {
       {/* Search Dialog */}
       <SearchDialog isOpen={searchOpen} onClose={() => setSearchOpen(false)} />
 
-      {/* Main Navigation - White Background */}
+      {/* Main Navigation - Full Width */}
       <nav className="bg-background border-b border-border/50 backdrop-blur-xl">
-        <div className="container mx-auto px-4">
+        <div className="w-full px-8 lg:px-16 xl:px-24">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
-            <a href="/" className="flex items-center">
+            <a href="/" className="flex items-center flex-shrink-0">
               <img 
                 src={shivaamiLogo} 
                 alt="Shivaami" 
@@ -109,7 +109,7 @@ export default function Header() {
               />
             </a>
 
-            {/* Desktop Navigation */}
+            {/* Desktop Navigation - Right Side */}
             <div className="hidden lg:flex items-center gap-1">
               {navItems.map((item) => (
                 <div
@@ -146,11 +146,9 @@ export default function Header() {
                   </a>
                 </div>
               ))}
-            </div>
-
-            {/* CTA Button */}
-            <div className="hidden lg:block">
-              <Button className="btn-glow bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-6">
+              
+              {/* CTA Button - Part of navigation */}
+              <Button className="btn-glow bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-6 ml-4">
                 Let's Connect
               </Button>
             </div>
