@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
@@ -10,8 +10,15 @@ import {
   ChevronRight, Laptop, Box, Smartphone, Layers, Settings
 } from 'lucide-react';
 
+type AnchorRect = {
+  left: number;
+  width: number;
+  bottom: number;
+};
+
 interface MegaMenuProps {
   activeKey: string;
+  anchorRect?: AnchorRect | null;
   onClose: () => void;
 }
 
@@ -221,11 +228,18 @@ const menuContent: Record<string, MenuContent> = {
   },
 };
 
-export default function MegaMenu({ activeKey, onClose }: MegaMenuProps) {
+export default function MegaMenu({ activeKey, anchorRect, onClose }: MegaMenuProps) {
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
+  const [viewportWidth, setViewportWidth] = useState(() => (typeof window !== 'undefined' ? window.innerWidth : 1440));
   const navigate = useNavigate();
   const menu = menuContent[activeKey];
-  
+
+  useEffect(() => {
+    const onResize = () => setViewportWidth(window.innerWidth);
+    window.addEventListener('resize', onResize);
+    return () => window.removeEventListener('resize', onResize);
+  }, []);
+
   if (!menu) return null;
 
   const handleNavigation = (href?: string) => {
@@ -235,13 +249,23 @@ export default function MegaMenu({ activeKey, onClose }: MegaMenuProps) {
     }
   };
 
+  const maxWidthPx = 1152; // max-w-6xl
+  const sidePaddingPx = 16;
+  const center = anchorRect ? anchorRect.left + anchorRect.width / 2 : viewportWidth / 2;
+  const clampedCenter = Math.min(
+    Math.max(center, maxWidthPx / 2 + sidePaddingPx),
+    viewportWidth - maxWidthPx / 2 - sidePaddingPx
+  );
+  const topPx = (anchorRect?.bottom ?? 80) + 10;
+
   return (
     <motion.div
       initial={{ opacity: 0, y: -10 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -10 }}
       transition={{ duration: 0.2, ease: 'easeOut' }}
-      className="absolute top-full left-1/2 -translate-x-1/2 w-full max-w-6xl bg-card border border-border rounded-2xl shadow-elevated z-50 mt-2"
+      style={{ left: clampedCenter, top: topPx }}
+      className="fixed -translate-x-1/2 w-[min(72rem,calc(100vw-2rem))] bg-popover border border-border rounded-2xl shadow-elevated z-50"
       onMouseLeave={onClose}
     >
       <div className="px-8 py-8">
@@ -332,7 +356,7 @@ export default function MegaMenu({ activeKey, onClose }: MegaMenuProps) {
                             animate={{ opacity: 1, x: 0, scale: 1 }}
                             exit={{ opacity: 0, x: -10, scale: 0.95 }}
                             transition={{ duration: 0.15, ease: 'easeOut' }}
-                            className="absolute left-full top-0 ml-2 w-64 bg-card rounded-xl border border-border shadow-elevated p-3 z-50"
+                            className="absolute left-full top-0 ml-2 w-64 bg-popover rounded-xl border border-border shadow-elevated p-3 z-50"
                             onMouseEnter={() => setHoveredItem(itemKey)}
                             onMouseLeave={() => setHoveredItem(null)}
                           >
