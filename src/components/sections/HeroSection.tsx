@@ -25,26 +25,15 @@ export default function HeroSection() {
         <img
           src={heroImage}
           alt="Enterprise cloud and AI solutions"
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover object-right-top"
           loading="eager"
         />
-        {/* Multi-layer gradient overlays for text readability */}
-        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/95 to-background/60" />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-transparent to-background/90" />
-        <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 via-transparent to-accent/5" />
+        {/* Clean gradient overlay - strong left fade for text, subtle right */}
+        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/90 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-background/80 via-background/40 to-transparent" />
+        {/* Subtle top/bottom fade */}
+        <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-transparent to-background/40" />
       </motion.div>
-
-      {/* Subtle animated glow accents */}
-      <motion.div
-        className="absolute top-1/3 right-1/4 w-[500px] h-[500px] rounded-full bg-primary/8 blur-[120px] z-[1]"
-        animate={{ opacity: [0.3, 0.5, 0.3], scale: [1, 1.1, 1] }}
-        transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
-      />
-      <motion.div
-        className="absolute bottom-1/4 left-1/3 w-[400px] h-[400px] rounded-full bg-accent/6 blur-[100px] z-[1]"
-        animate={{ opacity: [0.2, 0.4, 0.2], scale: [1, 1.05, 1] }}
-        transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
-      />
 
       {/* Content - Left aligned */}
       <motion.div style={{ opacity }} className="relative z-10 container mx-auto px-4 lg:px-8 pt-24 pb-16">
