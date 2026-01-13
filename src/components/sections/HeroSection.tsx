@@ -3,7 +3,7 @@ import { useRef } from 'react';
 import { ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
-import heroImage from '@/assets/global-network-bg.jpg';
+import heroImage from '@/assets/hero-enterprise-bg.jpg';
 
 export default function HeroSection() {
   const ref = useRef<HTMLDivElement>(null);
