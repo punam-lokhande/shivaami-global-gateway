@@ -15,6 +15,15 @@ import technicalDeploymentImg from '@/assets/activation/technical-deployment.jpg
 import securityConfigImg from '@/assets/activation/security-config.jpg';
 import teamTrainingImg from '@/assets/activation/team-training.jpg';
 import ongoingSupportImg from '@/assets/activation/ongoing-support.jpg';
+// Feature images
+import planningImg from '@/assets/migration/planning.jpg';
+import zeroDowntimeImg from '@/assets/migration/zero-downtime.jpg';
+import dataIntegrityImg from '@/assets/migration/data-integrity.jpg';
+import cloudPlatformsImg from '@/assets/migration/cloud-platforms.jpg';
+import appTestingImg from '@/assets/migration/app-testing.jpg';
+import rollbackImg from '@/assets/migration/rollback.jpg';
+import supportImg from '@/assets/migration/support.jpg';
+import securityImg from '@/assets/migration/security.jpg';
 
 const fadeInUp = {
   initial: { opacity: 0, y: 30 },
@@ -113,41 +122,49 @@ function FeaturesSection() {
       icon: Map,
       title: 'Complete Migration Planning',
       desc: 'We map out your entire migration before we begin. This prevents surprises and keeps your project on track.',
+      image: planningImg,
     },
     {
       icon: Clock,
       title: 'Zero Downtime Transitions',
       desc: 'Your business stays online while we move your systems. We schedule work during off-peak hours to avoid interruptions.',
+      image: zeroDowntimeImg,
     },
     {
       icon: Database,
       title: 'Data Integrity Checks',
       desc: 'We verify every file and database after migration. Your information arrives complete and accurate every time.',
+      image: dataIntegrityImg,
     },
     {
       icon: Cloud,
       title: 'Cloud and On-Premise Moves',
       desc: 'We handle migrations to AWS, Azure, Google Cloud, or your servers. Our team works with all major platforms and technologies.',
+      image: cloudPlatformsImg,
     },
     {
       icon: FileCheck,
       title: 'Application Compatibility Testing',
       desc: 'We test all your software before going live. This ensures everything works perfectly in the new environment.',
+      image: appTestingImg,
     },
     {
       icon: RefreshCw,
       title: 'Rollback Protection',
       desc: 'We keep your old system ready as backup. If issues arise, we can restore quickly and safely.',
+      image: rollbackImg,
     },
     {
       icon: Headphones,
       title: 'Post-Migration Support',
       desc: 'We stay with you after the move is complete. Our team monitors performance and fixes any problems that appear.',
+      image: supportImg,
     },
     {
       icon: Shield,
       title: 'Security Throughout',
       desc: 'Data protection at every stage of migration. Encrypted transfers and secure handling of sensitive information.',
+      image: securityImg,
     },
   ];
 
@@ -173,13 +190,25 @@ function FeaturesSection() {
                   initial: { opacity: 0, y: 20 },
                   whileInView: { opacity: 1, y: 0 }
                 }}
-                className="bg-white rounded-2xl p-6 border border-[#e2e8f0] hover:shadow-xl hover:border-[#38B6FF]/30 transition-all duration-300 group"
+                className="relative rounded-2xl overflow-hidden group h-[320px] cursor-pointer"
               >
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#0C4594] to-[#38B6FF] flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                  <Icon className="w-6 h-6 text-white" />
+                {/* Background Image */}
+                <img 
+                  src={feature.image} 
+                  alt={feature.title}
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+                {/* Blue Gradient Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0C4594] via-[#0C4594]/80 to-[#0C4594]/50 group-hover:from-[#0C4594] group-hover:via-[#0C4594]/85 group-hover:to-[#0C4594]/60 transition-all duration-300" />
+                
+                {/* Content */}
+                <div className="relative z-10 h-full flex flex-col justify-end p-6">
+                  <div className="w-12 h-12 rounded-xl bg-[#38B6FF] flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                    <Icon className="w-6 h-6 text-white" />
+                  </div>
+                  <h3 className="text-lg font-semibold text-white mb-2">{feature.title}</h3>
+                  <p className="text-white/80 text-sm leading-relaxed">{feature.desc}</p>
                 </div>
-                <h3 className="text-lg font-semibold text-[#0C4594] mb-2">{feature.title}</h3>
-                <p className="text-[#475569] text-sm leading-relaxed">{feature.desc}</p>
               </motion.div>
             );
           })}
