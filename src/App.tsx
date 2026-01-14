@@ -23,6 +23,10 @@ import Atera from "./pages/Atera";
 import AWS from "./pages/AWS";
 import Azure from "./pages/Azure";
 import JioCloud from "./pages/JioCloud";
+import PaloAlto from "./pages/PaloAlto";
+import Wiz from "./pages/Wiz";
+import CheckPoint from "./pages/CheckPoint";
+import Tenable from "./pages/Tenable";
 import BecomePartner from "./pages/BecomePartner";
 
 const queryClient = new QueryClient();
@@ -53,6 +57,10 @@ const App = () => (
             <Route path="/aws" element={<AWS />} />
             <Route path="/azure" element={<Azure />} />
             <Route path="/jiocloud" element={<JioCloud />} />
+            <Route path="/paloalto" element={<PaloAlto />} />
+            <Route path="/wiz" element={<Wiz />} />
+            <Route path="/checkpoint" element={<CheckPoint />} />
+            <Route path="/tenable" element={<Tenable />} />
             <Route path="/become-partner" element={<BecomePartner />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
