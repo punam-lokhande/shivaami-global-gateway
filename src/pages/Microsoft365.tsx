@@ -1,231 +1,323 @@
-import { motion } from 'framer-motion';
-import { FileText, Users, Mail, FolderOpen, Shield, Lock, Smartphone, Scale, Target, Rocket, ShieldCheck, GraduationCap, Headphones, ArrowRight, CheckCircle } from 'lucide-react';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { useRef, useState } from 'react';
+import { FileText, Users, Mail, FolderOpen, Shield, Lock, Smartphone, Scale, Target, Rocket, ShieldCheck, GraduationCap, Headphones, ArrowRight, CheckCircle2, Calendar, Play } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
+import { Link } from 'react-router-dom';
+import heroImage from '@/assets/banners/microsoft-365-banner.jpg';
+import strategicPlanningImg from '@/assets/activation/strategic-planning.jpg';
+import technicalDeploymentImg from '@/assets/activation/technical-deployment.jpg';
+import securityConfigImg from '@/assets/activation/security-config.jpg';
+import teamTrainingImg from '@/assets/activation/team-training.jpg';
+import ongoingSupportImg from '@/assets/activation/ongoing-support.jpg';
 
 const fadeInUp = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
+  initial: { opacity: 0, y: 30 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true },
+  transition: { duration: 0.6 }
 };
 
 const staggerContainer = {
-  hidden: { opacity: 0 },
-  visible: { opacity: 1, transition: { staggerChildren: 0.1 } }
+  initial: {},
+  whileInView: { transition: { staggerChildren: 0.1 } },
+  viewport: { once: true }
 };
 
-const HeroSection = () => (
-  <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#0C4594] via-[#1a5cb8] to-[#0C4594]">
-    <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-10" />
-    <div className="absolute top-20 left-10 w-72 h-72 bg-blue-400/20 rounded-full blur-3xl" />
-    <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-400/20 rounded-full blur-3xl" />
-    
-    <div className="container mx-auto px-4 py-20 relative z-10">
-      <motion.div
-        initial="hidden"
-        animate="visible"
-        variants={staggerContainer}
-        className="max-w-4xl mx-auto text-center"
+// Hero Section with Banner Image
+function HeroSection() {
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ['start start', 'end start'],
+  });
+
+  const y = useTransform(scrollYProgress, [0, 1], ['0%', '30%']);
+  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+
+  return (
+    <section ref={ref} className="relative h-[70vh] min-h-[500px] max-h-[600px] flex items-center overflow-hidden">
+      {/* Full-width Background Image */}
+      <motion.div 
+        style={{ y }}
+        className="absolute inset-0 z-0"
       >
-        <motion.div variants={fadeInUp} className="mb-6">
-          <span className="inline-block px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-white/90 text-sm font-medium border border-white/20">
-            Integrated Productivity Cloud Suite
-          </span>
-        </motion.div>
-        
-        <motion.h1 variants={fadeInUp} className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-          Microsoft 365: Integrated Productivity Cloud Suite
-        </motion.h1>
-        
-        <motion.p variants={fadeInUp} className="text-lg md:text-xl text-white/90 mb-6 leading-relaxed max-w-3xl mx-auto">
-          Microsoft 365, previously known as Office Suite, combines Office apps, cloud services, and enterprise security in one platform. It includes Teams, Outlook, Word, Excel, SharePoint, and advanced threat protection. Organizations choose it for integrated productivity, compliance tools, and hybrid work capabilities.
-        </motion.p>
-
-        <motion.p variants={fadeInUp} className="text-lg text-white/80 mb-8 leading-relaxed max-w-3xl mx-auto">
-          Shivaami is a certified Microsoft 365 partner delivering solutions across India. We help enterprises deploy, secure, and optimize their Microsoft cloud environment. Our team ensures successful migrations, security alignment, and user adoption at scale.
-        </motion.p>
-        
-        <motion.div variants={fadeInUp} className="flex flex-wrap justify-center gap-4">
-          <Button size="lg" className="bg-white text-[#0C4594] hover:bg-gray-100 font-semibold px-8 py-6 text-lg rounded-lg shadow-xl hover:shadow-2xl transition-all">
-            Talk to a Specialist Now
-            <ArrowRight className="ml-2 h-5 w-5" />
-          </Button>
-        </motion.div>
+        <img
+          src={heroImage}
+          alt="Microsoft 365"
+          className="w-full h-full object-cover object-center"
+          loading="eager"
+        />
+        {/* Dark overlay for better text readability */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0C4594]/95 via-[#0C4594]/80 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0C4594]/60 via-transparent to-[#0C4594]/40" />
       </motion.div>
-    </div>
-  </section>
-);
 
-const FeaturesSection = () => {
+      {/* Content - Left aligned with full width layout */}
+      <motion.div style={{ opacity }} className="relative z-10 w-full px-8 lg:px-16 xl:px-24 pt-24 lg:pt-28">
+        <div className="max-w-3xl">
+          {/* Headline */}
+          <motion.h1
+            initial={{ opacity: 0, y: 28 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="font-display text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-semibold text-white mb-6 leading-[1.15] tracking-tight"
+          >
+            <span className="text-[#38B6FF]">Microsoft 365:</span><br />
+            Integrated Productivity Cloud Suite
+          </motion.h1>
+
+          {/* Description */}
+          <motion.p
+            initial={{ opacity: 0, y: 28 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-base lg:text-lg text-white/80 max-w-2xl mb-8 leading-relaxed font-body"
+          >
+            Microsoft 365 combines Office apps, cloud services, and enterprise security in one platform. Shivaami is a certified Microsoft 365 partner delivering solutions across India.
+          </motion.p>
+
+          {/* CTA */}
+          <motion.div 
+            initial={{ opacity: 0, y: 28 }} 
+            animate={{ opacity: 1, y: 0 }} 
+            transition={{ duration: 0.6, delay: 0.3 }}
+          >
+            <Link to="/lets-connect">
+              <Button
+                size="lg"
+                className="bg-[#38B6FF] hover:bg-[#2da8f0] text-white font-semibold px-8 py-6 text-base group rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
+              >
+                <Play className="w-5 h-5 mr-2" />
+                Talk to a Specialist Now
+                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </Button>
+            </Link>
+          </motion.div>
+        </div>
+      </motion.div>
+    </section>
+  );
+}
+
+// What Microsoft 365 Delivers Section
+function FeaturesSection() {
   const features = [
     {
       icon: FileText,
       title: "Complete Office Suite",
-      description: "Access Word, Excel, PowerPoint, and Outlook across all devices. Cloud-based collaboration enables real-time co-authoring and commenting. Desktop apps include advanced features with regular updates."
+      desc: "Access Word, Excel, PowerPoint, and Outlook across all devices. Cloud-based collaboration enables real-time co-authoring and commenting."
     },
     {
       icon: Users,
       title: "Microsoft Teams Integration",
-      description: "Unified platform for chat, video meetings, and file collaboration. Channels organize conversations by project or department. Integration with Office apps keeps work in one place."
+      desc: "Unified platform for chat, video meetings, and file collaboration. Channels organize conversations by project or department."
     },
     {
       icon: Mail,
       title: "Enterprise Email and Calendar",
-      description: "Exchange Online delivers reliable email with a 50 GB mailbox per user. Advanced calendar features include scheduling assistants and room booking. Mobile apps provide full functionality on iOS and Android."
+      desc: "Exchange Online delivers reliable email with a 50 GB mailbox per user. Advanced calendar features include scheduling assistants."
     },
     {
       icon: FolderOpen,
       title: "SharePoint and OneDrive",
-      description: "Provide Centralized document management with version control and permissions. One terabyte of cloud storage per user for personal files. SharePoint sites enable team collaboration and intranet publishing."
+      desc: "Centralized document management with version control and permissions. One terabyte of cloud storage per user for personal files."
     },
     {
       icon: Shield,
       title: "Advanced Threat Protection",
-      description: "AI-powered security detects phishing, malware, and suspicious activity. Safe Links and Safe Attachments scan content before delivery. Anti-spam filtering reduces inbox clutter and risks."
+      desc: "AI-powered security detects phishing, malware, and suspicious activity. Safe Links and Safe Attachments scan content before delivery."
     },
     {
       icon: Lock,
       title: "Information Protection",
-      description: "Data loss prevention policies prevent sensitive information from leaving your organization. Encryption and rights management control document access. Compliance tools support regulatory requirements."
+      desc: "Data loss prevention policies prevent sensitive information from leaving your organization. Encryption and rights management control access."
     },
     {
       icon: Smartphone,
       title: "Device Management",
-      description: "Intune manages Windows, macOS, iOS, and Android devices from one console. Conditional access policies enforce security requirements. Remote wipe protects data on lost or stolen devices."
+      desc: "Intune manages Windows, macOS, iOS, and Android devices from one console. Conditional access policies enforce security requirements."
     },
     {
       icon: Scale,
       title: "Compliance and Governance",
-      description: "Retention policies and legal hold preserve data for regulatory needs. eDiscovery tools search across email, documents, and conversations. Audit logs track user activity and administrative changes."
+      desc: "Retention policies and legal hold preserve data for regulatory needs. eDiscovery tools search across email, documents, and conversations."
     }
   ];
 
   return (
     <section className="py-20 bg-[#f8fafc]">
-      <div className="container mx-auto px-4">
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={staggerContainer}
-          className="text-center mb-16"
-        >
-          <motion.h2 variants={fadeInUp} className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+      <div className="w-full px-8 lg:px-16 xl:px-24">
+        <motion.div {...fadeInUp} className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#0C4594] mb-4">
             What Microsoft 365 Delivers
-          </motion.h2>
+          </h2>
         </motion.div>
 
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={staggerContainer}
-          className="grid md:grid-cols-2 lg:grid-cols-4 gap-6"
-        >
-          {features.map((feature, index) => (
-            <motion.div
-              key={index}
-              variants={fadeInUp}
-              className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100"
-            >
-              <div className="w-12 h-12 bg-gradient-to-br from-[#0C4594] to-[#1a5cb8] rounded-xl flex items-center justify-center mb-4">
-                <feature.icon className="w-6 h-6 text-white" />
-              </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">{feature.title}</h3>
-              <p className="text-gray-600 text-sm leading-relaxed">{feature.description}</p>
-            </motion.div>
-          ))}
+        <motion.div {...staggerContainer} className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {features.map((feature, idx) => {
+            const Icon = feature.icon;
+            return (
+              <motion.div
+                key={idx}
+                variants={{
+                  initial: { opacity: 0, y: 20 },
+                  whileInView: { opacity: 1, y: 0 }
+                }}
+                className="bg-white rounded-2xl p-6 border border-[#e2e8f0] hover:shadow-xl hover:border-[#38B6FF]/30 transition-all duration-300 group"
+              >
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#0C4594] to-[#38B6FF] flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <Icon className="w-6 h-6 text-white" />
+                </div>
+                <h3 className="text-lg font-semibold text-[#0C4594] mb-2">{feature.title}</h3>
+                <p className="text-[#475569] text-sm leading-relaxed">{feature.desc}</p>
+              </motion.div>
+            );
+          })}
         </motion.div>
       </div>
     </section>
   );
-};
+}
 
-const ActivationSection = () => {
+// Flip Card Component with Icon
+function FlipCard({ title, description, image, icon: Icon }: { title: string; description: string; image: string; icon: React.ComponentType<{ className?: string }> }) {
+  const [isFlipped, setIsFlipped] = useState(false);
+
+  return (
+    <div 
+      className="relative h-[280px] perspective-1000 cursor-pointer group"
+      onMouseEnter={() => setIsFlipped(true)}
+      onMouseLeave={() => setIsFlipped(false)}
+    >
+      <motion.div
+        className="relative w-full h-full preserve-3d transition-transform duration-700"
+        animate={{ rotateY: isFlipped ? 180 : 0 }}
+        style={{ transformStyle: 'preserve-3d' }}
+      >
+        {/* Front Side */}
+        <div 
+          className="absolute inset-0 backface-hidden rounded-xl overflow-hidden"
+          style={{ backfaceVisibility: 'hidden' }}
+        >
+          <img 
+            src={image} 
+            alt={title}
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0C4594] via-[#0C4594]/70 to-[#0C4594]/40" />
+          <div className="absolute inset-0 bg-gradient-to-br from-[#38B6FF]/40 to-transparent" />
+          
+          <div className="absolute bottom-0 left-0 right-0 p-5">
+            <div className="w-10 h-10 rounded-lg bg-[#38B6FF] flex items-center justify-center mb-3">
+              <Icon className="w-5 h-5 text-white" />
+            </div>
+            <h3 className="text-lg font-bold text-white leading-tight">{title}</h3>
+            <div className="mt-2 flex items-center gap-2 text-white/70 text-xs">
+              <span>Hover to learn more</span>
+              <ArrowRight className="w-3 h-3" />
+            </div>
+          </div>
+        </div>
+
+        {/* Back Side */}
+        <div 
+          className="absolute inset-0 backface-hidden rounded-xl overflow-hidden bg-gradient-to-br from-[#0C4594] to-[#082d61] p-5 flex flex-col justify-center"
+          style={{ backfaceVisibility: 'hidden', transform: 'rotateY(180deg)' }}
+        >
+          <div className="absolute inset-0 opacity-20">
+            <img 
+              src={image} 
+              alt={title}
+              className="w-full h-full object-cover blur-sm"
+            />
+          </div>
+          <div className="relative z-10">
+            <div className="w-10 h-10 rounded-lg bg-[#38B6FF] flex items-center justify-center mb-3">
+              <Icon className="w-5 h-5 text-white" />
+            </div>
+            <h3 className="text-base font-bold text-white mb-2">{title}</h3>
+            <p className="text-white/90 text-xs leading-relaxed">{description}</p>
+          </div>
+        </div>
+      </motion.div>
+    </div>
+  );
+}
+
+// How Shivaami Helps You Succeed Section - Flip Cards
+function ActivationSection() {
   const steps = [
     {
+      image: strategicPlanningImg,
       icon: Target,
-      title: "Strategy and Planning",
-      description: "We assess your current infrastructure and design a Microsoft 365 migration strategy. Our team identifies licensing requirements and feature needs upfront. You get a phased implementation plan that minimizes disruption."
+      title: 'Strategy and Planning',
+      desc: 'We assess your current infrastructure and design a Microsoft 365 migration strategy. Our team identifies licensing requirements and feature needs upfront.',
     },
     {
+      image: technicalDeploymentImg,
       icon: Rocket,
-      title: "Deployment and Integration",
-      description: "Shivaami handles tenant configuration, domain setup, and user provisioning. We migrate mailboxes, files, and SharePoint content from legacy systems. Your data transfers securely with complete integrity."
+      title: 'Deployment and Integration',
+      desc: 'Shivaami handles tenant configuration, domain setup, and user provisioning. We migrate mailboxes, files, and SharePoint content from legacy systems.',
     },
     {
+      image: securityConfigImg,
       icon: ShieldCheck,
-      title: "Security and Compliance",
-      description: "Our security experts configure threat protection, data loss prevention, and access controls. We implement multi-factor authentication and conditional access policies. Compliance settings align with your industry regulations."
+      title: 'Security and Compliance',
+      desc: 'Our security experts configure threat protection, data loss prevention, and access controls. We implement multi-factor authentication and conditional access.',
     },
     {
+      image: teamTrainingImg,
       icon: GraduationCap,
-      title: "User Enablement and Adoption",
-      description: "We deliver training programs tailored to different user roles and skill levels. Change management guidance helps teams transition to new workflows. Support resources and quick guides accelerate adoption."
+      title: 'User Enablement and Adoption',
+      desc: 'We deliver training programs tailored to different user roles and skill levels. Change management guidance helps teams transition to new workflows.',
     },
     {
+      image: ongoingSupportImg,
       icon: Headphones,
-      title: "Ongoing Optimization and Support",
-      description: "Shivaami provides managed services with proactive monitoring and issue resolution. We handle license management, updates, and feature optimization. Regular reviews ensure you maximize your investment."
-    }
+      title: 'Ongoing Optimization and Support',
+      desc: 'Shivaami provides managed services with proactive monitoring and issue resolution. We handle license management, updates, and feature optimization.',
+    },
   ];
 
   return (
-    <section className="py-20 bg-white">
-      <div className="container mx-auto px-4">
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={staggerContainer}
-          className="text-center mb-16"
-        >
-          <motion.h2 variants={fadeInUp} className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+    <section className="py-16 bg-white">
+      <div className="w-full px-8 lg:px-16 xl:px-24">
+        <motion.div {...fadeInUp} className="text-center mb-12">
+          <h2 className="text-2xl md:text-3xl font-bold text-[#0C4594] mb-4">
             How Shivaami Helps You Succeed?
-          </motion.h2>
+          </h2>
         </motion.div>
 
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={staggerContainer}
-          className="max-w-4xl mx-auto space-y-6"
+        <motion.div 
+          {...staggerContainer} 
+          className="grid md:grid-cols-3 lg:grid-cols-5 gap-4 max-w-7xl mx-auto"
         >
-          {steps.map((step, index) => (
+          {steps.map((step, idx) => (
             <motion.div
-              key={index}
-              variants={fadeInUp}
-              className="flex gap-6 p-6 bg-gradient-to-r from-gray-50 to-white rounded-2xl border border-gray-100 hover:shadow-lg transition-all duration-300"
+              key={idx}
+              variants={{
+                initial: { opacity: 0, y: 20 },
+                whileInView: { opacity: 1, y: 0 }
+              }}
             >
-              <div className="flex-shrink-0 w-14 h-14 bg-gradient-to-br from-[#0C4594] to-[#1a5cb8] rounded-xl flex items-center justify-center">
-                <step.icon className="w-7 h-7 text-white" />
-              </div>
-              <div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">{step.title}</h3>
-                <p className="text-gray-600 leading-relaxed">{step.description}</p>
-              </div>
+              <FlipCard 
+                title={step.title}
+                description={step.desc}
+                image={step.image}
+                icon={step.icon}
+              />
             </motion.div>
           ))}
-        </motion.div>
-
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={fadeInUp}
-          className="max-w-4xl mx-auto mt-12 p-6 bg-gray-50 rounded-2xl border border-gray-100"
-        >
-          <p className="text-gray-700 leading-relaxed text-center">
-            Our partnership gives you direct access to Microsoft resources and priority support. We manage renewals, billing, and technical escalations on your behalf. You get a dedicated team focused on your success.
-          </p>
         </motion.div>
       </div>
     </section>
   );
-};
+}
 
-const CalendarCTASection = () => {
+// Calendar CTA Section
+function CalendarCTASection() {
   const benefits = [
     "Migration approach tailored to your existing environment",
     "Security and compliance configuration for your industry",
@@ -235,50 +327,47 @@ const CalendarCTASection = () => {
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-br from-[#0C4594] via-[#1a5cb8] to-[#0C4594] relative overflow-hidden">
-      <div className="absolute top-10 left-10 w-72 h-72 bg-blue-400/20 rounded-full blur-3xl" />
-      <div className="absolute bottom-10 right-10 w-96 h-96 bg-purple-400/20 rounded-full blur-3xl" />
-      
-      <div className="container mx-auto px-4 relative z-10">
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={staggerContainer}
-          className="max-w-3xl mx-auto text-center"
-        >
-          <motion.p variants={fadeInUp} className="text-xl text-white/90 mb-4">
+    <section className="py-20 bg-gradient-to-br from-[#0C4594] via-[#0a3a7a] to-[#082d61]">
+      <div className="w-full px-8 lg:px-16 xl:px-24">
+        <motion.div {...fadeInUp} className="max-w-5xl mx-auto text-center">
+          <div className="w-16 h-16 rounded-2xl bg-[#38B6FF] flex items-center justify-center mx-auto mb-6">
+            <Calendar className="w-8 h-8 text-white" />
+          </div>
+          <p className="text-xl text-white/90 mb-4">
             Ready to modernize your productivity platform with Microsoft 365?
-          </motion.p>
-          
-          <motion.h2 variants={fadeInUp} className="text-3xl md:text-4xl font-bold text-white mb-6">
+          </p>
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
             Schedule a consultation with our certified specialists
-          </motion.h2>
-          
-          <motion.p variants={fadeInUp} className="text-lg text-white/80 mb-8">
+          </h2>
+          <p className="text-lg text-white/80 mb-8">
             In this 30-minute session, you'll discover:
-          </motion.p>
+          </p>
 
-          <motion.div variants={fadeInUp} className="grid md:grid-cols-2 gap-4 mb-10 text-left max-w-2xl mx-auto">
-            {benefits.map((benefit, index) => (
-              <div key={index} className="flex items-start gap-3 bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
-                <CheckCircle className="w-6 h-6 text-green-400 flex-shrink-0 mt-0.5" />
-                <span className="text-white/90">{benefit}</span>
-              </div>
+          <div className="grid md:grid-cols-2 gap-4 text-left max-w-4xl mx-auto mb-10">
+            {benefits.map((benefit, idx) => (
+              <motion.div
+                key={idx}
+                {...fadeInUp}
+                transition={{ delay: idx * 0.1 }}
+                className="flex items-start gap-3 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-4"
+              >
+                <CheckCircle2 className="w-5 h-5 text-[#38B6FF] flex-shrink-0 mt-0.5" />
+                <span className="text-white/90 text-sm">{benefit}</span>
+              </motion.div>
             ))}
-          </motion.div>
-          
-          <motion.div variants={fadeInUp}>
-            <Button size="lg" className="bg-white text-[#0C4594] hover:bg-gray-100 font-semibold px-10 py-6 text-lg rounded-lg shadow-xl hover:shadow-2xl transition-all">
+          </div>
+
+          <Link to="/lets-connect">
+            <Button size="lg" className="bg-[#38B6FF] hover:bg-[#2da8f0] text-white font-semibold px-10 py-7 text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
               Book Your Strategy Session
-              <ArrowRight className="ml-2 h-5 w-5" />
+              <ArrowRight className="w-5 h-5 ml-2" />
             </Button>
-          </motion.div>
+          </Link>
         </motion.div>
       </div>
     </section>
   );
-};
+}
 
 const Microsoft365 = () => {
   return (

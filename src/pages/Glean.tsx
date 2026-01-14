@@ -1,209 +1,313 @@
-import { motion } from 'framer-motion';
-import { Search, Brain, Users, Bot, Shield, Zap, Target, Settings, Lock, GraduationCap, Headphones, ArrowRight, CheckCircle } from 'lucide-react';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { useRef, useState } from 'react';
+import { Search, Brain, Users, Bot, Shield, Zap, Target, Settings, Lock, GraduationCap, Headphones, ArrowRight, CheckCircle2, Calendar, Play } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
+import { Link } from 'react-router-dom';
+import heroImage from '@/assets/banners/glean-banner.jpg';
+import strategicPlanningImg from '@/assets/activation/strategic-planning.jpg';
+import technicalDeploymentImg from '@/assets/activation/technical-deployment.jpg';
+import securityConfigImg from '@/assets/activation/security-config.jpg';
+import teamTrainingImg from '@/assets/activation/team-training.jpg';
+import ongoingSupportImg from '@/assets/activation/ongoing-support.jpg';
 
 const fadeInUp = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
+  initial: { opacity: 0, y: 30 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true },
+  transition: { duration: 0.6 }
 };
 
 const staggerContainer = {
-  hidden: { opacity: 0 },
-  visible: { opacity: 1, transition: { staggerChildren: 0.1 } }
+  initial: {},
+  whileInView: { transition: { staggerChildren: 0.1 } },
+  viewport: { once: true }
 };
 
-const HeroSection = () => (
-  <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#0C4594] via-[#1a5cb8] to-[#0C4594]">
-    <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-10" />
-    <div className="absolute top-20 left-10 w-72 h-72 bg-blue-400/20 rounded-full blur-3xl" />
-    <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-400/20 rounded-full blur-3xl" />
-    
-    <div className="container mx-auto px-4 py-20 relative z-10">
-      <motion.div
-        initial="hidden"
-        animate="visible"
-        variants={staggerContainer}
-        className="max-w-4xl mx-auto text-center"
+// Hero Section with Banner Image
+function HeroSection() {
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ['start start', 'end start'],
+  });
+
+  const y = useTransform(scrollYProgress, [0, 1], ['0%', '30%']);
+  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+
+  return (
+    <section ref={ref} className="relative h-[70vh] min-h-[500px] max-h-[600px] flex items-center overflow-hidden">
+      {/* Full-width Background Image */}
+      <motion.div 
+        style={{ y }}
+        className="absolute inset-0 z-0"
       >
-        <motion.div variants={fadeInUp} className="mb-6">
-          <span className="inline-block px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-white/90 text-sm font-medium border border-white/20">
-            Enterprise AI Search Platform
-          </span>
-        </motion.div>
-        
-        <motion.h1 variants={fadeInUp} className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-          Glean: Unified Enterprise Knowledge Search
-        </motion.h1>
-        
-        <motion.p variants={fadeInUp} className="text-lg md:text-xl text-white/90 mb-6 leading-relaxed max-w-3xl mx-auto">
-          Glean is an enterprise AI platform that helps teams find answers, knowledge, and context across all their work tools from one place. It connects to the apps your teams already use, understands natural language, and delivers the right information at the right time.
-        </motion.p>
-
-        <motion.p variants={fadeInUp} className="text-lg text-white/80 mb-8 leading-relaxed max-w-3xl mx-auto">
-          As an official enterprise technology partner, Shivaami helps organizations deploy Glean securely, drive adoption, and turn internal knowledge into real business impact.
-        </motion.p>
-        
-        <motion.div variants={fadeInUp} className="flex flex-wrap justify-center gap-4">
-          <Button size="lg" className="bg-white text-[#0C4594] hover:bg-gray-100 font-semibold px-8 py-6 text-lg rounded-lg shadow-xl hover:shadow-2xl transition-all">
-            Book a Live Demo
-            <ArrowRight className="ml-2 h-5 w-5" />
-          </Button>
-        </motion.div>
+        <img
+          src={heroImage}
+          alt="Glean Enterprise Search"
+          className="w-full h-full object-cover object-center"
+          loading="eager"
+        />
+        {/* Dark overlay for better text readability */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0C4594]/95 via-[#0C4594]/80 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0C4594]/60 via-transparent to-[#0C4594]/40" />
       </motion.div>
-    </div>
-  </section>
-);
 
-const FeaturesSection = () => {
+      {/* Content - Left aligned with full width layout */}
+      <motion.div style={{ opacity }} className="relative z-10 w-full px-8 lg:px-16 xl:px-24 pt-24 lg:pt-28">
+        <div className="max-w-3xl">
+          {/* Headline */}
+          <motion.h1
+            initial={{ opacity: 0, y: 28 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="font-display text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-semibold text-white mb-6 leading-[1.15] tracking-tight"
+          >
+            Glean: <span className="text-[#38B6FF]">Unified</span><br />
+            Enterprise Knowledge Search
+          </motion.h1>
+
+          {/* Description */}
+          <motion.p
+            initial={{ opacity: 0, y: 28 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-base lg:text-lg text-white/80 max-w-2xl mb-8 leading-relaxed font-body"
+          >
+            Glean is an enterprise AI platform that helps teams find answers, knowledge, and context across all their work tools from one place. Shivaami helps organizations deploy Glean securely and turn internal knowledge into real business impact.
+          </motion.p>
+
+          {/* CTA */}
+          <motion.div 
+            initial={{ opacity: 0, y: 28 }} 
+            animate={{ opacity: 1, y: 0 }} 
+            transition={{ duration: 0.6, delay: 0.3 }}
+          >
+            <Link to="/lets-connect">
+              <Button
+                size="lg"
+                className="bg-[#38B6FF] hover:bg-[#2da8f0] text-white font-semibold px-8 py-6 text-base group rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
+              >
+                <Play className="w-5 h-5 mr-2" />
+                Book a Live Demo
+                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </Button>
+            </Link>
+          </motion.div>
+        </div>
+      </motion.div>
+    </section>
+  );
+}
+
+// What Glean Delivers Section
+function FeaturesSection() {
   const features = [
     {
       icon: Search,
       title: "Unified enterprise search across all your tools",
-      description: "Glean connects to tools like Google Workspace, Slack, Jira, Confluence, Salesforce, GitHub, and more. Employees can search once and find documents, conversations, tickets, and files without switching between apps."
+      desc: "Glean connects to tools like Google Workspace, Slack, Jira, Confluence, Salesforce, GitHub, and more. Search once and find everything."
     },
     {
       icon: Brain,
       title: "AI-powered answers, not just links",
-      description: "Instead of returning a long list of results, Glean understands questions in natural language and provides direct answers, summaries, and relevant context based on your company's data."
+      desc: "Instead of returning a long list of results, Glean understands questions in natural language and provides direct answers and summaries."
     },
     {
       icon: Users,
       title: "Personalized results for every employee",
-      description: "Glean uses a knowledge graph to understand roles, teams, and projects. Results are personalized so each user sees what matters most to them while respecting existing permissions."
+      desc: "Glean uses a knowledge graph to understand roles, teams, and projects. Results are personalized while respecting existing permissions."
     },
     {
       icon: Bot,
       title: "Built-in AI assistant for daily work",
-      description: "Employees can ask Glean to summarize documents, find experts, answer onboarding questions, and surface key information instantly, helping teams move faster with less effort."
+      desc: "Employees can ask Glean to summarize documents, find experts, answer onboarding questions, and surface key information instantly."
     },
     {
       icon: Shield,
       title: "Enterprise-grade security and permissions",
-      description: "Glean enforces your existing access controls in real time. Employees only see what they are authorized to see. Data remains secure, encrypted, and fully governed."
+      desc: "Glean enforces your existing access controls in real time. Data remains secure, encrypted, and fully governed."
     },
     {
       icon: Zap,
       title: "Fast time to value",
-      description: "Most organizations go live within days. As employees search and work, Glean continuously improves relevance and accuracy without manual training."
+      desc: "Most organizations go live within days. As employees search and work, Glean continuously improves relevance and accuracy."
     }
   ];
 
   return (
     <section className="py-20 bg-[#f8fafc]">
-      <div className="container mx-auto px-4">
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={staggerContainer}
-          className="text-center mb-16"
-        >
-          <motion.h2 variants={fadeInUp} className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+      <div className="w-full px-8 lg:px-16 xl:px-24">
+        <motion.div {...fadeInUp} className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#0C4594] mb-4">
             What Glean Delivers
-          </motion.h2>
+          </h2>
         </motion.div>
 
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={staggerContainer}
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
-        >
-          {features.map((feature, index) => (
-            <motion.div
-              key={index}
-              variants={fadeInUp}
-              className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100"
-            >
-              <div className="w-14 h-14 bg-gradient-to-br from-[#0C4594] to-[#1a5cb8] rounded-xl flex items-center justify-center mb-6">
-                <feature.icon className="w-7 h-7 text-white" />
-              </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">{feature.title}</h3>
-              <p className="text-gray-600 leading-relaxed">{feature.description}</p>
-            </motion.div>
-          ))}
+        <motion.div {...staggerContainer} className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {features.map((feature, idx) => {
+            const Icon = feature.icon;
+            return (
+              <motion.div
+                key={idx}
+                variants={{
+                  initial: { opacity: 0, y: 20 },
+                  whileInView: { opacity: 1, y: 0 }
+                }}
+                className="bg-white rounded-2xl p-6 border border-[#e2e8f0] hover:shadow-xl hover:border-[#38B6FF]/30 transition-all duration-300 group"
+              >
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#0C4594] to-[#38B6FF] flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <Icon className="w-6 h-6 text-white" />
+                </div>
+                <h3 className="text-lg font-semibold text-[#0C4594] mb-2">{feature.title}</h3>
+                <p className="text-[#475569] text-sm leading-relaxed">{feature.desc}</p>
+              </motion.div>
+            );
+          })}
         </motion.div>
       </div>
     </section>
   );
-};
+}
 
-const ActivationSection = () => {
+// Flip Card Component with Icon
+function FlipCard({ title, description, image, icon: Icon }: { title: string; description: string; image: string; icon: React.ComponentType<{ className?: string }> }) {
+  const [isFlipped, setIsFlipped] = useState(false);
+
+  return (
+    <div 
+      className="relative h-[280px] perspective-1000 cursor-pointer group"
+      onMouseEnter={() => setIsFlipped(true)}
+      onMouseLeave={() => setIsFlipped(false)}
+    >
+      <motion.div
+        className="relative w-full h-full preserve-3d transition-transform duration-700"
+        animate={{ rotateY: isFlipped ? 180 : 0 }}
+        style={{ transformStyle: 'preserve-3d' }}
+      >
+        {/* Front Side */}
+        <div 
+          className="absolute inset-0 backface-hidden rounded-xl overflow-hidden"
+          style={{ backfaceVisibility: 'hidden' }}
+        >
+          <img 
+            src={image} 
+            alt={title}
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0C4594] via-[#0C4594]/70 to-[#0C4594]/40" />
+          <div className="absolute inset-0 bg-gradient-to-br from-[#38B6FF]/40 to-transparent" />
+          
+          <div className="absolute bottom-0 left-0 right-0 p-5">
+            <div className="w-10 h-10 rounded-lg bg-[#38B6FF] flex items-center justify-center mb-3">
+              <Icon className="w-5 h-5 text-white" />
+            </div>
+            <h3 className="text-lg font-bold text-white leading-tight">{title}</h3>
+            <div className="mt-2 flex items-center gap-2 text-white/70 text-xs">
+              <span>Hover to learn more</span>
+              <ArrowRight className="w-3 h-3" />
+            </div>
+          </div>
+        </div>
+
+        {/* Back Side */}
+        <div 
+          className="absolute inset-0 backface-hidden rounded-xl overflow-hidden bg-gradient-to-br from-[#0C4594] to-[#082d61] p-5 flex flex-col justify-center"
+          style={{ backfaceVisibility: 'hidden', transform: 'rotateY(180deg)' }}
+        >
+          <div className="absolute inset-0 opacity-20">
+            <img 
+              src={image} 
+              alt={title}
+              className="w-full h-full object-cover blur-sm"
+            />
+          </div>
+          <div className="relative z-10">
+            <div className="w-10 h-10 rounded-lg bg-[#38B6FF] flex items-center justify-center mb-3">
+              <Icon className="w-5 h-5 text-white" />
+            </div>
+            <h3 className="text-base font-bold text-white mb-2">{title}</h3>
+            <p className="text-white/90 text-xs leading-relaxed">{description}</p>
+          </div>
+        </div>
+      </motion.div>
+    </div>
+  );
+}
+
+// How Shivaami Activates Glean Section - Flip Cards
+function ActivationSection() {
   const steps = [
     {
+      image: strategicPlanningImg,
       icon: Target,
-      title: "Knowledge and search strategy planning",
-      description: "We start by understanding how your teams work, where knowledge gets stuck, and which tools matter most. We then design a Glean deployment plan that delivers measurable productivity gains within the first 90 days."
+      title: 'Knowledge & Search Strategy',
+      desc: 'We understand how your teams work, where knowledge gets stuck, and design a Glean deployment plan that delivers measurable productivity gains.',
     },
     {
+      image: technicalDeploymentImg,
       icon: Settings,
-      title: "End-to-end technical deployment",
-      description: "We manage connector setup, indexing, access controls, and integrations with your existing systems. Your teams log in and start finding answers immediately without disruption."
+      title: 'End-to-End Technical Deployment',
+      desc: 'We manage connector setup, indexing, access controls, and integrations with your existing systems. Your teams start finding answers immediately.',
     },
     {
+      image: securityConfigImg,
       icon: Lock,
-      title: "Security and compliance configuration",
-      description: "We align Glean with your enterprise security requirements, including access policies, audit readiness, and data governance. This is especially critical for regulated industries."
+      title: 'Security & Compliance',
+      desc: 'We align Glean with your enterprise security requirements, including access policies, audit readiness, and data governance for regulated industries.',
     },
     {
+      image: teamTrainingImg,
       icon: GraduationCap,
-      title: "User enablement and adoption support",
-      description: "We train teams on how to search smarter, ask better questions, and use Glean's AI assistant in daily workflows. Role-based sessions and real use cases ensure adoption across departments."
+      title: 'User Enablement & Adoption',
+      desc: 'We train teams on how to search smarter, ask better questions, and use Glean\'s AI assistant in daily workflows with role-based sessions.',
     },
     {
+      image: ongoingSupportImg,
       icon: Headphones,
-      title: "Ongoing optimization and support",
-      description: "We track usage, identify gaps, and help you improve search relevance over time. Our certified engineers provide 24/7 support with fast response and resolution times."
-    }
+      title: 'Ongoing Optimization & Support',
+      desc: 'We track usage, identify gaps, and help you improve search relevance over time. Our certified engineers provide 24/7 support.',
+    },
   ];
 
   return (
-    <section className="py-20 bg-white">
-      <div className="container mx-auto px-4">
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={staggerContainer}
-          className="text-center mb-16"
-        >
-          <motion.h2 variants={fadeInUp} className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+    <section className="py-16 bg-white">
+      <div className="w-full px-8 lg:px-16 xl:px-24">
+        <motion.div {...fadeInUp} className="text-center mb-12">
+          <h2 className="text-2xl md:text-3xl font-bold text-[#0C4594] mb-4">
             How Shivaami Activates Glean Across Your Organization
-          </motion.h2>
+          </h2>
         </motion.div>
 
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={staggerContainer}
-          className="max-w-4xl mx-auto space-y-6"
+        <motion.div 
+          {...staggerContainer} 
+          className="grid md:grid-cols-3 lg:grid-cols-5 gap-4 max-w-7xl mx-auto"
         >
-          {steps.map((step, index) => (
+          {steps.map((step, idx) => (
             <motion.div
-              key={index}
-              variants={fadeInUp}
-              className="flex gap-6 p-6 bg-gradient-to-r from-gray-50 to-white rounded-2xl border border-gray-100 hover:shadow-lg transition-all duration-300"
+              key={idx}
+              variants={{
+                initial: { opacity: 0, y: 20 },
+                whileInView: { opacity: 1, y: 0 }
+              }}
             >
-              <div className="flex-shrink-0 w-14 h-14 bg-gradient-to-br from-[#0C4594] to-[#1a5cb8] rounded-xl flex items-center justify-center">
-                <step.icon className="w-7 h-7 text-white" />
-              </div>
-              <div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">{step.title}</h3>
-                <p className="text-gray-600 leading-relaxed">{step.description}</p>
-              </div>
+              <FlipCard 
+                title={step.title}
+                description={step.desc}
+                image={step.image}
+                icon={step.icon}
+              />
             </motion.div>
           ))}
         </motion.div>
       </div>
     </section>
   );
-};
+}
 
-const CalendarCTASection = () => {
+// Calendar CTA Section
+function CalendarCTASection() {
   const benefits = [
     "Live Glean search and AI assistant use cases from real enterprises",
     "Productivity and ROI estimates based on your team size",
@@ -212,46 +316,44 @@ const CalendarCTASection = () => {
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-br from-[#0C4594] via-[#1a5cb8] to-[#0C4594] relative overflow-hidden">
-      <div className="absolute top-10 left-10 w-72 h-72 bg-blue-400/20 rounded-full blur-3xl" />
-      <div className="absolute bottom-10 right-10 w-96 h-96 bg-purple-400/20 rounded-full blur-3xl" />
-      
-      <div className="container mx-auto px-4 relative z-10">
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={staggerContainer}
-          className="max-w-3xl mx-auto text-center"
-        >
-          <motion.h2 variants={fadeInUp} className="text-3xl md:text-4xl font-bold text-white mb-6">
+    <section className="py-20 bg-gradient-to-br from-[#0C4594] via-[#0a3a7a] to-[#082d61]">
+      <div className="w-full px-8 lg:px-16 xl:px-24">
+        <motion.div {...fadeInUp} className="max-w-5xl mx-auto text-center">
+          <div className="w-16 h-16 rounded-2xl bg-[#38B6FF] flex items-center justify-center mx-auto mb-6">
+            <Calendar className="w-8 h-8 text-white" />
+          </div>
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
             Book a 30-minute strategy session
-          </motion.h2>
-          
-          <motion.p variants={fadeInUp} className="text-xl text-white/90 mb-8">
+          </h2>
+          <p className="text-lg text-white/80 mb-8">
             We will walk you through:
-          </motion.p>
+          </p>
 
-          <motion.div variants={fadeInUp} className="grid md:grid-cols-2 gap-4 mb-10 text-left max-w-2xl mx-auto">
-            {benefits.map((benefit, index) => (
-              <div key={index} className="flex items-start gap-3 bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
-                <CheckCircle className="w-6 h-6 text-green-400 flex-shrink-0 mt-0.5" />
-                <span className="text-white/90">{benefit}</span>
-              </div>
+          <div className="grid md:grid-cols-2 gap-4 text-left max-w-4xl mx-auto mb-10">
+            {benefits.map((benefit, idx) => (
+              <motion.div
+                key={idx}
+                {...fadeInUp}
+                transition={{ delay: idx * 0.1 }}
+                className="flex items-start gap-3 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-4"
+              >
+                <CheckCircle2 className="w-5 h-5 text-[#38B6FF] flex-shrink-0 mt-0.5" />
+                <span className="text-white/90 text-sm">{benefit}</span>
+              </motion.div>
             ))}
-          </motion.div>
-          
-          <motion.div variants={fadeInUp}>
-            <Button size="lg" className="bg-white text-[#0C4594] hover:bg-gray-100 font-semibold px-10 py-6 text-lg rounded-lg shadow-xl hover:shadow-2xl transition-all">
-              Schedule a meeting
-              <ArrowRight className="ml-2 h-5 w-5" />
+          </div>
+
+          <Link to="/lets-connect">
+            <Button size="lg" className="bg-[#38B6FF] hover:bg-[#2da8f0] text-white font-semibold px-10 py-7 text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
+              Schedule a Meeting
+              <ArrowRight className="w-5 h-5 ml-2" />
             </Button>
-          </motion.div>
+          </Link>
         </motion.div>
       </div>
     </section>
   );
-};
+}
 
 const Glean = () => {
   return (
