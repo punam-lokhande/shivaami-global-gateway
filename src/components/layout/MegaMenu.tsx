@@ -143,25 +143,11 @@ const menuContent: Record<string, MenuContent> = {
           },
           { 
             icon: Laptop, 
-            label: 'Chrome Enterprise', 
+            label: 'Chrome Solutions', 
             desc: 'Complete Chrome solutions',
             subItems: [
-              { icon: Laptop, label: 'Chromebook', desc: 'Enterprise-grade laptops' },
-              { icon: Box, label: 'Chromebox', desc: 'Desktop computing solutions' },
-              { icon: Layers, label: 'ChromeOS Flex', desc: 'Transform existing devices' },
-              { icon: Settings, label: 'Chrome Browser Cloud', desc: 'Browser management' },
-              { icon: Shield, label: 'Chrome Enterprise Premium', desc: 'Advanced security features' },
-            ]
-          },
-          { 
-            icon: Video, 
-            label: 'Google Meet Hardware', 
-            desc: 'Conference room solutions',
-            subItems: [
-              { icon: Monitor, label: 'Meet Series One', desc: 'All-in-one meeting rooms' },
-              { icon: Video, label: 'Meet Board', desc: 'Interactive whiteboard' },
-              { icon: Smartphone, label: 'Meet Desk', desc: 'Personal video conferencing' },
-              { icon: Cpu, label: 'Meet Compute System', desc: 'Room controller hardware' },
+              { icon: Laptop, label: 'Chrome Enterprise', desc: 'Enterprise Chrome management' },
+              { icon: Video, label: 'Google Meet Hardware Kit', desc: 'Conference room solutions' },
             ]
           },
           { 
