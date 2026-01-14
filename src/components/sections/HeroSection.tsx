@@ -53,7 +53,7 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="font-display text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-foreground mb-8 leading-[1.08] tracking-tight"
+            className="font-display text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-semibold text-foreground mb-8 leading-[1.08] tracking-tight"
           >
             Make Your Ecosystem{' '}
             <span className="text-primary">Smarter</span>,{' '}
