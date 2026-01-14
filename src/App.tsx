@@ -36,6 +36,7 @@ import Chromebook from "./pages/Chromebook";
 import Chromebox from "./pages/Chromebox";
 import ChromeOSFlex from "./pages/ChromeOSFlex";
 import ChromeEnterprise from "./pages/ChromeEnterprise";
+import SwiftMove from "./pages/SwiftMove";
 
 const queryClient = new QueryClient();
 
@@ -78,6 +79,7 @@ const App = () => (
             <Route path="/chromebox" element={<Chromebox />} />
             <Route path="/chromeos-flex" element={<ChromeOSFlex />} />
             <Route path="/chrome-enterprise" element={<ChromeEnterprise />} />
+            <Route path="/swiftmove" element={<SwiftMove />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

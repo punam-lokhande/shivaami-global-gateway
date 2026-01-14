@@ -164,7 +164,7 @@ const menuContent: Record<string, MenuContent> = {
       {
         title: 'Smoother Solutions',
         items: [
-          { icon: Zap, label: 'SwiftMove', desc: 'Seamless cloud migration' },
+          { icon: Zap, label: 'SwiftMove', desc: 'Seamless cloud migration', href: '/swiftmove' },
           { icon: Users, label: 'Pulse360', desc: 'Employee engagement platform' },
           { icon: FileCheck, label: 'ChangePath', desc: 'Change management' },
           { icon: Shield, label: 'SecureSight', desc: 'Security assessment' },
