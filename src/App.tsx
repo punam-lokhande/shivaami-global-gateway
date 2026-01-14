@@ -37,6 +37,9 @@ import Chromebox from "./pages/Chromebox";
 import ChromeOSFlex from "./pages/ChromeOSFlex";
 import ChromeEnterprise from "./pages/ChromeEnterprise";
 import SwiftMove from "./pages/SwiftMove";
+import ChangePath from "./pages/ChangePath";
+import Pulse360 from "./pages/Pulse360";
+import SecureSight from "./pages/SecureSight";
 
 const queryClient = new QueryClient();
 
@@ -80,6 +83,9 @@ const App = () => (
             <Route path="/chromeos-flex" element={<ChromeOSFlex />} />
             <Route path="/chrome-enterprise" element={<ChromeEnterprise />} />
             <Route path="/swiftmove" element={<SwiftMove />} />
+            <Route path="/changepath" element={<ChangePath />} />
+            <Route path="/pulse360" element={<Pulse360 />} />
+            <Route path="/securesight" element={<SecureSight />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
