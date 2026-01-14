@@ -367,7 +367,7 @@ export default function MegaMenu({ activeKey, anchorRect, onClose }: MegaMenuPro
                               animate={{ opacity: 1, x: 0, scale: 1 }}
                               exit={{ opacity: 0, x: -10, scale: 0.95 }}
                               transition={{ duration: 0.15, ease: 'easeOut' }}
-                              className="absolute left-full top-0 ml-2 w-56 bg-card rounded-xl border border-border shadow-elevated p-2 z-50"
+                              className="absolute left-full top-0 ml-2 w-56 bg-card rounded-xl border border-border shadow-2xl p-2 z-[100]"
                               onMouseEnter={() => setHoveredItem(itemKey)}
                               onMouseLeave={() => setHoveredItem(null)}
                             >
