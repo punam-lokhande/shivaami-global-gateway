@@ -32,6 +32,10 @@ import GoSimulator from "./pages/GoSimulator";
 import GoDmarc from "./pages/GoDmarc";
 import VMC from "./pages/VMC";
 import BecomePartner from "./pages/BecomePartner";
+import Chromebook from "./pages/Chromebook";
+import Chromebox from "./pages/Chromebox";
+import ChromeOSFlex from "./pages/ChromeOSFlex";
+import ChromeEnterprise from "./pages/ChromeEnterprise";
 
 const queryClient = new QueryClient();
 
@@ -70,6 +74,10 @@ const App = () => (
             <Route path="/godmarc" element={<GoDmarc />} />
             <Route path="/vmc" element={<VMC />} />
             <Route path="/become-partner" element={<BecomePartner />} />
+            <Route path="/chromebook" element={<Chromebook />} />
+            <Route path="/chromebox" element={<Chromebox />} />
+            <Route path="/chromeos-flex" element={<ChromeOSFlex />} />
+            <Route path="/chrome-enterprise" element={<ChromeEnterprise />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
