@@ -146,8 +146,11 @@ const menuContent: Record<string, MenuContent> = {
             label: 'Chrome Solutions', 
             desc: 'Complete Chrome solutions',
             subItems: [
+              { icon: Laptop, label: 'Chromebook', desc: 'Enterprise-grade laptops' },
+              { icon: Box, label: 'Chromebox', desc: 'Desktop computing solutions' },
               { icon: Laptop, label: 'Chrome Enterprise', desc: 'Enterprise Chrome management' },
               { icon: Video, label: 'Google Meet Hardware Kit', desc: 'Conference room solutions' },
+              { icon: Layers, label: 'ChromeOS Flex', desc: 'Transform existing devices' },
             ]
           },
           { 
