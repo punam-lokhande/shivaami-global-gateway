@@ -165,9 +165,9 @@ const menuContent: Record<string, MenuContent> = {
         title: 'Smoother Solutions',
         items: [
           { icon: Zap, label: 'SwiftMove', desc: 'Seamless cloud migration', href: '/swiftmove' },
-          { icon: Users, label: 'Pulse360', desc: 'Employee engagement platform' },
-          { icon: FileCheck, label: 'ChangePath', desc: 'Change management' },
-          { icon: Shield, label: 'SecureSight', desc: 'Security assessment' },
+          { icon: Users, label: 'Pulse360', desc: 'Managed IT services', href: '/pulse360' },
+          { icon: FileCheck, label: 'ChangePath', desc: 'Change management', href: '/changepath' },
+          { icon: Shield, label: 'SecureSight', desc: 'Security assessment', href: '/securesight' },
           { icon: Headphones, label: 'Support Packages', desc: '24/7 enterprise support' },
           { icon: Code, label: 'AppScript', desc: 'Custom automation' },
         ],
