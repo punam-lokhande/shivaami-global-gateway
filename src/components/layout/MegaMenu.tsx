@@ -104,8 +104,8 @@ const menuContent: Record<string, MenuContent> = {
             label: 'Endpoint Management', 
             desc: 'Manage all endpoints',
             subItems: [
-              { icon: Server, label: 'SuperOps', desc: 'RMM & PSA platform' },
-              { icon: Monitor, label: 'Atera', desc: 'IT management platform' },
+              { icon: Server, label: 'SuperOps', desc: 'RMM & PSA platform', href: '/superops' },
+              { icon: Monitor, label: 'Atera', desc: 'IT management platform', href: '/atera' },
             ]
           },
           { 
