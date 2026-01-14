@@ -1,13 +1,15 @@
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { useRef } from 'react';
 import { 
-  Brain, Search, Shield, Lock, 
-  Users, Briefcase, TrendingUp, HeadphonesIcon, Megaphone, Code, LineChart,
-  CheckCircle2, ArrowRight, Play, Calendar, Phone, Building2, Award, Globe, Clock,
+  Brain, Search, Shield, 
+  Users, HeadphonesIcon, CheckCircle2, ArrowRight, Play, Calendar, Clock,
   Zap, Settings, Blocks, Workflow
 } from 'lucide-react';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import { Button } from '@/components/ui/button';
+import { Link } from 'react-router-dom';
+import heroImage from '@/assets/hero-dark-enterprise.jpg';
 
 const fadeInUp = {
   initial: { opacity: 0, y: 30 },
@@ -22,19 +24,39 @@ const staggerContainer = {
   viewport: { once: true }
 };
 
-// Hero Section
+// Hero Section - Full Width with Banner Background
 function HeroSection() {
-  return (
-    <section className="relative min-h-[70vh] flex items-center bg-gradient-to-br from-[#0C4594] via-[#0a3a7a] to-[#082d61] overflow-hidden">
-      {/* Background Effects */}
-      <div className="absolute inset-0">
-        <div className="absolute top-20 right-20 w-96 h-96 bg-[#38B6FF]/20 rounded-full blur-3xl" />
-        <div className="absolute bottom-20 left-20 w-80 h-80 bg-[#38B6FF]/10 rounded-full blur-3xl" />
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4wMyI+PGNpcmNsZSBjeD0iMzAiIGN5PSIzMCIgcj0iMiIvPjwvZz48L2c+PC9zdmc+')] opacity-50" />
-      </div>
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ['start start', 'end start'],
+  });
 
-      <div className="container mx-auto px-4 py-20 relative z-10">
-        <div className="max-w-4xl mx-auto text-center">
+  const y = useTransform(scrollYProgress, [0, 1], ['0%', '30%']);
+  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+
+  return (
+    <section ref={ref} className="relative min-h-screen flex items-center overflow-hidden">
+      {/* Full-width Background Image */}
+      <motion.div 
+        style={{ y }}
+        className="absolute inset-0 z-0"
+      >
+        <img
+          src={heroImage}
+          alt="Gemini Enterprise AI Solutions"
+          className="w-full h-full object-cover object-center"
+          loading="eager"
+        />
+        {/* Dark overlay for better text readability */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0C4594]/95 via-[#0C4594]/80 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0C4594]/60 via-transparent to-[#0C4594]/40" />
+      </motion.div>
+
+      {/* Content - Left aligned with full width layout */}
+      <motion.div style={{ opacity }} className="relative z-10 w-full px-8 lg:px-16 xl:px-24 pt-32 lg:pt-40 xl:pt-44 pb-16">
+        <div className="max-w-3xl">
+          {/* Badge */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -45,47 +67,72 @@ function HeroSection() {
             <span className="text-white/90 text-sm font-medium">Enterprise AI Solution</span>
           </motion.div>
 
+          {/* Headline */}
           <motion.h1
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-6"
+            className="font-display text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-semibold text-white mb-8 leading-[1.15] tracking-tight"
           >
-            Gemini Enterprise: The Future of Enterprise AI
+            Gemini Enterprise:<br />
+            <span className="text-[#38B6FF]">The Future</span> of<br />
+            Enterprise AI
           </motion.h1>
 
+          {/* Description */}
           <motion.p
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-lg md:text-xl text-white/80 mb-4 max-w-3xl mx-auto leading-relaxed"
+            className="text-lg lg:text-xl text-white/80 max-w-2xl mb-6 leading-relaxed font-body"
           >
-            Gemini Enterprise is Google's agentic AI platform built to automate business operations across every department. As an official Gemini Enterprise onboarding partner, Shivaami helps organizations deploy AI agents for business that integrate with Google Workspace, Salesforce, Jira, and Slack.
+            Gemini Enterprise is Google's agentic AI platform built to automate business operations across every department. As an official onboarding partner, Shivaami helps organizations deploy AI agents that integrate with Google Workspace, Salesforce, Jira, and Slack.
           </motion.p>
 
           <motion.p
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.25 }}
-            className="text-lg md:text-xl text-white/80 mb-8 max-w-3xl mx-auto leading-relaxed"
+            className="text-lg lg:text-xl text-white/80 max-w-2xl mb-10 leading-relaxed font-body"
           >
-            Shivaami makes it happen. We architect your AI agent deployment, build custom agents, and train your teams to work smarter from day one. Every minute you wait is productivity you'll never get back.
+            We architect your AI agent deployment, build custom agents, and train your teams to work smarter from day one.
           </motion.p>
 
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
+          {/* CTA */}
+          <motion.div 
+            initial={{ opacity: 0, y: 28 }} 
+            animate={{ opacity: 1, y: 0 }} 
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center"
           >
-            <Button size="lg" className="bg-[#38B6FF] hover:bg-[#2da8f0] text-white font-semibold px-8">
-              <Play className="w-4 h-4 mr-2" />
-              Book a Live Demo
-              <ArrowRight className="w-4 h-4 ml-2" />
-            </Button>
+            <Link to="/lets-connect">
+              <Button
+                size="lg"
+                className="bg-[#38B6FF] hover:bg-[#2da8f0] text-white font-semibold px-10 py-7 text-lg group rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
+              >
+                <Play className="w-5 h-5 mr-2" />
+                Book a Live Demo
+                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </Button>
+            </Link>
           </motion.div>
         </div>
-      </div>
+      </motion.div>
+
+      {/* Scroll Indicator */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.2, duration: 0.5 }}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10"
+      >
+        <div className="w-6 h-10 rounded-full border-2 border-white/30 flex justify-center pt-2 bg-white/10 backdrop-blur-sm">
+          <motion.div
+            animate={{ y: [0, 12, 0] }}
+            transition={{ duration: 1.5, repeat: Infinity }}
+            className="w-1.5 h-1.5 rounded-full bg-[#38B6FF]"
+          />
+        </div>
+      </motion.div>
     </section>
   );
 }
@@ -127,14 +174,14 @@ function FeaturesSection() {
 
   return (
     <section className="py-20 bg-[#f8fafc]">
-      <div className="container mx-auto px-4">
+      <div className="w-full px-8 lg:px-16 xl:px-24">
         <motion.div {...fadeInUp} className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-[#0C4594] mb-4">
             What Gemini Enterprise Delivers
           </h2>
         </motion.div>
 
-        <motion.div {...staggerContainer} className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+        <motion.div {...staggerContainer} className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {features.map((feature, idx) => {
             const Icon = feature.icon;
             return (
@@ -196,14 +243,14 @@ function ActivationSection() {
 
   return (
     <section className="py-20 bg-white">
-      <div className="container mx-auto px-4">
+      <div className="w-full px-8 lg:px-16 xl:px-24">
         <motion.div {...fadeInUp} className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-[#0C4594] mb-4">
             How Shivaami Activates Gemini Enterprise Across Your Organization
           </h2>
         </motion.div>
 
-        <div className="max-w-4xl mx-auto space-y-6">
+        <div className="max-w-5xl mx-auto space-y-6">
           {steps.map((step, idx) => {
             const Icon = step.icon;
             return (
@@ -254,8 +301,8 @@ function CalendarCTASection() {
 
   return (
     <section className="py-20 bg-gradient-to-br from-[#0C4594] via-[#0a3a7a] to-[#082d61]">
-      <div className="container mx-auto px-4">
-        <motion.div {...fadeInUp} className="max-w-4xl mx-auto text-center">
+      <div className="w-full px-8 lg:px-16 xl:px-24">
+        <motion.div {...fadeInUp} className="max-w-5xl mx-auto text-center">
           <div className="w-16 h-16 rounded-2xl bg-[#38B6FF] flex items-center justify-center mx-auto mb-6">
             <Calendar className="w-8 h-8 text-white" />
           </div>
@@ -264,7 +311,7 @@ function CalendarCTASection() {
           </h2>
           <p className="text-lg text-white/80 mb-8">We'll show you:</p>
 
-          <div className="grid md:grid-cols-2 gap-4 text-left max-w-3xl mx-auto mb-10">
+          <div className="grid md:grid-cols-2 gap-4 text-left max-w-4xl mx-auto mb-10">
             {demoPoints.map((point, idx) => (
               <motion.div
                 key={idx}
@@ -278,10 +325,12 @@ function CalendarCTASection() {
             ))}
           </div>
 
-          <Button size="lg" className="bg-[#38B6FF] hover:bg-[#2da8f0] text-white font-semibold px-8">
-            Book Your Live AI Agent Demo
-            <ArrowRight className="w-4 h-4 ml-2" />
-          </Button>
+          <Link to="/lets-connect">
+            <Button size="lg" className="bg-[#38B6FF] hover:bg-[#2da8f0] text-white font-semibold px-10 py-7 text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
+              Book Your Live AI Agent Demo
+              <ArrowRight className="w-5 h-5 ml-2" />
+            </Button>
+          </Link>
         </motion.div>
       </div>
     </section>
