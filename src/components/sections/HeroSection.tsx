@@ -46,41 +46,46 @@ export default function HeroSection() {
 
       {/* Content - Left aligned with proper spacing from nav */}
       <motion.div style={{ opacity }} className="relative z-10 w-full px-8 lg:px-16 xl:px-24 pt-32 lg:pt-40 xl:pt-44 pb-16">
-        <div className="max-w-xl">
+        <div className="max-w-2xl">
 
-          {/* Headline - Bold, minimal, 3-6 words */}
+          {/* Headline */}
           <motion.h1
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.2 }}
-            className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6 leading-[1.1] tracking-tight"
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="font-display text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-foreground mb-8 leading-[1.08] tracking-tight"
           >
-            Smarter. Safer. Smoother.
+            Make Your Ecosystem{' '}
+            <span className="text-primary">Smarter</span>,{' '}
+            <span className="text-accent">Safer</span>,{' '}
+            <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Smoother</span>{' '}
+            with Shivaami
           </motion.h1>
 
-          {/* Supporting sentence - Thin, low contrast, minimal */}
+          {/* Description */}
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.35 }}
-            className="text-lg lg:text-xl text-muted-foreground/70 max-w-md mb-12 leading-relaxed font-light"
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="text-lg lg:text-xl text-muted-foreground max-w-2xl mb-10 leading-relaxed font-body"
           >
-            Cloud and AI solutions that simplify how your teams work.
+            Empower your teams with secure cloud and AI solutions. We combine the right solutions with expert
+            services to simplify your productivity, security, and automation challenges.
           </motion.p>
 
-          {/* Single CTA - Short button */}
+          {/* Single CTA */}
           <motion.div 
-            initial={{ opacity: 0, y: 20 }} 
+            initial={{ opacity: 0, y: 28 }} 
             animate={{ opacity: 1, y: 0 }} 
-            transition={{ duration: 0.7, delay: 0.5 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
           >
             <Link to="/lets-connect">
               <Button
                 size="lg"
-                className="bg-foreground hover:bg-foreground/90 text-background font-medium px-8 py-6 text-base rounded-lg transition-all duration-300"
+                className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-10 py-7 text-lg group rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
               >
-                Get Started
-                <ArrowRight className="ml-2 w-4 h-4" />
+                Let's Connect
+                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Button>
             </Link>
           </motion.div>
