@@ -91,7 +91,7 @@ const menuContent: Record<string, MenuContent> = {
             label: 'Identity & Device', 
             desc: 'Identity & device management',
             subItems: [
-              { icon: Shield, label: 'JumpCloud', desc: 'Directory platform' },
+              { icon: Shield, label: 'JumpCloud', desc: 'Directory platform', href: '/jumpcloud' },
               { icon: Users, label: 'Viami', desc: 'Identity management' },
               { icon: Smartphone, label: 'Scalefusion', desc: 'Device management' },
               { icon: Laptop, label: 'Jamf', desc: 'Apple device management' },
