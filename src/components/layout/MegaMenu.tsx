@@ -92,8 +92,8 @@ const menuContent: Record<string, MenuContent> = {
             desc: 'Identity & device management',
             subItems: [
               { icon: Shield, label: 'JumpCloud', desc: 'Directory platform', href: '/jumpcloud' },
-              { icon: Users, label: 'Viami', desc: 'Identity management' },
-              { icon: Smartphone, label: 'Scalefusion', desc: 'Device management' },
+              { icon: Users, label: 'Viami', desc: 'Digital workplace platform', href: '/viami' },
+              { icon: Smartphone, label: 'Scalefusion', desc: 'Device management', href: '/scalefusion' },
               { icon: Laptop, label: 'Jamf', desc: 'Apple device management' },
               { icon: Lock, label: 'Okta', desc: 'Identity provider' },
               { icon: Settings, label: 'miniOrange', desc: 'SSO & MFA solutions' },
