@@ -124,10 +124,10 @@ const menuContent: Record<string, MenuContent> = {
             label: 'Cyber Security', 
             desc: 'Enterprise security solutions',
             subItems: [
-              { icon: Shield, label: 'Palo Alto', desc: 'Network security' },
-              { icon: Lock, label: 'Wiz', desc: 'Cloud security platform' },
-              { icon: Shield, label: 'Check Point', desc: 'Threat prevention' },
-              { icon: Lock, label: 'Tenable', desc: 'Vulnerability management' },
+              { icon: Shield, label: 'Palo Alto', desc: 'Network security', href: '/paloalto' },
+              { icon: Lock, label: 'Wiz', desc: 'Cloud security platform', href: '/wiz' },
+              { icon: Shield, label: 'Check Point', desc: 'Threat prevention', href: '/checkpoint' },
+              { icon: Lock, label: 'Tenable', desc: 'Vulnerability management', href: '/tenable' },
             ]
           },
           { 
