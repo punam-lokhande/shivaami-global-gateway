@@ -1,5 +1,5 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import { 
   Brain, Search, Shield, 
   Users, HeadphonesIcon, CheckCircle2, ArrowRight, Play, Calendar, Clock,
@@ -9,7 +9,12 @@ import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
-import heroImage from '@/assets/hero-dark-enterprise.jpg';
+import heroImage from '@/assets/gemini-enterprise-banner.jpg';
+import strategicPlanningImg from '@/assets/activation/strategic-planning.jpg';
+import technicalDeploymentImg from '@/assets/activation/technical-deployment.jpg';
+import securityConfigImg from '@/assets/activation/security-config.jpg';
+import teamTrainingImg from '@/assets/activation/team-training.jpg';
+import ongoingSupportImg from '@/assets/activation/ongoing-support.jpg';
 
 const fadeInUp = {
   initial: { opacity: 0, y: 30 },
@@ -24,7 +29,7 @@ const staggerContainer = {
   viewport: { once: true }
 };
 
-// Hero Section - Full Width with Banner Background
+// Hero Section - Reduced height with different banner
 function HeroSection() {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
@@ -36,7 +41,7 @@ function HeroSection() {
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
   return (
-    <section ref={ref} className="relative min-h-screen flex items-center overflow-hidden">
+    <section ref={ref} className="relative h-[70vh] min-h-[500px] max-h-[600px] flex items-center overflow-hidden">
       {/* Full-width Background Image */}
       <motion.div 
         style={{ y }}
@@ -54,25 +59,14 @@ function HeroSection() {
       </motion.div>
 
       {/* Content - Left aligned with full width layout */}
-      <motion.div style={{ opacity }} className="relative z-10 w-full px-8 lg:px-16 xl:px-24 pt-32 lg:pt-40 xl:pt-44 pb-16">
+      <motion.div style={{ opacity }} className="relative z-10 w-full px-8 lg:px-16 xl:px-24 pt-24 lg:pt-28">
         <div className="max-w-3xl">
-          {/* Badge */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 mb-6"
-          >
-            <Brain className="w-4 h-4 text-[#38B6FF]" />
-            <span className="text-white/90 text-sm font-medium">Enterprise AI Solution</span>
-          </motion.div>
-
           {/* Headline */}
           <motion.h1
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="font-display text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-semibold text-white mb-8 leading-[1.15] tracking-tight"
+            className="font-display text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-semibold text-white mb-6 leading-[1.15] tracking-tight"
           >
             Gemini Enterprise:<br />
             <span className="text-[#38B6FF]">The Future</span> of<br />
@@ -84,18 +78,9 @@ function HeroSection() {
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-lg lg:text-xl text-white/80 max-w-2xl mb-6 leading-relaxed font-body"
+            className="text-base lg:text-lg text-white/80 max-w-2xl mb-8 leading-relaxed font-body"
           >
-            Gemini Enterprise is Google's agentic AI platform built to automate business operations across every department. As an official onboarding partner, Shivaami helps organizations deploy AI agents that integrate with Google Workspace, Salesforce, Jira, and Slack.
-          </motion.p>
-
-          <motion.p
-            initial={{ opacity: 0, y: 28 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.25 }}
-            className="text-lg lg:text-xl text-white/80 max-w-2xl mb-10 leading-relaxed font-body"
-          >
-            We architect your AI agent deployment, build custom agents, and train your teams to work smarter from day one.
+            Gemini Enterprise is Google's agentic AI platform built to automate business operations across every department. As an official onboarding partner, Shivaami helps organizations deploy AI agents that integrate with your workflow.
           </motion.p>
 
           {/* CTA */}
@@ -107,7 +92,7 @@ function HeroSection() {
             <Link to="/lets-connect">
               <Button
                 size="lg"
-                className="bg-[#38B6FF] hover:bg-[#2da8f0] text-white font-semibold px-10 py-7 text-lg group rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
+                className="bg-[#38B6FF] hover:bg-[#2da8f0] text-white font-semibold px-8 py-6 text-base group rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
               >
                 <Play className="w-5 h-5 mr-2" />
                 Book a Live Demo
@@ -115,22 +100,6 @@ function HeroSection() {
               </Button>
             </Link>
           </motion.div>
-        </div>
-      </motion.div>
-
-      {/* Scroll Indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.2, duration: 0.5 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10"
-      >
-        <div className="w-6 h-10 rounded-full border-2 border-white/30 flex justify-center pt-2 bg-white/10 backdrop-blur-sm">
-          <motion.div
-            animate={{ y: [0, 12, 0] }}
-            transition={{ duration: 1.5, repeat: Infinity }}
-            className="w-1.5 h-1.5 rounded-full bg-[#38B6FF]"
-          />
         </div>
       </motion.div>
     </section>
@@ -143,32 +112,32 @@ function FeaturesSection() {
     {
       icon: Search,
       title: 'Unified Enterprise Search',
-      desc: 'Access a single, intelligent search experience across your entire organization. Gemini Enterprise securely connects you to various tools, enabling employees to find the right information instantly. No more switching between apps or searching through folders to find what you need.',
+      desc: 'Access a single, intelligent search experience across your entire organization. Gemini Enterprise securely connects you to various tools, enabling employees to find the right information instantly.',
     },
     {
       icon: Brain,
       title: "Access to Google's Latest AI Models",
-      desc: 'Empower your workforce with Google\'s most advanced AI capabilities, including Gemini 3 and Flash, NotebookLM Enterprise, Deep Research, Imagen, and Veo. All models are delivered through a secure, enterprise-ready, and compliant framework.',
+      desc: "Empower your workforce with Google's most advanced AI capabilities, including Gemini 3 and Flash, NotebookLM Enterprise, Deep Research, Imagen, and Veo.",
     },
     {
       icon: Blocks,
       title: 'Comprehensive AI Agent Ecosystem',
-      desc: 'Build custom agents using the no-code Agent Designer, integrate third-party agents from Box, Salesforce, and ServiceNow, or use Google-built agents from the Agent Gallery. Gemini Enterprise centralizes management through Workbench, creating one of the most powerful AI agent ecosystems for enterprises.',
+      desc: 'Build custom agents using the no-code Agent Designer, integrate third-party agents from Box, Salesforce, and ServiceNow, or use Google-built agents from the Agent Gallery.',
     },
     {
       icon: Shield,
       title: 'Enterprise-Grade Security & Compliance',
-      desc: 'Gemini Enterprise is built with world-class security features such as VPC Security Controls, CMEK, Access Transparency, tenant isolation, and role-based access control. Shivaami ensures your AI agents operate in a fully governed, compliant environment following least-privilege principles.',
+      desc: 'Built with world-class security features such as VPC Security Controls, CMEK, Access Transparency, tenant isolation, and role-based access control.',
     },
     {
       icon: Zap,
       title: 'No-Code AI Agent Development',
-      desc: 'Create enterprise-grade AI agents that understand natural language, automate workflows, and deliver insights, without writing any code. Agent Designer enables business users to build tailored automation without dependency on development teams.',
+      desc: 'Create enterprise-grade AI agents that understand natural language, automate workflows, and deliver insights, without writing any code.',
     },
     {
       icon: Workflow,
       title: 'Seamlessly Integrated Into Your Workflow',
-      desc: 'Enable AI agents directly within Gmail, Docs, Sheets, and Drive, where your teams already work every day. As a standalone Google Cloud platform, Gemini Enterprise delivers complete AI agent infrastructure beyond just a Workspace add-on.',
+      desc: 'Enable AI agents directly within Gmail, Docs, Sheets, and Drive, where your teams already work every day.',
     },
   ];
 
@@ -207,37 +176,94 @@ function FeaturesSection() {
   );
 }
 
-// How Shivaami Activates Gemini Enterprise Section
+// Flip Card Component
+function FlipCard({ title, description, image }: { title: string; description: string; image: string }) {
+  const [isFlipped, setIsFlipped] = useState(false);
+
+  return (
+    <div 
+      className="relative h-[400px] perspective-1000 cursor-pointer group"
+      onMouseEnter={() => setIsFlipped(true)}
+      onMouseLeave={() => setIsFlipped(false)}
+    >
+      <motion.div
+        className="relative w-full h-full preserve-3d transition-transform duration-700"
+        animate={{ rotateY: isFlipped ? 180 : 0 }}
+        style={{ transformStyle: 'preserve-3d' }}
+      >
+        {/* Front Side - Image with title */}
+        <div 
+          className="absolute inset-0 backface-hidden rounded-2xl overflow-hidden"
+          style={{ backfaceVisibility: 'hidden' }}
+        >
+          <img 
+            src={image} 
+            alt={title}
+            className="w-full h-full object-cover"
+          />
+          {/* Blue gradient overlay */}
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0C4594] via-[#0C4594]/60 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-br from-[#38B6FF]/30 to-transparent" />
+          
+          {/* Title on front */}
+          <div className="absolute bottom-0 left-0 right-0 p-6">
+            <h3 className="text-xl font-bold text-white leading-tight">{title}</h3>
+            <div className="mt-3 flex items-center gap-2 text-white/80 text-sm">
+              <span>Hover to learn more</span>
+              <ArrowRight className="w-4 h-4" />
+            </div>
+          </div>
+        </div>
+
+        {/* Back Side - Description */}
+        <div 
+          className="absolute inset-0 backface-hidden rounded-2xl overflow-hidden bg-gradient-to-br from-[#0C4594] to-[#082d61] p-6 flex flex-col justify-center"
+          style={{ backfaceVisibility: 'hidden', transform: 'rotateY(180deg)' }}
+        >
+          <div className="absolute inset-0 opacity-20">
+            <img 
+              src={image} 
+              alt={title}
+              className="w-full h-full object-cover blur-sm"
+            />
+          </div>
+          <div className="relative z-10">
+            <h3 className="text-xl font-bold text-white mb-4">{title}</h3>
+            <p className="text-white/90 text-sm leading-relaxed">{description}</p>
+          </div>
+        </div>
+      </motion.div>
+    </div>
+  );
+}
+
+// How Shivaami Activates Gemini Enterprise Section - 3 Column Flip Cards
 function ActivationSection() {
   const steps = [
     {
-      icon: Settings,
+      image: strategicPlanningImg,
       title: 'Strategic AI Agent Planning',
-      desc: 'We start by understanding your business processes, identifying high-impact automation opportunities. We then design an AI agent roadmap that delivers measurable ROI within 90 days. No generic deployment. Every agent we build solves a real problem.',
+      desc: 'We start by understanding your business processes, identifying high-impact automation opportunities. We design an AI agent roadmap that delivers measurable ROI within 90 days. Every agent we build solves a real problem.',
     },
     {
-      icon: Zap,
+      image: technicalDeploymentImg,
       title: 'Zero-Friction Technical Deployment',
-      desc: 'We handle the complete technical setup: platform configuration, security controls, integration with your existing tools (Salesforce, Jira, Slack, SharePoint), and access management. Your team logs in to AI agents that are ready to work from day one.',
+      desc: 'We handle the complete technical setup: platform configuration, security controls, integration with your existing tools (Salesforce, Jira, Slack, SharePoint), and access management. Your team logs in to AI agents ready to work.',
     },
     {
-      icon: Shield,
+      image: securityConfigImg,
       title: 'Enterprise Security Configuration',
-      desc: 'We implement VPC Security Controls, CMEK encryption, Access Transparency, role-based access controls, and audit logging. Your Gemini Enterprise deployment meets your compliance requirements from the start, whether you\'re in healthcare, finance, or any regulated industry.',
+      desc: "We implement VPC Security Controls, CMEK encryption, Access Transparency, role-based access controls, and audit logging. Your deployment meets compliance requirements from the start.",
     },
     {
-      icon: Users,
+      image: teamTrainingImg,
       title: 'Team Enablement & Agent Training',
-      desc: "We don't just hand over technology. We train your teams on how to use prebuilt agents, build their own with no-code tools, and integrate AI into daily workflows. Hands-on workshops, department-specific use cases, and ongoing support ensure adoption.",
+      desc: "We train your teams on how to use prebuilt agents, build their own with no-code tools, and integrate AI into daily workflows. Hands-on workshops and department-specific use cases ensure adoption.",
     },
     {
-      icon: HeadphonesIcon,
+      image: ongoingSupportImg,
       title: 'Ongoing Support & Updates',
-      desc: 'Google releases new AI models and agent capabilities monthly. We keep your platform updated, help you leverage new features, and provide 24/7 technical support.',
-      stats: [
-        { label: 'Average response time', value: '4 minutes' },
-        { label: 'Resolution time', value: 'under 40 minutes' },
-      ],
+      desc: 'Google releases new AI models and agent capabilities monthly. We keep your platform updated, help you leverage new features, and provide 24/7 technical support with 4-minute response times.',
     },
   ];
 
@@ -250,41 +276,48 @@ function ActivationSection() {
           </h2>
         </motion.div>
 
-        <div className="max-w-5xl mx-auto space-y-6">
-          {steps.map((step, idx) => {
-            const Icon = step.icon;
-            return (
-              <motion.div
-                key={idx}
-                {...fadeInUp}
-                transition={{ delay: idx * 0.1 }}
-                className="bg-[#f8fafc] rounded-2xl p-6 border border-[#e2e8f0] hover:shadow-lg transition-all duration-300"
-              >
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#0C4594] to-[#38B6FF] flex items-center justify-center flex-shrink-0">
-                    <Icon className="w-6 h-6 text-white" />
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="text-lg font-semibold text-[#0C4594] mb-2">{step.title}</h3>
-                    <p className="text-[#475569] text-sm leading-relaxed">{step.desc}</p>
-                    {step.stats && (
-                      <div className="flex flex-wrap gap-6 mt-4">
-                        {step.stats.map((stat, statIdx) => (
-                          <div key={statIdx} className="flex items-center gap-2">
-                            <Clock className="w-4 h-4 text-[#38B6FF]" />
-                            <span className="text-[#475569] text-sm">
-                              {stat.label}: <span className="text-[#38B6FF] font-semibold">{stat.value}</span>
-                            </span>
-                          </div>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                </div>
-              </motion.div>
-            );
-          })}
-        </div>
+        <motion.div 
+          {...staggerContainer} 
+          className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto"
+        >
+          {steps.slice(0, 3).map((step, idx) => (
+            <motion.div
+              key={idx}
+              variants={{
+                initial: { opacity: 0, y: 20 },
+                whileInView: { opacity: 1, y: 0 }
+              }}
+            >
+              <FlipCard 
+                title={step.title}
+                description={step.desc}
+                image={step.image}
+              />
+            </motion.div>
+          ))}
+        </motion.div>
+
+        {/* Second row - 2 cards centered */}
+        <motion.div 
+          {...staggerContainer} 
+          className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto mt-6"
+        >
+          {steps.slice(3).map((step, idx) => (
+            <motion.div
+              key={idx + 3}
+              variants={{
+                initial: { opacity: 0, y: 20 },
+                whileInView: { opacity: 1, y: 0 }
+              }}
+            >
+              <FlipCard 
+                title={step.title}
+                description={step.desc}
+                image={step.image}
+              />
+            </motion.div>
+          ))}
+        </motion.div>
       </div>
     </section>
   );
