@@ -282,7 +282,7 @@ export default function MegaMenu({ activeKey, anchorRect, onClose }: MegaMenuPro
       exit={{ opacity: 0, y: -8 }}
       transition={{ duration: 0.2, ease: 'easeOut' }}
       style={{ left: leftPosition, top: topPx, maxWidth: menuWidth }}
-      className="fixed bg-card border border-border rounded-2xl shadow-elevated z-50 overflow-hidden"
+      className="fixed bg-card border border-border rounded-2xl shadow-elevated z-[90] overflow-visible"
       onMouseLeave={onClose}
     >
       <div className="flex">
