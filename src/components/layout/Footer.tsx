@@ -97,11 +97,6 @@ export default function Footer() {
               <span className="font-display font-bold text-xl text-foreground">Shivaami</span>
             </div>
             <div className="space-y-4 text-sm text-muted-foreground">
-              <a href="mailto:hello@shivaami.com" className="flex items-center gap-2 hover:text-foreground transition-colors">
-                <Mail className="w-4 h-4" />
-                hello@shivaami.com
-              </a>
-              
               {/* India Office */}
               <div className="space-y-2">
                 <h5 className="font-semibold text-foreground text-xs uppercase tracking-wide">India</h5>
