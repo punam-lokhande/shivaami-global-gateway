@@ -311,17 +311,16 @@ export default function MegaMenu({ activeKey, anchorRect, onClose }: MegaMenuPro
                               e.preventDefault();
                               handleNavigation(item.href || "/cloud-capabilities");
                             }}
-                            className="group flex items-center gap-2.5 p-2 rounded-lg border border-dashed border-primary/30 transition-all duration-200 hover:border-primary hover:bg-primary/5"
+                            className="group flex items-center gap-2.5 p-2 rounded-lg hover:bg-primary/10 transition-all duration-200"
                           >
-                            <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center flex-shrink-0 text-primary-foreground">
-                              <Icon className="w-4 h-4" />
+                            <div className="w-8 h-8 rounded-lg bg-secondary flex items-center justify-center flex-shrink-0 group-hover:bg-primary/15 transition-all duration-200">
+                              <Icon className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors" />
                             </div>
                             <div className="flex-1 min-w-0">
-                              <span className="font-medium text-sm text-primary">
+                              <span className="font-medium text-sm text-foreground group-hover:text-primary transition-colors">
                                 {item.label}
                               </span>
                             </div>
-                            <ChevronRight className="w-4 h-4 text-primary" />
                           </a>
                         </li>
                       );
