@@ -27,6 +27,10 @@ import PaloAlto from "./pages/PaloAlto";
 import Wiz from "./pages/Wiz";
 import CheckPoint from "./pages/CheckPoint";
 import Tenable from "./pages/Tenable";
+import SSLCertificates from "./pages/SSLCertificates";
+import GoSimulator from "./pages/GoSimulator";
+import GoDmarc from "./pages/GoDmarc";
+import VMC from "./pages/VMC";
 import BecomePartner from "./pages/BecomePartner";
 
 const queryClient = new QueryClient();
@@ -61,6 +65,10 @@ const App = () => (
             <Route path="/wiz" element={<Wiz />} />
             <Route path="/checkpoint" element={<CheckPoint />} />
             <Route path="/tenable" element={<Tenable />} />
+            <Route path="/ssl-certificates" element={<SSLCertificates />} />
+            <Route path="/gosimulator" element={<GoSimulator />} />
+            <Route path="/godmarc" element={<GoDmarc />} />
+            <Route path="/vmc" element={<VMC />} />
             <Route path="/become-partner" element={<BecomePartner />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
