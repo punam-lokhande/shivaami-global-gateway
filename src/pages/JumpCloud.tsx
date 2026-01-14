@@ -294,7 +294,7 @@ function ActivationSection() {
       <div className="w-full px-8 lg:px-16 xl:px-24">
         <motion.div {...fadeInUp} className="text-center mb-12">
           <h2 className="text-2xl md:text-3xl font-bold text-[#0C4594] mb-4">
-            How Shivaami Helps You Succeed
+            How Shivaami Helps You Succeed?
           </h2>
         </motion.div>
 
