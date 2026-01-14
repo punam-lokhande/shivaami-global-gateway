@@ -413,7 +413,6 @@ export default function SwiftMove() {
       <main>
         <HeroSection />
         <FeaturesSection />
-        <ActivationSection />
         <CalendarCTASection />
       </main>
       <Footer />
