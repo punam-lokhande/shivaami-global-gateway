@@ -176,13 +176,13 @@ function FeaturesSection() {
   );
 }
 
-// Flip Card Component
-function FlipCard({ title, description, image }: { title: string; description: string; image: string }) {
+// Flip Card Component with Icon
+function FlipCard({ title, description, image, icon: Icon }: { title: string; description: string; image: string; icon: React.ComponentType<{ className?: string }> }) {
   const [isFlipped, setIsFlipped] = useState(false);
 
   return (
     <div 
-      className="relative h-[400px] perspective-1000 cursor-pointer group"
+      className="relative h-[280px] perspective-1000 cursor-pointer group"
       onMouseEnter={() => setIsFlipped(true)}
       onMouseLeave={() => setIsFlipped(false)}
     >
@@ -191,9 +191,9 @@ function FlipCard({ title, description, image }: { title: string; description: s
         animate={{ rotateY: isFlipped ? 180 : 0 }}
         style={{ transformStyle: 'preserve-3d' }}
       >
-        {/* Front Side - Image with title */}
+        {/* Front Side - Image with title and icon */}
         <div 
-          className="absolute inset-0 backface-hidden rounded-2xl overflow-hidden"
+          className="absolute inset-0 backface-hidden rounded-xl overflow-hidden"
           style={{ backfaceVisibility: 'hidden' }}
         >
           <img 
@@ -202,22 +202,25 @@ function FlipCard({ title, description, image }: { title: string; description: s
             className="w-full h-full object-cover"
           />
           {/* Blue gradient overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0C4594] via-[#0C4594]/60 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-br from-[#38B6FF]/30 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0C4594] via-[#0C4594]/70 to-[#0C4594]/40" />
+          <div className="absolute inset-0 bg-gradient-to-br from-[#38B6FF]/40 to-transparent" />
           
-          {/* Title on front */}
-          <div className="absolute bottom-0 left-0 right-0 p-6">
-            <h3 className="text-xl font-bold text-white leading-tight">{title}</h3>
-            <div className="mt-3 flex items-center gap-2 text-white/80 text-sm">
+          {/* Icon and Title on front */}
+          <div className="absolute bottom-0 left-0 right-0 p-5">
+            <div className="w-10 h-10 rounded-lg bg-[#38B6FF] flex items-center justify-center mb-3">
+              <Icon className="w-5 h-5 text-white" />
+            </div>
+            <h3 className="text-lg font-bold text-white leading-tight">{title}</h3>
+            <div className="mt-2 flex items-center gap-2 text-white/70 text-xs">
               <span>Hover to learn more</span>
-              <ArrowRight className="w-4 h-4" />
+              <ArrowRight className="w-3 h-3" />
             </div>
           </div>
         </div>
 
         {/* Back Side - Description */}
         <div 
-          className="absolute inset-0 backface-hidden rounded-2xl overflow-hidden bg-gradient-to-br from-[#0C4594] to-[#082d61] p-6 flex flex-col justify-center"
+          className="absolute inset-0 backface-hidden rounded-xl overflow-hidden bg-gradient-to-br from-[#0C4594] to-[#082d61] p-5 flex flex-col justify-center"
           style={{ backfaceVisibility: 'hidden', transform: 'rotateY(180deg)' }}
         >
           <div className="absolute inset-0 opacity-20">
@@ -228,8 +231,11 @@ function FlipCard({ title, description, image }: { title: string; description: s
             />
           </div>
           <div className="relative z-10">
-            <h3 className="text-xl font-bold text-white mb-4">{title}</h3>
-            <p className="text-white/90 text-sm leading-relaxed">{description}</p>
+            <div className="w-10 h-10 rounded-lg bg-[#38B6FF] flex items-center justify-center mb-3">
+              <Icon className="w-5 h-5 text-white" />
+            </div>
+            <h3 className="text-base font-bold text-white mb-2">{title}</h3>
+            <p className="text-white/90 text-xs leading-relaxed">{description}</p>
           </div>
         </div>
       </motion.div>
@@ -242,45 +248,50 @@ function ActivationSection() {
   const steps = [
     {
       image: strategicPlanningImg,
+      icon: Brain,
       title: 'Strategic AI Agent Planning',
-      desc: 'We start by understanding your business processes, identifying high-impact automation opportunities. We design an AI agent roadmap that delivers measurable ROI within 90 days. Every agent we build solves a real problem.',
+      desc: 'We understand your business processes and identify high-impact automation opportunities with an AI agent roadmap that delivers measurable ROI.',
     },
     {
       image: technicalDeploymentImg,
-      title: 'Zero-Friction Technical Deployment',
-      desc: 'We handle the complete technical setup: platform configuration, security controls, integration with your existing tools (Salesforce, Jira, Slack, SharePoint), and access management. Your team logs in to AI agents ready to work.',
+      icon: Settings,
+      title: 'Zero-Friction Deployment',
+      desc: 'Complete technical setup: platform configuration, security controls, and integration with your existing tools like Salesforce, Jira, and Slack.',
     },
     {
       image: securityConfigImg,
-      title: 'Enterprise Security Configuration',
-      desc: "We implement VPC Security Controls, CMEK encryption, Access Transparency, role-based access controls, and audit logging. Your deployment meets compliance requirements from the start.",
+      icon: Shield,
+      title: 'Enterprise Security',
+      desc: 'VPC Security Controls, CMEK encryption, Access Transparency, role-based access controls, and audit logging from day one.',
     },
     {
       image: teamTrainingImg,
-      title: 'Team Enablement & Agent Training',
-      desc: "We train your teams on how to use prebuilt agents, build their own with no-code tools, and integrate AI into daily workflows. Hands-on workshops and department-specific use cases ensure adoption.",
+      icon: Users,
+      title: 'Team Enablement',
+      desc: 'We train your teams on prebuilt agents, no-code tools, and AI integration into daily workflows with hands-on workshops.',
     },
     {
       image: ongoingSupportImg,
-      title: 'Ongoing Support & Updates',
-      desc: 'Google releases new AI models and agent capabilities monthly. We keep your platform updated, help you leverage new features, and provide 24/7 technical support with 4-minute response times.',
+      icon: HeadphonesIcon,
+      title: 'Ongoing Support',
+      desc: 'Platform updates, new feature guidance, and 24/7 technical support with 4-minute response times.',
     },
   ];
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-16 bg-white">
       <div className="w-full px-8 lg:px-16 xl:px-24">
-        <motion.div {...fadeInUp} className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#0C4594] mb-4">
+        <motion.div {...fadeInUp} className="text-center mb-12">
+          <h2 className="text-2xl md:text-3xl font-bold text-[#0C4594] mb-4">
             How Shivaami Activates Gemini Enterprise Across Your Organization
           </h2>
         </motion.div>
 
         <motion.div 
           {...staggerContainer} 
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto"
+          className="grid md:grid-cols-3 lg:grid-cols-5 gap-4 max-w-7xl mx-auto"
         >
-          {steps.slice(0, 3).map((step, idx) => (
+          {steps.map((step, idx) => (
             <motion.div
               key={idx}
               variants={{
@@ -292,28 +303,7 @@ function ActivationSection() {
                 title={step.title}
                 description={step.desc}
                 image={step.image}
-              />
-            </motion.div>
-          ))}
-        </motion.div>
-
-        {/* Second row - 2 cards centered */}
-        <motion.div 
-          {...staggerContainer} 
-          className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto mt-6"
-        >
-          {steps.slice(3).map((step, idx) => (
-            <motion.div
-              key={idx + 3}
-              variants={{
-                initial: { opacity: 0, y: 20 },
-                whileInView: { opacity: 1, y: 0 }
-              }}
-            >
-              <FlipCard 
-                title={step.title}
-                description={step.desc}
-                image={step.image}
+                icon={step.icon}
               />
             </motion.div>
           ))}
