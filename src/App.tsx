@@ -12,6 +12,7 @@ import Glean from "./pages/Glean";
 import GoogleWorkspace from "./pages/GoogleWorkspace";
 import Microsoft365 from "./pages/Microsoft365";
 import ZohoMail from "./pages/ZohoMail";
+import JumpCloud from "./pages/JumpCloud";
 import BecomePartner from "./pages/BecomePartner";
 
 const queryClient = new QueryClient();
@@ -31,6 +32,7 @@ const App = () => (
             <Route path="/google-workspace" element={<GoogleWorkspace />} />
             <Route path="/microsoft-365" element={<Microsoft365 />} />
             <Route path="/zoho-mail" element={<ZohoMail />} />
+            <Route path="/jumpcloud" element={<JumpCloud />} />
             <Route path="/become-partner" element={<BecomePartner />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
