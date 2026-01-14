@@ -53,12 +53,10 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="font-display text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-semibold text-foreground mb-8 leading-[1.08] tracking-tight"
+            className="font-display text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-semibold text-foreground mb-8 leading-[1.15] tracking-tight"
           >
-            Make Your Ecosystem{' '}
-            <span className="text-primary">Smarter</span>,{' '}
-            <span className="text-accent">Safer</span>,{' '}
-            <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Smoother</span>{' '}
+            Make Your Ecosystem<br />
+            <span className="text-primary">Smarter</span>, <span className="text-accent">Safer</span>, <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Smoother</span><br />
             with Shivaami
           </motion.h1>
 
