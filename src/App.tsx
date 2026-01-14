@@ -20,6 +20,9 @@ import Okta from "./pages/Okta";
 import MiniOrange from "./pages/MiniOrange";
 import SuperOps from "./pages/SuperOps";
 import Atera from "./pages/Atera";
+import AWS from "./pages/AWS";
+import Azure from "./pages/Azure";
+import JioCloud from "./pages/JioCloud";
 import BecomePartner from "./pages/BecomePartner";
 
 const queryClient = new QueryClient();
@@ -47,6 +50,9 @@ const App = () => (
             <Route path="/miniorange" element={<MiniOrange />} />
             <Route path="/superops" element={<SuperOps />} />
             <Route path="/atera" element={<Atera />} />
+            <Route path="/aws" element={<AWS />} />
+            <Route path="/azure" element={<Azure />} />
+            <Route path="/jiocloud" element={<JioCloud />} />
             <Route path="/become-partner" element={<BecomePartner />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />

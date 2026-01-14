@@ -114,9 +114,9 @@ const menuContent: Record<string, MenuContent> = {
             desc: 'Enterprise cloud platforms',
             subItems: [
               { icon: Cloud, label: 'Google Cloud Platform', desc: 'GCP services' },
-              { icon: Server, label: 'AWS', desc: 'Amazon Web Services' },
-              { icon: Cloud, label: 'Microsoft Azure', desc: 'Azure cloud services' },
-              { icon: Cloud, label: 'JioCloud', desc: 'Jio cloud infrastructure' },
+              { icon: Server, label: 'AWS', desc: 'Amazon Web Services', href: '/aws' },
+              { icon: Cloud, label: 'Microsoft Azure', desc: 'Azure cloud services', href: '/azure' },
+              { icon: Cloud, label: 'JioCloud', desc: 'Jio cloud infrastructure', href: '/jiocloud' },
             ]
           },
           { 
