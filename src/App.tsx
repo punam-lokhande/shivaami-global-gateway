@@ -18,6 +18,8 @@ import Scalefusion from "./pages/Scalefusion";
 import Jamf from "./pages/Jamf";
 import Okta from "./pages/Okta";
 import MiniOrange from "./pages/MiniOrange";
+import SuperOps from "./pages/SuperOps";
+import Atera from "./pages/Atera";
 import BecomePartner from "./pages/BecomePartner";
 
 const queryClient = new QueryClient();
@@ -43,6 +45,8 @@ const App = () => (
             <Route path="/jamf" element={<Jamf />} />
             <Route path="/okta" element={<Okta />} />
             <Route path="/miniorange" element={<MiniOrange />} />
+            <Route path="/superops" element={<SuperOps />} />
+            <Route path="/atera" element={<Atera />} />
             <Route path="/become-partner" element={<BecomePartner />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
