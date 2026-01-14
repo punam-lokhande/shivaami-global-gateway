@@ -135,10 +135,10 @@ const menuContent: Record<string, MenuContent> = {
             label: 'Cloud Security', 
             desc: 'Secure your cloud assets',
             subItems: [
-              { icon: Shield, label: 'SSL Certificates', desc: 'Secure connections' },
-              { icon: Lock, label: 'GoSimulator', desc: 'Security simulation' },
-              { icon: Mail, label: 'GoDmarc', desc: 'Email authentication' },
-              { icon: Shield, label: 'VMC', desc: 'Verified Mark Certificates' },
+              { icon: Shield, label: 'SSL Certificates', desc: 'Secure connections', href: '/ssl-certificates' },
+              { icon: Lock, label: 'GoSimulator', desc: 'Security simulation', href: '/gosimulator' },
+              { icon: Mail, label: 'GoDmarc', desc: 'Email authentication', href: '/godmarc' },
+              { icon: Shield, label: 'VMC', desc: 'Verified Mark Certificates', href: '/vmc' },
             ]
           },
           { 
