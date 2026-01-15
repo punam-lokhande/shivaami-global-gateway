@@ -58,170 +58,173 @@ export default function Contact() {
         </div>
       </section>
 
-      {/* Main Content */}
-      <section className="py-16 md:py-24 bg-slate-50">
+      {/* Office Cards Section - Primary Focus */}
+      <section className="py-16 md:py-20 bg-white">
         <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <div className="grid lg:grid-cols-5 gap-8 lg:gap-12">
-              
-              {/* Contact Form - Left Side */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-[#0C4594] mb-3 font-display">
+              Our Global Offices
+            </h2>
+            <p className="text-muted-foreground max-w-xl mx-auto">
+              Reach out to our team at any of our locations
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            {offices.map((office, index) => (
               <motion.div
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
+                key={office.region}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="lg:col-span-3"
+                transition={{ delay: index * 0.15 }}
+                className="group"
               >
-                <div className="bg-white rounded-2xl p-8 md:p-10 shadow-xl border border-slate-100">
-                  <div className="mb-8">
-                    <h2 className="text-2xl md:text-3xl font-bold text-[#0C4594] mb-2 font-display">
-                      Send us a Message
-                    </h2>
-                    <p className="text-muted-foreground">
-                      Fill out the form and we'll get back to you within 24 hours.
-                    </p>
+                <div className="bg-slate-50 rounded-2xl p-8 border border-slate-100 hover:border-[#0C4594]/20 hover:shadow-xl transition-all duration-300 h-full">
+                  {/* Header */}
+                  <div className="flex items-center gap-4 mb-6 pb-6 border-b border-slate-200">
+                    <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#0C4594] to-[#38B6FF] flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform">
+                      <span className="text-3xl">{office.flag}</span>
+                    </div>
+                    <div>
+                      <h3 className="text-2xl font-bold text-[#0C4594]">{office.region}</h3>
+                      <p className="text-sm text-[#38B6FF] font-medium">Regional Office</p>
+                    </div>
                   </div>
 
-                  <form className="space-y-5">
-                    <div className="grid md:grid-cols-2 gap-5">
-                      <div>
-                        <label className="block text-sm font-medium text-slate-700 mb-1.5">Full Name</label>
-                        <Input 
-                          placeholder="John Doe" 
-                          className="h-11 bg-slate-50 border-slate-200 focus:bg-white focus:border-[#0C4594] transition-colors"
-                        />
+                  {/* Contact Details */}
+                  <div className="space-y-5">
+                    <a 
+                      href={`tel:${office.phone.replace(/\s/g, '')}`}
+                      className="flex items-center gap-4 p-3 rounded-xl hover:bg-white transition-colors group/item"
+                    >
+                      <div className="w-11 h-11 rounded-xl bg-[#0C4594] flex items-center justify-center shadow-md">
+                        <Phone className="w-5 h-5 text-white" />
                       </div>
                       <div>
-                        <label className="block text-sm font-medium text-slate-700 mb-1.5">Email</label>
-                        <Input 
-                          type="email" 
-                          placeholder="john@company.com" 
-                          className="h-11 bg-slate-50 border-slate-200 focus:bg-white focus:border-[#0C4594] transition-colors"
-                        />
+                        <p className="text-xs text-muted-foreground uppercase tracking-wide mb-0.5">Phone</p>
+                        <p className="text-lg font-semibold text-[#0C4594] group-hover/item:text-[#38B6FF] transition-colors">{office.phone}</p>
                       </div>
-                    </div>
+                    </a>
 
-                    <div className="grid md:grid-cols-2 gap-5">
-                      <div>
-                        <label className="block text-sm font-medium text-slate-700 mb-1.5">Phone</label>
-                        <Input 
-                          placeholder="+91 98765 43210" 
-                          className="h-11 bg-slate-50 border-slate-200 focus:bg-white focus:border-[#0C4594] transition-colors"
-                        />
+                    <a 
+                      href={`mailto:${office.email}`}
+                      className="flex items-center gap-4 p-3 rounded-xl hover:bg-white transition-colors group/item"
+                    >
+                      <div className="w-11 h-11 rounded-xl bg-[#0C4594] flex items-center justify-center shadow-md">
+                        <Mail className="w-5 h-5 text-white" />
                       </div>
                       <div>
-                        <label className="block text-sm font-medium text-slate-700 mb-1.5">Company</label>
-                        <Input 
-                          placeholder="Your Company" 
-                          className="h-11 bg-slate-50 border-slate-200 focus:bg-white focus:border-[#0C4594] transition-colors"
-                        />
+                        <p className="text-xs text-muted-foreground uppercase tracking-wide mb-0.5">Email</p>
+                        <p className="text-lg font-semibold text-[#0C4594] group-hover/item:text-[#38B6FF] transition-colors">{office.email}</p>
+                      </div>
+                    </a>
+
+                    <div className="flex items-start gap-4 p-3 rounded-xl">
+                      <div className="w-11 h-11 rounded-xl bg-[#0C4594] flex items-center justify-center shadow-md flex-shrink-0">
+                        <MapPin className="w-5 h-5 text-white" />
+                      </div>
+                      <div>
+                        <p className="text-xs text-muted-foreground uppercase tracking-wide mb-0.5">Address</p>
+                        <p className="text-slate-700 font-medium leading-relaxed">{office.address}</p>
                       </div>
                     </div>
-
-                    <div>
-                      <label className="block text-sm font-medium text-slate-700 mb-1.5">Subject</label>
-                      <Input 
-                        placeholder="How can we help you?" 
-                        className="h-11 bg-slate-50 border-slate-200 focus:bg-white focus:border-[#0C4594] transition-colors"
-                      />
-                    </div>
-
-                    <div>
-                      <label className="block text-sm font-medium text-slate-700 mb-1.5">Message</label>
-                      <Textarea 
-                        placeholder="Tell us about your project..." 
-                        rows={4}
-                        className="bg-slate-50 border-slate-200 focus:bg-white focus:border-[#0C4594] transition-colors resize-none"
-                      />
-                    </div>
-
-                    <Button className="w-full h-12 bg-[#0C4594] hover:bg-[#0a3670] text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all">
-                      <Send className="w-4 h-4 mr-2" />
-                      Send Message
-                    </Button>
-                  </form>
+                  </div>
                 </div>
               </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
 
-              {/* Contact Info - Right Side */}
-              <motion.div
-                initial={{ opacity: 0, x: 30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                className="lg:col-span-2 space-y-6"
-              >
-                {/* Office Cards */}
-                {offices.map((office, index) => (
-                  <motion.div
-                    key={office.region}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: index * 0.1 }}
-                    className="bg-white rounded-2xl p-6 shadow-lg border border-slate-100 hover:shadow-xl transition-shadow"
-                  >
-                    <div className="flex items-center gap-3 mb-5">
-                      <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#0C4594] to-[#38B6FF] flex items-center justify-center shadow-md">
-                        <span className="text-2xl">{office.flag}</span>
-                      </div>
-                      <div>
-                        <h3 className="text-lg font-bold text-[#0C4594]">{office.region} Office</h3>
-                        <p className="text-sm text-muted-foreground">Regional Headquarters</p>
-                      </div>
-                    </div>
+      {/* Contact Form Section */}
+      <section className="py-16 md:py-20 bg-slate-50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-center mb-10"
+            >
+              <h2 className="text-3xl md:text-4xl font-bold text-[#0C4594] mb-3 font-display">
+                Send Us a Message
+              </h2>
+              <p className="text-muted-foreground">
+                Fill out the form and we'll get back to you within 24 hours
+              </p>
+            </motion.div>
 
-                    <div className="space-y-4">
-                      <a 
-                        href={`tel:${office.phone.replace(/\s/g, '')}`}
-                        className="flex items-center gap-3 group"
-                      >
-                        <div className="w-9 h-9 rounded-lg bg-[#0C4594]/10 flex items-center justify-center group-hover:bg-[#0C4594] transition-colors">
-                          <Phone className="w-4 h-4 text-[#0C4594] group-hover:text-white transition-colors" />
-                        </div>
-                        <span className="text-slate-700 group-hover:text-[#0C4594] transition-colors font-medium">{office.phone}</span>
-                      </a>
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="bg-white rounded-2xl p-8 md:p-10 shadow-xl border border-slate-100"
+            >
+              <form className="space-y-5">
+                <div className="grid md:grid-cols-2 gap-5">
+                  <div>
+                    <label className="block text-sm font-medium text-slate-700 mb-1.5">Full Name</label>
+                    <Input 
+                      placeholder="John Doe" 
+                      className="h-11 bg-slate-50 border-slate-200 focus:bg-white focus:border-[#0C4594] transition-colors"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-slate-700 mb-1.5">Email</label>
+                    <Input 
+                      type="email" 
+                      placeholder="john@company.com" 
+                      className="h-11 bg-slate-50 border-slate-200 focus:bg-white focus:border-[#0C4594] transition-colors"
+                    />
+                  </div>
+                </div>
 
-                      <a 
-                        href={`mailto:${office.email}`}
-                        className="flex items-center gap-3 group"
-                      >
-                        <div className="w-9 h-9 rounded-lg bg-[#0C4594]/10 flex items-center justify-center group-hover:bg-[#0C4594] transition-colors">
-                          <Mail className="w-4 h-4 text-[#0C4594] group-hover:text-white transition-colors" />
-                        </div>
-                        <span className="text-slate-700 group-hover:text-[#0C4594] transition-colors font-medium">{office.email}</span>
-                      </a>
+                <div className="grid md:grid-cols-2 gap-5">
+                  <div>
+                    <label className="block text-sm font-medium text-slate-700 mb-1.5">Phone</label>
+                    <Input 
+                      placeholder="+91 98765 43210" 
+                      className="h-11 bg-slate-50 border-slate-200 focus:bg-white focus:border-[#0C4594] transition-colors"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-slate-700 mb-1.5">Company</label>
+                    <Input 
+                      placeholder="Your Company" 
+                      className="h-11 bg-slate-50 border-slate-200 focus:bg-white focus:border-[#0C4594] transition-colors"
+                    />
+                  </div>
+                </div>
 
-                      <div className="flex items-start gap-3">
-                        <div className="w-9 h-9 rounded-lg bg-[#0C4594]/10 flex items-center justify-center flex-shrink-0">
-                          <MapPin className="w-4 h-4 text-[#0C4594]" />
-                        </div>
-                        <span className="text-slate-600 text-sm leading-relaxed">{office.address}</span>
-                      </div>
-                    </div>
-                  </motion.div>
-                ))}
+                <div>
+                  <label className="block text-sm font-medium text-slate-700 mb-1.5">Subject</label>
+                  <Input 
+                    placeholder="How can we help you?" 
+                    className="h-11 bg-slate-50 border-slate-200 focus:bg-white focus:border-[#0C4594] transition-colors"
+                  />
+                </div>
 
-                {/* Quick Connect Card */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.2 }}
-                  className="bg-gradient-to-br from-[#0C4594] to-[#1a5ab8] rounded-2xl p-6 text-white"
-                >
-                  <h3 className="text-lg font-bold mb-2">Need Immediate Assistance?</h3>
-                  <p className="text-white/70 text-sm mb-4">
-                    Our experts are available to help you with any queries.
-                  </p>
-                  <Button 
-                    variant="secondary" 
-                    className="w-full bg-white text-[#0C4594] hover:bg-slate-100 font-semibold"
-                  >
-                    Schedule a Call
-                    <ArrowRight className="w-4 h-4 ml-2" />
-                  </Button>
-                </motion.div>
-              </motion.div>
-            </div>
+                <div>
+                  <label className="block text-sm font-medium text-slate-700 mb-1.5">Message</label>
+                  <Textarea 
+                    placeholder="Tell us about your project..." 
+                    rows={4}
+                    className="bg-slate-50 border-slate-200 focus:bg-white focus:border-[#0C4594] transition-colors resize-none"
+                  />
+                </div>
+
+                <Button className="w-full h-12 bg-[#0C4594] hover:bg-[#0a3670] text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all">
+                  <Send className="w-4 h-4 mr-2" />
+                  Send Message
+                </Button>
+              </form>
+            </motion.div>
           </div>
         </div>
       </section>
