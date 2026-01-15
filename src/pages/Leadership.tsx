@@ -246,19 +246,13 @@ function LeaderCard({ leader, index }: { leader: typeof leaders[0]; index: numbe
           />
           {/* Overlay gradient */}
           <div className={`absolute inset-0 bg-gradient-to-t ${leader.color} opacity-0 group-hover:opacity-30 transition-opacity duration-500`} />
-          
-          {/* Role badge */}
-          <div className="absolute top-4 right-4">
-            <span className={`inline-block px-4 py-1.5 rounded-full text-sm font-semibold bg-white/95 backdrop-blur-sm text-[#0C4594] shadow-lg`}>
-              {leader.role}
-            </span>
-          </div>
         </div>
         
         {/* Content Section */}
         <div className="p-6">
-          {/* Name */}
-          <h3 className="text-xl font-bold text-[#0C4594] mb-3">{leader.name}</h3>
+          {/* Name and Role */}
+          <h3 className="text-xl font-bold text-[#0C4594] mb-1">{leader.name}</h3>
+          <p className="text-[#38B6FF] font-semibold text-sm mb-3">{leader.role}</p>
           
           {/* Quote */}
           <div className="relative bg-[#f8fafc] rounded-xl p-4 mb-4 border-l-4 border-[#38B6FF]">
