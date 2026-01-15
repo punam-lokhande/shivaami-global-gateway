@@ -33,7 +33,7 @@ const leaders = [
     image: punitImg,
     bio: "Punit started Shivaami as an Internet service company in 1997. He has a special way of meeting the specific needs of a wide and varied canvas of clients, numbering more than 20,000 at present. He believes passionately in the power of internet & marketing to grow businesses and industries. Punit has an MBA from Welingkar Institutes, Matunga. He is also a student of Brahma Kumari's World Spiritual University. Punit wants to help one lakh people in his lifetime.",
     color: 'from-[#0C4594] to-[#38B6FF]',
-    quote: "Helping businesses grow through the power of internet & technology.",
+    quote: "The purpose of Shivaami is to bring positive change in the lives of people we connect, by offering solutions and services which brings profit and happiness.",
   },
   {
     name: 'Priyanka Khanna',
@@ -295,11 +295,8 @@ function LeadershipGrid() {
     <section className="py-20 bg-white">
       <div className="w-full px-8 lg:px-16 xl:px-24">
         <motion.div {...fadeInUp} className="text-center mb-16">
-          <span className="inline-block px-4 py-2 rounded-full bg-[#38B6FF]/10 text-[#38B6FF] text-sm font-semibold mb-4">
-            Executive Team
-          </span>
           <h2 className="text-3xl md:text-4xl font-bold text-[#0C4594] mb-4">
-            Our Executive Leadership
+            Our C-Level Leadership
           </h2>
           <p className="text-[#475569] max-w-2xl mx-auto text-lg">
             Meet the talented leaders who drive Shivaami's mission forward every day.
