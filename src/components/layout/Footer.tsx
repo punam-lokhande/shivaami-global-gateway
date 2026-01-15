@@ -100,26 +100,26 @@ export default function Footer() {
               {/* India Office */}
               <div className="space-y-2">
                 <h5 className="font-semibold text-foreground text-xs uppercase tracking-wide">India</h5>
-                <a href="tel:+912248908000" className="flex items-center gap-2 hover:text-foreground transition-colors">
+                <a href="tel:+917757841333" className="flex items-center gap-2 hover:text-foreground transition-colors">
                   <Phone className="w-4 h-4" />
-                  +91 22 4890 8000
+                  +91 775 784 1333
                 </a>
                 <p className="flex items-start gap-2">
                   <MapPin className="w-4 h-4 mt-0.5 flex-shrink-0" />
-                  <span>Mumbai, Delhi, Bangalore, Chennai</span>
+                  <span>1001, 10th Floor, Runwal R Square, LBS Road, Mulund West, Mumbai - 400080</span>
                 </p>
               </div>
               
               {/* USA Office */}
               <div className="space-y-2">
                 <h5 className="font-semibold text-foreground text-xs uppercase tracking-wide">USA</h5>
-                <a href="tel:+16506008000" className="flex items-center gap-2 hover:text-foreground transition-colors">
+                <a href="tel:+14083334844" className="flex items-center gap-2 hover:text-foreground transition-colors">
                   <Phone className="w-4 h-4" />
-                  +1 (650) 600-8000
+                  +1 408 333 4844
                 </a>
                 <p className="flex items-start gap-2">
                   <MapPin className="w-4 h-4 mt-0.5 flex-shrink-0" />
-                  <span>San Francisco, New York</span>
+                  <span>33 S Wood Avenue, Suite 439, Iselin, New Jersey - 08830</span>
                 </p>
               </div>
             </div>

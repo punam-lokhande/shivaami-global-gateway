@@ -22,7 +22,7 @@ interface RegionContent {
 
 const regionData: Record<Region, RegionContent> = {
   india: {
-    phone: '+91 22 4890 8000',
+    phone: '+91 775 784 1333',
     currency: 'INR',
     currencySymbol: '₹',
     testimonials: [
@@ -52,7 +52,7 @@ const regionData: Record<Region, RegionContent> = {
     },
   },
   usa: {
-    phone: '+1 (650) 600-8000',
+    phone: '+1 408 333 4844',
     currency: 'USD',
     currencySymbol: '$',
     testimonials: [
@@ -75,7 +75,7 @@ const regionData: Record<Region, RegionContent> = {
         quote: 'From Chrome Enterprise to identity management, Shivaami delivered a complete security overhaul for our 200+ stores.',
       },
     ],
-    offices: 'San Francisco, New York',
+    offices: 'Iselin, New Jersey',
     cta: {
       demo: 'Book a Demo',
       contact: 'Get in Touch',
