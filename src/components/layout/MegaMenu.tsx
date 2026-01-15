@@ -226,7 +226,7 @@ const menuContent: Record<string, MenuContent> = {
           { icon: Users2, label: 'Leadership', desc: 'Meet our executive team', isPageLink: true, href: '/leadership' },
           { icon: Award, label: 'Certifications', desc: 'ISO, SOC, and partner badges' },
           { icon: Trophy, label: 'Achievements', desc: 'Awards and recognition' },
-          { icon: Briefcase, label: 'Careers', desc: 'Join our growing team' },
+          { icon: Briefcase, label: 'Careers', desc: 'Join our growing team', isPageLink: true, href: '/careers' },
         ],
       },
     ],
