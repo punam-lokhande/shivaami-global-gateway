@@ -6,10 +6,13 @@ const pillars = [
   {
     icon: Brain,
     accentIcon: Sparkles,
-    title: 'Smarter',
+    title: 'Smarter Solutions',
     subtitle: 'Intelligence that drives productivity',
     description: 'AI-powered tools and intelligent collaboration platforms that transform how your teams work, communicate, and innovate.',
-    items: ['Google Workspace', 'Microsoft 365', 'Gemini Enterprise', 'Glean AI Search'],
+    items: [
+      { name: 'Artificial Intelligence', desc: 'Data-driven decisions with Gemini Enterprise & Glean' },
+      { name: 'Email & Collaboration', desc: 'Secure teamwork from anywhere' },
+    ],
     gradient: 'from-blue-600 via-blue-500 to-sky-500',
     lightGradient: 'from-blue-500/10 to-sky-500/10',
     iconColor: 'text-blue-500',
@@ -18,10 +21,17 @@ const pillars = [
   {
     icon: Shield,
     accentIcon: Lock,
-    title: 'Safer',
+    title: 'Safer Solutions',
     subtitle: 'Protection you can trust',
     description: 'Enterprise-grade security from identity management to cloud infrastructure, keeping your data and operations secure.',
-    items: ['JumpCloud', 'Palo Alto Networks', 'Chrome Enterprise', 'SSL & DMARC'],
+    items: [
+      { name: 'Identity & Device Management', desc: 'Complete access control across your organization' },
+      { name: 'Cloud Security', desc: 'Enterprise-grade protection you can trust' },
+      { name: 'Cloud Infrastructure', desc: 'Scalable foundations that grow with you' },
+      { name: 'Endpoint Management', desc: 'Every device is monitored and secured' },
+      { name: 'Cloud Capabilities', desc: 'Modern services built for speed and scale' },
+      { name: 'Cyber Security', desc: 'Proactive defense against emerging threats' },
+    ],
     gradient: 'from-blue-700 via-blue-600 to-blue-500',
     lightGradient: 'from-blue-600/10 to-blue-400/10',
     iconColor: 'text-blue-600',
@@ -30,10 +40,17 @@ const pillars = [
   {
     icon: Zap,
     accentIcon: Rocket,
-    title: 'Smoother',
+    title: 'Smoother Services',
     subtitle: 'Operations without friction',
     description: 'Expert migration, ongoing support, and continuous optimization services that ensure your technology works seamlessly.',
-    items: ['SwiftMove Migration', 'Pulse360 Support', 'ChangePath Training', '24/7 Help Desk'],
+    items: [
+      { name: 'SwiftMove – Migration Services', desc: 'Fast, smooth migration service' },
+      { name: 'Managed Services – Pulse360', desc: 'Holistic managed services with constant monitoring' },
+      { name: 'Change Management – ChangePath', desc: 'Guiding teams through change effortlessly' },
+      { name: 'Security Assessment – SecureSight', desc: 'Insights and clarity on risks' },
+      { name: 'Staff Augmentation – TalentEdge', desc: 'Strengthening teams with a dedicated Shivaami expert' },
+      { name: 'Support Packages & AppScript', desc: 'Custom solutions for unique needs' },
+    ],
     gradient: 'from-sky-600 via-blue-500 to-indigo-500',
     lightGradient: 'from-sky-500/10 to-indigo-500/10',
     iconColor: 'text-sky-500',
@@ -121,11 +138,16 @@ export default function PillarsSection() {
                     </p>
 
                     {/* Items with checkmarks */}
-                    <ul className="space-y-2.5 mb-6">
+                    <ul className="space-y-3 mb-6">
                       {pillar.items.map((item) => (
-                        <li key={item} className="flex items-center gap-3 text-sm text-foreground/80 group-hover:text-foreground transition-colors">
-                          <CheckCircle2 className={`w-4 h-4 flex-shrink-0 ${pillar.iconColor}`} />
-                          {item}
+                        <li key={item.name} className="text-sm">
+                          <div className="flex items-start gap-3">
+                            <CheckCircle2 className={`w-4 h-4 flex-shrink-0 mt-0.5 ${pillar.iconColor}`} />
+                            <div>
+                              <span className="font-medium text-foreground">{item.name}</span>
+                              <p className="text-muted-foreground text-xs mt-0.5">{item.desc}</p>
+                            </div>
+                          </div>
                         </li>
                       ))}
                     </ul>
