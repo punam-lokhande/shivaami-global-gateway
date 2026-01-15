@@ -1,34 +1,43 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 
-// Import available partner logos
+// Import partner logos
 import googleCloudLogo from '@/assets/partners/google-cloud.svg';
 import microsoftLogo from '@/assets/partners/microsoft.svg';
 import awsLogo from '@/assets/partners/aws.svg';
-import jamfLogo from '@/assets/partners/jamf.svg';
-import zohoLogo from '@/assets/partners/zoho.svg';
+import jamfLogo from '@/assets/partners/jamf.png';
+import zohoLogo from '@/assets/partners/zoho.png';
 import googleLogo from '@/assets/partners/google.svg';
 import oktaLogo from '@/assets/partners/okta.svg';
-import chromeLogo from '@/assets/partners/chrome.svg';
+import chromeLogo from '@/assets/partners/chrome.png';
+import paloaltoLogo from '@/assets/partners/paloalto.png';
+import scalefusionLogo from '@/assets/partners/scalefusion.png';
+import miniorangeLogo from '@/assets/partners/miniorange.webp';
+import superopsLogo from '@/assets/partners/superops.png';
+import wizLogo from '@/assets/partners/wiz.webp';
+import jiocloudLogo from '@/assets/partners/jiocloud.png';
+import viamiLogo from '@/assets/partners/viami.png';
 
 const partners = [
   { name: 'Google Cloud', logo: googleCloudLogo },
   { name: 'Microsoft', logo: microsoftLogo },
   { name: 'AWS', logo: awsLogo },
-  { name: 'Palo Alto', logo: null },
+  { name: 'Palo Alto', logo: paloaltoLogo },
   { name: 'JumpCloud', logo: null },
   { name: 'Okta', logo: oktaLogo },
   { name: 'Jamf', logo: jamfLogo },
-  { name: 'Scalefusion', logo: null },
-  { name: 'MiniOrange', logo: null },
-  { name: 'SuperOps', logo: null },
+  { name: 'Scalefusion', logo: scalefusionLogo },
+  { name: 'MiniOrange', logo: miniorangeLogo },
+  { name: 'SuperOps', logo: superopsLogo },
   { name: 'Atera', logo: null },
-  { name: 'Wiz', logo: null },
+  { name: 'Wiz', logo: wizLogo },
   { name: 'Check Point', logo: null },
   { name: 'Tenable', logo: null },
   { name: 'Zoho', logo: zohoLogo },
   { name: 'Glean', logo: null },
   { name: 'Chrome Enterprise', logo: chromeLogo },
+  { name: 'JioCloud', logo: jiocloudLogo },
+  { name: 'Viami', logo: viamiLogo },
 ];
 
 export default function PartnersSection() {
@@ -60,10 +69,10 @@ export default function PartnersSection() {
 
           <motion.div
             className="flex gap-6 items-center"
-            animate={{ x: [0, -1800] }}
+            animate={{ x: [0, -2200] }}
             transition={{
               x: {
-                duration: 40,
+                duration: 50,
                 repeat: Infinity,
                 ease: 'linear',
               },
