@@ -205,7 +205,7 @@ const menuContent: Record<string, MenuContent> = {
       {
         title: 'Learn & Explore',
         items: [
-          { icon: BookOpen, label: 'Case Studies', desc: 'Customer success stories' },
+          { icon: BookOpen, label: 'Case Studies', desc: 'Customer success stories', isPageLink: true, href: '/case-studies' },
           { icon: FileText, label: 'Blogs', desc: 'Insights and best practices' },
           { icon: Newspaper, label: 'Newsletter', desc: 'Monthly cloud updates' },
           { icon: Video, label: 'On-Demand Webinars', desc: 'Expert sessions' },
@@ -217,13 +217,14 @@ const menuContent: Record<string, MenuContent> = {
     title: 'About Us',
     image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=400&h=300&fit=crop',
     imageAlt: 'Shivaami team',
-    cta: { label: 'Learn About Us', href: '/about' },
+    cta: { label: 'Learn About Us', href: '/about-us' },
     sections: [
       {
         title: 'Our Company',
         items: [
+          { icon: Award, label: 'Learn About Us', desc: 'Our story and mission', isPageLink: true, href: '/about-us' },
+          { icon: Users2, label: 'Leadership', desc: 'Meet our executive team', isPageLink: true, href: '/leadership' },
           { icon: Award, label: 'Certifications', desc: 'ISO, SOC, and partner badges' },
-          { icon: Users2, label: 'Leadership', desc: 'Meet our executive team' },
           { icon: Trophy, label: 'Achievements', desc: 'Awards and recognition' },
           { icon: Briefcase, label: 'Careers', desc: 'Join our growing team' },
         ],
