@@ -2,7 +2,7 @@ import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 
 // Import partner logos
-import googleCloudLogo from '@/assets/partners/google-cloud.svg';
+import googleCloudLogo from '@/assets/partners/google-cloud.png';
 import microsoftLogo from '@/assets/partners/microsoft.svg';
 import awsLogo from '@/assets/partners/aws.svg';
 import jamfLogo from '@/assets/partners/jamf.png';
@@ -17,24 +17,29 @@ import superopsLogo from '@/assets/partners/superops.png';
 import wizLogo from '@/assets/partners/wiz.webp';
 import jiocloudLogo from '@/assets/partners/jiocloud.png';
 import viamiLogo from '@/assets/partners/viami.png';
+import checkpointLogo from '@/assets/partners/checkpoint.png';
+import jumpcloudLogo from '@/assets/partners/jumpcloud.png';
+import ateraLogo from '@/assets/partners/atera.png';
+import tenableLogo from '@/assets/partners/tenable.svg';
+import gleanLogo from '@/assets/partners/glean.png';
 
 const partners = [
   { name: 'Google Cloud', logo: googleCloudLogo },
   { name: 'Microsoft', logo: microsoftLogo },
   { name: 'AWS', logo: awsLogo },
   { name: 'Palo Alto', logo: paloaltoLogo },
-  { name: 'JumpCloud', logo: null },
+  { name: 'JumpCloud', logo: jumpcloudLogo },
   { name: 'Okta', logo: oktaLogo },
   { name: 'Jamf', logo: jamfLogo },
   { name: 'Scalefusion', logo: scalefusionLogo },
   { name: 'MiniOrange', logo: miniorangeLogo },
   { name: 'SuperOps', logo: superopsLogo },
-  { name: 'Atera', logo: null },
+  { name: 'Atera', logo: ateraLogo },
   { name: 'Wiz', logo: wizLogo },
-  { name: 'Check Point', logo: null },
-  { name: 'Tenable', logo: null },
+  { name: 'Check Point', logo: checkpointLogo },
+  { name: 'Tenable', logo: tenableLogo },
   { name: 'Zoho', logo: zohoLogo },
-  { name: 'Glean', logo: null },
+  { name: 'Glean', logo: gleanLogo },
   { name: 'Chrome Enterprise', logo: chromeLogo },
   { name: 'JioCloud', logo: jiocloudLogo },
   { name: 'Viami', logo: viamiLogo },
@@ -84,15 +89,11 @@ export default function PartnersSection() {
                 key={`${partner.name}-${index}`}
                 className="flex-shrink-0 px-6 py-4 rounded-xl bg-secondary/30 border border-border/50 hover:border-primary/30 hover:shadow-md transition-all flex items-center justify-center min-w-[160px] h-[70px]"
               >
-                {partner.logo ? (
-                  <img 
-                    src={partner.logo} 
-                    alt={partner.name}
-                    className="h-8 w-auto object-contain max-w-[120px]"
-                  />
-                ) : (
-                  <span className="text-sm font-semibold text-foreground whitespace-nowrap">{partner.name}</span>
-                )}
+                <img 
+                  src={partner.logo} 
+                  alt={partner.name}
+                  className="h-8 w-auto object-contain max-w-[120px]"
+                />
               </div>
             ))}
           </motion.div>
