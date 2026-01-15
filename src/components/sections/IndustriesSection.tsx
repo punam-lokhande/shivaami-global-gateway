@@ -2,7 +2,7 @@ import { motion, useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
 import { 
   Heart, Banknote, ShoppingCart, Factory, 
-  Megaphone, Cpu, Hotel, Truck,
+  Sprout, Cpu, Hotel, Truck,
   ArrowRight, Sparkles
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -21,49 +21,49 @@ const industries = [
   { 
     icon: Heart, 
     name: 'Healthcare', 
-    description: 'HIPAA-compliant cloud solutions for patient care excellence',
+    description: 'Patient records must stay completely secure. Systems must work all day, every day. We handle compliance and protection. You focus on patient care.',
     image: healthcareImg,
   },
   { 
     icon: Banknote, 
-    name: 'Financial Services', 
-    description: 'Secure fintech infrastructure with regulatory compliance',
+    name: 'Finance', 
+    description: 'One data breach can cost millions. Downtime and compliance issues add more risk. We keep your systems secure, compliant, and always running.',
     image: financialImg,
   },
   { 
     icon: ShoppingCart, 
     name: 'Retail', 
-    description: 'Omnichannel commerce and customer experience platforms',
+    description: 'Fast and always-on, because customers don\'t wait. Traffic spikes on sale days? No problem. Checkouts stay smooth when shoppers are ready to buy.',
     image: retailImg,
   },
   { 
     icon: Factory, 
     name: 'Manufacturing', 
-    description: 'Industry 4.0 enablement with connected operations',
+    description: 'Connected operations working in perfect sync. Machines, inventory, and teams run smoothly with no delays or guesswork. Real-time data drives smarter decisions.',
     image: manufacturingImg,
   },
   { 
-    icon: Megaphone, 
-    name: 'Advertising & Media', 
-    description: 'Creative collaboration and digital content delivery',
+    icon: Sprout, 
+    name: 'Agritech', 
+    description: 'Sensors, weather data, and equipment need constant connection. We keep everything linked from field to cloud. Real-time insights help you grow more and waste less.',
     image: mediaImg,
   },
   { 
     icon: Cpu, 
-    name: 'Technology', 
-    description: 'Developer-first infrastructure and DevOps solutions',
+    name: 'Software & Technology', 
+    description: 'Your platform keeps other businesses running. Downtime hurts everyone. We handle the infrastructure, so your users stay happy. Systems scale when you need them to.',
     image: technologyImg,
   },
   { 
     icon: Hotel, 
     name: 'Hospitality', 
-    description: 'Guest experience platforms and property management',
+    description: 'Guests notice when tech fails. Bookings, check-ins, and services must work perfectly. We keep systems running in the background. You focus on creating great experiences.',
     image: hospitalityImg,
   },
   { 
     icon: Truck, 
-    name: 'Logistics', 
-    description: 'Supply chain optimization and fleet management',
+    name: 'Transportation & Logistics', 
+    description: 'Shipments run on tight schedules. Delays cost money and damage trust. We keep tracking and routing systems connected. Goods arrive when and where they should.',
     image: logisticsImg,
   },
 ];
