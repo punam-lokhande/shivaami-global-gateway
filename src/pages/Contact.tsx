@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Phone, Mail, MapPin, Clock, ArrowRight, Globe, Building2, Sparkles } from 'lucide-react';
+import { Phone, Mail, MapPin, ArrowRight, Globe, Building2, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -13,11 +13,10 @@ const offices = [
     phone: '+91 775 784 1333',
     email: 'info@shivaami.com',
     address: '1001, 10th Floor, Runwal R Square, LBS Road, Mulund West, Mumbai - 400080',
-    hours: 'Mon - Fri: 9:00 AM - 6:00 PM IST',
-    color: 'from-orange-500 to-amber-600',
-    bgGradient: 'from-orange-50 to-amber-50',
-    borderColor: 'border-orange-200',
-    accentColor: 'text-orange-600',
+    color: 'from-[#0C4594] to-[#1a5ab8]',
+    bgGradient: 'from-blue-50 to-slate-50',
+    borderColor: 'border-[#0C4594]/20',
+    accentColor: 'text-[#38B6FF]',
   },
   {
     region: 'USA',
@@ -25,11 +24,10 @@ const offices = [
     phone: '+1 408 333 4844',
     email: 'usa@shivaami.com',
     address: '33 S Wood Avenue, Suite 439, Iselin, New Jersey - 08830',
-    hours: 'Mon - Fri: 9:00 AM - 5:00 PM EST',
-    color: 'from-blue-600 to-indigo-700',
-    bgGradient: 'from-blue-50 to-indigo-50',
-    borderColor: 'border-blue-200',
-    accentColor: 'text-blue-600',
+    color: 'from-[#0C4594] to-[#38B6FF]',
+    bgGradient: 'from-slate-50 to-blue-50',
+    borderColor: 'border-[#38B6FF]/20',
+    accentColor: 'text-[#0C4594]',
   },
 ];
 
@@ -43,21 +41,21 @@ export default function Contact() {
         {/* Luxurious Background */}
         <div className="absolute inset-0 bg-gradient-to-br from-[#0C4594] via-[#1a5ab8] to-[#0a3670]" />
         
-        {/* Gold Accent Pattern */}
+        {/* Pattern Accent */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-0 left-0 w-full h-full" style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23D4AF37' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2338B6FF' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
           }} />
         </div>
 
         {/* Decorative Elements */}
         <motion.div 
-          className="absolute top-20 left-10 w-64 h-64 bg-[#D4AF37]/10 rounded-full blur-3xl"
+          className="absolute top-20 left-10 w-64 h-64 bg-[#38B6FF]/20 rounded-full blur-3xl"
           animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
           transition={{ duration: 8, repeat: Infinity }}
         />
         <motion.div 
-          className="absolute bottom-10 right-10 w-96 h-96 bg-[#38B6FF]/10 rounded-full blur-3xl"
+          className="absolute bottom-10 right-10 w-96 h-96 bg-[#0C4594]/20 rounded-full blur-3xl"
           animate={{ scale: [1.2, 1, 1.2], opacity: [0.3, 0.5, 0.3] }}
           transition={{ duration: 10, repeat: Infinity }}
         />
@@ -71,8 +69,8 @@ export default function Contact() {
               className="inline-flex items-center justify-center mb-6"
             >
               <div className="relative">
-                <div className="absolute inset-0 bg-[#D4AF37]/30 blur-xl rounded-full" />
-                <div className="relative w-20 h-20 rounded-full bg-gradient-to-br from-[#D4AF37] to-[#B8860B] flex items-center justify-center shadow-2xl">
+                <div className="absolute inset-0 bg-[#38B6FF]/30 blur-xl rounded-full" />
+                <div className="relative w-20 h-20 rounded-full bg-gradient-to-br from-[#38B6FF] to-[#0C4594] flex items-center justify-center shadow-2xl">
                   <Sparkles className="w-10 h-10 text-white" />
                 </div>
               </div>
@@ -84,7 +82,7 @@ export default function Contact() {
               transition={{ delay: 0.1 }}
               className="text-5xl md:text-7xl font-bold text-white mb-6 font-display"
             >
-              Get in <span className="text-[#D4AF37]">Touch</span>
+              Get in <span className="text-[#38B6FF]">Touch</span>
             </motion.h1>
             
             <motion.p
@@ -101,7 +99,7 @@ export default function Contact() {
               initial={{ scaleX: 0 }}
               animate={{ scaleX: 1 }}
               transition={{ delay: 0.3, duration: 0.8 }}
-              className="w-32 h-1 bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent mx-auto"
+              className="w-32 h-1 bg-gradient-to-r from-transparent via-[#38B6FF] to-transparent mx-auto"
             />
           </div>
         </div>
@@ -198,15 +196,6 @@ export default function Contact() {
                       </div>
                     </div>
 
-                    <div className="flex items-start gap-4 p-4 rounded-xl bg-white/80">
-                      <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${office.color} flex items-center justify-center shadow-md`}>
-                        <Clock className="w-5 h-5 text-white" />
-                      </div>
-                      <div>
-                        <p className="text-sm text-muted-foreground mb-1">Business Hours</p>
-                        <p className="text-[#0C4594] font-medium">{office.hours}</p>
-                      </div>
-                    </div>
                   </div>
                 </div>
               </motion.div>
@@ -225,7 +214,7 @@ export default function Contact() {
               viewport={{ once: true }}
               className="text-center mb-12"
             >
-              <span className="inline-block px-4 py-2 rounded-full bg-[#D4AF37]/20 text-[#B8860B] text-sm font-semibold mb-4">
+              <span className="inline-block px-4 py-2 rounded-full bg-[#0C4594]/10 text-[#0C4594] text-sm font-semibold mb-4">
                 <Building2 className="w-4 h-4 inline mr-2" />
                 Send Us a Message
               </span>
@@ -241,7 +230,7 @@ export default function Contact() {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="bg-white rounded-3xl p-8 md:p-12 shadow-2xl border border-[#D4AF37]/20"
+              className="bg-white rounded-3xl p-8 md:p-12 shadow-2xl border border-[#0C4594]/20"
             >
               <form className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-6">
@@ -311,7 +300,7 @@ export default function Contact() {
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-br from-[#0C4594] via-[#1a5ab8] to-[#0C4594] relative overflow-hidden">
         <div className="absolute inset-0 opacity-20">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#D4AF37]/20 rounded-full blur-3xl" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#38B6FF]/30 rounded-full blur-3xl" />
         </div>
         
         <div className="container mx-auto px-4 relative z-10">
@@ -321,8 +310,8 @@ export default function Contact() {
             viewport={{ once: true }}
             className="text-center max-w-3xl mx-auto"
           >
-            <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-[#D4AF37]/20 mb-6">
-              <Phone className="w-8 h-8 text-[#D4AF37]" />
+            <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-[#38B6FF]/20 mb-6">
+              <Phone className="w-8 h-8 text-[#38B6FF]" />
             </div>
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 font-display">
               Ready to Transform Your Business?
@@ -330,15 +319,10 @@ export default function Contact() {
             <p className="text-xl text-white/80 mb-8">
               Schedule a consultation with our cloud experts and discover how Shivaami can accelerate your digital journey.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-[#D4AF37] hover:bg-[#B8860B] text-[#0C4594] font-semibold px-8 h-14 text-lg rounded-xl shadow-lg">
-                Schedule a Call
-                <ArrowRight className="ml-2 w-5 h-5" />
-              </Button>
-              <Button size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white/10 px-8 h-14 text-lg rounded-xl">
-                View Case Studies
-              </Button>
-            </div>
+            <Button size="lg" className="bg-[#38B6FF] hover:bg-[#2a9de0] text-white font-semibold px-8 h-14 text-lg rounded-xl shadow-lg">
+              Schedule a Call
+              <ArrowRight className="ml-2 w-5 h-5" />
+            </Button>
           </motion.div>
         </div>
       </section>
