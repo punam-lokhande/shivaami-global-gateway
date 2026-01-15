@@ -4,50 +4,52 @@ import { Mail, Phone, MapPin, Linkedin, Twitter, Youtube, ArrowRight } from 'luc
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 
+import { Link } from 'react-router-dom';
+
 const footerLinks = {
   smarter: {
     title: 'Smarter',
     links: [
-      { label: 'Google Workspace', href: '#' },
-      { label: 'Microsoft 365', href: '#' },
-      { label: 'Gemini AI', href: '#' },
-      { label: 'Glean', href: '#' },
+      { label: 'Google Workspace', href: '/google-workspace' },
+      { label: 'Microsoft 365', href: '/microsoft-365' },
+      { label: 'Gemini AI', href: '/gemini-enterprise' },
+      { label: 'Glean', href: '/glean' },
     ],
   },
   safer: {
     title: 'Safer',
     links: [
-      { label: 'JumpCloud', href: '#' },
-      { label: 'Chrome Enterprise', href: '#' },
-      { label: 'Palo Alto', href: '#' },
-      { label: 'Cloud Security', href: '#' },
+      { label: 'JumpCloud', href: '/jumpcloud' },
+      { label: 'Chrome Enterprise', href: '/chrome-enterprise' },
+      { label: 'Palo Alto', href: '/paloalto' },
+      { label: 'SecureSight', href: '/securesight' },
     ],
   },
   smoother: {
     title: 'Smoother',
     links: [
-      { label: 'SwiftMove', href: '#' },
-      { label: 'Pulse360', href: '#' },
-      { label: 'Support Packages', href: '#' },
-      { label: 'AppScript', href: '#' },
+      { label: 'SwiftMove', href: '/swiftmove' },
+      { label: 'Pulse360', href: '/pulse360' },
+      { label: 'ChangePath', href: '/changepath' },
+      { label: 'Case Studies', href: '/case-studies' },
     ],
   },
   industries: {
     title: 'Industries',
     links: [
-      { label: 'Healthcare', href: '#' },
-      { label: 'Financial Services', href: '#' },
-      { label: 'Retail', href: '#' },
-      { label: 'Technology', href: '#' },
+      { label: 'Healthcare', href: '/about-us' },
+      { label: 'Financial Services', href: '/about-us' },
+      { label: 'Retail', href: '/about-us' },
+      { label: 'Technology', href: '/about-us' },
     ],
   },
   company: {
     title: 'About Us',
     links: [
-      { label: 'Our Story', href: '#' },
-      { label: 'Leadership', href: '#' },
-      { label: 'Careers', href: '#' },
-      { label: 'Contact', href: '#' },
+      { label: 'Our Story', href: '/about-us' },
+      { label: 'Leadership', href: '/leadership' },
+      { label: 'Become Partner', href: '/become-partner' },
+      { label: 'Contact', href: '/contact' },
     ],
   },
 };
@@ -134,12 +136,12 @@ export default function Footer() {
               <ul className="space-y-2">
                 {section.links.map((link) => (
                   <li key={link.label}>
-                    <a
-                      href={link.href}
+                    <Link
+                      to={link.href}
                       className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                     >
                       {link.label}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>
