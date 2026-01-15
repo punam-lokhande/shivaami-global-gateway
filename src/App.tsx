@@ -40,6 +40,9 @@ import SwiftMove from "./pages/SwiftMove";
 import ChangePath from "./pages/ChangePath";
 import Pulse360 from "./pages/Pulse360";
 import SecureSight from "./pages/SecureSight";
+import AboutUs from "./pages/AboutUs";
+import CaseStudies from "./pages/CaseStudies";
+import Leadership from "./pages/Leadership";
 
 const queryClient = new QueryClient();
 
@@ -86,6 +89,9 @@ const App = () => (
             <Route path="/changepath" element={<ChangePath />} />
             <Route path="/pulse360" element={<Pulse360 />} />
             <Route path="/securesight" element={<SecureSight />} />
+            <Route path="/about-us" element={<AboutUs />} />
+            <Route path="/case-studies" element={<CaseStudies />} />
+            <Route path="/leadership" element={<Leadership />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
