@@ -150,58 +150,49 @@ function CaseStudyCard({ study, index }: { study: typeof caseStudies[0]; index: 
   return (
     <motion.div
       variants={{
-        initial: { opacity: 0, y: 20, scale: 0.95 },
-        whileInView: { opacity: 1, y: 0, scale: 1 }
+        initial: { opacity: 0, y: 20 },
+        whileInView: { opacity: 1, y: 0 }
       }}
-      className="group relative bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500 border border-gray-100"
+      className="group relative bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-[#38B6FF]/40"
     >
-      {/* Decorative gradient accent */}
-      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#0C4594] via-[#38B6FF] to-[#0C4594]" />
+      {/* Top gradient accent */}
+      <div className="h-1 bg-gradient-to-r from-[#0C4594] to-[#38B6FF]" />
       
-      {/* Main content */}
-      <div className="p-6 sm:p-8">
-        {/* Logo Container - More prominent */}
-        <div className="relative mb-6">
-          <div className="w-24 h-24 mx-auto rounded-2xl bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center overflow-hidden shadow-inner border border-gray-200 group-hover:shadow-lg group-hover:border-[#38B6FF]/30 transition-all duration-500">
+      <div className="p-5">
+        {/* Logo + Name Row */}
+        <div className="flex items-center gap-4 mb-3">
+          {/* Logo Container */}
+          <div className="w-14 h-14 flex-shrink-0 rounded-lg bg-white flex items-center justify-center overflow-hidden border border-gray-200 shadow-sm group-hover:border-[#38B6FF]/50 group-hover:shadow-md transition-all duration-300">
             {study.logo ? (
               <img 
                 src={study.logo} 
                 alt={`${study.name} logo`} 
-                className="w-full h-full object-contain p-3 group-hover:scale-110 transition-transform duration-500"
+                className="w-full h-full object-contain p-1.5"
               />
             ) : (
-              <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-[#0C4594]/5 to-[#38B6FF]/10">
-                <span className="text-3xl font-bold text-[#0C4594]/70 group-hover:text-[#38B6FF] transition-colors duration-300">
-                  {study.name.charAt(0)}
-                </span>
-              </div>
+              <span className="text-xl font-bold bg-gradient-to-br from-[#0C4594] to-[#38B6FF] bg-clip-text text-transparent">
+                {study.name.charAt(0)}
+              </span>
             )}
           </div>
-          {/* Subtle glow effect on hover */}
-          <div className="absolute inset-0 -z-10 bg-[#38B6FF]/0 group-hover:bg-[#38B6FF]/10 blur-2xl rounded-full transition-all duration-500" />
+          
+          {/* Company Name */}
+          <h3 className="text-base font-bold text-[#0C4594] group-hover:text-[#38B6FF] transition-colors duration-300 line-clamp-2 leading-tight">
+            {study.name}
+          </h3>
         </div>
         
-        {/* Company Name */}
-        <h3 className="text-xl font-bold text-center text-[#0C4594] mb-3 group-hover:text-[#38B6FF] transition-colors duration-300">
-          {study.name}
-        </h3>
-        
         {/* Description */}
-        <p className="text-sm text-gray-600 leading-relaxed text-center mb-5 line-clamp-3">
+        <p className="text-sm text-gray-500 leading-relaxed mb-4 line-clamp-2">
           {study.description}
         </p>
         
         {/* Read More Link */}
-        <div className="flex justify-center">
-          <button className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold text-white bg-gradient-to-r from-[#0C4594] to-[#38B6FF] hover:from-[#38B6FF] hover:to-[#0C4594] shadow-md hover:shadow-lg transition-all duration-300 group/btn">
-            Read Case Study
-            <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
-          </button>
-        </div>
+        <button className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#38B6FF] hover:text-[#0C4594] transition-colors group/btn">
+          Read More
+          <ArrowRight className="w-3.5 h-3.5 group-hover/btn:translate-x-1 transition-transform" />
+        </button>
       </div>
-      
-      {/* Bottom accent line on hover */}
-      <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-[#38B6FF] via-[#0C4594] to-[#38B6FF] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
     </motion.div>
   );
 }
