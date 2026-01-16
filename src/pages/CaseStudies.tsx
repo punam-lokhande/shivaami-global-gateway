@@ -150,44 +150,58 @@ function CaseStudyCard({ study, index }: { study: typeof caseStudies[0]; index: 
   return (
     <motion.div
       variants={{
-        initial: { opacity: 0, y: 20 },
-        whileInView: { opacity: 1, y: 0 }
+        initial: { opacity: 0, y: 20, scale: 0.95 },
+        whileInView: { opacity: 1, y: 0, scale: 1 }
       }}
-      className="group bg-white rounded-2xl border border-[#e2e8f0] overflow-hidden hover:shadow-xl hover:border-[#38B6FF]/30 transition-all duration-300"
+      className="group relative bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500 border border-gray-100"
     >
-      {/* Card Header with gradient */}
-      <div className="h-2 bg-gradient-to-r from-[#0C4594] to-[#38B6FF]" />
+      {/* Decorative gradient accent */}
+      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#0C4594] via-[#38B6FF] to-[#0C4594]" />
       
-      <div className="p-6">
-        {/* Company Logo or Icon */}
-        <div className="w-16 h-16 rounded-xl bg-white flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 overflow-hidden border border-[#e2e8f0]">
-          {study.logo ? (
-            <img 
-              src={study.logo} 
-              alt={`${study.name} logo`} 
-              className="w-full h-full object-contain p-1"
-            />
-          ) : (
-            <Building2 className="w-8 h-8 text-[#0C4594]" />
-          )}
+      {/* Main content */}
+      <div className="p-6 sm:p-8">
+        {/* Logo Container - More prominent */}
+        <div className="relative mb-6">
+          <div className="w-24 h-24 mx-auto rounded-2xl bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center overflow-hidden shadow-inner border border-gray-200 group-hover:shadow-lg group-hover:border-[#38B6FF]/30 transition-all duration-500">
+            {study.logo ? (
+              <img 
+                src={study.logo} 
+                alt={`${study.name} logo`} 
+                className="w-full h-full object-contain p-3 group-hover:scale-110 transition-transform duration-500"
+              />
+            ) : (
+              <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-[#0C4594]/5 to-[#38B6FF]/10">
+                <span className="text-3xl font-bold text-[#0C4594]/70 group-hover:text-[#38B6FF] transition-colors duration-300">
+                  {study.name.charAt(0)}
+                </span>
+              </div>
+            )}
+          </div>
+          {/* Subtle glow effect on hover */}
+          <div className="absolute inset-0 -z-10 bg-[#38B6FF]/0 group-hover:bg-[#38B6FF]/10 blur-2xl rounded-full transition-all duration-500" />
         </div>
         
         {/* Company Name */}
-        <h3 className="text-lg font-bold text-[#0C4594] mb-3 group-hover:text-[#38B6FF] transition-colors">
+        <h3 className="text-xl font-bold text-center text-[#0C4594] mb-3 group-hover:text-[#38B6FF] transition-colors duration-300">
           {study.name}
         </h3>
         
         {/* Description */}
-        <p className="text-sm text-[#475569] leading-relaxed mb-4 line-clamp-3">
+        <p className="text-sm text-gray-600 leading-relaxed text-center mb-5 line-clamp-3">
           {study.description}
         </p>
         
         {/* Read More Link */}
-        <button className="inline-flex items-center gap-2 text-sm font-semibold text-[#38B6FF] hover:text-[#0C4594] transition-colors group/btn">
-          Read More
-          <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
-        </button>
+        <div className="flex justify-center">
+          <button className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold text-white bg-gradient-to-r from-[#0C4594] to-[#38B6FF] hover:from-[#38B6FF] hover:to-[#0C4594] shadow-md hover:shadow-lg transition-all duration-300 group/btn">
+            Read Case Study
+            <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
+          </button>
+        </div>
       </div>
+      
+      {/* Bottom accent line on hover */}
+      <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-[#38B6FF] via-[#0C4594] to-[#38B6FF] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
     </motion.div>
   );
 }
@@ -202,37 +216,50 @@ function CaseStudiesGrid() {
   );
 
   return (
-    <section className="py-16 bg-[#f8fafc]">
-      <div className="w-full px-8 lg:px-16 xl:px-24">
-        {/* Search Bar */}
-        <motion.div {...fadeInUp} className="max-w-xl mx-auto mb-12">
-          <div className="relative">
-            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-[#94a3b8]" />
-            <Input
-              type="text"
-              placeholder="Search case studies..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="pl-12 pr-4 py-6 rounded-xl border-[#e2e8f0] focus:border-[#38B6FF] focus:ring-[#38B6FF]/20 text-base"
-            />
+    <section className="py-20 bg-gradient-to-b from-white via-gray-50/50 to-white">
+      <div className="w-full px-6 sm:px-8 lg:px-16 xl:px-24">
+        {/* Section Header */}
+        <motion.div {...fadeInUp} className="text-center mb-12">
+          <h2 className="text-3xl sm:text-4xl font-bold text-[#0C4594] mb-4">
+            Our Success Stories
+          </h2>
+          <p className="text-gray-600 max-w-2xl mx-auto">
+            Explore how we've partnered with industry leaders to drive digital transformation
+          </p>
+        </motion.div>
+
+        {/* Search Bar - Enhanced */}
+        <motion.div {...fadeInUp} className="max-w-2xl mx-auto mb-14">
+          <div className="relative group">
+            <div className="absolute -inset-1 bg-gradient-to-r from-[#0C4594] to-[#38B6FF] rounded-2xl blur opacity-20 group-hover:opacity-30 transition-opacity" />
+            <div className="relative bg-white rounded-xl shadow-lg">
+              <Search className="absolute left-5 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+              <Input
+                type="text"
+                placeholder="Search by company name or industry..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="pl-14 pr-6 py-7 rounded-xl border-0 bg-transparent text-base focus-visible:ring-2 focus-visible:ring-[#38B6FF]/50"
+              />
+            </div>
           </div>
         </motion.div>
 
         {/* Results count */}
-        <motion.div {...fadeInUp} className="flex items-center justify-between mb-8">
-          <p className="text-[#475569]">
-            Showing <span className="font-semibold text-[#0C4594]">{filteredStudies.length}</span> case studies
+        <motion.div {...fadeInUp} className="flex flex-wrap items-center justify-between gap-4 mb-10">
+          <p className="text-gray-600">
+            Showing <span className="font-bold text-[#0C4594] text-lg">{filteredStudies.length}</span> success stories
           </p>
-          <div className="flex items-center gap-2 text-sm text-[#475569]">
+          <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-[#0C4594]/5 text-sm text-[#0C4594] font-medium">
             <Filter className="w-4 h-4" />
             All Industries
           </div>
         </motion.div>
 
-        {/* Grid */}
+        {/* Grid - Enhanced spacing */}
         <motion.div 
           {...staggerContainer}
-          className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
+          className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"
         >
           {filteredStudies.map((study, idx) => (
             <CaseStudyCard key={idx} study={study} index={idx} />
@@ -240,10 +267,22 @@ function CaseStudiesGrid() {
         </motion.div>
 
         {filteredStudies.length === 0 && (
-          <div className="text-center py-16">
-            <Building2 className="w-16 h-16 text-[#cbd5e1] mx-auto mb-4" />
-            <p className="text-[#475569]">No case studies found matching "{searchQuery}"</p>
-          </div>
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="text-center py-20"
+          >
+            <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-gray-100 flex items-center justify-center">
+              <Search className="w-8 h-8 text-gray-400" />
+            </div>
+            <p className="text-gray-600 text-lg">No case studies found matching "<span className="font-semibold text-[#0C4594]">{searchQuery}</span>"</p>
+            <button 
+              onClick={() => setSearchQuery('')}
+              className="mt-4 text-[#38B6FF] font-medium hover:underline"
+            >
+              Clear search
+            </button>
+          </motion.div>
         )}
       </div>
     </section>
