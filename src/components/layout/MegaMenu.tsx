@@ -184,7 +184,6 @@ const menuContent: Record<string, MenuContent> = {
         title: 'Industries We Serve',
         items: [
           { icon: Megaphone, label: 'Advertising & Media', desc: 'Digital transformation solutions' },
-          { icon: Leaf, label: 'Agritech', desc: 'Smart farming technology', isPageLink: true, href: '/agritech' },
           { icon: ShoppingCart, label: 'Retail', desc: 'Omnichannel commerce' },
           { icon: Cpu, label: 'Software & Technology', desc: 'Developer-first solutions' },
           { icon: Banknote, label: 'Financial Services', desc: 'Secure fintech infrastructure' },
