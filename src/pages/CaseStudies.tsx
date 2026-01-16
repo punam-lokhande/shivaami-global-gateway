@@ -6,6 +6,16 @@ import Footer from '@/components/layout/Footer';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 
+// Client logos
+import adaniLogo from '@/assets/clients/adani-international-school.jpg';
+import agsLogo from '@/assets/clients/ags.jpg';
+import amketteLogo from '@/assets/clients/amkette.jpg';
+import apsaraLogo from '@/assets/clients/apsara.jpg';
+import aryaLogo from '@/assets/clients/arya.jpg';
+import biltLogo from '@/assets/clients/bilt.jpg';
+import bmmLogo from '@/assets/clients/bmm.jpg';
+import cedcommerceLogo from '@/assets/clients/cedcommerce.jpg';
+
 const fadeInUp = {
   initial: { opacity: 0, y: 30 },
   whileInView: { opacity: 1, y: 0 },
@@ -19,25 +29,25 @@ const staggerContainer = {
   viewport: { once: true }
 };
 
-// Case studies data
-const caseStudies = [
+// Case studies data with optional logo
+const caseStudies: { name: string; description: string; logo?: string }[] = [
   { name: 'Zepto', description: 'Zepto is a fast-growing quick-commerce company operating at...' },
   { name: 'PW Live', description: 'PhysicsWallah (PW.Live) is a leading EdTech platform that heavily relies...' },
   { name: 'Refyne', description: "Refyne, Asia's largest and the world's second-largest Earned..." },
   { name: '1mg', description: "A leader in India's health-tech sector, provides a platform for ..." },
-  { name: 'Adani International School', description: 'Adani International School is located in Ahmedabad, Gujarat, India. It offers....' },
+  { name: 'Adani International School', description: 'Adani International School is located in Ahmedabad, Gujarat, India. It offers....', logo: adaniLogo },
   { name: 'Intas Pharmaceuticals', description: 'Intas is one of the leading multinational pharmaceutical formulation....' },
   { name: 'Senseselec', description: 'Senseselec Group is a renowned leader in the electrical and electronic....' },
-  { name: 'Arya.ag', description: 'Arya.ag connects agri-produce buyers and sellers with assured quality....' },
-  { name: 'Apsara Ice Creams', description: 'Apsara Ice Creams is a leading ice cream manufacturer in India, recognized for its.....' },
+  { name: 'Arya.ag', description: 'Arya.ag connects agri-produce buyers and sellers with assured quality....', logo: aryaLogo },
+  { name: 'Apsara Ice Creams', description: 'Apsara Ice Creams is a leading ice cream manufacturer in India, recognized for its.....', logo: apsaraLogo },
   { name: 'RSPL Group', description: 'RSPL Group is a prominent player in the online retail industry, boasting over...' },
-  { name: 'AGS Transact', description: 'AGS is a leading integrated omni-channel payment solutions provider in India...' },
+  { name: 'AGS Transact', description: 'AGS is a leading integrated omni-channel payment solutions provider in India...', logo: agsLogo },
   { name: 'Shaurya Technosoft', description: 'Shaurya Technosoft Pvt. Ltd., located in Pune, India, is a rapidly expanding software ...' },
   { name: 'Prism', description: 'At Prism, the focus is on striving to work hand in hand with the medical fraternity in...' },
   { name: 'Treebo Hotels', description: 'Treebo Hotels developed pioneering hospitality management...' },
   { name: 'iOPEX Technologies', description: 'iOPEX Technologies in its rapid expansion supported 60% annual global...' },
   { name: 'Sitapur Eye Hospital', description: 'Sitapur Eye Hospital has been a leading Tertiary care eye institute of India ...' },
-  { name: 'BMM Group', description: 'The journey of the BMM Group is a reflection of the path tread by every ....' },
+  { name: 'BMM Group', description: 'The journey of the BMM Group is a reflection of the path tread by every ....', logo: bmmLogo },
   { name: 'Gupshup', description: 'Gupshup.io is a Conversational Engagement Platform that offers businesses ....' },
   { name: 'KredX', description: "KredX India's leading integrated financial solutions provider, which helps startups, ..." },
   { name: 'RJ Corp', description: 'RJ Corp\'s history dates back more than two decades, to the early 1990s, when the...' },
@@ -54,19 +64,19 @@ const caseStudies = [
   { name: 'Nelito Systems', description: 'Nelito Systems Ltd. provides software products & services to various sectors such as Banking, Financial Services, Micro-Finance,' },
   { name: 'Emxcel Solutions', description: 'Emxcel was established with an aim to assist companies in reaching new heights, capturing a large audience, managing day-to-day business activities,' },
   { name: 'Merino India', description: 'Merino is a versatile manufacturer and marketer of Interiors Solutions with a wide array of products for homes, offices, commercial and public areas.' },
-  { name: 'CedCommerce', description: 'CedCommerce is revolutionizing the way eCommerce is perceived and performed over the Internet.' },
+  { name: 'CedCommerce', description: 'CedCommerce is revolutionizing the way eCommerce is perceived and performed over the Internet.', logo: cedcommerceLogo },
   { name: 'Schemax', description: 'Schemax is a software product and technology services company based out of Visakhapatnam in India.' },
   { name: 'Jaya TV', description: 'Jaya TV is a Tamil language satellite television channel based in Chennai, India.' },
   { name: 'Dunzo', description: 'Dunzo is an Indian company that provides delivery services in Bengaluru, Delhi, Gurgaon, Pune, Chennai, Mumbai and Hyderabad.' },
   { name: 'Mindgate Solutions', description: 'Mindgate Solutions has been in the forefront of the payments revolution from its inception, an outlook which has made it a key global' },
   { name: 'RR Global', description: 'RR Global, a 650 million USD corporation has molded its success on innovation. RR Global, a 650 million USD corporation has molded' },
-  { name: 'BILT', description: "Ballarpur Industries Limited (BILT) is India's largest manufacturer of writing and printing (W&P) paper." },
+  { name: 'BILT', description: "Ballarpur Industries Limited (BILT) is India's largest manufacturer of writing and printing (W&P) paper.", logo: biltLogo },
   { name: 'Micro Labs', description: 'Micro Labs Limited is a multi-faceted healthcare organization with a proficient marketing team, state-of-the-art manufacturing facilities' },
   { name: 'LogiCash', description: 'LOGICASH was incorporated in year 2010, with a quest on engagement with people, clients and communities to help them achieve their potential.' },
   { name: 'Datametica', description: 'Datametica is a world leader in enterprise data warehouse migration to the Cloud. Our innovative frameworks automate' },
   { name: 'GRP Ltd', description: "GRP Ltd, previously Gujarat Reclaim & Rubber Products Ltd. (GRRPL), has over 37 years' experience in the reclaimed rubber industry." },
   { name: 'Imperial', description: 'Imperial with its state of art manufacturing facilities in the Eastern part of India at Kolkata is today one of the leading suppliers...' },
-  { name: 'Amkette', description: 'Amkette Analytics Ltd. is the single-source solution for all of laboratory and process on instrumentation' },
+  { name: 'Amkette', description: 'Amkette Analytics Ltd. is the single-source solution for all of laboratory and process on instrumentation', logo: amketteLogo },
   { name: 'Permacel', description: 'The Company started operations in India in the late 1950s as a division of Johnson & Johnson (India) and established itself as the Indian leader in tapes manufacturing.' },
   { name: 'Sole Group', description: 'Sole Group Of Companies is a specialist in wholesale telecommunications, Which Sole Group Of Companies - originally founded in Tanzania...' },
   { name: 'PRA Realty', description: "PRA Realty (I) Pvt. Ltd,Founded in year 2005. PRA Realty is Pune's one of the premier real estate developer with offices in Pune, Mumbai & Chicago..." },
@@ -149,9 +159,17 @@ function CaseStudyCard({ study, index }: { study: typeof caseStudies[0]; index: 
       <div className="h-2 bg-gradient-to-r from-[#0C4594] to-[#38B6FF]" />
       
       <div className="p-6">
-        {/* Company Icon */}
-        <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#f8fafc] to-[#e2e8f0] flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-          <Building2 className="w-6 h-6 text-[#0C4594]" />
+        {/* Company Logo or Icon */}
+        <div className="w-16 h-16 rounded-xl bg-white flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 overflow-hidden border border-[#e2e8f0]">
+          {study.logo ? (
+            <img 
+              src={study.logo} 
+              alt={`${study.name} logo`} 
+              className="w-full h-full object-contain p-1"
+            />
+          ) : (
+            <Building2 className="w-8 h-8 text-[#0C4594]" />
+          )}
         </div>
         
         {/* Company Name */}
