@@ -8,7 +8,7 @@ import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
-import healthcareImage from '@/assets/industries/healthcare.jpg';
+import healthcareBanner from '@/assets/banners/healthcare-pharma-banner.jpg';
 
 const fadeInUp = {
   initial: { opacity: 0, y: 30 },
@@ -42,7 +42,7 @@ function HeroSection() {
         className="absolute inset-0 z-0"
       >
         <img
-          src={healthcareImage}
+          src={healthcareBanner}
           alt="Healthcare & Pharma IT Solutions"
           className="w-full h-full object-cover object-center"
           loading="eager"
@@ -85,7 +85,7 @@ function HeroSection() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-base lg:text-lg text-white/80 max-w-2xl mb-8 leading-relaxed font-body"
           >
-            Healthcare and pharmaceutical organizations manage sensitive data, complex workflows, and strict compliance requirements. Shivaami helps healthcare teams collaborate securely while protecting patient and research data at every stage.
+            Empowering healthcare teams to protect patient & research data while working seamlessly.
           </motion.p>
 
           {/* CTA */}
