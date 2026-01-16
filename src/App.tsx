@@ -46,6 +46,13 @@ import Leadership from "./pages/Leadership";
 import Contact from "./pages/Contact";
 import Careers from "./pages/Careers";
 import HealthcarePharma from "./pages/HealthcarePharma";
+import FinancialServices from "./pages/FinancialServices";
+import Retail from "./pages/Retail";
+import Manufacturing from "./pages/Manufacturing";
+import AdvertisingMedia from "./pages/AdvertisingMedia";
+import SoftwareTechnology from "./pages/SoftwareTechnology";
+import Hospitality from "./pages/Hospitality";
+import TransportationLogistics from "./pages/TransportationLogistics";
 
 const queryClient = new QueryClient();
 
