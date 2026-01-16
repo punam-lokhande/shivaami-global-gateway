@@ -184,11 +184,11 @@ const menuContent: Record<string, MenuContent> = {
         title: 'Industries We Serve',
         items: [
           { icon: Megaphone, label: 'Advertising & Media', desc: 'Digital transformation solutions' },
-          { icon: Leaf, label: 'Agritech', desc: 'Smart farming technology' },
+          { icon: Leaf, label: 'Agritech', desc: 'Smart farming technology', isPageLink: true, href: '/agritech' },
           { icon: ShoppingCart, label: 'Retail', desc: 'Omnichannel commerce' },
           { icon: Cpu, label: 'Software & Technology', desc: 'Developer-first solutions' },
           { icon: Banknote, label: 'Financial Services', desc: 'Secure fintech infrastructure' },
-          { icon: Heart, label: 'Healthcare', desc: 'HIPAA-compliant solutions' },
+          { icon: Heart, label: 'Healthcare & Pharma', desc: 'Secure digital enablement', isPageLink: true, href: '/healthcare-pharma' },
           { icon: Hotel, label: 'Hospitality', desc: 'Guest experience platforms' },
           { icon: Factory, label: 'Manufacturing', desc: 'Industry 4.0 enablement' },
           { icon: Truck, label: 'Transportation & Logistics', desc: 'Supply chain optimization' },
