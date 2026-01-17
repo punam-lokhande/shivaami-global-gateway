@@ -1,11 +1,11 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef, useState } from 'react';
 import { ArrowRight, Building2, Search, Filter } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-
 // Client logos
 import adaniLogo from '@/assets/clients/adani-international-school.jpg';
 import agsLogo from '@/assets/clients/ags.jpg';
@@ -30,8 +30,8 @@ const staggerContainer = {
 };
 
 // Case studies data with optional logo
-const caseStudies: { name: string; description: string; logo?: string }[] = [
-  { name: 'Zepto', description: 'Zepto is a fast-growing quick-commerce company operating at...' },
+const caseStudies: { name: string; description: string; logo?: string; slug?: string }[] = [
+  { name: 'Zepto', description: 'Zepto is a fast-growing quick-commerce company operating at...', slug: 'zepto' },
   { name: 'PW Live', description: 'PhysicsWallah (PW.Live) is a leading EdTech platform that heavily relies...' },
   { name: 'Refyne', description: "Refyne, Asia's largest and the world's second-largest Earned..." },
   { name: '1mg', description: "A leader in India's health-tech sector, provides a platform for ..." },
@@ -188,10 +188,17 @@ function CaseStudyCard({ study, index }: { study: typeof caseStudies[0]; index: 
         </p>
         
         {/* Read More Link */}
-        <button className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#38B6FF] hover:text-[#0C4594] transition-colors group/btn">
-          Read More
-          <ArrowRight className="w-3.5 h-3.5 group-hover/btn:translate-x-1 transition-transform" />
-        </button>
+        {study.slug ? (
+          <Link to={`/case-studies/${study.slug}`} className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#38B6FF] hover:text-[#0C4594] transition-colors group/btn">
+            Read More
+            <ArrowRight className="w-3.5 h-3.5 group-hover/btn:translate-x-1 transition-transform" />
+          </Link>
+        ) : (
+          <button className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#38B6FF] hover:text-[#0C4594] transition-colors group/btn">
+            Read More
+            <ArrowRight className="w-3.5 h-3.5 group-hover/btn:translate-x-1 transition-transform" />
+          </button>
+        )}
       </div>
     </motion.div>
   );
