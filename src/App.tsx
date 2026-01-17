@@ -42,6 +42,7 @@ import Pulse360 from "./pages/Pulse360";
 import SecureSight from "./pages/SecureSight";
 import AboutUs from "./pages/AboutUs";
 import CaseStudies from "./pages/CaseStudies";
+import CaseStudyZepto from "./pages/CaseStudyZepto";
 import Leadership from "./pages/Leadership";
 import Contact from "./pages/Contact";
 import Careers from "./pages/Careers";
@@ -101,6 +102,7 @@ const App = () => (
             <Route path="/securesight" element={<SecureSight />} />
             <Route path="/about-us" element={<AboutUs />} />
             <Route path="/case-studies" element={<CaseStudies />} />
+            <Route path="/case-studies/zepto" element={<CaseStudyZepto />} />
             <Route path="/leadership" element={<Leadership />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/careers" element={<Careers />} />
