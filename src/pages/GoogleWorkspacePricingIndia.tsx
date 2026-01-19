@@ -1,11 +1,12 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef, useState } from 'react';
-import { Check, ArrowRight, HelpCircle, ChevronDown, Phone, MapPin, Award, Users, Clock, Building2, CreditCard, Mail, Shield, Zap, Star, Sparkles } from 'lucide-react';
+import { Check, ArrowRight, HelpCircle, ChevronDown, Phone, MapPin, Award, Users, Clock, Building2, CreditCard, Mail, Shield, Zap, Star, Sparkles, Play } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
+import heroImage from '@/assets/banners/google-workspace-banner.jpg';
 import {
   Accordion,
   AccordionContent,
@@ -26,7 +27,7 @@ const staggerContainer = {
   viewport: { once: true }
 };
 
-// Hero Section
+// Hero Section with Banner Image
 function HeroSection() {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
@@ -38,18 +39,26 @@ function HeroSection() {
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
   return (
-    <section ref={ref} className="relative min-h-[60vh] md:min-h-[65vh] flex items-center overflow-hidden bg-gradient-to-br from-[#0C4594] via-[#0a3d80] to-[#082d61]">
-      {/* Animated Background Elements */}
-      <motion.div style={{ y }} className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PGNpcmNsZSBjeD0iMzAiIGN5PSIzMCIgcj0iMiIvPjwvZz48L2c+PC9zdmc+')] opacity-60" />
-        <div className="absolute top-20 left-10 w-72 h-72 bg-[#38B6FF]/20 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-white/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-r from-[#38B6FF]/10 to-transparent rounded-full blur-3xl" />
+    <section ref={ref} className="relative h-[70vh] min-h-[500px] max-h-[600px] flex items-center overflow-hidden">
+      {/* Full-width Background Image */}
+      <motion.div 
+        style={{ y }}
+        className="absolute inset-0 z-0"
+      >
+        <img
+          src={heroImage}
+          alt="Google Workspace Pricing India"
+          className="w-full h-full object-cover object-center"
+          loading="eager"
+        />
+        {/* Dark overlay for better text readability */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0C4594]/95 via-[#0C4594]/80 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0C4594]/60 via-transparent to-[#0C4594]/40" />
       </motion.div>
 
-      {/* Content */}
-      <motion.div style={{ opacity }} className="relative z-10 w-full px-8 lg:px-16 xl:px-24 pt-32 pb-16">
-        <div className="max-w-4xl mx-auto text-center">
+      {/* Content - Left aligned with full width layout */}
+      <motion.div style={{ opacity }} className="relative z-10 w-full px-8 lg:px-16 xl:px-24 pt-24 lg:pt-28">
+        <div className="max-w-3xl">
           {/* Badge */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -66,10 +75,10 @@ function HeroSection() {
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="font-display text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-6 leading-[1.15] tracking-tight"
+            className="font-display text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-semibold text-white mb-6 leading-[1.15] tracking-tight"
           >
-            Google Workspace Pricing<br />
-            <span className="text-[#38B6FF]">That Scales with Your Team</span>
+            Pick the Plan That<br />
+            <span className="text-[#38B6FF]">Powers Your Work</span>
           </motion.h1>
 
           {/* Description */}
@@ -77,10 +86,10 @@ function HeroSection() {
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-base lg:text-lg text-white/80 max-w-3xl mx-auto mb-8 leading-relaxed"
+            className="text-base lg:text-lg text-white/80 max-w-2xl mb-8 leading-relaxed font-body"
           >
             Google Workspace is a cloud-based productivity suite that helps teams connect and work from anywhere. 
-            Shivaami helps Indian businesses use Google Workspace effectively. We help you choose the right plan for your needs.
+            Shivaami helps Indian businesses use Google Workspace effectively with the right plan for your needs.
           </motion.p>
 
           {/* CTA Buttons */}
@@ -88,37 +97,48 @@ function HeroSection() {
             initial={{ opacity: 0, y: 28 }} 
             animate={{ opacity: 1, y: 0 }} 
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4"
+            className="flex flex-col sm:flex-row items-start gap-4"
           >
+            {/* Primary CTA */}
             <Link to="/contact">
-              <Button
-                size="lg"
-                className="bg-[#38B6FF] hover:bg-[#2da8f0] text-white font-semibold px-8 py-6 text-base group rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
+              <motion.div
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.98 }}
+                className="group relative"
               >
-                Get a Quote
-                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </Button>
+                <div className="absolute -inset-1 bg-gradient-to-r from-[#38B6FF] via-white to-[#38B6FF] rounded-xl blur-lg opacity-70 group-hover:opacity-100 transition-all duration-500 animate-pulse" />
+                <Button
+                  size="lg"
+                  className="relative bg-gradient-to-r from-[#38B6FF] to-[#2da8f0] hover:from-[#2da8f0] hover:to-[#38B6FF] text-white font-bold px-10 py-7 text-lg group rounded-xl shadow-2xl shadow-[#38B6FF]/30 transition-all duration-300 border-2 border-white/30"
+                >
+                  <Play className="w-5 h-5 mr-2" />
+                  Get a Quote
+                  <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </motion.div>
             </Link>
+            
+            {/* Secondary CTA */}
             <a href="tel:+917757841333">
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-white/30 text-white hover:bg-white/10 font-semibold px-8 py-6 text-base rounded-xl"
+              <motion.div
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.98 }}
+                className="group relative"
               >
-                <Phone className="mr-2 w-5 h-5" />
-                Call: +91 775 784 1333
-              </Button>
+                <div className="absolute -inset-1 bg-white/20 rounded-xl blur-md opacity-50 group-hover:opacity-80 transition-all duration-500" />
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="relative bg-white/10 backdrop-blur-sm border-2 border-white/40 text-white hover:bg-white/20 hover:border-white/60 font-bold px-10 py-7 text-lg rounded-xl shadow-xl transition-all duration-300"
+                >
+                  <Phone className="mr-2 w-5 h-5" />
+                  Call: +91 775 784 1333
+                </Button>
+              </motion.div>
             </a>
           </motion.div>
         </div>
       </motion.div>
-
-      {/* Bottom Wave */}
-      <div className="absolute bottom-0 left-0 right-0">
-        <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full">
-          <path d="M0 120L60 105C120 90 240 60 360 45C480 30 600 30 720 37.5C840 45 960 60 1080 67.5C1200 75 1320 75 1380 75L1440 75V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z" fill="#f8fafc"/>
-        </svg>
-      </div>
     </section>
   );
 }
