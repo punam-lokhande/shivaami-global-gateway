@@ -4,6 +4,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { RegionProvider } from "@/contexts/RegionContext";
+import { HelmetProvider } from "react-helmet-async";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import GeminiEnterprise from "./pages/GeminiEnterprise";
@@ -57,76 +58,80 @@ import Hospitality from "./pages/Hospitality";
 import TransportationLogistics from "./pages/TransportationLogistics";
 import CloudCapabilities from "./pages/CloudCapabilities";
 import AppsScript from "./pages/AppsScript";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
 
 const queryClient = new QueryClient();
 
 const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <RegionProvider>
-      <TooltipProvider>
-        <Toaster />
-        <Sonner />
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/gemini-enterprise" element={<GeminiEnterprise />} />
-            <Route path="/google-ai-ultra" element={<GoogleAIUltra />} />
-            <Route path="/glean" element={<Glean />} />
-            <Route path="/google-workspace" element={<GoogleWorkspace />} />
-            <Route path="/microsoft-365" element={<Microsoft365 />} />
-            <Route path="/zoho-mail" element={<ZohoMail />} />
-            <Route path="/jumpcloud" element={<JumpCloud />} />
-            <Route path="/viami" element={<Viami />} />
-            <Route path="/scalefusion" element={<Scalefusion />} />
-            <Route path="/jamf" element={<Jamf />} />
-            <Route path="/okta" element={<Okta />} />
-            <Route path="/miniorange" element={<MiniOrange />} />
-            <Route path="/superops" element={<SuperOps />} />
-            <Route path="/atera" element={<Atera />} />
-            <Route path="/aws" element={<AWS />} />
-            <Route path="/azure" element={<Azure />} />
-            <Route path="/jiocloud" element={<JioCloud />} />
-            <Route path="/google-cloud-platform" element={<GoogleCloudPlatform />} />
-            <Route path="/paloalto" element={<PaloAlto />} />
-            <Route path="/wiz" element={<Wiz />} />
-            <Route path="/checkpoint" element={<CheckPoint />} />
-            <Route path="/tenable" element={<Tenable />} />
-            <Route path="/ssl-certificates" element={<SSLCertificates />} />
-            <Route path="/gosimulator" element={<GoSimulator />} />
-            <Route path="/godmarc" element={<GoDmarc />} />
-            <Route path="/vmc" element={<VMC />} />
-            <Route path="/become-partner" element={<BecomePartner />} />
-            <Route path="/chromebook" element={<Chromebook />} />
-            <Route path="/chromebox" element={<Chromebox />} />
-            <Route path="/chromeos-flex" element={<ChromeOSFlex />} />
-            <Route path="/chrome-enterprise" element={<ChromeEnterprise />} />
-            <Route path="/swiftmove" element={<SwiftMove />} />
-            <Route path="/changepath" element={<ChangePath />} />
-            <Route path="/pulse360" element={<Pulse360 />} />
-            <Route path="/securesight" element={<SecureSight />} />
-            <Route path="/about-us" element={<AboutUs />} />
-            <Route path="/case-studies" element={<CaseStudies />} />
-            <Route path="/case-studies/zepto" element={<CaseStudyZepto />} />
-            <Route path="/leadership" element={<Leadership />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/careers" element={<Careers />} />
-            <Route path="/healthcare-pharma" element={<HealthcarePharma />} />
-            <Route path="/financial-services" element={<FinancialServices />} />
-            <Route path="/retail" element={<Retail />} />
-            <Route path="/manufacturing" element={<Manufacturing />} />
-            <Route path="/advertising-media" element={<AdvertisingMedia />} />
-            <Route path="/software-technology" element={<SoftwareTechnology />} />
-            <Route path="/hospitality" element={<Hospitality />} />
-            <Route path="/transportation-logistics" element={<TransportationLogistics />} />
-            <Route path="/cloud-capabilities" element={<CloudCapabilities />} />
-            <Route path="/apps-script" element={<AppsScript />} />
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </BrowserRouter>
-      </TooltipProvider>
-    </RegionProvider>
-  </QueryClientProvider>
+  <HelmetProvider>
+    <QueryClientProvider client={queryClient}>
+      <RegionProvider>
+        <TooltipProvider>
+          <Toaster />
+          <Sonner />
+          <BrowserRouter>
+            <Routes>
+              <Route path="/" element={<Index />} />
+              <Route path="/gemini-enterprise" element={<GeminiEnterprise />} />
+              <Route path="/google-ai-ultra" element={<GoogleAIUltra />} />
+              <Route path="/glean" element={<Glean />} />
+              <Route path="/google-workspace" element={<GoogleWorkspace />} />
+              <Route path="/microsoft-365" element={<Microsoft365 />} />
+              <Route path="/zoho-mail" element={<ZohoMail />} />
+              <Route path="/jumpcloud" element={<JumpCloud />} />
+              <Route path="/viami" element={<Viami />} />
+              <Route path="/scalefusion" element={<Scalefusion />} />
+              <Route path="/jamf" element={<Jamf />} />
+              <Route path="/okta" element={<Okta />} />
+              <Route path="/miniorange" element={<MiniOrange />} />
+              <Route path="/superops" element={<SuperOps />} />
+              <Route path="/atera" element={<Atera />} />
+              <Route path="/aws" element={<AWS />} />
+              <Route path="/azure" element={<Azure />} />
+              <Route path="/jiocloud" element={<JioCloud />} />
+              <Route path="/google-cloud-platform" element={<GoogleCloudPlatform />} />
+              <Route path="/paloalto" element={<PaloAlto />} />
+              <Route path="/wiz" element={<Wiz />} />
+              <Route path="/checkpoint" element={<CheckPoint />} />
+              <Route path="/tenable" element={<Tenable />} />
+              <Route path="/ssl-certificates" element={<SSLCertificates />} />
+              <Route path="/gosimulator" element={<GoSimulator />} />
+              <Route path="/godmarc" element={<GoDmarc />} />
+              <Route path="/vmc" element={<VMC />} />
+              <Route path="/become-partner" element={<BecomePartner />} />
+              <Route path="/chromebook" element={<Chromebook />} />
+              <Route path="/chromebox" element={<Chromebox />} />
+              <Route path="/chromeos-flex" element={<ChromeOSFlex />} />
+              <Route path="/chrome-enterprise" element={<ChromeEnterprise />} />
+              <Route path="/swiftmove" element={<SwiftMove />} />
+              <Route path="/changepath" element={<ChangePath />} />
+              <Route path="/pulse360" element={<Pulse360 />} />
+              <Route path="/securesight" element={<SecureSight />} />
+              <Route path="/about-us" element={<AboutUs />} />
+              <Route path="/case-studies" element={<CaseStudies />} />
+              <Route path="/case-studies/zepto" element={<CaseStudyZepto />} />
+              <Route path="/leadership" element={<Leadership />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/careers" element={<Careers />} />
+              <Route path="/healthcare-pharma" element={<HealthcarePharma />} />
+              <Route path="/financial-services" element={<FinancialServices />} />
+              <Route path="/retail" element={<Retail />} />
+              <Route path="/manufacturing" element={<Manufacturing />} />
+              <Route path="/advertising-media" element={<AdvertisingMedia />} />
+              <Route path="/software-technology" element={<SoftwareTechnology />} />
+              <Route path="/hospitality" element={<Hospitality />} />
+              <Route path="/transportation-logistics" element={<TransportationLogistics />} />
+              <Route path="/cloud-capabilities" element={<CloudCapabilities />} />
+              <Route path="/apps-script" element={<AppsScript />} />
+              <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+              {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </BrowserRouter>
+        </TooltipProvider>
+      </RegionProvider>
+    </QueryClientProvider>
+  </HelmetProvider>
 );
 
 export default App;
