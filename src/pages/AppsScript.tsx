@@ -176,36 +176,42 @@ function EmailSolutionsSection() {
       icon: Users,
       title: 'Signature Management - HRMS Sync',
       desc: 'Automatically synchronise user attributes like name, designation and location from your HRMS to Google Workspace and embed them in the user\'s signature.',
+      image: 'https://images.unsplash.com/photo-1557200134-90327ee9fafa?w=800&auto=format&fit=crop&q=80',
     },
     {
       icon: Mail,
       title: 'Signature Management - Auto Update',
       desc: 'Update user signatures based on their GWS user attributes. Ensures standard signature format for all users with centralised management.',
+      image: 'https://images.unsplash.com/photo-1596526131083-e8c633c948d2?w=800&auto=format&fit=crop&q=80',
     },
     {
       icon: FolderSync,
       title: 'Email File Backup to Drive',
       desc: 'Save a copy of all attachments from emails to Google Drive. Serves as a backup repository and helps refer to documents easily.',
+      image: 'https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=800&auto=format&fit=crop&q=80',
     },
     {
       icon: FileText,
       title: 'Email Delete - Thread',
       desc: 'Delete the complete email thread using the thread ID. Helps administrators delete complete email threads from users\' mailboxes.',
+      image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800&auto=format&fit=crop&q=80',
     },
     {
       icon: Mail,
       title: 'Email Delete - Specific Message',
       desc: 'Delete a specific message from the email thread using the message ID. Helps delete emails shared accidentally within the domain.',
+      image: 'https://images.unsplash.com/photo-1579275542618-a1dfed5f54ba?w=800&auto=format&fit=crop&q=80',
     },
     {
       icon: FileText,
       title: 'Email MIS',
       desc: 'Extract all emails from an inbox or from specific senders, and list them on a Google Sheet for collaboration. Ensures no important emails are missed.',
+      image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&auto=format&fit=crop&q=80',
     },
   ];
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-20 bg-[#f8fafc]">
       <div className="w-full px-8 lg:px-16 xl:px-24">
         <motion.div {...fadeInUp} className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-[#0C4594] mb-4">
@@ -226,13 +232,25 @@ function EmailSolutionsSection() {
                   initial: { opacity: 0, y: 20 },
                   whileInView: { opacity: 1, y: 0 }
                 }}
-                className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-6 shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 group"
+                className="relative rounded-2xl overflow-hidden group h-[320px] cursor-pointer"
               >
-                <div className="w-12 h-12 rounded-xl bg-[#38B6FF] flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                  <Icon className="w-6 h-6 text-white" />
+                {/* Background Image */}
+                <img 
+                  src={feature.image} 
+                  alt={feature.title}
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+                {/* Blue Gradient Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0C4594] via-[#0C4594]/80 to-[#0C4594]/50 group-hover:from-[#0C4594] group-hover:via-[#0C4594]/85 group-hover:to-[#0C4594]/60 transition-all duration-300" />
+                
+                {/* Content */}
+                <div className="relative z-10 h-full flex flex-col justify-end p-6">
+                  <div className="w-12 h-12 rounded-xl bg-[#38B6FF] flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                    <Icon className="w-6 h-6 text-white" />
+                  </div>
+                  <h3 className="text-lg font-semibold text-white mb-2">{feature.title}</h3>
+                  <p className="text-white/80 text-sm leading-relaxed">{feature.desc}</p>
                 </div>
-                <h3 className="text-lg font-semibold text-[#0C4594] mb-2">{feature.title}</h3>
-                <p className="text-gray-600 text-sm leading-relaxed">{feature.desc}</p>
               </motion.div>
             );
           })}

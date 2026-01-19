@@ -323,7 +323,7 @@ const CalendarCTASection = () => (
   <section className="py-20 bg-gradient-to-br from-[#1a73e8] via-[#4285f4] to-[#0d47a1]">
     <div className="w-full px-8 lg:px-16 xl:px-24">
       <motion.div {...fadeInUp} className="text-center max-w-4xl mx-auto">
-        <Calendar className="w-16 h-16 text-[#fbbc04] mx-auto mb-6" />
+        <Calendar className="w-16 h-16 text-white mx-auto mb-6" />
         <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
           Transform Your Infrastructure with Google Cloud Platform
         </h2>
@@ -341,7 +341,7 @@ const CalendarCTASection = () => (
             "Kubernetes and containerization strategy"
           ].map((item, index) => (
             <div key={index} className="flex items-start gap-2">
-              <CheckCircle2 className="w-5 h-5 text-[#fbbc04] flex-shrink-0 mt-0.5" />
+              <CheckCircle2 className="w-5 h-5 text-[#4285f4] flex-shrink-0 mt-0.5" />
               <span className="text-white/90 text-sm">{item}</span>
             </div>
           ))}
@@ -349,7 +349,7 @@ const CalendarCTASection = () => (
 
         <Button 
           size="lg"
-          className="bg-[#fbbc04] hover:bg-[#f9ab00] text-[#1a73e8] font-semibold px-10 py-6 text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
+          className="bg-white hover:bg-gray-100 text-[#1a73e8] font-semibold px-10 py-6 text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
         >
           Book Your Strategy Session
           <ArrowRight className="ml-2 h-5 w-5" />
