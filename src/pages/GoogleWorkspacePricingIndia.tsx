@@ -59,17 +59,6 @@ function HeroSection() {
       {/* Content - Left aligned with full width layout */}
       <motion.div style={{ opacity }} className="relative z-10 w-full px-8 lg:px-16 xl:px-24 pt-24 lg:pt-28">
         <div className="max-w-3xl">
-          {/* Badge */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 mb-6"
-          >
-            <Sparkles className="w-4 h-4 text-[#38B6FF]" />
-            <span className="text-white/90 text-sm font-medium">India's Trusted Google Workspace Partner</span>
-          </motion.div>
-
           {/* Headline */}
           <motion.h1
             initial={{ opacity: 0, y: 28 }}
@@ -91,52 +80,6 @@ function HeroSection() {
             Google Workspace is a cloud-based productivity suite that helps teams connect and work from anywhere. 
             Shivaami helps Indian businesses use Google Workspace effectively with the right plan for your needs.
           </motion.p>
-
-          {/* CTA Buttons */}
-          <motion.div 
-            initial={{ opacity: 0, y: 28 }} 
-            animate={{ opacity: 1, y: 0 }} 
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="flex flex-col sm:flex-row items-start gap-4"
-          >
-            {/* Primary CTA */}
-            <Link to="/contact">
-              <motion.div
-                whileHover={{ scale: 1.05, y: -2 }}
-                whileTap={{ scale: 0.98 }}
-                className="group relative"
-              >
-                <div className="absolute -inset-1 bg-gradient-to-r from-[#38B6FF] via-white to-[#38B6FF] rounded-xl blur-lg opacity-70 group-hover:opacity-100 transition-all duration-500 animate-pulse" />
-                <Button
-                  size="lg"
-                  className="relative bg-gradient-to-r from-[#38B6FF] to-[#2da8f0] hover:from-[#2da8f0] hover:to-[#38B6FF] text-white font-bold px-10 py-7 text-lg group rounded-xl shadow-2xl shadow-[#38B6FF]/30 transition-all duration-300 border-2 border-white/30"
-                >
-                  <Play className="w-5 h-5 mr-2" />
-                  Get a Quote
-                  <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </Button>
-              </motion.div>
-            </Link>
-            
-            {/* Secondary CTA */}
-            <a href="tel:+917757841333">
-              <motion.div
-                whileHover={{ scale: 1.05, y: -2 }}
-                whileTap={{ scale: 0.98 }}
-                className="group relative"
-              >
-                <div className="absolute -inset-1 bg-white/20 rounded-xl blur-md opacity-50 group-hover:opacity-80 transition-all duration-500" />
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="relative bg-white/10 backdrop-blur-sm border-2 border-white/40 text-white hover:bg-white/20 hover:border-white/60 font-bold px-10 py-7 text-lg rounded-xl shadow-xl transition-all duration-300"
-                >
-                  <Phone className="mr-2 w-5 h-5" />
-                  Call: +91 775 784 1333
-                </Button>
-              </motion.div>
-            </a>
-          </motion.div>
         </div>
       </motion.div>
     </section>
@@ -254,66 +197,94 @@ function PricingSection() {
                 initial: { opacity: 0, y: 20 },
                 whileInView: { opacity: 1, y: 0 }
               }}
-              className={`relative bg-white rounded-2xl border-2 overflow-hidden transition-all duration-300 hover:shadow-2xl ${
-                plan.popular 
-                  ? 'border-[#38B6FF] shadow-xl shadow-[#38B6FF]/20' 
-                  : 'border-[#e2e8f0] hover:border-[#38B6FF]/30'
+              whileHover={{ y: -8, scale: 1.02 }}
+              className={`relative group cursor-pointer ${
+                plan.popular ? 'lg:-mt-4 lg:mb-4' : ''
               }`}
             >
-              {/* Popular Badge */}
-              {plan.popular && (
-                <div className="absolute top-0 left-0 right-0 bg-gradient-to-r from-[#38B6FF] to-[#0C4594] text-white text-center py-2 text-sm font-semibold">
-                  <Star className="w-4 h-4 inline mr-1" />
-                  Most Popular
-                </div>
-              )}
+              {/* Card glow effect */}
+              <div className={`absolute -inset-0.5 rounded-3xl blur-lg transition-all duration-500 ${
+                plan.popular 
+                  ? 'bg-gradient-to-r from-[#38B6FF] via-[#0C4594] to-[#38B6FF] opacity-60 group-hover:opacity-100' 
+                  : 'bg-gradient-to-r from-[#0C4594]/30 to-[#38B6FF]/30 opacity-0 group-hover:opacity-60'
+              }`} />
+              
+              <div className={`relative bg-white rounded-2xl overflow-hidden transition-all duration-300 shadow-lg group-hover:shadow-2xl ${
+                plan.popular 
+                  ? 'ring-2 ring-[#38B6FF]' 
+                  : 'border border-[#e2e8f0]'
+              }`}>
+                {/* Popular Badge */}
+                {plan.popular && (
+                  <div className="bg-gradient-to-r from-[#38B6FF] to-[#0C4594] text-white text-center py-3 text-sm font-bold tracking-wide">
+                    <Star className="w-4 h-4 inline mr-2 animate-pulse" />
+                    MOST POPULAR
+                  </div>
+                )}
 
-              <div className={`p-6 ${plan.popular ? 'pt-14' : ''}`}>
-                {/* Plan Name */}
-                <h3 className="text-xl font-bold text-[#0C4594] mb-4">{plan.name}</h3>
+                {/* Top accent line for non-popular */}
+                {!plan.popular && (
+                  <div className="h-1 bg-gradient-to-r from-[#0C4594] to-[#38B6FF]" />
+                )}
 
-                {/* Pricing */}
-                <div className="mb-6">
-                  {plan.isEnterprise ? (
-                    <div className="text-2xl font-bold text-[#0C4594]">{plan.commitPrice}</div>
-                  ) : (
-                    <>
-                      <div className="flex items-baseline gap-2 mb-1">
-                        <span className="text-sm text-[#475569]">Commit:</span>
-                        <span className="text-2xl font-bold text-[#0C4594]">{plan.commitPrice}</span>
-                      </div>
-                      <div className="flex items-baseline gap-2">
-                        <span className="text-sm text-[#475569]">Flex:</span>
-                        <span className="text-xl font-semibold text-[#38B6FF]">{plan.flexPrice}</span>
-                      </div>
-                    </>
-                  )}
-                  <p className="text-xs text-[#94a3b8] mt-2">{plan.priceNote}</p>
-                </div>
-
-                {/* Features */}
-                <ul className="space-y-3 mb-6">
-                  {plan.features.map((feature, fidx) => (
-                    <li key={fidx} className="flex items-start gap-2">
-                      <Check className="w-5 h-5 text-[#38B6FF] flex-shrink-0 mt-0.5" />
-                      <span className="text-sm text-[#475569]">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                {/* CTA Button */}
-                <Link to="/contact">
-                  <Button 
-                    className={`w-full ${
+                <div className="p-6">
+                  {/* Plan Name with icon */}
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className={`w-10 h-10 rounded-xl flex items-center justify-center ${
                       plan.popular 
-                        ? 'bg-gradient-to-r from-[#38B6FF] to-[#0C4594] hover:opacity-90' 
-                        : 'bg-[#0C4594] hover:bg-[#0a3d80]'
-                    } text-white font-semibold py-3`}
-                  >
-                    Get Started
-                    <ArrowRight className="ml-2 w-4 h-4" />
-                  </Button>
-                </Link>
+                        ? 'bg-gradient-to-br from-[#38B6FF] to-[#0C4594]' 
+                        : 'bg-[#f1f5f9]'
+                    }`}>
+                      <Zap className={`w-5 h-5 ${plan.popular ? 'text-white' : 'text-[#0C4594]'}`} />
+                    </div>
+                    <h3 className="text-xl font-bold text-[#0C4594]">{plan.name}</h3>
+                  </div>
+
+                  {/* Pricing */}
+                  <div className="mb-6 pb-6 border-b border-[#e2e8f0]">
+                    {plan.isEnterprise ? (
+                      <div className="text-2xl font-bold bg-gradient-to-r from-[#0C4594] to-[#38B6FF] bg-clip-text text-transparent">{plan.commitPrice}</div>
+                    ) : (
+                      <>
+                        <div className="flex items-baseline gap-2 mb-2">
+                          <span className="text-xs font-medium text-[#64748b] uppercase tracking-wide">Commit</span>
+                          <span className="text-3xl font-bold text-[#0C4594]">{plan.commitPrice}</span>
+                        </div>
+                        <div className="flex items-baseline gap-2">
+                          <span className="text-xs font-medium text-[#64748b] uppercase tracking-wide">Flex</span>
+                          <span className="text-xl font-semibold text-[#38B6FF]">{plan.flexPrice}</span>
+                        </div>
+                      </>
+                    )}
+                    <p className="text-xs text-[#94a3b8] mt-2 font-medium">{plan.priceNote}</p>
+                  </div>
+
+                  {/* Features */}
+                  <ul className="space-y-3 mb-6">
+                    {plan.features.map((feature, fidx) => (
+                      <li key={fidx} className="flex items-start gap-3">
+                        <div className="w-5 h-5 rounded-full bg-[#38B6FF]/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                          <Check className="w-3 h-3 text-[#38B6FF]" />
+                        </div>
+                        <span className="text-sm text-[#475569]">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  {/* CTA Button */}
+                  <Link to="/contact">
+                    <Button 
+                      className={`w-full py-6 text-base font-semibold transition-all duration-300 ${
+                        plan.popular 
+                          ? 'bg-gradient-to-r from-[#38B6FF] to-[#0C4594] hover:shadow-lg hover:shadow-[#38B6FF]/30 hover:scale-[1.02]' 
+                          : 'bg-[#0C4594] hover:bg-[#0a3d80] hover:shadow-lg'
+                      } text-white rounded-xl`}
+                    >
+                      Get Started
+                      <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                    </Button>
+                  </Link>
+                </div>
               </div>
             </motion.div>
           ))}
@@ -395,80 +366,91 @@ function FAQSection() {
   const faqs = [
     {
       question: "What payment options are available?",
-      answer: "We accept Net Banking, Credit/Debit Cards, and Razorpay. You can also pay via Cheque, Demand Draft, or NEFT/RTGS."
+      answer: "We accept Net Banking, Credit/Debit Cards, Razorpay, Cheque, DD, or NEFT/RTGS."
     },
     {
       question: "What counts as a Google Workspace user?",
-      answer: "One user equals one email address (you@yourcompany.com). Group aliases like info@ or support@ are free."
+      answer: "One user equals one email address. Group aliases like info@ or support@ are free."
     },
     {
       question: "Can you help me choose a plan?",
-      answer: "Yes! Our experts will recommend the best plan. We consider your team size, storage needs, and features required."
+      answer: "Yes! Our experts recommend the best plan based on your team size and needs."
     },
     {
       question: "Why buy from Shivaami instead of Google?",
-      answer: "Google offers similar pricing for direct purchases. However, Shivaami provides local partner support in India. We help with integration, deployment, migration, and training."
+      answer: "Shivaami provides local partner support in India with integration, deployment, and training."
     },
     {
-      question: "What's the difference between flexible and annual plans?",
-      answer: "Flexible plans let you add or remove users anytime. Annual plans offer discounts but require a one-year commitment."
-    },
-    {
-      question: "Can I upgrade my plan later?",
-      answer: "Yes, you can upgrade anytime with our help. We ensure a smooth transition as your needs grow."
-    },
-    {
-      question: "What support do you provide?",
-      answer: "We offer onboarding assistance and user training. Our team provides ongoing technical support too. We're here to answer questions and troubleshoot issues."
-    },
-    {
-      question: "Can I buy individual Google Workspace apps?",
-      answer: "No. Google Workspace is an all-in-one solution. All tools work together for maximum efficiency and value."
-    },
-    {
-      question: "Can I use my existing domain?",
-      answer: "Yes, you can use your existing domain name."
+      question: "Flexible vs Annual plans?",
+      answer: "Flexible plans allow adding/removing users anytime. Annual plans offer discounts."
     },
     {
       question: "Can I migrate from another email solution?",
-      answer: "Yes, many clients migrate from Microsoft 365, Zoho, or Zimbra. Google Workspace works across all devices without software installation. It's compatible with Microsoft Office files too."
-    },
-    {
-      question: "We have 300+ users. Can we use Business Starter?",
-      answer: "You can purchase 300 Business licenses. Buy additional licenses from the Enterprise plans. Business plans cannot exceed 300 total users."
+      answer: "Yes, we migrate from Microsoft 365, Zoho, or Zimbra with full compatibility."
     }
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-br from-[#0C4594] via-[#0a3d80] to-[#082d61]">
+    <section className="py-16 bg-[#f8fafc]">
       <div className="w-full px-8 lg:px-16 xl:px-24">
-        <motion.div {...fadeInUp} className="text-center mb-12">
-          <div className="w-14 h-14 rounded-2xl bg-[#38B6FF] flex items-center justify-center mx-auto mb-4">
-            <HelpCircle className="w-7 h-7 text-white" />
-          </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Frequently Asked Questions
-          </h2>
-        </motion.div>
+        <div className="max-w-6xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left - Image */}
+            <motion.div {...fadeInUp} className="relative">
+              <div className="absolute -inset-4 bg-gradient-to-r from-[#0C4594]/20 to-[#38B6FF]/20 rounded-3xl blur-2xl" />
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+                <img 
+                  src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=600&h=500&fit=crop" 
+                  alt="FAQ Support"
+                  className="w-full h-[400px] object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0C4594]/80 via-transparent to-transparent" />
+                <div className="absolute bottom-6 left-6 right-6">
+                  <div className="flex items-center gap-3 text-white">
+                    <div className="w-12 h-12 rounded-xl bg-[#38B6FF] flex items-center justify-center">
+                      <HelpCircle className="w-6 h-6" />
+                    </div>
+                    <div>
+                      <p className="font-semibold text-lg">Need Help?</p>
+                      <p className="text-white/80 text-sm">We're here 24x7</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
 
-        <motion.div {...fadeInUp} className="max-w-3xl mx-auto">
-          <Accordion type="single" collapsible className="space-y-3">
-            {faqs.map((faq, idx) => (
-              <AccordionItem 
-                key={idx} 
-                value={`item-${idx}`}
-                className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl px-6 overflow-hidden"
-              >
-                <AccordionTrigger className="text-white hover:text-[#38B6FF] text-left py-5 hover:no-underline">
-                  <span className="font-medium">{faq.question}</span>
-                </AccordionTrigger>
-                <AccordionContent className="text-white/80 pb-5">
-                  {faq.answer}
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
-        </motion.div>
+            {/* Right - FAQ */}
+            <motion.div {...fadeInUp}>
+              <h2 className="text-2xl md:text-3xl font-bold text-[#0C4594] mb-6">
+                Frequently Asked Questions
+              </h2>
+              
+              <Accordion type="single" collapsible className="space-y-2">
+                {faqs.map((faq, idx) => (
+                  <AccordionItem 
+                    key={idx} 
+                    value={`item-${idx}`}
+                    className="bg-white border border-[#e2e8f0] rounded-xl px-4 overflow-hidden hover:border-[#38B6FF]/30 transition-colors"
+                  >
+                    <AccordionTrigger className="text-[#0C4594] hover:text-[#38B6FF] text-left py-4 hover:no-underline text-sm">
+                      <span className="font-medium">{faq.question}</span>
+                    </AccordionTrigger>
+                    <AccordionContent className="text-[#64748b] pb-4 text-sm">
+                      {faq.answer}
+                    </AccordionContent>
+                  </AccordionItem>
+                ))}
+              </Accordion>
+
+              <Link to="/contact" className="inline-block mt-6">
+                <Button className="bg-[#0C4594] hover:bg-[#0a3d80] text-white font-medium px-6 py-3 rounded-xl">
+                  Have more questions? Contact us
+                  <ArrowRight className="ml-2 w-4 h-4" />
+                </Button>
+              </Link>
+            </motion.div>
+          </div>
+        </div>
       </div>
     </section>
   );
