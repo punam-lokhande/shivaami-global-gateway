@@ -16,7 +16,7 @@ export default function HeroSection() {
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
   return (
-    <section ref={ref} className="relative min-h-screen flex items-center overflow-hidden">
+    <section ref={ref} className="relative min-h-[80vh] sm:min-h-screen flex items-center overflow-hidden">
       {/* Full-width Background Image */}
       <motion.div 
         style={{ y }}
@@ -45,7 +45,7 @@ export default function HeroSection() {
       </motion.div>
 
       {/* Content - Left aligned with proper spacing from nav */}
-      <motion.div style={{ opacity }} className="relative z-10 w-full px-8 lg:px-16 xl:px-24 pt-32 lg:pt-40 xl:pt-44 pb-16">
+      <motion.div style={{ opacity }} className="relative z-10 w-full px-6 sm:px-8 lg:px-16 xl:px-24 pt-24 sm:pt-32 lg:pt-40 xl:pt-44 pb-12 sm:pb-16">
         <div className="max-w-2xl">
 
           {/* Headline */}
@@ -53,7 +53,7 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="font-display text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-semibold text-foreground mb-8 leading-[1.15] tracking-tight"
+            className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-semibold text-foreground mb-6 sm:mb-8 leading-[1.15] tracking-tight"
           >
             Make Your Ecosystem<br />
             <span className="text-primary">Smarter</span>, <span className="text-accent">Safer</span>, <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Smoother</span><br />
@@ -65,7 +65,7 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="text-lg lg:text-xl text-muted-foreground max-w-2xl mb-10 leading-relaxed font-body"
+            className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-2xl mb-8 sm:mb-10 leading-relaxed font-body"
           >
             Empower your teams with secure cloud and AI solutions. We combine the right solutions with expert
             services to simplify your productivity, security, and automation challenges.
@@ -80,7 +80,7 @@ export default function HeroSection() {
             <Link to="/lets-connect">
               <Button
                 size="lg"
-                className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-10 py-7 text-lg group rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
+                className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8 sm:px-10 py-6 sm:py-7 text-base sm:text-lg group rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
               >
                 Let's Connect
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
