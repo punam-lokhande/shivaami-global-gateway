@@ -56,10 +56,15 @@ export default function Header() {
               <span className="hidden sm:inline">{content.phone}</span>
             </a>
             
-            <button className="flex items-center gap-2 text-primary hover:text-accent transition-colors">
+            <a 
+              href="https://customercare.shivaami.com/" 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 text-primary hover:text-accent transition-colors"
+            >
               <LogIn className="w-4 h-4" />
               <span className="hidden sm:inline">Login</span>
-            </button>
+            </a>
             
             <button className="flex items-center gap-2 text-primary hover:text-accent transition-colors">
               <HelpCircle className="w-4 h-4" />
