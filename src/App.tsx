@@ -23,6 +23,7 @@ import Atera from "./pages/Atera";
 import AWS from "./pages/AWS";
 import Azure from "./pages/Azure";
 import JioCloud from "./pages/JioCloud";
+import GoogleCloudPlatform from "./pages/GoogleCloudPlatform";
 import PaloAlto from "./pages/PaloAlto";
 import Wiz from "./pages/Wiz";
 import CheckPoint from "./pages/CheckPoint";
@@ -83,6 +84,7 @@ const App = () => (
             <Route path="/aws" element={<AWS />} />
             <Route path="/azure" element={<Azure />} />
             <Route path="/jiocloud" element={<JioCloud />} />
+            <Route path="/google-cloud-platform" element={<GoogleCloudPlatform />} />
             <Route path="/paloalto" element={<PaloAlto />} />
             <Route path="/wiz" element={<Wiz />} />
             <Route path="/checkpoint" element={<CheckPoint />} />
