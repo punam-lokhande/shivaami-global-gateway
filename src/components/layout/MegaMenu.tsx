@@ -205,7 +205,7 @@ const menuContent: Record<string, MenuContent> = {
         title: 'Learn & Explore',
         items: [
           { icon: BookOpen, label: 'Case Studies', desc: 'Customer success stories', isPageLink: true, href: '/case-studies' },
-          { icon: FileText, label: 'Blogs', desc: 'Insights and best practices' },
+          { icon: FileText, label: 'Blogs', desc: 'Insights and best practices', isPageLink: true, href: 'https://www.shivaami.com/blog/' },
           { icon: Newspaper, label: 'Newsletter', desc: 'Monthly cloud updates' },
           { icon: Video, label: 'On-Demand Webinars', desc: 'Expert sessions' },
         ],
@@ -216,12 +216,12 @@ const menuContent: Record<string, MenuContent> = {
     title: 'About Us',
     image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=400&h=300&fit=crop',
     imageAlt: 'Shivaami team',
-    cta: { label: 'Learn About Us', href: '/about-us' },
+    cta: { label: 'About Us', href: '/about-us' },
     sections: [
       {
         title: 'Our Company',
         items: [
-          { icon: Award, label: 'Learn About Us', desc: 'Our story and mission', isPageLink: true, href: '/about-us' },
+          { icon: Award, label: 'About Us', desc: 'Our story and mission', isPageLink: true, href: '/about-us' },
           { icon: Users2, label: 'Leadership', desc: 'Meet our executive team', isPageLink: true, href: '/leadership' },
           { icon: Award, label: 'Certifications', desc: 'ISO, SOC, and partner badges' },
           { icon: Trophy, label: 'Achievements', desc: 'Awards and recognition' },
@@ -303,13 +303,18 @@ export default function MegaMenu({ activeKey, anchorRect, onClose }: MegaMenuPro
                     
                     // Handle page link items (like Cloud Capabilities)
                     if (item.isPageLink) {
+                      const isExternalLink = item.href?.startsWith('http');
                       return (
                         <li key={itemIdx}>
                           <a
                             href={item.href || "/cloud-capabilities"}
+                            target={isExternalLink ? "_blank" : undefined}
+                            rel={isExternalLink ? "noopener noreferrer" : undefined}
                             onClick={(e) => {
-                              e.preventDefault();
-                              handleNavigation(item.href || "/cloud-capabilities");
+                              if (!isExternalLink) {
+                                e.preventDefault();
+                                handleNavigation(item.href || "/cloud-capabilities");
+                              }
                             }}
                             className="group flex items-center gap-2.5 p-2 rounded-lg hover:bg-primary/10 transition-all duration-200"
                           >

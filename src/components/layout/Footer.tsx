@@ -37,10 +37,10 @@ const footerLinks = {
   industries: {
     title: 'Industries',
     links: [
-      { label: 'Healthcare', href: '/about-us' },
-      { label: 'Financial Services', href: '/about-us' },
-      { label: 'Retail', href: '/about-us' },
-      { label: 'Technology', href: '/about-us' },
+      { label: 'Healthcare', href: '/healthcare-pharma' },
+      { label: 'Financial Services', href: '/financial-services' },
+      { label: 'Retail', href: '/retail' },
+      { label: 'Technology', href: '/software-technology' },
     ],
   },
   company: {
