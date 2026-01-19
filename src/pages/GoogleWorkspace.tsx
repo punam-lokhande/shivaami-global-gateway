@@ -11,6 +11,7 @@ import technicalDeploymentImg from '@/assets/activation/technical-deployment.jpg
 import securityConfigImg from '@/assets/activation/security-config.jpg';
 import teamTrainingImg from '@/assets/activation/team-training.jpg';
 import ongoingSupportImg from '@/assets/activation/ongoing-support.jpg';
+import techButtonsBg from '@/assets/banners/tech-buttons-bg.jpg';
 
 const fadeInUp = {
   initial: { opacity: 0, y: 30 },
@@ -184,58 +185,65 @@ function FeaturesSection() {
 // Workspace Action Buttons Section
 function WorkspaceActionsSection() {
   return (
-    <section className="py-16 relative overflow-hidden bg-gradient-to-r from-[#0a3a7a] via-[#0C4594] to-[#0a3a7a]">
-      {/* Animated background elements */}
+    <section className="py-20 relative overflow-hidden">
+      {/* Technology Background Image */}
+      <div className="absolute inset-0">
+        <img 
+          src={techButtonsBg} 
+          alt="" 
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0a3a7a]/80 via-[#0C4594]/70 to-[#0a3a7a]/80" />
+      </div>
+      
+      {/* Animated overlay elements */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#38B6FF]/10 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-[#1a5ab8]/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] border border-white/5 rounded-full" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] border border-white/5 rounded-full" />
-        {/* Grid pattern */}
-        <div className="absolute inset-0 opacity-5" style={{
-          backgroundImage: 'linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)',
-          backgroundSize: '50px 50px'
-        }} />
+        <div className="absolute top-1/2 left-1/4 w-64 h-64 bg-[#38B6FF]/20 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute top-1/2 right-1/4 w-64 h-64 bg-white/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
       </div>
       
       <div className="w-full px-8 lg:px-16 xl:px-24 relative z-10">
         <motion.div 
           {...fadeInUp} 
-          className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-8"
+          className="flex flex-col sm:flex-row items-center justify-center gap-8 sm:gap-10"
         >
           {/* Google Workspace Pricing Button */}
           <motion.a 
             href="https://workspace.google.com/pricing" 
             target="_blank" 
             rel="noopener noreferrer"
-            whileHover={{ scale: 1.05, y: -2 }}
+            whileHover={{ scale: 1.08, y: -4 }}
             whileTap={{ scale: 0.98 }}
             className="group relative"
           >
-            <div className="absolute -inset-1 bg-gradient-to-r from-[#38B6FF] via-white to-[#38B6FF] rounded-2xl blur-lg opacity-70 group-hover:opacity-100 transition-all duration-500 animate-pulse" />
-            <div className="relative flex items-center gap-3 bg-white text-[#0C4594] font-bold px-10 py-5 text-lg rounded-xl shadow-2xl transition-all duration-300 border-2 border-white/50">
-              <div className="w-3 h-3 bg-gradient-to-r from-[#38B6FF] to-[#0C4594] rounded-full animate-pulse" />
-              <span>Google Workspace Pricing</span>
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform duration-300" />
+            {/* Outer glow ring */}
+            <div className="absolute -inset-2 bg-gradient-to-r from-[#38B6FF] via-white to-[#38B6FF] rounded-2xl blur-xl opacity-80 group-hover:opacity-100 transition-all duration-500 animate-pulse" />
+            <div className="absolute -inset-1 bg-white rounded-2xl opacity-90" />
+            {/* Button content */}
+            <div className="relative flex items-center gap-4 bg-gradient-to-r from-white to-slate-50 text-[#0C4594] font-bold px-12 py-6 text-xl rounded-xl shadow-2xl transition-all duration-300 border-2 border-[#38B6FF]">
+              <div className="w-4 h-4 bg-gradient-to-r from-[#38B6FF] to-[#0C4594] rounded-full animate-pulse shadow-lg shadow-[#38B6FF]/50" />
+              <span className="tracking-wide">Google Workspace Pricing</span>
+              <ArrowRight className="w-6 h-6 group-hover:translate-x-2 transition-transform duration-300" />
             </div>
           </motion.a>
 
           {/* Transfer Subscription Button */}
-          <motion.div
-            whileHover={{ scale: 1.05, y: -2 }}
+          <motion.a
+            href="/swiftmove"
+            whileHover={{ scale: 1.08, y: -4 }}
             whileTap={{ scale: 0.98 }}
             className="group relative"
           >
-            <div className="absolute -inset-1 bg-gradient-to-r from-[#0C4594] via-[#38B6FF] to-[#0C4594] rounded-2xl blur-lg opacity-60 group-hover:opacity-90 transition-all duration-500" />
-            <Link 
-              to="/swiftmove"
-              className="relative flex items-center gap-3 bg-gradient-to-r from-[#38B6FF] to-[#2da8f0] text-white font-bold px-10 py-5 text-lg rounded-xl shadow-2xl transition-all duration-300 border border-white/20 hover:border-white/40"
-            >
-              <div className="w-3 h-3 bg-white rounded-full animate-pulse" />
-              <span>Transfer Google Workspace Subscription</span>
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform duration-300" />
-            </Link>
-          </motion.div>
+            {/* Outer glow ring */}
+            <div className="absolute -inset-2 bg-gradient-to-r from-[#0C4594] via-[#38B6FF] to-[#0C4594] rounded-2xl blur-xl opacity-70 group-hover:opacity-100 transition-all duration-500" />
+            <div className="absolute -inset-1 bg-gradient-to-r from-[#38B6FF] to-[#2da8f0] rounded-2xl opacity-90" />
+            {/* Button content */}
+            <div className="relative flex items-center gap-4 bg-gradient-to-r from-[#38B6FF] to-[#2da8f0] text-white font-bold px-12 py-6 text-xl rounded-xl shadow-2xl transition-all duration-300 border-2 border-white/30 group-hover:border-white/60">
+              <div className="w-4 h-4 bg-white rounded-full animate-pulse shadow-lg shadow-white/50" />
+              <span className="tracking-wide">Transfer Google Workspace Subscription</span>
+              <ArrowRight className="w-6 h-6 group-hover:translate-x-2 transition-transform duration-300" />
+            </div>
+          </motion.a>
         </motion.div>
       </div>
     </section>
