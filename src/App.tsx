@@ -55,6 +55,8 @@ import AdvertisingMedia from "./pages/AdvertisingMedia";
 import SoftwareTechnology from "./pages/SoftwareTechnology";
 import Hospitality from "./pages/Hospitality";
 import TransportationLogistics from "./pages/TransportationLogistics";
+import CloudCapabilities from "./pages/CloudCapabilities";
+import AppsScript from "./pages/AppsScript";
 
 const queryClient = new QueryClient();
 
@@ -116,6 +118,8 @@ const App = () => (
             <Route path="/software-technology" element={<SoftwareTechnology />} />
             <Route path="/hospitality" element={<Hospitality />} />
             <Route path="/transportation-logistics" element={<TransportationLogistics />} />
+            <Route path="/cloud-capabilities" element={<CloudCapabilities />} />
+            <Route path="/apps-script" element={<AppsScript />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
