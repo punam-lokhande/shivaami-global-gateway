@@ -91,6 +91,7 @@ const mobileMenuData = [
               { label: 'Chrome Enterprise', href: '/chrome-enterprise' },
             ]
           },
+          { label: 'Cloud Capabilities', href: '/cloud-capabilities' },
         ],
       },
       {
@@ -100,6 +101,7 @@ const mobileMenuData = [
           { label: 'Pulse360', href: '/pulse360' },
           { label: 'ChangePath', href: '/changepath' },
           { label: 'SecureSight', href: '/securesight' },
+          { label: 'Apps Script', href: '/apps-script' },
         ],
       },
     ],

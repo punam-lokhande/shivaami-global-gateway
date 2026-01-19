@@ -19,6 +19,7 @@ const footerLinks = {
   safer: {
     title: 'Safer',
     links: [
+      { label: 'Cloud Capabilities', href: '/cloud-capabilities' },
       { label: 'Google Cloud Platform', href: '/google-cloud-platform' },
       { label: 'JumpCloud', href: '/jumpcloud' },
       { label: 'Chrome Enterprise', href: '/chrome-enterprise' },
@@ -32,6 +33,7 @@ const footerLinks = {
       { label: 'SwiftMove', href: '/swiftmove' },
       { label: 'Pulse360', href: '/pulse360' },
       { label: 'ChangePath', href: '/changepath' },
+      { label: 'Apps Script', href: '/apps-script' },
       { label: 'Case Studies', href: '/case-studies' },
     ],
   },
