@@ -59,6 +59,7 @@ import TransportationLogistics from "./pages/TransportationLogistics";
 import CloudCapabilities from "./pages/CloudCapabilities";
 import AppsScript from "./pages/AppsScript";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
+import GoogleWorkspacePricingIndia from "./pages/GoogleWorkspacePricingIndia";
 
 const queryClient = new QueryClient();
 
@@ -124,6 +125,7 @@ const App = () => (
               <Route path="/cloud-capabilities" element={<CloudCapabilities />} />
               <Route path="/apps-script" element={<AppsScript />} />
               <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+              <Route path="/google-workspace-pricing-india" element={<GoogleWorkspacePricingIndia />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>
