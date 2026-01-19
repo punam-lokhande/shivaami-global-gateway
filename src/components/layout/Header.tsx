@@ -7,6 +7,7 @@ import MegaMenu from './MegaMenu';
 import MobileMenu from './MobileMenu';
 import SearchDialog from './SearchDialog';
 import shivaamiLogo from '@/assets/shivaami-logo.png';
+import { Link } from 'react-router-dom';
 
 type AnchorRect = {
   left: number;
@@ -153,9 +154,11 @@ export default function Header() {
               ))}
               
               {/* CTA Button - Part of navigation */}
-              <Button className="btn-glow bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-6 ml-4">
-                Let's Connect
-              </Button>
+              <Link to="/contact">
+                <Button className="btn-glow bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-6 ml-4">
+                  Let's Connect
+                </Button>
+              </Link>
             </div>
 
             {/* Mobile Menu Toggle */}

@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Link } from 'react-router-dom';
 
 interface MobileMenuProps {
   isOpen: boolean;
@@ -308,12 +309,13 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
               </div>
             ))}
             
-            <Button 
-              className="w-full mt-4 bg-primary hover:bg-primary/90 text-primary-foreground"
-              onClick={onClose}
-            >
-              Let's Connect
-            </Button>
+            <Link to="/contact" onClick={onClose}>
+              <Button 
+                className="w-full mt-4 bg-primary hover:bg-primary/90 text-primary-foreground"
+              >
+                Let's Connect
+              </Button>
+            </Link>
           </div>
         </motion.div>
       )}
