@@ -83,6 +83,7 @@ function HeroSection() {
             initial={{ opacity: 0, y: 28 }} 
             animate={{ opacity: 1, y: 0 }} 
             transition={{ duration: 0.6, delay: 0.3 }}
+            className="flex flex-wrap gap-4"
           >
             <Link to="/lets-connect">
               <Button
@@ -94,6 +95,15 @@ function HeroSection() {
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Button>
             </Link>
+            <a href="https://workspace.google.com/pricing" target="_blank" rel="noopener noreferrer">
+              <Button
+                size="lg"
+                className="bg-white text-[#0C4594] font-semibold px-8 py-6 text-base group rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-white hover:bg-white/90 ring-2 ring-[#38B6FF] ring-offset-2 ring-offset-[#0C4594]"
+              >
+                Google Workspace Pricing
+                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </Button>
+            </a>
           </motion.div>
         </div>
       </motion.div>
