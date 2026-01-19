@@ -208,42 +208,42 @@ function WorkspaceActionsSection() {
           className="flex flex-col sm:flex-row items-center justify-center gap-8 sm:gap-10"
         >
           {/* Google Workspace Pricing Button */}
-          <motion.a 
-            href="https://workspace.google.com/pricing" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            whileHover={{ scale: 1.08, y: -4 }}
-            whileTap={{ scale: 0.98 }}
-            className="group relative"
-          >
-            {/* Outer glow ring */}
-            <div className="absolute -inset-2 bg-gradient-to-r from-[#38B6FF] via-white to-[#38B6FF] rounded-2xl blur-xl opacity-80 group-hover:opacity-100 transition-all duration-500 animate-pulse" />
-            <div className="absolute -inset-1 bg-white rounded-2xl opacity-90" />
-            {/* Button content */}
-            <div className="relative flex items-center gap-4 bg-gradient-to-r from-white to-slate-50 text-[#0C4594] font-bold px-12 py-6 text-xl rounded-xl shadow-2xl transition-all duration-300 border-2 border-[#38B6FF]">
-              <div className="w-4 h-4 bg-gradient-to-r from-[#38B6FF] to-[#0C4594] rounded-full animate-pulse shadow-lg shadow-[#38B6FF]/50" />
-              <span className="tracking-wide">Google Workspace Pricing</span>
-              <ArrowRight className="w-6 h-6 group-hover:translate-x-2 transition-transform duration-300" />
-            </div>
-          </motion.a>
+          <Link to="/google-workspace-pricing-india">
+            <motion.div
+              whileHover={{ scale: 1.08, y: -4 }}
+              whileTap={{ scale: 0.98 }}
+              className="group relative"
+            >
+              {/* Outer glow ring */}
+              <div className="absolute -inset-2 bg-gradient-to-r from-[#38B6FF] via-white to-[#38B6FF] rounded-2xl blur-xl opacity-80 group-hover:opacity-100 transition-all duration-500 animate-pulse" />
+              <div className="absolute -inset-1 bg-white rounded-2xl opacity-90" />
+              {/* Button content */}
+              <div className="relative flex items-center gap-4 bg-gradient-to-r from-white to-slate-50 text-[#0C4594] font-bold px-12 py-6 text-xl rounded-xl shadow-2xl transition-all duration-300 border-2 border-[#38B6FF]">
+                <div className="w-4 h-4 bg-gradient-to-r from-[#38B6FF] to-[#0C4594] rounded-full animate-pulse shadow-lg shadow-[#38B6FF]/50" />
+                <span className="tracking-wide">Google Workspace Pricing</span>
+                <ArrowRight className="w-6 h-6 group-hover:translate-x-2 transition-transform duration-300" />
+              </div>
+            </motion.div>
+          </Link>
 
           {/* Transfer Subscription Button */}
-          <motion.a
-            href="/swiftmove"
-            whileHover={{ scale: 1.08, y: -4 }}
-            whileTap={{ scale: 0.98 }}
-            className="group relative"
-          >
-            {/* Outer glow ring */}
-            <div className="absolute -inset-2 bg-gradient-to-r from-[#0C4594] via-[#38B6FF] to-[#0C4594] rounded-2xl blur-xl opacity-70 group-hover:opacity-100 transition-all duration-500" />
-            <div className="absolute -inset-1 bg-gradient-to-r from-[#38B6FF] to-[#2da8f0] rounded-2xl opacity-90" />
-            {/* Button content */}
-            <div className="relative flex items-center gap-4 bg-gradient-to-r from-[#38B6FF] to-[#2da8f0] text-white font-bold px-12 py-6 text-xl rounded-xl shadow-2xl transition-all duration-300 border-2 border-white/30 group-hover:border-white/60">
-              <div className="w-4 h-4 bg-white rounded-full animate-pulse shadow-lg shadow-white/50" />
-              <span className="tracking-wide">Transfer Google Workspace Subscription</span>
-              <ArrowRight className="w-6 h-6 group-hover:translate-x-2 transition-transform duration-300" />
-            </div>
-          </motion.a>
+          <Link to="/swiftmove">
+            <motion.div
+              whileHover={{ scale: 1.08, y: -4 }}
+              whileTap={{ scale: 0.98 }}
+              className="group relative"
+            >
+              {/* Outer glow ring */}
+              <div className="absolute -inset-2 bg-gradient-to-r from-[#0C4594] via-[#38B6FF] to-[#0C4594] rounded-2xl blur-xl opacity-70 group-hover:opacity-100 transition-all duration-500" />
+              <div className="absolute -inset-1 bg-gradient-to-r from-[#38B6FF] to-[#2da8f0] rounded-2xl opacity-90" />
+              {/* Button content */}
+              <div className="relative flex items-center gap-4 bg-gradient-to-r from-[#38B6FF] to-[#2da8f0] text-white font-bold px-12 py-6 text-xl rounded-xl shadow-2xl transition-all duration-300 border-2 border-white/30 group-hover:border-white/60">
+                <div className="w-4 h-4 bg-white rounded-full animate-pulse shadow-lg shadow-white/50" />
+                <span className="tracking-wide">Transfer Google Workspace Subscription</span>
+                <ArrowRight className="w-6 h-6 group-hover:translate-x-2 transition-transform duration-300" />
+              </div>
+            </motion.div>
+          </Link>
         </motion.div>
       </div>
     </section>
