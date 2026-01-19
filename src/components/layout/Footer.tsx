@@ -19,6 +19,7 @@ const footerLinks = {
   safer: {
     title: 'Safer',
     links: [
+      { label: 'Google Cloud Platform', href: '/google-cloud-platform' },
       { label: 'JumpCloud', href: '/jumpcloud' },
       { label: 'Chrome Enterprise', href: '/chrome-enterprise' },
       { label: 'Palo Alto', href: '/paloalto' },

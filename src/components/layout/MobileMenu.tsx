@@ -39,7 +39,12 @@ const mobileMenuData = [
           },
           { 
             name: 'Cloud Infrastructure', 
-            subItems: ['Google Cloud Platform', 'AWS', 'Microsoft Azure', 'JioCloud'] 
+            subItems: [
+              { label: 'Google Cloud Platform', href: '/google-cloud-platform' },
+              { label: 'AWS', href: '/aws' },
+              { label: 'Microsoft Azure', href: '/azure' },
+              { label: 'JioCloud', href: '/jiocloud' },
+            ]
           },
           { 
             name: 'Cyber Security', 
@@ -224,15 +229,20 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                                               transition={{ duration: 0.15 }}
                                               className="ml-4 border-l-2 border-primary/20 pl-3"
                                             >
-                                              {item.subItems.map((subItem, subIdx) => (
-                                                <a
-                                                  key={subIdx}
-                                                  href="#"
-                                                  className="block py-2 text-xs text-muted-foreground hover:text-primary transition-colors"
-                                                >
-                                                  {subItem}
-                                                </a>
-                                              ))}
+                                              {item.subItems.map((subItem, subIdx) => {
+                                                const isObject = typeof subItem === 'object' && subItem !== null;
+                                                const label = isObject ? subItem.label : subItem;
+                                                const href = isObject ? subItem.href : '#';
+                                                return (
+                                                  <a
+                                                    key={subIdx}
+                                                    href={href}
+                                                    className="block py-2 text-xs text-muted-foreground hover:text-primary transition-colors"
+                                                  >
+                                                    {label}
+                                                  </a>
+                                                );
+                                              })}
                                             </motion.div>
                                           )}
                                         </AnimatePresence>
