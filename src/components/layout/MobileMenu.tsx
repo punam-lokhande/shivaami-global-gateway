@@ -18,11 +18,19 @@ const mobileMenuData = [
         items: [
           { 
             name: 'AI Solutions', 
-            subItems: ['Gemini Enterprise', 'Google AI Ultra', 'Glean'] 
+            subItems: [
+              { label: 'Gemini Enterprise', href: '/gemini-enterprise' },
+              { label: 'Google AI Ultra', href: '/google-ai-ultra' },
+              { label: 'Glean', href: '/glean' },
+            ]
           },
           { 
             name: 'Email & Collaboration', 
-            subItems: ['Google Workspace', 'Microsoft 365', 'Zoho Mail'] 
+            subItems: [
+              { label: 'Google Workspace', href: '/google-workspace' },
+              { label: 'Microsoft 365', href: '/microsoft-365' },
+              { label: 'Zoho Mail', href: '/zoho-mail' },
+            ]
           },
         ],
       },
@@ -31,11 +39,21 @@ const mobileMenuData = [
         items: [
           { 
             name: 'Identity & Device', 
-            subItems: ['JumpCloud', 'Viami', 'Scalefusion', 'Jamf', 'Okta', 'miniOrange'] 
+            subItems: [
+              { label: 'JumpCloud', href: '/jumpcloud' },
+              { label: 'Viami', href: '/viami' },
+              { label: 'Scalefusion', href: '/scalefusion' },
+              { label: 'Jamf', href: '/jamf' },
+              { label: 'Okta', href: '/okta' },
+              { label: 'miniOrange', href: '/miniorange' },
+            ]
           },
           { 
             name: 'Endpoint Management', 
-            subItems: ['SuperOps', 'Atera'] 
+            subItems: [
+              { label: 'SuperOps', href: '/superops' },
+              { label: 'Atera', href: '/atera' },
+            ]
           },
           { 
             name: 'Cloud Infrastructure', 
@@ -48,29 +66,41 @@ const mobileMenuData = [
           },
           { 
             name: 'Cyber Security', 
-            subItems: ['Palo Alto', 'Wiz', 'Check Point', 'Tenable'] 
+            subItems: [
+              { label: 'Palo Alto', href: '/paloalto' },
+              { label: 'Wiz', href: '/wiz' },
+              { label: 'Check Point', href: '/checkpoint' },
+              { label: 'Tenable', href: '/tenable' },
+            ]
           },
           { 
             name: 'Cloud Security', 
-            subItems: ['SSL Certificates', 'GoSimulator', 'GoDmarc', 'VMC'] 
+            subItems: [
+              { label: 'SSL Certificates', href: '/ssl-certificates' },
+              { label: 'GoSimulator', href: '/gosimulator' },
+              { label: 'GoDmarc', href: '/godmarc' },
+              { label: 'VMC', href: '/vmc' },
+            ]
           },
           { 
-            name: 'Chrome Enterprise', 
-            subItems: ['Chromebook', 'Chromebox', 'ChromeOS Flex', 'Chrome Browser Cloud', 'Chrome Enterprise Premium'] 
-          },
-          { 
-            name: 'Google Meet Hardware', 
-            subItems: ['Meet Series One', 'Meet Board', 'Meet Desk', 'Meet Compute System'] 
-          },
-          { 
-            name: 'Cloud Capabilities', 
-            isPageLink: true 
+            name: 'Chrome Solutions', 
+            subItems: [
+              { label: 'Chromebook', href: '/chromebook' },
+              { label: 'Chromebox', href: '/chromebox' },
+              { label: 'ChromeOS Flex', href: '/chromeos-flex' },
+              { label: 'Chrome Enterprise', href: '/chrome-enterprise' },
+            ]
           },
         ],
       },
       {
         title: 'Smoother Solutions',
-        items: ['SwiftMove', 'Pulse360', 'ChangePath', 'SecureSight', 'Support Packages', 'AppScript'],
+        items: [
+          { label: 'SwiftMove', href: '/swiftmove' },
+          { label: 'Pulse360', href: '/pulse360' },
+          { label: 'ChangePath', href: '/changepath' },
+          { label: 'SecureSight', href: '/securesight' },
+        ],
       },
     ],
   },
@@ -80,7 +110,16 @@ const mobileMenuData = [
     sections: [
       {
         title: 'Industries We Serve',
-        items: ['Advertising & Media', 'Agritech', 'Retail', 'Software & Technology', 'Financial Services', 'Healthcare', 'Hospitality', 'Manufacturing', 'Transportation & Logistics'],
+        items: [
+          { label: 'Advertising & Media', href: '/advertising-media' },
+          { label: 'Retail', href: '/retail' },
+          { label: 'Software & Technology', href: '/software-technology' },
+          { label: 'Financial Services', href: '/financial-services' },
+          { label: 'Healthcare & Pharma', href: '/healthcare-pharma' },
+          { label: 'Hospitality', href: '/hospitality' },
+          { label: 'Manufacturing', href: '/manufacturing' },
+          { label: 'Transportation & Logistics', href: '/transportation-logistics' },
+        ],
       },
     ],
   },
@@ -90,7 +129,10 @@ const mobileMenuData = [
     sections: [
       {
         title: 'Learn & Explore',
-        items: ['Case Studies', 'Blogs', 'Newsletter', 'On-Demand Webinars'],
+        items: [
+          { label: 'Case Studies', href: '/case-studies' },
+          { label: 'Blogs', href: 'https://www.shivaami.com/blog/', external: true },
+        ],
       },
     ],
   },
@@ -100,7 +142,12 @@ const mobileMenuData = [
     sections: [
       {
         title: 'Our Company',
-        items: ['Certifications', 'Leadership', 'Achievements', 'Careers'],
+        items: [
+          { label: 'About Us', href: '/about-us' },
+          { label: 'Leadership', href: '/leadership' },
+          { label: 'Careers', href: '/careers' },
+          { label: 'Contact', href: '/contact' },
+        ],
       },
     ],
   },
@@ -183,29 +230,25 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                                 transition={{ duration: 0.15 }}
                                 className="ml-3"
                               >
-                                {section.items.map((item, idx) => {
-                                  if (typeof item === 'string') {
+                                {section.items.map((item: any, idx: number) => {
+                                  // Simple link item (has label and href directly)
+                                  if (item.label && item.href) {
+                                    const isExternal = item.external || item.href.startsWith('http');
                                     return (
                                       <a
                                         key={idx}
-                                        href="#"
+                                        href={item.href}
+                                        target={isExternal ? "_blank" : undefined}
+                                        rel={isExternal ? "noopener noreferrer" : undefined}
                                         className="block py-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
                                       >
-                                        {item}
+                                        {item.label}
                                       </a>
                                     );
-                                  } else if (item.isPageLink) {
-                                    return (
-                                      <a
-                                        key={idx}
-                                        href="/cloud-capabilities"
-                                        className="flex items-center gap-2 py-2 text-sm text-primary font-medium hover:text-primary/80 transition-colors"
-                                      >
-                                        <span>{item.name}</span>
-                                        <ChevronRight className="w-4 h-4" />
-                                      </a>
-                                    );
-                                  } else {
+                                  }
+                                  
+                                  // Category with subItems
+                                  if (item.name && item.subItems) {
                                     return (
                                       <div key={idx}>
                                         <button
@@ -221,7 +264,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                                         </button>
                                         
                                         <AnimatePresence>
-                                          {expandedSubItem === item.name && item.subItems && (
+                                          {expandedSubItem === item.name && (
                                             <motion.div
                                               initial={{ opacity: 0, height: 0 }}
                                               animate={{ opacity: 1, height: 'auto' }}
@@ -229,17 +272,17 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                                               transition={{ duration: 0.15 }}
                                               className="ml-4 border-l-2 border-primary/20 pl-3"
                                             >
-                                              {item.subItems.map((subItem, subIdx) => {
-                                                const isObject = typeof subItem === 'object' && subItem !== null;
-                                                const label = isObject ? subItem.label : subItem;
-                                                const href = isObject ? subItem.href : '#';
+                                              {item.subItems.map((subItem: any, subIdx: number) => {
+                                                const isExternal = subItem.external || subItem.href?.startsWith('http');
                                                 return (
                                                   <a
                                                     key={subIdx}
-                                                    href={href}
+                                                    href={subItem.href || '#'}
+                                                    target={isExternal ? "_blank" : undefined}
+                                                    rel={isExternal ? "noopener noreferrer" : undefined}
                                                     className="block py-2 text-xs text-muted-foreground hover:text-primary transition-colors"
                                                   >
-                                                    {label}
+                                                    {subItem.label}
                                                   </a>
                                                 );
                                               })}
@@ -249,6 +292,8 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                                       </div>
                                     );
                                   }
+                                  
+                                  return null;
                                 })}
                               </motion.div>
                             )}
