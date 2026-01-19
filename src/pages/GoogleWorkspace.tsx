@@ -12,6 +12,7 @@ import securityConfigImg from '@/assets/activation/security-config.jpg';
 import teamTrainingImg from '@/assets/activation/team-training.jpg';
 import ongoingSupportImg from '@/assets/activation/ongoing-support.jpg';
 import techButtonsBg from '@/assets/banners/tech-buttons-bg.jpg';
+import TransferSubscriptionDialog from '@/components/TransferSubscriptionDialog';
 
 const fadeInUp = {
   initial: { opacity: 0, y: 30 },
@@ -183,7 +184,7 @@ function FeaturesSection() {
 }
 
 // Workspace Action Buttons Section
-function WorkspaceActionsSection() {
+function WorkspaceActionsSection({ onTransferClick }: { onTransferClick: () => void }) {
   return (
     <section className="py-20 relative overflow-hidden">
       {/* Technology Background Image */}
@@ -227,23 +228,22 @@ function WorkspaceActionsSection() {
           </Link>
 
           {/* Transfer Subscription Button */}
-          <Link to="/swiftmove">
-            <motion.div
-              whileHover={{ scale: 1.08, y: -4 }}
-              whileTap={{ scale: 0.98 }}
-              className="group relative"
-            >
-              {/* Outer glow ring */}
-              <div className="absolute -inset-2 bg-gradient-to-r from-[#0C4594] via-[#38B6FF] to-[#0C4594] rounded-2xl blur-xl opacity-70 group-hover:opacity-100 transition-all duration-500" />
-              <div className="absolute -inset-1 bg-gradient-to-r from-[#38B6FF] to-[#2da8f0] rounded-2xl opacity-90" />
-              {/* Button content */}
-              <div className="relative flex items-center gap-4 bg-gradient-to-r from-[#38B6FF] to-[#2da8f0] text-white font-bold px-12 py-6 text-xl rounded-xl shadow-2xl transition-all duration-300 border-2 border-white/30 group-hover:border-white/60">
-                <div className="w-4 h-4 bg-white rounded-full animate-pulse shadow-lg shadow-white/50" />
-                <span className="tracking-wide">Transfer Google Workspace Subscription</span>
-                <ArrowRight className="w-6 h-6 group-hover:translate-x-2 transition-transform duration-300" />
-              </div>
-            </motion.div>
-          </Link>
+          <motion.div
+            onClick={onTransferClick}
+            whileHover={{ scale: 1.08, y: -4 }}
+            whileTap={{ scale: 0.98 }}
+            className="group relative cursor-pointer"
+          >
+            {/* Outer glow ring */}
+            <div className="absolute -inset-2 bg-gradient-to-r from-[#0C4594] via-[#38B6FF] to-[#0C4594] rounded-2xl blur-xl opacity-70 group-hover:opacity-100 transition-all duration-500" />
+            <div className="absolute -inset-1 bg-gradient-to-r from-[#38B6FF] to-[#2da8f0] rounded-2xl opacity-90" />
+            {/* Button content */}
+            <div className="relative flex items-center gap-4 bg-gradient-to-r from-[#38B6FF] to-[#2da8f0] text-white font-bold px-12 py-6 text-xl rounded-xl shadow-2xl transition-all duration-300 border-2 border-white/30 group-hover:border-white/60">
+              <div className="w-4 h-4 bg-white rounded-full animate-pulse shadow-lg shadow-white/50" />
+              <span className="tracking-wide">Transfer Google Workspace Subscription</span>
+              <ArrowRight className="w-6 h-6 group-hover:translate-x-2 transition-transform duration-300" />
+            </div>
+          </motion.div>
         </motion.div>
       </div>
     </section>
@@ -439,17 +439,23 @@ function CalendarCTASection() {
 }
 
 const GoogleWorkspace = () => {
+  const [transferDialogOpen, setTransferDialogOpen] = useState(false);
+
   return (
     <div className="min-h-screen">
       <Header />
       <main>
         <HeroSection />
         <FeaturesSection />
-        <WorkspaceActionsSection />
+        <WorkspaceActionsSection onTransferClick={() => setTransferDialogOpen(true)} />
         <ActivationSection />
         <CalendarCTASection />
       </main>
       <Footer />
+      <TransferSubscriptionDialog 
+        open={transferDialogOpen} 
+        onOpenChange={setTransferDialogOpen} 
+      />
     </div>
   );
 };
