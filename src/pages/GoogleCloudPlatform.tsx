@@ -81,7 +81,7 @@ const HeroSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            GCP: <span className="text-[#4285f4]">Scalable Cloud</span> Infrastructure Solutions
+            Build on <span className="text-[#34A853]">Google Cloud</span> Platform
           </motion.h1>
           <motion.p 
             className="text-lg md:text-xl text-white/90 mb-8 leading-relaxed"
