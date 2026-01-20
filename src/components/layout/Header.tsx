@@ -38,7 +38,7 @@ export default function Header() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50">
       {/* Utility Bar - Full Width */}
-      <div className="bg-white border-b border-border/30">
+      <div className="bg-white border-b border-border/60">
         <div className="w-full px-8 lg:px-16 xl:px-24">
           <div className="flex items-center justify-end h-10 gap-4 text-sm">
             <button 
