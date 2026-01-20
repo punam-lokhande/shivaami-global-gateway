@@ -61,6 +61,14 @@ import CaseStudyRJCorp from "./pages/CaseStudyRJCorp";
 import CaseStudyLandmark from "./pages/CaseStudyLandmark";
 import CaseStudyCedCommerce from "./pages/CaseStudyCedCommerce";
 import CaseStudyDinshaws from "./pages/CaseStudyDinshaws";
+import CaseStudyAdani from "./pages/CaseStudyAdani";
+import CaseStudyArya from "./pages/CaseStudyArya";
+import CaseStudy1mg from "./pages/CaseStudy1mg";
+import CaseStudyRefyne from "./pages/CaseStudyRefyne";
+import CaseStudyShriramPistons from "./pages/CaseStudyShriramPistons";
+import CaseStudyTreebo from "./pages/CaseStudyTreebo";
+import CaseStudyIntas from "./pages/CaseStudyIntas";
+import CaseStudyApsara from "./pages/CaseStudyApsara";
 import Leadership from "./pages/Leadership";
 import Contact from "./pages/Contact";
 import Careers from "./pages/Careers";
@@ -156,6 +164,14 @@ const App = () => (
               <Route path="/case-studies/landmark" element={<CaseStudyLandmark />} />
               <Route path="/case-studies/cedcommerce" element={<CaseStudyCedCommerce />} />
               <Route path="/case-studies/dinshaws" element={<CaseStudyDinshaws />} />
+              <Route path="/case-studies/adani" element={<CaseStudyAdani />} />
+              <Route path="/case-studies/arya" element={<CaseStudyArya />} />
+              <Route path="/case-studies/1mg" element={<CaseStudy1mg />} />
+              <Route path="/case-studies/refyne" element={<CaseStudyRefyne />} />
+              <Route path="/case-studies/shriram-pistons" element={<CaseStudyShriramPistons />} />
+              <Route path="/case-studies/treebo" element={<CaseStudyTreebo />} />
+              <Route path="/case-studies/intas" element={<CaseStudyIntas />} />
+              <Route path="/case-studies/apsara" element={<CaseStudyApsara />} />
               <Route path="/leadership" element={<Leadership />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/careers" element={<Careers />} />

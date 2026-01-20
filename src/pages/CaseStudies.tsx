@@ -46,8 +46,8 @@ const industries = [
     icon: Heart,
     color: '#10B981',
     caseStudies: [
-      { name: '1mg', description: "Leader in India's health-tech sector providing digital healthcare platform." },
-      { name: 'Intas Pharmaceuticals', description: 'Leading multinational pharmaceutical formulation company.' },
+      { name: '1mg', description: "Leader in India's health-tech sector providing digital healthcare platform.", slug: '1mg' },
+      { name: 'Intas Pharmaceuticals', description: 'Leading multinational pharmaceutical formulation company.', slug: 'intas' },
       { name: 'Micro Labs', description: 'Multi-faceted healthcare organization with state-of-the-art facilities.', slug: 'microlabs' },
       { name: 'Sitapur Eye Hospital', description: 'Leading Tertiary care eye institute serving millions of patients.' },
       { name: 'Prism', description: 'Working hand in hand with the medical fraternity for better healthcare.' },
@@ -60,7 +60,7 @@ const industries = [
     icon: Briefcase,
     color: '#F59E0B',
     caseStudies: [
-      { name: 'Refyne', description: "Asia's largest Earned Wage Access platform transforming payroll." },
+      { name: 'Refyne', description: "Asia's largest Earned Wage Access platform transforming payroll.", slug: 'refyne' },
       { name: 'KredX', description: "India's leading integrated financial solutions provider for startups.", slug: 'kredx' },
       { name: 'AGS Transact', description: 'Leading integrated omni-channel payment solutions provider.', logo: agsLogo, slug: 'ags' },
       { name: 'LogiCash', description: 'Innovative cash management and financial services since 2010.', slug: 'logicash' },
@@ -73,7 +73,7 @@ const industries = [
     color: '#8B5CF6',
     caseStudies: [
       { name: 'PW Live', description: 'Leading EdTech platform transforming education with technology.', slug: 'pw-live' },
-      { name: 'Adani International School', description: 'Premium international education with modern cloud infrastructure.', logo: adaniLogo },
+      { name: 'Adani International School', description: 'Premium international education with modern cloud infrastructure.', logo: adaniLogo, slug: 'adani' },
       { name: 'Navodaya HS', description: 'Streamlined processes with Google for Education solutions.' },
     ]
   },
@@ -86,7 +86,7 @@ const industries = [
       { name: 'RSPL Group', description: 'Prominent player in online retail with over 1000+ products.', slug: 'rspl' },
       { name: 'Dunzo', description: 'Hyperlocal delivery services across major Indian cities.', slug: 'dunzo' },
       { name: 'Landmark Group', description: 'Carving a niche in retail with integrated brand experience.', slug: 'landmark' },
-      { name: 'Apsara Ice Creams', description: 'Leading ice cream manufacturer with digital-first approach.', logo: apsaraLogo },
+      { name: 'Apsara Ice Creams', description: 'Leading ice cream manufacturer with digital-first approach.', logo: apsaraLogo, slug: 'apsara' },
       { name: "Dinshaw's", description: 'Iconic dairy brand with cloud-powered operations since 1932.', slug: 'dinshaws' },
     ]
   },
@@ -97,7 +97,7 @@ const industries = [
     color: '#EF4444',
     caseStudies: [
       { name: 'BILT', description: "India's largest manufacturer of writing and printing paper.", logo: biltLogo, slug: 'bilt' },
-      { name: 'Shriram Pistons', description: "Part of India's largest industrial conglomerate." },
+      { name: 'Shriram Pistons', description: "Part of India's largest industrial conglomerate.", slug: 'shriram-pistons' },
       { name: 'D&H Secheron', description: 'Major manufacturer of welding consumables since 1966.' },
       { name: 'GRP Ltd', description: "37 years' experience in reclaimed rubber industry." },
       { name: 'Imperial', description: 'Leading suppliers with state of art manufacturing in Kolkata.' },
@@ -112,7 +112,7 @@ const industries = [
     icon: Truck,
     color: '#22C55E',
     caseStudies: [
-      { name: 'Arya.ag', description: 'Connecting agri-produce buyers and sellers with quality assurance.', logo: aryaLogo },
+      { name: 'Arya.ag', description: 'Connecting agri-produce buyers and sellers with quality assurance.', logo: aryaLogo, slug: 'arya' },
       { name: 'Payal Group', description: 'Leading agricultural solutions with R&D focus.' },
     ]
   },
@@ -146,7 +146,7 @@ const industries = [
     icon: Hotel,
     color: '#14B8A6',
     caseStudies: [
-      { name: 'Treebo Hotels', description: 'Pioneering hospitality management with technology.' },
+      { name: 'Treebo Hotels', description: 'Pioneering hospitality management with technology.', slug: 'treebo' },
       { name: 'PRA Realty', description: "Pune's premier real estate developer since 2005." },
       { name: 'Sole Group', description: 'Specialist in wholesale telecommunications globally.' },
       { name: 'ICT Online', description: 'Leading consulting firm in highways, structures, airports.' },
