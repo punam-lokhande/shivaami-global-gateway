@@ -149,6 +149,7 @@ const mobileMenuData = [
           { label: 'About Us', href: '/about-us' },
           { label: 'Leadership', href: '/leadership' },
           { label: 'Certifications', href: '/certifications' },
+          { label: 'Achievements', href: '/achievements' },
           { label: 'Careers', href: '/careers' },
           { label: 'Contact', href: '/contact' },
         ],

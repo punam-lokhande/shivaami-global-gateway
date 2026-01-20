@@ -52,6 +52,7 @@ const footerLinks = {
       { label: 'Our Story', href: '/about-us' },
       { label: 'Leadership', href: '/leadership' },
       { label: 'Certifications', href: '/certifications' },
+      { label: 'Achievements', href: '/achievements' },
       { label: 'Careers', href: '/careers' },
       { label: 'Become Partner', href: '/become-partner' },
       { label: 'Contact', href: '/contact' },

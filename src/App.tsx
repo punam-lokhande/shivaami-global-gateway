@@ -63,6 +63,7 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 import GoogleWorkspacePricingIndia from "./pages/GoogleWorkspacePricingIndia";
 import SupportServices from "./pages/SupportServices";
 import Certifications from "./pages/Certifications";
+import Achievements from "./pages/Achievements";
 const queryClient = new QueryClient();
 
 // Scroll to top on route change
@@ -142,6 +143,7 @@ const App = () => (
               <Route path="/google-workspace-pricing-india" element={<GoogleWorkspacePricingIndia />} />
               <Route path="/support" element={<SupportServices />} />
               <Route path="/certifications" element={<Certifications />} />
+              <Route path="/achievements" element={<Achievements />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>
