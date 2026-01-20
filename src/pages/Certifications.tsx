@@ -170,19 +170,19 @@ function CertificationsSection() {
   return (
     <section className="py-20 bg-white">
       <div className="w-full px-6 sm:px-8 lg:px-16 xl:px-24">
-        {/* Introduction */}
+        {/* Introduction - Full width aligned with content */}
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="max-w-4xl mx-auto text-center mb-16"
+          className="mb-20"
         >
           <p className="text-lg lg:text-xl text-gray-700 leading-relaxed mb-6">
-            At Shivaami, we understand that excellence and trustworthiness are not just ideals but essential principles in today's competitive business world. We have undertaken rigorous assessments and achieved these prestigious ISO certifications to ensure that our clients receive the highest quality services with the utmost security.
+            At Shivaami, we understand that excellence and trustworthiness are not just ideals but essential principles in today's competitive business world. We have undertaken rigorous assessments and achieved these prestigious ISO certifications to ensure that our clients receive the highest quality services with the utmost security. These certifications reflect our dedication to continuous improvement and our commitment to meet and exceed international standards.
           </p>
           <p className="text-gray-600 leading-relaxed">
-            These certifications reflect our dedication to continuous improvement and our commitment to meet and exceed international standards.
+            Shivaami holds certifications in ISO 9001:2015, ISO/IEC 20000-1:2018, and ISO/IEC 27001:2013, demonstrating our commitment to delivering superior quality, service management, and information security. Our ISO certifications are a testament to our unwavering dedication to delivering top-tier services to our clients across the globe.
           </p>
         </motion.div>
 
@@ -199,25 +199,25 @@ function CertificationsSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
-                className={`flex flex-col ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-12 lg:gap-16 items-center`}
+                className={`flex flex-col ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-12 lg:gap-16 items-start`}
               >
-                {/* Certificate Image */}
+                {/* Certificate Image - Natural aspect ratio */}
                 <motion.div 
                   whileHover={{ scale: 1.02 }}
-                  className="w-full lg:w-1/2 cursor-pointer group"
+                  className="w-full lg:w-auto lg:flex-shrink-0 cursor-pointer group"
                   onClick={() => setSelectedCert(cert)}
                 >
-                  <div className="relative bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-shadow duration-300 border border-gray-100">
+                  <div className="relative bg-white rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-shadow duration-300 border border-gray-200 inline-block">
                     <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{
                       background: `linear-gradient(135deg, ${cert.color}10 0%, transparent 50%)`
                     }} />
                     <img 
                       src={cert.image} 
                       alt={cert.title}
-                      className="w-full h-auto max-h-[400px] object-contain mx-auto relative z-10"
+                      className="w-auto h-auto max-w-[320px] lg:max-w-[380px] object-contain relative z-10"
                     />
                     <div className="absolute bottom-4 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white shadow-lg text-sm font-medium text-gray-700">
+                      <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white shadow-lg text-sm font-medium text-gray-700 whitespace-nowrap">
                         <Award className="w-4 h-4" style={{ color: cert.color }} />
                         Click to view full certificate
                       </span>
@@ -226,7 +226,7 @@ function CertificationsSection() {
                 </motion.div>
 
                 {/* Content */}
-                <div className="w-full lg:w-1/2">
+                <div className="flex-1">
                   <div className="flex items-center gap-4 mb-6">
                     <div 
                       className="w-16 h-16 rounded-2xl flex items-center justify-center shadow-lg"
