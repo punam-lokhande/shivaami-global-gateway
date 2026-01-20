@@ -223,7 +223,7 @@ function IndustrySidebar({
         </div>
 
         {/* Industry List */}
-        <div className="p-3 max-h-[60vh] overflow-y-auto">
+        <div className="p-3">
           {/* All Industries */}
           <motion.button
             whileHover={{ x: 4 }}
