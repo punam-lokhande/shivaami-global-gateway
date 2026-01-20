@@ -152,14 +152,6 @@ export default function PillarsSection() {
                       ))}
                     </ul>
 
-                    {/* CTA */}
-                    <a
-                      href="#"
-                      className={`inline-flex items-center gap-2 text-sm font-semibold bg-gradient-to-r ${pillar.gradient} bg-clip-text text-transparent hover:gap-3 transition-all group/link`}
-                    >
-                      Learn More
-                      <ArrowRight className={`w-4 h-4 transition-transform group-hover/link:translate-x-1 ${pillar.iconColor}`} />
-                    </a>
                   </div>
 
                   {/* Hover glow effect - subtle blue tint that doesn't affect text readability */}
@@ -172,21 +164,6 @@ export default function PillarsSection() {
           })}
         </div>
 
-        {/* Bottom CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.6 }}
-          className="mt-16 text-center"
-        >
-          <a
-            href="/solutions"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-primary text-primary-foreground rounded-full font-semibold shadow-lg hover:shadow-xl hover:bg-primary/90 transition-all duration-300 group"
-          >
-            Explore All Solutions
-            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-          </a>
-        </motion.div>
       </div>
     </section>
   );
