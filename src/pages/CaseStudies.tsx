@@ -31,10 +31,10 @@ const industries = [
       { name: 'Zepto', description: 'Fast-growing quick-commerce company transforming grocery delivery with cloud solutions.', slug: 'zepto' },
       { name: 'Gupshup', description: 'Conversational Engagement Platform enabling business messaging at scale.', slug: 'gupshup' },
       { name: 'Datametica', description: 'World leader in enterprise data warehouse migration to the Cloud.', slug: 'datametica' },
-      { name: 'Mindgate Solutions', description: 'Leading payments revolution with innovative fintech solutions.' },
+      { name: 'Mindgate Solutions', description: 'Leading payments revolution with innovative fintech solutions.', slug: 'mindgate' },
       { name: 'CedCommerce', description: 'Revolutionizing eCommerce integration and multi-channel selling.', logo: cedcommerceLogo, slug: 'cedcommerce' },
       { name: 'Schemax', description: 'Software product and technology services company based in India.' },
-      { name: 'iOPEX Technologies', description: 'Rapid expansion supporting 60% annual global growth.' },
+      { name: 'iOPEX Technologies', description: 'Rapid expansion supporting 60% annual global growth.', slug: 'iopex' },
       { name: 'Shaurya Technosoft', description: 'Rapidly expanding software development company in Pune.' },
       { name: 'Emxcel Solutions', description: 'Helping companies reach new heights with digital transformation.' },
       { name: 'Nelito Systems', description: 'Software products & services for Banking and Financial Services.' },
@@ -98,7 +98,7 @@ const industries = [
     caseStudies: [
       { name: 'BILT', description: "India's largest manufacturer of writing and printing paper.", logo: biltLogo, slug: 'bilt' },
       { name: 'Shriram Pistons', description: "Part of India's largest industrial conglomerate.", slug: 'shriram-pistons' },
-      { name: 'D&H Secheron', description: 'Major manufacturer of welding consumables since 1966.' },
+      { name: 'D&H Secheron', description: 'Major manufacturer of welding consumables since 1966.', slug: 'dh-secheron' },
       { name: 'GRP Ltd', description: "37 years' experience in reclaimed rubber industry." },
       { name: 'Imperial', description: 'Leading suppliers with state of art manufacturing in Kolkata.' },
       { name: 'Permacel', description: 'Indian leader in tapes manufacturing since 1950s.' },
@@ -122,8 +122,8 @@ const industries = [
     icon: Tv,
     color: '#F97316',
     caseStudies: [
-      { name: 'Jaya TV', description: 'Tamil language satellite television channel based in Chennai.' },
-      { name: 'Mukta Arts', description: 'Indian film production and entertainment company.' },
+      { name: 'Jaya TV', description: 'Tamil language satellite television channel based in Chennai.', slug: 'jaya-tv' },
+      { name: 'Mukta Arts', description: 'Indian film production and entertainment company.', slug: 'mukta-arts' },
     ]
   },
   {
@@ -133,10 +133,10 @@ const industries = [
     color: '#6366F1',
     caseStudies: [
       { name: 'RJ Corp', description: 'Multi-industry conglomerate with two decades of excellence.', slug: 'rjcorp' },
-      { name: 'Navnit Group', description: 'Rs. 2000 crore network of diverse companies.' },
+      { name: 'Navnit Group', description: 'Rs. 2000 crore network of diverse companies.', slug: 'navnit' },
       { name: 'BMM Group', description: 'Reflection of growth path across multiple sectors.', logo: bmmLogo, slug: 'bmm' },
-      { name: 'Flovel', description: 'Four decades of excellence in hydropower industry.' },
-      { name: 'RR Global', description: '650 million USD corporation built on innovation.' },
+      { name: 'Flovel', description: 'Four decades of excellence in hydropower industry.', slug: 'flovel' },
+      { name: 'RR Global', description: '650 million USD corporation built on innovation.', slug: 'rr-global' },
       { name: 'Senseselec', description: 'Renowned leader in electrical and electronic sectors.' },
     ]
   },
