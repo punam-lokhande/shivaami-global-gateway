@@ -29,7 +29,7 @@ const industries = [
     color: '#38B6FF',
     caseStudies: [
       { name: 'Zepto', description: 'Fast-growing quick-commerce company transforming grocery delivery with cloud solutions.', slug: 'zepto' },
-      { name: 'Gupshup', description: 'Conversational Engagement Platform enabling business messaging at scale.' },
+      { name: 'Gupshup', description: 'Conversational Engagement Platform enabling business messaging at scale.', slug: 'gupshup' },
       { name: 'Datametica', description: 'World leader in enterprise data warehouse migration to the Cloud.' },
       { name: 'Mindgate Solutions', description: 'Leading payments revolution with innovative fintech solutions.' },
       { name: 'CedCommerce', description: 'Revolutionizing eCommerce integration and multi-channel selling.', logo: cedcommerceLogo },
@@ -61,8 +61,8 @@ const industries = [
     color: '#F59E0B',
     caseStudies: [
       { name: 'Refyne', description: "Asia's largest Earned Wage Access platform transforming payroll." },
-      { name: 'KredX', description: "India's leading integrated financial solutions provider for startups." },
-      { name: 'AGS Transact', description: 'Leading integrated omni-channel payment solutions provider.', logo: agsLogo },
+      { name: 'KredX', description: "India's leading integrated financial solutions provider for startups.", slug: 'kredx' },
+      { name: 'AGS Transact', description: 'Leading integrated omni-channel payment solutions provider.', logo: agsLogo, slug: 'ags' },
       { name: 'LogiCash', description: 'Innovative cash management and financial services since 2010.' },
     ]
   },
@@ -72,7 +72,7 @@ const industries = [
     icon: Building2,
     color: '#8B5CF6',
     caseStudies: [
-      { name: 'PW Live', description: 'Leading EdTech platform transforming education with technology.' },
+      { name: 'PW Live', description: 'Leading EdTech platform transforming education with technology.', slug: 'pw-live' },
       { name: 'Adani International School', description: 'Premium international education with modern cloud infrastructure.', logo: adaniLogo },
       { name: 'Navodaya HS', description: 'Streamlined processes with Google for Education solutions.' },
     ]
@@ -83,8 +83,8 @@ const industries = [
     icon: ShoppingCart,
     color: '#EC4899',
     caseStudies: [
-      { name: 'RSPL Group', description: 'Prominent player in online retail with over 1000+ products.' },
-      { name: 'Dunzo', description: 'Hyperlocal delivery services across major Indian cities.' },
+      { name: 'RSPL Group', description: 'Prominent player in online retail with over 1000+ products.', slug: 'rspl' },
+      { name: 'Dunzo', description: 'Hyperlocal delivery services across major Indian cities.', slug: 'dunzo' },
       { name: 'Landmark Group', description: 'Carving a niche in retail with integrated brand experience.' },
       { name: 'Apsara Ice Creams', description: 'Leading ice cream manufacturer with digital-first approach.', logo: apsaraLogo },
       { name: "Dinshaw's", description: 'Iconic dairy brand with cloud-powered operations since 1932.' },
@@ -134,7 +134,7 @@ const industries = [
     caseStudies: [
       { name: 'RJ Corp', description: 'Multi-industry conglomerate with two decades of excellence.' },
       { name: 'Navnit Group', description: 'Rs. 2000 crore network of diverse companies.' },
-      { name: 'BMM Group', description: 'Reflection of growth path across multiple sectors.', logo: bmmLogo },
+      { name: 'BMM Group', description: 'Reflection of growth path across multiple sectors.', logo: bmmLogo, slug: 'bmm' },
       { name: 'Flovel', description: 'Four decades of excellence in hydropower industry.' },
       { name: 'RR Global', description: '650 million USD corporation built on innovation.' },
       { name: 'Senseselec', description: 'Renowned leader in electrical and electronic sectors.' },

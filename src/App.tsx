@@ -46,6 +46,13 @@ import SecureSight from "./pages/SecureSight";
 import AboutUs from "./pages/AboutUs";
 import CaseStudies from "./pages/CaseStudies";
 import CaseStudyZepto from "./pages/CaseStudyZepto";
+import CaseStudyPWLive from "./pages/CaseStudyPWLive";
+import CaseStudyRSPL from "./pages/CaseStudyRSPL";
+import CaseStudyGupshup from "./pages/CaseStudyGupshup";
+import CaseStudyDunzo from "./pages/CaseStudyDunzo";
+import CaseStudyAGS from "./pages/CaseStudyAGS";
+import CaseStudyBMM from "./pages/CaseStudyBMM";
+import CaseStudyKredX from "./pages/CaseStudyKredX";
 import Leadership from "./pages/Leadership";
 import Contact from "./pages/Contact";
 import Careers from "./pages/Careers";
@@ -126,6 +133,13 @@ const App = () => (
               <Route path="/about-us" element={<AboutUs />} />
               <Route path="/case-studies" element={<CaseStudies />} />
               <Route path="/case-studies/zepto" element={<CaseStudyZepto />} />
+              <Route path="/case-studies/pw-live" element={<CaseStudyPWLive />} />
+              <Route path="/case-studies/rspl" element={<CaseStudyRSPL />} />
+              <Route path="/case-studies/gupshup" element={<CaseStudyGupshup />} />
+              <Route path="/case-studies/dunzo" element={<CaseStudyDunzo />} />
+              <Route path="/case-studies/ags" element={<CaseStudyAGS />} />
+              <Route path="/case-studies/bmm" element={<CaseStudyBMM />} />
+              <Route path="/case-studies/kredx" element={<CaseStudyKredX />} />
               <Route path="/leadership" element={<Leadership />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/careers" element={<Careers />} />
