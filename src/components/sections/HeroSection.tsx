@@ -28,11 +28,11 @@ export default function HeroSection() {
           className="w-full h-full object-cover object-center sm:object-center md:object-[70%_center] lg:object-center"
           loading="eager"
         />
-        {/* Blue transparent gradient overlay - matching product pages */}
+        {/* Blue transparent gradient overlay - darker from left for text readability */}
         <div 
           className="absolute inset-0" 
           style={{
-            background: 'linear-gradient(135deg, rgba(12, 69, 148, 0.85) 0%, rgba(12, 69, 148, 0.7) 30%, rgba(12, 69, 148, 0.5) 60%, rgba(12, 69, 148, 0.3) 100%)'
+            background: 'linear-gradient(to right, rgba(12, 69, 148, 0.95) 0%, rgba(12, 69, 148, 0.85) 25%, rgba(12, 69, 148, 0.6) 50%, rgba(12, 69, 148, 0.3) 75%, rgba(12, 69, 148, 0.15) 100%)'
           }}
         />
       </motion.div>

@@ -87,12 +87,12 @@ export default function PartnersSection() {
             {[...partners, ...partners].map((partner, index) => (
               <div
                 key={`${partner.name}-${index}`}
-                className="flex-shrink-0 px-6 py-4 rounded-xl bg-secondary/30 border border-border/50 hover:border-primary/30 hover:shadow-md transition-all flex items-center justify-center min-w-[160px] h-[70px]"
+                className="flex-shrink-0 px-8 py-5 rounded-xl bg-white border border-border/60 hover:border-primary/40 hover:shadow-lg transition-all flex items-center justify-center min-w-[180px] h-[90px] shadow-sm"
               >
                 <img 
                   src={partner.logo} 
                   alt={partner.name}
-                  className="h-8 w-auto object-contain max-w-[120px]"
+                  className="h-10 w-auto object-contain max-w-[140px]"
                 />
               </div>
             ))}

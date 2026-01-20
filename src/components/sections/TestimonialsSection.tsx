@@ -3,6 +3,7 @@ import { useRef } from 'react';
 import { Quote, ArrowRight } from 'lucide-react';
 import { useRegion } from '@/contexts/RegionContext';
 import { Button } from '@/components/ui/button';
+import { Link } from 'react-router-dom';
 
 export default function TestimonialsSection() {
   const ref = useRef(null);
@@ -84,10 +85,12 @@ export default function TestimonialsSection() {
           transition={{ duration: 0.6, delay: 0.6 }}
           className="text-center"
         >
-          <Button className="bg-[#0C4594] hover:bg-[#0C4594]/90 text-white rounded-xl px-8 py-6 text-base font-semibold shadow-lg hover:shadow-xl transition-all">
-            Read More Case Studies
-            <ArrowRight className="ml-2 w-4 h-4" />
-          </Button>
+          <Link to="/case-studies">
+            <Button className="bg-[#0C4594] hover:bg-[#0C4594]/90 text-white rounded-xl px-8 py-6 text-base font-semibold shadow-lg hover:shadow-xl transition-all">
+              Read More Case Studies
+              <ArrowRight className="ml-2 w-4 h-4" />
+            </Button>
+          </Link>
         </motion.div>
       </div>
     </section>
