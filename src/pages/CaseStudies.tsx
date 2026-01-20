@@ -1,6 +1,6 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef, useState } from 'react';
-import { ArrowRight, Search, Building2, Briefcase, Heart, ShoppingCart, Factory, Tv, Laptop, Hotel, Truck } from 'lucide-react';
+import { ArrowRight, Search, Building2, Briefcase, Heart, ShoppingCart, Factory, Tv, Laptop, Hotel, Truck, ChevronRight, ExternalLink } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
@@ -9,16 +9,6 @@ import { Input } from '@/components/ui/input';
 
 // Banner
 import caseStudiesBanner from '@/assets/banners/case-studies-banner.jpg';
-
-// Industry images
-import healthcareImg from '@/assets/industries/healthcare.jpg';
-import financialImg from '@/assets/industries/financial.jpg';
-import retailImg from '@/assets/industries/retail.jpg';
-import manufacturingImg from '@/assets/industries/manufacturing.jpg';
-import mediaImg from '@/assets/industries/media.jpg';
-import technologyImg from '@/assets/industries/technology.jpg';
-import hospitalityImg from '@/assets/industries/hospitality.jpg';
-import logisticsImg from '@/assets/industries/logistics.jpg';
 
 // Client logos
 import adaniLogo from '@/assets/clients/adani-international-school.jpg';
@@ -30,20 +20,12 @@ import biltLogo from '@/assets/clients/bilt.jpg';
 import bmmLogo from '@/assets/clients/bmm.jpg';
 import cedcommerceLogo from '@/assets/clients/cedcommerce.jpg';
 
-const fadeInUp = {
-  initial: { opacity: 0, y: 30 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true },
-  transition: { duration: 0.6 }
-};
-
 // Industries with their case studies
 const industries = [
   {
     id: 'technology',
     name: 'Technology & IT',
     icon: Laptop,
-    image: technologyImg,
     color: '#38B6FF',
     caseStudies: [
       { name: 'Zepto', description: 'Fast-growing quick-commerce company transforming grocery delivery with cloud solutions.', slug: 'zepto' },
@@ -62,7 +44,6 @@ const industries = [
     id: 'healthcare',
     name: 'Healthcare & Pharma',
     icon: Heart,
-    image: healthcareImg,
     color: '#10B981',
     caseStudies: [
       { name: '1mg', description: "Leader in India's health-tech sector providing digital healthcare platform." },
@@ -77,7 +58,6 @@ const industries = [
     id: 'financial',
     name: 'Financial Services',
     icon: Briefcase,
-    image: financialImg,
     color: '#F59E0B',
     caseStudies: [
       { name: 'Refyne', description: "Asia's largest Earned Wage Access platform transforming payroll." },
@@ -90,7 +70,6 @@ const industries = [
     id: 'education',
     name: 'Education',
     icon: Building2,
-    image: hospitalityImg,
     color: '#8B5CF6',
     caseStudies: [
       { name: 'PW Live', description: 'Leading EdTech platform transforming education with technology.' },
@@ -102,7 +81,6 @@ const industries = [
     id: 'retail',
     name: 'Retail & E-commerce',
     icon: ShoppingCart,
-    image: retailImg,
     color: '#EC4899',
     caseStudies: [
       { name: 'RSPL Group', description: 'Prominent player in online retail with over 1000+ products.' },
@@ -116,7 +94,6 @@ const industries = [
     id: 'manufacturing',
     name: 'Manufacturing',
     icon: Factory,
-    image: manufacturingImg,
     color: '#EF4444',
     caseStudies: [
       { name: 'BILT', description: "India's largest manufacturer of writing and printing paper.", logo: biltLogo },
@@ -133,7 +110,6 @@ const industries = [
     id: 'agritech',
     name: 'AgriTech',
     icon: Truck,
-    image: logisticsImg,
     color: '#22C55E',
     caseStudies: [
       { name: 'Arya.ag', description: 'Connecting agri-produce buyers and sellers with quality assurance.', logo: aryaLogo },
@@ -144,7 +120,6 @@ const industries = [
     id: 'media',
     name: 'Media & Entertainment',
     icon: Tv,
-    image: mediaImg,
     color: '#F97316',
     caseStudies: [
       { name: 'Jaya TV', description: 'Tamil language satellite television channel based in Chennai.' },
@@ -155,7 +130,6 @@ const industries = [
     id: 'conglomerate',
     name: 'Conglomerates',
     icon: Building2,
-    image: financialImg,
     color: '#6366F1',
     caseStudies: [
       { name: 'RJ Corp', description: 'Multi-industry conglomerate with two decades of excellence.' },
@@ -170,7 +144,6 @@ const industries = [
     id: 'hospitality',
     name: 'Hospitality & Real Estate',
     icon: Hotel,
-    image: hospitalityImg,
     color: '#14B8A6',
     caseStudies: [
       { name: 'Treebo Hotels', description: 'Pioneering hospitality management with technology.' },
@@ -193,7 +166,7 @@ function HeroSection() {
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
   return (
-    <section ref={ref} className="relative min-h-[50vh] lg:min-h-[60vh] flex items-center overflow-hidden">
+    <section ref={ref} className="relative min-h-[40vh] lg:min-h-[50vh] flex items-center overflow-hidden">
       {/* Background Image */}
       <motion.div style={{ y }} className="absolute inset-0 z-0">
         <img 
@@ -230,236 +203,280 @@ function HeroSection() {
   );
 }
 
-// Industry Card Component
-function IndustryCard({ industry, index }: { industry: typeof industries[0]; index: number }) {
+// Sidebar Industry Filter
+function IndustrySidebar({ 
+  selectedIndustry, 
+  onSelectIndustry 
+}: { 
+  selectedIndustry: string | null; 
+  onSelectIndustry: (id: string | null) => void;
+}) {
+  const totalCaseStudies = industries.reduce((acc, ind) => acc + ind.caseStudies.length, 0);
+
+  return (
+    <aside className="w-full lg:w-72 xl:w-80 flex-shrink-0">
+      <div className="sticky top-28 bg-white rounded-2xl border border-gray-100 shadow-lg overflow-hidden">
+        {/* Header */}
+        <div className="bg-gradient-to-r from-[#0C4594] to-[#1a5ab8] p-5">
+          <h3 className="text-white font-bold text-lg">Filter by Industry</h3>
+          <p className="text-white/70 text-sm mt-1">{totalCaseStudies}+ Success Stories</p>
+        </div>
+
+        {/* Industry List */}
+        <div className="p-3 max-h-[60vh] overflow-y-auto">
+          {/* All Industries */}
+          <motion.button
+            whileHover={{ x: 4 }}
+            onClick={() => onSelectIndustry(null)}
+            className={`w-full flex items-center gap-3 p-3 rounded-xl mb-1 transition-all ${
+              !selectedIndustry 
+                ? 'bg-[#0C4594]/10 border-l-4 border-[#0C4594]' 
+                : 'hover:bg-gray-50'
+            }`}
+          >
+            <div className={`w-10 h-10 rounded-lg flex items-center justify-center ${
+              !selectedIndustry ? 'bg-[#0C4594] text-white' : 'bg-gray-100 text-gray-500'
+            }`}>
+              <Building2 className="w-5 h-5" />
+            </div>
+            <div className="flex-1 text-left">
+              <span className={`font-medium ${!selectedIndustry ? 'text-[#0C4594]' : 'text-gray-700'}`}>
+                All Industries
+              </span>
+              <p className="text-xs text-gray-500">{totalCaseStudies} stories</p>
+            </div>
+            {!selectedIndustry && <ChevronRight className="w-4 h-4 text-[#0C4594]" />}
+          </motion.button>
+
+          <div className="border-t border-gray-100 my-2" />
+
+          {/* Individual Industries */}
+          {industries.map((industry) => {
+            const Icon = industry.icon;
+            const isActive = selectedIndustry === industry.id;
+            
+            return (
+              <motion.button
+                key={industry.id}
+                whileHover={{ x: 4 }}
+                onClick={() => onSelectIndustry(isActive ? null : industry.id)}
+                className={`w-full flex items-center gap-3 p-3 rounded-xl mb-1 transition-all ${
+                  isActive 
+                    ? 'bg-[#0C4594]/10 border-l-4 border-[#0C4594]' 
+                    : 'hover:bg-gray-50'
+                }`}
+              >
+                <div 
+                  className="w-10 h-10 rounded-lg flex items-center justify-center"
+                  style={{ 
+                    backgroundColor: isActive ? industry.color : `${industry.color}20`,
+                    color: isActive ? '#fff' : industry.color 
+                  }}
+                >
+                  <Icon className="w-5 h-5" />
+                </div>
+                <div className="flex-1 text-left">
+                  <span className={`font-medium text-sm ${isActive ? 'text-[#0C4594]' : 'text-gray-700'}`}>
+                    {industry.name}
+                  </span>
+                  <p className="text-xs text-gray-500">{industry.caseStudies.length} stories</p>
+                </div>
+                {isActive && <ChevronRight className="w-4 h-4 text-[#0C4594]" />}
+              </motion.button>
+            );
+          })}
+        </div>
+      </div>
+    </aside>
+  );
+}
+
+// Case Study Card Component
+function CaseStudyCard({ 
+  study, 
+  industry, 
+  index 
+}: { 
+  study: { name: string; description: string; slug?: string; logo?: string }; 
+  industry: typeof industries[0];
+  index: number;
+}) {
   const Icon = industry.icon;
   
-  return (
+  const cardContent = (
     <motion.div
-      initial={{ opacity: 0, y: 40 }}
+      initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ delay: index * 0.1, duration: 0.5 }}
-      className="group"
+      transition={{ delay: index * 0.05, duration: 0.4 }}
+      whileHover={{ y: -4, scale: 1.01 }}
+      className="group bg-white rounded-xl border border-gray-100 p-5 hover:shadow-xl hover:shadow-[#38B6FF]/10 hover:border-[#38B6FF]/30 transition-all duration-300 cursor-pointer h-full flex flex-col"
     >
-      {/* Industry Header */}
-      <div className="relative rounded-2xl overflow-hidden mb-6">
-        <div className="relative h-48 overflow-hidden">
-          <img 
-            src={industry.image} 
-            alt={industry.name}
-            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
-          <div className="absolute bottom-0 left-0 right-0 p-6">
-            <div className="flex items-center gap-3">
-              <div 
-                className="w-12 h-12 rounded-xl flex items-center justify-center shadow-lg"
-                style={{ backgroundColor: industry.color }}
-              >
-                <Icon className="w-6 h-6 text-white" />
-              </div>
-              <div>
-                <h3 className="text-xl font-bold text-white">{industry.name}</h3>
-                <p className="text-white/70 text-sm">{industry.caseStudies.length} Success Stories</p>
-              </div>
-            </div>
+      {/* Header */}
+      <div className="flex items-start gap-4 mb-4">
+        {/* Logo */}
+        <div className="w-14 h-14 flex-shrink-0 rounded-xl bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center overflow-hidden border border-gray-200 group-hover:border-[#38B6FF]/30 transition-colors">
+          {study.logo ? (
+            <img src={study.logo} alt={study.name} className="w-full h-full object-contain p-2" />
+          ) : (
+            <span 
+              className="text-2xl font-bold"
+              style={{ color: industry.color }}
+            >
+              {study.name.charAt(0)}
+            </span>
+          )}
+        </div>
+
+        {/* Name & Industry Badge */}
+        <div className="flex-1 min-w-0">
+          <h3 className="font-bold text-lg text-[#0C4594] group-hover:text-[#38B6FF] transition-colors line-clamp-1">
+            {study.name}
+          </h3>
+          <div 
+            className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-xs font-medium mt-1"
+            style={{ 
+              backgroundColor: `${industry.color}15`,
+              color: industry.color 
+            }}
+          >
+            <Icon className="w-3 h-3" />
+            {industry.name}
           </div>
+        </div>
+
+        {/* Arrow */}
+        {study.slug && (
+          <ExternalLink className="w-4 h-4 text-gray-300 group-hover:text-[#38B6FF] transition-colors flex-shrink-0" />
+        )}
+      </div>
+
+      {/* Description */}
+      <p className="text-gray-600 text-sm leading-relaxed flex-1">
+        {study.description}
+      </p>
+
+      {/* Read More */}
+      {study.slug && (
+        <div className="mt-4 pt-4 border-t border-gray-100">
+          <span className="text-sm font-medium text-[#38B6FF] group-hover:text-[#0C4594] flex items-center gap-1 transition-colors">
+            Read Case Study
+            <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+          </span>
+        </div>
+      )}
+    </motion.div>
+  );
+
+  if (study.slug) {
+    return <Link to={`/case-studies/${study.slug}`} className="block h-full">{cardContent}</Link>;
+  }
+  
+  return cardContent;
+}
+
+// Main Content Grid
+function CaseStudiesContent({ selectedIndustry }: { selectedIndustry: string | null }) {
+  const [searchQuery, setSearchQuery] = useState('');
+  
+  // Get case studies based on filter
+  const filteredStudies = industries
+    .filter(ind => !selectedIndustry || ind.id === selectedIndustry)
+    .flatMap(ind => 
+      ind.caseStudies
+        .filter(cs => 
+          !searchQuery || 
+          cs.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          cs.description.toLowerCase().includes(searchQuery.toLowerCase())
+        )
+        .map(cs => ({ ...cs, industry: ind }))
+    );
+
+  const activeIndustry = industries.find(ind => ind.id === selectedIndustry);
+
+  return (
+    <div className="flex-1 min-w-0">
+      {/* Search Bar */}
+      <div className="mb-8">
+        <div className="relative group">
+          <div className="absolute -inset-1 bg-gradient-to-r from-[#0C4594] to-[#38B6FF] rounded-xl blur opacity-10 group-hover:opacity-20 transition-opacity" />
+          <div className="relative bg-white rounded-xl shadow-sm">
+            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+            <Input
+              type="text"
+              placeholder="Search companies..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="pl-12 pr-4 py-6 rounded-xl border-gray-200 focus-visible:ring-[#38B6FF]/50"
+            />
+          </div>
+        </div>
+      </div>
+
+      {/* Results Header */}
+      <div className="flex items-center justify-between mb-6">
+        <div>
+          <h2 className="text-2xl font-bold text-[#0C4594]">
+            {activeIndustry ? activeIndustry.name : 'All Success Stories'}
+          </h2>
+          <p className="text-gray-500 text-sm mt-1">
+            Showing {filteredStudies.length} case {filteredStudies.length === 1 ? 'study' : 'studies'}
+          </p>
         </div>
       </div>
 
       {/* Case Studies Grid */}
-      <div className="grid gap-3">
-        {industry.caseStudies.slice(0, 4).map((study, idx) => (
-          <motion.div
-            key={idx}
-            whileHover={{ x: 8, scale: 1.01 }}
-            transition={{ duration: 0.2 }}
-            className="group/card bg-white rounded-xl p-4 border border-gray-100 hover:border-[#38B6FF]/40 hover:shadow-lg hover:shadow-[#38B6FF]/10 transition-all duration-300 cursor-pointer"
-          >
-            <div className="flex items-center gap-4">
-              {/* Logo */}
-              <div className="w-12 h-12 flex-shrink-0 rounded-lg bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center overflow-hidden border border-gray-200 group-hover/card:border-[#38B6FF]/30 transition-colors">
-                {study.logo ? (
-                  <img src={study.logo} alt={study.name} className="w-full h-full object-contain p-1" />
-                ) : (
-                  <span 
-                    className="text-lg font-bold"
-                    style={{ color: industry.color }}
-                  >
-                    {study.name.charAt(0)}
-                  </span>
-                )}
-              </div>
-              
-              {/* Content */}
-              <div className="flex-1 min-w-0">
-                <h4 className="font-semibold text-[#0C4594] group-hover/card:text-[#38B6FF] transition-colors truncate">
-                  {study.name}
-                </h4>
-                <p className="text-sm text-gray-500 line-clamp-1">{study.description}</p>
-              </div>
-
-              {/* Arrow */}
-              <ArrowRight className="w-4 h-4 text-gray-300 group-hover/card:text-[#38B6FF] group-hover/card:translate-x-1 transition-all flex-shrink-0" />
-            </div>
-          </motion.div>
-        ))}
-        
-        {industry.caseStudies.length > 4 && (
-          <motion.button
-            whileHover={{ scale: 1.02 }}
-            className="text-sm font-medium text-[#38B6FF] hover:text-[#0C4594] py-2 flex items-center gap-1 justify-center transition-colors"
-          >
-            View all {industry.caseStudies.length} stories
-            <ArrowRight className="w-3.5 h-3.5" />
-          </motion.button>
-        )}
-      </div>
-    </motion.div>
-  );
-}
-
-// Case Studies Grid Section
-function CaseStudiesGrid() {
-  const [searchQuery, setSearchQuery] = useState('');
-  const [selectedIndustry, setSelectedIndustry] = useState<string | null>(null);
-  
-  const filteredIndustries = industries.filter(industry => {
-    if (selectedIndustry && industry.id !== selectedIndustry) return false;
-    if (!searchQuery) return true;
-    
-    const matchesIndustry = industry.name.toLowerCase().includes(searchQuery.toLowerCase());
-    const matchesCaseStudy = industry.caseStudies.some(cs => 
-      cs.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      cs.description.toLowerCase().includes(searchQuery.toLowerCase())
-    );
-    
-    return matchesIndustry || matchesCaseStudy;
-  });
-
-  const totalCaseStudies = industries.reduce((acc, ind) => acc + ind.caseStudies.length, 0);
-
-  return (
-    <section className="py-20 bg-gradient-to-b from-slate-50 to-white">
-      <div className="w-full px-6 sm:px-8 lg:px-16 xl:px-24">
-        {/* Section Header */}
-        <motion.div {...fadeInUp} className="text-center mb-12">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#0C4594]/5 border border-[#0C4594]/10 mb-4">
-            <Building2 className="w-4 h-4 text-[#38B6FF]" />
-            <span className="text-sm font-medium text-[#0C4594]">{totalCaseStudies}+ Success Stories</span>
-          </div>
-          <h2 className="text-3xl sm:text-4xl font-bold text-[#0C4594] mb-4">
-            Success Stories by Industry
-          </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            Explore how we've partnered with industry leaders to drive digital transformation across sectors
-          </p>
-        </motion.div>
-
-        {/* Search & Filter */}
-        <motion.div {...fadeInUp} className="max-w-4xl mx-auto mb-12">
-          <div className="flex flex-col sm:flex-row gap-4">
-            {/* Search */}
-            <div className="relative flex-1 group">
-              <div className="absolute -inset-1 bg-gradient-to-r from-[#0C4594] to-[#38B6FF] rounded-xl blur opacity-10 group-hover:opacity-20 transition-opacity" />
-              <div className="relative bg-white rounded-xl shadow-sm">
-                <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
-                <Input
-                  type="text"
-                  placeholder="Search companies or industries..."
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  className="pl-12 pr-4 py-6 rounded-xl border-gray-200 focus-visible:ring-[#38B6FF]/50"
-                />
-              </div>
-            </div>
-            
-            {/* Industry Filter Pills */}
-            <div className="flex flex-wrap gap-2 justify-center sm:justify-start">
-              <button
-                onClick={() => setSelectedIndustry(null)}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
-                  !selectedIndustry 
-                    ? 'bg-[#0C4594] text-white' 
-                    : 'bg-white text-gray-600 hover:bg-gray-100 border border-gray-200'
-                }`}
-              >
-                All
-              </button>
-              {industries.slice(0, 4).map(ind => (
-                <button
-                  key={ind.id}
-                  onClick={() => setSelectedIndustry(selectedIndustry === ind.id ? null : ind.id)}
-                  className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
-                    selectedIndustry === ind.id 
-                      ? 'bg-[#0C4594] text-white' 
-                      : 'bg-white text-gray-600 hover:bg-gray-100 border border-gray-200'
-                  }`}
-                >
-                  {ind.name}
-                </button>
-              ))}
-            </div>
-          </div>
-        </motion.div>
-
-        {/* Industries Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredIndustries.map((industry, idx) => (
-            <IndustryCard key={industry.id} industry={industry} index={idx} />
+      {filteredStudies.length > 0 ? (
+        <div className="grid sm:grid-cols-2 xl:grid-cols-3 gap-5">
+          {filteredStudies.map((study, idx) => (
+            <CaseStudyCard 
+              key={`${study.industry.id}-${study.name}`} 
+              study={study} 
+              industry={study.industry}
+              index={idx}
+            />
           ))}
         </div>
-
-        {filteredIndustries.length === 0 && (
-          <motion.div 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className="text-center py-20"
+      ) : (
+        <motion.div 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          className="text-center py-20 bg-gray-50 rounded-2xl"
+        >
+          <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-gray-100 flex items-center justify-center">
+            <Search className="w-8 h-8 text-gray-400" />
+          </div>
+          <p className="text-gray-600 text-lg">
+            No results found for "<span className="font-semibold text-[#0C4594]">{searchQuery}</span>"
+          </p>
+          <button 
+            onClick={() => setSearchQuery('')}
+            className="mt-4 text-[#38B6FF] font-medium hover:underline"
           >
-            <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-gray-100 flex items-center justify-center">
-              <Search className="w-8 h-8 text-gray-400" />
-            </div>
-            <p className="text-gray-600 text-lg">No results found for "<span className="font-semibold text-[#0C4594]">{searchQuery}</span>"</p>
-            <button 
-              onClick={() => { setSearchQuery(''); setSelectedIndustry(null); }}
-              className="mt-4 text-[#38B6FF] font-medium hover:underline"
-            >
-              Clear filters
-            </button>
-          </motion.div>
-        )}
-      </div>
-    </section>
+            Clear search
+          </button>
+        </motion.div>
+      )}
+    </div>
   );
 }
 
-// Stats Section
-function StatsSection() {
-  const stats = [
-    { value: '50+', label: 'Success Stories' },
-    { value: '10+', label: 'Industries Served' },
-    { value: '95%', label: 'Client Retention' },
-    { value: '15+', label: 'Years Experience' },
-  ];
+// Main Section with Sidebar + Grid
+function CaseStudiesSection() {
+  const [selectedIndustry, setSelectedIndustry] = useState<string | null>(null);
 
   return (
-    <section className="py-16 bg-gradient-to-r from-[#0C4594] to-[#1a5ab8]">
-      <div className="w-full px-6 sm:px-8 lg:px-16 xl:px-24">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-          {stats.map((stat, idx) => (
-            <motion.div
-              key={idx}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: idx * 0.1 }}
-              className="text-center"
-            >
-              <div className="text-4xl md:text-5xl font-bold text-white mb-2">{stat.value}</div>
-              <div className="text-white/70">{stat.label}</div>
-            </motion.div>
-          ))}
+    <section className="py-12 lg:py-16 bg-gradient-to-b from-slate-50 to-white">
+      <div className="w-full px-6 sm:px-8 lg:px-12 xl:px-16">
+        <div className="flex flex-col lg:flex-row gap-8">
+          {/* Sidebar */}
+          <IndustrySidebar 
+            selectedIndustry={selectedIndustry} 
+            onSelectIndustry={setSelectedIndustry} 
+          />
+
+          {/* Main Content */}
+          <CaseStudiesContent selectedIndustry={selectedIndustry} />
         </div>
       </div>
     </section>
@@ -469,7 +486,7 @@ function StatsSection() {
 // CTA Section
 function CTASection() {
   return (
-    <section className="py-20 bg-gradient-to-br from-slate-900 via-[#0C4594] to-[#0a3a7a] relative overflow-hidden">
+    <section className="py-16 bg-gradient-to-br from-slate-900 via-[#0C4594] to-[#0a3a7a] relative overflow-hidden">
       {/* Decorative elements */}
       <div className="absolute inset-0 opacity-20">
         <div className="absolute top-20 left-20 w-64 h-64 rounded-full bg-[#38B6FF]/30 blur-3xl" />
@@ -477,7 +494,13 @@ function CTASection() {
       </div>
 
       <div className="relative w-full px-8 lg:px-16 xl:px-24">
-        <motion.div {...fadeInUp} className="max-w-4xl mx-auto text-center">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="max-w-4xl mx-auto text-center"
+        >
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
             Ready to Be Our Next Success Story?
           </h2>
@@ -505,8 +528,7 @@ export default function CaseStudies() {
       <Header />
       <main className="flex-1">
         <HeroSection />
-        <StatsSection />
-        <CaseStudiesGrid />
+        <CaseStudiesSection />
         <CTASection />
       </main>
       <Footer />
