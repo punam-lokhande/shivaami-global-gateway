@@ -80,38 +80,10 @@ function HeroSection() {
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-base lg:text-lg text-white/80 max-w-2xl mb-8 leading-relaxed"
+            className="text-base lg:text-lg text-white/80 max-w-2xl leading-relaxed"
           >
             Comprehensive support tailored for your region with dedicated portals, expert assistance, and a three-tier escalation process for quick resolutions.
           </motion.p>
-
-          <motion.div 
-            initial={{ opacity: 0, y: 28 }} 
-            animate={{ opacity: 1, y: 0 }} 
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="flex flex-wrap gap-4"
-          >
-            <a href="https://customercare.shivaami.com/" target="_blank" rel="noopener noreferrer">
-              <Button
-                size="lg"
-                className="bg-[#38B6FF] hover:bg-[#2da8f0] text-white font-semibold px-8 py-6 text-base group rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
-              >
-                <Ticket className="w-5 h-5 mr-2" />
-                Raise a Support Ticket
-                <ExternalLink className="ml-2 w-4 h-4" />
-              </Button>
-            </a>
-            <Link to="/contact">
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-white/30 text-white hover:bg-white/10 font-semibold px-8 py-6 text-base rounded-xl"
-              >
-                <Phone className="w-5 h-5 mr-2" />
-                Contact Us
-              </Button>
-            </Link>
-          </motion.div>
         </div>
       </motion.div>
     </section>
@@ -354,20 +326,29 @@ function EscalationSection() {
             return (
               <motion.div
                 key={level.level}
-                {...fadeInUp}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
                 transition={{ delay: index * 0.15 }}
-                className="bg-white/10 backdrop-blur-sm rounded-2xl border border-white/20 overflow-hidden"
+                whileHover={{ 
+                  scale: 1.03, 
+                  y: -8,
+                  transition: { duration: 0.3, ease: "easeOut" }
+                }}
+                className="bg-white/10 backdrop-blur-sm rounded-2xl border border-white/20 overflow-hidden cursor-pointer group hover:bg-white/15 hover:border-white/40 hover:shadow-2xl hover:shadow-[#38B6FF]/20 transition-all duration-300"
               >
                 {/* Header */}
-                <div className="bg-white/10 px-6 py-4 flex items-center gap-3">
-                  <div 
+                <div className="bg-white/10 px-6 py-4 flex items-center gap-3 group-hover:bg-white/20 transition-colors duration-300">
+                  <motion.div 
                     className="w-10 h-10 rounded-xl flex items-center justify-center"
                     style={{ backgroundColor: level.color }}
+                    whileHover={{ rotate: 360 }}
+                    transition={{ duration: 0.5 }}
                   >
                     <span className="text-white font-bold">{level.level}</span>
-                  </div>
+                  </motion.div>
                   <div className="flex items-center gap-2">
-                    <Icon className="w-5 h-5 text-[#38B6FF]" />
+                    <Icon className="w-5 h-5 text-[#38B6FF] group-hover:scale-110 transition-transform duration-300" />
                     <h3 className="font-semibold text-white">{level.title}</h3>
                   </div>
                 </div>
