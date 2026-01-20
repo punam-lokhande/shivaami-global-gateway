@@ -1,12 +1,14 @@
-import { useState } from 'react';
-import { motion } from 'framer-motion';
+import { useRef, useState } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import CTASection from '@/components/sections/CTASection';
-import { Award, Trophy, Star, X, ChevronDown, ChevronUp } from 'lucide-react';
+import { Award, Trophy, Star, X } from 'lucide-react';
 import { Dialog, DialogContent } from '@/components/ui/dialog';
-import { Button } from '@/components/ui/button';
+
+// Banner image
+import achievementsBanner from '@/assets/banners/achievements-banner.jpg';
 
 interface AwardItem {
   title: string;
@@ -131,246 +133,167 @@ const awardsData: YearData[] = [
 // Count total awards
 const totalAwards = awardsData.reduce((acc, year) => acc + year.awards.length, 0);
 
-export default function Achievements() {
-  const [selectedImage, setSelectedImage] = useState<{ title: string; image: string } | null>(null);
-  const [expandedYears, setExpandedYears] = useState<string[]>(['2025', '2024']);
+// Hero Section with background image - same as Certifications
+function HeroSection() {
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ['start start', 'end start'],
+  });
 
-  const toggleYear = (year: string) => {
-    setExpandedYears(prev => 
-      prev.includes(year) 
-        ? prev.filter(y => y !== year) 
-        : [...prev, year]
-    );
-  };
+  const y = useTransform(scrollYProgress, [0, 1], ['0%', '30%']);
+  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
   return (
-    <>
-      <Helmet>
-        <title>Awards & Achievements | Shivaami Cloud Services</title>
-        <meta name="description" content="Explore Shivaami's journey of excellence through our awards and recognitions. From Google Cloud Partner of the Year to industry-leading accolades, see why we're trusted by enterprises worldwide." />
-      </Helmet>
-      
-      <Header />
-      
-      {/* Hero Section */}
-      <section className="relative min-h-[50vh] md:min-h-[60vh] flex items-center justify-center overflow-hidden">
-        {/* Background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#0C4594] via-[#1a5ab8] to-[#0C4594]">
-          <div className="absolute inset-0 opacity-40" style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
-          }} />
-        </div>
-        
-        {/* Floating elements */}
-        <div className="absolute inset-0 overflow-hidden">
-          <motion.div 
-            className="absolute top-20 left-10 w-32 h-32 bg-[#38B6FF]/10 rounded-full blur-3xl"
-            animate={{ y: [0, 30, 0], scale: [1, 1.1, 1] }}
-            transition={{ duration: 8, repeat: Infinity }}
-          />
-          <motion.div 
-            className="absolute bottom-20 right-10 w-40 h-40 bg-white/5 rounded-full blur-3xl"
-            animate={{ y: [0, -30, 0], scale: [1, 1.2, 1] }}
-            transition={{ duration: 10, repeat: Infinity }}
-          />
-          <motion.div 
-            className="absolute top-1/2 left-1/4 w-24 h-24 bg-[#38B6FF]/10 rounded-full blur-2xl"
-            animate={{ x: [0, 20, 0] }}
-            transition={{ duration: 6, repeat: Infinity }}
-          />
-        </div>
-        
-        <div className="container mx-auto px-6 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
+    <section ref={ref} className="relative min-h-[50vh] lg:min-h-[60vh] flex items-center overflow-hidden">
+      {/* Background Image */}
+      <motion.div style={{ y }} className="absolute inset-0 z-0">
+        <img 
+          src={achievementsBanner} 
+          alt="Awards & Achievements" 
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0C4594]/95 via-[#0C4594]/80 to-transparent" />
+      </motion.div>
+
+      {/* Content - Left aligned */}
+      <motion.div style={{ opacity }} className="relative z-10 w-full px-6 sm:px-8 lg:px-16 xl:px-24 pt-32 pb-16">
+        <div className="max-w-3xl">
+          <motion.h1
+            initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center max-w-4xl mx-auto"
+            transition={{ duration: 0.6 }}
+            className="font-display text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-6 leading-[1.1]"
           >
-            <div className="flex items-center justify-center gap-4 mb-6">
-              <div className="w-16 h-16 rounded-2xl bg-white/10 backdrop-blur-sm flex items-center justify-center">
-                <Trophy className="w-8 h-8 text-[#38B6FF]" />
-              </div>
-            </div>
-            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-              Awards & <span className="text-[#38B6FF]">Recognitions</span>
-            </h1>
-            <p className="text-lg md:text-xl text-white/80 max-w-3xl mx-auto leading-relaxed">
-              Our IT industry knowledge and technology expertise have earned us numerous honors throughout the years. We take great pride in highlighting our business and team members when accolades are received.
-            </p>
-          </motion.div>
-        </div>
-      </section>
+            Awards & <span className="text-[#38B6FF]">Recognitions</span>
+          </motion.h1>
 
-      {/* Stats Bar */}
-      <section className="bg-white border-b border-gray-100">
-        <div className="container mx-auto px-6 py-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-center"
-            >
-              <div className="text-3xl md:text-4xl font-bold text-[#0C4594] mb-1">{totalAwards}+</div>
-              <div className="text-sm text-gray-600">Total Awards</div>
-            </motion.div>
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
-              className="text-center"
-            >
-              <div className="text-3xl md:text-4xl font-bold text-[#0C4594] mb-1">10+</div>
-              <div className="text-sm text-gray-600">Years of Excellence</div>
-            </motion.div>
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
-              className="text-center"
-            >
-              <div className="text-3xl md:text-4xl font-bold text-[#0C4594] mb-1">15+</div>
-              <div className="text-sm text-gray-600">Google Awards</div>
-            </motion.div>
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.3 }}
-              className="text-center"
-            >
-              <div className="text-3xl md:text-4xl font-bold text-[#0C4594] mb-1">APAC</div>
-              <div className="text-sm text-gray-600">Regional Recognition</div>
-            </motion.div>
-          </div>
+          <motion.p
+            initial={{ opacity: 0, y: 28 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.15 }}
+            className="text-base lg:text-xl text-white/85 max-w-2xl leading-relaxed"
+          >
+            Our IT industry knowledge and technology expertise have earned us numerous honors throughout the years. We take great pride in highlighting our business and team members when accolades are received.
+          </motion.p>
         </div>
-      </section>
+      </motion.div>
+    </section>
+  );
+}
 
-      {/* Awards Timeline */}
-      <section className="py-16 md:py-24 bg-gradient-to-b from-white to-gray-50">
-        <div className="container mx-auto px-6">
-          <motion.div
+// Stats Section
+function StatsSection() {
+  return (
+    <section className="bg-white border-b border-gray-100">
+      <div className="w-full px-6 sm:px-8 lg:px-16 xl:px-24 py-10">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <motion.div 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-12"
+            className="text-center"
           >
-            <h2 className="font-display text-3xl md:text-4xl font-bold text-[#0C4594] mb-4">
-              A Decade of <span className="text-[#38B6FF]">Excellence</span>
-            </h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              Celebrating our journey through industry recognition and partner accolades
-            </p>
+            <div className="text-3xl md:text-4xl font-bold text-[#0C4594] mb-1">{totalAwards}+</div>
+            <div className="text-sm text-gray-600">Total Awards</div>
           </motion.div>
-
-          {/* Year Accordion */}
-          <div className="max-w-6xl mx-auto space-y-4">
-            {awardsData.map((yearData, yearIndex) => (
-              <motion.div
-                key={yearData.year}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: yearIndex * 0.05 }}
-                className="bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-sm hover:shadow-md transition-shadow"
-              >
-                {/* Year Header */}
-                <button
-                  onClick={() => toggleYear(yearData.year)}
-                  className="w-full flex items-center justify-between p-6 hover:bg-gray-50 transition-colors"
-                >
-                  <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#0C4594] to-[#38B6FF] flex items-center justify-center">
-                      <Award className="w-6 h-6 text-white" />
-                    </div>
-                    <div className="text-left">
-                      <h3 className="text-2xl font-bold text-[#0C4594]">{yearData.year}</h3>
-                      <p className="text-sm text-gray-500">{yearData.awards.length} award{yearData.awards.length > 1 ? 's' : ''}</p>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <span className="hidden md:inline-flex items-center gap-1 px-3 py-1 rounded-full bg-[#38B6FF]/10 text-[#0C4594] text-sm font-medium">
-                      <Star className="w-4 h-4" />
-                      {yearData.awards.length} Recognition{yearData.awards.length > 1 ? 's' : ''}
-                    </span>
-                    {expandedYears.includes(yearData.year) ? (
-                      <ChevronUp className="w-6 h-6 text-gray-400" />
-                    ) : (
-                      <ChevronDown className="w-6 h-6 text-gray-400" />
-                    )}
-                  </div>
-                </button>
-
-                {/* Awards Grid */}
-                {expandedYears.includes(yearData.year) && (
-                  <motion.div
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: 'auto', opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.3 }}
-                    className="border-t border-gray-100"
-                  >
-                    <div className="p-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                      {yearData.awards.map((award, awardIndex) => (
-                        <motion.div
-                          key={awardIndex}
-                          initial={{ opacity: 0, scale: 0.95 }}
-                          animate={{ opacity: 1, scale: 1 }}
-                          transition={{ delay: awardIndex * 0.05 }}
-                          onClick={() => setSelectedImage(award)}
-                          className="group cursor-pointer bg-gray-50 rounded-xl overflow-hidden hover:shadow-lg transition-all duration-300 border border-gray-100 hover:border-[#38B6FF]/30"
-                        >
-                          <div className="aspect-[4/3] relative overflow-hidden">
-                            <img
-                              src={award.image}
-                              alt={award.title}
-                              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                              loading="lazy"
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                            <div className="absolute bottom-3 left-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                              <span className="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-white/90 text-xs font-medium text-gray-700">
-                                <Trophy className="w-3 h-3 text-[#38B6FF]" />
-                                Click to expand
-                              </span>
-                            </div>
-                          </div>
-                          <div className="p-4">
-                            <p className="text-sm font-medium text-gray-800 line-clamp-2 group-hover:text-[#0C4594] transition-colors">
-                              {award.title}
-                            </p>
-                          </div>
-                        </motion.div>
-                      ))}
-                    </div>
-                  </motion.div>
-                )}
-              </motion.div>
-            ))}
-          </div>
-
-          {/* Expand/Collapse All */}
-          <div className="flex justify-center mt-8 gap-4">
-            <Button
-              variant="outline"
-              onClick={() => setExpandedYears(awardsData.map(y => y.year))}
-              className="border-[#0C4594] text-[#0C4594] hover:bg-[#0C4594] hover:text-white"
-            >
-              Expand All Years
-            </Button>
-            <Button
-              variant="outline"
-              onClick={() => setExpandedYears([])}
-              className="border-gray-300 text-gray-600 hover:bg-gray-100"
-            >
-              Collapse All
-            </Button>
-          </div>
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="text-center"
+          >
+            <div className="text-3xl md:text-4xl font-bold text-[#0C4594] mb-1">10+</div>
+            <div className="text-sm text-gray-600">Years of Excellence</div>
+          </motion.div>
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="text-center"
+          >
+            <div className="text-3xl md:text-4xl font-bold text-[#0C4594] mb-1">15+</div>
+            <div className="text-sm text-gray-600">Google Awards</div>
+          </motion.div>
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3 }}
+            className="text-center"
+          >
+            <div className="text-3xl md:text-4xl font-bold text-[#0C4594] mb-1">APAC</div>
+            <div className="text-sm text-gray-600">Regional Recognition</div>
+          </motion.div>
         </div>
-      </section>
+      </div>
+    </section>
+  );
+}
+
+// Year Section with Awards Grid
+function YearSection({ yearData, index }: { yearData: YearData; index: number }) {
+  const [selectedImage, setSelectedImage] = useState<AwardItem | null>(null);
+
+  return (
+    <>
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5, delay: index * 0.1 }}
+        className="mb-16"
+      >
+        {/* Year Header */}
+        <div className="flex items-center gap-4 mb-8">
+          <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-[#0C4594] to-[#38B6FF] flex items-center justify-center shadow-lg">
+            <Trophy className="w-7 h-7 text-white" />
+          </div>
+          <div>
+            <h2 className="text-3xl md:text-4xl font-bold text-[#0C4594]">{yearData.year}</h2>
+            <p className="text-gray-500 text-sm">{yearData.awards.length} Recognition{yearData.awards.length > 1 ? 's' : ''}</p>
+          </div>
+          <div className="flex-1 h-px bg-gradient-to-r from-[#0C4594]/20 to-transparent ml-4" />
+        </div>
+
+        {/* Awards Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          {yearData.awards.map((award, awardIndex) => (
+            <motion.div
+              key={awardIndex}
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: awardIndex * 0.05 }}
+              onClick={() => setSelectedImage(award)}
+              className="group cursor-pointer bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-[#38B6FF]/40"
+            >
+              <div className="aspect-[4/3] relative overflow-hidden bg-gray-50">
+                <img
+                  src={award.image}
+                  alt={award.title}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute bottom-3 left-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/95 text-xs font-medium text-gray-700 shadow-sm">
+                    <Star className="w-3.5 h-3.5 text-[#38B6FF]" />
+                    Click to view
+                  </span>
+                </div>
+              </div>
+              <div className="p-4">
+                <p className="text-sm font-medium text-gray-800 line-clamp-2 group-hover:text-[#0C4594] transition-colors leading-snug">
+                  {award.title}
+                </p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </motion.div>
 
       {/* Image Modal */}
       <Dialog open={!!selectedImage} onOpenChange={() => setSelectedImage(null)}>
@@ -391,7 +314,7 @@ export default function Achievements() {
               <div className="p-6 bg-white">
                 <div className="flex items-start gap-3">
                   <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-[#0C4594] to-[#38B6FF] flex items-center justify-center flex-shrink-0">
-                    <Trophy className="w-5 h-5 text-white" />
+                    <Award className="w-5 h-5 text-white" />
                   </div>
                   <div>
                     <h3 className="font-semibold text-lg text-gray-900">{selectedImage.title}</h3>
@@ -403,6 +326,47 @@ export default function Achievements() {
           )}
         </DialogContent>
       </Dialog>
+    </>
+  );
+}
+
+export default function Achievements() {
+  return (
+    <>
+      <Helmet>
+        <title>Awards & Achievements | Shivaami Cloud Services</title>
+        <meta name="description" content="Explore Shivaami's journey of excellence through our awards and recognitions. From Google Cloud Partner of the Year to industry-leading accolades, see why we're trusted by enterprises worldwide." />
+      </Helmet>
+      
+      <Header />
+      
+      <HeroSection />
+      <StatsSection />
+
+      {/* Introduction & Awards Timeline */}
+      <section className="py-16 md:py-20 bg-gradient-to-b from-white to-gray-50/50">
+        <div className="w-full px-6 sm:px-8 lg:px-16 xl:px-24">
+          {/* Introduction */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mb-16"
+          >
+            <p className="text-lg lg:text-xl text-gray-700 leading-relaxed mb-4">
+              Shivaami's commitment to excellence has been recognized by industry leaders, technology partners, and prestigious organizations worldwide. Our collection of awards spans over a decade, reflecting our consistent delivery of innovative cloud solutions and exceptional customer service.
+            </p>
+            <p className="text-gray-600 leading-relaxed">
+              From Google Cloud Partner of the Year to VARINDIA's Best Cloud Solution Partner, these recognitions validate our position as a trusted technology partner for enterprises across industries.
+            </p>
+          </motion.div>
+
+          {/* Awards by Year */}
+          {awardsData.map((yearData, index) => (
+            <YearSection key={yearData.year} yearData={yearData} index={index} />
+          ))}
+        </div>
+      </section>
 
       <CTASection />
       <Footer />
