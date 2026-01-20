@@ -224,7 +224,7 @@ const menuContent: Record<string, MenuContent> = {
         items: [
           { icon: Award, label: 'About Us', desc: 'Our story and mission', isPageLink: true, href: '/about-us' },
           { icon: Users2, label: 'Leadership', desc: 'Meet our executive team', isPageLink: true, href: '/leadership' },
-          { icon: Award, label: 'Certifications', desc: 'ISO, SOC, and partner badges' },
+          { icon: Award, label: 'Certifications', desc: 'ISO, SOC, and partner badges', isPageLink: true, href: '/certifications' },
           { icon: Trophy, label: 'Achievements', desc: 'Awards and recognition' },
           { icon: Briefcase, label: 'Careers', desc: 'Join our growing team', isPageLink: true, href: '/careers' },
         ],
