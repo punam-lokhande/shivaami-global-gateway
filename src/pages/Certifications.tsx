@@ -1,21 +1,19 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef, useState } from 'react';
-import { Award, Shield, CheckCircle, BadgeCheck, X } from 'lucide-react';
+import { Award, Shield, CheckCircle, BadgeCheck, X, ArrowRight } from 'lucide-react';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import { Helmet } from 'react-helmet-async';
+import { Link } from 'react-router-dom';
+import { Button } from '@/components/ui/button';
+
+// Banner image
+import certificationsBanner from '@/assets/banners/certifications-banner.jpg';
 
 // Certificate images
 import iso9001 from '@/assets/certifications/iso-9001.jpg';
 import iso27001 from '@/assets/certifications/iso-27001.jpg';
 import iso20000 from '@/assets/certifications/iso-20000.jpg';
-
-const fadeInUp = {
-  initial: { opacity: 0, y: 30 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true },
-  transition: { duration: 0.6 }
-};
 
 const certifications = [
   {
@@ -65,7 +63,7 @@ const certifications = [
   },
 ];
 
-// Hero Section
+// Hero Section with background image
 function HeroSection() {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
@@ -77,34 +75,20 @@ function HeroSection() {
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
   return (
-    <section ref={ref} className="relative min-h-[50vh] lg:min-h-[60vh] flex items-center overflow-hidden bg-gradient-to-br from-[#0C4594] via-[#1a5ab8] to-[#0a3a7a]">
-      {/* Background Pattern */}
+    <section ref={ref} className="relative min-h-[50vh] lg:min-h-[60vh] flex items-center overflow-hidden">
+      {/* Background Image */}
       <motion.div style={{ y }} className="absolute inset-0 z-0">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-20 left-20 w-96 h-96 rounded-full bg-white/20 blur-3xl" />
-          <div className="absolute bottom-20 right-20 w-80 h-80 rounded-full bg-[#38B6FF]/30 blur-3xl" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-white/5 blur-3xl" />
-        </div>
-        {/* Grid pattern */}
-        <div className="absolute inset-0 opacity-5" style={{
-          backgroundImage: 'linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)',
-          backgroundSize: '50px 50px'
-        }} />
+        <img 
+          src={certificationsBanner} 
+          alt="Certifications" 
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0C4594]/95 via-[#0C4594]/80 to-transparent" />
       </motion.div>
 
-      {/* Content */}
+      {/* Content - Left aligned */}
       <motion.div style={{ opacity }} className="relative z-10 w-full px-6 sm:px-8 lg:px-16 xl:px-24 pt-32 pb-16">
-        <div className="max-w-4xl">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 mb-6"
-          >
-            <Award className="w-4 h-4 text-[#38B6FF]" />
-            <span className="text-sm font-medium text-white/90">Globally Recognized Standards</span>
-          </motion.div>
-
+        <div className="max-w-3xl">
           <motion.h1
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
@@ -119,128 +103,13 @@ function HeroSection() {
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.15 }}
-            className="text-base lg:text-xl text-white/80 max-w-3xl leading-relaxed"
+            className="text-base lg:text-xl text-white/85 max-w-2xl leading-relaxed"
           >
             Shivaami, an industry leader in IT and cloud solutions, takes immense pride in its commitment to quality, security, and excellence. Our ISO certifications are a testament to our unwavering dedication to delivering top-tier services.
           </motion.p>
         </div>
       </motion.div>
     </section>
-  );
-}
-
-// Introduction Section
-function IntroSection() {
-  return (
-    <section className="py-20 bg-white">
-      <div className="w-full px-6 sm:px-8 lg:px-16 xl:px-24">
-        <motion.div {...fadeInUp} className="max-w-4xl mx-auto text-center">
-          <p className="text-lg lg:text-xl text-gray-700 leading-relaxed mb-8">
-            At Shivaami, we understand that excellence and trustworthiness are not just ideals but essential principles in today's competitive business world. We have undertaken rigorous assessments and achieved these prestigious ISO certifications to ensure that our clients receive the highest quality services with the utmost security.
-          </p>
-          <p className="text-lg text-gray-600 leading-relaxed">
-            These certifications reflect our dedication to continuous improvement and our commitment to meet and exceed international standards.
-          </p>
-          
-          {/* Certification badges summary */}
-          <div className="flex flex-wrap justify-center gap-4 mt-12">
-            {certifications.map((cert) => (
-              <motion.div
-                key={cert.id}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                whileHover={{ scale: 1.05 }}
-                className="flex items-center gap-3 px-6 py-3 rounded-full bg-gradient-to-r from-gray-50 to-gray-100 border border-gray-200 shadow-sm"
-              >
-                <div 
-                  className="w-8 h-8 rounded-full flex items-center justify-center"
-                  style={{ backgroundColor: `${cert.color}15`, color: cert.color }}
-                >
-                  <CheckCircle className="w-4 h-4" />
-                </div>
-                <span className="font-semibold text-gray-800">{cert.title}</span>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
-      </div>
-    </section>
-  );
-}
-
-// Certificate Card with Modal
-function CertificateCard({ cert, index, onViewCertificate }: { 
-  cert: typeof certifications[0]; 
-  index: number;
-  onViewCertificate: (cert: typeof certifications[0]) => void;
-}) {
-  const Icon = cert.icon;
-  
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ delay: index * 0.15, duration: 0.5 }}
-      className="group"
-    >
-      <div className="bg-white rounded-2xl border border-gray-100 shadow-lg overflow-hidden hover:shadow-2xl hover:shadow-[#38B6FF]/10 transition-all duration-500">
-        {/* Certificate Image */}
-        <div 
-          className="relative h-80 overflow-hidden cursor-pointer"
-          onClick={() => onViewCertificate(cert)}
-        >
-          <img 
-            src={cert.image} 
-            alt={cert.title}
-            className="w-full h-full object-contain bg-gray-50 group-hover:scale-105 transition-transform duration-500"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-          <div className="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/90 text-sm font-medium text-gray-800">
-              <Award className="w-4 h-4" />
-              Click to view certificate
-            </span>
-          </div>
-        </div>
-
-        {/* Content */}
-        <div className="p-6">
-          {/* Header */}
-          <div className="flex items-start gap-4 mb-4">
-            <div 
-              className="w-14 h-14 rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg"
-              style={{ backgroundColor: cert.color }}
-            >
-              <Icon className="w-7 h-7 text-white" />
-            </div>
-            <div>
-              <h3 className="text-xl font-bold text-[#0C4594]">{cert.title}</h3>
-              <p className="text-sm text-gray-500 font-medium">{cert.subtitle}</p>
-            </div>
-          </div>
-
-          {/* Description */}
-          <p className="text-gray-600 leading-relaxed mb-6">
-            {cert.description}
-          </p>
-
-          {/* Highlights */}
-          <div className="space-y-2">
-            {cert.highlights.map((highlight, idx) => (
-              <div key={idx} className="flex items-start gap-3">
-                <CheckCircle 
-                  className="w-5 h-5 flex-shrink-0 mt-0.5"
-                  style={{ color: cert.color }}
-                />
-                <span className="text-sm text-gray-700">{highlight}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-    </motion.div>
   );
 }
 
@@ -294,33 +163,110 @@ function CertificateModal({ cert, onClose }: {
   );
 }
 
-// Certifications Grid
-function CertificationsGrid() {
+// Certifications Section - New Layout
+function CertificationsSection() {
   const [selectedCert, setSelectedCert] = useState<typeof certifications[0] | null>(null);
 
   return (
-    <section className="py-20 bg-gradient-to-b from-slate-50 to-white">
+    <section className="py-20 bg-white">
       <div className="w-full px-6 sm:px-8 lg:px-16 xl:px-24">
-        {/* Section Header */}
-        <motion.div {...fadeInUp} className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-[#0C4594] mb-4">
-            Our Certifications
-          </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            Demonstrating our commitment to delivering superior quality, service management, and information security
+        {/* Introduction */}
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="max-w-4xl mx-auto text-center mb-16"
+        >
+          <p className="text-lg lg:text-xl text-gray-700 leading-relaxed mb-6">
+            At Shivaami, we understand that excellence and trustworthiness are not just ideals but essential principles in today's competitive business world. We have undertaken rigorous assessments and achieved these prestigious ISO certifications to ensure that our clients receive the highest quality services with the utmost security.
+          </p>
+          <p className="text-gray-600 leading-relaxed">
+            These certifications reflect our dedication to continuous improvement and our commitment to meet and exceed international standards.
           </p>
         </motion.div>
 
-        {/* Certifications Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {certifications.map((cert, index) => (
-            <CertificateCard 
-              key={cert.id} 
-              cert={cert} 
-              index={index}
-              onViewCertificate={setSelectedCert}
-            />
-          ))}
+        {/* Certifications - Alternating Layout */}
+        <div className="space-y-24">
+          {certifications.map((cert, index) => {
+            const Icon = cert.icon;
+            const isEven = index % 2 === 0;
+            
+            return (
+              <motion.div
+                key={cert.id}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className={`flex flex-col ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-12 lg:gap-16 items-center`}
+              >
+                {/* Certificate Image */}
+                <motion.div 
+                  whileHover={{ scale: 1.02 }}
+                  className="w-full lg:w-1/2 cursor-pointer group"
+                  onClick={() => setSelectedCert(cert)}
+                >
+                  <div className="relative bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-shadow duration-300 border border-gray-100">
+                    <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{
+                      background: `linear-gradient(135deg, ${cert.color}10 0%, transparent 50%)`
+                    }} />
+                    <img 
+                      src={cert.image} 
+                      alt={cert.title}
+                      className="w-full h-auto max-h-[400px] object-contain mx-auto relative z-10"
+                    />
+                    <div className="absolute bottom-4 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white shadow-lg text-sm font-medium text-gray-700">
+                        <Award className="w-4 h-4" style={{ color: cert.color }} />
+                        Click to view full certificate
+                      </span>
+                    </div>
+                  </div>
+                </motion.div>
+
+                {/* Content */}
+                <div className="w-full lg:w-1/2">
+                  <div className="flex items-center gap-4 mb-6">
+                    <div 
+                      className="w-16 h-16 rounded-2xl flex items-center justify-center shadow-lg"
+                      style={{ backgroundColor: cert.color }}
+                    >
+                      <Icon className="w-8 h-8 text-white" />
+                    </div>
+                    <div>
+                      <h2 className="text-2xl lg:text-3xl font-bold text-[#0C4594]">{cert.title}</h2>
+                      <p className="text-gray-500 font-medium">{cert.subtitle}</p>
+                    </div>
+                  </div>
+
+                  <p className="text-gray-600 leading-relaxed mb-8 text-lg">
+                    {cert.description}
+                  </p>
+
+                  {/* Highlights */}
+                  <div className="grid sm:grid-cols-2 gap-4">
+                    {cert.highlights.map((highlight, idx) => (
+                      <motion.div 
+                        key={idx}
+                        initial={{ opacity: 0, x: -20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: idx * 0.1 }}
+                        className="flex items-start gap-3 p-4 rounded-xl bg-gray-50 border border-gray-100"
+                      >
+                        <CheckCircle 
+                          className="w-5 h-5 flex-shrink-0 mt-0.5"
+                          style={{ color: cert.color }}
+                        />
+                        <span className="text-sm text-gray-700">{highlight}</span>
+                      </motion.div>
+                    ))}
+                  </div>
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
 
@@ -332,8 +278,8 @@ function CertificationsGrid() {
   );
 }
 
-// Trust Indicators
-function TrustSection() {
+// Stats Section
+function StatsSection() {
   const stats = [
     { value: '3', label: 'ISO Certifications' },
     { value: '15+', label: 'Years of Excellence' },
@@ -364,6 +310,39 @@ function TrustSection() {
   );
 }
 
+// CTA Section
+function CTASection() {
+  return (
+    <section className="py-20 bg-gradient-to-b from-slate-50 to-white">
+      <div className="w-full px-6 sm:px-8 lg:px-16 xl:px-24">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="max-w-4xl mx-auto text-center"
+        >
+          <h2 className="text-3xl md:text-4xl font-bold text-[#0C4594] mb-6">
+            Partner with a Certified Leader
+          </h2>
+          <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
+            Experience the difference of working with an ISO-certified organization committed to quality, security, and service excellence.
+          </p>
+          <Link to="/contact">
+            <Button 
+              size="lg" 
+              className="bg-[#0C4594] hover:bg-[#0a3a7a] text-white font-semibold px-10 py-7 text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 group"
+            >
+              Get in Touch
+              <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+            </Button>
+          </Link>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+
 export default function Certifications() {
   return (
     <>
@@ -375,9 +354,9 @@ export default function Certifications() {
         <Header />
         <main className="flex-1">
           <HeroSection />
-          <IntroSection />
-          <CertificationsGrid />
-          <TrustSection />
+          <CertificationsSection />
+          <StatsSection />
+          <CTASection />
         </main>
         <Footer />
       </div>
