@@ -220,12 +220,12 @@ export default function Achievements() {
       <HeroSection />
 
       {/* Sidebar + Grid Layout */}
-      <section className="bg-gray-50">
-        <div className="flex flex-col lg:flex-row min-h-[60vh]">
-          {/* Left Sidebar - Year Navigation */}
-          <div className="lg:w-64 xl:w-72 bg-white border-b lg:border-b-0 lg:border-r border-gray-200 flex-shrink-0">
-            <div className="sticky top-20 p-4 lg:p-6">
-              <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-4">
+      <section className="bg-gray-50 py-10">
+        <div className="px-6 sm:px-8 lg:px-16 xl:px-24">
+          <div className="flex flex-col lg:flex-row gap-8">
+            {/* Left Sidebar - Year Navigation */}
+            <div className="lg:w-48 flex-shrink-0">
+              <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3">
                 Browse by Year
               </h3>
               <div className="flex lg:flex-col gap-2 overflow-x-auto lg:overflow-visible pb-2 lg:pb-0">
@@ -233,17 +233,17 @@ export default function Achievements() {
                   <button
                     key={yearData.year}
                     onClick={() => setSelectedYear(yearData.year)}
-                    className={`flex items-center justify-between px-4 py-3 rounded-lg text-left transition-all whitespace-nowrap flex-shrink-0 ${
+                    className={`flex items-center justify-between px-3 py-2 rounded-lg text-left transition-all whitespace-nowrap flex-shrink-0 text-sm ${
                       selectedYear === yearData.year
                         ? 'bg-[#0C4594] text-white shadow-md'
-                        : 'bg-gray-50 text-gray-700 hover:bg-gray-100'
+                        : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-200'
                     }`}
                   >
-                    <span className="font-semibold">{yearData.year}</span>
-                    <span className={`ml-3 text-xs px-2 py-0.5 rounded-full ${
+                    <span className="font-medium">{yearData.year}</span>
+                    <span className={`ml-2 text-xs px-1.5 py-0.5 rounded-full ${
                       selectedYear === yearData.year
                         ? 'bg-white/20 text-white'
-                        : 'bg-gray-200 text-gray-600'
+                        : 'bg-gray-100 text-gray-500'
                     }`}>
                       {yearData.awards.length}
                     </span>
@@ -251,61 +251,54 @@ export default function Achievements() {
                 ))}
               </div>
             </div>
-          </div>
 
-          {/* Right Content - Awards Grid */}
-          <div className="flex-1 p-6 lg:p-8 xl:p-10">
-            {/* Year Header */}
-            <div className="flex items-center gap-4 mb-6">
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#0C4594] to-[#38B6FF] flex items-center justify-center">
-                <Trophy className="w-6 h-6 text-white" />
+            {/* Right Content - Awards Grid */}
+            <div className="flex-1">
+              {/* Year Header */}
+              <div className="flex items-center gap-3 mb-5">
+                <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-[#0C4594] to-[#38B6FF] flex items-center justify-center">
+                  <Trophy className="w-5 h-5 text-white" />
+                </div>
+                <div>
+                  <h2 className="text-xl font-bold text-[#0C4594]">{selectedYear} Awards</h2>
+                  <p className="text-gray-500 text-xs">{currentYearData.awards.length} recognition{currentYearData.awards.length > 1 ? 's' : ''}</p>
+                </div>
               </div>
-              <div>
-                <h2 className="text-2xl font-bold text-[#0C4594]">{selectedYear} Awards</h2>
-                <p className="text-gray-500 text-sm">{currentYearData.awards.length} recognition{currentYearData.awards.length > 1 ? 's' : ''} received</p>
-              </div>
-            </div>
 
-            {/* Awards Grid */}
-            <motion.div 
-              key={selectedYear}
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.3 }}
-              className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5"
-            >
-              {currentYearData.awards.map((award, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: index * 0.05 }}
-                  onClick={() => setSelectedImage(award)}
-                  className="group cursor-pointer bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 hover:border-[#38B6FF]/40"
-                >
-                  <div className="aspect-[4/3] relative overflow-hidden bg-gray-100">
-                    <img
-                      src={award.image}
-                      alt={award.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                      loading="lazy"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                    <div className="absolute bottom-2 left-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                      <span className="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-white/90 text-xs font-medium text-gray-700">
-                        <Star className="w-3 h-3 text-[#38B6FF]" />
-                        View
-                      </span>
+              {/* Awards Grid */}
+              <motion.div 
+                key={selectedYear}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3 }}
+                className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4"
+              >
+                {currentYearData.awards.map((award, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: index * 0.03 }}
+                    onClick={() => setSelectedImage(award)}
+                    className="group cursor-pointer bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100 hover:border-[#38B6FF]/40"
+                  >
+                    <div className="aspect-[4/3] relative overflow-hidden bg-gray-100">
+                      <img
+                        src={award.image}
+                        alt={award.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        loading="lazy"
+                      />
                     </div>
-                  </div>
-                  <div className="p-4">
-                    <p className="text-sm font-medium text-gray-800 line-clamp-2 group-hover:text-[#0C4594] transition-colors">
-                      {award.title}
-                    </p>
-                  </div>
-                </motion.div>
-              ))}
-            </motion.div>
+                    <div className="p-3">
+                      <p className="text-xs font-medium text-gray-800 line-clamp-2 group-hover:text-[#0C4594] transition-colors leading-snug">
+                        {award.title}
+                      </p>
+                    </div>
+                  </motion.div>
+                ))}
+              </motion.div>
+            </div>
           </div>
         </div>
       </section>
