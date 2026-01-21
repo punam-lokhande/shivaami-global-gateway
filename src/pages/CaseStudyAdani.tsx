@@ -1,385 +1,287 @@
-import Header from "@/components/layout/Header";
-import Footer from "@/components/layout/Footer";
-import { motion } from "framer-motion";
-import { ArrowLeft, CheckCircle2, Users, Shield, Cloud, Monitor, BookOpen, Lock, GraduationCap, AlertTriangle, Lightbulb, TrendingUp } from "lucide-react";
-import { Link } from "react-router-dom";
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { useRef } from 'react';
+import { ArrowLeft, Building2, Users, Globe, CheckCircle2, Target, Lightbulb, Award, GraduationCap, Cloud, Shield, Monitor, BookOpen, Lock } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import Header from '@/components/layout/Header';
+import Footer from '@/components/layout/Footer';
+import { Button } from '@/components/ui/button';
 
-const CaseStudyAdani = () => {
-  const objectives = [
-    "Enhance collaboration and communication using Google Docs, Sheets, Slides, and Meet",
-    "Develop essential digital skills for students preparing them for future careers",
-    "Boost teacher productivity with Google Classroom and administrative tools",
-    "Implement enhanced security with data encryption and advanced threat protection",
-    "Enable accessibility and flexibility with cloud-based tools across devices",
-    "Provide cost-effective solutions accessible to schools of all sizes"
-  ];
+import caseStudiesBanner from '@/assets/banners/case-studies-banner.jpg';
 
-  const implementations = [
-    { icon: Cloud, text: "Migrated all users to Google Workspace Education Plus within one month" },
-    { icon: Users, text: "Provided Google IDs for all 1,062 users including staff and students" },
-    { icon: Monitor, text: "On-site dedicated migration & implementation specialist assigned" },
-    { icon: GraduationCap, text: "Training sessions for teachers and support staff on Workspace benefits" },
-    { icon: Shield, text: "Enabled all security and compliance policies for organization data" },
-    { icon: BookOpen, text: "Knowledge transfer sessions for admin team on policy management" }
-  ];
+function HeroSection() {
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ['start start', 'end start'],
+  });
 
-  const achievements = [
-    "Enhanced Security with proactive threat detection and centralized controls",
-    "Improved Teaching and Learning with personalized instruction tools",
-    "Time-Saving Tools including automatic grading and streamlined admin tasks",
-    "Cost Savings by consolidating EdTech tools into one solution",
-    "Personalized Cloud Search for enhanced productivity",
-    "Additional Drive storage for both staff and students"
-  ];
+  const y = useTransform(scrollYProgress, [0, 1], ['0%', '30%']);
+  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
-  const challenges = [
-    "High licensing costs for large number of students and staff",
-    "Complex licensing options requiring careful understanding",
-    "Compliance and administration requiring dedicated effort",
-    "Scalability challenges as the school grows",
-    "Integration with existing IT infrastructure",
-    "Training and support requirements for effective tool usage"
-  ];
+  return (
+    <section ref={ref} className="relative min-h-[50vh] lg:min-h-[60vh] flex items-center overflow-hidden">
+      <motion.div style={{ y }} className="absolute inset-0 z-0">
+        <img src={caseStudiesBanner} alt="Adani International School Case Study" className="w-full h-full object-cover" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0C4594]/95 via-[#0C4594]/85 to-[#0C4594]/60" />
+      </motion.div>
 
-  const solutions = [
-    "Migrated all users with data to Google Workspace with zero downtime",
-    "Expert-level on-site support during migration",
-    "Enabled all security and compliance policies",
-    "Conducted user and admin-level training sessions",
-    "Knowledge transfer for ongoing policy management"
-  ];
+      <motion.div style={{ opacity }} className="relative z-10 w-full px-6 sm:px-8 lg:px-16 xl:px-24 pt-32 pb-16">
+        <div className="max-w-4xl">
+          <Link to="/case-studies" className="inline-flex items-center gap-2 text-white/80 hover:text-white mb-6 transition-colors">
+            <ArrowLeft className="w-4 h-4" />
+            Back to Case Studies
+          </Link>
 
-  const results = [
-    "Enhanced real-time collaboration breaking down barriers",
-    "Seamless communication for virtual classes and meetings",
-    "Increased productivity freeing teachers to focus on instruction",
-    "Robust security with advanced data protection",
-    "Accessibility from any device, anywhere, anytime",
-    "Scalability to accommodate growing enrollment"
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-white/90 text-sm mb-6"
+          >
+            <GraduationCap className="w-4 h-4" />
+            Education
+          </motion.div>
+
+          <motion.h1
+            initial={{ opacity: 0, y: 28 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="font-display text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-6 leading-[1.1]"
+          >
+            Adani International School
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 28 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.15 }}
+            className="text-lg lg:text-xl text-white/85 max-w-2xl leading-relaxed"
+          >
+            A holistic and experiential education institution from Pre-Primary to Senior Secondary levels with a focus on sustainability and innovation.
+          </motion.p>
+        </div>
+      </motion.div>
+    </section>
+  );
+}
+
+function BusinessInfoStrip() {
+  const stats = [
+    { icon: Building2, label: 'Industry', value: 'Education' },
+    { icon: Users, label: 'Users', value: '1,062' },
+    { icon: Globe, label: 'Solution', value: 'Workspace Education Plus' },
+    { icon: Award, label: 'Migration', value: 'Zero Downtime' },
   ];
 
   return (
-    <div className="min-h-screen bg-white">
-      <Header />
-      
-      {/* Hero Section */}
-      <section className="relative pt-24 pb-16 bg-gradient-to-br from-[#0C4594] via-[#1a5cb8] to-[#38B6FF] overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-20 left-10 w-72 h-72 bg-white rounded-full blur-3xl" />
-          <div className="absolute bottom-10 right-20 w-96 h-96 bg-white rounded-full blur-3xl" />
-        </div>
-        
-        <div className="container mx-auto px-4 sm:px-6 relative z-10">
-          <Link 
-            to="/case-studies" 
-            className="inline-flex items-center gap-2 text-white/80 hover:text-white mb-8 transition-colors group"
-          >
-            <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
-            Back to Case Studies
-          </Link>
-          
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="max-w-4xl"
-          >
-            <span className="inline-block px-4 py-1.5 bg-white/20 backdrop-blur-sm rounded-full text-sm text-white font-medium mb-6">
-              Resources — Case Study
-            </span>
-            
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-              Adani International School<br />
-              <span className="text-[#38B6FF]">Moved to Google Workspace</span>
-            </h1>
-            
-            <p className="text-lg sm:text-xl text-white/90 leading-relaxed max-w-3xl">
-              Adani International School is located in Ahmedabad, Gujarat, India. It offers a holistic and experiential education from Pre-Primary to Senior Secondary levels with a focus on sustainability and innovation.
-            </p>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Business Info Strip */}
-      <section className="bg-gray-50 border-b border-gray-200">
-        <div className="container mx-auto px-4 sm:px-6">
-          <div className="grid grid-cols-2 md:grid-cols-3 divide-x divide-gray-200">
-            {[
-              { label: "Industry", value: "Education" },
-              { label: "Solution", value: "Workspace Education Plus" },
-              { label: "Users", value: "1,062" }
-            ].map((item, index) => (
+    <section className="bg-gradient-to-r from-[#0C4594] to-[#1a5ab8] py-8">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-16">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
+          {stats.map((stat, index) => {
+            const Icon = stat.icon;
+            return (
               <motion.div
-                key={index}
+                key={stat.label}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="py-6 px-4 sm:px-8 text-center"
+                className="text-center"
               >
-                <p className="text-sm text-gray-500 mb-1">{item.label}</p>
-                <p className="text-lg font-bold text-[#0C4594]">{item.value}</p>
+                <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-white/10 mb-3">
+                  <Icon className="w-6 h-6 text-white" />
+                </div>
+                <p className="text-white/70 text-sm mb-1">{stat.label}</p>
+                <p className="text-white font-semibold">{stat.value}</p>
               </motion.div>
-            ))}
-          </div>
+            );
+          })}
         </div>
-      </section>
+      </div>
+    </section>
+  );
+}
 
-      {/* What They Wanted */}
-      <section className="py-16 sm:py-20">
-        <div className="container mx-auto px-4 sm:px-6">
-          <div className="max-w-6xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="mb-12"
-            >
-              <h2 className="text-3xl sm:text-4xl font-bold text-[#0C4594] mb-4">
-                What They Wanted to Do
-              </h2>
-              <div className="w-20 h-1 bg-gradient-to-r from-[#0C4594] to-[#38B6FF] rounded-full" />
-            </motion.div>
-            
-            <div className="grid sm:grid-cols-2 gap-4">
-              {objectives.map((objective, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  className="flex items-start gap-3 p-5 bg-gradient-to-br from-[#0C4594]/5 to-[#38B6FF]/5 rounded-xl border border-[#0C4594]/10"
-                >
-                  <CheckCircle2 className="w-5 h-5 text-[#38B6FF] flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700 font-medium">{objective}</span>
-                </motion.div>
-              ))}
+function ChallengeSection() {
+  const challenges = [
+    'High licensing costs for large number of students and staff',
+    'Complex licensing options requiring careful understanding',
+    'Compliance and administration requiring dedicated effort',
+    'Scalability challenges as the school grows',
+    'Integration with existing IT infrastructure',
+  ];
+
+  return (
+    <section className="py-20 bg-white">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-16">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-red-50 rounded-full text-red-600 text-sm font-medium mb-6">
+              <Target className="w-4 h-4" />
+              The Challenge
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* What They Did */}
-      <section className="py-16 sm:py-20 bg-gray-50">
-        <div className="container mx-auto px-4 sm:px-6">
-          <div className="max-w-6xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="mb-12"
-            >
-              <h2 className="text-3xl sm:text-4xl font-bold text-[#0C4594] mb-4">
-                What They Did
-              </h2>
-              <div className="w-20 h-1 bg-gradient-to-r from-[#0C4594] to-[#38B6FF] rounded-full mb-4" />
-              <p className="text-gray-600 text-lg">
-                Shivaami suggested Google Workspace Education Plus to solve current issues around enrollment scale, assessment tracking, and quality development.
-              </p>
-            </motion.div>
+            <h2 className="text-3xl lg:text-4xl font-bold text-[#0C4594] mb-6">Digital Education Transformation</h2>
+            <p className="text-gray-600 text-lg leading-relaxed mb-8">
+              As a growing educational institution, Adani International School needed modern collaboration tools to enhance teaching, learning, and administrative efficiency.
+            </p>
             
-            <div className="grid sm:grid-cols-2 gap-4">
-              {implementations.map((item, index) => (
-                <motion.div
+            <ul className="space-y-4">
+              {challenges.map((challenge, index) => (
+                <motion.li
                   key={index}
-                  initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
+                  initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: index * 0.05 }}
-                  className="flex items-start gap-4 p-5 bg-white rounded-xl shadow-sm border border-gray-100"
-                >
-                  <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-[#0C4594] to-[#38B6FF] flex items-center justify-center flex-shrink-0">
-                    <item.icon className="w-5 h-5 text-white" />
-                  </div>
-                  <span className="text-gray-700">{item.text}</span>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* What They Achieved */}
-      <section className="py-16 sm:py-20">
-        <div className="container mx-auto px-4 sm:px-6">
-          <div className="max-w-6xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="mb-12"
-            >
-              <h2 className="text-3xl sm:text-4xl font-bold text-[#0C4594] mb-4">
-                What They Achieved
-              </h2>
-              <div className="w-20 h-1 bg-gradient-to-r from-[#0C4594] to-[#38B6FF] rounded-full" />
-            </motion.div>
-            
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {achievements.map((achievement, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className="relative p-6 bg-gradient-to-br from-[#0C4594] to-[#38B6FF] rounded-2xl text-white overflow-hidden group"
+                  whileHover={{ x: 5 }}
+                  className="flex items-start gap-3 p-3 rounded-lg hover:bg-red-50/50 transition-colors"
                 >
-                  <div className="absolute top-0 right-0 w-20 h-20 bg-white/10 rounded-full -translate-y-10 translate-x-10 group-hover:scale-150 transition-transform duration-500" />
-                  <CheckCircle2 className="w-8 h-8 text-white/80 mb-4" />
-                  <p className="font-medium relative z-10">{achievement}</p>
-                </motion.div>
+                  <div className="w-6 h-6 rounded-full bg-red-100 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <span className="w-2 h-2 rounded-full bg-red-500" />
+                  </div>
+                  <span className="text-gray-700">{challenge}</span>
+                </motion.li>
               ))}
-            </div>
-          </div>
-        </div>
-      </section>
+            </ul>
+          </motion.div>
 
-      {/* Challenges & Solutions */}
-      <section className="py-16 sm:py-20 bg-gray-50">
-        <div className="container mx-auto px-4 sm:px-6">
-          <div className="max-w-6xl mx-auto">
-            <div className="grid lg:grid-cols-2 gap-12">
-              <motion.div
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-              >
-                <div className="flex items-center gap-3 mb-8">
-                  <div className="w-12 h-12 rounded-xl bg-amber-100 flex items-center justify-center">
-                    <AlertTriangle className="w-6 h-6 text-amber-600" />
-                  </div>
-                  <h2 className="text-2xl sm:text-3xl font-bold text-[#0C4594]">Challenges</h2>
-                </div>
-                
-                <div className="space-y-4">
-                  {challenges.map((challenge, index) => (
-                    <motion.div
-                      key={index}
-                      initial={{ opacity: 0, x: -20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: index * 0.1 }}
-                      className="p-4 bg-white rounded-xl border-l-4 border-amber-400 shadow-sm"
-                    >
-                      <p className="text-gray-700">{challenge}</p>
-                    </motion.div>
-                  ))}
-                </div>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, x: 30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-              >
-                <div className="flex items-center gap-3 mb-8">
-                  <div className="w-12 h-12 rounded-xl bg-green-100 flex items-center justify-center">
-                    <Lightbulb className="w-6 h-6 text-green-600" />
-                  </div>
-                  <h2 className="text-2xl sm:text-3xl font-bold text-[#0C4594]">Solutions</h2>
-                </div>
-                
-                <div className="space-y-4">
-                  {solutions.map((solution, index) => (
-                    <motion.div
-                      key={index}
-                      initial={{ opacity: 0, x: 20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: index * 0.1 }}
-                      className="p-4 bg-white rounded-xl border-l-4 border-green-500 shadow-sm"
-                    >
-                      <p className="text-gray-700">{solution}</p>
-                    </motion.div>
-                  ))}
-                </div>
-              </motion.div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Results */}
-      <section className="py-16 sm:py-20 bg-gradient-to-br from-[#0C4594] to-[#1a5cb8]">
-        <div className="container mx-auto px-4 sm:px-6">
-          <div className="max-w-6xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-center mb-12"
-            >
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full mb-6">
-                <TrendingUp className="w-5 h-5 text-[#38B6FF]" />
-                <span className="text-white font-medium">Results & Impact</span>
+          <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="relative">
+            <div className="aspect-square rounded-3xl bg-gradient-to-br from-blue-50 to-indigo-50 p-8 flex items-center justify-center">
+              <div className="text-center">
+                <GraduationCap className="w-32 h-32 text-blue-600 mx-auto mb-6" />
+                <p className="text-2xl font-bold text-[#0C4594]">Education Excellence</p>
+                <p className="text-gray-600">1,062 Users Connected</p>
               </div>
-              <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6">
-                The Outcome
-              </h2>
-              <p className="text-white/80 text-lg max-w-3xl mx-auto">
-                Google Workspace transformed Adani International School with enhanced collaboration, seamless communication, and robust security while preparing students for the digital world.
-              </p>
-            </motion.div>
-            
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {results.map((result, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  className="p-6 bg-white/10 backdrop-blur-sm rounded-2xl border border-white/20 hover:bg-white/20 transition-colors"
-                >
-                  <div className="w-10 h-10 rounded-full bg-[#38B6FF] flex items-center justify-center mb-4">
-                    <CheckCircle2 className="w-5 h-5 text-white" />
-                  </div>
-                  <p className="text-white font-medium">{result}</p>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-16 sm:py-20">
-        <div className="container mx-auto px-4 sm:px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="max-w-3xl mx-auto text-center"
-          >
-            <h2 className="text-3xl sm:text-4xl font-bold text-[#0C4594] mb-4">
-              Ready to Transform Your Educational Institution?
-            </h2>
-            <p className="text-gray-600 text-lg mb-8">
-              Let Shivaami Cloud Services help you achieve similar results with Google Workspace for Education.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                to="/contact"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-[#0C4594] to-[#38B6FF] text-white font-semibold rounded-full hover:shadow-lg hover:shadow-[#38B6FF]/30 transition-all"
-              >
-                Get Started Today
-              </Link>
-              <Link
-                to="/case-studies"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 border-2 border-[#0C4594] text-[#0C4594] font-semibold rounded-full hover:bg-[#0C4594] hover:text-white transition-all"
-              >
-                View More Case Studies
-              </Link>
             </div>
           </motion.div>
         </div>
-      </section>
+      </div>
+    </section>
+  );
+}
 
+function SolutionSection() {
+  const solutions = [
+    { icon: Cloud, title: 'Google Workspace Migration', description: 'Migrated all users to Google Workspace Education Plus within one month.' },
+    { icon: Users, title: 'User Provisioning', description: 'Provided Google IDs for all 1,062 users including staff and students.' },
+    { icon: Monitor, title: 'On-site Implementation', description: 'Dedicated migration & implementation specialist assigned on-site.' },
+    { icon: GraduationCap, title: 'Training Programs', description: 'Training sessions for teachers and support staff on Workspace benefits.' },
+    { icon: Shield, title: 'Security Policies', description: 'Enabled all security and compliance policies for organization data.' },
+    { icon: BookOpen, title: 'Knowledge Transfer', description: 'Knowledge transfer sessions for admin team on policy management.' },
+  ];
+
+  return (
+    <section className="py-20 bg-gray-50">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-16">
+        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-16">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-green-50 rounded-full text-green-600 text-sm font-medium mb-6">
+            <Lightbulb className="w-4 h-4" />
+            The Solution
+          </div>
+          <h2 className="text-3xl lg:text-4xl font-bold text-[#0C4594] mb-4">Google Workspace for Education</h2>
+          <p className="text-gray-600 text-lg max-w-2xl mx-auto">Comprehensive digital transformation for modern education.</p>
+        </motion.div>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {solutions.map((solution, index) => {
+            const Icon = solution.icon;
+            return (
+              <motion.div
+                key={solution.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                whileHover={{ y: -5, scale: 1.02 }}
+                className="bg-white rounded-2xl p-6 shadow-lg shadow-gray-100 hover:shadow-xl transition-all group"
+              >
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                  <Icon className="w-6 h-6 text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-[#0C4594] mb-2">{solution.title}</h3>
+                <p className="text-gray-600">{solution.description}</p>
+              </motion.div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function OutcomesSection() {
+  const outcomes = [
+    { metric: '1,062', label: 'Users Connected' },
+    { metric: '100%', label: 'Zero Downtime' },
+    { metric: '80%', label: 'Support Reduction' },
+    { metric: '30 Days', label: 'Full Migration' },
+  ];
+
+  return (
+    <section className="py-20 bg-gradient-to-br from-[#0C4594] to-[#1a5ab8]">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-16">
+        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-16">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-white text-sm font-medium mb-6">
+            <Award className="w-4 h-4" />
+            The Outcomes
+          </div>
+          <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4">Educational Excellence</h2>
+          <p className="text-white/80 text-lg max-w-2xl mx-auto">Google Workspace transformed the school with enhanced collaboration, seamless communication, and robust security.</p>
+        </motion.div>
+
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          {outcomes.map((outcome, index) => (
+            <motion.div
+              key={outcome.label}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1 }}
+              whileHover={{ scale: 1.05 }}
+              className="text-center bg-white/10 backdrop-blur-sm rounded-2xl p-8"
+            >
+              <p className="text-4xl lg:text-5xl font-bold text-white mb-2">{outcome.metric}</p>
+              <p className="text-white/80">{outcome.label}</p>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function CTASection() {
+  return (
+    <section className="py-20 bg-white">
+      <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-16 text-center">
+        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+          <h2 className="text-3xl lg:text-4xl font-bold text-[#0C4594] mb-6">Ready to Transform Your Educational Institution?</h2>
+          <p className="text-gray-600 text-lg mb-8">Let Shivaami Cloud Services help you achieve similar results with Google Workspace for Education.</p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button asChild size="lg" className="bg-[#0C4594] hover:bg-[#0C4594]/90">
+              <Link to="/contact">Get Started Today</Link>
+            </Button>
+            <Button asChild size="lg" variant="outline" className="border-[#0C4594] text-[#0C4594]">
+              <Link to="/case-studies">View More Case Studies</Link>
+            </Button>
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+
+export default function CaseStudyAdani() {
+  return (
+    <div className="min-h-screen bg-white">
+      <Header />
+      <HeroSection />
+      <BusinessInfoStrip />
+      <ChallengeSection />
+      <SolutionSection />
+      <OutcomesSection />
+      <CTASection />
       <Footer />
     </div>
   );
-};
-
-export default CaseStudyAdani;
+}
