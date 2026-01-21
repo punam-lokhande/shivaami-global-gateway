@@ -71,7 +71,7 @@ const CaseStudyZepto = () => {
           <div className="absolute bottom-10 right-20 w-96 h-96 bg-white rounded-full blur-3xl" />
         </div>
         
-        <div className="container mx-auto px-4 sm:px-6 relative z-10">
+        <div className="w-full px-8 lg:px-16 xl:px-24 relative z-10">
           <Link 
             to="/case-studies" 
             className="inline-flex items-center gap-2 text-white/80 hover:text-white mb-8 transition-colors group"
@@ -86,10 +86,6 @@ const CaseStudyZepto = () => {
             transition={{ duration: 0.6 }}
             className="max-w-4xl"
           >
-            <span className="inline-block px-4 py-1.5 bg-white/20 backdrop-blur-sm rounded-full text-sm text-white font-medium mb-6">
-              Resources — Case Study
-            </span>
-            
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
               Zepto Upgraded to<br />
               <span className="text-[#38B6FF]">Google Workspace Enterprise Standard</span>
@@ -104,7 +100,7 @@ const CaseStudyZepto = () => {
 
       {/* Business Info Strip */}
       <section className="bg-gray-50 border-b border-gray-200">
-        <div className="container mx-auto px-4 sm:px-6">
+        <div className="w-full px-8 lg:px-16 xl:px-24">
           <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-gray-200">
             {[
               { label: "Industry", value: "Quick E-commerce" },
@@ -130,228 +126,218 @@ const CaseStudyZepto = () => {
 
       {/* What They Wanted */}
       <section className="py-16 sm:py-20">
-        <div className="container mx-auto px-4 sm:px-6">
-          <div className="max-w-6xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="mb-12"
-            >
-              <h2 className="text-3xl sm:text-4xl font-bold text-[#0C4594] mb-4">
-                What They Wanted to Do
-              </h2>
-              <div className="w-20 h-1 bg-gradient-to-r from-[#0C4594] to-[#38B6FF] rounded-full" />
-            </motion.div>
-            
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              {objectives.map((objective, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  className="flex items-start gap-3 p-5 bg-gradient-to-br from-[#0C4594]/5 to-[#38B6FF]/5 rounded-xl border border-[#0C4594]/10 hover:border-[#38B6FF]/30 transition-colors"
-                >
-                  <CheckCircle2 className="w-5 h-5 text-[#38B6FF] flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700 font-medium">{objective}</span>
-                </motion.div>
-              ))}
-            </div>
+        <div className="w-full px-8 lg:px-16 xl:px-24">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mb-12"
+          >
+            <h2 className="text-3xl sm:text-4xl font-bold text-[#0C4594] mb-4">
+              What They Wanted to Do
+            </h2>
+            <div className="w-20 h-1 bg-gradient-to-r from-[#0C4594] to-[#38B6FF] rounded-full" />
+          </motion.div>
+          
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {objectives.map((objective, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className="flex items-start gap-3 p-5 bg-gradient-to-br from-[#0C4594]/5 to-[#38B6FF]/5 rounded-xl border border-[#0C4594]/10 hover:border-[#38B6FF]/30 transition-colors"
+              >
+                <CheckCircle2 className="w-5 h-5 text-[#38B6FF] flex-shrink-0 mt-0.5" />
+                <span className="text-gray-700 font-medium">{objective}</span>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* What They Did */}
       <section className="py-16 sm:py-20 bg-gray-50">
-        <div className="container mx-auto px-4 sm:px-6">
-          <div className="max-w-6xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="mb-12"
-            >
-              <h2 className="text-3xl sm:text-4xl font-bold text-[#0C4594] mb-4">
-                What They Did
-              </h2>
-              <div className="w-20 h-1 bg-gradient-to-r from-[#0C4594] to-[#38B6FF] rounded-full mb-4" />
-              <p className="text-gray-600 text-lg">
-                With Shivaami Cloud Services' deployment team, Zepto implemented a phased rollout that included:
-              </p>
-            </motion.div>
-            
-            <div className="grid sm:grid-cols-2 gap-4">
-              {implementations.map((item, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.05 }}
-                  className="flex items-start gap-4 p-5 bg-white rounded-xl shadow-sm border border-gray-100 hover:shadow-md hover:border-[#38B6FF]/30 transition-all"
-                >
-                  <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-[#0C4594] to-[#38B6FF] flex items-center justify-center flex-shrink-0">
-                    <item.icon className="w-5 h-5 text-white" />
-                  </div>
-                  <span className="text-gray-700">{item.text}</span>
-                </motion.div>
-              ))}
-            </div>
+        <div className="w-full px-8 lg:px-16 xl:px-24">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mb-12"
+          >
+            <h2 className="text-3xl sm:text-4xl font-bold text-[#0C4594] mb-4">
+              What They Did
+            </h2>
+            <div className="w-20 h-1 bg-gradient-to-r from-[#0C4594] to-[#38B6FF] rounded-full mb-4" />
+            <p className="text-gray-600 text-lg">
+              With Shivaami Cloud Services' deployment team, Zepto implemented a phased rollout that included:
+            </p>
+          </motion.div>
+          
+          <div className="grid sm:grid-cols-2 gap-4">
+            {implementations.map((item, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.05 }}
+                className="flex items-start gap-4 p-5 bg-white rounded-xl shadow-sm border border-gray-100 hover:shadow-md hover:border-[#38B6FF]/30 transition-all"
+              >
+                <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-[#0C4594] to-[#38B6FF] flex items-center justify-center flex-shrink-0">
+                  <item.icon className="w-5 h-5 text-white" />
+                </div>
+                <span className="text-gray-700">{item.text}</span>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* What They Achieved */}
       <section className="py-16 sm:py-20">
-        <div className="container mx-auto px-4 sm:px-6">
-          <div className="max-w-6xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="mb-12"
-            >
-              <h2 className="text-3xl sm:text-4xl font-bold text-[#0C4594] mb-4">
-                What They Achieved
-              </h2>
-              <div className="w-20 h-1 bg-gradient-to-r from-[#0C4594] to-[#38B6FF] rounded-full" />
-            </motion.div>
-            
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {achievements.map((achievement, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  className="relative p-6 bg-gradient-to-br from-[#0C4594] to-[#38B6FF] rounded-2xl text-white overflow-hidden group"
-                >
-                  <div className="absolute top-0 right-0 w-20 h-20 bg-white/10 rounded-full -translate-y-10 translate-x-10 group-hover:scale-150 transition-transform duration-500" />
-                  <CheckCircle2 className="w-8 h-8 text-white/80 mb-4" />
-                  <p className="font-medium relative z-10">{achievement}</p>
-                </motion.div>
-              ))}
-            </div>
+        <div className="w-full px-8 lg:px-16 xl:px-24">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mb-12"
+          >
+            <h2 className="text-3xl sm:text-4xl font-bold text-[#0C4594] mb-4">
+              What They Achieved
+            </h2>
+            <div className="w-20 h-1 bg-gradient-to-r from-[#0C4594] to-[#38B6FF] rounded-full" />
+          </motion.div>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {achievements.map((achievement, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className="relative p-6 bg-gradient-to-br from-[#0C4594] to-[#38B6FF] rounded-2xl text-white overflow-hidden group"
+              >
+                <div className="absolute top-0 right-0 w-20 h-20 bg-white/10 rounded-full -translate-y-10 translate-x-10 group-hover:scale-150 transition-transform duration-500" />
+                <CheckCircle2 className="w-8 h-8 text-white/80 mb-4" />
+                <p className="font-medium relative z-10">{achievement}</p>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* Challenges & Solutions */}
       <section className="py-16 sm:py-20 bg-gray-50">
-        <div className="container mx-auto px-4 sm:px-6">
-          <div className="max-w-6xl mx-auto">
-            <div className="grid lg:grid-cols-2 gap-12">
-              {/* Challenges */}
-              <motion.div
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-              >
-                <div className="flex items-center gap-3 mb-8">
-                  <div className="w-12 h-12 rounded-xl bg-amber-100 flex items-center justify-center">
-                    <AlertTriangle className="w-6 h-6 text-amber-600" />
-                  </div>
-                  <h2 className="text-2xl sm:text-3xl font-bold text-[#0C4594]">Challenges</h2>
+        <div className="w-full px-8 lg:px-16 xl:px-24">
+          <div className="grid lg:grid-cols-2 gap-12">
+            {/* Challenges */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+            >
+              <div className="flex items-center gap-3 mb-8">
+                <div className="w-12 h-12 rounded-xl bg-amber-100 flex items-center justify-center">
+                  <AlertTriangle className="w-6 h-6 text-amber-600" />
                 </div>
-                
-                <div className="space-y-4">
-                  {challenges.map((challenge, index) => (
-                    <motion.div
-                      key={index}
-                      initial={{ opacity: 0, x: -20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: index * 0.1 }}
-                      className="p-4 bg-white rounded-xl border-l-4 border-amber-400 shadow-sm"
-                    >
-                      <p className="text-gray-700">{challenge}</p>
-                    </motion.div>
-                  ))}
-                </div>
-              </motion.div>
+                <h2 className="text-2xl sm:text-3xl font-bold text-[#0C4594]">Challenges</h2>
+              </div>
+              
+              <div className="space-y-4">
+                {challenges.map((challenge, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.1 }}
+                    className="p-4 bg-white rounded-xl border-l-4 border-amber-400 shadow-sm"
+                  >
+                    <p className="text-gray-700">{challenge}</p>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
 
-              {/* Solutions */}
-              <motion.div
-                initial={{ opacity: 0, x: 30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-              >
-                <div className="flex items-center gap-3 mb-8">
-                  <div className="w-12 h-12 rounded-xl bg-green-100 flex items-center justify-center">
-                    <Lightbulb className="w-6 h-6 text-green-600" />
-                  </div>
-                  <h2 className="text-2xl sm:text-3xl font-bold text-[#0C4594]">Solutions</h2>
+            {/* Solutions */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+            >
+              <div className="flex items-center gap-3 mb-8">
+                <div className="w-12 h-12 rounded-xl bg-green-100 flex items-center justify-center">
+                  <Lightbulb className="w-6 h-6 text-green-600" />
                 </div>
-                
-                <div className="space-y-4">
-                  {solutions.map((solution, index) => (
-                    <motion.div
-                      key={index}
-                      initial={{ opacity: 0, x: 20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: index * 0.1 }}
-                      className="p-4 bg-white rounded-xl border-l-4 border-green-500 shadow-sm"
-                    >
-                      <p className="text-gray-700">{solution}</p>
-                    </motion.div>
-                  ))}
-                </div>
-              </motion.div>
-            </div>
+                <h2 className="text-2xl sm:text-3xl font-bold text-[#0C4594]">Solutions</h2>
+              </div>
+              
+              <div className="space-y-4">
+                {solutions.map((solution, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, x: 20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.1 }}
+                    className="p-4 bg-white rounded-xl border-l-4 border-green-500 shadow-sm"
+                  >
+                    <p className="text-gray-700">{solution}</p>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>
 
       {/* Results */}
       <section className="py-16 sm:py-20 bg-gradient-to-br from-[#0C4594] to-[#1a5cb8]">
-        <div className="container mx-auto px-4 sm:px-6">
-          <div className="max-w-6xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-center mb-12"
-            >
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full mb-6">
-                <TrendingUp className="w-5 h-5 text-[#38B6FF]" />
-                <span className="text-white font-medium">Results & Impact</span>
-              </div>
-              <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6">
-                The Outcome
-              </h2>
-              <p className="text-white/80 text-lg max-w-3xl mx-auto">
-                Zepto successfully transitioned to a production-ready Google Workspace Enterprise Standard environment, with core security and collaboration features fully operational.
-              </p>
-            </motion.div>
-            
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {results.map((result, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  className="p-6 bg-white/10 backdrop-blur-sm rounded-2xl border border-white/20 hover:bg-white/20 transition-colors"
-                >
-                  <div className="w-10 h-10 rounded-full bg-[#38B6FF] flex items-center justify-center mb-4">
-                    <CheckCircle2 className="w-5 h-5 text-white" />
-                  </div>
-                  <p className="text-white font-medium">{result}</p>
-                </motion.div>
-              ))}
+        <div className="w-full px-8 lg:px-16 xl:px-24">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full mb-6">
+              <TrendingUp className="w-5 h-5 text-[#38B6FF]" />
+              <span className="text-white font-medium">Results & Impact</span>
             </div>
+            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6">
+              The Outcome
+            </h2>
+            <p className="text-white/80 text-lg max-w-3xl mx-auto">
+              Zepto successfully transitioned to a production-ready Google Workspace Enterprise Standard environment, with core security and collaboration features fully operational.
+            </p>
+          </motion.div>
+          
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {results.map((result, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className="p-6 bg-white/10 backdrop-blur-sm rounded-2xl border border-white/20 hover:bg-white/20 transition-colors"
+              >
+                <div className="w-10 h-10 rounded-full bg-[#38B6FF] flex items-center justify-center mb-4">
+                  <CheckCircle2 className="w-5 h-5 text-white" />
+                </div>
+                <p className="text-white font-medium">{result}</p>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
       <section className="py-16 sm:py-20">
-        <div className="container mx-auto px-4 sm:px-6">
+        <div className="w-full px-8 lg:px-16 xl:px-24">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
