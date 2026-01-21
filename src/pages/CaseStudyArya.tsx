@@ -1,287 +1,314 @@
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { useRef } from 'react';
-import { ArrowLeft, Building2, Users, Globe, CheckCircle2, Target, Lightbulb, Award, Leaf, Database, Shield, Cloud, Lock, Zap, Eye } from 'lucide-react';
-import { Link } from 'react-router-dom';
-import Header from '@/components/layout/Header';
-import Footer from '@/components/layout/Footer';
-import { Button } from '@/components/ui/button';
+import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
+import { motion } from "framer-motion";
+import { ArrowLeft, CheckCircle2, AlertTriangle, Lightbulb, TrendingUp, Leaf, Database, Shield, Cloud, Lock, Zap, Eye } from "lucide-react";
+import { Link } from "react-router-dom";
+import caseStudiesBanner from "@/assets/banners/case-studies-banner.jpg";
+import gcpBanner from "@/assets/banners/gcp-banner.jpg";
 
-import caseStudiesBanner from '@/assets/banners/case-studies-banner.jpg';
-
-function HeroSection() {
-  const ref = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ['start start', 'end start'],
-  });
-
-  const y = useTransform(scrollYProgress, [0, 1], ['0%', '30%']);
-  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
-
-  return (
-    <section ref={ref} className="relative min-h-[50vh] lg:min-h-[60vh] flex items-center overflow-hidden">
-      <motion.div style={{ y }} className="absolute inset-0 z-0">
-        <img src={caseStudiesBanner} alt="Arya.ag Case Study" className="w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0C4594]/95 via-[#0C4594]/85 to-[#0C4594]/60" />
-      </motion.div>
-
-      <motion.div style={{ opacity }} className="relative z-10 w-full px-6 sm:px-8 lg:px-16 xl:px-24 pt-32 pb-16">
-        <div className="max-w-4xl">
-          <Link to="/case-studies" className="inline-flex items-center gap-2 text-white/80 hover:text-white mb-6 transition-colors">
-            <ArrowLeft className="w-4 h-4" />
-            Back to Case Studies
-          </Link>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-white/90 text-sm mb-6"
-          >
-            <Leaf className="w-4 h-4" />
-            AgriTech / Fintech
-          </motion.div>
-
-          <motion.h1
-            initial={{ opacity: 0, y: 28 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="font-display text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-6 leading-[1.1]"
-          >
-            Arya.ag
-          </motion.h1>
-
-          <motion.p
-            initial={{ opacity: 0, y: 28 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.15 }}
-            className="text-lg lg:text-xl text-white/85 max-w-2xl leading-relaxed"
-          >
-            One of India's leading agritech platforms, modernizing cloud infrastructure to serve expansive warehousing, lending, and trading operations as an RBI-regulated entity.
-          </motion.p>
-        </div>
-      </motion.div>
-    </section>
-  );
-}
-
-function BusinessInfoStrip() {
-  const stats = [
-    { icon: Building2, label: 'Industry', value: 'AgriTech / Fintech' },
-    { icon: Shield, label: 'Regulation', value: 'RBI Compliant' },
-    { icon: Globe, label: 'Solution', value: 'Google Cloud' },
-    { icon: Award, label: 'Cost Reduction', value: '20%' },
+const CaseStudyArya = () => {
+  const highlights = [
+    "Cloud SQL with automated backups and PITR",
+    "Shared VPC for NBFC-regulated workload isolation",
+    "Cloud Armor protecting against DDoS attacks",
+    "Security Command Center Premium deployment",
+    "Secret Manager for secure credential storage",
+    "Cloud Trace for performance optimization"
   ];
 
-  return (
-    <section className="bg-gradient-to-r from-[#0C4594] to-[#1a5ab8] py-8">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-16">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
-          {stats.map((stat, index) => {
-            const Icon = stat.icon;
-            return (
-              <motion.div
-                key={stat.label}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="text-center"
-              >
-                <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-white/10 mb-3">
-                  <Icon className="w-6 h-6 text-white" />
-                </div>
-                <p className="text-white/70 text-sm mb-1">{stat.label}</p>
-                <p className="text-white font-semibold">{stat.value}</p>
-              </motion.div>
-            );
-          })}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function ChallengeSection() {
   const challenges = [
-    'Unmanaged databases with no disaster recovery plan',
-    'Inability to isolate regulated NBFC workloads from other services',
-    'Lack of centralized security visibility and threat response',
-    'Manual data pipelines slowing down business decision-making',
-    'Exposure to security threats, including DDoS attacks and mismanaged credentials',
+    "Unmanaged databases with no disaster recovery plan",
+    "Inability to isolate regulated NBFC workloads from other services",
+    "Lack of centralized security visibility and threat response"
   ];
 
-  return (
-    <section className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-16">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-red-50 rounded-full text-red-600 text-sm font-medium mb-6">
-              <Target className="w-4 h-4" />
-              The Challenge
-            </div>
-            <h2 className="text-3xl lg:text-4xl font-bold text-[#0C4594] mb-6">Scaling Fintech Infrastructure</h2>
-            <p className="text-gray-600 text-lg leading-relaxed mb-8">
-              As an RBI-regulated entity with expansive operations, Arya.ag needed robust solutions for compliance, scalability, performance, and security across their agritech platform.
-            </p>
-            
-            <ul className="space-y-4">
-              {challenges.map((challenge, index) => (
-                <motion.li
-                  key={index}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  whileHover={{ x: 5 }}
-                  className="flex items-start gap-3 p-3 rounded-lg hover:bg-red-50/50 transition-colors"
-                >
-                  <div className="w-6 h-6 rounded-full bg-red-100 flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <span className="w-2 h-2 rounded-full bg-red-500" />
-                  </div>
-                  <span className="text-gray-700">{challenge}</span>
-                </motion.li>
-              ))}
-            </ul>
-          </motion.div>
-
-          <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="relative">
-            <div className="aspect-square rounded-3xl bg-gradient-to-br from-green-50 to-emerald-50 p-8 flex items-center justify-center">
-              <div className="text-center">
-                <Leaf className="w-32 h-32 text-green-600 mx-auto mb-6" />
-                <p className="text-2xl font-bold text-[#0C4594]">AgriTech Innovation</p>
-                <p className="text-gray-600">RBI-Regulated Platform</p>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function SolutionSection() {
   const solutions = [
-    { icon: Database, title: 'Cloud SQL Deployment', description: 'Decoupled databases from VMs with automated backups and Point-In-Time Recovery (PITR).' },
-    { icon: Shield, title: 'Shared VPC Implementation', description: 'Isolated NBFC-regulated workloads for better audit readiness and compliance.' },
-    { icon: Cloud, title: 'Cloud Armor Security', description: 'Secured public endpoints by allowing only specific IPs and blocking DDoS traffic.' },
-    { icon: Eye, title: 'Security Command Center', description: 'Premium SCC for centralized security findings, alerting, and risk mitigation.' },
-    { icon: Lock, title: 'Secret Manager Adoption', description: 'Secure credential and API key storage, reducing data leak risks.' },
-    { icon: Zap, title: 'Performance Optimization', description: 'Cloud Trace for identifying service-level bottlenecks and real-time data processing.' },
+    "Cloud SQL deployment with automated backups and Point-In-Time Recovery",
+    "Shared VPC implementation for compliance and audit readiness",
+    "Security Command Center Premium for centralized risk mitigation"
   ];
 
-  return (
-    <section className="py-20 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-16">
-        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-green-50 rounded-full text-green-600 text-sm font-medium mb-6">
-            <Lightbulb className="w-4 h-4" />
-            The Solution
-          </div>
-          <h2 className="text-3xl lg:text-4xl font-bold text-[#0C4594] mb-4">Google Cloud Transformation</h2>
-          <p className="text-gray-600 text-lg max-w-2xl mx-auto">Modular architecture using Google Cloud services for security, compliance, and scalability.</p>
-        </motion.div>
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {solutions.map((solution, index) => {
-            const Icon = solution.icon;
-            return (
-              <motion.div
-                key={solution.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                whileHover={{ y: -5, scale: 1.02 }}
-                className="bg-white rounded-2xl p-6 shadow-lg shadow-gray-100 hover:shadow-xl transition-all group"
-              >
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                  <Icon className="w-6 h-6 text-white" />
-                </div>
-                <h3 className="text-xl font-bold text-[#0C4594] mb-2">{solution.title}</h3>
-                <p className="text-gray-600">{solution.description}</p>
-              </motion.div>
-            );
-          })}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function OutcomesSection() {
-  const outcomes = [
-    { metric: '20%', label: 'Infrastructure Cost Reduction' },
-    { metric: '99.9%', label: 'System Uptime' },
-    { metric: '100%', label: 'Compliance Achieved' },
-    { metric: '10x', label: 'Faster Recovery' },
+  const results = [
+    { label: "Cost Reduction", value: "20%" },
+    { label: "System Uptime", value: "99.9%" },
+    { label: "Compliance", value: "100%" },
+    { label: "Faster Recovery", value: "10x" }
   ];
 
-  return (
-    <section className="py-20 bg-gradient-to-br from-[#0C4594] to-[#1a5ab8]">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-16">
-        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-white text-sm font-medium mb-6">
-            <Award className="w-4 h-4" />
-            The Outcomes
-          </div>
-          <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4">Cloud Transformation Impact</h2>
-          <p className="text-white/80 text-lg max-w-2xl mx-auto">Arya.ag's cloud transformation delivered significant improvements across security, compliance, and operational efficiency.</p>
-        </motion.div>
-
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {outcomes.map((outcome, index) => (
-            <motion.div
-              key={outcome.label}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              whileHover={{ scale: 1.05 }}
-              className="text-center bg-white/10 backdrop-blur-sm rounded-2xl p-8"
-            >
-              <p className="text-4xl lg:text-5xl font-bold text-white mb-2">{outcome.metric}</p>
-              <p className="text-white/80">{outcome.label}</p>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function CTASection() {
-  return (
-    <section className="py-20 bg-white">
-      <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-16 text-center">
-        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-          <h2 className="text-3xl lg:text-4xl font-bold text-[#0C4594] mb-6">Ready to Modernize Your Cloud Infrastructure?</h2>
-          <p className="text-gray-600 text-lg mb-8">Let Shivaami Cloud Services help you achieve similar results with Google Cloud Platform.</p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button asChild size="lg" className="bg-[#0C4594] hover:bg-[#0C4594]/90">
-              <Link to="/contact">Get Started Today</Link>
-            </Button>
-            <Button asChild size="lg" variant="outline" className="border-[#0C4594] text-[#0C4594]">
-              <Link to="/case-studies">View More Case Studies</Link>
-            </Button>
-          </div>
-        </motion.div>
-      </div>
-    </section>
-  );
-}
-
-export default function CaseStudyArya() {
   return (
     <div className="min-h-screen bg-white">
       <Header />
-      <HeroSection />
-      <BusinessInfoStrip />
-      <ChallengeSection />
-      <SolutionSection />
-      <OutcomesSection />
-      <CTASection />
+      
+      {/* Hero Section with Background Image */}
+      <section 
+        className="relative min-h-[60vh] flex items-center bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `linear-gradient(to right, rgba(12, 69, 148, 0.95) 0%, rgba(12, 69, 148, 0.7) 50%, rgba(12, 69, 148, 0.4) 100%), url(${caseStudiesBanner})` }}
+      >
+        <div className="w-full px-8 lg:px-16 xl:px-24 pt-32 pb-16">
+          <Link 
+            to="/case-studies" 
+            className="inline-flex items-center gap-2 text-white/80 hover:text-white mb-6 transition-colors group"
+          >
+            <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
+            Back to Case Studies
+          </Link>
+          
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="max-w-3xl"
+          >
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 leading-tight">
+              Arya.ag Transformed with<br />
+              <span className="text-[#38B6FF]">Google Cloud Platform</span>
+            </h1>
+            
+            <p className="text-base sm:text-lg text-white/90 leading-relaxed max-w-2xl">
+              India's leading agritech platform modernized cloud infrastructure to serve expansive warehousing, lending, and trading operations as an RBI-regulated entity.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Business Info Strip */}
+      <section className="bg-gray-50 border-b border-gray-200">
+        <div className="w-full px-8 lg:px-16 xl:px-24">
+          <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-gray-200">
+            {[
+              { label: "Industry", value: "AgriTech / Fintech" },
+              { label: "Regulation", value: "RBI Compliant" },
+              { label: "Solution", value: "Google Cloud" },
+              { label: "Cost Reduction", value: "20%" }
+            ].map((item, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className="py-5 px-4 text-center"
+              >
+                <p className="text-xs text-gray-500 mb-1">{item.label}</p>
+                <p className="text-sm sm:text-base font-bold text-[#0C4594]">{item.value}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Implementation Highlights with Image */}
+      <section className="py-12 sm:py-16">
+        <div className="w-full px-8 lg:px-16 xl:px-24">
+          <div className="grid lg:grid-cols-2 gap-8 items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+            >
+              <h2 className="text-2xl sm:text-3xl font-bold text-[#0C4594] mb-3">
+                What We Implemented
+              </h2>
+              <div className="w-16 h-1 bg-gradient-to-r from-[#0C4594] to-[#38B6FF] rounded-full mb-6" />
+              
+              <div className="grid sm:grid-cols-2 gap-3">
+                {highlights.map((item, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.05 }}
+                    className="flex items-start gap-2 p-3 bg-gradient-to-br from-[#0C4594]/5 to-[#38B6FF]/5 rounded-lg border border-[#0C4594]/10"
+                  >
+                    <CheckCircle2 className="w-4 h-4 text-[#38B6FF] flex-shrink-0 mt-0.5" />
+                    <span className="text-sm text-gray-700">{item}</span>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="relative rounded-2xl overflow-hidden shadow-xl"
+            >
+              <img 
+                src={gcpBanner} 
+                alt="Google Cloud Platform Implementation" 
+                className="w-full h-64 lg:h-80 object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0C4594]/60 to-transparent" />
+              <div className="absolute bottom-4 left-4 right-4">
+                <p className="text-white font-medium text-sm">RBI-compliant cloud infrastructure</p>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Challenges & Solutions - Compact */}
+      <section className="py-12 sm:py-16 bg-gray-50">
+        <div className="w-full px-8 lg:px-16 xl:px-24">
+          <div className="grid md:grid-cols-2 gap-8">
+            {/* Challenges */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+            >
+              <motion.div 
+                className="flex items-center gap-2 mb-4"
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4 }}
+              >
+                <motion.div 
+                  className="w-10 h-10 rounded-lg bg-red-100 flex items-center justify-center"
+                  whileHover={{ scale: 1.1, rotate: 5 }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                >
+                  <AlertTriangle className="w-5 h-5 text-red-600" />
+                </motion.div>
+                <h2 className="text-xl font-bold text-[#0C4594]">Challenges</h2>
+              </motion.div>
+              
+              <div className="space-y-3">
+                {challenges.map((challenge, index) => (
+                  <motion.div 
+                    key={index} 
+                    className="p-3 bg-white rounded-lg border-l-4 border-red-400 shadow-sm hover:shadow-md hover:border-red-500 transition-all cursor-default"
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.15, duration: 0.4 }}
+                    whileHover={{ x: 5, scale: 1.02 }}
+                  >
+                    <p className="text-sm text-gray-700">{challenge}</p>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Solutions */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+            >
+              <motion.div 
+                className="flex items-center gap-2 mb-4"
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: 0.2 }}
+              >
+                <motion.div 
+                  className="w-10 h-10 rounded-lg bg-green-100 flex items-center justify-center"
+                  whileHover={{ scale: 1.1, rotate: -5 }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                >
+                  <Lightbulb className="w-5 h-5 text-green-600" />
+                </motion.div>
+                <h2 className="text-xl font-bold text-[#0C4594]">Solutions</h2>
+              </motion.div>
+              
+              <div className="space-y-3">
+                {solutions.map((solution, index) => (
+                  <motion.div 
+                    key={index} 
+                    className="p-3 bg-white rounded-lg border-l-4 border-green-500 shadow-sm hover:shadow-md hover:border-green-600 transition-all cursor-default"
+                    initial={{ opacity: 0, x: 20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.2 + index * 0.15, duration: 0.4 }}
+                    whileHover={{ x: -5, scale: 1.02 }}
+                  >
+                    <p className="text-sm text-gray-700">{solution}</p>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Results */}
+      <section className="py-12 sm:py-16 bg-gradient-to-br from-[#0C4594] to-[#1a5cb8]">
+        <div className="w-full px-8 lg:px-16 xl:px-24">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-8"
+          >
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-white/10 backdrop-blur-sm rounded-full mb-4">
+              <TrendingUp className="w-4 h-4 text-[#38B6FF]" />
+              <span className="text-white text-sm font-medium">Results & Impact</span>
+            </div>
+            <h2 className="text-2xl sm:text-3xl font-bold text-white">
+              The Outcome
+            </h2>
+          </motion.div>
+          
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+            {results.map((result, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className="p-5 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20 text-center"
+              >
+                <p className="text-2xl sm:text-3xl font-bold text-[#38B6FF] mb-1">{result.value}</p>
+                <p className="text-white/80 text-sm">{result.label}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-12 sm:py-16">
+        <div className="w-full px-8 lg:px-16 xl:px-24">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center"
+          >
+            <h2 className="text-2xl sm:text-3xl font-bold text-[#0C4594] mb-3">
+              Ready to Transform Your Cloud Infrastructure?
+            </h2>
+            <p className="text-gray-600 mb-6 max-w-xl mx-auto">
+              Let Shivaami help you achieve similar results with Google Cloud Platform.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-3 justify-center">
+              <Link
+                to="/contact"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-[#0C4594] to-[#38B6FF] text-white font-semibold rounded-full hover:shadow-lg transition-all"
+              >
+                Get Started Today
+              </Link>
+              <Link
+                to="/case-studies"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 border-2 border-[#0C4594] text-[#0C4594] font-semibold rounded-full hover:bg-[#0C4594] hover:text-white transition-all"
+              >
+                View More Case Studies
+              </Link>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       <Footer />
     </div>
   );
-}
+};
+
+export default CaseStudyArya;
