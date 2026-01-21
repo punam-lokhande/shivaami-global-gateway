@@ -68,23 +68,23 @@ export default function Footer() {
     <footer ref={ref} className="bg-background text-foreground">
       {/* Newsletter Section */}
       <div className="border-b border-border/30">
-        <div className="container mx-auto px-4 py-12">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="w-full px-6 sm:px-8 lg:px-16 xl:px-24 py-12">
+          <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
             <div>
               <h3 className="font-display text-xl font-bold text-foreground mb-2">
                 Stay Updated
               </h3>
-              <p className="text-muted-foreground">
+              <p className="text-muted-foreground text-sm sm:text-base">
                 Get the latest cloud insights and industry news delivered to your inbox.
               </p>
             </div>
-            <form className="flex gap-2 w-full md:w-auto">
+            <form className="flex flex-col sm:flex-row gap-3 w-full lg:w-auto">
               <Input
                 type="email"
                 placeholder="Enter your email"
-                className="bg-secondary border-border text-foreground placeholder:text-muted-foreground w-full md:w-64"
+                className="bg-secondary border-border text-foreground placeholder:text-muted-foreground w-full sm:w-64"
               />
-              <Button className="bg-primary hover:bg-primary/90 text-primary-foreground">
+              <Button className="bg-primary hover:bg-primary/90 text-primary-foreground whitespace-nowrap">
                 Subscribe
                 <ArrowRight className="ml-2 w-4 h-4" />
               </Button>
@@ -94,10 +94,10 @@ export default function Footer() {
       </div>
 
       {/* Main Footer */}
-      <div className="container mx-auto px-4 py-16">
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 mb-12">
-          {/* Logo & Contact - Both Regions */}
-          <div className="col-span-2 md:col-span-3 lg:col-span-1">
+      <div className="w-full px-6 sm:px-8 lg:px-16 xl:px-24 py-12 lg:py-16">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-8 lg:gap-6 xl:gap-8 mb-12">
+          {/* Logo & Contact */}
+          <div className="col-span-2 sm:col-span-3 lg:col-span-1">
             <div className="flex items-center gap-2 mb-6">
               <div className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center">
                 <span className="text-primary-foreground font-bold text-xl">S</span>
@@ -109,12 +109,12 @@ export default function Footer() {
               <div className="space-y-2">
                 <h5 className="font-semibold text-foreground text-xs uppercase tracking-wide">India</h5>
                 <a href="tel:+917757841333" className="flex items-center gap-2 hover:text-foreground transition-colors">
-                  <Phone className="w-4 h-4" />
-                  +91 775 784 1333
+                  <Phone className="w-4 h-4 flex-shrink-0" />
+                  <span>+91 775 784 1333</span>
                 </a>
                 <p className="flex items-start gap-2">
                   <MapPin className="w-4 h-4 mt-0.5 flex-shrink-0" />
-                  <span>1001, 10th Floor, Runwal R Square, LBS Road, Mulund West, Mumbai - 400080</span>
+                  <span className="text-xs sm:text-sm leading-relaxed">1001, 10th Floor, Runwal R Square, LBS Road, Mulund West, Mumbai - 400080</span>
                 </p>
               </div>
               
@@ -122,12 +122,12 @@ export default function Footer() {
               <div className="space-y-2">
                 <h5 className="font-semibold text-foreground text-xs uppercase tracking-wide">USA</h5>
                 <a href="tel:+14083334844" className="flex items-center gap-2 hover:text-foreground transition-colors">
-                  <Phone className="w-4 h-4" />
-                  +1 408 333 4844
+                  <Phone className="w-4 h-4 flex-shrink-0" />
+                  <span>+1 408 333 4844</span>
                 </a>
                 <p className="flex items-start gap-2">
                   <MapPin className="w-4 h-4 mt-0.5 flex-shrink-0" />
-                  <span>33 S Wood Avenue, Suite 439, Iselin, New Jersey - 08830</span>
+                  <span className="text-xs sm:text-sm leading-relaxed">33 S Wood Avenue, Suite 439, Iselin, New Jersey - 08830</span>
                 </p>
               </div>
             </div>
@@ -144,7 +144,7 @@ export default function Footer() {
                   <li key={link.label}>
                     <Link
                       to={link.href}
-                      className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                      className="text-xs sm:text-sm text-muted-foreground hover:text-foreground transition-colors"
                     >
                       {link.label}
                     </Link>
@@ -156,8 +156,8 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-border/30 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-sm text-muted-foreground">
+        <div className="pt-8 border-t border-border/30 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p className="text-xs sm:text-sm text-muted-foreground text-center sm:text-left">
             © {new Date().getFullYear()} Shivaami Cloud Services. All rights reserved.
           </p>
           <div className="flex items-center gap-4">
@@ -171,7 +171,7 @@ export default function Footer() {
               <Youtube className="w-5 h-5" />
             </a>
           </div>
-          <div className="flex items-center gap-4 text-sm text-muted-foreground">
+          <div className="flex items-center gap-4 text-xs sm:text-sm text-muted-foreground">
             <Link to="/privacy-policy" className="hover:text-foreground transition-colors">Privacy Policy</Link>
             <Link to="/terms-of-service" className="hover:text-foreground transition-colors">Terms of Service</Link>
           </div>
