@@ -49,7 +49,7 @@ const industries = [
       { name: '1mg', description: "Leader in India's health-tech sector providing digital healthcare platform.", slug: '1mg' },
       { name: 'Intas Pharmaceuticals', description: 'Leading multinational pharmaceutical formulation company.', slug: 'intas' },
       { name: 'Micro Labs', description: 'Multi-faceted healthcare organization with state-of-the-art facilities.', slug: 'microlabs' },
-      { name: 'Sitapur Eye Hospital', description: 'Leading Tertiary care eye institute serving millions of patients.' },
+      { name: 'Sitapur Eye Hospital', description: 'Leading Tertiary care eye institute serving millions of patients.', slug: 'sitapur-eye-hospital' },
       { name: 'Prism', description: 'Working hand in hand with the medical fraternity for better healthcare.', slug: 'prism' },
       { name: 'Dhani', description: 'Digital healthcare and transactional services at scale.', slug: 'dhani' },
     ]
@@ -102,7 +102,7 @@ const industries = [
       { name: 'GRP Ltd', description: "37 years' experience in reclaimed rubber industry.", slug: 'grp' },
       { name: 'Imperial', description: 'Leading suppliers with state of art manufacturing in Kolkata.', slug: 'imperial' },
       { name: 'Permacel', description: 'Indian leader in tapes manufacturing since 1950s.', slug: 'permacel' },
-      { name: 'Merino India', description: 'Versatile manufacturer of interior solutions.' },
+      { name: 'Merino India', description: 'Versatile manufacturer of interior solutions.', slug: 'merino-india' },
       { name: 'Amkette', description: 'Single-source solution for laboratory instrumentation.', logo: amketteLogo, slug: 'amkette' },
     ]
   },
@@ -113,7 +113,7 @@ const industries = [
     color: '#22C55E',
     caseStudies: [
       { name: 'Arya.ag', description: 'Connecting agri-produce buyers and sellers with quality assurance.', logo: aryaLogo, slug: 'arya' },
-      { name: 'Payal Group', description: 'Leading agricultural solutions with R&D focus.' },
+      { name: 'Payal Group', description: 'Leading agricultural solutions with R&D focus.', slug: 'payal-group' },
     ]
   },
   {

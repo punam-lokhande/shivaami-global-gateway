@@ -94,6 +94,7 @@ import CaseStudySenseselec from "./pages/CaseStudySenseselec";
 import CaseStudyPRARealty from "./pages/CaseStudyPRARealty";
 import CaseStudySoleGroup from "./pages/CaseStudySoleGroup";
 import CaseStudyICTOnline from "./pages/CaseStudyICTOnline";
+import CaseStudyMerinoIndia from "./pages/CaseStudyMerinoIndia";
 import Leadership from "./pages/Leadership";
 import Contact from "./pages/Contact";
 import Careers from "./pages/Careers";
@@ -218,6 +219,7 @@ const App = () => (
               <Route path="/case-studies/imperial" element={<CaseStudyImperial />} />
               <Route path="/case-studies/permacel" element={<CaseStudyPermacel />} />
               <Route path="/case-studies/amkette" element={<CaseStudyAmkette />} />
+              <Route path="/case-studies/merino-india" element={<CaseStudyMerinoIndia />} />
               <Route path="/case-studies/senseselec" element={<CaseStudySenseselec />} />
               <Route path="/case-studies/pra-realty" element={<CaseStudyPRARealty />} />
               <Route path="/case-studies/sole-group" element={<CaseStudySoleGroup />} />
