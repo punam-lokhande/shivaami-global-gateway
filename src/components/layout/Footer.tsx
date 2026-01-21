@@ -35,7 +35,7 @@ const footerLinks = {
       { label: 'ChangePath', href: '/changepath' },
       { label: 'Apps Script', href: '/apps-script' },
       { label: 'Case Studies', href: '/case-studies' },
-      { label: 'On-Demand Webinars', href: '/on-demand-webinars' },
+      { label: 'Webinar', href: '/on-demand-webinars' },
       { label: 'Newsletter', href: '/newsletter' },
     ],
   },

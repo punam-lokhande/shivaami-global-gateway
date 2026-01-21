@@ -7,7 +7,7 @@ import WhyShivaamiSection from '@/components/sections/WhyShivaamiSection';
 import TestimonialsSection from '@/components/sections/TestimonialsSection';
 import PartnersSection from '@/components/sections/PartnersSection';
 import IndustriesSection from '@/components/sections/IndustriesSection';
-import BrandsSection from '@/components/sections/BrandsSection';
+
 import AchievementsSection from '@/components/sections/AchievementsSection';
 import CTASection from '@/components/sections/CTASection';
 
@@ -23,7 +23,7 @@ const Index = () => {
         <TestimonialsSection />
         <PartnersSection />
         <IndustriesSection />
-        <BrandsSection />
+        
         <AchievementsSection />
         <CTASection />
       </main>
