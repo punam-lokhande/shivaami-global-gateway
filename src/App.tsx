@@ -77,6 +77,7 @@ import CaseStudyFlovel from "./pages/CaseStudyFlovel";
 import CaseStudyRRGlobal from "./pages/CaseStudyRRGlobal";
 import CaseStudyDHSecheron from "./pages/CaseStudyDHSecheron";
 import CaseStudyiOPEX from "./pages/CaseStudyiOPEX";
+import CaseStudyPayalGroup from "./pages/CaseStudyPayalGroup";
 import Leadership from "./pages/Leadership";
 import Contact from "./pages/Contact";
 import Careers from "./pages/Careers";
@@ -188,6 +189,7 @@ const App = () => (
               <Route path="/case-studies/rr-global" element={<CaseStudyRRGlobal />} />
               <Route path="/case-studies/dh-secheron" element={<CaseStudyDHSecheron />} />
               <Route path="/case-studies/iopex" element={<CaseStudyiOPEX />} />
+              <Route path="/case-studies/payal-group" element={<CaseStudyPayalGroup />} />
               <Route path="/leadership" element={<Leadership />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/careers" element={<Careers />} />
