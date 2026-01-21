@@ -296,14 +296,11 @@ export default function MegaMenu({ activeKey, anchorRect, onClose }: MegaMenuPro
                   {section.title}
                 </h3>
                 <ul className="space-y-1">
-                {section.items.map((item, itemIdx) => {
+                  {section.items.map((item, itemIdx) => {
                     const Icon = item.icon;
                     const hasSubItems = item.subItems && item.subItems.length > 0;
                     const itemKey = `${section.title}-${item.label}`;
                     const isHovered = hoveredItem === itemKey;
-                    
-                    // Render subheading labels for items with subItems
-                    const showSubheading = hasSubItems && item.label;
                     
                     // Handle page link items (like Cloud Capabilities)
                     if (item.isPageLink) {
@@ -342,13 +339,6 @@ export default function MegaMenu({ activeKey, anchorRect, onClose }: MegaMenuPro
                         onMouseEnter={() => setHoveredItem(itemKey)}
                         onMouseLeave={() => setHoveredItem(null)}
                       >
-                        {showSubheading && (
-                          <div className="px-2 py-1.5 mb-1">
-                            <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wide">
-                              {item.label}
-                            </span>
-                          </div>
-                        )}
                         <a
                           href={item.href || "#"}
                           onClick={(e) => {
