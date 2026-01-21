@@ -35,7 +35,7 @@ function HeroSection() {
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
   return (
-    <section ref={ref} className="relative min-h-[60vh] sm:min-h-[65vh] md:min-h-[70vh] lg:h-[70vh] lg:min-h-[500px] lg:max-h-[600px] flex items-center overflow-hidden">
+    <section ref={ref} className="relative min-h-[60vh] md:min-h-[65vh] lg:min-h-[70vh] max-h-[700px] flex items-center overflow-hidden">
       <motion.div 
         style={{ y }}
         className="absolute inset-0 z-0"
@@ -50,7 +50,7 @@ function HeroSection() {
         <div className="absolute inset-0 bg-gradient-to-t from-[#0C4594]/60 via-transparent to-[#0C4594]/40" />
       </motion.div>
 
-      <motion.div style={{ opacity }} className="relative z-10 w-full px-6 sm:px-8 lg:px-16 xl:px-24 pt-20 sm:pt-24 lg:pt-28">
+      <motion.div style={{ opacity }} className="relative z-10 w-full px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24 pt-20 sm:pt-24 lg:pt-28">
         <div className="max-w-3xl">
 
           <motion.h1
@@ -77,10 +77,10 @@ function HeroSection() {
             animate={{ opacity: 1, y: 0 }} 
             transition={{ duration: 0.6, delay: 0.3 }}
           >
-            <Link to="/contact">
+            <Link to="/contact" className="block w-full sm:w-auto">
               <Button
                 size="lg"
-                className="bg-[#38B6FF] hover:bg-[#2da8f0] text-white font-semibold px-8 py-6 text-base group rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
+                className="bg-[#38B6FF] hover:bg-[#2da8f0] text-white font-semibold px-6 sm:px-8 py-5 sm:py-6 text-sm sm:text-base w-full sm:w-auto whitespace-normal text-center group rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
               >
                 <MessageSquare className="w-5 h-5 mr-2" />
                 Connect with Finance IT Experts
