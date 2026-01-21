@@ -58,17 +58,17 @@ export default function Newsletter() {
 
       <Header />
 
-      <main className="min-h-screen bg-gradient-to-br from-[#0C4594] via-[#1a5ab8] to-[#0C4594]">
+      <main className="min-h-screen bg-gradient-to-br from-slate-50 to-white">
         {/* Hero Section */}
         <section className="relative pt-32 pb-20 overflow-hidden">
           {/* Background Pattern */}
-          <div className="absolute inset-0 opacity-10">
+          <div className="absolute inset-0 opacity-5">
             <div className="absolute top-20 left-10 w-72 h-72 bg-[#38B6FF] rounded-full blur-3xl" />
-            <div className="absolute bottom-20 right-10 w-96 h-96 bg-white rounded-full blur-3xl" />
+            <div className="absolute bottom-20 right-10 w-96 h-96 bg-[#0C4594] rounded-full blur-3xl" />
           </div>
 
-          <div className="w-full px-6 sm:px-8 lg:px-16 xl:px-24 relative z-10">
-            <div className="max-w-6xl">
+          <div className="container mx-auto px-4 relative z-10">
+            <div className="max-w-4xl mx-auto">
               <div className="grid lg:grid-cols-2 gap-12 items-center">
                 {/* Left Content */}
                 <motion.div
@@ -76,22 +76,22 @@ export default function Newsletter() {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.6 }}
                 >
-                  <div className="inline-flex items-center gap-2 bg-white/20 text-white px-4 py-2 rounded-full text-sm font-medium mb-6">
+                  <div className="inline-flex items-center gap-2 bg-[#38B6FF]/10 text-[#0C4594] px-4 py-2 rounded-full text-sm font-medium mb-6">
                     <Mail className="w-4 h-4" />
                     Monthly Newsletter
                   </div>
 
-                  <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+                  <h1 className="text-4xl md:text-5xl font-bold text-[#0C4594] mb-4">
                     Never Miss an Update
                   </h1>
 
-                  <p className="text-xl text-white/80 mb-8">
+                  <p className="text-xl text-slate-600 mb-8">
                     Get the latest IT insights and Shivaami news delivered monthly.
                   </p>
 
                   {/* Benefits List */}
                   <div className="space-y-4 mb-8">
-                    <h3 className="text-lg font-semibold text-white">What You'll Get:</h3>
+                    <h3 className="text-lg font-semibold text-slate-800">What You'll Get:</h3>
                     {benefits.map((benefit, index) => (
                       <motion.div
                         key={index}
@@ -100,10 +100,10 @@ export default function Newsletter() {
                         transition={{ delay: 0.2 + index * 0.1 }}
                         className="flex items-center gap-3"
                       >
-                        <div className="w-10 h-10 rounded-lg bg-white/20 flex items-center justify-center flex-shrink-0">
-                          <benefit.icon className="w-5 h-5 text-white" />
+                        <div className="w-10 h-10 rounded-lg bg-[#38B6FF]/10 flex items-center justify-center flex-shrink-0">
+                          <benefit.icon className="w-5 h-5 text-[#0C4594]" />
                         </div>
-                        <span className="text-white/90">{benefit.title}</span>
+                        <span className="text-slate-700">{benefit.title}</span>
                       </motion.div>
                     ))}
                   </div>
