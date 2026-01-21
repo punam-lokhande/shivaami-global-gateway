@@ -20,6 +20,7 @@ const navItems = [
   { label: 'Industries', hasMenu: true, key: 'industries' },
   { label: 'Resources', hasMenu: true, key: 'resources' },
   { label: 'About Us', hasMenu: true, key: 'about' },
+  { label: 'Shop', hasMenu: false, key: 'shop', href: 'https://www.shivaami.com/shop/' },
 ];
 
 export default function Header() {
@@ -133,23 +134,34 @@ export default function Header() {
                     setMenuAnchor({ left: rect.left, width: rect.width, bottom: rect.bottom });
                   }}
                 >
-                  <a
-                    href={`#${item.key}`}
-                    className={`flex items-center gap-1.5 px-4 py-2.5 text-sm font-medium transition-all duration-200 ${
-                      activeMenu === item.key 
-                        ? 'text-primary' 
-                        : 'text-foreground/80 hover:text-primary'
-                    }`}
-                  >
-                    {item.label}
-                    {item.hasMenu && (
-                      <ChevronDown 
-                        className={`w-4 h-4 transition-transform duration-200 ${
-                          activeMenu === item.key ? 'rotate-180' : ''
-                        }`} 
-                      />
-                    )}
-                  </a>
+                  {item.href ? (
+                    <a
+                      href={item.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-1.5 px-4 py-2.5 text-sm font-medium transition-all duration-200 text-foreground/80 hover:text-primary"
+                    >
+                      {item.label}
+                    </a>
+                  ) : (
+                    <a
+                      href={`#${item.key}`}
+                      className={`flex items-center gap-1.5 px-4 py-2.5 text-sm font-medium transition-all duration-200 ${
+                        activeMenu === item.key 
+                          ? 'text-primary' 
+                          : 'text-foreground/80 hover:text-primary'
+                      }`}
+                    >
+                      {item.label}
+                      {item.hasMenu && (
+                        <ChevronDown 
+                          className={`w-4 h-4 transition-transform duration-200 ${
+                            activeMenu === item.key ? 'rotate-180' : ''
+                          }`} 
+                        />
+                      )}
+                    </a>
+                  )}
                 </div>
               ))}
               

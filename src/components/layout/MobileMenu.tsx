@@ -36,7 +36,7 @@ const mobileMenuData = [
         ],
       },
       {
-        title: 'Safer Solutions',
+        title: 'Safer Security',
         items: [
           { 
             name: 'Identity & Device', 
@@ -96,7 +96,7 @@ const mobileMenuData = [
         ],
       },
       {
-        title: 'Smoother Solutions',
+        title: 'Smoother Services',
         items: [
           { label: 'SwiftMove', href: '/swiftmove' },
           { label: 'Pulse360', href: '/pulse360' },
@@ -158,6 +158,12 @@ const mobileMenuData = [
       },
     ],
   },
+  {
+    key: 'shop',
+    label: 'Shop',
+    href: 'https://www.shivaami.com/shop/',
+    external: true,
+  },
 ];
 
 export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
@@ -191,22 +197,33 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
           className="lg:hidden bg-card border-b border-border overflow-hidden"
         >
           <div className="container mx-auto px-4 py-4 max-h-[70vh] overflow-y-auto">
-            {mobileMenuData.map((menuItem) => (
+            {mobileMenuData.map((menuItem: any) => (
               <div key={menuItem.key} className="border-b border-border/50 last:border-b-0">
-                <button
-                  onClick={() => toggleMenu(menuItem.key)}
-                  className="flex items-center justify-between w-full py-3 text-foreground font-medium"
-                >
-                  <span>{menuItem.label}</span>
-                  <ChevronDown 
-                    className={`w-5 h-5 transition-transform duration-200 ${
-                      expandedMenu === menuItem.key ? 'rotate-180' : ''
-                    }`} 
-                  />
-                </button>
-                
+                {menuItem.external ? (
+                  <a
+                    href={menuItem.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-between w-full py-3 text-foreground font-medium hover:text-primary transition-colors"
+                  >
+                    <span>{menuItem.label}</span>
+                  </a>
+                ) : (
+                  <button
+                    onClick={() => toggleMenu(menuItem.key)}
+                    className="flex items-center justify-between w-full py-3 text-foreground font-medium"
+                  >
+                    <span>{menuItem.label}</span>
+                    <ChevronDown 
+                      className={`w-5 h-5 transition-transform duration-200 ${
+                        expandedMenu === menuItem.key ? 'rotate-180' : ''
+                      }`} 
+                    />
+                  </button>
+                )}
+                {!menuItem.external && (
                 <AnimatePresence>
-                  {expandedMenu === menuItem.key && (
+                  {expandedMenu === menuItem.key && menuItem.sections && (
                     <motion.div
                       initial={{ opacity: 0, height: 0 }}
                       animate={{ opacity: 1, height: 'auto' }}
@@ -214,7 +231,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                       transition={{ duration: 0.2 }}
                       className="pb-3"
                     >
-                      {menuItem.sections.map((section) => (
+                      {menuItem.sections.map((section: any) => (
                         <div key={section.title} className="ml-3 mt-2">
                           <button
                             onClick={() => toggleSection(section.title)}
@@ -310,6 +327,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                     </motion.div>
                   )}
                 </AnimatePresence>
+                )}
               </div>
             ))}
             

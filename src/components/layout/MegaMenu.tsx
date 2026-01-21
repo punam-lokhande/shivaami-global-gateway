@@ -56,7 +56,7 @@ const menuContent: Record<string, MenuContent> = {
     title: 'Solutions & Services',
     image: 'https://images.unsplash.com/photo-1551434678-e076c223a692?w=400&h=300&fit=crop',
     imageAlt: 'Modern office collaboration',
-    cta: { label: 'View All Solutions', href: '/solutions' },
+    cta: undefined,
     sections: [
       {
         title: 'Smarter Solutions',
@@ -84,7 +84,7 @@ const menuContent: Record<string, MenuContent> = {
         ],
       },
       {
-        title: 'Safer Solutions',
+        title: 'Safer Security',
         items: [
           { 
             icon: Shield, 
@@ -163,7 +163,7 @@ const menuContent: Record<string, MenuContent> = {
         ],
       },
       {
-        title: 'Smoother Solutions',
+        title: 'Smoother Services',
         items: [
           { icon: Zap, label: 'SwiftMove', desc: 'Seamless cloud migration', href: '/swiftmove' },
           { icon: Users, label: 'Pulse360', desc: 'Managed IT services', href: '/pulse360' },
@@ -179,7 +179,7 @@ const menuContent: Record<string, MenuContent> = {
     title: 'Industries',
     image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400&h=300&fit=crop',
     imageAlt: 'Modern business buildings',
-    cta: { label: 'Explore All Industries', href: '/industries' },
+    cta: undefined,
     sections: [
       {
         title: 'Industries We Serve',
@@ -200,7 +200,7 @@ const menuContent: Record<string, MenuContent> = {
     title: 'Resources',
     image: 'https://images.unsplash.com/photo-1553877522-43269d4ea984?w=400&h=300&fit=crop',
     imageAlt: 'Team collaboration and learning',
-    cta: { label: 'Browse Resources', href: '/resources' },
+    cta: undefined,
     sections: [
       {
         title: 'Learn & Explore',
