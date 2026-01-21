@@ -134,8 +134,8 @@ const mobileMenuData = [
         title: 'Learn & Explore',
         items: [
           { label: 'Case Studies', href: '/case-studies' },
-          { label: 'Blogs', href: 'https://www.shivaami.com/blog/', external: true },
-          { label: 'On-Demand Webinars', href: '/on-demand-webinars' },
+          { label: 'Blog', href: 'https://www.shivaami.com/blog/', external: true },
+          { label: 'Webinar', href: '/on-demand-webinars' },
           { label: 'Newsletter', href: '/newsletter' },
         ],
       },
