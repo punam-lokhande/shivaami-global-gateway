@@ -33,11 +33,11 @@ const industries = [
       { name: 'Datametica', description: 'World leader in enterprise data warehouse migration to the Cloud.', slug: 'datametica' },
       { name: 'Mindgate Solutions', description: 'Leading payments revolution with innovative fintech solutions.', slug: 'mindgate' },
       { name: 'CedCommerce', description: 'Revolutionizing eCommerce integration and multi-channel selling.', logo: cedcommerceLogo, slug: 'cedcommerce' },
-      { name: 'Schemax', description: 'Software product and technology services company based in India.' },
+      { name: 'Schemax', description: 'Software product and technology services company based in India.', slug: 'schemax' },
       { name: 'iOPEX Technologies', description: 'Rapid expansion supporting 60% annual global growth.', slug: 'iopex' },
-      { name: 'Shaurya Technosoft', description: 'Rapidly expanding software development company in Pune.' },
-      { name: 'Emxcel Solutions', description: 'Helping companies reach new heights with digital transformation.' },
-      { name: 'Nelito Systems', description: 'Software products & services for Banking and Financial Services.' },
+      { name: 'Shaurya Technosoft', description: 'Rapidly expanding software development company in Pune.', slug: 'shaurya-technosoft' },
+      { name: 'Emxcel Solutions', description: 'Helping companies reach new heights with digital transformation.', slug: 'emxcel' },
+      { name: 'Nelito Systems', description: 'Software products & services for Banking and Financial Services.', slug: 'nelito' },
     ]
   },
   {
