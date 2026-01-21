@@ -162,7 +162,7 @@ const OnDemandWebinars = () => {
                         ? 'bg-white text-[#0C4594] font-semibold animate-pulse' 
                         : 'bg-white/20 text-white'
                     }`}>
-                      {webinar.status === 'upcoming' ? '🔴 Live Soon' : 'On-Demand'}
+                      {webinar.status === 'upcoming' ? '🟢 Live Soon' : 'On-Demand'}
                     </span>
                   </div>
                   <h3 className="text-lg font-bold text-white mt-2 line-clamp-2">
