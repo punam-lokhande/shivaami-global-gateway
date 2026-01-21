@@ -76,9 +76,10 @@ export default function Newsletter() {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.6 }}
                 >
-                  <div className="inline-flex items-center gap-2 bg-[#38B6FF]/10 text-[#0C4594] px-4 py-2 rounded-full text-sm font-medium mb-6">
-                    <Mail className="w-4 h-4" />
-                    Monthly Newsletter
+                  <div className="flex items-center gap-3 mb-6">
+                    <span className="text-sm font-medium text-[#0C4594]">Stay Updated</span>
+                    <div className="h-px w-12 bg-[#38B6FF]" />
+                    <span className="text-sm font-medium text-slate-500">Newsletter</span>
                   </div>
 
                   <h1 className="text-4xl md:text-5xl font-bold text-[#0C4594] mb-4">
