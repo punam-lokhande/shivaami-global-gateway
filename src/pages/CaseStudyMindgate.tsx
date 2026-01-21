@@ -1,281 +1,183 @@
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { useRef } from 'react';
-import { ArrowLeft, Building2, Users, Globe, CheckCircle2, Target, Lightbulb, Award, CreditCard, Smartphone, Shield } from 'lucide-react';
-import { Link } from 'react-router-dom';
-import Header from '@/components/layout/Header';
-import Footer from '@/components/layout/Footer';
-import { Button } from '@/components/ui/button';
+import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
+import { motion } from "framer-motion";
+import { ArrowLeft, CheckCircle2, AlertTriangle, Lightbulb, TrendingUp } from "lucide-react";
+import { Link } from "react-router-dom";
+import caseStudiesBanner from "@/assets/banners/case-studies-banner.jpg";
+import googleWorkspaceBanner from "@/assets/banners/google-workspace-banner.jpg";
 
-import caseStudiesBanner from '@/assets/banners/case-studies-banner.jpg';
-
-function HeroSection() {
-  const ref = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ['start start', 'end start'],
-  });
-
-  const y = useTransform(scrollYProgress, [0, 1], ['0%', '30%']);
-  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
-
-  return (
-    <section ref={ref} className="relative min-h-[50vh] lg:min-h-[60vh] flex items-center overflow-hidden">
-      <motion.div style={{ y }} className="absolute inset-0 z-0">
-        <img src={caseStudiesBanner} alt="Mindgate Solutions Case Study" className="w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0C4594]/95 via-[#0C4594]/85 to-[#0C4594]/60" />
-      </motion.div>
-
-      <motion.div style={{ opacity }} className="relative z-10 w-full px-6 sm:px-8 lg:px-16 xl:px-24 pt-32 pb-16">
-        <div className="max-w-4xl">
-          <Link to="/case-studies" className="inline-flex items-center gap-2 text-white/80 hover:text-white mb-6 transition-colors">
-            <ArrowLeft className="w-4 h-4" />
-            Back to Case Studies
-          </Link>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-white/90 text-sm mb-6"
-          >
-            <CreditCard className="w-4 h-4" />
-            Technology & FinTech
-          </motion.div>
-
-          <motion.h1
-            initial={{ opacity: 0, y: 28 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="font-display text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-6 leading-[1.1]"
-          >
-            Mindgate Solutions
-          </motion.h1>
-
-          <motion.p
-            initial={{ opacity: 0, y: 28 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.15 }}
-            className="text-lg lg:text-xl text-white/85 max-w-2xl leading-relaxed"
-          >
-            Leading the payments revolution with innovative fintech solutions powering digital transactions across India.
-          </motion.p>
-        </div>
-      </motion.div>
-    </section>
-  );
-}
-
-function BusinessInfoStrip() {
-  const stats = [
-    { icon: Building2, label: 'Industry', value: 'FinTech / Payments' },
-    { icon: Users, label: 'Transactions', value: '1B+ Monthly' },
-    { icon: Globe, label: 'Presence', value: 'Pan-India' },
-    { icon: Award, label: 'Solution', value: 'Google Workspace' },
+const CaseStudyMindgate = () => {
+  const highlights = [
+    "Enterprise-grade Workspace with advanced security",
+    "Isolated collaboration spaces for development teams",
+    "Instant communication for 24/7 payment operations",
+    "Secure external sharing with banking partners",
+    "Google Vault for compliance and audit requirements",
+    "Mobile access for operations teams"
   ];
 
-  return (
-    <section className="bg-gradient-to-r from-[#0C4594] to-[#1a5ab8] py-8">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-16">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
-          {stats.map((stat, index) => {
-            const Icon = stat.icon;
-            return (
-              <motion.div
-                key={stat.label}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="text-center"
-              >
-                <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-white/10 mb-3">
-                  <Icon className="w-6 h-6 text-white" />
-                </div>
-                <p className="text-white/70 text-sm mb-1">{stat.label}</p>
-                <p className="text-white font-semibold">{stat.value}</p>
-              </motion.div>
-            );
-          })}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function ChallengeSection() {
   const challenges = [
-    'Mission-critical payment infrastructure requiring 99.99% uptime',
-    'Rapid team expansion needing scalable collaboration tools',
-    'Stringent security requirements for financial data handling',
-    'Complex integrations with banks and payment networks',
-    'Need for real-time coordination across development and operations teams',
+    "Mission-critical payment infrastructure requiring 99.99% uptime",
+    "Rapid team expansion needing scalable collaboration tools",
+    "Stringent security requirements for financial data handling"
   ];
 
-  return (
-    <section className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-16">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-red-50 rounded-full text-red-600 text-sm font-medium mb-6">
-              <Target className="w-4 h-4" />
-              The Challenge
-            </div>
-            <h2 className="text-3xl lg:text-4xl font-bold text-[#0C4594] mb-6">Scaling Payment Infrastructure</h2>
-            <p className="text-gray-600 text-lg leading-relaxed mb-8">
-              As a leading payment solutions provider processing billions of transactions, Mindgate needed enterprise-grade collaboration tools that matched their operational excellence standards.
-            </p>
-            
-            <ul className="space-y-4">
-              {challenges.map((challenge, index) => (
-                <motion.li
-                  key={index}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  className="flex items-start gap-3"
-                >
-                  <div className="w-6 h-6 rounded-full bg-red-100 flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <span className="w-2 h-2 rounded-full bg-red-500" />
-                  </div>
-                  <span className="text-gray-700">{challenge}</span>
-                </motion.li>
-              ))}
-            </ul>
-          </motion.div>
-
-          <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="relative">
-            <div className="aspect-square rounded-3xl bg-gradient-to-br from-indigo-50 to-blue-50 p-8 flex items-center justify-center">
-              <div className="text-center">
-                <Smartphone className="w-32 h-32 text-indigo-600 mx-auto mb-6" />
-                <p className="text-2xl font-bold text-[#0C4594]">Payment Innovation</p>
-                <p className="text-gray-600">1B+ Monthly Transactions</p>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function SolutionSection() {
   const solutions = [
-    { title: 'Google Workspace Enterprise', description: 'Deployed enterprise-grade Workspace with advanced security for payment industry compliance.' },
-    { title: 'Secure Development Environment', description: 'Set up isolated collaboration spaces for development teams with strict access controls.' },
-    { title: 'Real-time Incident Response', description: 'Enabled instant communication channels for 24/7 payment operations monitoring.' },
-    { title: 'Bank Integration Coordination', description: 'Streamlined partner collaboration with secure external sharing capabilities.' },
-    { title: 'Compliance & Audit', description: 'Implemented Vault for e-discovery and regulatory audit requirements.' },
-    { title: 'Mobile Operations', description: 'Enabled secure mobile access for operations teams managing critical systems.' },
+    "Deployed Google Workspace Enterprise with payment industry compliance",
+    "Set up strict access controls for development environments",
+    "Implemented Vault for e-discovery and regulatory requirements"
   ];
 
-  return (
-    <section className="py-20 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-16">
-        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-green-50 rounded-full text-green-600 text-sm font-medium mb-6">
-            <Lightbulb className="w-4 h-4" />
-            The Solution
-          </div>
-          <h2 className="text-3xl lg:text-4xl font-bold text-[#0C4594] mb-4">Enterprise FinTech Platform</h2>
-          <p className="text-gray-600 text-lg max-w-2xl mx-auto">A secure, compliant infrastructure supporting India's payment revolution.</p>
-        </motion.div>
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {solutions.map((solution, index) => (
-            <motion.div
-              key={solution.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              className="bg-white rounded-2xl p-6 shadow-lg shadow-gray-100 hover:shadow-xl transition-all group"
-            >
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-indigo-500 to-blue-600 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                <CheckCircle2 className="w-6 h-6 text-white" />
-              </div>
-              <h3 className="text-xl font-bold text-[#0C4594] mb-2">{solution.title}</h3>
-              <p className="text-gray-600">{solution.description}</p>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function OutcomesSection() {
-  const outcomes = [
-    { metric: '1B+', label: 'Monthly Transactions' },
-    { metric: '99.99%', label: 'System Uptime' },
-    { metric: '50%', label: 'Faster Collaboration' },
-    { metric: '100%', label: 'Compliance Achieved' },
+  const results = [
+    { label: "Monthly Transactions", value: "1B+" },
+    { label: "System Uptime", value: "99.99%" },
+    { label: "Faster Collaboration", value: "50%" },
+    { label: "Compliance", value: "100%" }
   ];
 
-  return (
-    <section className="py-20 bg-gradient-to-br from-[#0C4594] to-[#1a5ab8]">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-16">
-        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-white text-sm font-medium mb-6">
-            <Award className="w-4 h-4" />
-            The Outcomes
-          </div>
-          <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4">Payment Excellence</h2>
-          <p className="text-white/80 text-lg max-w-2xl mx-auto">The implementation enabled Mindgate to scale their payment infrastructure.</p>
-        </motion.div>
-
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {outcomes.map((outcome, index) => (
-            <motion.div
-              key={outcome.label}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              className="text-center bg-white/10 backdrop-blur-sm rounded-2xl p-8"
-            >
-              <p className="text-4xl lg:text-5xl font-bold text-white mb-2">{outcome.metric}</p>
-              <p className="text-white/80">{outcome.label}</p>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function CTASection() {
-  return (
-    <section className="py-20 bg-white">
-      <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-16 text-center">
-        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-          <h2 className="text-3xl lg:text-4xl font-bold text-[#0C4594] mb-6">Ready to Power Your FinTech Platform?</h2>
-          <p className="text-gray-600 text-lg mb-8">Let us help you build secure, scalable infrastructure for payment innovation.</p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button asChild size="lg" className="bg-[#0C4594] hover:bg-[#0C4594]/90">
-              <Link to="/contact">Contact Us</Link>
-            </Button>
-            <Button asChild size="lg" variant="outline" className="border-[#0C4594] text-[#0C4594]">
-              <Link to="/case-studies">View More Case Studies</Link>
-            </Button>
-          </div>
-        </motion.div>
-      </div>
-    </section>
-  );
-}
-
-export default function CaseStudyMindgate() {
   return (
     <div className="min-h-screen bg-white">
       <Header />
-      <HeroSection />
-      <BusinessInfoStrip />
-      <ChallengeSection />
-      <SolutionSection />
-      <OutcomesSection />
-      <CTASection />
+      
+      <section 
+        className="relative min-h-[60vh] flex items-center bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `linear-gradient(to right, rgba(12, 69, 148, 0.95) 0%, rgba(12, 69, 148, 0.7) 50%, rgba(12, 69, 148, 0.4) 100%), url(${caseStudiesBanner})` }}
+      >
+        <div className="w-full px-8 lg:px-16 xl:px-24 pt-32 pb-16">
+          <Link to="/case-studies" className="inline-flex items-center gap-2 text-white/80 hover:text-white mb-6 transition-colors group">
+            <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
+            Back to Case Studies
+          </Link>
+          
+          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="max-w-3xl">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 leading-tight">
+              Mindgate Solutions<br />
+              <span className="text-[#38B6FF]">FinTech Payment Infrastructure</span>
+            </h1>
+            <p className="text-base sm:text-lg text-white/90 leading-relaxed max-w-2xl">
+              Leading payment solutions provider processing billions of transactions with enterprise-grade collaboration tools.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      <section className="bg-gray-50 border-b border-gray-200">
+        <div className="w-full px-8 lg:px-16 xl:px-24">
+          <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-gray-200">
+            {[
+              { label: "Industry", value: "FinTech/Payments" },
+              { label: "Transactions", value: "1B+ Monthly" },
+              { label: "Presence", value: "Pan-India" },
+              { label: "Solution", value: "Google Workspace" }
+            ].map((item, index) => (
+              <motion.div key={index} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.1 }} className="py-5 px-4 text-center">
+                <p className="text-xs text-gray-500 mb-1">{item.label}</p>
+                <p className="text-sm sm:text-base font-bold text-[#0C4594]">{item.value}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-12 sm:py-16">
+        <div className="w-full px-8 lg:px-16 xl:px-24">
+          <div className="grid lg:grid-cols-2 gap-8 items-center">
+            <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
+              <h2 className="text-2xl sm:text-3xl font-bold text-[#0C4594] mb-3">What We Implemented</h2>
+              <div className="w-16 h-1 bg-gradient-to-r from-[#0C4594] to-[#38B6FF] rounded-full mb-6" />
+              <div className="grid sm:grid-cols-2 gap-3">
+                {highlights.map((item, index) => (
+                  <motion.div key={index} initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.05 }} className="flex items-start gap-2 p-3 bg-gradient-to-br from-[#0C4594]/5 to-[#38B6FF]/5 rounded-lg border border-[#0C4594]/10">
+                    <CheckCircle2 className="w-4 h-4 text-[#38B6FF] flex-shrink-0 mt-0.5" />
+                    <span className="text-sm text-gray-700">{item}</span>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+            <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="relative rounded-2xl overflow-hidden shadow-xl">
+              <img src={googleWorkspaceBanner} alt="FinTech Implementation" className="w-full h-64 lg:h-80 object-cover" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0C4594]/60 to-transparent" />
+              <div className="absolute bottom-4 left-4 right-4">
+                <p className="text-white font-medium text-sm">Enterprise payment infrastructure</p>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-12 sm:py-16 bg-gray-50">
+        <div className="w-full px-8 lg:px-16 xl:px-24">
+          <div className="grid md:grid-cols-2 gap-8">
+            <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}>
+              <motion.div className="flex items-center gap-2 mb-4" initial={{ opacity: 0, scale: 0.8 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.4 }}>
+                <motion.div className="w-10 h-10 rounded-lg bg-[#0C4594]/10 flex items-center justify-center" whileHover={{ scale: 1.1, rotate: 5 }} transition={{ type: "spring", stiffness: 300 }}>
+                  <AlertTriangle className="w-5 h-5 text-[#0C4594]" />
+                </motion.div>
+                <h2 className="text-xl font-bold text-[#0C4594]">Challenges</h2>
+              </motion.div>
+              <div className="space-y-3">
+                {challenges.map((challenge, index) => (
+                  <motion.div key={index} className="p-3 bg-white rounded-lg border-l-4 border-[#0C4594] shadow-sm hover:shadow-md transition-all cursor-default" initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.15, duration: 0.4 }} whileHover={{ x: 5, scale: 1.02 }}>
+                    <p className="text-sm text-gray-700">{challenge}</p>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+            <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.2 }}>
+              <motion.div className="flex items-center gap-2 mb-4" initial={{ opacity: 0, scale: 0.8 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: 0.2 }}>
+                <motion.div className="w-10 h-10 rounded-lg bg-[#38B6FF]/10 flex items-center justify-center" whileHover={{ scale: 1.1, rotate: -5 }} transition={{ type: "spring", stiffness: 300 }}>
+                  <Lightbulb className="w-5 h-5 text-[#38B6FF]" />
+                </motion.div>
+                <h2 className="text-xl font-bold text-[#0C4594]">Solutions</h2>
+              </motion.div>
+              <div className="space-y-3">
+                {solutions.map((solution, index) => (
+                  <motion.div key={index} className="p-3 bg-white rounded-lg border-l-4 border-[#38B6FF] shadow-sm hover:shadow-md transition-all cursor-default" initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: 0.2 + index * 0.15, duration: 0.4 }} whileHover={{ x: -5, scale: 1.02 }}>
+                    <p className="text-sm text-gray-700">{solution}</p>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-12 sm:py-16 bg-gradient-to-br from-[#0C4594] to-[#1a5cb8]">
+        <div className="w-full px-8 lg:px-16 xl:px-24">
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-8">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-white/10 backdrop-blur-sm rounded-full mb-4">
+              <TrendingUp className="w-4 h-4 text-[#38B6FF]" />
+              <span className="text-white text-sm font-medium">Results & Impact</span>
+            </div>
+            <h2 className="text-2xl sm:text-3xl font-bold text-white">The Outcome</h2>
+          </motion.div>
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+            {results.map((result, index) => (
+              <motion.div key={index} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.1 }} className="p-5 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20 text-center">
+                <p className="text-2xl sm:text-3xl font-bold text-[#38B6FF] mb-1">{result.value}</p>
+                <p className="text-white/80 text-sm">{result.label}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-12 sm:py-16">
+        <div className="w-full px-8 lg:px-16 xl:px-24">
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center">
+            <h2 className="text-2xl sm:text-3xl font-bold text-[#0C4594] mb-3">Ready to Transform Your Organization?</h2>
+            <p className="text-gray-600 mb-6 max-w-xl mx-auto">Let Shivaami help you achieve similar results with a tailored Google Workspace implementation.</p>
+            <div className="flex flex-col sm:flex-row gap-3 justify-center">
+              <Link to="/contact" className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-[#0C4594] to-[#38B6FF] text-white font-semibold rounded-full hover:shadow-lg transition-all">Get Started Today</Link>
+              <Link to="/case-studies" className="inline-flex items-center justify-center gap-2 px-6 py-3 border-2 border-[#0C4594] text-[#0C4594] font-semibold rounded-full hover:bg-[#0C4594] hover:text-white transition-all">View More Case Studies</Link>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       <Footer />
     </div>
   );
-}
+};
+
+export default CaseStudyMindgate;
