@@ -78,6 +78,11 @@ import CaseStudyRRGlobal from "./pages/CaseStudyRRGlobal";
 import CaseStudyDHSecheron from "./pages/CaseStudyDHSecheron";
 import CaseStudyiOPEX from "./pages/CaseStudyiOPEX";
 import CaseStudyPayalGroup from "./pages/CaseStudyPayalGroup";
+import CaseStudySchemax from "./pages/CaseStudySchemax";
+import CaseStudyShauryaTechnosoft from "./pages/CaseStudyShauryaTechnosoft";
+import CaseStudyEmxcel from "./pages/CaseStudyEmxcel";
+import CaseStudyNelito from "./pages/CaseStudyNelito";
+import CaseStudySitapurEyeHospital from "./pages/CaseStudySitapurEyeHospital";
 import Leadership from "./pages/Leadership";
 import Contact from "./pages/Contact";
 import Careers from "./pages/Careers";
@@ -190,6 +195,11 @@ const App = () => (
               <Route path="/case-studies/dh-secheron" element={<CaseStudyDHSecheron />} />
               <Route path="/case-studies/iopex" element={<CaseStudyiOPEX />} />
               <Route path="/case-studies/payal-group" element={<CaseStudyPayalGroup />} />
+              <Route path="/case-studies/schemax" element={<CaseStudySchemax />} />
+              <Route path="/case-studies/shaurya-technosoft" element={<CaseStudyShauryaTechnosoft />} />
+              <Route path="/case-studies/emxcel" element={<CaseStudyEmxcel />} />
+              <Route path="/case-studies/nelito" element={<CaseStudyNelito />} />
+              <Route path="/case-studies/sitapur-eye-hospital" element={<CaseStudySitapurEyeHospital />} />
               <Route path="/leadership" element={<Leadership />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/careers" element={<Careers />} />
