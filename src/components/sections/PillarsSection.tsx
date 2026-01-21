@@ -21,7 +21,7 @@ const pillars = [
   {
     icon: Shield,
     accentIcon: Lock,
-    title: 'Safer Solutions',
+    title: 'Safer Security',
     subtitle: 'Protection you can trust',
     description: 'Enterprise-grade security from identity management to cloud infrastructure, keeping your data and operations secure.',
     items: [
@@ -31,6 +31,7 @@ const pillars = [
       { name: 'Endpoint Management', desc: 'Every device is monitored and secured' },
       { name: 'Cloud Capabilities', desc: 'Modern services built for speed and scale' },
       { name: 'Cyber Security', desc: 'Proactive defense against emerging threats' },
+      { name: 'Chrome Solutions', desc: 'Complete Chrome hardware & enterprise management' },
     ],
     gradient: 'from-blue-700 via-blue-600 to-blue-500',
     lightGradient: 'from-blue-600/10 to-blue-400/10',

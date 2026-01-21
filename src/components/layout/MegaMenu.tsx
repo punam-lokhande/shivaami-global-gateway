@@ -323,9 +323,10 @@ export default function MegaMenu({ activeKey, anchorRect, onClose }: MegaMenuPro
                               <Icon className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors" />
                             </div>
                             <div className="flex-1 min-w-0">
-                              <span className="font-medium text-sm text-foreground group-hover:text-primary transition-colors">
+                              <span className="font-medium text-sm text-foreground group-hover:text-primary transition-colors block">
                                 {item.label}
                               </span>
+                              <span className="text-xs text-muted-foreground">{item.desc}</span>
                             </div>
                           </a>
                         </li>
@@ -354,13 +355,14 @@ export default function MegaMenu({ activeKey, anchorRect, onClose }: MegaMenuPro
                           </div>
                           <div className="flex-1 min-w-0">
                             <div className="flex items-center gap-1">
-                              <span className="font-medium text-sm text-foreground group-hover:text-primary transition-colors">
+                              <span className="font-medium text-sm text-foreground group-hover:text-primary transition-colors block">
                                 {item.label}
                               </span>
                               {hasSubItems && (
                                 <ChevronRight className={`w-3.5 h-3.5 text-muted-foreground transition-transform duration-200 ${isHovered ? 'translate-x-0.5 text-primary' : ''}`} />
                               )}
                             </div>
+                            <span className="text-xs text-muted-foreground">{item.desc}</span>
                           </div>
                         </a>
                         
@@ -388,19 +390,18 @@ export default function MegaMenu({ activeKey, anchorRect, onClose }: MegaMenuPro
                                         href={subItem.href || "#"}
                                         onClick={(e) => {
                                           e.preventDefault();
-                                          if (subItem.href) {
-                                            handleNavigation(subItem.href);
-                                          }
+                                          handleNavigation(subItem.href);
                                         }}
-                                        className="group flex items-center gap-2.5 p-2 rounded-lg hover:bg-primary/10 transition-all duration-200"
+                                        className="group/sub flex items-center gap-2.5 p-2 rounded-lg hover:bg-primary/10 transition-all duration-200"
                                       >
-                                        <div className="w-7 h-7 rounded-md bg-secondary/70 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/15 transition-all duration-200">
-                                          <SubIcon className="w-3.5 h-3.5 text-muted-foreground group-hover:text-primary transition-colors" />
+                                        <div className="w-7 h-7 rounded-md bg-secondary flex items-center justify-center flex-shrink-0 group-hover/sub:bg-primary/15 transition-all duration-200">
+                                          <SubIcon className="w-3.5 h-3.5 text-muted-foreground group-hover/sub:text-primary transition-colors" />
                                         </div>
                                         <div className="flex-1 min-w-0">
-                                          <div className="font-medium text-sm text-foreground group-hover:text-primary transition-colors">
+                                          <span className="font-medium text-xs text-foreground group-hover/sub:text-primary transition-colors block">
                                             {subItem.label}
-                                          </div>
+                                          </span>
+                                          <span className="text-[10px] text-muted-foreground">{subItem.desc}</span>
                                         </div>
                                       </a>
                                     </li>
