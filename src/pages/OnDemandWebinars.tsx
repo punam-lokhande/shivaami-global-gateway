@@ -2,6 +2,7 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { motion } from "framer-motion";
 import { Play, Calendar, Clock, User, ExternalLink, Sparkles } from "lucide-react";
+import caseStudiesBanner from "@/assets/banners/case-studies-banner.jpg";
 import { Button } from "@/components/ui/button";
 
 const webinars = [
@@ -83,15 +84,10 @@ const OnDemandWebinars = () => {
       <Header />
       
       {/* Hero Section */}
-      <section className="relative min-h-[50vh] flex items-center bg-gradient-to-br from-[#0C4594] via-[#1a5ab8] to-[#0C4594] overflow-hidden">
-        {/* Background Pattern */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0" style={{
-            backgroundImage: `radial-gradient(circle at 25% 25%, rgba(56, 182, 255, 0.3) 0%, transparent 50%),
-                              radial-gradient(circle at 75% 75%, rgba(56, 182, 255, 0.2) 0%, transparent 50%)`
-          }} />
-        </div>
-
+      <section 
+        className="relative min-h-[50vh] flex items-center bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `linear-gradient(to right, rgba(12, 69, 148, 0.95) 0%, rgba(12, 69, 148, 0.7) 50%, rgba(12, 69, 148, 0.4) 100%), url(${caseStudiesBanner})` }}
+      >
         <div className="w-full px-6 sm:px-8 lg:px-16 xl:px-24 pt-32 pb-16 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -99,11 +95,6 @@ const OnDemandWebinars = () => {
             transition={{ duration: 0.6 }}
             className="max-w-4xl"
           >
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full mb-6">
-              <Sparkles className="w-4 h-4 text-[#38B6FF]" />
-              <span className="text-white/90 text-sm font-medium">Gemini Adoption Series</span>
-            </div>
-
             <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-6 leading-tight">
               On-Demand Webinars
             </h1>
@@ -130,25 +121,6 @@ const OnDemandWebinars = () => {
         </div>
       </section>
 
-      {/* Info Banner */}
-      <section className="bg-gradient-to-r from-[#38B6FF]/10 to-[#0C4594]/10 border-y border-[#0C4594]/10">
-        <div className="w-full px-6 sm:px-8 lg:px-16 xl:px-24 py-6">
-          <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4">
-            <div className="flex items-start gap-3">
-              <div className="w-10 h-10 rounded-lg bg-[#0C4594] flex items-center justify-center flex-shrink-0">
-                <Sparkles className="w-5 h-5 text-white" />
-              </div>
-              <div>
-                <p className="text-[#0C4594] font-semibold">Unlock the potential of AI in your workspace</p>
-                <p className="text-gray-600 text-sm">Each module consists of training content, a short demo, and time for Q&A.</p>
-              </div>
-            </div>
-            <p className="text-sm text-gray-500 lg:text-right">
-              If you are unable to attend live, you will still receive the recording and resources by registering.
-            </p>
-          </div>
-        </div>
-      </section>
 
       {/* Webinar Grid */}
       <section className="py-16 lg:py-20">
@@ -235,44 +207,6 @@ const OnDemandWebinars = () => {
         </div>
       </section>
 
-      {/* Speaker Section */}
-      <section className="py-16 lg:py-20 bg-gray-50">
-        <div className="w-full px-6 sm:px-8 lg:px-16 xl:px-24">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-2xl sm:text-3xl font-bold text-[#0C4594] mb-4">
-              Meet Your Speaker
-            </h2>
-            <p className="text-gray-600 max-w-xl mx-auto">
-              Learn from our certified Gemini expert who will guide you through each module.
-            </p>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="max-w-md mx-auto bg-white rounded-2xl shadow-lg overflow-hidden"
-          >
-            <div className="bg-gradient-to-r from-[#0C4594] to-[#38B6FF] p-6 text-center">
-              <div className="w-24 h-24 mx-auto rounded-full bg-white/20 flex items-center justify-center mb-4">
-                <User className="w-12 h-12 text-white" />
-              </div>
-              <h3 className="text-xl font-bold text-white">Nikunj Thakkar</h3>
-              <p className="text-white/80">Customer Engineer, Shivaami</p>
-            </div>
-            <div className="p-6 text-center">
-              <p className="text-gray-600 text-sm">
-                Nikunj is a certified Google Workspace and Gemini expert with extensive experience in helping enterprises adopt AI-powered productivity tools.
-              </p>
-            </div>
-          </motion.div>
-        </div>
-      </section>
 
       {/* CTA Section */}
       <section className="py-16 lg:py-20 bg-gradient-to-br from-[#0C4594] to-[#1a5cb8]">
