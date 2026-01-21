@@ -70,7 +70,7 @@ const webinars = [
     id: 7,
     title: "Google AI Ultra",
     description: "Explore advanced AI capabilities with Google AI Ultra for enterprise-grade solutions.",
-    date: "Wednesday, November 19, 2025",
+    date: "Wednesday, February 19, 2026",
     time: "1:00 PM – 1:45 PM EDT",
     status: "upcoming",
     link: "https://www.shivaami.com/gemini-adoption/module-6/",
@@ -198,16 +198,16 @@ const OnDemandWebinars = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="group rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden bg-gray-100 border border-gray-200"
+                className="group rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden bg-[#38B6FF]/10 border border-[#38B6FF]/30"
               >
-                <div className="p-4 bg-gray-300">
+                <div className="p-4 bg-[#38B6FF]/30">
                   <div className="flex items-center justify-between">
-                    <span className="text-gray-600 text-xs font-medium">{webinar.module}</span>
-                    <span className="px-2 py-0.5 rounded-full text-xs font-medium bg-gray-500 text-white">
+                    <span className="text-[#0C4594] text-xs font-medium">{webinar.module}</span>
+                    <span className="px-2 py-0.5 rounded-full text-xs font-medium bg-[#0C4594] text-white">
                       On-Demand
                     </span>
                   </div>
-                  <h3 className="text-lg font-bold text-gray-800 mt-2 line-clamp-2">
+                  <h3 className="text-lg font-bold text-[#0C4594] mt-2 line-clamp-2">
                     {webinar.title}
                   </h3>
                 </div>
@@ -216,16 +216,16 @@ const OnDemandWebinars = () => {
                     {webinar.description}
                   </p>
                   <div className="space-y-2 mb-5">
-                    <div className="flex items-center gap-2 text-sm text-gray-500">
-                      <Calendar className="w-4 h-4 text-gray-500" />
-                      <span>{webinar.date}</span>
+                      <div className="flex items-center gap-2 text-sm text-[#0C4594]/70">
+                          <Calendar className="w-4 h-4 text-[#0C4594]" />
+                          <span>{webinar.date}</span>
                     </div>
-                    <div className="flex items-center gap-2 text-sm text-gray-500">
-                      <Clock className="w-4 h-4 text-gray-500" />
-                      <span>{webinar.time}</span>
-                    </div>
-                  </div>
-                  <Button className="w-full bg-gray-500 hover:bg-gray-600 text-white cursor-default">
+                      <div className="flex items-center gap-2 text-sm text-[#0C4594]/70">
+                          <Clock className="w-4 h-4 text-[#0C4594]" />
+                          <span>{webinar.time}</span>
+                        </div>
+                      </div>
+                      <Button className="w-full bg-gradient-to-r from-[#38B6FF] to-[#0C4594] hover:shadow-lg text-white cursor-default">
                     Watch On-Demand
                   </Button>
                 </div>
