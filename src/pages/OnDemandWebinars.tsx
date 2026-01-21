@@ -139,71 +139,95 @@ const OnDemandWebinars = () => {
             </p>
           </motion.div>
 
+          {/* Upcoming Webinars Row */}
+          {webinars.filter(w => w.status === 'upcoming').length > 0 && (
+            <>
+              <h3 className="text-xl font-semibold text-[#0C4594] mb-6">Upcoming Sessions</h3>
+              <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+                {webinars.filter(w => w.status === 'upcoming').map((webinar, index) => (
+                  <motion.div
+                    key={webinar.id}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.1 }}
+                    className="group rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden bg-gradient-to-br from-[#38B6FF]/10 to-[#0C4594]/10 border-2 border-[#38B6FF] ring-2 ring-[#38B6FF]/20"
+                  >
+                    <div className="p-4 bg-gradient-to-r from-[#38B6FF] to-[#0C4594]">
+                      <div className="flex items-center justify-between">
+                        <span className="text-white/80 text-xs font-medium">{webinar.module}</span>
+                        <span className="px-2 py-0.5 rounded-full text-xs font-semibold bg-white text-[#0C4594] animate-pulse">
+                          🟢 Live Soon
+                        </span>
+                      </div>
+                      <h3 className="text-lg font-bold text-white mt-2 line-clamp-2">
+                        {webinar.title}
+                      </h3>
+                    </div>
+                    <div className="p-5">
+                      <p className="text-gray-600 text-sm mb-4 line-clamp-2">
+                        {webinar.description}
+                      </p>
+                      <div className="space-y-2 mb-5">
+                        <div className="flex items-center gap-2 text-sm text-gray-500">
+                          <Calendar className="w-4 h-4 text-[#0C4594]" />
+                          <span>{webinar.date}</span>
+                        </div>
+                        <div className="flex items-center gap-2 text-sm text-gray-500">
+                          <Clock className="w-4 h-4 text-[#0C4594]" />
+                          <span>{webinar.time}</span>
+                        </div>
+                      </div>
+                      <Button className="w-full bg-gradient-to-r from-[#38B6FF] to-[#0C4594] hover:shadow-lg text-white cursor-default">
+                        Register Now
+                      </Button>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </>
+          )}
+
+          {/* On-Demand Webinars Row */}
+          <h3 className="text-xl font-semibold text-[#0C4594] mb-6">On-Demand Sessions</h3>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[...webinars].sort((a, b) => (a.status === 'upcoming' ? -1 : 1) - (b.status === 'upcoming' ? -1 : 1)).map((webinar, index) => (
+            {webinars.filter(w => w.status === 'on-demand').map((webinar, index) => (
               <motion.div
                 key={webinar.id}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className={`group rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden ${
-                  webinar.status === 'upcoming' 
-                    ? 'bg-gradient-to-br from-[#38B6FF]/10 to-[#0C4594]/10 border-2 border-[#38B6FF] ring-2 ring-[#38B6FF]/20' 
-                    : 'bg-white border border-gray-100 hover:border-[#0C4594]/30'
-                }`}
+                className="group rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden bg-gray-100 border border-gray-200"
               >
-                {/* Card Header */}
-                <div className={`p-4 ${webinar.status === 'upcoming' ? 'bg-gradient-to-r from-[#38B6FF] to-[#0C4594]' : 'bg-[#0C4594]'}`}>
+                <div className="p-4 bg-gray-300">
                   <div className="flex items-center justify-between">
-                    <span className="text-white/80 text-xs font-medium">{webinar.module}</span>
-                    <span className={`px-2 py-0.5 rounded-full text-xs font-medium ${
-                      webinar.status === 'upcoming' 
-                        ? 'bg-white text-[#0C4594] font-semibold animate-pulse' 
-                        : 'bg-white/20 text-white'
-                    }`}>
-                      {webinar.status === 'upcoming' ? '🟢 Live Soon' : 'On-Demand'}
+                    <span className="text-gray-600 text-xs font-medium">{webinar.module}</span>
+                    <span className="px-2 py-0.5 rounded-full text-xs font-medium bg-gray-500 text-white">
+                      On-Demand
                     </span>
                   </div>
-                  <h3 className="text-lg font-bold text-white mt-2 line-clamp-2">
+                  <h3 className="text-lg font-bold text-gray-800 mt-2 line-clamp-2">
                     {webinar.title}
                   </h3>
                 </div>
-
-                {/* Card Body */}
                 <div className="p-5">
                   <p className="text-gray-600 text-sm mb-4 line-clamp-2">
                     {webinar.description}
                   </p>
-
                   <div className="space-y-2 mb-5">
                     <div className="flex items-center gap-2 text-sm text-gray-500">
-                      <Calendar className="w-4 h-4 text-[#0C4594]" />
+                      <Calendar className="w-4 h-4 text-gray-500" />
                       <span>{webinar.date}</span>
                     </div>
                     <div className="flex items-center gap-2 text-sm text-gray-500">
-                      <Clock className="w-4 h-4 text-[#0C4594]" />
+                      <Clock className="w-4 h-4 text-gray-500" />
                       <span>{webinar.time}</span>
                     </div>
                   </div>
-
-                  <a
-                    href={webinar.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-full"
-                  >
-                    <Button
-                      className={`w-full group/btn ${
-                        webinar.status === 'upcoming'
-                          ? 'bg-gradient-to-r from-[#38B6FF] to-[#0C4594] hover:shadow-lg'
-                          : 'bg-[#0C4594] hover:bg-[#0a3a7a]'
-                      } text-white`}
-                    >
-                      {webinar.status === 'upcoming' ? 'Register Now' : 'Watch On-Demand'}
-                      <ExternalLink className="w-4 h-4 ml-2 group-hover/btn:translate-x-0.5 transition-transform" />
-                    </Button>
-                  </a>
+                  <Button className="w-full bg-gray-500 hover:bg-gray-600 text-white cursor-default">
+                    Watch On-Demand
+                  </Button>
                 </div>
               </motion.div>
             ))}
