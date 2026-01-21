@@ -6,33 +6,33 @@ import { Link } from "react-router-dom";
 import caseStudiesBanner from "@/assets/banners/case-studies-banner.jpg";
 import googleWorkspaceBanner from "@/assets/banners/google-workspace-banner.jpg";
 
-const CaseStudyCedCommerce = () => {
+const CaseStudyPayalGroup = () => {
   const highlights = [
-    "400+ users migrated from InMotion Hosting",
-    "Email data migration completed via DMS for all users",
-    "Mail routing configuration for seamless transition",
-    "Device management setup for enhanced security",
-    "Document collaboration via Google Docs and Drive",
-    "Change management and online training programs"
+    "Complete migration to Google Workspace for AgriTech operations",
+    "Secure email and communication infrastructure",
+    "Cloud-based document collaboration for field teams",
+    "Mobile device management for remote workforce",
+    "Real-time data sharing across locations",
+    "Change management and user training programs"
   ];
 
   const challenges = [
-    "Customer needed a more secure and stable email solution",
-    "High maintenance and costs from InMotion Hosting",
-    "Limited collaboration features in existing setup"
+    "Dispersed workforce across multiple agricultural locations",
+    "Need for real-time collaboration between field and office teams",
+    "Limited IT infrastructure in remote farming regions"
   ];
 
   const solutions = [
-    "Switched to Google Workspace with Shivaami's recommendation",
-    "Comprehensive migration process with planning meetings and success criteria",
-    "User data migrated using GSMME post go-live"
+    "Deployed Google Workspace with mobile-first approach",
+    "Configured offline access for areas with limited connectivity",
+    "Implemented structured training for diverse user groups"
   ];
 
   const results = [
-    { label: "Migration Time", value: "27 Days" },
-    { label: "Users Migrated", value: "400+" },
-    { label: "Support Reduction", value: "80%" },
-    { label: "Spam Filtered", value: "99%" }
+    { label: "Team Collaboration", value: "Enhanced" },
+    { label: "Data Access", value: "Real-time" },
+    { label: "System Uptime", value: "99.9%" },
+    { label: "IT Overhead", value: "Reduced" }
   ];
 
   return (
@@ -60,12 +60,12 @@ const CaseStudyCedCommerce = () => {
             className="max-w-3xl"
           >
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 leading-tight">
-              CedCommerce Moved to<br />
+              Payal Group Transformed with<br />
               <span className="text-[#38B6FF]">Google Workspace</span>
             </h1>
             
             <p className="text-base sm:text-lg text-white/90 leading-relaxed max-w-2xl">
-              A leading eCommerce platform revolutionizing online retail transformed their collaboration infrastructure with Google Workspace.
+              A leading AgriTech company modernized their collaboration infrastructure to connect field teams and office operations seamlessly.
             </p>
           </motion.div>
         </div>
@@ -76,10 +76,10 @@ const CaseStudyCedCommerce = () => {
         <div className="w-full px-8 lg:px-16 xl:px-24">
           <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-gray-200">
             {[
-              { label: "Industry", value: "eCommerce" },
-              { label: "Previous Setup", value: "InMotion Hosting" },
-              { label: "Employees", value: "400+" },
-              { label: "Migration Time", value: "27 Days" }
+              { label: "Industry", value: "AgriTech" },
+              { label: "Solution", value: "Google Workspace" },
+              { label: "Focus", value: "Field Collaboration" },
+              { label: "Coverage", value: "Multi-location" }
             ].map((item, index) => (
               <motion.div
                 key={index}
@@ -141,7 +141,7 @@ const CaseStudyCedCommerce = () => {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0C4594]/60 to-transparent" />
               <div className="absolute bottom-4 left-4 right-4">
-                <p className="text-white font-medium text-sm">Modern collaboration for eCommerce success</p>
+                <p className="text-white font-medium text-sm">Cloud collaboration for AgriTech innovation</p>
               </div>
             </motion.div>
           </div>
@@ -311,4 +311,4 @@ const CaseStudyCedCommerce = () => {
   );
 };
 
-export default CaseStudyCedCommerce;
+export default CaseStudyPayalGroup;
