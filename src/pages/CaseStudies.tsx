@@ -50,8 +50,8 @@ const industries = [
       { name: 'Intas Pharmaceuticals', description: 'Leading multinational pharmaceutical formulation company.', slug: 'intas' },
       { name: 'Micro Labs', description: 'Multi-faceted healthcare organization with state-of-the-art facilities.', slug: 'microlabs' },
       { name: 'Sitapur Eye Hospital', description: 'Leading Tertiary care eye institute serving millions of patients.' },
-      { name: 'Prism', description: 'Working hand in hand with the medical fraternity for better healthcare.' },
-      { name: 'Dhani', description: 'Digital healthcare and transactional services at scale.' },
+      { name: 'Prism', description: 'Working hand in hand with the medical fraternity for better healthcare.', slug: 'prism' },
+      { name: 'Dhani', description: 'Digital healthcare and transactional services at scale.', slug: 'dhani' },
     ]
   },
   {
@@ -74,7 +74,7 @@ const industries = [
     caseStudies: [
       { name: 'PW Live', description: 'Leading EdTech platform transforming education with technology.', slug: 'pw-live' },
       { name: 'Adani International School', description: 'Premium international education with modern cloud infrastructure.', logo: adaniLogo, slug: 'adani' },
-      { name: 'Navodaya HS', description: 'Streamlined processes with Google for Education solutions.' },
+      { name: 'Navodaya HS', description: 'Streamlined processes with Google for Education solutions.', slug: 'navodaya' },
     ]
   },
   {
@@ -99,11 +99,11 @@ const industries = [
       { name: 'BILT', description: "India's largest manufacturer of writing and printing paper.", logo: biltLogo, slug: 'bilt' },
       { name: 'Shriram Pistons', description: "Part of India's largest industrial conglomerate.", slug: 'shriram-pistons' },
       { name: 'D&H Secheron', description: 'Major manufacturer of welding consumables since 1966.', slug: 'dh-secheron' },
-      { name: 'GRP Ltd', description: "37 years' experience in reclaimed rubber industry." },
-      { name: 'Imperial', description: 'Leading suppliers with state of art manufacturing in Kolkata.' },
-      { name: 'Permacel', description: 'Indian leader in tapes manufacturing since 1950s.' },
+      { name: 'GRP Ltd', description: "37 years' experience in reclaimed rubber industry.", slug: 'grp' },
+      { name: 'Imperial', description: 'Leading suppliers with state of art manufacturing in Kolkata.', slug: 'imperial' },
+      { name: 'Permacel', description: 'Indian leader in tapes manufacturing since 1950s.', slug: 'permacel' },
       { name: 'Merino India', description: 'Versatile manufacturer of interior solutions.' },
-      { name: 'Amkette', description: 'Single-source solution for laboratory instrumentation.', logo: amketteLogo },
+      { name: 'Amkette', description: 'Single-source solution for laboratory instrumentation.', logo: amketteLogo, slug: 'amkette' },
     ]
   },
   {
@@ -137,7 +137,7 @@ const industries = [
       { name: 'BMM Group', description: 'Reflection of growth path across multiple sectors.', logo: bmmLogo, slug: 'bmm' },
       { name: 'Flovel', description: 'Four decades of excellence in hydropower industry.', slug: 'flovel' },
       { name: 'RR Global', description: '650 million USD corporation built on innovation.', slug: 'rr-global' },
-      { name: 'Senseselec', description: 'Renowned leader in electrical and electronic sectors.' },
+      { name: 'Senseselec', description: 'Renowned leader in electrical and electronic sectors.', slug: 'senseselec' },
     ]
   },
   {
@@ -147,9 +147,9 @@ const industries = [
     color: '#14B8A6',
     caseStudies: [
       { name: 'Treebo Hotels', description: 'Pioneering hospitality management with technology.', slug: 'treebo' },
-      { name: 'PRA Realty', description: "Pune's premier real estate developer since 2005." },
-      { name: 'Sole Group', description: 'Specialist in wholesale telecommunications globally.' },
-      { name: 'ICT Online', description: 'Leading consulting firm in highways, structures, airports.' },
+      { name: 'PRA Realty', description: "Pune's premier real estate developer since 2005.", slug: 'pra-realty' },
+      { name: 'Sole Group', description: 'Specialist in wholesale telecommunications globally.', slug: 'sole-group' },
+      { name: 'ICT Online', description: 'Leading consulting firm in highways, structures, airports.', slug: 'ict-online' },
     ]
   },
 ];
