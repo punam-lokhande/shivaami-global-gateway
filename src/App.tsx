@@ -115,6 +115,7 @@ import Certifications from "./pages/Certifications";
 import Achievements from "./pages/Achievements";
 import OnDemandWebinars from "./pages/OnDemandWebinars";
 import Newsletter from "./pages/Newsletter";
+import RegisterWebinar from "./pages/RegisterWebinar";
 const queryClient = new QueryClient();
 
 // Scroll to top on route change
@@ -246,6 +247,7 @@ const App = () => (
               <Route path="/achievements" element={<Achievements />} />
               <Route path="/on-demand-webinars" element={<OnDemandWebinars />} />
               <Route path="/newsletter" element={<Newsletter />} />
+              <Route path="/register-webinar" element={<RegisterWebinar />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>
