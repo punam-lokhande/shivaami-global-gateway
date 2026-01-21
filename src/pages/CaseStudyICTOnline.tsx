@@ -6,34 +6,33 @@ import { Link } from "react-router-dom";
 import caseStudiesBanner from "@/assets/banners/case-studies-banner.jpg";
 import googleWorkspaceBanner from "@/assets/banners/google-workspace-banner.jpg";
 
-const CaseStudyGupshup = () => {
+const CaseStudyICTOnline = () => {
   const highlights = [
-    "2,010+ users migrated from Microsoft 365",
-    "Multiple domain consolidation in single panel",
-    "Email, Calendar, Contact & OneDrive migration",
-    "Centralized security policies implementation",
-    "Google Vault for compliance and eDiscovery",
-    "Advanced device management enabled"
+    "200+ users migrated to Google Workspace",
+    "Custom domain email configuration",
+    "Google Meet for virtual property tours",
+    "Drive collaboration for listing management",
+    "Mobile-first deployment for agents",
+    "Integration with property management tools"
   ];
 
   const challenges = [
-    "Using Microsoft 365 & Google Workspace on different domains",
-    "Difficult user/policy management across multiple platforms",
-    "End-user contact directory needed centralization",
-    "MDM, Drive, Vault compliance settings not available in M365"
+    "Remote teams needed seamless video conferencing capabilities",
+    "Property listing data required secure centralized storage",
+    "Integration with existing CRM systems was essential"
   ];
 
   const solutions = [
-    "Comprehensive migration process for all domains",
-    "Planning meetings to identify performance criteria",
-    "Data migrated using Google Workspace Migrate, GAM & DMS tools"
+    "Deployed Google Meet with enhanced features for virtual tours",
+    "Structured Drive folders with access controls for listings",
+    "API integrations connecting Workspace with property CRM"
   ];
 
   const results = [
-    { label: "Users Migrated", value: "2,010+" },
-    { label: "Migration Time", value: "4 Months" },
-    { label: "Domains Unified", value: "Multiple" },
-    { label: "Satisfaction", value: "Very High" }
+    { label: "Users Migrated", value: "200+" },
+    { label: "Virtual Tours/Month", value: "500+" },
+    { label: "Storage Utilized", value: "2TB+" },
+    { label: "Team Efficiency", value: "+40%" }
   ];
 
   return (
@@ -61,12 +60,12 @@ const CaseStudyGupshup = () => {
             className="max-w-3xl"
           >
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 leading-tight">
-              Gupshup Upgraded to<br />
-              <span className="text-[#38B6FF]">Google Workspace Enterprise Standard</span>
+              ICT Online Upgraded with<br />
+              <span className="text-[#38B6FF]">Google Workspace</span>
             </h1>
             
             <p className="text-base sm:text-lg text-white/90 leading-relaxed max-w-2xl">
-              A leading conversational engagement platform consolidated multiple domains and migrated from Microsoft 365 to unified Google Workspace.
+              A digital real estate platform enhanced their virtual property showcase capabilities with cloud-based collaboration and video conferencing.
             </p>
           </motion.div>
         </div>
@@ -77,10 +76,10 @@ const CaseStudyGupshup = () => {
         <div className="w-full px-8 lg:px-16 xl:px-24">
           <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-gray-200">
             {[
-              { label: "Industry", value: "IT Services" },
-              { label: "Previous Setup", value: "Microsoft 365" },
-              { label: "Employees", value: "2,010+" },
-              { label: "Migration Time", value: "4 Months" }
+              { label: "Industry", value: "Real Estate Tech" },
+              { label: "Previous Setup", value: "Basic Email" },
+              { label: "Employees", value: "200+" },
+              { label: "Listings", value: "5000+" }
             ].map((item, index) => (
               <motion.div
                 key={index}
@@ -137,12 +136,12 @@ const CaseStudyGupshup = () => {
             >
               <img 
                 src={googleWorkspaceBanner} 
-                alt="Google Workspace Enterprise Implementation" 
+                alt="Google Workspace Implementation" 
                 className="w-full h-64 lg:h-80 object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0C4594]/60 to-transparent" />
               <div className="absolute bottom-4 left-4 right-4">
-                <p className="text-white font-medium text-sm">Enterprise-grade collaboration platform</p>
+                <p className="text-white font-medium text-sm">Digital real estate collaboration</p>
               </div>
             </motion.div>
           </div>
@@ -312,4 +311,4 @@ const CaseStudyGupshup = () => {
   );
 };
 
-export default CaseStudyGupshup;
+export default CaseStudyICTOnline;

@@ -6,34 +6,33 @@ import { Link } from "react-router-dom";
 import caseStudiesBanner from "@/assets/banners/case-studies-banner.jpg";
 import googleWorkspaceBanner from "@/assets/banners/google-workspace-banner.jpg";
 
-const CaseStudyGupshup = () => {
+const CaseStudySoleGroup = () => {
   const highlights = [
-    "2,010+ users migrated from Microsoft 365",
-    "Multiple domain consolidation in single panel",
-    "Email, Calendar, Contact & OneDrive migration",
-    "Centralized security policies implementation",
-    "Google Vault for compliance and eDiscovery",
-    "Advanced device management enabled"
+    "300+ users migrated to Google Workspace",
+    "Multi-property email domain management",
+    "Google Calendar for booking coordination",
+    "Drive storage for property media assets",
+    "Mobile access for hospitality staff",
+    "Security configurations for guest data protection"
   ];
 
   const challenges = [
-    "Using Microsoft 365 & Google Workspace on different domains",
-    "Difficult user/policy management across multiple platforms",
-    "End-user contact directory needed centralization",
-    "MDM, Drive, Vault compliance settings not available in M365"
+    "Multiple hotel properties required unified communication system",
+    "Staff turnover demanded easy onboarding/offboarding processes",
+    "Guest data security compliance requirements"
   ];
 
   const solutions = [
-    "Comprehensive migration process for all domains",
-    "Planning meetings to identify performance criteria",
-    "Data migrated using Google Workspace Migrate, GAM & DMS tools"
+    "Centralized admin console for multi-domain management",
+    "Automated user provisioning workflows implemented",
+    "DLP policies and access controls for data protection"
   ];
 
   const results = [
-    { label: "Users Migrated", value: "2,010+" },
-    { label: "Migration Time", value: "4 Months" },
-    { label: "Domains Unified", value: "Multiple" },
-    { label: "Satisfaction", value: "Very High" }
+    { label: "Users Migrated", value: "300+" },
+    { label: "Properties", value: "5" },
+    { label: "Domains Managed", value: "Multiple" },
+    { label: "Staff Satisfaction", value: "High" }
   ];
 
   return (
@@ -61,12 +60,12 @@ const CaseStudyGupshup = () => {
             className="max-w-3xl"
           >
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 leading-tight">
-              Gupshup Upgraded to<br />
-              <span className="text-[#38B6FF]">Google Workspace Enterprise Standard</span>
+              Sole Group Enhanced with<br />
+              <span className="text-[#38B6FF]">Google Workspace</span>
             </h1>
             
             <p className="text-base sm:text-lg text-white/90 leading-relaxed max-w-2xl">
-              A leading conversational engagement platform consolidated multiple domains and migrated from Microsoft 365 to unified Google Workspace.
+              A hospitality group managing multiple properties streamlined their operations with unified cloud collaboration and communication tools.
             </p>
           </motion.div>
         </div>
@@ -77,10 +76,10 @@ const CaseStudyGupshup = () => {
         <div className="w-full px-8 lg:px-16 xl:px-24">
           <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-gray-200">
             {[
-              { label: "Industry", value: "IT Services" },
-              { label: "Previous Setup", value: "Microsoft 365" },
-              { label: "Employees", value: "2,010+" },
-              { label: "Migration Time", value: "4 Months" }
+              { label: "Industry", value: "Hospitality" },
+              { label: "Previous Setup", value: "Mixed Systems" },
+              { label: "Employees", value: "300+" },
+              { label: "Properties", value: "5" }
             ].map((item, index) => (
               <motion.div
                 key={index}
@@ -137,12 +136,12 @@ const CaseStudyGupshup = () => {
             >
               <img 
                 src={googleWorkspaceBanner} 
-                alt="Google Workspace Enterprise Implementation" 
+                alt="Google Workspace Implementation" 
                 className="w-full h-64 lg:h-80 object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0C4594]/60 to-transparent" />
               <div className="absolute bottom-4 left-4 right-4">
-                <p className="text-white font-medium text-sm">Enterprise-grade collaboration platform</p>
+                <p className="text-white font-medium text-sm">Unified hospitality operations</p>
               </div>
             </motion.div>
           </div>
@@ -312,4 +311,4 @@ const CaseStudyGupshup = () => {
   );
 };
 
-export default CaseStudyGupshup;
+export default CaseStudySoleGroup;
