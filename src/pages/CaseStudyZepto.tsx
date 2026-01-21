@@ -154,45 +154,82 @@ const CaseStudyZepto = () => {
           <div className="grid md:grid-cols-2 gap-8">
             {/* Challenges */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
             >
-              <div className="flex items-center gap-2 mb-4">
-                <div className="w-10 h-10 rounded-lg bg-amber-100 flex items-center justify-center">
+              <motion.div 
+                className="flex items-center gap-2 mb-4"
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4 }}
+              >
+                <motion.div 
+                  className="w-10 h-10 rounded-lg bg-amber-100 flex items-center justify-center"
+                  whileHover={{ scale: 1.1, rotate: 5 }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                >
                   <AlertTriangle className="w-5 h-5 text-amber-600" />
-                </div>
+                </motion.div>
                 <h2 className="text-xl font-bold text-[#0C4594]">Challenges</h2>
-              </div>
+              </motion.div>
               
               <div className="space-y-3">
                 {challenges.map((challenge, index) => (
-                  <div key={index} className="p-3 bg-white rounded-lg border-l-3 border-amber-400 shadow-sm">
+                  <motion.div 
+                    key={index} 
+                    className="p-3 bg-white rounded-lg border-l-4 border-amber-400 shadow-sm hover:shadow-md hover:border-amber-500 transition-all cursor-default"
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.15, duration: 0.4 }}
+                    whileHover={{ x: 5, scale: 1.02 }}
+                  >
                     <p className="text-sm text-gray-700">{challenge}</p>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
             </motion.div>
 
             {/* Solutions */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
             >
-              <div className="flex items-center gap-2 mb-4">
-                <div className="w-10 h-10 rounded-lg bg-green-100 flex items-center justify-center">
+              <motion.div 
+                className="flex items-center gap-2 mb-4"
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: 0.2 }}
+              >
+                <motion.div 
+                  className="w-10 h-10 rounded-lg bg-green-100 flex items-center justify-center"
+                  whileHover={{ scale: 1.1, rotate: -5 }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                >
                   <Lightbulb className="w-5 h-5 text-green-600" />
-                </div>
+                </motion.div>
                 <h2 className="text-xl font-bold text-[#0C4594]">Solutions</h2>
-              </div>
+              </motion.div>
               
               <div className="space-y-3">
                 {solutions.map((solution, index) => (
-                  <div key={index} className="p-3 bg-white rounded-lg border-l-3 border-green-500 shadow-sm">
+                  <motion.div 
+                    key={index} 
+                    className="p-3 bg-white rounded-lg border-l-4 border-green-500 shadow-sm hover:shadow-md hover:border-green-600 transition-all cursor-default"
+                    initial={{ opacity: 0, x: 20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.2 + index * 0.15, duration: 0.4 }}
+                    whileHover={{ x: -5, scale: 1.02 }}
+                  >
                     <p className="text-sm text-gray-700">{solution}</p>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
             </motion.div>
