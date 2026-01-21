@@ -1,281 +1,314 @@
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { useRef } from 'react';
-import { ArrowLeft, Building2, Users, Globe, CheckCircle2, Target, Lightbulb, Award, Laptop, TrendingUp, Headphones } from 'lucide-react';
-import { Link } from 'react-router-dom';
-import Header from '@/components/layout/Header';
-import Footer from '@/components/layout/Footer';
-import { Button } from '@/components/ui/button';
+import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
+import { motion } from "framer-motion";
+import { ArrowLeft, CheckCircle2, AlertTriangle, Lightbulb, TrendingUp } from "lucide-react";
+import { Link } from "react-router-dom";
+import caseStudiesBanner from "@/assets/banners/case-studies-banner.jpg";
+import googleWorkspaceBanner from "@/assets/banners/google-workspace-banner.jpg";
 
-import caseStudiesBanner from '@/assets/banners/case-studies-banner.jpg';
+const CaseStudyiOPEX = () => {
+  const highlights = [
+    "Google Workspace Enterprise for scalable collaboration",
+    "24/7 global delivery center communication infrastructure",
+    "Automated provisioning for rapid employee onboarding",
+    "Enterprise-grade security for client compliance",
+    "Centralized knowledge management for training",
+    "High-quality Google Meet for client meetings"
+  ];
 
-function HeroSection() {
-  const ref = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ['start start', 'end start'],
-  });
+  const challenges = [
+    "Hyper-growth requiring scalable collaboration infrastructure",
+    "Global delivery centers needing seamless 24/7 coordination",
+    "Rapid employee onboarding for expanding teams"
+  ];
 
-  const y = useTransform(scrollYProgress, [0, 1], ['0%', '30%']);
-  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+  const solutions = [
+    "Scalable Google Workspace supporting rapid team expansion",
+    "24/7 communication infrastructure connecting centers worldwide",
+    "Automated provisioning for fast onboarding during growth phases"
+  ];
 
-  return (
-    <section ref={ref} className="relative min-h-[50vh] lg:min-h-[60vh] flex items-center overflow-hidden">
-      <motion.div style={{ y }} className="absolute inset-0 z-0">
-        <img src={caseStudiesBanner} alt="iOPEX Technologies Case Study" className="w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0C4594]/95 via-[#0C4594]/85 to-[#0C4594]/60" />
-      </motion.div>
-
-      <motion.div style={{ opacity }} className="relative z-10 w-full px-6 sm:px-8 lg:px-16 xl:px-24 pt-32 pb-16">
-        <div className="max-w-4xl">
-          <Link to="/case-studies" className="inline-flex items-center gap-2 text-white/80 hover:text-white mb-6 transition-colors">
-            <ArrowLeft className="w-4 h-4" />
-            Back to Case Studies
-          </Link>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-white/90 text-sm mb-6"
-          >
-            <Laptop className="w-4 h-4" />
-            Technology & IT
-          </motion.div>
-
-          <motion.h1
-            initial={{ opacity: 0, y: 28 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="font-display text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-6 leading-[1.1]"
-          >
-            iOPEX Technologies
-          </motion.h1>
-
-          <motion.p
-            initial={{ opacity: 0, y: 28 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.15 }}
-            className="text-lg lg:text-xl text-white/85 max-w-2xl leading-relaxed"
-          >
-            Rapid expansion supporting 60% annual global growth with digital operations and customer experience solutions.
-          </motion.p>
-        </div>
-      </motion.div>
-    </section>
-  );
-}
-
-function BusinessInfoStrip() {
-  const stats = [
-    { icon: Building2, label: 'Industry', value: 'IT Services / BPO' },
-    { icon: TrendingUp, label: 'Growth', value: '60% YoY' },
-    { icon: Globe, label: 'Presence', value: 'Global Operations' },
-    { icon: Award, label: 'Solution', value: 'Google Workspace' },
+  const results = [
+    { label: "Annual Growth", value: "60%" },
+    { label: "Global Operations", value: "24/7" },
+    { label: "Faster Onboarding", value: "50%" },
+    { label: "Client Compliance", value: "100%" }
   ];
 
   return (
-    <section className="bg-gradient-to-r from-[#0C4594] to-[#1a5ab8] py-8">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-16">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
-          {stats.map((stat, index) => {
-            const Icon = stat.icon;
-            return (
+    <div className="min-h-screen bg-white">
+      <Header />
+      
+      {/* Hero Section with Background Image */}
+      <section 
+        className="relative min-h-[60vh] flex items-center bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `linear-gradient(to right, rgba(12, 69, 148, 0.95) 0%, rgba(12, 69, 148, 0.7) 50%, rgba(12, 69, 148, 0.4) 100%), url(${caseStudiesBanner})` }}
+      >
+        <div className="w-full px-8 lg:px-16 xl:px-24 pt-32 pb-16">
+          <Link 
+            to="/case-studies" 
+            className="inline-flex items-center gap-2 text-white/80 hover:text-white mb-6 transition-colors group"
+          >
+            <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
+            Back to Case Studies
+          </Link>
+          
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="max-w-3xl"
+          >
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 leading-tight">
+              iOPEX Technologies<br />
+              <span className="text-[#38B6FF]">Scaling Digital Operations</span>
+            </h1>
+            
+            <p className="text-base sm:text-lg text-white/90 leading-relaxed max-w-2xl">
+              Rapid expansion supporting 60% annual global growth with digital operations and customer experience solutions.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Business Info Strip */}
+      <section className="bg-gray-50 border-b border-gray-200">
+        <div className="w-full px-8 lg:px-16 xl:px-24">
+          <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-gray-200">
+            {[
+              { label: "Industry", value: "IT Services / BPO" },
+              { label: "Growth", value: "60% YoY" },
+              { label: "Presence", value: "Global Operations" },
+              { label: "Solution", value: "Google Workspace" }
+            ].map((item, index) => (
               <motion.div
-                key={stat.label}
+                key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="text-center"
+                className="py-5 px-4 text-center"
               >
-                <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-white/10 mb-3">
-                  <Icon className="w-6 h-6 text-white" />
-                </div>
-                <p className="text-white/70 text-sm mb-1">{stat.label}</p>
-                <p className="text-white font-semibold">{stat.value}</p>
+                <p className="text-xs text-gray-500 mb-1">{item.label}</p>
+                <p className="text-sm sm:text-base font-bold text-[#0C4594]">{item.value}</p>
               </motion.div>
-            );
-          })}
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
-  );
-}
+      </section>
 
-function ChallengeSection() {
-  const challenges = [
-    'Hyper-growth requiring scalable collaboration infrastructure',
-    'Global delivery centers needing seamless 24/7 coordination',
-    'Rapid employee onboarding for expanding teams',
-    'Client data security and compliance requirements',
-    'Need for consistent communication across time zones',
-  ];
+      {/* Implementation Highlights with Image */}
+      <section className="py-12 sm:py-16">
+        <div className="w-full px-8 lg:px-16 xl:px-24">
+          <div className="grid lg:grid-cols-2 gap-8 items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+            >
+              <h2 className="text-2xl sm:text-3xl font-bold text-[#0C4594] mb-3">
+                What We Implemented
+              </h2>
+              <div className="w-16 h-1 bg-gradient-to-r from-[#0C4594] to-[#38B6FF] rounded-full mb-6" />
+              
+              <div className="grid sm:grid-cols-2 gap-3">
+                {highlights.map((item, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.05 }}
+                    className="flex items-start gap-2 p-3 bg-gradient-to-br from-[#0C4594]/5 to-[#38B6FF]/5 rounded-lg border border-[#0C4594]/10"
+                  >
+                    <CheckCircle2 className="w-4 h-4 text-[#38B6FF] flex-shrink-0 mt-0.5" />
+                    <span className="text-sm text-gray-700">{item}</span>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
 
-  return (
-    <section className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-16">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-red-50 rounded-full text-red-600 text-sm font-medium mb-6">
-              <Target className="w-4 h-4" />
-              The Challenge
-            </div>
-            <h2 className="text-3xl lg:text-4xl font-bold text-[#0C4594] mb-6">Supporting Hyper-Growth</h2>
-            <p className="text-gray-600 text-lg leading-relaxed mb-8">
-              With 60% annual growth, iOPEX needed collaboration tools that could scale rapidly while maintaining service excellence for their global enterprise clients.
-            </p>
-            
-            <ul className="space-y-4">
-              {challenges.map((challenge, index) => (
-                <motion.li
-                  key={index}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  className="flex items-start gap-3"
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="relative rounded-2xl overflow-hidden shadow-xl"
+            >
+              <img 
+                src={googleWorkspaceBanner} 
+                alt="iOPEX Technologies Digital Operations" 
+                className="w-full h-64 lg:h-80 object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0C4594]/60 to-transparent" />
+              <div className="absolute bottom-4 left-4 right-4">
+                <p className="text-white font-medium text-sm">Global IT services & digital operations</p>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Challenges & Solutions - Compact */}
+      <section className="py-12 sm:py-16 bg-gray-50">
+        <div className="w-full px-8 lg:px-16 xl:px-24">
+          <div className="grid md:grid-cols-2 gap-8">
+            {/* Challenges */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+            >
+              <motion.div 
+                className="flex items-center gap-2 mb-4"
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4 }}
+              >
+                <motion.div 
+                  className="w-10 h-10 rounded-lg bg-amber-100 flex items-center justify-center"
+                  whileHover={{ scale: 1.1, rotate: 5 }}
+                  transition={{ type: "spring", stiffness: 300 }}
                 >
-                  <div className="w-6 h-6 rounded-full bg-red-100 flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <span className="w-2 h-2 rounded-full bg-red-500" />
-                  </div>
-                  <span className="text-gray-700">{challenge}</span>
-                </motion.li>
-              ))}
-            </ul>
-          </motion.div>
-
-          <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="relative">
-            <div className="aspect-square rounded-3xl bg-gradient-to-br from-blue-50 to-indigo-50 p-8 flex items-center justify-center">
-              <div className="text-center">
-                <Headphones className="w-32 h-32 text-blue-600 mx-auto mb-6" />
-                <p className="text-2xl font-bold text-[#0C4594]">Digital Operations</p>
-                <p className="text-gray-600">60% Annual Growth</p>
+                  <AlertTriangle className="w-5 h-5 text-amber-600" />
+                </motion.div>
+                <h2 className="text-xl font-bold text-[#0C4594]">Challenges</h2>
+              </motion.div>
+              
+              <div className="space-y-3">
+                {challenges.map((challenge, index) => (
+                  <motion.div 
+                    key={index} 
+                    className="p-3 bg-white rounded-lg border-l-4 border-amber-400 shadow-sm hover:shadow-md hover:border-amber-500 transition-all cursor-default"
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.15, duration: 0.4 }}
+                    whileHover={{ x: 5, scale: 1.02 }}
+                  >
+                    <p className="text-sm text-gray-700">{challenge}</p>
+                  </motion.div>
+                ))}
               </div>
+            </motion.div>
+
+            {/* Solutions */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+            >
+              <motion.div 
+                className="flex items-center gap-2 mb-4"
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: 0.2 }}
+              >
+                <motion.div 
+                  className="w-10 h-10 rounded-lg bg-green-100 flex items-center justify-center"
+                  whileHover={{ scale: 1.1, rotate: -5 }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                >
+                  <Lightbulb className="w-5 h-5 text-green-600" />
+                </motion.div>
+                <h2 className="text-xl font-bold text-[#0C4594]">Solutions</h2>
+              </motion.div>
+              
+              <div className="space-y-3">
+                {solutions.map((solution, index) => (
+                  <motion.div 
+                    key={index} 
+                    className="p-3 bg-white rounded-lg border-l-4 border-green-500 shadow-sm hover:shadow-md hover:border-green-600 transition-all cursor-default"
+                    initial={{ opacity: 0, x: 20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.2 + index * 0.15, duration: 0.4 }}
+                    whileHover={{ x: -5, scale: 1.02 }}
+                  >
+                    <p className="text-sm text-gray-700">{solution}</p>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Results */}
+      <section className="py-12 sm:py-16 bg-gradient-to-br from-[#0C4594] to-[#1a5cb8]">
+        <div className="w-full px-8 lg:px-16 xl:px-24">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-8"
+          >
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-white/10 backdrop-blur-sm rounded-full mb-4">
+              <TrendingUp className="w-4 h-4 text-[#38B6FF]" />
+              <span className="text-white text-sm font-medium">Results & Impact</span>
+            </div>
+            <h2 className="text-2xl sm:text-3xl font-bold text-white">
+              The Outcome
+            </h2>
+          </motion.div>
+          
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+            {results.map((result, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className="p-5 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20 text-center"
+              >
+                <p className="text-2xl sm:text-3xl font-bold text-[#38B6FF] mb-1">{result.value}</p>
+                <p className="text-white/80 text-sm">{result.label}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-12 sm:py-16">
+        <div className="w-full px-8 lg:px-16 xl:px-24">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center"
+          >
+            <h2 className="text-2xl sm:text-3xl font-bold text-[#0C4594] mb-3">
+              Ready to Scale Your IT Services?
+            </h2>
+            <p className="text-gray-600 mb-6 max-w-xl mx-auto">
+              Let Shivaami help you achieve similar results with a tailored Google Workspace implementation.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-3 justify-center">
+              <Link
+                to="/contact"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-[#0C4594] to-[#38B6FF] text-white font-semibold rounded-full hover:shadow-lg transition-all"
+              >
+                Get Started Today
+              </Link>
+              <Link
+                to="/case-studies"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 border-2 border-[#0C4594] text-[#0C4594] font-semibold rounded-full hover:bg-[#0C4594] hover:text-white transition-all"
+              >
+                View More Case Studies
+              </Link>
             </div>
           </motion.div>
         </div>
-      </div>
-    </section>
-  );
-}
+      </section>
 
-function SolutionSection() {
-  const solutions = [
-    { title: 'Google Workspace Enterprise', description: 'Scalable platform supporting rapid team expansion across global locations.' },
-    { title: 'Global Delivery Coordination', description: '24/7 communication infrastructure connecting delivery centers worldwide.' },
-    { title: 'Rapid Onboarding', description: 'Automated provisioning for fast employee onboarding during growth phases.' },
-    { title: 'Client Security', description: 'Enterprise-grade security controls meeting client compliance requirements.' },
-    { title: 'Knowledge Management', description: 'Centralized documentation for training and process consistency.' },
-    { title: 'Video Collaboration', description: 'High-quality Meet infrastructure for client meetings and team coordination.' },
-  ];
-
-  return (
-    <section className="py-20 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-16">
-        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-green-50 rounded-full text-green-600 text-sm font-medium mb-6">
-            <Lightbulb className="w-4 h-4" />
-            The Solution
-          </div>
-          <h2 className="text-3xl lg:text-4xl font-bold text-[#0C4594] mb-4">Scalable IT Services Platform</h2>
-          <p className="text-gray-600 text-lg max-w-2xl mx-auto">Infrastructure designed for hyper-growth and global service delivery.</p>
-        </motion.div>
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {solutions.map((solution, index) => (
-            <motion.div
-              key={solution.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              className="bg-white rounded-2xl p-6 shadow-lg shadow-gray-100 hover:shadow-xl transition-all group"
-            >
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                <CheckCircle2 className="w-6 h-6 text-white" />
-              </div>
-              <h3 className="text-xl font-bold text-[#0C4594] mb-2">{solution.title}</h3>
-              <p className="text-gray-600">{solution.description}</p>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function OutcomesSection() {
-  const outcomes = [
-    { metric: '60%', label: 'Annual Growth Supported' },
-    { metric: '24/7', label: 'Global Operations' },
-    { metric: '50%', label: 'Faster Onboarding' },
-    { metric: '100%', label: 'Client Compliance' },
-  ];
-
-  return (
-    <section className="py-20 bg-gradient-to-br from-[#0C4594] to-[#1a5ab8]">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-16">
-        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-white text-sm font-medium mb-6">
-            <Award className="w-4 h-4" />
-            The Outcomes
-          </div>
-          <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4">Growth Excellence</h2>
-          <p className="text-white/80 text-lg max-w-2xl mx-auto">The implementation enabled sustained hyper-growth with operational excellence.</p>
-        </motion.div>
-
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {outcomes.map((outcome, index) => (
-            <motion.div
-              key={outcome.label}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              className="text-center bg-white/10 backdrop-blur-sm rounded-2xl p-8"
-            >
-              <p className="text-4xl lg:text-5xl font-bold text-white mb-2">{outcome.metric}</p>
-              <p className="text-white/80">{outcome.label}</p>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function CTASection() {
-  return (
-    <section className="py-20 bg-white">
-      <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-16 text-center">
-        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-          <h2 className="text-3xl lg:text-4xl font-bold text-[#0C4594] mb-6">Ready to Scale Your IT Services?</h2>
-          <p className="text-gray-600 text-lg mb-8">Let us help you build infrastructure for rapid growth and global delivery.</p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button asChild size="lg" className="bg-[#0C4594] hover:bg-[#0C4594]/90">
-              <Link to="/contact">Contact Us</Link>
-            </Button>
-            <Button asChild size="lg" variant="outline" className="border-[#0C4594] text-[#0C4594]">
-              <Link to="/case-studies">View More Case Studies</Link>
-            </Button>
-          </div>
-        </motion.div>
-      </div>
-    </section>
-  );
-}
-
-export default function CaseStudyiOPEX() {
-  return (
-    <div className="min-h-screen bg-white">
-      <Header />
-      <HeroSection />
-      <BusinessInfoStrip />
-      <ChallengeSection />
-      <SolutionSection />
-      <OutcomesSection />
-      <CTASection />
       <Footer />
     </div>
   );
-}
+};
+
+export default CaseStudyiOPEX;
