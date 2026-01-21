@@ -2,7 +2,7 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { motion } from "framer-motion";
 import { Play, Calendar, Clock, User, ExternalLink, Sparkles } from "lucide-react";
-import caseStudiesBanner from "@/assets/banners/case-studies-banner.jpg";
+import geminiEnterpriseBanner from "@/assets/gemini-enterprise-banner.jpg";
 import { Button } from "@/components/ui/button";
 
 const webinars = [
@@ -86,7 +86,7 @@ const OnDemandWebinars = () => {
       {/* Hero Section */}
       <section 
         className="relative min-h-[50vh] flex items-center bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `linear-gradient(to right, rgba(12, 69, 148, 0.95) 0%, rgba(12, 69, 148, 0.7) 50%, rgba(12, 69, 148, 0.4) 100%), url(${caseStudiesBanner})` }}
+        style={{ backgroundImage: `linear-gradient(to right, rgba(12, 69, 148, 0.95) 0%, rgba(12, 69, 148, 0.7) 50%, rgba(12, 69, 148, 0.4) 100%), url(${geminiEnterpriseBanner})` }}
       >
         <div className="w-full px-6 sm:px-8 lg:px-16 xl:px-24 pt-32 pb-16 relative z-10">
           <motion.div
@@ -139,8 +139,8 @@ const OnDemandWebinars = () => {
             </p>
           </motion.div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {webinars.map((webinar, index) => (
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[...webinars].sort((a, b) => (a.status === 'upcoming' ? -1 : 1) - (b.status === 'upcoming' ? -1 : 1)).map((webinar, index) => (
               <motion.div
                 key={webinar.id}
                 initial={{ opacity: 0, y: 20 }}
