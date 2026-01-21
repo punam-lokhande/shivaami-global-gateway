@@ -14,18 +14,39 @@ const RegisterWebinar = () => {
     <div className="min-h-screen bg-white">
       <Header />
       
-      {/* Breadcrumb */}
-      <div className="pt-28 pb-4 bg-gray-50 border-b border-gray-200">
-        <div className="w-full px-6 sm:px-8 lg:px-16 xl:px-24">
-          <nav className="flex items-center gap-2 text-sm">
-            <Link to="/" className="text-[#0C4594] hover:underline">Home</Link>
-            <ChevronRight className="w-4 h-4 text-gray-400" />
-            <Link to="/on-demand-webinars" className="text-[#0C4594] hover:underline">Upcoming Sessions</Link>
-            <ChevronRight className="w-4 h-4 text-gray-400" />
-            <span className="text-gray-600">Google AI Ultra</span>
-          </nav>
+      {/* Hero Section */}
+      <section className="relative pt-28 pb-12 md:pb-16 lg:pb-20 bg-gradient-to-br from-[#0C4594] via-[#1a5cb8] to-[#38B6FF] overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-0 left-0 w-72 h-72 bg-white rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
+          <div className="absolute bottom-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl translate-x-1/2 translate-y-1/2" />
         </div>
-      </div>
+        
+        <div className="relative w-full px-6 sm:px-8 lg:px-16 xl:px-24">
+          {/* Breadcrumb */}
+          <nav className="flex items-center gap-2 text-sm mb-6 md:mb-8">
+            <Link to="/" className="text-white/80 hover:text-white transition-colors">Home</Link>
+            <ChevronRight className="w-4 h-4 text-white/60" />
+            <Link to="/on-demand-webinars" className="text-white/80 hover:text-white transition-colors">Upcoming Sessions</Link>
+            <ChevronRight className="w-4 h-4 text-white/60" />
+            <span className="text-white">Google AI Ultra</span>
+          </nav>
+          
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="max-w-4xl"
+          >
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-2 md:mb-3">
+              Beyond the Basics:
+            </h1>
+            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-[#38B6FF] drop-shadow-lg">
+              Unlocking Next-Generation AI with Google AI Ultra
+            </h2>
+          </motion.div>
+        </div>
+      </section>
 
       {/* Hero Section - Two Column */}
       <section className="py-12 lg:py-16 bg-gradient-to-br from-gray-50 to-white">
@@ -37,13 +58,6 @@ const RegisterWebinar = () => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}
             >
-              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-2">
-                Beyond the Basics:
-              </h1>
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#38B6FF] mb-6">
-                Unlocking Next-Generation AI with Google AI Ultra
-              </h2>
-              
               <div className="space-y-3 mb-6">
                 <div className="flex items-center gap-3 text-[#0C4594] font-medium">
                   <Calendar className="w-5 h-5" />
