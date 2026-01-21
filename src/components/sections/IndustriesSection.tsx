@@ -20,18 +20,11 @@ import logisticsImg from '@/assets/industries/logistics.jpg';
 
 const industries = [
   { 
-    icon: Heart, 
-    name: 'Healthcare', 
-    description: 'Patient records must stay completely secure. Systems must work all day, every day. We handle compliance and protection. You focus on patient care.',
-    image: healthcareImg,
-    href: '/healthcare-pharma',
-  },
-  { 
-    icon: Banknote, 
-    name: 'Finance', 
-    description: 'One data breach can cost millions. Downtime and compliance issues add more risk. We keep your systems secure, compliant, and always running.',
-    image: financialImg,
-    href: '/financial-services',
+    icon: Megaphone, 
+    name: 'Advertising & Media', 
+    description: 'Advertising and media organizations thrive on collaboration and content velocity. Shivaami ensures creative freedom without compromising data security.',
+    image: mediaImg,
+    href: '/advertising-media',
   },
   { 
     icon: ShoppingCart, 
@@ -41,20 +34,6 @@ const industries = [
     href: '/retail',
   },
   { 
-    icon: Factory, 
-    name: 'Manufacturing', 
-    description: 'Connected operations working in perfect sync. Machines, inventory, and teams run smoothly with no delays or guesswork. Real-time data drives smarter decisions.',
-    image: manufacturingImg,
-    href: '/manufacturing',
-  },
-  { 
-    icon: Megaphone, 
-    name: 'Advertising & Media', 
-    description: 'Advertising and media organizations thrive on collaboration and content velocity. Shivaami ensures creative freedom without compromising data security.',
-    image: mediaImg,
-    href: '/advertising-media',
-  },
-  { 
     icon: Cpu, 
     name: 'Software & Technology', 
     description: 'Your platform keeps other businesses running. Downtime hurts everyone. We handle the infrastructure, so your users stay happy. Systems scale when you need them to.',
@@ -62,11 +41,32 @@ const industries = [
     href: '/software-technology',
   },
   { 
+    icon: Banknote, 
+    name: 'Financial Services', 
+    description: 'One data breach can cost millions. Downtime and compliance issues add more risk. We keep your systems secure, compliant, and always running.',
+    image: financialImg,
+    href: '/financial-services',
+  },
+  { 
+    icon: Heart, 
+    name: 'Healthcare & Pharma', 
+    description: 'Patient records must stay completely secure. Systems must work all day, every day. We handle compliance and protection. You focus on patient care.',
+    image: healthcareImg,
+    href: '/healthcare-pharma',
+  },
+  { 
     icon: Hotel, 
     name: 'Hospitality', 
     description: 'Guests notice when tech fails. Bookings, check-ins, and services must work perfectly. We keep systems running in the background. You focus on creating great experiences.',
     image: hospitalityImg,
     href: '/hospitality',
+  },
+  { 
+    icon: Factory, 
+    name: 'Manufacturing', 
+    description: 'Connected operations working in perfect sync. Machines, inventory, and teams run smoothly with no delays or guesswork. Real-time data drives smarter decisions.',
+    image: manufacturingImg,
+    href: '/manufacturing',
   },
   { 
     icon: Truck, 
