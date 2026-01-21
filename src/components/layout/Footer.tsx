@@ -3,6 +3,7 @@ import { Phone, MapPin, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Link } from 'react-router-dom';
+import shivaamiLogo from '@/assets/shivaami-logo.png';
 
 // Social media icons as inline SVGs for proper branding
 const LinkedInIcon = () => (
@@ -148,11 +149,8 @@ export default function Footer() {
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-7 gap-8 lg:gap-6 xl:gap-8 mb-12">
           {/* Logo & Contact */}
           <div className="col-span-2 sm:col-span-3 lg:col-span-1">
-            <div className="flex items-center gap-2 mb-6">
-              <div className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center">
-                <span className="text-primary-foreground font-bold text-xl">S</span>
-              </div>
-              <span className="font-display font-bold text-xl text-foreground">Shivaami</span>
+            <div className="mb-6">
+              <img src={shivaamiLogo} alt="Shivaami" className="h-10 w-auto" />
             </div>
             <div className="space-y-4 text-sm text-muted-foreground">
               {/* India Office */}
