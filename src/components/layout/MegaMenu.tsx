@@ -207,8 +207,8 @@ const menuContent: Record<string, MenuContent> = {
         items: [
           { icon: BookOpen, label: 'Case Studies', desc: 'Customer success stories', isPageLink: true, href: '/case-studies' },
           { icon: FileText, label: 'Blogs', desc: 'Insights and best practices', isPageLink: true, href: 'https://www.shivaami.com/blog/' },
+          { icon: Video, label: 'On-Demand Webinars', desc: 'Expert sessions & recordings', isPageLink: true, href: '/on-demand-webinars' },
           { icon: Newspaper, label: 'Newsletter', desc: 'Monthly cloud updates' },
-          { icon: Video, label: 'On-Demand Webinars', desc: 'Expert sessions' },
         ],
       },
     ],
