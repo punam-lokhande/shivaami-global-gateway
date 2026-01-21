@@ -2,6 +2,7 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { motion } from "framer-motion";
 import { Play, Calendar, Clock, User, ExternalLink, Sparkles } from "lucide-react";
+import { Link } from "react-router-dom";
 import geminiEnterpriseBanner from "@/assets/gemini-enterprise-banner.jpg";
 import { Button } from "@/components/ui/button";
 
@@ -178,9 +179,11 @@ const OnDemandWebinars = () => {
                           <span>{webinar.time}</span>
                         </div>
                       </div>
-                      <Button className="w-full bg-gradient-to-r from-[#38B6FF] to-[#0C4594] hover:shadow-lg text-white cursor-default">
-                        Register Now
-                      </Button>
+                      <Link to="/register-webinar">
+                        <Button className="w-full bg-gradient-to-r from-[#38B6FF] to-[#0C4594] hover:shadow-lg text-white">
+                          Register Now
+                        </Button>
+                      </Link>
                     </div>
                   </motion.div>
                 ))}
