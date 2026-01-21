@@ -147,18 +147,22 @@ const OnDemandWebinars = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="group bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl hover:border-[#38B6FF]/30 transition-all duration-300 overflow-hidden"
+                className={`group rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden ${
+                  webinar.status === 'upcoming' 
+                    ? 'bg-gradient-to-br from-[#38B6FF]/10 to-[#0C4594]/10 border-2 border-[#38B6FF] ring-2 ring-[#38B6FF]/20' 
+                    : 'bg-white border border-gray-100 hover:border-[#0C4594]/30'
+                }`}
               >
                 {/* Card Header */}
-                <div className={`p-4 ${webinar.status === 'upcoming' ? 'bg-gradient-to-r from-[#38B6FF] to-[#0C4594]' : 'bg-gradient-to-r from-[#0C4594] to-[#1a5ab8]'}`}>
+                <div className={`p-4 ${webinar.status === 'upcoming' ? 'bg-gradient-to-r from-[#38B6FF] to-[#0C4594]' : 'bg-[#0C4594]'}`}>
                   <div className="flex items-center justify-between">
                     <span className="text-white/80 text-xs font-medium">{webinar.module}</span>
                     <span className={`px-2 py-0.5 rounded-full text-xs font-medium ${
                       webinar.status === 'upcoming' 
-                        ? 'bg-white/20 text-white' 
+                        ? 'bg-white text-[#0C4594] font-semibold animate-pulse' 
                         : 'bg-white/20 text-white'
                     }`}>
-                      {webinar.status === 'upcoming' ? 'Register Now' : 'On-Demand'}
+                      {webinar.status === 'upcoming' ? '🔴 Live Soon' : 'On-Demand'}
                     </span>
                   </div>
                   <h3 className="text-lg font-bold text-white mt-2 line-clamp-2">
