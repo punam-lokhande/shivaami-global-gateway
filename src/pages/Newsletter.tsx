@@ -63,7 +63,7 @@ export default function Newsletter() {
         <section className="relative pt-32 pb-20 overflow-hidden">
           {/* Background Pattern */}
           <div className="absolute inset-0 opacity-5">
-            <div className="absolute top-20 left-10 w-72 h-72 bg-emerald-500 rounded-full blur-3xl" />
+            <div className="absolute top-20 left-10 w-72 h-72 bg-[#38B6FF] rounded-full blur-3xl" />
             <div className="absolute bottom-20 right-10 w-96 h-96 bg-[#0C4594] rounded-full blur-3xl" />
           </div>
 
@@ -76,7 +76,7 @@ export default function Newsletter() {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.6 }}
                 >
-                  <div className="inline-flex items-center gap-2 bg-emerald-100 text-emerald-700 px-4 py-2 rounded-full text-sm font-medium mb-6">
+                  <div className="inline-flex items-center gap-2 bg-[#38B6FF]/10 text-[#0C4594] px-4 py-2 rounded-full text-sm font-medium mb-6">
                     <Mail className="w-4 h-4" />
                     Monthly Newsletter
                   </div>
@@ -100,8 +100,8 @@ export default function Newsletter() {
                         transition={{ delay: 0.2 + index * 0.1 }}
                         className="flex items-center gap-3"
                       >
-                        <div className="w-10 h-10 rounded-lg bg-emerald-100 flex items-center justify-center flex-shrink-0">
-                          <benefit.icon className="w-5 h-5 text-emerald-600" />
+                        <div className="w-10 h-10 rounded-lg bg-[#38B6FF]/10 flex items-center justify-center flex-shrink-0">
+                          <benefit.icon className="w-5 h-5 text-[#0C4594]" />
                         </div>
                         <span className="text-slate-700">{benefit.title}</span>
                       </motion.div>
@@ -117,7 +117,7 @@ export default function Newsletter() {
                 >
                   <div className="bg-white rounded-3xl shadow-xl border border-slate-100 p-8 md:p-10">
                     <div className="text-center mb-8">
-                      <div className="w-16 h-16 bg-gradient-to-br from-emerald-400 to-emerald-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg shadow-emerald-200">
+                      <div className="w-16 h-16 bg-gradient-to-br from-[#38B6FF] to-[#0C4594] rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg shadow-[#38B6FF]/20">
                         <Mail className="w-8 h-8 text-white" />
                       </div>
                       <h2 className="text-2xl font-bold text-slate-800">Subscribe Now</h2>
@@ -131,7 +131,7 @@ export default function Newsletter() {
                           placeholder="Your work email"
                           value={email}
                           onChange={(e) => setEmail(e.target.value)}
-                          className="h-14 text-lg px-5 border-slate-200 focus:border-emerald-500 focus:ring-emerald-500"
+                          className="h-14 text-lg px-5 border-slate-200 focus:border-[#38B6FF] focus:ring-[#38B6FF]"
                           required
                         />
                       </div>
@@ -139,7 +139,7 @@ export default function Newsletter() {
                       <Button
                         type="submit"
                         disabled={isSubmitting}
-                        className="w-full h-14 text-lg font-semibold bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 text-white shadow-lg shadow-emerald-200 transition-all duration-300"
+                        className="w-full h-14 text-lg font-semibold bg-gradient-to-r from-[#0C4594] to-[#1a5ab8] hover:from-[#1a5ab8] hover:to-[#0C4594] text-white shadow-lg shadow-[#0C4594]/20 transition-all duration-300"
                       >
                         {isSubmitting ? 'Subscribing...' : 'Get Free Insights'}
                       </Button>
