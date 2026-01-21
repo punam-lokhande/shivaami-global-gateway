@@ -8,30 +8,26 @@ import { Label } from "@/components/ui/label";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Link } from "react-router-dom";
 import nikunjPhoto from "@/assets/speakers/nikunj-thakkar.jpg";
+import heroBanner from "@/assets/banners/google-ai-ultra-banner.jpg";
 
 const RegisterWebinar = () => {
   return (
     <div className="min-h-screen bg-white">
       <Header />
       
-      {/* Hero Section */}
-      <section className="relative pt-28 pb-12 md:pb-16 lg:pb-20 bg-gradient-to-br from-[#0C4594] via-[#1a5cb8] to-[#38B6FF] overflow-hidden">
-        {/* Background Pattern */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 left-0 w-72 h-72 bg-white rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
-          <div className="absolute bottom-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl translate-x-1/2 translate-y-1/2" />
+      {/* Hero Section with Background Image */}
+      <section className="relative pt-28 pb-12 md:pb-16 lg:pb-20 overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <img 
+            src={heroBanner} 
+            alt="Google AI Ultra" 
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0C4594]/95 via-[#0C4594]/80 to-[#0C4594]/40" />
         </div>
         
         <div className="relative w-full px-6 sm:px-8 lg:px-16 xl:px-24">
-          {/* Breadcrumb */}
-          <nav className="flex items-center gap-2 text-sm mb-6 md:mb-8">
-            <Link to="/" className="text-white/80 hover:text-white transition-colors">Home</Link>
-            <ChevronRight className="w-4 h-4 text-white/60" />
-            <Link to="/on-demand-webinars" className="text-white/80 hover:text-white transition-colors">Upcoming Sessions</Link>
-            <ChevronRight className="w-4 h-4 text-white/60" />
-            <span className="text-white">Google AI Ultra</span>
-          </nav>
-          
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
