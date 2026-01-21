@@ -57,7 +57,7 @@ const HeroSection = () => {
   return (
     <section 
       ref={sectionRef}
-      className="relative w-full h-[70vh] min-h-[500px] max-h-[600px] flex items-center justify-center overflow-hidden"
+      className="relative w-full min-h-[60vh] md:min-h-[65vh] lg:min-h-[70vh] max-h-[700px] flex items-center justify-center overflow-hidden"
     >
       <motion.div 
         className="absolute inset-0 z-0"
@@ -72,12 +72,12 @@ const HeroSection = () => {
       </motion.div>
 
       <motion.div 
-        className="relative z-10 w-full px-8 lg:px-16 xl:px-24"
+        className="relative z-10 w-full px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24"
         style={{ opacity }}
       >
         <div className="max-w-3xl">
           <motion.h1 
-            className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight"
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 sm:mb-6 leading-tight"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}

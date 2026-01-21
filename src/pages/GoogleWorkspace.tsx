@@ -39,7 +39,7 @@ function HeroSection() {
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
   return (
-    <section ref={ref} className="relative h-[70vh] min-h-[500px] max-h-[600px] flex items-center overflow-hidden">
+    <section ref={ref} className="relative min-h-[60vh] md:min-h-[65vh] lg:min-h-[70vh] max-h-[700px] flex items-center overflow-hidden">
       {/* Full-width Background Image */}
       <motion.div 
         style={{ y }}
@@ -57,14 +57,14 @@ function HeroSection() {
       </motion.div>
 
       {/* Content - Left aligned with full width layout */}
-      <motion.div style={{ opacity }} className="relative z-10 w-full px-8 lg:px-16 xl:px-24 pt-24 lg:pt-28">
+      <motion.div style={{ opacity }} className="relative z-10 w-full px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24 pt-20 sm:pt-24 lg:pt-28">
         <div className="max-w-3xl">
           {/* Headline */}
           <motion.h1
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="font-display text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-semibold text-white mb-6 leading-[1.15] tracking-tight"
+            className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-semibold text-white mb-4 sm:mb-6 leading-[1.15] tracking-tight"
           >
             Transform Work with<br />
             <span className="text-[#38B6FF]">Google Workspace</span>
@@ -75,7 +75,7 @@ function HeroSection() {
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-base lg:text-lg text-white/80 max-w-2xl mb-8 leading-relaxed font-body"
+            className="text-sm sm:text-base lg:text-lg text-white/80 max-w-2xl mb-6 sm:mb-8 leading-relaxed font-body"
           >
             Google Workspace is a cloud productivity suite built for modern teams. Shivaami is a certified Google Workspace reseller and implementation partner in India helping enterprises migrate, secure, and scale.
           </motion.p>

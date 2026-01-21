@@ -57,7 +57,7 @@ const HeroSection = () => {
   return (
     <section 
       ref={sectionRef}
-      className="relative w-full h-[70vh] min-h-[500px] max-h-[600px] flex items-center justify-center overflow-hidden"
+      className="relative w-full min-h-[60vh] md:min-h-[65vh] lg:min-h-[70vh] max-h-[700px] flex items-center justify-center overflow-hidden"
     >
       <motion.div 
         className="absolute inset-0 z-0"
