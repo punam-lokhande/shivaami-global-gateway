@@ -87,7 +87,7 @@ function HeroSection() {
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-base lg:text-lg text-white/80 max-w-2xl mb-8 leading-relaxed font-body"
+            className="text-sm sm:text-base lg:text-lg text-white/80 max-w-2xl mb-6 sm:mb-8 leading-relaxed font-body"
           >
             Shivaami helps you move your business systems without disruption. We plan every step to keep your operations running smoothly. Our team handles data, applications, and cloud migrations with care. You get a clear timeline and full support from start to finish.
           </motion.p>

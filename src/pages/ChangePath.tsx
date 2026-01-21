@@ -64,7 +64,7 @@ function HeroSection() {
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="font-display text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-semibold text-white mb-6 leading-[1.15] tracking-tight"
+            className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-semibold text-white mb-4 sm:mb-6 leading-[1.15] tracking-tight"
           >
             ChangePath:<br />
             <span className="text-[#38B6FF]">Smooth</span> Technology<br />
@@ -75,7 +75,7 @@ function HeroSection() {
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-base lg:text-lg text-white/80 max-w-2xl mb-8 leading-relaxed font-body"
+            className="text-sm sm:text-base lg:text-lg text-white/80 max-w-2xl mb-6 sm:mb-8 leading-relaxed font-body"
           >
             Shivaami helps your people adapt to new technology smoothly. We create training programs and communication plans that work. Our approach reduces resistance and increases adoption rates. You get measurable results and a team that embraces change.
           </motion.p>
