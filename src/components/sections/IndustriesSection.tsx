@@ -3,7 +3,7 @@ import { useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { 
   Heart, Banknote, ShoppingCart, Factory, 
-  Sprout, Cpu, Hotel, Truck,
+  Megaphone, Cpu, Hotel, Truck,
   ArrowRight, Sparkles
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -48,9 +48,9 @@ const industries = [
     href: '/manufacturing',
   },
   { 
-    icon: Sprout, 
-    name: 'Agritech', 
-    description: 'Sensors, weather data, and equipment need constant connection. We keep everything linked from field to cloud. Real-time insights help you grow more and waste less.',
+    icon: Megaphone, 
+    name: 'Advertising & Media', 
+    description: 'Advertising and media organizations thrive on collaboration and content velocity. Shivaami ensures creative freedom without compromising data security.',
     image: mediaImg,
     href: '/advertising-media',
   },
