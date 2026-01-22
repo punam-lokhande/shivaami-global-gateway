@@ -7,8 +7,8 @@ import {
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import { Button } from '@/components/ui/button';
-import { Link } from 'react-router-dom';
 import GetStartedDialog from '@/components/GetStartedDialog';
+import CTASection from '@/components/sections/CTASection';
 import technologyImage from '@/assets/industries/technology.jpg';
 
 const fadeInUp = {
@@ -244,54 +244,6 @@ function TrustSection() {
   );
 }
 
-// CTA Section
-function CTASection() {
-  const points = [
-    'Secure collaboration for development teams',
-    'Identity and access management',
-    'Scalable cloud infrastructure',
-    '24/7 support for technology operations',
-  ];
-
-  return (
-    <section className="py-20 bg-gradient-to-br from-[#0C4594] via-[#0a3a7a] to-[#082d61]">
-      <div className="w-full px-8 lg:px-16 xl:px-24">
-        <motion.div {...fadeInUp} className="max-w-5xl mx-auto text-center">
-          <div className="w-16 h-16 rounded-2xl bg-[#38B6FF] flex items-center justify-center mx-auto mb-6">
-            <HeadphonesIcon className="w-8 h-8 text-white" />
-          </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-            Build Secure Technology Foundations
-          </h2>
-          <p className="text-lg text-white/80 mb-8">
-            Support rapid growth with a secure and scalable IT environment.
-          </p>
-
-          <div className="grid md:grid-cols-2 gap-4 text-left max-w-4xl mx-auto mb-10">
-            {points.map((point, idx) => (
-              <motion.div
-                key={idx}
-                {...fadeInUp}
-                transition={{ delay: idx * 0.1 }}
-                className="flex items-start gap-3 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-4"
-              >
-                <CheckCircle2 className="w-5 h-5 text-[#38B6FF] flex-shrink-0 mt-0.5" />
-                <span className="text-white/90 text-sm">{point}</span>
-              </motion.div>
-            ))}
-          </div>
-
-          <Link to="/contact">
-            <Button size="lg" className="bg-[#38B6FF] hover:bg-[#2da8f0] text-white font-semibold px-10 py-7 text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
-              Partner with Shivaami's Technology Experts
-              <ArrowRight className="w-5 h-5 ml-2" />
-            </Button>
-          </Link>
-        </motion.div>
-      </div>
-    </section>
-  );
-}
 
 export default function SoftwareTechnology() {
   const [dialogOpen, setDialogOpen] = useState(false);
