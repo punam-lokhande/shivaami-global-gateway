@@ -269,45 +269,7 @@ const ActivationSection = () => (
   </section>
 );
 
-const CalendarCTASection = () => (
-  <section className="py-20 bg-gradient-to-br from-[#0C4594] via-[#1565C0] to-[#0D47A1]">
-    <div className="w-full px-8 lg:px-16 xl:px-24">
-      <motion.div {...fadeInUp} className="text-center max-w-4xl mx-auto">
-        <Calendar className="w-16 h-16 text-[#38B6FF] mx-auto mb-6" />
-        <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
-          Build on Microsoft Azure Cloud Platform
-        </h2>
-        <p className="text-white/90 text-lg mb-8">
-          Schedule a consultation with our Azure specialists
-        </p>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-10 text-left max-w-3xl mx-auto">
-          {[
-            "Azure architecture assessment",
-            "Microsoft 365 integration",
-            "Hybrid cloud strategy",
-            "Security and compliance review",
-            "Cost optimization planning",
-            "DevOps and automation"
-          ].map((item, index) => (
-            <div key={index} className="flex items-start gap-2">
-              <CheckCircle2 className="w-5 h-5 text-[#38B6FF] flex-shrink-0 mt-0.5" />
-              <span className="text-white/90 text-sm">{item}</span>
-            </div>
-          ))}
-        </div>
-
-        <Button 
-          size="lg"
-          className="bg-[#38B6FF] hover:bg-[#2da8f0] text-white font-semibold px-10 py-6 text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
-        >
-          Start Your Deployment
-          <ArrowRight className="ml-2 h-5 w-5" />
-        </Button>
-      </motion.div>
-    </div>
-  </section>
-);
+import CTASection from '@/components/sections/CTASection';
 
 const Azure = () => {
   const [showGetStartedDialog, setShowGetStartedDialog] = useState(false);
@@ -319,7 +281,7 @@ const Azure = () => {
   return (
     <div className="min-h-screen bg-white">
       <Header />
-      <main><HeroSection /><FeaturesSection /><ActivationSection /><CalendarCTASection /></main>
+      <main><HeroSection /><FeaturesSection /><ActivationSection /><CTASection /></main>
       <Footer />
       <GetStartedDialog open={showGetStartedDialog} onOpenChange={setShowGetStartedDialog} />
     </div>
