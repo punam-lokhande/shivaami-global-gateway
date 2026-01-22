@@ -9,6 +9,7 @@ import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
+import GetStartedDialog from '@/components/GetStartedDialog';
 import heroImage from '@/assets/banners/swiftmove-banner.jpg';
 import strategicPlanningImg from '@/assets/activation/strategic-planning.jpg';
 import technicalDeploymentImg from '@/assets/activation/technical-deployment.jpg';
@@ -75,7 +76,7 @@ function HeroSection() {
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-semibold text-white mb-4 sm:mb-6 leading-[1.15] tracking-tight"
+            className="font-display text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-semibold text-white mb-4 sm:mb-6 leading-[1.15] tracking-tight"
           >
             SwiftMove:<br />
             <span className="text-[#38B6FF]">Seamless</span> IT<br />
@@ -87,10 +88,26 @@ function HeroSection() {
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-sm sm:text-base lg:text-lg text-white/80 max-w-2xl leading-relaxed font-body"
+            className="text-sm sm:text-base lg:text-lg text-white/80 max-w-2xl mb-6 leading-relaxed font-body"
           >
             Shivaami helps you move your business systems without disruption. We plan every step to keep your operations running smoothly. Our team handles data, applications, and cloud migrations with care. You get a clear timeline and full support from start to finish.
           </motion.p>
+
+          {/* CTA Button */}
+          <motion.div
+            initial={{ opacity: 0, y: 28 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+          >
+            <Button
+              onClick={() => document.dispatchEvent(new CustomEvent('openGetStartedDialog'))}
+              size="lg"
+              className="bg-[#38B6FF] hover:bg-[#0C4594] text-white px-6 sm:px-8 py-5 sm:py-6 text-sm sm:text-base font-semibold shadow-lg transition-all duration-300"
+            >
+              Get Started
+              <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
+            </Button>
+          </motion.div>
 
         </div>
       </motion.div>
@@ -390,6 +407,15 @@ function CalendarCTASection() {
 
 // Main Page Component
 export default function SwiftMove() {
+  const [dialogOpen, setDialogOpen] = useState(false);
+
+  // Listen for custom event to open dialog
+  useState(() => {
+    const handler = () => setDialogOpen(true);
+    document.addEventListener('openGetStartedDialog', handler);
+    return () => document.removeEventListener('openGetStartedDialog', handler);
+  });
+
   return (
     <div className="min-h-screen bg-white">
       <Header />
@@ -399,6 +425,7 @@ export default function SwiftMove() {
         <CalendarCTASection />
       </main>
       <Footer />
+      <GetStartedDialog open={dialogOpen} onOpenChange={setDialogOpen} />
     </div>
   );
 }
