@@ -113,7 +113,7 @@ export default function CTASection() {
               className="border-2 border-white text-white hover:border-white hover:bg-white/20 font-semibold px-8 py-6 text-lg bg-white/10"
             >
               <Calendar className="mr-2 w-5 h-5" />
-              Schedule a Demo
+              Schedule a Consultation
             </Button>
           </div>
         </motion.div>
