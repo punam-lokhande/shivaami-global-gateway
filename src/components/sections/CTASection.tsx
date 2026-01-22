@@ -8,7 +8,7 @@ export default function CTASection() {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   const handleGetStarted = () => {
-    window.dispatchEvent(new CustomEvent('openGetStartedDialog'));
+    document.dispatchEvent(new CustomEvent('openGetStartedDialog'));
   };
 
   return (
