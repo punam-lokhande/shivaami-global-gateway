@@ -185,6 +185,68 @@ function FeaturesSection() {
   );
 }
 
+// Recognized Leader Section
+function RecognizedLeaderSection() {
+  const badges = [
+    { src: '/badges/gws-pp-sell-service.png', alt: 'Google Workspace Premier Partner - Sell | Service' },
+    { src: '/badges/gc-pp-sell.png', alt: 'Google Cloud Premier Partner - Sell' },
+    { src: '/badges/gc-infrastructure.png', alt: 'Google Cloud Specialization - Infrastructure' },
+    { src: '/badges/gc-security.png', alt: 'Google Cloud Specialization - Security' },
+    { src: '/badges/gc-work-transformation.png', alt: 'Google Cloud Specialization - Work Transformation' },
+    { src: '/badges/gc-work-transformation-enterprise.png', alt: 'Google Cloud Specialization - Work Transformation Enterprise' },
+  ];
+
+  return (
+    <section className="py-20 bg-gradient-to-b from-white to-[#f1f5f9]">
+      <div className="w-full px-8 lg:px-16 xl:px-24">
+        <motion.div {...fadeInUp} className="text-center mb-14">
+          <span className="inline-block px-4 py-1.5 bg-[#0C4594]/10 text-[#0C4594] text-sm font-medium rounded-full mb-4">
+            Industry Recognition
+          </span>
+          <h2 className="text-3xl md:text-4xl font-bold text-[#0C4594] mb-4">
+            Recognized Leader in the Google Cloud Ecosystem
+          </h2>
+          <p className="text-[#475569] max-w-2xl mx-auto text-lg">
+            Shivaami holds the highest-level Google Cloud Partner certifications, ensuring world-class expertise for your digital transformation.
+          </p>
+        </motion.div>
+
+        <motion.div 
+          {...staggerContainer}
+          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 lg:gap-8 max-w-6xl mx-auto"
+        >
+          {badges.map((badge, idx) => (
+            <motion.div
+              key={idx}
+              variants={{
+                initial: { opacity: 0, scale: 0.9 },
+                whileInView: { opacity: 1, scale: 1 }
+              }}
+              transition={{ delay: idx * 0.1 }}
+              className="group relative"
+            >
+              <div className="relative bg-white rounded-2xl p-4 shadow-lg hover:shadow-2xl transition-all duration-500 border border-[#e2e8f0] hover:border-[#38B6FF]/40 overflow-hidden">
+                {/* Subtle gradient background on hover */}
+                <div className="absolute inset-0 bg-gradient-to-br from-[#0C4594]/5 via-transparent to-[#38B6FF]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                
+                {/* Badge image */}
+                <div className="relative z-10 aspect-square flex items-center justify-center">
+                  <img 
+                    src={badge.src} 
+                    alt={badge.alt}
+                    className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+
 // Workspace Action Buttons Section
 function WorkspaceActionsSection({ onTransferClick }: { onTransferClick: () => void }) {
   return (
@@ -480,6 +542,7 @@ const GoogleWorkspace = () => {
       <main>
         <HeroSection />
         <FeaturesSection />
+        <RecognizedLeaderSection />
         <WorkspaceActionsSection onTransferClick={() => setTransferDialogOpen(true)} />
         <ActivationSection />
         <CalendarCTASection />
