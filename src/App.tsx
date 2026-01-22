@@ -99,6 +99,7 @@ import CaseStudyMerinoIndia from "./pages/CaseStudyMerinoIndia";
 import Leadership from "./pages/Leadership";
 import Contact from "./pages/Contact";
 import Careers from "./pages/Careers";
+import CareerThankYou from "./pages/CareerThankYou";
 import HealthcarePharma from "./pages/HealthcarePharma";
 import FinancialServices from "./pages/FinancialServices";
 import Retail from "./pages/Retail";
@@ -232,6 +233,7 @@ const App = () => (
               <Route path="/leadership" element={<Leadership />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/careers" element={<Careers />} />
+              <Route path="/careers/thank-you" element={<CareerThankYou />} />
               <Route path="/healthcare-pharma" element={<HealthcarePharma />} />
               <Route path="/financial-services" element={<FinancialServices />} />
               <Route path="/retail" element={<Retail />} />
