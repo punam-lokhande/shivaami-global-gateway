@@ -39,6 +39,7 @@ import Chromebook from "./pages/Chromebook";
 import Chromebox from "./pages/Chromebox";
 import ChromeOSFlex from "./pages/ChromeOSFlex";
 import ChromeEnterprise from "./pages/ChromeEnterprise";
+import GoogleMeetHardware from "./pages/GoogleMeetHardware";
 import SwiftMove from "./pages/SwiftMove";
 import ChangePath from "./pages/ChangePath";
 import Pulse360 from "./pages/Pulse360";
@@ -173,6 +174,7 @@ const App = () => (
               <Route path="/chromebox" element={<Chromebox />} />
               <Route path="/chromeos-flex" element={<ChromeOSFlex />} />
               <Route path="/chrome-enterprise" element={<ChromeEnterprise />} />
+              <Route path="/google-meet-hardware" element={<GoogleMeetHardware />} />
               <Route path="/swiftmove" element={<SwiftMove />} />
               <Route path="/changepath" element={<ChangePath />} />
               <Route path="/pulse360" element={<Pulse360 />} />
