@@ -275,8 +275,8 @@ const Azure = () => {
   const [showGetStartedDialog, setShowGetStartedDialog] = useState(false);
   useEffect(() => {
     const handleOpenDialog = () => setShowGetStartedDialog(true);
-    window.addEventListener('openGetStartedDialog', handleOpenDialog);
-    return () => window.removeEventListener('openGetStartedDialog', handleOpenDialog);
+    document.addEventListener('openGetStartedDialog', handleOpenDialog);
+    return () => document.removeEventListener('openGetStartedDialog', handleOpenDialog);
   }, []);
   return (
     <div className="min-h-screen bg-white">
