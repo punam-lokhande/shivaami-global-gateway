@@ -1,25 +1,10 @@
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
-import { 
-  Server, 
-  Layers, 
-  Cloud, 
-  Database, 
-  Shield, 
-  Network, 
-  Brain as BrainIcon, 
-  Users,
-  Brain,
-  Settings,
-  GraduationCap,
-  HeadphonesIcon,
-  Calendar,
-  CheckCircle2,
-  ArrowRight
-} from "lucide-react";
+import GetStartedDialog from "@/components/GetStartedDialog";
+import { Server, Layers, Cloud, Database, Shield, Network, Brain as BrainIcon, Users, Brain, Settings, GraduationCap, HeadphonesIcon, Calendar, CheckCircle2, ArrowRight } from "lucide-react";
 import azureBanner from "@/assets/banners/azure-banner.jpg";
 import strategicPlanning from "@/assets/activation/strategic-planning.jpg";
 import technicalDeployment from "@/assets/activation/technical-deployment.jpg";
@@ -54,67 +39,31 @@ const HeroSection = () => {
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
+  const handleGetStarted = () => {
+    window.dispatchEvent(new CustomEvent('openGetStartedDialog'));
+  };
+
   return (
-    <section 
-      ref={sectionRef}
-      className="relative w-full min-h-[60vh] md:min-h-[65vh] lg:min-h-[70vh] max-h-[700px] flex items-center justify-center overflow-hidden"
-    >
-      <motion.div 
-        className="absolute inset-0 z-0"
-        style={{ y }}
-      >
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: `url(${azureBanner})` }}
-        />
+    <section ref={sectionRef} className="relative w-full min-h-[55vh] sm:min-h-[60vh] md:min-h-[65vh] lg:min-h-[70vh] max-h-[700px] flex items-center justify-center overflow-hidden">
+      <motion.div className="absolute inset-0 z-0" style={{ y }}>
+        <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: `url(${azureBanner})` }} />
         <div className="absolute inset-0 bg-gradient-to-r from-[#0C4594]/90 via-[#0C4594]/70 to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
       </motion.div>
-
-      <motion.div 
-        className="relative z-10 w-full px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24"
-        style={{ opacity }}
-      >
+      <motion.div className="relative z-10 w-full px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24 pt-24 sm:pt-28 md:pt-32 lg:pt-36" style={{ opacity }}>
         <div className="max-w-3xl">
-          <motion.h1 
-            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 sm:mb-6 leading-tight"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
+          <motion.h1 className="font-display text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-semibold text-white mb-4 sm:mb-6 leading-[1.15] tracking-tight" initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2 }}>
             Transform with <span className="text-[#38B6FF]">Microsoft Azure</span> Cloud
           </motion.h1>
-          <motion.p 
-            className="text-lg md:text-xl text-white/90 mb-8 leading-relaxed"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-          >
+          <motion.p className="text-sm sm:text-base lg:text-lg text-white/80 max-w-2xl mb-6 sm:mb-8 leading-relaxed font-body" initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.4 }}>
             Microsoft Azure is an enterprise cloud platform offering computing, analytics, storage, and networking services. Seamless integration with Microsoft products and hybrid cloud capabilities.
           </motion.p>
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-          >
-            <Button 
-              size="lg" 
-              className="bg-[#38B6FF] hover:bg-[#2da8f0] text-white font-semibold px-8 py-6 text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
-            >
-              Talk to Azure Specialist
+          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.6 }}>
+            <Button size="lg" onClick={handleGetStarted} className="bg-[#38B6FF] hover:bg-[#2da8f0] text-white font-semibold px-8 py-6 text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
+              Get Started
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
           </motion.div>
-        </div>
-      </motion.div>
-
-      <motion.div 
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10"
-        animate={{ y: [0, 10, 0] }}
-        transition={{ duration: 2, repeat: Infinity }}
-      >
-        <div className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center">
-          <div className="w-1 h-3 bg-white/70 rounded-full mt-2" />
         </div>
       </motion.div>
     </section>
@@ -361,18 +310,19 @@ const CalendarCTASection = () => (
 );
 
 const Azure = () => {
+  const [showGetStartedDialog, setShowGetStartedDialog] = useState(false);
+  useEffect(() => {
+    const handleOpenDialog = () => setShowGetStartedDialog(true);
+    window.addEventListener('openGetStartedDialog', handleOpenDialog);
+    return () => window.removeEventListener('openGetStartedDialog', handleOpenDialog);
+  }, []);
   return (
     <div className="min-h-screen bg-white">
       <Header />
-      <main>
-        <HeroSection />
-        <FeaturesSection />
-        <ActivationSection />
-        <CalendarCTASection />
-      </main>
+      <main><HeroSection /><FeaturesSection /><ActivationSection /><CalendarCTASection /></main>
       <Footer />
+      <GetStartedDialog open={showGetStartedDialog} onOpenChange={setShowGetStartedDialog} />
     </div>
   );
 };
-
 export default Azure;

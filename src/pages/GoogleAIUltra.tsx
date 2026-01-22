@@ -1,5 +1,5 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { 
   Brain, Sparkles, Video, Image, Code, BookOpen, Coins, Youtube, HardDrive,
   CheckCircle2, ArrowRight, Play, Calendar,
@@ -8,6 +8,7 @@ import {
 } from 'lucide-react';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
+import GetStartedDialog from '@/components/GetStartedDialog';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import heroImage from '@/assets/banners/google-ai-ultra-banner.jpg';
@@ -41,8 +42,12 @@ function HeroSection() {
   const y = useTransform(scrollYProgress, [0, 1], ['0%', '30%']);
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
+  const handleGetStarted = () => {
+    window.dispatchEvent(new CustomEvent('openGetStartedDialog'));
+  };
+
   return (
-    <section ref={ref} className="relative min-h-[60vh] md:min-h-[65vh] lg:min-h-[70vh] max-h-[700px] flex items-center overflow-hidden">
+    <section ref={ref} className="relative min-h-[55vh] sm:min-h-[60vh] md:min-h-[65vh] lg:min-h-[70vh] max-h-[700px] flex items-center overflow-hidden">
       {/* Full-width Background Image */}
       <motion.div 
         style={{ y }}
@@ -67,7 +72,7 @@ function HeroSection() {
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-semibold text-white mb-4 sm:mb-6 leading-[1.15] tracking-tight"
+            className="font-display text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-semibold text-white mb-4 sm:mb-6 leading-[1.15] tracking-tight"
           >
             Google AI Ultra<br />
             <span className="text-[#38B6FF]">for Business</span>
@@ -78,10 +83,25 @@ function HeroSection() {
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-sm sm:text-base lg:text-lg text-white/80 max-w-2xl leading-relaxed font-body"
+            className="text-sm sm:text-base lg:text-lg text-white/80 max-w-2xl mb-6 sm:mb-8 leading-relaxed font-body"
           >
             Google's most powerful AI engine, built directly into the apps your team already uses every day. Shivaami architects your AI transformation, trains your people, and delivers real business results.
           </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 28 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+          >
+            <Button 
+              size="lg" 
+              onClick={handleGetStarted}
+              className="bg-[#38B6FF] hover:bg-[#2da8f0] text-white font-semibold px-8 py-6 text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
+            >
+              Get Started
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Button>
+          </motion.div>
         </div>
       </motion.div>
     </section>
@@ -364,6 +384,14 @@ function CalendarCTASection() {
 
 // Main Page Component
 export default function GoogleAIUltra() {
+  const [showGetStartedDialog, setShowGetStartedDialog] = useState(false);
+
+  useEffect(() => {
+    const handleOpenDialog = () => setShowGetStartedDialog(true);
+    window.addEventListener('openGetStartedDialog', handleOpenDialog);
+    return () => window.removeEventListener('openGetStartedDialog', handleOpenDialog);
+  }, []);
+
   return (
     <>
       <head>
@@ -379,6 +407,7 @@ export default function GoogleAIUltra() {
           <CalendarCTASection />
         </main>
         <Footer />
+        <GetStartedDialog open={showGetStartedDialog} onOpenChange={setShowGetStartedDialog} />
       </div>
     </>
   );
