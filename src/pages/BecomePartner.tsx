@@ -1,180 +1,185 @@
-import { motion, useInView } from 'framer-motion';
-import { useRef } from 'react';
+import { motion } from 'framer-motion';
+import { useRef, useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { 
-  Handshake, TrendingUp, Users, Award, CheckCircle, ArrowRight, 
-  Rocket, Target, DollarSign, GraduationCap, HeadphonesIcon, Briefcase 
+  Handshake, TrendingUp, Rocket, Clock, Users, Headphones, 
+  FileText, GraduationCap, ArrowRight, CheckCircle
 } from 'lucide-react';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
+import { useToast } from '@/hooks/use-toast';
+import partnerBanner from '@/assets/banners/changepath-banner.jpg';
 
-const benefits = [
+const whyPartner = [
   {
-    icon: DollarSign,
-    title: 'Revenue Growth',
-    description: 'Access competitive margins and recurring revenue streams through our partner program.',
-  },
-  {
-    icon: GraduationCap,
-    title: 'Training & Certification',
-    description: 'Get certified on leading cloud platforms with our comprehensive training programs.',
-  },
-  {
-    icon: HeadphonesIcon,
-    title: 'Dedicated Support',
-    description: '24/7 partner support with dedicated account managers for your success.',
-  },
-  {
-    icon: Target,
-    title: 'Lead Sharing',
-    description: 'Receive qualified leads and co-marketing opportunities in your region.',
+    icon: TrendingUp,
+    title: 'Boost Your Revenue',
+    description: 'Access competitive margins and recurring revenue streams on cloud licenses and services.',
   },
   {
     icon: Rocket,
-    title: 'Go-to-Market Support',
-    description: 'Marketing resources, sales tools, and campaign support to accelerate growth.',
+    title: 'Close Bigger Deals',
+    description: 'Leverage our Google Cloud Premier Partner expertise to bid on complex enterprise projects with confidence.',
   },
   {
-    icon: Award,
-    title: 'Recognition Program',
-    description: 'Earn badges, awards, and public recognition for your achievements.',
+    icon: Users,
+    title: 'Reduce Technical Overhead',
+    description: 'Use our certified deployment and migration teams as your own "back-office" experts.',
+  },
+  {
+    icon: Clock,
+    title: 'Faster Time-to-Market',
+    description: "Don't wait years to get certified. Start selling advanced cloud security and infrastructure solutions today.",
   },
 ];
 
-const requirements = [
-  'Established IT services or consulting business',
-  'Technical team with cloud or security experience',
-  'Commitment to customer success and satisfaction',
-  'Alignment with enterprise and SMB market focus',
-  'Willingness to complete certification programs',
-];
-
-const onboardingSteps = [
+const shivaamiAdvantage = [
   {
-    step: '01',
-    title: 'Apply',
-    description: 'Submit your partnership application with business details and goals.',
+    icon: Users,
+    title: 'Expert Architectural Support',
+    description: "Don't let a technical question kill a deal. Our team of certified architects is available for joint sales calls and technical discovery sessions to ensure the solution fits the client's needs perfectly.",
   },
   {
-    step: '02',
-    title: 'Evaluate',
-    description: 'Our team reviews your application and schedules an introduction call.',
+    icon: Headphones,
+    title: '24/7 Technical Support',
+    description: 'Your customers deserve the best. We provide high-priority support escalation, ensuring that if a problem arises, it is resolved with the speed and precision of a Premier Partner.',
   },
   {
-    step: '03',
-    title: 'Onboard',
-    description: 'Complete partner onboarding, access training, and get certified.',
+    icon: FileText,
+    title: 'White-Label Ready Services',
+    description: 'Want to keep your brand front and center? We offer white-label migration and deployment services, allowing you to deliver expert results under your own company name.',
   },
   {
-    step: '04',
-    title: 'Launch',
-    description: 'Start selling with full support, resources, and lead opportunities.',
+    icon: GraduationCap,
+    title: 'Sales & Marketing Enablement',
+    description: 'Get access to co-branded collateral, case studies from our 20,000+ successful deployments, and training sessions to help your sales team identify more cloud opportunities.',
   },
-];
-
-const successOutcomes = [
-  { metric: '200+', label: 'Active Partners' },
-  { metric: '40%', label: 'Avg. Revenue Growth' },
-  { metric: '95%', label: 'Partner Satisfaction' },
-  { metric: '24/7', label: 'Support Available' },
 ];
 
 export default function BecomePartner() {
-  const heroRef = useRef(null);
-  const benefitsRef = useRef(null);
-  const processRef = useRef(null);
-  const isHeroInView = useInView(heroRef, { once: true });
-  const isBenefitsInView = useInView(benefitsRef, { once: true, margin: '-100px' });
-  const isProcessInView = useInView(processRef, { once: true, margin: '-100px' });
+  const formRef = useRef<HTMLDivElement>(null);
+  const { toast } = useToast();
+  const [formData, setFormData] = useState({
+    name: '',
+    companyName: '',
+    companyType: '',
+    email: '',
+    phone: '',
+    products: '',
+    reason: '',
+  });
+
+  const scrollToForm = () => {
+    formRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    toast({
+      title: "Application Submitted",
+      description: "Thank you for your interest. Our partner team will contact you within 48 hours.",
+    });
+    setFormData({
+      name: '',
+      companyName: '',
+      companyType: '',
+      email: '',
+      phone: '',
+      products: '',
+      reason: '',
+    });
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
+  };
 
   return (
     <div className="min-h-screen bg-background">
+      <Helmet>
+        <title>Become a Partner | Shivaami Cloud Services</title>
+        <meta name="description" content="Join the Shivaami Partner Program. Deploy world-class cloud solutions including Google Workspace, GCP, and AWS without the cost of maintaining a massive internal engineering team." />
+      </Helmet>
+      
       <Header />
       
       {/* Hero Section */}
-      <section ref={heroRef} className="pt-32 pb-20 relative overflow-hidden">
-        <div className="absolute inset-0 grid-pattern opacity-30" />
-        <div className="absolute top-20 right-0 w-[600px] h-[600px] bg-accent/5 rounded-full blur-3xl" />
+      <section className="relative min-h-[50vh] sm:min-h-[55vh] lg:min-h-[60vh] flex items-center overflow-hidden">
+        <div className="absolute inset-0">
+          <img
+            src={partnerBanner}
+            alt="Partner with Shivaami"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[rgba(12,69,148,0.95)] via-[rgba(12,69,148,0.85)] to-[rgba(12,69,148,0.6)]" />
+        </div>
         
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-4xl mx-auto text-center">
+        <div className="relative z-10 w-full px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24 pt-20 sm:pt-24 lg:pt-28">
+          <div className="max-w-3xl">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
-              animate={isHeroInView ? { opacity: 1, y: 0 } : {}}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/5 border border-primary/10 text-sm font-medium mb-6"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-sm font-medium mb-6"
             >
-              <Handshake className="w-4 h-4 text-primary" />
-              <span className="text-primary">Partner Program</span>
+              <Handshake className="w-4 h-4 text-white" />
+              <span className="text-white">Partner Program</span>
             </motion.div>
 
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
-              animate={isHeroInView ? { opacity: 1, y: 0 } : {}}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6"
+              className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 sm:mb-6 leading-[1.15] tracking-tight"
             >
-              Grow Your Business with <span className="text-gradient">Shivaami</span>
+              Scale Your Business with Shivaami
             </motion.h1>
 
             <motion.p
               initial={{ opacity: 0, y: 30 }}
-              animate={isHeroInView ? { opacity: 1, y: 0 } : {}}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8"
+              className="text-base sm:text-lg text-white/90 max-w-2xl mb-6 sm:mb-8"
             >
-              Join our partner ecosystem and unlock new revenue streams, exclusive resources, 
-              and dedicated support to accelerate your cloud services business.
+              Whether you are a Reseller or Distributor, the Shivaami Partner Program is designed to help you deploy world-class cloud solutions—including Google Workspace, GCP, and AWS—without the cost of maintaining a massive internal engineering team.
             </motion.p>
 
             <motion.div
               initial={{ opacity: 0, y: 30 }}
-              animate={isHeroInView ? { opacity: 1, y: 0 } : {}}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="flex flex-col sm:flex-row gap-4 justify-center"
             >
-              <Button size="lg" className="btn-glow bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8">
-                Apply Now
+              <Button 
+                size="lg" 
+                onClick={scrollToForm}
+                className="bg-white text-primary hover:bg-white/90 font-semibold px-6 sm:px-8"
+              >
+                Become a Shivaami Partner Today
                 <ArrowRight className="ml-2 w-5 h-5" />
-              </Button>
-              <Button size="lg" variant="outline" className="font-semibold px-8">
-                Download Partner Guide
               </Button>
             </motion.div>
           </div>
-
-          {/* Success Metrics */}
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={isHeroInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16 max-w-4xl mx-auto"
-          >
-            {successOutcomes.map((outcome, idx) => (
-              <div key={idx} className="text-center p-6 rounded-2xl bg-card border border-border">
-                <div className="text-3xl md:text-4xl font-bold text-primary mb-2">{outcome.metric}</div>
-                <div className="text-sm text-muted-foreground">{outcome.label}</div>
-              </div>
-            ))}
-          </motion.div>
         </div>
       </section>
 
-      {/* Value Proposition */}
-      <section className="py-20 bg-secondary/30">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center mb-12">
-            <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-4">
+      {/* Why Partner Section */}
+      <section className="py-16 sm:py-20 bg-secondary/30">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl mx-auto text-center mb-10 sm:mb-12">
+            <h2 className="font-display text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-4">
               Why Partner with Shivaami?
             </h2>
-            <p className="text-lg text-muted-foreground">
-              We provide everything you need to succeed in the cloud services market.
+            <p className="text-base sm:text-lg text-muted-foreground">
+              Building a cloud practice is hard. Partnering with Shivaami makes it easy.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-            {benefits.map((benefit, idx) => {
-              const Icon = benefit.icon;
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+            {whyPartner.map((item, idx) => {
+              const Icon = item.icon;
               return (
                 <motion.div
                   key={idx}
@@ -182,16 +187,16 @@ export default function BecomePartner() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: idx * 0.1 }}
-                  className="card-premium"
+                  className="bg-card rounded-2xl p-6 border border-border hover:shadow-lg transition-shadow"
                 >
                   <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center mb-4">
                     <Icon className="w-6 h-6 text-white" />
                   </div>
-                  <h3 className="font-display text-xl font-bold text-foreground mb-2">
-                    {benefit.title}
+                  <h3 className="font-display text-lg font-bold text-foreground mb-2">
+                    {item.title}
                   </h3>
-                  <p className="text-muted-foreground">
-                    {benefit.description}
+                  <p className="text-sm text-muted-foreground">
+                    {item.description}
                   </p>
                 </motion.div>
               );
@@ -200,109 +205,157 @@ export default function BecomePartner() {
         </div>
       </section>
 
-      {/* Onboarding Process */}
-      <section ref={processRef} className="py-20">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center mb-12">
-            <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Simple Onboarding Process
+      {/* The Shivaami Advantage */}
+      <section className="py-16 sm:py-20">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl mx-auto text-center mb-10 sm:mb-12">
+            <h2 className="font-display text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-4">
+              The "Shivaami Advantage"
             </h2>
-            <p className="text-lg text-muted-foreground">
-              Get started in four easy steps and begin growing your business.
+            <p className="text-base sm:text-lg text-muted-foreground">
+              While you maintain your independent brand and business, you gain the "unfair advantage" of working with one of India's leading cloud partners.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
-            {onboardingSteps.map((step, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, y: 30 }}
-                animate={isProcessInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.5, delay: idx * 0.15 }}
-                className="relative"
-              >
-                <div className="text-6xl font-bold text-primary/10 mb-4">{step.step}</div>
-                <h3 className="font-display text-xl font-bold text-foreground mb-2">
-                  {step.title}
-                </h3>
-                <p className="text-muted-foreground text-sm">
-                  {step.description}
-                </p>
-                {idx < onboardingSteps.length - 1 && (
-                  <div className="hidden lg:block absolute top-8 left-full w-full h-px bg-gradient-to-r from-primary/20 to-transparent" />
-                )}
-              </motion.div>
-            ))}
+          <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+            {shivaamiAdvantage.map((item, idx) => {
+              const Icon = item.icon;
+              return (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: idx * 0.1 }}
+                  className="flex gap-4 p-6 bg-card rounded-2xl border border-border"
+                >
+                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
+                    <Icon className="w-6 h-6 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="font-display text-lg font-bold text-foreground mb-2">
+                      {item.title}
+                    </h3>
+                    <p className="text-sm text-muted-foreground">
+                      {item.description}
+                    </p>
+                  </div>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>
 
-      {/* Requirements */}
-      <section ref={benefitsRef} className="py-20 bg-secondary/30">
-        <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              animate={isBenefitsInView ? { opacity: 1, x: 0 } : {}}
-              transition={{ duration: 0.6 }}
-            >
-              <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-4">
-                Partner Requirements
+      {/* Partner Form Section */}
+      <section ref={formRef} className="py-16 sm:py-20 bg-secondary/30">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl mx-auto">
+            <div className="text-center mb-10">
+              <h2 className="font-display text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-4">
+                Grow with the Shivaami Partner Program
               </h2>
-              <p className="text-lg text-muted-foreground mb-8">
-                We're looking for ambitious partners who share our commitment to excellence 
-                and customer success.
+              <p className="text-base sm:text-lg text-muted-foreground">
+                Join 100+ partners who are already scaling their businesses with Shivaami.
               </p>
-              <ul className="space-y-4">
-                {requirements.map((req, idx) => (
-                  <li key={idx} className="flex items-start gap-3">
-                    <CheckCircle className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-                    <span className="text-foreground">{req}</span>
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
+            </div>
 
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              animate={isBenefitsInView ? { opacity: 1, x: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="bg-card rounded-3xl p-8 border border-border shadow-lg"
+            <motion.form
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              onSubmit={handleSubmit}
+              className="bg-card rounded-2xl p-6 sm:p-8 border border-border shadow-lg"
             >
-              <div className="text-center">
-                <Briefcase className="w-16 h-16 text-primary mx-auto mb-6" />
-                <h3 className="font-display text-2xl font-bold text-foreground mb-4">
-                  Ready to Get Started?
-                </h3>
-                <p className="text-muted-foreground mb-6">
-                  Apply today and our partner team will reach out within 48 hours.
-                </p>
-                <Button size="lg" className="w-full btn-glow bg-primary hover:bg-primary/90 text-primary-foreground font-semibold">
-                  Apply for Partnership
+              <div className="grid sm:grid-cols-2 gap-4 sm:gap-6">
+                <div>
+                  <label className="block text-sm font-medium text-foreground mb-2">Name *</label>
+                  <Input
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    placeholder="Your full name"
+                    required
+                    className="bg-background"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-foreground mb-2">Company Name *</label>
+                  <Input
+                    name="companyName"
+                    value={formData.companyName}
+                    onChange={handleChange}
+                    placeholder="Your company name"
+                    required
+                    className="bg-background"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-foreground mb-2">Type of Company *</label>
+                  <Input
+                    name="companyType"
+                    value={formData.companyType}
+                    onChange={handleChange}
+                    placeholder="e.g., Reseller, Distributor, MSP"
+                    required
+                    className="bg-background"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-foreground mb-2">Email *</label>
+                  <Input
+                    name="email"
+                    type="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    placeholder="your@email.com"
+                    required
+                    className="bg-background"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-foreground mb-2">Phone *</label>
+                  <Input
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleChange}
+                    placeholder="Your phone number"
+                    required
+                    className="bg-background"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-foreground mb-2">Featured Products and Services</label>
+                  <Input
+                    name="products"
+                    value={formData.products}
+                    onChange={handleChange}
+                    placeholder="e.g., Google Workspace, GCP, AWS"
+                    className="bg-background"
+                  />
+                </div>
+              </div>
+              
+              <div className="mt-4 sm:mt-6">
+                <label className="block text-sm font-medium text-foreground mb-2">Why do you want to partner with Shivaami?</label>
+                <Textarea
+                  name="reason"
+                  value={formData.reason}
+                  onChange={handleChange}
+                  placeholder="Tell us about your business goals and how you'd like to collaborate..."
+                  rows={4}
+                  className="bg-background"
+                />
+              </div>
+
+              <div className="mt-6 sm:mt-8">
+                <Button type="submit" size="lg" className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold">
+                  Submit Application
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </Button>
               </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-20">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center bg-gradient-to-br from-primary to-accent rounded-3xl p-12 text-white">
-            <TrendingUp className="w-16 h-16 mx-auto mb-6 opacity-80" />
-            <h2 className="font-display text-3xl md:text-4xl font-bold mb-4">
-              Join 200+ Successful Partners
-            </h2>
-            <p className="text-lg opacity-90 mb-8 max-w-2xl mx-auto">
-              Partner with Shivaami and access the tools, training, and support you need 
-              to grow your cloud services business.
-            </p>
-            <Button size="lg" variant="secondary" className="font-semibold px-8">
-              Start Your Application
-              <ArrowRight className="ml-2 w-5 h-5" />
-            </Button>
+            </motion.form>
           </div>
         </div>
       </section>
