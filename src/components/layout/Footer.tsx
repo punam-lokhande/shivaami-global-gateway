@@ -119,7 +119,7 @@ export default function Footer() {
   return (
     <footer ref={ref} className="bg-background text-foreground">
       {/* Newsletter Section */}
-      <div className="border-t-4 border-t-primary border-b border-border/30">
+      <div className="border-t border-t-primary border-b border-border/30">
         <div className="w-full px-6 sm:px-8 lg:px-16 xl:px-24 py-12">
           <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
             <div>
