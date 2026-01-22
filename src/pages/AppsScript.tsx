@@ -84,22 +84,6 @@ function HeroSection() {
             Google Apps Script is a powerful automation tool that works with Google Workspace apps like Sheets and Gmail. The platform uses JavaScript to create custom scripts that automate tasks and add new features easily. Connect with Google services and external APIs to extend what your apps can do.
           </motion.p>
 
-          <motion.div 
-            initial={{ opacity: 0, y: 28 }} 
-            animate={{ opacity: 1, y: 0 }} 
-            transition={{ duration: 0.6, delay: 0.3 }}
-          >
-            <Link to="/contact">
-              <Button
-                size="lg"
-                className="bg-[#38B6FF] hover:bg-[#2da8f0] text-white font-semibold px-8 py-6 text-base group rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
-              >
-                <Settings className="w-5 h-5 mr-2" />
-                Automate Your Workflow
-                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </Button>
-            </Link>
-          </motion.div>
         </div>
       </motion.div>
     </section>

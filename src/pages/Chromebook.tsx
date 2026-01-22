@@ -76,22 +76,6 @@ function HeroSection() {
             Chromebook devices run Chrome OS, providing fast boot times, automatic updates, and built-in security. They integrate seamlessly with Google Workspace and web applications. Organizations choose them for simplicity, security, and low total cost of ownership.
           </motion.p>
 
-          <motion.div 
-            initial={{ opacity: 0, y: 28 }} 
-            animate={{ opacity: 1, y: 0 }} 
-            transition={{ duration: 0.6, delay: 0.3 }}
-          >
-            <Link to="/lets-connect">
-              <Button
-                size="lg"
-                className="bg-[#38B6FF] hover:bg-[#2da8f0] text-white font-semibold px-8 py-6 text-base group rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
-              >
-                <Laptop className="w-5 h-5 mr-2" />
-                Explore Chromebook Options
-                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </Button>
-            </Link>
-          </motion.div>
         </div>
       </motion.div>
     </section>

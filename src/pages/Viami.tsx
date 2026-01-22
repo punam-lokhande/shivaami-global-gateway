@@ -73,12 +73,12 @@ const HeroSection = () => {
       </motion.div>
 
       <motion.div 
-        className="relative z-10 w-full px-8 lg:px-16 xl:px-24"
+        className="relative z-10 w-full px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24 pt-20 sm:pt-24 lg:pt-28"
         style={{ opacity }}
       >
         <div className="max-w-3xl">
           <motion.h1 
-            className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight"
+            className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-semibold text-white mb-4 sm:mb-6 leading-[1.15] tracking-tight"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -86,36 +86,13 @@ const HeroSection = () => {
             Viami: Unified Digital Workplace Platform
           </motion.h1>
           <motion.p 
-            className="text-lg md:text-xl text-white/90 mb-8 leading-relaxed"
+            className="text-sm sm:text-base lg:text-lg text-white/80 max-w-2xl mb-6 sm:mb-8 leading-relaxed font-body"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
             Viami consolidates communication and collaboration tools into one secure environment. Integrate email, messaging, video conferencing, and productivity apps to reduce tool sprawl and improve employee experience.
           </motion.p>
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-          >
-            <Button 
-              size="lg" 
-              className="bg-[#38B6FF] hover:bg-[#2da8f0] text-white font-semibold px-8 py-6 text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
-            >
-              Explore Viami Solutions
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
-          </motion.div>
-        </div>
-      </motion.div>
-
-      <motion.div 
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10"
-        animate={{ y: [0, 10, 0] }}
-        transition={{ duration: 2, repeat: Infinity }}
-      >
-        <div className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center">
-          <div className="w-1 h-3 bg-white/70 rounded-full mt-2" />
         </div>
       </motion.div>
     </section>
