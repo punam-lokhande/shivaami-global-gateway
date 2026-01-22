@@ -321,8 +321,8 @@ const CheckPoint = () => {
 
   useEffect(() => {
     const handleOpenDialog = () => setDialogOpen(true);
-    window.addEventListener('openGetStartedDialog', handleOpenDialog);
-    return () => window.removeEventListener('openGetStartedDialog', handleOpenDialog);
+    document.addEventListener('openGetStartedDialog', handleOpenDialog);
+    return () => document.removeEventListener('openGetStartedDialog', handleOpenDialog);
   }, []);
 
   return (
