@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
+import { useRegion } from '@/contexts/RegionContext';
 
 interface MobileMenuProps {
   isOpen: boolean;
@@ -158,18 +159,24 @@ const mobileMenuData = [
       },
     ],
   },
-  {
-    key: 'shop',
-    label: 'Shop',
-    href: 'https://www.shivaami.com/shop/',
-    external: true,
-  },
 ];
 
 export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
+  const { content } = useRegion();
   const [expandedMenu, setExpandedMenu] = useState<string | null>(null);
   const [expandedSection, setExpandedSection] = useState<string | null>(null);
   const [expandedSubItem, setExpandedSubItem] = useState<string | null>(null);
+
+  // Generate menu data with dynamic shop URL
+  const mobileMenuWithShop = [
+    ...mobileMenuData,
+    {
+      key: 'shop',
+      label: 'Shop',
+      href: content.shopUrl,
+      external: true,
+    },
+  ];
 
   const toggleMenu = (key: string) => {
     setExpandedMenu(expandedMenu === key ? null : key);
@@ -197,7 +204,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
           className="lg:hidden bg-card border-b border-border overflow-hidden"
         >
           <div className="container mx-auto px-4 py-4 max-h-[70vh] overflow-y-auto">
-            {mobileMenuData.map((menuItem: any) => (
+            {mobileMenuWithShop.map((menuItem: any) => (
               <div key={menuItem.key} className="border-b border-border/50 last:border-b-0">
                 {menuItem.external ? (
                   <a

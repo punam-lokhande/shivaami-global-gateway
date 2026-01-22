@@ -6,6 +6,7 @@ interface RegionContent {
   phone: string;
   currency: string;
   currencySymbol: string;
+  shopUrl: string;
   testimonials: Array<{
     name: string;
     company: string;
@@ -25,6 +26,7 @@ const regionData: Record<Region, RegionContent> = {
     phone: '+91 775 784 1333',
     currency: 'INR',
     currencySymbol: '₹',
+    shopUrl: 'https://www.shivaami.com/shop/',
     testimonials: [
       {
         name: 'Rajesh Kumar',
@@ -55,24 +57,19 @@ const regionData: Record<Region, RegionContent> = {
     phone: '+1 408 333 4844',
     currency: 'USD',
     currencySymbol: '$',
+    shopUrl: 'https://gaganhub.shivaami.com/',
     testimonials: [
       {
-        name: 'Michael Johnson',
-        company: 'TechStart Inc',
+        name: 'Eric Morhenn',
+        company: 'LotusFlare',
+        role: 'CCO',
+        quote: 'Gemini for Google Workspace has been a valuable addition to Nomad\'s productivity tools, helping employees be more productive, communicate more effectively, and be more creative.',
+      },
+      {
+        name: 'Sridhar Venkatesan',
+        company: 'W3Global',
         role: 'CEO',
-        quote: 'Shivaami\'s enterprise solutions helped us achieve SOC 2 compliance in record time. Outstanding expertise.',
-      },
-      {
-        name: 'Sarah Williams',
-        company: 'HealthFirst',
-        role: 'Director of IT',
-        quote: 'Their AI integration services transformed our patient care workflows. ROI exceeded expectations.',
-      },
-      {
-        name: 'David Chen',
-        company: 'RetailMax',
-        role: 'CTO',
-        quote: 'From Chrome Enterprise to identity management, Shivaami delivered a complete security overhaul for our 200+ stores.',
+        quote: 'Our experience working with Shivaami has been exceptional. Their team provided seamless implementation, expert guidance, and continuous support throughout our transition to Google Workspace. They understood our business needs perfectly and delivered a solution that greatly improved our collaboration, security, and efficiency. We truly value their professionalism and partnership.',
       },
     ],
     offices: 'Iselin, New Jersey',
