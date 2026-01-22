@@ -449,7 +449,90 @@ function ActivationSection() {
   );
 }
 
-// Calendar CTA Section
+// Proven Excellence Section
+function ProvenExcellenceSection() {
+  return (
+    <section className="py-20 bg-gradient-to-br from-[#0C4594] via-[#0a3a7a] to-[#082d61] relative overflow-hidden">
+      {/* Background decorations */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-1/4 -left-20 w-80 h-80 bg-[#38B6FF]/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-1/4 -right-20 w-80 h-80 bg-white/5 rounded-full blur-3xl" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-br from-[#38B6FF]/5 to-transparent rounded-full blur-3xl" />
+      </div>
+      
+      <div className="w-full px-8 lg:px-16 xl:px-24 relative z-10">
+        <div className="max-w-6xl mx-auto">
+          {/* Header */}
+          <motion.div {...fadeInUp} className="text-center mb-16">
+            <span className="inline-block px-4 py-1.5 bg-white/10 text-[#38B6FF] text-sm font-medium rounded-full mb-4 backdrop-blur-sm border border-white/10">
+              Award-Winning Partnership
+            </span>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
+              Proven Excellence, Recognized Leadership
+            </h2>
+            <p className="text-lg md:text-xl text-white/80 max-w-3xl mx-auto leading-relaxed">
+              We're a 6X Google Workspace Partner of the Year with Diamond Co-Sell and Services Partner recognition. We deliver proven expertise across security, infrastructure, and work transformation. Our solutions help organizations maximize their Google Cloud investment.
+            </p>
+          </motion.div>
+
+          {/* Badge Display */}
+          <motion.div 
+            {...staggerContainer}
+            className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16"
+          >
+            {/* 6X Award Badge */}
+            <motion.div
+              variants={{
+                initial: { opacity: 0, x: -50 },
+                whileInView: { opacity: 1, x: 0 }
+              }}
+              transition={{ duration: 0.6 }}
+              className="group"
+            >
+              <div className="relative bg-white rounded-3xl p-6 md:p-8 shadow-2xl hover:shadow-[0_25px_60px_-15px_rgba(56,182,255,0.4)] transition-all duration-500 transform hover:-translate-y-2">
+                {/* Glow effect */}
+                <div className="absolute -inset-1 bg-gradient-to-r from-[#38B6FF] via-[#0C4594] to-[#38B6FF] rounded-3xl opacity-0 group-hover:opacity-30 blur-xl transition-all duration-500" />
+                
+                <div className="relative z-10">
+                  <img 
+                    src="/badges/6x-award.png" 
+                    alt="6X Google Workspace Partner of the Year APAC 2025"
+                    className="w-[280px] md:w-[320px] h-auto object-contain"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Diamond Partner Badge */}
+            <motion.div
+              variants={{
+                initial: { opacity: 0, x: 50 },
+                whileInView: { opacity: 1, x: 0 }
+              }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="group"
+            >
+              <div className="relative bg-white rounded-3xl p-6 md:p-8 shadow-2xl hover:shadow-[0_25px_60px_-15px_rgba(56,182,255,0.4)] transition-all duration-500 transform hover:-translate-y-2">
+                {/* Glow effect */}
+                <div className="absolute -inset-1 bg-gradient-to-r from-[#F59E0B] via-[#D97706] to-[#F59E0B] rounded-3xl opacity-0 group-hover:opacity-30 blur-xl transition-all duration-500" />
+                
+                <div className="relative z-10">
+                  <img 
+                    src="/badges/diamond-cosell-partner.png" 
+                    alt="Google Workspace Diamond Co-sell & Services Partner"
+                    className="w-[280px] md:w-[320px] h-auto object-contain"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
+}
 
 // Calendar CTA Section
 function CalendarCTASection() {
@@ -545,6 +628,7 @@ const GoogleWorkspace = () => {
         <RecognizedLeaderSection />
         <WorkspaceActionsSection onTransferClick={() => setTransferDialogOpen(true)} />
         <ActivationSection />
+        <ProvenExcellenceSection />
         <CalendarCTASection />
       </main>
       <Footer />
