@@ -1,5 +1,5 @@
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
@@ -27,6 +27,7 @@ import technicalDeployment from "@/assets/activation/technical-deployment.jpg";
 import securityConfig from "@/assets/activation/security-config.jpg";
 import teamTraining from "@/assets/activation/team-training.jpg";
 import ongoingSupport from "@/assets/activation/ongoing-support.jpg";
+import GetStartedDialog from "@/components/GetStartedDialog";
 
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },
@@ -55,10 +56,14 @@ const HeroSection = () => {
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
+  const handleGetStarted = () => {
+    window.dispatchEvent(new CustomEvent('openGetStartedDialog'));
+  };
+
   return (
     <section 
       ref={sectionRef}
-      className="relative w-full min-h-[60vh] md:min-h-[65vh] lg:min-h-[70vh] max-h-[700px] flex items-center justify-center overflow-hidden"
+      className="relative w-full min-h-[55vh] sm:min-h-[60vh] max-h-[700px] flex items-center justify-center overflow-hidden"
     >
       <motion.div 
         className="absolute inset-0 z-0"
@@ -73,12 +78,12 @@ const HeroSection = () => {
       </motion.div>
 
       <motion.div 
-        className="relative z-10 w-full px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24 pt-20 sm:pt-24 lg:pt-28"
+        className="relative z-10 w-full px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24 pt-24 sm:pt-28 md:pt-32 lg:pt-36"
         style={{ opacity }}
       >
         <div className="max-w-3xl">
           <motion.h1 
-            className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-semibold text-white mb-4 sm:mb-6 leading-[1.15] tracking-tight"
+            className="font-display text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-semibold text-white mb-4 sm:mb-6 leading-[1.15] tracking-tight"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -93,6 +98,20 @@ const HeroSection = () => {
           >
             Okta is a cloud identity platform that manages user authentication and authorization. It provides single sign-on, multi-factor authentication, and lifecycle management across applications.
           </motion.p>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+          >
+            <Button 
+              size="lg" 
+              onClick={handleGetStarted}
+              className="bg-[#38B6FF] hover:bg-[#2da8f0] text-white font-semibold px-8 sm:px-10 py-5 sm:py-6 text-sm sm:text-base lg:text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 group"
+            >
+              Get Started
+              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+            </Button>
+          </motion.div>
         </div>
       </motion.div>
     </section>
@@ -339,6 +358,14 @@ const CalendarCTASection = () => (
 );
 
 const Okta = () => {
+  const [dialogOpen, setDialogOpen] = useState(false);
+
+  useEffect(() => {
+    const handleOpenDialog = () => setDialogOpen(true);
+    window.addEventListener('openGetStartedDialog', handleOpenDialog);
+    return () => window.removeEventListener('openGetStartedDialog', handleOpenDialog);
+  }, []);
+
   return (
     <div className="min-h-screen bg-white">
       <Header />
@@ -349,6 +376,7 @@ const Okta = () => {
         <CalendarCTASection />
       </main>
       <Footer />
+      <GetStartedDialog open={dialogOpen} onOpenChange={setDialogOpen} />
     </div>
   );
 };
