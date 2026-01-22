@@ -15,12 +15,12 @@ type AnchorRect = {
   bottom: number;
 };
 
-const navItems = [
+const getNavItems = (shopUrl: string) => [
   { label: 'Solutions & Services', hasMenu: true, key: 'solutions' },
   { label: 'Industries', hasMenu: true, key: 'industries' },
   { label: 'Resources', hasMenu: true, key: 'resources' },
   { label: 'About Us', hasMenu: true, key: 'about' },
-  { label: 'Shop', hasMenu: false, key: 'shop', href: 'https://www.shivaami.com/shop/' },
+  { label: 'Shop', hasMenu: false, key: 'shop', href: shopUrl },
 ];
 
 export default function Header() {
@@ -118,7 +118,7 @@ export default function Header() {
 
             {/* Desktop Navigation - Right Side */}
             <div className="hidden lg:flex items-center gap-1">
-              {navItems.map((item) => (
+              {getNavItems(content.shopUrl).map((item) => (
                 <div
                   key={item.key}
                   ref={(el) => {
