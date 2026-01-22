@@ -69,7 +69,7 @@ const footerLinks = {
     ],
   },
   smoother: {
-    title: 'Smoother Services',
+    title: 'Smoother',
     links: [
       { label: 'SwiftMove', href: '/swiftmove' },
       { label: 'Pulse360', href: '/pulse360' },

@@ -1,6 +1,6 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef, useState, useEffect } from 'react';
-import { Users, Shield, Cloud, Video, Mail, Smartphone, Settings, Puzzle, Target, Rocket, Lock, GraduationCap, Headphones, ArrowRight, CheckCircle2, Calendar, Play } from 'lucide-react';
+import { Users, Shield, Cloud, Video, Mail, Smartphone, Settings, Puzzle, Target, Rocket, Lock, GraduationCap, Headphones, ArrowRight, CheckCircle2, Calendar, Award } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
@@ -14,6 +14,16 @@ import teamTrainingImg from '@/assets/activation/team-training.jpg';
 import ongoingSupportImg from '@/assets/activation/ongoing-support.jpg';
 import techButtonsBg from '@/assets/banners/tech-buttons-bg.jpg';
 import TransferSubscriptionDialog from '@/components/TransferSubscriptionDialog';
+
+// Badge imports
+import gcPpSell from '@/assets/badges/gc-pp-sell.png';
+import gcInfrastructure from '@/assets/badges/gc-infrastructure.png';
+import gcSecurity from '@/assets/badges/gc-security.png';
+import gcWorkTransformationEnterprise from '@/assets/badges/gc-work-transformation-enterprise.png';
+import gcWorkTransformation from '@/assets/badges/gc-work-transformation.png';
+import gwsPpSellService from '@/assets/badges/gws-pp-sell-service.png';
+import sixXAward from '@/assets/badges/6x-award.png';
+import diamondCosellPartner from '@/assets/badges/diamond-cosell-partner.png';
 
 const fadeInUp = {
   initial: { opacity: 0, y: 30 },
@@ -387,6 +397,117 @@ function ActivationSection() {
   );
 }
 
+// Recognized Leader Section
+function RecognizedLeaderSection() {
+  const badges = [
+    { image: gcPpSell, alt: "Google Cloud Premier Partner - Sell" },
+    { image: gcInfrastructure, alt: "Google Cloud Infrastructure Specialization" },
+    { image: gcSecurity, alt: "Google Cloud Security Specialization" },
+    { image: gcWorkTransformationEnterprise, alt: "Google Cloud Work Transformation Enterprise Specialization" },
+    { image: gcWorkTransformation, alt: "Google Cloud Work Transformation Specialization" },
+    { image: gwsPpSellService, alt: "Google Workspace Premier Partner - Sell & Service" },
+  ];
+
+  return (
+    <section className="py-16 bg-[#f8fafc]">
+      <div className="w-full px-8 lg:px-16 xl:px-24">
+        <motion.div {...fadeInUp} className="text-center mb-12">
+          <h2 className="text-2xl md:text-3xl font-bold text-[#0C4594] mb-4">
+            Recognized Leader in the Google Cloud Ecosystem
+          </h2>
+        </motion.div>
+
+        <motion.div 
+          {...staggerContainer}
+          className="flex flex-wrap items-center justify-center gap-8 md:gap-12 max-w-5xl mx-auto"
+        >
+          {badges.map((badge, idx) => (
+            <motion.div
+              key={idx}
+              variants={{
+                initial: { opacity: 0, scale: 0.8 },
+                whileInView: { opacity: 1, scale: 1 }
+              }}
+              className="w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 flex items-center justify-center"
+            >
+              <img 
+                src={badge.image} 
+                alt={badge.alt}
+                className="w-full h-full object-contain"
+              />
+            </motion.div>
+          ))}
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+
+// Proven Excellence Section
+function ProvenExcellenceSection() {
+  const handleGetStarted = () => {
+    window.dispatchEvent(new CustomEvent('openGetStartedDialog'));
+  };
+
+  return (
+    <section className="py-16 bg-white">
+      <div className="w-full px-8 lg:px-16 xl:px-24">
+        <motion.div {...fadeInUp} className="text-center mb-12">
+          <h2 className="text-2xl md:text-3xl font-bold text-[#0C4594] mb-4">
+            Proven Excellence, Recognized Leadership
+          </h2>
+          <p className="text-[#475569] text-base md:text-lg max-w-3xl mx-auto leading-relaxed">
+            We're a 6X Google Workspace Partner of the Year with Diamond Co-Sell and Services Partner recognition. We deliver proven expertise across security, infrastructure, and work transformation. Our solutions help organizations maximize their Google Cloud investment.
+          </p>
+        </motion.div>
+
+        <motion.div 
+          {...staggerContainer}
+          className="flex flex-wrap items-center justify-center gap-12 md:gap-16 max-w-4xl mx-auto mb-10"
+        >
+          <motion.div
+            variants={{
+              initial: { opacity: 0, scale: 0.8 },
+              whileInView: { opacity: 1, scale: 1 }
+            }}
+            className="w-48 sm:w-56 md:w-64 flex items-center justify-center"
+          >
+            <img 
+              src={sixXAward} 
+              alt="6X Google Workspace Partner of the Year"
+              className="w-full h-auto object-contain"
+            />
+          </motion.div>
+          <motion.div
+            variants={{
+              initial: { opacity: 0, scale: 0.8 },
+              whileInView: { opacity: 1, scale: 1 }
+            }}
+            className="w-48 sm:w-56 md:w-64 flex items-center justify-center"
+          >
+            <img 
+              src={diamondCosellPartner} 
+              alt="Google Workspace Diamond Co-sell & Services Partner"
+              className="w-full h-auto object-contain"
+            />
+          </motion.div>
+        </motion.div>
+
+        <motion.div {...fadeInUp} className="text-center">
+          <Button 
+            size="lg" 
+            onClick={handleGetStarted}
+            className="bg-[#38B6FF] hover:bg-[#2da8f0] text-white font-semibold px-8 py-6 text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
+          >
+            Get Started
+            <ArrowRight className="ml-2 h-5 w-5" />
+          </Button>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+
 // Calendar CTA Section
 function CalendarCTASection() {
   const benefits = [
@@ -396,6 +517,10 @@ function CalendarCTASection() {
     "Total cost comparison with licensing optimization",
     "Timeline and resource planning for deployment"
   ];
+
+  const handleGetStarted = () => {
+    window.dispatchEvent(new CustomEvent('openGetStartedDialog'));
+  };
 
   return (
     <section className="py-20 bg-gradient-to-br from-[#0C4594] via-[#0a3a7a] to-[#082d61]">
@@ -428,12 +553,30 @@ function CalendarCTASection() {
             ))}
           </div>
 
-          <Link to="/lets-connect">
-            <Button size="lg" className="bg-[#38B6FF] hover:bg-[#2da8f0] text-white font-semibold px-10 py-7 text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
-              Book Your Session Now
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Button 
+              size="lg" 
+              onClick={handleGetStarted}
+              className="bg-[#38B6FF] hover:bg-[#2da8f0] text-white font-semibold px-10 py-7 text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
+            >
+              Get Started
               <ArrowRight className="w-5 h-5 ml-2" />
             </Button>
-          </Link>
+            <a 
+              href="https://app.apollo.io/#/meet/40u-obp-ihl/30-min" 
+              target="_blank" 
+              rel="noopener noreferrer"
+            >
+              <Button 
+                size="lg" 
+                variant="outline"
+                className="border-white/30 bg-white/10 hover:bg-white/20 text-white font-semibold px-10 py-7 text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
+              >
+                Book Your Session Now
+                <ArrowRight className="w-5 h-5 ml-2" />
+              </Button>
+            </a>
+          </div>
         </motion.div>
       </div>
     </section>
@@ -442,6 +585,13 @@ function CalendarCTASection() {
 
 const GoogleWorkspace = () => {
   const [transferDialogOpen, setTransferDialogOpen] = useState(false);
+  const [getStartedDialogOpen, setGetStartedDialogOpen] = useState(false);
+
+  useEffect(() => {
+    const handleOpenDialog = () => setGetStartedDialogOpen(true);
+    window.addEventListener('openGetStartedDialog', handleOpenDialog);
+    return () => window.removeEventListener('openGetStartedDialog', handleOpenDialog);
+  }, []);
 
   return (
     <div className="min-h-screen">
@@ -451,12 +601,18 @@ const GoogleWorkspace = () => {
         <FeaturesSection />
         <WorkspaceActionsSection onTransferClick={() => setTransferDialogOpen(true)} />
         <ActivationSection />
+        <RecognizedLeaderSection />
+        <ProvenExcellenceSection />
         <CalendarCTASection />
       </main>
       <Footer />
       <TransferSubscriptionDialog 
         open={transferDialogOpen} 
         onOpenChange={setTransferDialogOpen} 
+      />
+      <GetStartedDialog 
+        open={getStartedDialogOpen} 
+        onOpenChange={setGetStartedDialogOpen} 
       />
     </div>
   );
