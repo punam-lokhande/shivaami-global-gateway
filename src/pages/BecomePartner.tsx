@@ -2,8 +2,8 @@ import { motion } from 'framer-motion';
 import { useRef, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { 
-  Handshake, TrendingUp, Rocket, Clock, Users, Headphones, 
-  FileText, GraduationCap, ArrowRight, CheckCircle
+  TrendingUp, Rocket, Clock, Users, Headphones, 
+  FileText, GraduationCap, ArrowRight
 } from 'lucide-react';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
@@ -12,6 +12,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
 import partnerBanner from '@/assets/banners/changepath-banner.jpg';
+import partnershipImage from '@/assets/banners/partnership-handshake.jpg';
 
 const whyPartner = [
   {
@@ -199,7 +200,17 @@ export default function BecomePartner() {
       <section className="py-16 sm:py-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5" />
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center max-w-7xl mx-auto">
+          {/* Centered Header */}
+          <div className="max-w-3xl mx-auto text-center mb-10 sm:mb-12">
+            <h2 className="font-display text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-4">
+              The "Shivaami Advantage"
+            </h2>
+            <p className="text-base sm:text-lg text-muted-foreground">
+              While you maintain your independent brand and business, you gain the "unfair advantage" of working with one of India's leading cloud partners.
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-stretch max-w-7xl mx-auto">
             {/* Image Side */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
@@ -208,24 +219,13 @@ export default function BecomePartner() {
               transition={{ duration: 0.6 }}
               className="relative order-2 lg:order-1"
             >
-              <div className="relative rounded-3xl overflow-hidden shadow-2xl">
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl h-full">
                 <img
-                  src={partnerBanner}
-                  alt="Shivaami Partner Advantage"
-                  className="w-full h-[300px] sm:h-[400px] object-cover"
+                  src={partnershipImage}
+                  alt="Business Partnership"
+                  className="w-full h-full min-h-[400px] object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-primary/60 via-primary/20 to-transparent" />
-                <div className="absolute bottom-6 left-6 right-6">
-                  <div className="flex items-center gap-3 text-white">
-                    <div className="w-12 h-12 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center">
-                      <Handshake className="w-6 h-6" />
-                    </div>
-                    <div>
-                      <p className="font-bold text-lg">100+ Partners</p>
-                      <p className="text-sm text-white/80">Scaling with Shivaami</p>
-                    </div>
-                  </div>
-                </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/40 via-transparent to-transparent" />
               </div>
               {/* Decorative elements */}
               <div className="absolute -top-4 -right-4 w-24 h-24 bg-accent/20 rounded-full blur-2xl" />
@@ -240,12 +240,6 @@ export default function BecomePartner() {
               transition={{ duration: 0.6 }}
               className="order-1 lg:order-2"
             >
-              <h2 className="font-display text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-4">
-                The "Shivaami Advantage"
-              </h2>
-              <p className="text-base sm:text-lg text-muted-foreground mb-8">
-                While you maintain your independent brand and business, you gain the "unfair advantage" of working with one of India's leading cloud partners.
-              </p>
 
               <div className="space-y-4">
                 {shivaamiAdvantage.map((item, idx) => {
