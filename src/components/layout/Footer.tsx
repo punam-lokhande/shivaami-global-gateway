@@ -108,6 +108,7 @@ const footerLinks = {
       { label: 'Certifications', href: '/certifications' },
       { label: 'Achievements', href: '/achievements' },
       { label: 'Careers', href: '/careers' },
+      { label: 'Become a Partner', href: '/become-partner' },
     ],
   },
 };
