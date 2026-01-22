@@ -86,38 +86,23 @@ const OnDemandWebinars = () => {
       
       {/* Hero Section */}
       <section 
-        className="relative min-h-[50vh] flex items-center bg-cover bg-center bg-no-repeat"
+        className="relative min-h-[55vh] sm:min-h-[60vh] flex items-center bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `linear-gradient(to right, rgba(12, 69, 148, 0.95) 0%, rgba(12, 69, 148, 0.7) 50%, rgba(12, 69, 148, 0.4) 100%), url(${geminiEnterpriseBanner})` }}
       >
-        <div className="w-full px-6 sm:px-8 lg:px-16 xl:px-24 pt-32 pb-16 relative z-10">
+        <div className="w-full px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24 pt-24 sm:pt-28 md:pt-32 lg:pt-36 pb-12 sm:pb-16 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             className="max-w-4xl"
           >
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-6 leading-tight">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-4 sm:mb-6 leading-tight">
               On-Demand Webinars
             </h1>
             
-            <p className="text-base sm:text-lg lg:text-xl text-white/85 leading-relaxed max-w-2xl mb-8">
+            <p className="text-sm sm:text-base lg:text-xl text-white/85 leading-relaxed max-w-2xl">
               Discover Gemini's potential to transform your daily tasks in Google Workspace. Register for our six-part adoption series, available at no cost, presented by our Gemini expert.
             </p>
-
-            <div className="flex flex-wrap gap-4">
-              <div className="flex items-center gap-2 text-white/70 text-sm">
-                <Play className="w-4 h-4" />
-                <span>6 Modules Available</span>
-              </div>
-              <div className="flex items-center gap-2 text-white/70 text-sm">
-                <Clock className="w-4 h-4" />
-                <span>45 Minutes Each</span>
-              </div>
-              <div className="flex items-center gap-2 text-white/70 text-sm">
-                <User className="w-4 h-4" />
-                <span>Expert-Led Sessions</span>
-              </div>
-            </div>
           </motion.div>
         </div>
       </section>
