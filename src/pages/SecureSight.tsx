@@ -43,7 +43,7 @@ function HeroSection() {
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
   return (
-    <section ref={ref} className="relative min-h-[60vh] md:min-h-[65vh] lg:min-h-[70vh] max-h-[700px] flex items-center overflow-hidden">
+    <section ref={ref} className="relative min-h-[55vh] sm:min-h-[60vh] md:min-h-[65vh] lg:min-h-[70vh] max-h-[700px] flex items-center overflow-hidden">
       <motion.div 
         style={{ y }}
         className="absolute inset-0 z-0"
@@ -58,7 +58,7 @@ function HeroSection() {
         <div className="absolute inset-0 bg-gradient-to-t from-[#0C4594]/60 via-transparent to-[#0C4594]/40" />
       </motion.div>
 
-      <motion.div style={{ opacity }} className="relative z-10 w-full px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24 pt-20 sm:pt-24 lg:pt-28">
+      <motion.div style={{ opacity }} className="relative z-10 w-full px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24 pt-24 sm:pt-28 md:pt-32 lg:pt-36">
         <div className="max-w-3xl">
           <motion.h1
             initial={{ opacity: 0, y: 28 }}
@@ -75,7 +75,7 @@ function HeroSection() {
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-sm sm:text-base lg:text-lg text-white/80 max-w-2xl mb-6 sm:mb-8 leading-relaxed font-body"
+            className="text-sm sm:text-base lg:text-lg text-white/80 max-w-2xl leading-relaxed font-body"
           >
             Shivaami shows you exactly where your security needs attention. We test your systems like an attacker would and report what we find. You get a prioritized list of fixes with clear explanations. Our assessments help you meet compliance requirements and sleep better at night.
           </motion.p>

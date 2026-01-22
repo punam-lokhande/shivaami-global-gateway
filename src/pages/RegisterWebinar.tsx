@@ -8,7 +8,7 @@ import { Label } from "@/components/ui/label";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Link } from "react-router-dom";
 import nikunjPhoto from "@/assets/speakers/nikunj-thakkar.jpg";
-import heroBanner from "@/assets/banners/google-ai-ultra-banner.jpg";
+import heroBanner from "@/assets/banners/webinar-online-meeting.jpg";
 
 const RegisterWebinar = () => {
   return (
@@ -16,28 +16,28 @@ const RegisterWebinar = () => {
       <Header />
       
       {/* Hero Section with Background Image */}
-      <section className="relative pt-28 pb-12 md:pb-16 lg:pb-20 overflow-hidden">
+      <section className="relative min-h-[50vh] sm:min-h-[55vh] md:min-h-[60vh] max-h-[600px] flex items-center overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0">
           <img 
             src={heroBanner} 
-            alt="Google AI Ultra" 
+            alt="Online Meeting Webinar" 
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-[#0C4594]/95 via-[#0C4594]/80 to-[#0C4594]/40" />
         </div>
         
-        <div className="relative w-full px-6 sm:px-8 lg:px-16 xl:px-24">
+        <div className="relative w-full px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24 pt-24 sm:pt-28 md:pt-32 pb-8 sm:pb-12">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             className="max-w-4xl"
           >
-            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-2 md:mb-3">
+            <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-white mb-2 sm:mb-3 leading-tight">
               Beyond the Basics:
             </h1>
-            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-[#38B6FF] drop-shadow-lg">
+            <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-[#38B6FF] drop-shadow-lg leading-tight">
               Unlocking Next-Generation AI with Google AI Ultra
             </h2>
           </motion.div>

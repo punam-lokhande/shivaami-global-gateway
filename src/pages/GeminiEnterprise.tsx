@@ -59,14 +59,14 @@ function HeroSection() {
       </motion.div>
 
       {/* Content - Left aligned with full width layout */}
-      <motion.div style={{ opacity }} className="relative z-10 w-full px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24 pt-20 sm:pt-24 lg:pt-28">
+      <motion.div style={{ opacity }} className="relative z-10 w-full px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24 pt-24 sm:pt-28 md:pt-32 lg:pt-36">
         <div className="max-w-3xl">
           {/* Headline */}
           <motion.h1
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="font-display text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-semibold text-white mb-6 leading-[1.15] tracking-tight"
+            className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-semibold text-white mb-4 sm:mb-6 leading-[1.15] tracking-tight"
           >
             Gemini Enterprise:<br />
             <span className="text-[#38B6FF]">The Future</span> of<br />
@@ -78,28 +78,10 @@ function HeroSection() {
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-base lg:text-lg text-white/80 max-w-2xl mb-8 leading-relaxed font-body"
+            className="text-sm sm:text-base lg:text-lg text-white/80 max-w-2xl leading-relaxed font-body"
           >
             Gemini Enterprise is Google's agentic AI platform built to automate business operations across every department. As an official onboarding partner, Shivaami helps organizations deploy AI agents that integrate with your workflow.
           </motion.p>
-
-          {/* CTA */}
-          <motion.div 
-            initial={{ opacity: 0, y: 28 }} 
-            animate={{ opacity: 1, y: 0 }} 
-            transition={{ duration: 0.6, delay: 0.3 }}
-          >
-            <Link to="/lets-connect">
-              <Button
-                size="lg"
-                className="bg-[#38B6FF] hover:bg-[#2da8f0] text-white font-semibold px-8 py-6 text-base group rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
-              >
-                <Play className="w-5 h-5 mr-2" />
-                Book a Live Demo
-                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </Button>
-            </Link>
-          </motion.div>
         </div>
       </motion.div>
     </section>
