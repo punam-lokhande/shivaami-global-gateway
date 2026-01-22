@@ -15,16 +15,6 @@ import ongoingSupportImg from '@/assets/activation/ongoing-support.jpg';
 import techButtonsBg from '@/assets/banners/tech-buttons-bg.jpg';
 import TransferSubscriptionDialog from '@/components/TransferSubscriptionDialog';
 
-// Badge paths (using public folder)
-const gcPpSell = '/badges/gc-pp-sell.png';
-const gcInfrastructure = '/badges/gc-infrastructure.png';
-const gcSecurity = '/badges/gc-security.png';
-const gcWorkTransformationEnterprise = '/badges/gc-work-transformation-enterprise.png';
-const gcWorkTransformation = '/badges/gc-work-transformation.png';
-const gwsPpSellService = '/badges/gws-pp-sell-service.png';
-const sixXAward = '/badges/6x-award.png';
-const diamondCosellPartner = '/badges/diamond-cosell-partner.png';
-
 const fadeInUp = {
   initial: { opacity: 0, y: 30 },
   whileInView: { opacity: 1, y: 0 },
@@ -397,116 +387,7 @@ function ActivationSection() {
   );
 }
 
-// Recognized Leader Section
-function RecognizedLeaderSection() {
-  const badges = [
-    { image: gcPpSell, alt: "Google Cloud Premier Partner - Sell" },
-    { image: gcInfrastructure, alt: "Google Cloud Infrastructure Specialization" },
-    { image: gcSecurity, alt: "Google Cloud Security Specialization" },
-    { image: gcWorkTransformationEnterprise, alt: "Google Cloud Work Transformation Enterprise Specialization" },
-    { image: gcWorkTransformation, alt: "Google Cloud Work Transformation Specialization" },
-    { image: gwsPpSellService, alt: "Google Workspace Premier Partner - Sell & Service" },
-  ];
-
-  return (
-    <section className="py-16 bg-[#f8fafc]">
-      <div className="w-full px-8 lg:px-16 xl:px-24">
-        <motion.div {...fadeInUp} className="text-center mb-12">
-          <h2 className="text-2xl md:text-3xl font-bold text-[#0C4594] mb-4">
-            Recognized Leader in the Google Cloud Ecosystem
-          </h2>
-        </motion.div>
-
-        <motion.div 
-          {...staggerContainer}
-          className="flex flex-wrap items-center justify-center gap-8 md:gap-12 max-w-5xl mx-auto"
-        >
-          {badges.map((badge, idx) => (
-            <motion.div
-              key={idx}
-              variants={{
-                initial: { opacity: 0, scale: 0.8 },
-                whileInView: { opacity: 1, scale: 1 }
-              }}
-              className="w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 flex items-center justify-center"
-            >
-              <img 
-                src={badge.image} 
-                alt={badge.alt}
-                className="w-full h-full object-contain"
-              />
-            </motion.div>
-          ))}
-        </motion.div>
-      </div>
-    </section>
-  );
-}
-
-// Proven Excellence Section
-function ProvenExcellenceSection() {
-  const handleGetStarted = () => {
-    window.dispatchEvent(new CustomEvent('openGetStartedDialog'));
-  };
-
-  return (
-    <section className="py-16 bg-white">
-      <div className="w-full px-8 lg:px-16 xl:px-24">
-        <motion.div {...fadeInUp} className="text-center mb-12">
-          <h2 className="text-2xl md:text-3xl font-bold text-[#0C4594] mb-4">
-            Proven Excellence, Recognized Leadership
-          </h2>
-          <p className="text-[#475569] text-base md:text-lg max-w-3xl mx-auto leading-relaxed">
-            We're a 6X Google Workspace Partner of the Year with Diamond Co-Sell and Services Partner recognition. We deliver proven expertise across security, infrastructure, and work transformation. Our solutions help organizations maximize their Google Cloud investment.
-          </p>
-        </motion.div>
-
-        <motion.div 
-          {...staggerContainer}
-          className="flex flex-wrap items-center justify-center gap-12 md:gap-16 max-w-4xl mx-auto mb-10"
-        >
-          <motion.div
-            variants={{
-              initial: { opacity: 0, scale: 0.8 },
-              whileInView: { opacity: 1, scale: 1 }
-            }}
-            className="w-48 sm:w-56 md:w-64 flex items-center justify-center"
-          >
-            <img 
-              src={sixXAward} 
-              alt="6X Google Workspace Partner of the Year"
-              className="w-full h-auto object-contain"
-            />
-          </motion.div>
-          <motion.div
-            variants={{
-              initial: { opacity: 0, scale: 0.8 },
-              whileInView: { opacity: 1, scale: 1 }
-            }}
-            className="w-48 sm:w-56 md:w-64 flex items-center justify-center"
-          >
-            <img 
-              src={diamondCosellPartner} 
-              alt="Google Workspace Diamond Co-sell & Services Partner"
-              className="w-full h-auto object-contain"
-            />
-          </motion.div>
-        </motion.div>
-
-        <motion.div {...fadeInUp} className="text-center">
-          <Button 
-            size="lg" 
-            onClick={handleGetStarted}
-            className="bg-[#38B6FF] hover:bg-[#2da8f0] text-white font-semibold px-8 py-6 text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
-          >
-            Get Started
-            <ArrowRight className="ml-2 h-5 w-5" />
-          </Button>
-        </motion.div>
-      </div>
-    </section>
-  );
-}
+// Calendar CTA Section
 
 // Calendar CTA Section
 function CalendarCTASection() {
@@ -601,8 +482,6 @@ const GoogleWorkspace = () => {
         <FeaturesSection />
         <WorkspaceActionsSection onTransferClick={() => setTransferDialogOpen(true)} />
         <ActivationSection />
-        <RecognizedLeaderSection />
-        <ProvenExcellenceSection />
         <CalendarCTASection />
       </main>
       <Footer />
