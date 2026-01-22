@@ -169,6 +169,7 @@ const menuContent: Record<string, MenuContent> = {
           { icon: Users, label: 'Pulse360', desc: 'Managed IT services', href: '/pulse360' },
           { icon: FileCheck, label: 'ChangePath', desc: 'Change management', href: '/changepath' },
           { icon: Shield, label: 'SecureSight', desc: 'Security assessment', href: '/securesight' },
+          { icon: Users, label: 'TalentEdge', desc: 'Staff augmentation services', href: '/talentedge' },
           { icon: Headphones, label: 'Support Packages', desc: '24/7 enterprise support' },
           { icon: Code, label: 'Apps Script', desc: 'Custom automation', href: '/apps-script' },
         ],

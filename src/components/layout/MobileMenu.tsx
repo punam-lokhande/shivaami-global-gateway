@@ -103,6 +103,7 @@ const mobileMenuData = [
           { label: 'Pulse360', href: '/pulse360' },
           { label: 'ChangePath', href: '/changepath' },
           { label: 'SecureSight', href: '/securesight' },
+          { label: 'TalentEdge', href: '/talentedge' },
           { label: 'Apps Script', href: '/apps-script' },
         ],
       },

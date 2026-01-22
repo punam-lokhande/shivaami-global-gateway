@@ -43,6 +43,7 @@ import SwiftMove from "./pages/SwiftMove";
 import ChangePath from "./pages/ChangePath";
 import Pulse360 from "./pages/Pulse360";
 import SecureSight from "./pages/SecureSight";
+import TalentEdge from "./pages/TalentEdge";
 import AboutUs from "./pages/AboutUs";
 import CaseStudies from "./pages/CaseStudies";
 import CaseStudyZepto from "./pages/CaseStudyZepto";
@@ -175,6 +176,7 @@ const App = () => (
               <Route path="/changepath" element={<ChangePath />} />
               <Route path="/pulse360" element={<Pulse360 />} />
               <Route path="/securesight" element={<SecureSight />} />
+              <Route path="/talentedge" element={<TalentEdge />} />
               <Route path="/about-us" element={<AboutUs />} />
               <Route path="/case-studies" element={<CaseStudies />} />
               <Route path="/case-studies/zepto" element={<CaseStudyZepto />} />
