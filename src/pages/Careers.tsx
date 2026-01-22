@@ -162,18 +162,10 @@ export default function Careers() {
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 md:mb-6">
               Build Your Career with Shivaami
             </h1>
-            <p className="text-base sm:text-lg md:text-xl text-white/90 mb-6 md:mb-8">
+            <p className="text-base sm:text-lg md:text-xl text-white/90">
               Join a team of passionate professionals transforming businesses through cloud technology. 
               Discover opportunities that match your skills and ambitions.
             </p>
-            <Button 
-              size="lg"
-              onClick={scrollToForm}
-              className="bg-white text-primary hover:bg-white/90 group"
-            >
-              Apply Now
-              <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-            </Button>
           </motion.div>
         </div>
       </section>
