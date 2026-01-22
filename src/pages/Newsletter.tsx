@@ -82,8 +82,8 @@ export default function Newsletter() {
         </div>
 
         {/* Hero Section */}
-        <section className="relative pt-32 pb-20">
-          <div className="container mx-auto px-4 relative z-10">
+        <section className="relative pt-24 sm:pt-28 md:pt-32 lg:pt-36 pb-16 sm:pb-20">
+          <div className="container mx-auto px-4 sm:px-6 md:px-8 relative z-10">
             <div className="max-w-5xl mx-auto">
               <div className="grid lg:grid-cols-2 gap-12 items-center">
                 {/* Left Content */}
@@ -99,12 +99,12 @@ export default function Newsletter() {
                     className="h-1 bg-gradient-to-r from-[#38B6FF] to-transparent mb-8"
                   />
 
-                  <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+                  <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-4 sm:mb-6 leading-tight">
                     Never Miss an
                     <span className="block text-[#38B6FF]">Update</span>
                   </h1>
 
-                  <p className="text-xl text-white/70 mb-10 leading-relaxed">
+                  <p className="text-base sm:text-lg lg:text-xl text-white/70 mb-8 sm:mb-10 leading-relaxed">
                     Get the latest IT insights and Shivaami news delivered monthly.
                   </p>
 

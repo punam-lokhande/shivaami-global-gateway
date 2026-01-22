@@ -166,7 +166,7 @@ function HeroSection() {
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
   return (
-    <section ref={ref} className="relative min-h-[40vh] lg:min-h-[50vh] flex items-center overflow-hidden">
+    <section ref={ref} className="relative min-h-[55vh] sm:min-h-[60vh] flex items-center overflow-hidden">
       {/* Background Image */}
       <motion.div style={{ y }} className="absolute inset-0 z-0">
         <img 
@@ -178,13 +178,13 @@ function HeroSection() {
       </motion.div>
 
       {/* Content - Left aligned */}
-      <motion.div style={{ opacity }} className="relative z-10 w-full px-6 sm:px-8 lg:px-16 xl:px-24 pt-32 pb-16">
+      <motion.div style={{ opacity }} className="relative z-10 w-full px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24 pt-24 sm:pt-28 md:pt-32 lg:pt-36 pb-12 sm:pb-16">
         <div className="max-w-3xl">
           <motion.h1
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="font-display text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-6 leading-[1.1]"
+            className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-4 sm:mb-6 leading-[1.1]"
           >
             Case Studies
           </motion.h1>
@@ -193,7 +193,7 @@ function HeroSection() {
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.15 }}
-            className="text-base lg:text-xl text-white/85 max-w-2xl leading-relaxed"
+            className="text-sm sm:text-base lg:text-xl text-white/85 max-w-2xl leading-relaxed"
           >
             Discover how we've helped leading organizations across industries transform their businesses with cloud and cybersecurity solutions.
           </motion.p>
