@@ -15,15 +15,15 @@ import ongoingSupportImg from '@/assets/activation/ongoing-support.jpg';
 import techButtonsBg from '@/assets/banners/tech-buttons-bg.jpg';
 import TransferSubscriptionDialog from '@/components/TransferSubscriptionDialog';
 
-// Badge imports
-import gcPpSell from '@/assets/badges/gc-pp-sell.png';
-import gcInfrastructure from '@/assets/badges/gc-infrastructure.png';
-import gcSecurity from '@/assets/badges/gc-security.png';
-import gcWorkTransformationEnterprise from '@/assets/badges/gc-work-transformation-enterprise.png';
-import gcWorkTransformation from '@/assets/badges/gc-work-transformation.png';
-import gwsPpSellService from '@/assets/badges/gws-pp-sell-service.png';
-import sixXAward from '@/assets/badges/6x-award.png';
-import diamondCosellPartner from '@/assets/badges/diamond-cosell-partner.png';
+// Badge paths (using public folder)
+const gcPpSell = '/badges/gc-pp-sell.png';
+const gcInfrastructure = '/badges/gc-infrastructure.png';
+const gcSecurity = '/badges/gc-security.png';
+const gcWorkTransformationEnterprise = '/badges/gc-work-transformation-enterprise.png';
+const gcWorkTransformation = '/badges/gc-work-transformation.png';
+const gwsPpSellService = '/badges/gws-pp-sell-service.png';
+const sixXAward = '/badges/6x-award.png';
+const diamondCosellPartner = '/badges/diamond-cosell-partner.png';
 
 const fadeInUp = {
   initial: { opacity: 0, y: 30 },
