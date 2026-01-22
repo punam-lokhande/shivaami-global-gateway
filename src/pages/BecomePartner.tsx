@@ -196,85 +196,38 @@ export default function BecomePartner() {
       </section>
 
       {/* The Shivaami Advantage */}
-      <section className="py-16 sm:py-20 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5" />
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center max-w-7xl mx-auto">
-            {/* Image Side */}
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="relative order-2 lg:order-1"
-            >
-              <div className="relative rounded-3xl overflow-hidden shadow-2xl">
-                <img
-                  src={partnerBanner}
-                  alt="Shivaami Partner Advantage"
-                  className="w-full h-[300px] sm:h-[400px] object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-primary/60 via-primary/20 to-transparent" />
-                <div className="absolute bottom-6 left-6 right-6">
-                  <div className="flex items-center gap-3 text-white">
-                    <div className="w-12 h-12 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center">
-                      <Handshake className="w-6 h-6" />
-                    </div>
-                    <div>
-                      <p className="font-bold text-lg">100+ Partners</p>
-                      <p className="text-sm text-white/80">Scaling with Shivaami</p>
-                    </div>
+      <section className="py-12 sm:py-16">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-8">
+            <h2 className="font-display text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-3">
+              The "Shivaami Advantage"
+            </h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Gain the "unfair advantage" of working with one of India's leading cloud partners.
+            </p>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-6xl mx-auto">
+            {shivaamiAdvantage.map((item, idx) => {
+              const Icon = item.icon;
+              return (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: idx * 0.1 }}
+                  className="group p-5 bg-card rounded-xl border border-border hover:border-primary/40 hover:shadow-lg transition-all duration-300 text-center"
+                >
+                  <div className="w-12 h-12 mx-auto rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                    <Icon className="w-6 h-6 text-white" />
                   </div>
-                </div>
-              </div>
-              {/* Decorative elements */}
-              <div className="absolute -top-4 -right-4 w-24 h-24 bg-accent/20 rounded-full blur-2xl" />
-              <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-primary/20 rounded-full blur-2xl" />
-            </motion.div>
-
-            {/* Content Side */}
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="order-1 lg:order-2"
-            >
-              <h2 className="font-display text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-4">
-                The "Shivaami Advantage"
-              </h2>
-              <p className="text-base sm:text-lg text-muted-foreground mb-8">
-                While you maintain your independent brand and business, you gain the "unfair advantage" of working with one of India's leading cloud partners.
-              </p>
-
-              <div className="space-y-4">
-                {shivaamiAdvantage.map((item, idx) => {
-                  const Icon = item.icon;
-                  return (
-                    <motion.div
-                      key={idx}
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.4, delay: idx * 0.1 }}
-                      className="flex gap-4 p-4 bg-card/80 backdrop-blur-sm rounded-xl border border-border hover:border-primary/30 hover:shadow-md transition-all duration-300"
-                    >
-                      <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center flex-shrink-0">
-                        <Icon className="w-5 h-5 text-white" />
-                      </div>
-                      <div>
-                        <h3 className="font-display text-base font-bold text-foreground mb-1">
-                          {item.title}
-                        </h3>
-                        <p className="text-sm text-muted-foreground leading-relaxed">
-                          {item.description}
-                        </p>
-                      </div>
-                    </motion.div>
-                  );
-                })}
-              </div>
-            </motion.div>
+                  <h3 className="font-display text-base font-bold text-foreground">
+                    {item.title}
+                  </h3>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>
