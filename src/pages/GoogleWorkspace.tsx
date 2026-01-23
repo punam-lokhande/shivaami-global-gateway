@@ -188,60 +188,133 @@ function FeaturesSection() {
 // Recognized Leader Section
 function RecognizedLeaderSection() {
   const badges = [
-    { src: '/badges/GWS-PP-Sell-Service-Outline.png', alt: 'Google Workspace Premier Partner - Sell | Service' },
-    { src: '/badges/GC-PP-Sell-Outline.png', alt: 'Google Cloud Premier Partner - Sell' },
-    { src: '/badges/GC-specialization-Infrastructure-outline.png', alt: 'Google Cloud Specialization - Infrastructure' },
-    { src: '/badges/GC-specialization-Security-outline.png', alt: 'Google Cloud Specialization - Security' },
-    { src: '/badges/GC-specialization-Work_Transformation-outline.png', alt: 'Google Cloud Specialization - Work Transformation' },
-    { src: '/badges/GC-specialization-Work_Transformation_Enterprise-outline.png', alt: 'Google Cloud Specialization - Work Transformation Enterprise' },
+    { src: '/badges/GWS-PP-Sell-Service-Outline.png', alt: 'Google Workspace Premier Partner - Sell | Service', label: 'Premier Partner' },
+    { src: '/badges/GC-PP-Sell-Outline.png', alt: 'Google Cloud Premier Partner - Sell', label: 'Cloud Partner' },
+    { src: '/badges/GC-specialization-Infrastructure-outline.png', alt: 'Google Cloud Specialization - Infrastructure', label: 'Infrastructure' },
+    { src: '/badges/GC-specialization-Security-outline.png', alt: 'Google Cloud Specialization - Security', label: 'Security' },
+    { src: '/badges/GC-specialization-Work_Transformation-outline.png', alt: 'Google Cloud Specialization - Work Transformation', label: 'Work Transform' },
+    { src: '/badges/GC-specialization-Work_Transformation_Enterprise-outline.png', alt: 'Google Cloud Specialization - Work Transformation Enterprise', label: 'Enterprise' },
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-b from-white to-[#f1f5f9]">
-      <div className="w-full px-8 lg:px-16 xl:px-24">
-        <motion.div {...fadeInUp} className="text-center mb-14">
-          <span className="inline-block px-4 py-1.5 bg-[#0C4594]/10 text-[#0C4594] text-sm font-medium rounded-full mb-4">
-            Industry Recognition
-          </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-[#0C4594] mb-4">
-            Recognized Leader in the Google Cloud Ecosystem
+    <section className="py-24 relative overflow-hidden">
+      {/* Beautiful light gradient background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-[#f8fafc] via-white to-[#f1f5f9]" />
+      
+      {/* Decorative elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        {/* Soft colored orbs */}
+        <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-gradient-to-br from-[#38B6FF]/8 to-transparent rounded-full blur-[100px]" />
+        <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-gradient-to-br from-[#0C4594]/6 to-transparent rounded-full blur-[80px]" />
+        
+        {/* Subtle pattern */}
+        <div className="absolute inset-0 opacity-[0.015]" style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, #0C4594 1px, transparent 0)', backgroundSize: '32px 32px' }} />
+        
+        {/* Decorative lines */}
+        <motion.div 
+          initial={{ scaleY: 0 }}
+          whileInView={{ scaleY: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1 }}
+          className="absolute left-8 top-20 bottom-20 w-px bg-gradient-to-b from-transparent via-[#38B6FF]/20 to-transparent origin-top"
+        />
+        <motion.div 
+          initial={{ scaleY: 0 }}
+          whileInView={{ scaleY: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1, delay: 0.2 }}
+          className="absolute right-8 top-20 bottom-20 w-px bg-gradient-to-b from-transparent via-[#0C4594]/20 to-transparent origin-top"
+        />
+      </div>
+      
+      <div className="w-full px-6 sm:px-8 lg:px-16 xl:px-24 relative z-10">
+        {/* Header */}
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
+          {/* Badge */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="inline-flex items-center gap-2 px-5 py-2 bg-gradient-to-r from-[#0C4594]/10 to-[#38B6FF]/10 rounded-full mb-6 border border-[#0C4594]/10"
+          >
+            <span className="w-2 h-2 bg-[#38B6FF] rounded-full" />
+            <span className="text-[#0C4594] text-sm font-semibold tracking-wide">Industry Recognition</span>
+          </motion.div>
+          
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 leading-tight">
+            <span className="text-[#0C4594]">Recognized Leader in the</span>{' '}
+            <span className="bg-gradient-to-r from-[#38B6FF] to-[#0C4594] bg-clip-text text-transparent">Google Cloud Ecosystem</span>
           </h2>
-          <p className="text-[#475569] max-w-2xl mx-auto text-lg">
+          
+          <p className="text-[#475569] max-w-2xl mx-auto text-lg leading-relaxed">
             Shivaami holds the highest-level Google Cloud Partner certifications, ensuring world-class expertise for your digital transformation.
           </p>
+          
+          {/* Decorative separator */}
+          <motion.div 
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="w-24 h-1 bg-gradient-to-r from-[#0C4594] to-[#38B6FF] rounded-full mx-auto mt-8"
+          />
         </motion.div>
 
-        <motion.div 
-          {...staggerContainer}
-          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 lg:gap-8 max-w-6xl mx-auto"
-        >
+        {/* Badge Grid */}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-5 lg:gap-6 max-w-6xl mx-auto">
           {badges.map((badge, idx) => (
             <motion.div
               key={idx}
-              variants={{
-                initial: { opacity: 0, scale: 0.9 },
-                whileInView: { opacity: 1, scale: 1 }
-              }}
-              transition={{ delay: idx * 0.1 }}
-              className="group relative"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: idx * 0.08 }}
+              whileHover={{ y: -8 }}
+              className="group"
             >
-              <div className="relative bg-white rounded-2xl p-4 shadow-lg hover:shadow-2xl transition-all duration-500 border border-[#e2e8f0] hover:border-[#38B6FF]/40 overflow-hidden">
-                {/* Subtle gradient background on hover */}
-                <div className="absolute inset-0 bg-gradient-to-br from-[#0C4594]/5 via-transparent to-[#38B6FF]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="relative h-full">
+                {/* Hover glow */}
+                <div className="absolute -inset-1 bg-gradient-to-br from-[#38B6FF]/30 to-[#0C4594]/30 rounded-2xl blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 
-                {/* Badge image */}
-                <div className="relative z-10 aspect-square flex items-center justify-center">
-                  <img 
-                    src={badge.src} 
-                    alt={badge.alt}
-                    className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
-                    loading="lazy"
+                {/* Card */}
+                <div className="relative h-full bg-white rounded-2xl p-5 shadow-[0_4px_20px_rgba(0,0,0,0.06)] hover:shadow-[0_12px_40px_rgba(56,182,255,0.15)] transition-all duration-500 border border-[#e2e8f0] hover:border-[#38B6FF]/40 overflow-hidden">
+                  {/* Top accent line */}
+                  <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#0C4594] via-[#38B6FF] to-[#0C4594] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  
+                  {/* Shimmer effect */}
+                  <motion.div 
+                    initial={{ x: '-100%' }}
+                    whileHover={{ x: '200%' }}
+                    transition={{ duration: 0.8 }}
+                    className="absolute inset-0 bg-gradient-to-r from-transparent via-white/60 to-transparent skew-x-12 opacity-0 group-hover:opacity-100"
                   />
+                  
+                  {/* Badge image */}
+                  <div className="relative z-10 aspect-square flex items-center justify-center mb-3">
+                    <img 
+                      src={badge.src} 
+                      alt={badge.alt}
+                      className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
+                      loading="lazy"
+                    />
+                  </div>
+                  
+                  {/* Label */}
+                  <div className="text-center">
+                    <span className="text-xs font-medium text-[#64748b] group-hover:text-[#0C4594] transition-colors duration-300">{badge.label}</span>
+                  </div>
                 </div>
               </div>
             </motion.div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );
@@ -452,78 +525,193 @@ function ActivationSection() {
 // Proven Excellence Section
 function ProvenExcellenceSection() {
   return (
-    <section className="py-20 bg-gradient-to-br from-[#0C4594] via-[#0a3a7a] to-[#082d61] relative overflow-hidden">
-      {/* Background decorations */}
+    <section className="py-24 bg-gradient-to-br from-[#0f172a] via-[#1e293b] to-[#0f172a] relative overflow-hidden">
+      {/* Animated Background decorations */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-1/4 -left-20 w-80 h-80 bg-[#38B6FF]/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 -right-20 w-80 h-80 bg-white/5 rounded-full blur-3xl" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-br from-[#38B6FF]/5 to-transparent rounded-full blur-3xl" />
+        {/* Floating orbs */}
+        <motion.div 
+          animate={{ 
+            scale: [1, 1.3, 1],
+            opacity: [0.2, 0.35, 0.2],
+            x: [0, 30, 0],
+            y: [0, -20, 0]
+          }}
+          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute top-20 left-10 w-72 h-72 bg-gradient-to-br from-[#38B6FF] to-[#0ea5e9] rounded-full blur-[100px]" 
+        />
+        <motion.div 
+          animate={{ 
+            scale: [1.2, 1, 1.2],
+            opacity: [0.15, 0.3, 0.15],
+            x: [0, -20, 0],
+            y: [0, 30, 0]
+          }}
+          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+          className="absolute bottom-20 right-10 w-80 h-80 bg-gradient-to-br from-[#8b5cf6] to-[#6366f1] rounded-full blur-[120px]" 
+        />
+        <motion.div 
+          animate={{ 
+            scale: [1, 1.15, 1],
+            opacity: [0.1, 0.2, 0.1]
+          }}
+          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-br from-[#0ea5e9]/20 to-[#8b5cf6]/20 rounded-full blur-[80px]" 
+        />
+        
+        {/* Subtle grid pattern */}
+        <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)', backgroundSize: '60px 60px' }} />
+        
+        {/* Decorative lines */}
+        <div className="absolute top-0 left-1/4 w-px h-full bg-gradient-to-b from-transparent via-[#38B6FF]/20 to-transparent" />
+        <div className="absolute top-0 right-1/4 w-px h-full bg-gradient-to-b from-transparent via-[#8b5cf6]/20 to-transparent" />
       </div>
       
-      <div className="w-full px-8 lg:px-16 xl:px-24 relative z-10">
-        <div className="max-w-6xl mx-auto">
-          {/* Header */}
-          <motion.div {...fadeInUp} className="text-center mb-16">
-            <span className="inline-block px-4 py-1.5 bg-white/10 text-[#38B6FF] text-sm font-medium rounded-full mb-4 backdrop-blur-sm border border-white/10">
-              Award-Winning Partnership
-            </span>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
-              Proven Excellence, Recognized Leadership
+      <div className="w-full px-6 sm:px-8 lg:px-16 xl:px-24 relative z-10">
+        <div className="max-w-5xl mx-auto">
+          {/* Header with better alignment */}
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+            className="text-center mb-16"
+          >
+            {/* Badge */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="inline-flex items-center gap-2 px-5 py-2.5 bg-white/5 backdrop-blur-md rounded-full mb-6 border border-white/10"
+            >
+              <span className="w-2 h-2 bg-[#38B6FF] rounded-full animate-pulse" />
+              <span className="text-[#38B6FF] text-sm font-medium tracking-wide">Award-Winning Partnership</span>
+            </motion.div>
+            
+            {/* Heading */}
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-8 leading-tight">
+              Proven Excellence,{' '}
+              <span className="bg-gradient-to-r from-[#38B6FF] via-[#60a5fa] to-[#8b5cf6] bg-clip-text text-transparent">
+                Recognized Leadership
+              </span>
             </h2>
-            <p className="text-lg md:text-xl text-white/80 max-w-3xl mx-auto leading-relaxed">
-              We're a 6X Google Workspace Partner of the Year with Diamond Co-Sell and Services Partner recognition. We deliver proven expertise across security, infrastructure, and work transformation. Our solutions help organizations maximize their Google Cloud investment.
-            </p>
+            
+            {/* Description - properly aligned */}
+            <div className="max-w-3xl mx-auto space-y-4">
+              <p className="text-base sm:text-lg md:text-xl text-white/70 leading-relaxed">
+                We're a <span className="text-white font-semibold">6X Google Workspace Partner of the Year</span> with 
+                Diamond Co-Sell and Services Partner recognition.
+              </p>
+              <p className="text-base sm:text-lg md:text-xl text-white/70 leading-relaxed">
+                We deliver proven expertise across security, infrastructure, and work transformation. 
+                Our solutions help organizations maximize their Google Cloud investment.
+              </p>
+            </div>
+            
+            {/* Decorative separator */}
+            <motion.div 
+              initial={{ scaleX: 0 }}
+              whileInView={{ scaleX: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="w-32 h-1 bg-gradient-to-r from-[#38B6FF] to-[#8b5cf6] rounded-full mx-auto mt-10"
+            />
           </motion.div>
 
-          {/* Badge Display */}
+          {/* Badge Display with Prominent Boxes */}
           <motion.div 
-            {...staggerContainer}
-            className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16 lg:gap-24"
           >
             {/* 6X Award Badge */}
             <motion.div
-              variants={{
-                initial: { opacity: 0, x: -50 },
-                whileInView: { opacity: 1, x: 0 }
-              }}
-              transition={{ duration: 0.6 }}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              whileHover={{ y: -10 }}
               className="group"
             >
-              <div className="relative bg-white rounded-3xl p-6 md:p-8 shadow-2xl hover:shadow-[0_25px_60px_-15px_rgba(56,182,255,0.4)] transition-all duration-500 transform hover:-translate-y-2">
-                {/* Glow effect */}
-                <div className="absolute -inset-1 bg-gradient-to-r from-[#38B6FF] via-[#0C4594] to-[#38B6FF] rounded-3xl opacity-0 group-hover:opacity-30 blur-xl transition-all duration-500" />
+              <div className="relative">
+                {/* Outer glow ring */}
+                <motion.div 
+                  animate={{ 
+                    opacity: [0.4, 0.7, 0.4],
+                  }}
+                  transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                  className="absolute -inset-3 bg-gradient-to-br from-[#38B6FF] via-[#0ea5e9] to-[#38B6FF] rounded-[2rem] blur-xl"
+                />
                 
-                <div className="relative z-10">
-                  <img 
-                    src="/badges/6x-award.png" 
-                    alt="6X Google Workspace Partner of the Year APAC 2025"
-                    className="w-[280px] md:w-[320px] h-auto object-contain"
-                    loading="lazy"
+                {/* Card */}
+                <div className="relative bg-white/95 backdrop-blur-sm rounded-3xl p-6 sm:p-8 md:p-10 shadow-2xl border border-white/50 overflow-hidden">
+                  {/* Shimmer effect */}
+                  <motion.div 
+                    animate={{ x: ['-100%', '200%'] }}
+                    transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", repeatDelay: 2 }}
+                    className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent skew-x-12"
                   />
+                  
+                  {/* Badge label */}
+                  <div className="absolute top-4 left-4 px-3 py-1 bg-gradient-to-r from-[#38B6FF] to-[#0ea5e9] rounded-full">
+                    <span className="text-white text-xs font-semibold">6X Winner</span>
+                  </div>
+                  
+                  <div className="relative z-10 pt-4">
+                    <img 
+                      src="/badges/6x-award.png" 
+                      alt="6X Google Workspace Partner of the Year APAC 2025"
+                      className="w-[240px] sm:w-[280px] md:w-[320px] h-auto object-contain mx-auto"
+                      loading="lazy"
+                    />
+                  </div>
                 </div>
               </div>
             </motion.div>
 
             {/* Diamond Partner Badge */}
             <motion.div
-              variants={{
-                initial: { opacity: 0, x: 50 },
-                whileInView: { opacity: 1, x: 0 }
-              }}
-              transition={{ duration: 0.6, delay: 0.2 }}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              whileHover={{ y: -10 }}
               className="group"
             >
-              <div className="relative bg-white rounded-3xl p-6 md:p-8 shadow-2xl hover:shadow-[0_25px_60px_-15px_rgba(56,182,255,0.4)] transition-all duration-500 transform hover:-translate-y-2">
-                {/* Glow effect */}
-                <div className="absolute -inset-1 bg-gradient-to-r from-[#F59E0B] via-[#D97706] to-[#F59E0B] rounded-3xl opacity-0 group-hover:opacity-30 blur-xl transition-all duration-500" />
+              <div className="relative">
+                {/* Outer glow ring */}
+                <motion.div 
+                  animate={{ 
+                    opacity: [0.4, 0.7, 0.4],
+                  }}
+                  transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
+                  className="absolute -inset-3 bg-gradient-to-br from-[#fbbf24] via-[#f59e0b] to-[#fbbf24] rounded-[2rem] blur-xl"
+                />
                 
-                <div className="relative z-10">
-                  <img 
-                    src="/badges/tier_gws_cosell_and_service_diamond.png" 
-                    alt="Google Workspace Diamond Co-sell & Services Partner"
-                    className="w-[280px] md:w-[320px] h-auto object-contain"
-                    loading="lazy"
+                {/* Card */}
+                <div className="relative bg-white/95 backdrop-blur-sm rounded-3xl p-6 sm:p-8 md:p-10 shadow-2xl border border-white/50 overflow-hidden">
+                  {/* Shimmer effect */}
+                  <motion.div 
+                    animate={{ x: ['-100%', '200%'] }}
+                    transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", repeatDelay: 2, delay: 1 }}
+                    className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent skew-x-12"
                   />
+                  
+                  {/* Badge label */}
+                  <div className="absolute top-4 left-4 px-3 py-1 bg-gradient-to-r from-[#fbbf24] to-[#f59e0b] rounded-full">
+                    <span className="text-white text-xs font-semibold">Diamond Partner</span>
+                  </div>
+                  
+                  <div className="relative z-10 pt-4">
+                    <img 
+                      src="/badges/tier_gws_cosell_and_service_diamond.png" 
+                      alt="Google Workspace Diamond Co-sell & Services Partner"
+                      className="w-[240px] sm:w-[280px] md:w-[320px] h-auto object-contain mx-auto"
+                      loading="lazy"
+                    />
+                  </div>
                 </div>
               </div>
             </motion.div>
