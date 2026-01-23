@@ -188,60 +188,133 @@ function FeaturesSection() {
 // Recognized Leader Section
 function RecognizedLeaderSection() {
   const badges = [
-    { src: '/badges/GWS-PP-Sell-Service-Outline.png', alt: 'Google Workspace Premier Partner - Sell | Service' },
-    { src: '/badges/GC-PP-Sell-Outline.png', alt: 'Google Cloud Premier Partner - Sell' },
-    { src: '/badges/GC-specialization-Infrastructure-outline.png', alt: 'Google Cloud Specialization - Infrastructure' },
-    { src: '/badges/GC-specialization-Security-outline.png', alt: 'Google Cloud Specialization - Security' },
-    { src: '/badges/GC-specialization-Work_Transformation-outline.png', alt: 'Google Cloud Specialization - Work Transformation' },
-    { src: '/badges/GC-specialization-Work_Transformation_Enterprise-outline.png', alt: 'Google Cloud Specialization - Work Transformation Enterprise' },
+    { src: '/badges/GWS-PP-Sell-Service-Outline.png', alt: 'Google Workspace Premier Partner - Sell | Service', label: 'Premier Partner' },
+    { src: '/badges/GC-PP-Sell-Outline.png', alt: 'Google Cloud Premier Partner - Sell', label: 'Cloud Partner' },
+    { src: '/badges/GC-specialization-Infrastructure-outline.png', alt: 'Google Cloud Specialization - Infrastructure', label: 'Infrastructure' },
+    { src: '/badges/GC-specialization-Security-outline.png', alt: 'Google Cloud Specialization - Security', label: 'Security' },
+    { src: '/badges/GC-specialization-Work_Transformation-outline.png', alt: 'Google Cloud Specialization - Work Transformation', label: 'Work Transform' },
+    { src: '/badges/GC-specialization-Work_Transformation_Enterprise-outline.png', alt: 'Google Cloud Specialization - Work Transformation Enterprise', label: 'Enterprise' },
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-b from-white to-[#f1f5f9]">
-      <div className="w-full px-8 lg:px-16 xl:px-24">
-        <motion.div {...fadeInUp} className="text-center mb-14">
-          <span className="inline-block px-4 py-1.5 bg-[#0C4594]/10 text-[#0C4594] text-sm font-medium rounded-full mb-4">
-            Industry Recognition
-          </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-[#0C4594] mb-4">
-            Recognized Leader in the Google Cloud Ecosystem
+    <section className="py-24 relative overflow-hidden">
+      {/* Beautiful light gradient background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-[#f8fafc] via-white to-[#f1f5f9]" />
+      
+      {/* Decorative elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        {/* Soft colored orbs */}
+        <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-gradient-to-br from-[#38B6FF]/8 to-transparent rounded-full blur-[100px]" />
+        <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-gradient-to-br from-[#0C4594]/6 to-transparent rounded-full blur-[80px]" />
+        
+        {/* Subtle pattern */}
+        <div className="absolute inset-0 opacity-[0.015]" style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, #0C4594 1px, transparent 0)', backgroundSize: '32px 32px' }} />
+        
+        {/* Decorative lines */}
+        <motion.div 
+          initial={{ scaleY: 0 }}
+          whileInView={{ scaleY: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1 }}
+          className="absolute left-8 top-20 bottom-20 w-px bg-gradient-to-b from-transparent via-[#38B6FF]/20 to-transparent origin-top"
+        />
+        <motion.div 
+          initial={{ scaleY: 0 }}
+          whileInView={{ scaleY: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1, delay: 0.2 }}
+          className="absolute right-8 top-20 bottom-20 w-px bg-gradient-to-b from-transparent via-[#0C4594]/20 to-transparent origin-top"
+        />
+      </div>
+      
+      <div className="w-full px-6 sm:px-8 lg:px-16 xl:px-24 relative z-10">
+        {/* Header */}
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
+          {/* Badge */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="inline-flex items-center gap-2 px-5 py-2 bg-gradient-to-r from-[#0C4594]/10 to-[#38B6FF]/10 rounded-full mb-6 border border-[#0C4594]/10"
+          >
+            <span className="w-2 h-2 bg-[#38B6FF] rounded-full" />
+            <span className="text-[#0C4594] text-sm font-semibold tracking-wide">Industry Recognition</span>
+          </motion.div>
+          
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 leading-tight">
+            <span className="text-[#0C4594]">Recognized Leader in the</span>{' '}
+            <span className="bg-gradient-to-r from-[#38B6FF] to-[#0C4594] bg-clip-text text-transparent">Google Cloud Ecosystem</span>
           </h2>
-          <p className="text-[#475569] max-w-2xl mx-auto text-lg">
+          
+          <p className="text-[#475569] max-w-2xl mx-auto text-lg leading-relaxed">
             Shivaami holds the highest-level Google Cloud Partner certifications, ensuring world-class expertise for your digital transformation.
           </p>
+          
+          {/* Decorative separator */}
+          <motion.div 
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="w-24 h-1 bg-gradient-to-r from-[#0C4594] to-[#38B6FF] rounded-full mx-auto mt-8"
+          />
         </motion.div>
 
-        <motion.div 
-          {...staggerContainer}
-          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 lg:gap-8 max-w-6xl mx-auto"
-        >
+        {/* Badge Grid */}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-5 lg:gap-6 max-w-6xl mx-auto">
           {badges.map((badge, idx) => (
             <motion.div
               key={idx}
-              variants={{
-                initial: { opacity: 0, scale: 0.9 },
-                whileInView: { opacity: 1, scale: 1 }
-              }}
-              transition={{ delay: idx * 0.1 }}
-              className="group relative"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: idx * 0.08 }}
+              whileHover={{ y: -8 }}
+              className="group"
             >
-              <div className="relative bg-white rounded-2xl p-4 shadow-lg hover:shadow-2xl transition-all duration-500 border border-[#e2e8f0] hover:border-[#38B6FF]/40 overflow-hidden">
-                {/* Subtle gradient background on hover */}
-                <div className="absolute inset-0 bg-gradient-to-br from-[#0C4594]/5 via-transparent to-[#38B6FF]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="relative h-full">
+                {/* Hover glow */}
+                <div className="absolute -inset-1 bg-gradient-to-br from-[#38B6FF]/30 to-[#0C4594]/30 rounded-2xl blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 
-                {/* Badge image */}
-                <div className="relative z-10 aspect-square flex items-center justify-center">
-                  <img 
-                    src={badge.src} 
-                    alt={badge.alt}
-                    className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
-                    loading="lazy"
+                {/* Card */}
+                <div className="relative h-full bg-white rounded-2xl p-5 shadow-[0_4px_20px_rgba(0,0,0,0.06)] hover:shadow-[0_12px_40px_rgba(56,182,255,0.15)] transition-all duration-500 border border-[#e2e8f0] hover:border-[#38B6FF]/40 overflow-hidden">
+                  {/* Top accent line */}
+                  <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#0C4594] via-[#38B6FF] to-[#0C4594] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  
+                  {/* Shimmer effect */}
+                  <motion.div 
+                    initial={{ x: '-100%' }}
+                    whileHover={{ x: '200%' }}
+                    transition={{ duration: 0.8 }}
+                    className="absolute inset-0 bg-gradient-to-r from-transparent via-white/60 to-transparent skew-x-12 opacity-0 group-hover:opacity-100"
                   />
+                  
+                  {/* Badge image */}
+                  <div className="relative z-10 aspect-square flex items-center justify-center mb-3">
+                    <img 
+                      src={badge.src} 
+                      alt={badge.alt}
+                      className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
+                      loading="lazy"
+                    />
+                  </div>
+                  
+                  {/* Label */}
+                  <div className="text-center">
+                    <span className="text-xs font-medium text-[#64748b] group-hover:text-[#0C4594] transition-colors duration-300">{badge.label}</span>
+                  </div>
                 </div>
               </div>
             </motion.div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );
