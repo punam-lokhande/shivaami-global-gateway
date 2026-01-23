@@ -1,6 +1,7 @@
 import { Helmet } from 'react-helmet-async';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef, useState, useEffect } from 'react';
+import { useRegion } from '@/contexts/RegionContext';
 import { 
   ArrowRight, Calendar, CheckCircle2,
   Zap, Users, Target, Clock, UserCheck, Shield, 
@@ -380,6 +381,11 @@ function ProcessSection() {
 
 // Calendar CTA Section
 function CalendarCTASection() {
+  const { region } = useRegion();
+  const consultationLink = region === 'india' 
+    ? 'https://calendar.app.google/gV1KaLLVkPR32C1p9'
+    : 'https://app.apollo.io/#/meet/40u-obp-ihl/30-min';
+
   const demoPoints = [
     'Free consultation — we discuss your project requirements and talent needs',
     'Talent availability — see our pre-vetted professionals matching your tech stack',
@@ -413,12 +419,12 @@ function CalendarCTASection() {
             ))}
           </div>
 
-          <Link to="/contact">
+          <a href={consultationLink} target="_blank" rel="noopener noreferrer">
             <Button size="lg" className="bg-[#38B6FF] hover:bg-[#2da8f0] text-white font-semibold px-10 py-7 text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
-              Build Your Team Now
+              Schedule a Consultation
               <ArrowRight className="w-5 h-5 ml-2" />
             </Button>
-          </Link>
+          </a>
         </motion.div>
       </div>
     </section>

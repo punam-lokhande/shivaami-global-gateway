@@ -1,5 +1,6 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef, useState, useEffect } from 'react';
+import { useRegion } from '@/contexts/RegionContext';
 import { 
   ArrowRight, Calendar, CheckCircle2,
   Monitor, FileText, Database, Shield, Headphones, TrendingUp, Users
@@ -199,6 +200,11 @@ function FeaturesSection() {
 
 // Calendar CTA Section
 function CalendarCTASection() {
+  const { region } = useRegion();
+  const consultationLink = region === 'india' 
+    ? 'https://calendar.app.google/gV1KaLLVkPR32C1p9'
+    : 'https://app.apollo.io/#/meet/40u-obp-ihl/30-min';
+
   const demoPoints = [
     'Infrastructure assessment — we evaluate your current systems and identify improvement areas',
     'Custom service proposal — get a tailored managed services plan for your business',
@@ -232,12 +238,12 @@ function CalendarCTASection() {
             ))}
           </div>
 
-          <Link to="/lets-connect">
+          <a href={consultationLink} target="_blank" rel="noopener noreferrer">
             <Button size="lg" className="bg-[#38B6FF] hover:bg-[#2da8f0] text-white font-semibold px-10 py-7 text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
-              Talk to Our Experts
+              Schedule a Consultation
               <ArrowRight className="w-5 h-5 ml-2" />
             </Button>
-          </Link>
+          </a>
         </motion.div>
       </div>
     </section>
