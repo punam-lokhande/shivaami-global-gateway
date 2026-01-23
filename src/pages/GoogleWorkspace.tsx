@@ -452,21 +452,49 @@ function ActivationSection() {
 // Proven Excellence Section
 function ProvenExcellenceSection() {
   return (
-    <section className="py-20 bg-gradient-to-br from-[#0C4594] via-[#0a3a7a] to-[#082d61] relative overflow-hidden">
-      {/* Background decorations */}
+    <section className="py-20 bg-gradient-to-br from-[#1e3a5f] via-[#0f2847] to-[#0a1f3d] relative overflow-hidden">
+      {/* Animated Background decorations */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-1/4 -left-20 w-80 h-80 bg-[#38B6FF]/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 -right-20 w-80 h-80 bg-white/5 rounded-full blur-3xl" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-br from-[#38B6FF]/5 to-transparent rounded-full blur-3xl" />
+        <motion.div 
+          animate={{ 
+            scale: [1, 1.2, 1],
+            opacity: [0.15, 0.25, 0.15]
+          }}
+          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute top-1/4 -left-20 w-96 h-96 bg-[#38B6FF]/20 rounded-full blur-3xl" 
+        />
+        <motion.div 
+          animate={{ 
+            scale: [1.2, 1, 1.2],
+            opacity: [0.1, 0.2, 0.1]
+          }}
+          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+          className="absolute bottom-1/4 -right-20 w-96 h-96 bg-[#6366f1]/15 rounded-full blur-3xl" 
+        />
+        <motion.div 
+          animate={{ 
+            rotate: [0, 360],
+          }}
+          transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] bg-gradient-to-br from-[#38B6FF]/10 via-transparent to-[#6366f1]/10 rounded-full blur-3xl" 
+        />
+        {/* Grid pattern overlay */}
+        <div className="absolute inset-0 opacity-5" style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, white 1px, transparent 0)', backgroundSize: '40px 40px' }} />
       </div>
       
       <div className="w-full px-8 lg:px-16 xl:px-24 relative z-10">
         <div className="max-w-6xl mx-auto">
           {/* Header */}
           <motion.div {...fadeInUp} className="text-center mb-16">
-            <span className="inline-block px-4 py-1.5 bg-white/10 text-[#38B6FF] text-sm font-medium rounded-full mb-4 backdrop-blur-sm border border-white/10">
-              Award-Winning Partnership
-            </span>
+            <motion.span 
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="inline-block px-5 py-2 bg-gradient-to-r from-[#38B6FF]/20 to-[#6366f1]/20 text-[#38B6FF] text-sm font-semibold rounded-full mb-5 backdrop-blur-sm border border-[#38B6FF]/30"
+            >
+              ✨ Award-Winning Partnership
+            </motion.span>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
               Proven Excellence, Recognized Leadership
             </h2>
@@ -475,55 +503,85 @@ function ProvenExcellenceSection() {
             </p>
           </motion.div>
 
-          {/* Badge Display */}
+          {/* Badge Display with Prominent Boxes */}
           <motion.div 
             {...staggerContainer}
-            className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16"
+            className="flex flex-col md:flex-row items-center justify-center gap-10 md:gap-20"
           >
             {/* 6X Award Badge */}
             <motion.div
-              variants={{
-                initial: { opacity: 0, x: -50 },
-                whileInView: { opacity: 1, x: 0 }
-              }}
-              transition={{ duration: 0.6 }}
+              initial={{ opacity: 0, x: -60, scale: 0.9 }}
+              whileInView={{ opacity: 1, x: 0, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, type: "spring", stiffness: 100 }}
+              whileHover={{ scale: 1.05, y: -8 }}
               className="group"
             >
-              <div className="relative bg-white rounded-3xl p-6 md:p-8 shadow-2xl hover:shadow-[0_25px_60px_-15px_rgba(56,182,255,0.4)] transition-all duration-500 transform hover:-translate-y-2">
-                {/* Glow effect */}
-                <div className="absolute -inset-1 bg-gradient-to-r from-[#38B6FF] via-[#0C4594] to-[#38B6FF] rounded-3xl opacity-0 group-hover:opacity-30 blur-xl transition-all duration-500" />
+              <div className="relative">
+                {/* Animated border glow */}
+                <motion.div 
+                  animate={{ 
+                    boxShadow: [
+                      '0 0 30px rgba(56,182,255,0.3)',
+                      '0 0 60px rgba(56,182,255,0.5)',
+                      '0 0 30px rgba(56,182,255,0.3)'
+                    ]
+                  }}
+                  transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                  className="absolute -inset-1 bg-gradient-to-r from-[#38B6FF] via-[#6366f1] to-[#38B6FF] rounded-3xl opacity-60 blur-sm"
+                />
                 
-                <div className="relative z-10">
-                  <img 
-                    src="/badges/6x-award.png" 
-                    alt="6X Google Workspace Partner of the Year APAC 2025"
-                    className="w-[280px] md:w-[320px] h-auto object-contain"
-                    loading="lazy"
-                  />
+                <div className="relative bg-white rounded-3xl p-8 md:p-10 shadow-2xl">
+                  {/* Inner glow on hover */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#38B6FF]/5 to-[#6366f1]/5 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  
+                  <div className="relative z-10">
+                    <img 
+                      src="/badges/6x-award.png" 
+                      alt="6X Google Workspace Partner of the Year APAC 2025"
+                      className="w-[280px] md:w-[340px] h-auto object-contain"
+                      loading="lazy"
+                    />
+                  </div>
                 </div>
               </div>
             </motion.div>
 
             {/* Diamond Partner Badge */}
             <motion.div
-              variants={{
-                initial: { opacity: 0, x: 50 },
-                whileInView: { opacity: 1, x: 0 }
-              }}
-              transition={{ duration: 0.6, delay: 0.2 }}
+              initial={{ opacity: 0, x: 60, scale: 0.9 }}
+              whileInView={{ opacity: 1, x: 0, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, delay: 0.2, type: "spring", stiffness: 100 }}
+              whileHover={{ scale: 1.05, y: -8 }}
               className="group"
             >
-              <div className="relative bg-white rounded-3xl p-6 md:p-8 shadow-2xl hover:shadow-[0_25px_60px_-15px_rgba(56,182,255,0.4)] transition-all duration-500 transform hover:-translate-y-2">
-                {/* Glow effect */}
-                <div className="absolute -inset-1 bg-gradient-to-r from-[#F59E0B] via-[#D97706] to-[#F59E0B] rounded-3xl opacity-0 group-hover:opacity-30 blur-xl transition-all duration-500" />
+              <div className="relative">
+                {/* Animated border glow */}
+                <motion.div 
+                  animate={{ 
+                    boxShadow: [
+                      '0 0 30px rgba(251,191,36,0.3)',
+                      '0 0 60px rgba(251,191,36,0.5)',
+                      '0 0 30px rgba(251,191,36,0.3)'
+                    ]
+                  }}
+                  transition={{ duration: 2, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+                  className="absolute -inset-1 bg-gradient-to-r from-[#fbbf24] via-[#f59e0b] to-[#fbbf24] rounded-3xl opacity-60 blur-sm"
+                />
                 
-                <div className="relative z-10">
-                  <img 
-                    src="/badges/tier_gws_cosell_and_service_diamond.png" 
-                    alt="Google Workspace Diamond Co-sell & Services Partner"
-                    className="w-[280px] md:w-[320px] h-auto object-contain"
-                    loading="lazy"
-                  />
+                <div className="relative bg-white rounded-3xl p-8 md:p-10 shadow-2xl">
+                  {/* Inner glow on hover */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#fbbf24]/5 to-[#f59e0b]/5 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  
+                  <div className="relative z-10">
+                    <img 
+                      src="/badges/tier_gws_cosell_and_service_diamond.png" 
+                      alt="Google Workspace Diamond Co-sell & Services Partner"
+                      className="w-[280px] md:w-[340px] h-auto object-contain"
+                      loading="lazy"
+                    />
+                  </div>
                 </div>
               </div>
             </motion.div>
