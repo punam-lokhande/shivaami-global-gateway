@@ -1,10 +1,12 @@
-import { motion } from 'framer-motion';
-import { Phone, Mail, MapPin, ArrowRight, Send, Globe } from 'lucide-react';
+import { motion } from 'framer-motion'; // Import motion for animations
+import { Phone, Mail, MapPin, Send, Globe, Loader2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
+import { API_ENDPOINTS } from '@/utils/api';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
+import { toast } from 'sonner';
 
 const offices = [
   {
@@ -23,7 +25,64 @@ const offices = [
   },
 ];
 
+import { useState } from 'react'; // Import useState hook
+
 export default function Contact() {
+  // State variables to hold form input values
+  const [fullName, setFullName] = useState('');
+  const [email, setEmail] = useState('');
+  const [phone, setPhone] = useState('');
+  const [company, setCompany] = useState('');
+  const [subject, setSubject] = useState('');
+  const [message, setMessage] = useState('');
+
+  const [isLoading, setIsLoading] = useState(false);
+  // Handle form submission
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault(); // Prevent default form submission behavior
+    const formData = {
+      fullName,
+      email,
+      phone,
+      company,
+      subject,
+      message,
+    };
+
+    setIsLoading(true);
+
+    // Send data to the API
+    fetch(API_ENDPOINTS.STORE_CONTACTUS_DETAILS, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData),
+    })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then(data => {
+        toast.success('Message sent successfully!');
+        console.log('Form Submitted Successfully!', data);
+        setFullName('');
+        setEmail('');
+        setPhone('');
+        setCompany('');
+        setSubject('');
+        setMessage('');
+      })
+      .catch(error => {
+        toast.error('Failed to send message. Please try again.');
+        console.error('Error submitting form:', error);
+      }).finally(() => {
+        setIsLoading(false);
+      });
+  };
+
   return (
     <div className="min-h-screen bg-background">
       <Header />
@@ -172,14 +231,18 @@ export default function Contact() {
                     <label className="block text-sm font-medium text-slate-700 mb-1.5">Full Name</label>
                     <Input 
                       placeholder="John Doe" 
+                      value={fullName}
+                      onChange={(e) => setFullName(e.target.value)}
                       className="h-11 bg-slate-50 border-slate-200 focus:bg-white focus:border-[#0C4594] transition-colors"
                     />
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-slate-700 mb-1.5">Email</label>
                     <Input 
-                      type="email" 
+                      type="email"
                       placeholder="john@company.com" 
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
                       className="h-11 bg-slate-50 border-slate-200 focus:bg-white focus:border-[#0C4594] transition-colors"
                     />
                   </div>
@@ -189,14 +252,18 @@ export default function Contact() {
                   <div>
                     <label className="block text-sm font-medium text-slate-700 mb-1.5">Phone</label>
                     <Input 
-                      placeholder="+91 98765 43210" 
+                      placeholder="+91 98765 43210"
+                      value={phone}
+                      onChange={(e) => setPhone(e.target.value)}
                       className="h-11 bg-slate-50 border-slate-200 focus:bg-white focus:border-[#0C4594] transition-colors"
                     />
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-slate-700 mb-1.5">Company</label>
                     <Input 
-                      placeholder="Your Company" 
+                      placeholder="Your Company"
+                      value={company}
+                      onChange={(e) => setCompany(e.target.value)}
                       className="h-11 bg-slate-50 border-slate-200 focus:bg-white focus:border-[#0C4594] transition-colors"
                     />
                   </div>
@@ -205,7 +272,9 @@ export default function Contact() {
                 <div>
                   <label className="block text-sm font-medium text-slate-700 mb-1.5">Subject</label>
                   <Input 
-                    placeholder="How can we help you?" 
+                    placeholder="How can we help you?"
+                    value={subject}
+                    onChange={(e) => setSubject(e.target.value)}
                     className="h-11 bg-slate-50 border-slate-200 focus:bg-white focus:border-[#0C4594] transition-colors"
                   />
                 </div>
@@ -213,15 +282,26 @@ export default function Contact() {
                 <div>
                   <label className="block text-sm font-medium text-slate-700 mb-1.5">Message</label>
                   <Textarea 
-                    placeholder="Tell us about your project..." 
+                    placeholder="Tell us about your project..."
+                    value={message}
+                    onChange={(e) => setMessage(e.target.value)}
                     rows={4}
                     className="bg-slate-50 border-slate-200 focus:bg-white focus:border-[#0C4594] transition-colors resize-none"
                   />
                 </div>
 
-                <Button className="w-full h-12 bg-[#0C4594] hover:bg-[#0a3670] text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all">
-                  <Send className="w-4 h-4 mr-2" />
-                  Send Message
+                <Button type="submit" onClick={handleSubmit} disabled={isLoading} className="w-full h-12 bg-[#0C4594] hover:bg-[#0a3670] text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all">
+                  {isLoading ? (
+                    <>
+                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                      Sending...
+                    </>
+                  ) : (
+                    <>
+                      <Send className="w-4 h-4 mr-2" />
+                      Send Message
+                    </>
+                  )}
                 </Button>
               </form>
             </motion.div>

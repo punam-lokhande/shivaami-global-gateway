@@ -38,7 +38,7 @@ function HeroSection() {
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
   const handleGetStarted = () => {
-    window.dispatchEvent(new CustomEvent('openGetStartedDialog'));
+    document.dispatchEvent(new CustomEvent('openGetStartedDialog'));
   };
 
   return (

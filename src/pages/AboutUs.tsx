@@ -261,7 +261,7 @@ function CTASection() {
               </Button>
             </Link>
             <Link to="/case-studies">
-              <Button size="lg" variant="outline" className="border-white/30 text-white hover:bg-white/10 font-semibold px-10 py-7 text-lg rounded-xl">
+              <Button size="lg" variant="outline" className="bg-[#38B6FF] hover:bg-[#2da8f0] text-white hover:bg-white/10 font-semibold px-10 py-7 text-lg rounded-xl">
                 View Case Studies
               </Button>
             </Link>

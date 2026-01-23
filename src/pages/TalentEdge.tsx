@@ -94,7 +94,7 @@ function HeroSection() {
           >
             <Button
               onClick={() => document.dispatchEvent(new CustomEvent('openGetStartedDialog'))}
-              size="lg"
+              size="lg" 
               className="bg-[#38B6FF] hover:bg-[#0C4594] text-white px-6 sm:px-8 py-5 sm:py-6 text-sm sm:text-base font-semibold shadow-lg transition-all duration-300"
             >
               Get Started
@@ -419,12 +419,25 @@ function CalendarCTASection() {
             ))}
           </div>
 
-          <a href={consultationLink} target="_blank" rel="noopener noreferrer">
-            <Button size="lg" className="bg-[#38B6FF] hover:bg-[#2da8f0] text-white font-semibold px-10 py-7 text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
-              Schedule a Consultation
-              <ArrowRight className="w-5 h-5 ml-2" />
-            </Button>
-          </a>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Button 
+                size="lg" 
+                onClick={() => document.dispatchEvent(new CustomEvent('openGetStartedDialog'))}
+                className="bg-[#38B6FF] hover:bg-[#2da8f0] text-white font-semibold px-8 sm:px-10 py-5 sm:py-6 text-sm sm:text-base lg:text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 group"
+              >
+                Get Started
+                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+              </Button>
+            <a href={consultationLink} target="_blank" rel="noopener noreferrer">
+              <Button
+                size="lg"
+                className="bg-[#38B6FF] hover:bg-[#2da8f0] text-white font-semibold px-10 py-7 text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
+              >
+                Schedule a Consultation
+                <ArrowRight className="w-5 h-5 ml-2" />
+              </Button>
+            </a>
+          </div>
         </motion.div>
       </div>
     </section>

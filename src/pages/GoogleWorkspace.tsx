@@ -40,7 +40,7 @@ function HeroSection() {
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
   const handleGetStarted = () => {
-    window.dispatchEvent(new CustomEvent('openGetStartedDialog'));
+    document.dispatchEvent(new CustomEvent('openGetStartedDialog'));
   };
 
   return (
@@ -188,12 +188,12 @@ function FeaturesSection() {
 // Recognized Leader Section
 function RecognizedLeaderSection() {
   const badges = [
-    { src: '/badges/gws-pp-sell-service.png', alt: 'Google Workspace Premier Partner - Sell | Service' },
-    { src: '/badges/gc-pp-sell.png', alt: 'Google Cloud Premier Partner - Sell' },
-    { src: '/badges/gc-infrastructure.png', alt: 'Google Cloud Specialization - Infrastructure' },
-    { src: '/badges/gc-security.png', alt: 'Google Cloud Specialization - Security' },
-    { src: '/badges/gc-work-transformation.png', alt: 'Google Cloud Specialization - Work Transformation' },
-    { src: '/badges/gc-work-transformation-enterprise.png', alt: 'Google Cloud Specialization - Work Transformation Enterprise' },
+    { src: '/badges/GWS-PP-Sell-Service-Outline.png', alt: 'Google Workspace Premier Partner - Sell | Service' },
+    { src: '/badges/GC-PP-Sell-Outline.png', alt: 'Google Cloud Premier Partner - Sell' },
+    { src: '/badges/GC-specialization-Infrastructure-outline.png', alt: 'Google Cloud Specialization - Infrastructure' },
+    { src: '/badges/GC-specialization-Security-outline.png', alt: 'Google Cloud Specialization - Security' },
+    { src: '/badges/GC-specialization-Work_Transformation-outline.png', alt: 'Google Cloud Specialization - Work Transformation' },
+    { src: '/badges/GC-specialization-Work_Transformation_Enterprise-outline.png', alt: 'Google Cloud Specialization - Work Transformation Enterprise' },
   ];
 
   return (
@@ -519,7 +519,7 @@ function ProvenExcellenceSection() {
                 
                 <div className="relative z-10">
                   <img 
-                    src="/badges/diamond-cosell-partner.png" 
+                    src="/badges/tier_gws_cosell_and_service_diamond.png" 
                     alt="Google Workspace Diamond Co-sell & Services Partner"
                     className="w-[280px] md:w-[320px] h-auto object-contain"
                     loading="lazy"
@@ -552,10 +552,11 @@ const GoogleWorkspace = () => {
       <main>
         <HeroSection />
         <FeaturesSection />
-        <RecognizedLeaderSection />
         <WorkspaceActionsSection onTransferClick={() => setTransferDialogOpen(true)} />
-        <ActivationSection />
         <ProvenExcellenceSection />
+        
+        <ActivationSection />
+        <RecognizedLeaderSection />
         <CTASection />
       </main>
       <Footer />

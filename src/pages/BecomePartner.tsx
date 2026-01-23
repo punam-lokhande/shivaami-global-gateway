@@ -3,7 +3,7 @@ import { useRef, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { 
   TrendingUp, Rocket, Clock, Users, Headphones, 
-  FileText, GraduationCap, ArrowRight
+  FileText, GraduationCap, ArrowRight, Loader2
 } from 'lucide-react';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
@@ -13,6 +13,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
 import partnerBanner from '@/assets/banners/changepath-banner.jpg';
 import partnershipImage from '@/assets/banners/partnership-handshake.jpg';
+import { API_ENDPOINTS } from '@/utils/api';
 
 const whyPartner = [
   {
@@ -63,6 +64,7 @@ const shivaamiAdvantage = [
 export default function BecomePartner() {
   const formRef = useRef<HTMLDivElement>(null);
   const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     companyName: '',
@@ -77,21 +79,46 @@ export default function BecomePartner() {
     formRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast({
-      title: "Application Submitted",
-      description: "Thank you for your interest. Our partner team will contact you within 48 hours.",
-    });
-    setFormData({
-      name: '',
-      companyName: '',
-      companyType: '',
-      email: '',
-      phone: '',
-      products: '',
-      reason: '',
-    });
+    setIsSubmitting(true);
+    try {
+      const response = await fetch(API_ENDPOINTS.STORE_PARTNERWTHUS_DETAILS, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+
+      await response.json();
+      toast({
+        title: "Application Submitted",
+        description: "Thank you for your interest. Our partner team will contact you within 48 hours.",
+      });
+      setFormData({
+        name: '',
+        companyName: '',
+        companyType: '',
+        email: '',
+        phone: '',
+        products: '',
+        reason: '',
+      });
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      toast({
+        title: "Error",
+        description: "Failed to submit application. Please try again later.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -376,9 +403,18 @@ export default function BecomePartner() {
               </div>
 
               <div className="mt-6 sm:mt-8">
-                <Button type="submit" size="lg" className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold">
-                  Submit Application
-                  <ArrowRight className="ml-2 w-5 h-5" />
+                <Button type="submit" size="lg" className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold" disabled={isSubmitting}>
+                  {isSubmitting ? (
+                    <>
+                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                      Submitting...
+                    </>
+                  ) : (
+                    <>
+                      Submit Application
+                      <ArrowRight className="ml-2 w-5 h-5" />
+                    </>
+                  )}
                 </Button>
               </div>
             </motion.form>

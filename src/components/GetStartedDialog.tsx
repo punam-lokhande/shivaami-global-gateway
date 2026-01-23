@@ -13,6 +13,7 @@ import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
 import { Send } from 'lucide-react';
+import { API_ENDPOINTS } from '@/utils/api';
 
 interface GetStartedDialogProps {
   open: boolean;
@@ -82,19 +83,49 @@ const GetStartedDialog = ({ open, onOpenChange }: GetStartedDialogProps) => {
         ? pathParts[pathParts.length - 1]
         : 'General Inquiry';
 
-    const submissionData = { ...formData, productName, submittedFrom: location.pathname };
-    console.log('Form Data Submitted:', submissionData);
+    const submissionData = {
+      ...formData,
+      productName,
+      submittedFrom: location.pathname,
+    };
 
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    
-    toast({
-      title: "Request Submitted!",
-      description: "We'll get back to you within 24 hours.",
-    });
-    
-    setIsSubmitting(false);
-    onOpenChange(false);
+    try {
+      const response = await fetch(
+        API_ENDPOINTS.STORE_PRODUCTFORM_ENQUIRYDETAILS,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(submissionData),
+        }
+      );
+
+      if (response.ok) {
+        toast({
+          title: 'Request Submitted!',
+          description: "We'll get back to you within 24 hours.",
+        });
+        onOpenChange(false);
+      } else {
+        const errorData = await response.json();
+        toast({
+          title: 'Submission Failed',
+          description:
+            errorData.message || 'Something went wrong. Please try again.',
+          variant: 'destructive',
+        });
+      }
+    } catch (error) {
+      toast({
+        title: 'An Error Occurred',
+        description:
+          'Could not submit the form. Please check your network connection and try again.',
+        variant: 'destructive',
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (

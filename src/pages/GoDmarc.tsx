@@ -1,5 +1,5 @@
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { useRegion } from '@/contexts/RegionContext';
 import { Button } from "@/components/ui/button";
 import Header from "@/components/layout/Header";
@@ -27,6 +27,7 @@ import technicalDeployment from "@/assets/activation/technical-deployment.jpg";
 import securityConfig from "@/assets/activation/security-config.jpg";
 import teamTraining from "@/assets/activation/team-training.jpg";
 import ongoingSupport from "@/assets/activation/ongoing-support.jpg";
+import GetStartedDialog from "@/components/GetStartedDialog";
 
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },
@@ -54,6 +55,10 @@ const HeroSection = () => {
 
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+
+  const handleGetStarted = () => {
+    document.dispatchEvent(new CustomEvent('openGetStartedDialog'));
+  };
 
   return (
     <section 
@@ -99,11 +104,12 @@ const HeroSection = () => {
             transition={{ duration: 0.8, delay: 0.6 }}
           >
             <Button 
-              size="lg" 
-              className="bg-[#38B6FF] hover:bg-[#2da8f0] text-white font-semibold px-8 py-6 text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
+              size="lg"
+              onClick={handleGetStarted}
+              className="bg-[#38B6FF] hover:bg-[#2da8f0] text-white font-semibold px-8 py-6 text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 group"
             >
-              Secure Your Email Domain
-              <ArrowRight className="ml-2 h-5 w-5" />
+              Get Started
+              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
             </Button>
           </motion.div>
         </div>
@@ -353,15 +359,25 @@ const CalendarCTASection = () => {
             ))}
           </div>
 
-          <a href={consultationLink} target="_blank" rel="noopener noreferrer">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Button 
-              size="lg"
-              className="bg-[#38B6FF] hover:bg-[#2da8f0] text-white font-semibold px-10 py-6 text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
-            >
-              Schedule a Consultation
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
-          </a>
+                size="lg" 
+                onClick={() => document.dispatchEvent(new CustomEvent('openGetStartedDialog'))}
+                className="bg-[#38B6FF] hover:bg-[#2da8f0] text-white font-semibold px-8 sm:px-10 py-5 sm:py-6 text-sm sm:text-base lg:text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 group"
+              >
+                Get Started
+                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+              </Button>
+            <a href={consultationLink} target="_blank" rel="noopener noreferrer">
+              <Button 
+                size="lg"
+                className="bg-[#38B6FF] hover:bg-[#2da8f0] text-white font-semibold px-10 py-6 text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
+              >
+                Schedule a Consultation
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+            </a>
+          </div>
         </motion.div>
       </div>
     </section>
@@ -369,6 +385,12 @@ const CalendarCTASection = () => {
 };
 
 const GoDmarc = () => {
+  const [dialogOpen, setDialogOpen] = useState(false);
+  useEffect(() => {
+    const handleOpenDialog = () => setDialogOpen(true);
+    document.addEventListener('openGetStartedDialog', handleOpenDialog);
+    return () => document.removeEventListener('openGetStartedDialog', handleOpenDialog);
+  }, []);
   return (
     <div className="min-h-screen bg-white">
       <Header />
@@ -379,6 +401,7 @@ const GoDmarc = () => {
         <CalendarCTASection />
       </main>
       <Footer />
+      <GetStartedDialog open={dialogOpen} onOpenChange={setDialogOpen} />
     </div>
   );
 };
