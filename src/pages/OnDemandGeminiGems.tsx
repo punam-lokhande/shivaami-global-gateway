@@ -2,11 +2,11 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { motion } from "framer-motion";
 import { MapPin, Calendar, Clock, Sparkles, ArrowLeft, CheckCircle } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Link } from "react-router-dom";
 import nikunjPhoto from "@/assets/speakers/nikunj-thakkar.jpg";
 import heroBanner from "@/assets/banners/gemini-gems-webinar.jpg";
+import WatchOnDemandForm from "@/components/WatchOnDemandForm";
 
 const OnDemandGeminiGems = () => {
   return (
@@ -208,44 +208,18 @@ const OnDemandGeminiGems = () => {
               </Tabs>
             </motion.div>
 
-            {/* Right Side - Watch On-Demand CTA */}
+            {/* Right Side - Watch On-Demand Form */}
             <motion.div
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
               className="lg:sticky lg:top-32 h-fit"
             >
-              <div className="bg-white rounded-2xl shadow-xl border border-gray-200 overflow-hidden">
-                <div className="bg-gradient-to-r from-[#0C4594] to-[#1a5cb8] p-6">
-                  <h3 className="text-xl font-bold text-white">Watch On-Demand</h3>
-                  <p className="text-white/80 text-sm mt-1">This webinar is available for viewing anytime</p>
-                </div>
-                
-                <div className="p-6 space-y-5">
-                  <div className="bg-[#38B6FF]/10 rounded-lg p-4">
-                    <p className="text-sm text-gray-700">
-                      <strong className="text-[#0C4594]">Module 3:</strong> Gemini App & Gems
-                    </p>
-                    <p className="text-xs text-gray-500 mt-2">Duration: ~45 minutes</p>
-                  </div>
-                  
-                  <a 
-                    href="https://www.youtube.com/watch?v=jk4PAJUbr7g" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                  >
-                    <Button 
-                      className="w-full bg-gradient-to-r from-[#38B6FF] to-[#0C4594] hover:shadow-lg text-white font-semibold py-6"
-                    >
-                      Watch Recording Now
-                    </Button>
-                  </a>
-                  
-                  <p className="text-xs text-gray-500 text-center">
-                    Opens in YouTube
-                  </p>
-                </div>
-              </div>
+              <WatchOnDemandForm 
+                moduleNumber="Module 3"
+                moduleName="Gemini App & Gems"
+                youtubeUrl="https://www.youtube.com/watch?v=jk4PAJUbr7g"
+              />
 
               {/* Series Navigation */}
               <div className="mt-6 bg-gradient-to-r from-[#38B6FF]/10 to-[#0C4594]/10 rounded-xl p-4 border border-[#38B6FF]/30">
