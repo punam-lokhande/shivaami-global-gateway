@@ -6,6 +6,7 @@ import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
+import { useRegion } from '@/contexts/RegionContext';
 import heroImage from '@/assets/banners/google-workspace-banner.jpg';
 import {
   Accordion,
@@ -88,11 +89,15 @@ function HeroSection() {
 
 // Pricing Plans Section
 function PricingSection() {
+  const { region } = useRegion();
+
   const plans = [
     {
       name: "Business Starter",
-      commitPrice: "₹3,240",
-      flexPrice: "₹3,900",
+      prices: {
+        india: { commit: "₹3,240", flex: "₹3,900" },
+        usa: { commit: "$7", flex: "$8.4" }
+      },
       priceNote: "Per User/Year + Tax",
       popular: false,
       features: [
@@ -107,8 +112,10 @@ function PricingSection() {
     },
     {
       name: "Business Standard",
-      commitPrice: "₹12,960",
-      flexPrice: "₹15,600",
+      prices: {
+        india: { commit: "₹12,960", flex: "₹15,600" },
+        usa: { commit: "$14", flex: "$16.8" }
+      },
       priceNote: "Per User/Year + Tax",
       popular: true,
       features: [
@@ -126,8 +133,10 @@ function PricingSection() {
     },
     {
       name: "Business Plus",
-      commitPrice: "₹20,400",
-      flexPrice: "₹24,600",
+      prices: {
+        india: { commit: "₹20,400", flex: "₹24,600" },
+        usa: { commit: "$22", flex: "$26.4" }
+      },
       priceNote: "Per User/Year + Tax",
       popular: false,
       features: [
@@ -144,8 +153,10 @@ function PricingSection() {
     },
     {
       name: "Enterprise",
-      commitPrice: "Contact Sales",
-      flexPrice: "",
+      prices: {
+        india: { commit: "Contact Sales", flex: "" },
+        usa: { commit: "Contact Sales", flex: "" }
+      },
       priceNote: "Custom Pricing",
       popular: false,
       isEnterprise: true,
@@ -243,16 +254,16 @@ function PricingSection() {
                   {/* Pricing */}
                   <div className="mb-6 pb-6 border-b border-[#e2e8f0]">
                     {plan.isEnterprise ? (
-                      <div className="text-2xl font-bold bg-gradient-to-r from-[#0C4594] to-[#38B6FF] bg-clip-text text-transparent">{plan.commitPrice}</div>
+                      <div className="text-2xl font-bold bg-gradient-to-r from-[#0C4594] to-[#38B6FF] bg-clip-text text-transparent">{plan.prices[region].commit}</div>
                     ) : (
                       <>
                         <div className="flex items-baseline gap-2 mb-2">
                           <span className="text-xs font-medium text-[#64748b] uppercase tracking-wide">Commit</span>
-                          <span className="text-3xl font-bold text-[#0C4594]">{plan.commitPrice}</span>
+                          <span className="text-3xl font-bold text-[#0C4594]">{plan.prices[region].commit}</span>
                         </div>
                         <div className="flex items-baseline gap-2">
                           <span className="text-xs font-medium text-[#64748b] uppercase tracking-wide">Flex</span>
-                          <span className="text-xl font-semibold text-[#38B6FF]">{plan.flexPrice}</span>
+                          <span className="text-xl font-semibold text-[#38B6FF]">{plan.prices[region].flex}</span>
                         </div>
                       </>
                     )}
