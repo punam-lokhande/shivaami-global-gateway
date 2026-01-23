@@ -14,7 +14,7 @@ const webinars = [
     date: "Wednesday, August 20, 2025",
     time: "1:00 PM – 1:45 PM EDT",
     status: "on-demand",
-    link: "https://www.shivaami.com/gemini-adoption/module-0/",
+    link: "/on-demand-security-privacy",
     module: "Module 0"
   },
   {
@@ -24,7 +24,7 @@ const webinars = [
     date: "Wednesday, September 03, 2025",
     time: "1:00 PM – 1:45 PM EDT",
     status: "on-demand",
-    link: "https://www.shivaami.com/gemini-adoption/module-1/",
+    link: "/on-demand-gws-with-gemini",
     module: "Module 1"
   },
   {
@@ -34,7 +34,7 @@ const webinars = [
     date: "Wednesday, September 17, 2025",
     time: "1:00 PM – 1:45 PM EDT",
     status: "on-demand",
-    link: "https://www.shivaami.com/gemini-adoption/module-2/",
+    link: "/on-demand-prompt-engineering",
     module: "Module 2"
   },
   {
@@ -44,7 +44,7 @@ const webinars = [
     date: "Wednesday, October 01, 2025",
     time: "1:00 PM – 1:45 PM EDT",
     status: "on-demand",
-    link: "https://www.shivaami.com/gemini-adoption/module-3/",
+    link: "/on-demand-gemini-gems",
     module: "Module 3"
   },
   {
@@ -54,7 +54,7 @@ const webinars = [
     date: "Wednesday, October 15, 2025",
     time: "1:00 PM – 1:45 PM EDT",
     status: "on-demand",
-    link: "https://www.shivaami.com/gemini-adoption/module-4/",
+    link: "/on-demand-notebooklm",
     module: "Module 4"
   },
   {
@@ -64,7 +64,7 @@ const webinars = [
     date: "Wednesday, October 29, 2025",
     time: "1:00 PM – 1:45 PM EDT",
     status: "on-demand",
-    link: "https://www.shivaami.com/gemini-adoption/module-5/",
+    link: "/on-demand-google-vids",
     module: "Module 5"
   },
   {
@@ -74,7 +74,7 @@ const webinars = [
     date: "Wednesday, February 19, 2026",
     time: "1:00 PM – 1:45 PM EDT",
     status: "upcoming",
-    link: "https://www.shivaami.com/gemini-adoption/module-6/",
+    link: "/register-webinar",
     module: "Module 6"
   },
 ];
@@ -97,7 +97,7 @@ const OnDemandWebinars = () => {
             className="max-w-4xl"
           >
             <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-4 sm:mb-6 leading-tight">
-              On-Demand Webinars
+              Webinar
             </h1>
             
             <p className="text-sm sm:text-base lg:text-xl text-white/85 leading-relaxed max-w-2xl">
@@ -213,9 +213,11 @@ const OnDemandWebinars = () => {
                           <span>{webinar.time}</span>
                         </div>
                       </div>
-                      <Button className="w-full bg-gradient-to-r from-[#38B6FF] to-[#0C4594] hover:shadow-lg text-white cursor-default">
-                    Watch On-Demand
-                  </Button>
+                      <Link to={webinar.link}>
+                        <Button className="w-full bg-gradient-to-r from-[#38B6FF] to-[#0C4594] hover:shadow-lg text-white">
+                          Watch On-Demand
+                        </Button>
+                      </Link>
                 </div>
               </motion.div>
             ))}
