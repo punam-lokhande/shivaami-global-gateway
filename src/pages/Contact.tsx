@@ -25,9 +25,11 @@ const offices = [
   },
 ];
 
-import { useState } from 'react'; // Import useState hook
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export default function Contact() {
+  const navigate = useNavigate();
   // State variables to hold form input values
   const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
@@ -74,6 +76,7 @@ export default function Contact() {
         setCompany('');
         setSubject('');
         setMessage('');
+        navigate('/contact-us-thankyou');
       })
       .catch(error => {
         toast.error('Failed to send message. Please try again.');

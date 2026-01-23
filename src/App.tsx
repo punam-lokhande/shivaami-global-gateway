@@ -35,6 +35,7 @@ import GoSimulator from "./pages/GoSimulator";
 import GoDmarc from "./pages/GoDmarc";
 import VMC from "./pages/VMC";
 import BecomePartner from "./pages/BecomePartner";
+import PartnerThankYou from "./pages/PartnerThankYou";
 import Chromebook from "./pages/Chromebook";
 import Chromebox from "./pages/Chromebox";
 import ChromeOSFlex from "./pages/ChromeOSFlex";
@@ -126,6 +127,7 @@ import OnDemandPromptEngineering from "./pages/OnDemandPromptEngineering";
 import OnDemandGeminiGems from "./pages/OnDemandGeminiGems";
 import OnDemandNotebookLM from "./pages/OnDemandNotebookLM";
 import OnDemandGoogleVids from "./pages/OnDemandGoogleVids";
+import ThankYouContact from "./components/ThankYouContact";
 const queryClient = new QueryClient();
 
 // Scroll to top on route change
@@ -177,6 +179,7 @@ const App = () => (
               <Route path="/godmarc" element={<GoDmarc />} />
               <Route path="/vmc" element={<VMC />} />
               <Route path="/become-partner" element={<BecomePartner />} />
+              <Route path="/become-partner/thank-you" element={<PartnerThankYou />} />
               <Route path="/chromebook" element={<Chromebook />} />
               <Route path="/chromebox" element={<Chromebox />} />
               <Route path="/chromeos-flex" element={<ChromeOSFlex />} />
@@ -244,6 +247,7 @@ const App = () => (
               <Route path="/careers" element={<Careers />} />
               <Route path="/careers/thank-you" element={<CareerThankYou />} />
               <Route path="/thank-you" element={<ThankYou />} />
+              <Route path="/contact-us-thankyou" element={<ThankYouContact />} />
               <Route path="/healthcare-pharma" element={<HealthcarePharma />} />
               <Route path="/financial-services" element={<FinancialServices />} />
               <Route path="/retail" element={<Retail />} />

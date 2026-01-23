@@ -1,11 +1,11 @@
 import { motion } from 'framer-motion';
-import { CheckCircle, ArrowLeft, Mail, Phone } from 'lucide-react';
+import { CheckCircle, ArrowLeft } from 'lucide-react';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import { Button } from '@/components/ui/button';
 import { useNavigate } from 'react-router-dom';
 
-export default function ThankYou() {
+export default function PartnerThankYou() {
   const navigate = useNavigate();
 
   return (
@@ -55,37 +55,12 @@ export default function ThankYou() {
               className="bg-card/50 backdrop-blur-sm border border-border/50 rounded-3xl p-8 md:p-12 text-center shadow-xl"
             >
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6 leading-tight">
-                Thank you for your interest.
+                Application Submitted!
               </h1>
               
               <p className="text-lg md:text-xl text-muted-foreground mb-10 leading-relaxed">
-                Our experts will connect with you soon to tailor it to your business needs.
+                Thank you for your interest in partnering with Shivaami. Our partner team will contact you within 48 hours.
               </p>
-
-              {/* Divider */}
-              <div className="flex items-center justify-center gap-4 mb-10">
-                <div className="h-px w-16 bg-gradient-to-r from-transparent to-border" />
-                <div className="w-2 h-2 rounded-full bg-primary" />
-                <div className="h-px w-16 bg-gradient-to-l from-transparent to-border" />
-              </div>
-
-              {/* Contact Info */}
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-10">
-                <a 
-                  href="mailto:marketing@shivaami.com" 
-                  className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
-                >
-                  <Mail className="w-5 h-5" />
-                  <span>marketing@shivaami.com</span>
-                </a>
-                {/* <a 
-                  href="tel:+918879465890" 
-                  className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
-                >
-                  <Phone className="w-5 h-5" />
-                  <span>+91 88794 65890</span>
-                </a> */}
-              </div>
 
               {/* Back Button */}
               <Button

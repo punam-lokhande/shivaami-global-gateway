@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import {
   Dialog,
   DialogContent,
@@ -28,6 +28,7 @@ const generateCaptcha = () => {
 
 const GetStartedDialog = ({ open, onOpenChange }: GetStartedDialogProps) => {
   const location = useLocation();
+  const navigate = useNavigate();
   const { toast } = useToast();
   const [captcha, setCaptcha] = useState(generateCaptcha());
   const [formData, setFormData] = useState({
@@ -107,6 +108,7 @@ const GetStartedDialog = ({ open, onOpenChange }: GetStartedDialogProps) => {
           description: "We'll get back to you within 24 hours.",
         });
         onOpenChange(false);
+        navigate('/thank-you');
       } else {
         const errorData = await response.json();
         toast({

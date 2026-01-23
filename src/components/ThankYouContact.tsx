@@ -5,7 +5,7 @@ import Footer from '@/components/layout/Footer';
 import { Button } from '@/components/ui/button';
 import { useNavigate } from 'react-router-dom';
 
-export default function ThankYou() {
+export default function ThankYouContact() {
   const navigate = useNavigate();
 
   return (
@@ -55,11 +55,11 @@ export default function ThankYou() {
               className="bg-card/50 backdrop-blur-sm border border-border/50 rounded-3xl p-8 md:p-12 text-center shadow-xl"
             >
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6 leading-tight">
-                Thank you for your interest.
+                Thank you for contacting us!
               </h1>
               
               <p className="text-lg md:text-xl text-muted-foreground mb-10 leading-relaxed">
-                Our experts will connect with you soon to tailor it to your business needs.
+                We have received your message and will get back to you shortly.
               </p>
 
               {/* Divider */}
@@ -78,6 +78,7 @@ export default function ThankYou() {
                   <Mail className="w-5 h-5" />
                   <span>marketing@shivaami.com</span>
                 </a>
+                {/* You can uncomment and adjust the phone number if needed */}
                 {/* <a 
                   href="tel:+918879465890" 
                   className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"

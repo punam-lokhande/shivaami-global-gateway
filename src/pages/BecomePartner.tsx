@@ -1,10 +1,11 @@
 import { motion } from 'framer-motion';
 import { useRef, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { 
-  TrendingUp, Rocket, Clock, Users, Headphones, 
+import {
+  TrendingUp, Rocket, Clock, Users, Headphones,
   FileText, GraduationCap, ArrowRight, Loader2
 } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import { Button } from '@/components/ui/button';
@@ -64,6 +65,7 @@ const shivaamiAdvantage = [
 export default function BecomePartner() {
   const formRef = useRef<HTMLDivElement>(null);
   const { toast } = useToast();
+  const navigate = useNavigate();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
@@ -96,19 +98,7 @@ export default function BecomePartner() {
       }
 
       await response.json();
-      toast({
-        title: "Application Submitted",
-        description: "Thank you for your interest. Our partner team will contact you within 48 hours.",
-      });
-      setFormData({
-        name: '',
-        companyName: '',
-        companyType: '',
-        email: '',
-        phone: '',
-        products: '',
-        reason: '',
-      });
+      navigate('/become-partner/thank-you');
     } catch (error) {
       console.error('Error submitting form:', error);
       toast({
