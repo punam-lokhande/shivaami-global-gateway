@@ -1,5 +1,6 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
+import { useRegion } from '@/contexts/RegionContext';
 import { Button } from "@/components/ui/button";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
@@ -314,45 +315,54 @@ const ActivationSection = () => (
   </section>
 );
 
-const CalendarCTASection = () => (
-  <section className="py-20 bg-gradient-to-br from-[#0C4594] via-[#1565C0] to-[#0D47A1]">
-    <div className="w-full px-8 lg:px-16 xl:px-24">
-      <motion.div {...fadeInUp} className="text-center max-w-4xl mx-auto">
-        <Calendar className="w-16 h-16 text-[#38B6FF] mx-auto mb-6" />
-        <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
-          Secure Your Website with SSL Certificates
-        </h2>
-        <p className="text-white/90 text-lg mb-8">
-          Schedule a consultation with our security specialists
-        </p>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-10 text-left max-w-3xl mx-auto">
-          {[
-            "Certificate type assessment",
-            "Domain validation support",
-            "Server installation service",
-            "HTTPS redirect configuration",
-            "Security header setup",
-            "Renewal management"
-          ].map((item, index) => (
-            <div key={index} className="flex items-start gap-2">
-              <CheckCircle2 className="w-5 h-5 text-[#38B6FF] flex-shrink-0 mt-0.5" />
-              <span className="text-white/90 text-sm">{item}</span>
-            </div>
-          ))}
-        </div>
+const CalendarCTASection = () => {
+  const { region } = useRegion();
+  const consultationLink = region === 'india' 
+    ? 'https://calendar.app.google/gV1KaLLVkPR32C1p9'
+    : 'https://app.apollo.io/#/meet/40u-obp-ihl/30-min';
 
-        <Button 
-          size="lg"
-          className="bg-[#38B6FF] hover:bg-[#2da8f0] text-white font-semibold px-10 py-6 text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
-        >
-          Secure Your Website
-          <ArrowRight className="ml-2 h-5 w-5" />
-        </Button>
-      </motion.div>
-    </div>
-  </section>
-);
+  return (
+    <section className="py-20 bg-gradient-to-br from-[#0C4594] via-[#1565C0] to-[#0D47A1]">
+      <div className="w-full px-8 lg:px-16 xl:px-24">
+        <motion.div {...fadeInUp} className="text-center max-w-4xl mx-auto">
+          <Calendar className="w-16 h-16 text-[#38B6FF] mx-auto mb-6" />
+          <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
+            Secure Your Website with SSL Certificates
+          </h2>
+          <p className="text-white/90 text-lg mb-8">
+            Schedule a consultation with our security specialists
+          </p>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-10 text-left max-w-3xl mx-auto">
+            {[
+              "Certificate type assessment",
+              "Domain validation support",
+              "Server installation service",
+              "HTTPS redirect configuration",
+              "Security header setup",
+              "Renewal management"
+            ].map((item, index) => (
+              <div key={index} className="flex items-start gap-2">
+                <CheckCircle2 className="w-5 h-5 text-[#38B6FF] flex-shrink-0 mt-0.5" />
+                <span className="text-white/90 text-sm">{item}</span>
+              </div>
+            ))}
+          </div>
+
+          <a href={consultationLink} target="_blank" rel="noopener noreferrer">
+            <Button 
+              size="lg"
+              className="bg-[#38B6FF] hover:bg-[#2da8f0] text-white font-semibold px-10 py-6 text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
+            >
+              Schedule a Consultation
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Button>
+          </a>
+        </motion.div>
+      </div>
+    </section>
+  );
+};
 
 const SSLCertificates = () => {
   const [dialogOpen, setDialogOpen] = useState(false);
