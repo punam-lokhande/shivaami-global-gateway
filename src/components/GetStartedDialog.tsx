@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import {
   Dialog,
   DialogContent,
@@ -25,6 +26,7 @@ const generateCaptcha = () => {
 };
 
 const GetStartedDialog = ({ open, onOpenChange }: GetStartedDialogProps) => {
+  const location = useLocation();
   const { toast } = useToast();
   const [captcha, setCaptcha] = useState(generateCaptcha());
   const [formData, setFormData] = useState({
@@ -71,7 +73,18 @@ const GetStartedDialog = ({ open, onOpenChange }: GetStartedDialogProps) => {
     }
 
     setIsSubmitting(true);
-    
+
+    // Extract product name from the last part of the URL path.
+    // This assumes a URL structure like /products/your-product-name
+    const pathParts = location.pathname.split('/').filter(Boolean);
+    const productName =
+      pathParts.length > 0
+        ? pathParts[pathParts.length - 1]
+        : 'General Inquiry';
+
+    const submissionData = { ...formData, productName, submittedFrom: location.pathname };
+    console.log('Form Data Submitted:', submissionData);
+
     // Simulate form submission
     await new Promise(resolve => setTimeout(resolve, 1000));
     
