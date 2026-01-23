@@ -237,7 +237,7 @@ function RecognizedLeaderSection() {
           className="text-center mb-16"
         >
           {/* Badge */}
-          <motion.div
+          {/* <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
@@ -246,7 +246,7 @@ function RecognizedLeaderSection() {
           >
             <span className="w-2 h-2 bg-[#38B6FF] rounded-full" />
             <span className="text-[#0C4594] text-sm font-semibold tracking-wide">Industry Recognition</span>
-          </motion.div>
+          </motion.div> */}
           
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 leading-tight">
             <span className="text-[#0C4594]">Recognized Leader in the</span>{' '}
