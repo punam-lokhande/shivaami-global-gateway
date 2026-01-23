@@ -53,10 +53,6 @@ function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#38B6FF]/10 border border-[#38B6FF]/30 text-[#38B6FF] text-sm font-medium mb-6">
-              <Headphones className="w-4 h-4" />
-              Smoother Services
-            </span>
           </motion.div>
 
           <motion.h1
@@ -155,10 +151,6 @@ function WhatWeHandleSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#0C4594]/10 border border-[#0C4594]/20 text-[#0C4594] text-sm font-medium mb-4">
-            <Zap className="w-4 h-4" />
-            Comprehensive Coverage
-          </span>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-display font-bold text-[#0a1628] mb-4">
             What We Handle for You
           </h2>
