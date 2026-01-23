@@ -2,14 +2,21 @@ import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { ArrowRight, Calendar } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useRegion } from '@/contexts/RegionContext';
 
 export default function CTASection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const { region } = useRegion();
 
   const handleGetStarted = () => {
     document.dispatchEvent(new CustomEvent('openGetStartedDialog'));
   };
+
+  // Dynamic consultation link based on region
+  const consultationLink = region === 'india' 
+    ? 'https://calendar.app.google/gV1KaLLVkPR32C1p9'
+    : 'https://app.apollo.io/#/meet/40u-obp-ihl/30-min';
 
   return (
     <section ref={ref} className="py-24 bg-gradient-to-br from-[#0C4594] to-[#0a3a7a] relative overflow-hidden">
@@ -51,7 +58,7 @@ export default function CTASection() {
               asChild
               className="border-2 border-white text-white hover:border-white hover:bg-white/20 font-semibold px-8 py-6 text-lg bg-white/10"
             >
-              <a href="https://app.apollo.io/#/meet/40u-obp-ihl/30-min" target="_blank" rel="noopener noreferrer">
+              <a href={consultationLink} target="_blank" rel="noopener noreferrer">
                 <Calendar className="mr-2 w-5 h-5" />
                 Schedule a Consultation
               </a>
