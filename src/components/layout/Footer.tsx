@@ -75,6 +75,7 @@ const footerLinks = {
       { label: 'Pulse360', href: '/pulse360' },
       { label: 'ChangePath', href: '/changepath' },
       { label: 'SecureSight', href: '/securesight' },
+      { label: 'Support Packages', href: '/support-packages' },
       { label: 'Apps Script', href: '/apps-script' },
     ],
   },

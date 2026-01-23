@@ -116,6 +116,7 @@ import AppsScript from "./pages/AppsScript";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import GoogleWorkspacePricingIndia from "./pages/GoogleWorkspacePricingIndia";
 import SupportServices from "./pages/SupportServices";
+import SupportPackages from "./pages/SupportPackages";
 import Certifications from "./pages/Certifications";
 import Achievements from "./pages/Achievements";
 import OnDemandWebinars from "./pages/OnDemandWebinars";
@@ -261,6 +262,7 @@ const App = () => (
               <Route path="/privacy-policy" element={<PrivacyPolicy />} />
               <Route path="/google-workspace-pricing-india" element={<GoogleWorkspacePricingIndia />} />
               <Route path="/support" element={<SupportServices />} />
+              <Route path="/support-packages" element={<SupportPackages />} />
               <Route path="/certifications" element={<Certifications />} />
               <Route path="/achievements" element={<Achievements />} />
               <Route path="/on-demand-webinars" element={<OnDemandWebinars />} />

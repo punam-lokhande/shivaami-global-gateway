@@ -104,6 +104,7 @@ const mobileMenuData = [
           { label: 'ChangePath', href: '/changepath' },
           { label: 'SecureSight', href: '/securesight' },
           { label: 'TalentEdge', href: '/talentedge' },
+          { label: 'Support Packages', href: '/support-packages' },
           { label: 'Apps Script', href: '/apps-script' },
         ],
       },
