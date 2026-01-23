@@ -119,6 +119,12 @@ import Achievements from "./pages/Achievements";
 import OnDemandWebinars from "./pages/OnDemandWebinars";
 import Newsletter from "./pages/Newsletter";
 import RegisterWebinar from "./pages/RegisterWebinar";
+import OnDemandSecurityPrivacy from "./pages/OnDemandSecurityPrivacy";
+import OnDemandGWSWithGemini from "./pages/OnDemandGWSWithGemini";
+import OnDemandPromptEngineering from "./pages/OnDemandPromptEngineering";
+import OnDemandGeminiGems from "./pages/OnDemandGeminiGems";
+import OnDemandNotebookLM from "./pages/OnDemandNotebookLM";
+import OnDemandGoogleVids from "./pages/OnDemandGoogleVids";
 const queryClient = new QueryClient();
 
 // Scroll to top on route change
@@ -252,8 +258,15 @@ const App = () => (
               <Route path="/certifications" element={<Certifications />} />
               <Route path="/achievements" element={<Achievements />} />
               <Route path="/on-demand-webinars" element={<OnDemandWebinars />} />
+              <Route path="/webinar" element={<OnDemandWebinars />} />
               <Route path="/newsletter" element={<Newsletter />} />
               <Route path="/register-webinar" element={<RegisterWebinar />} />
+              <Route path="/on-demand-security-privacy" element={<OnDemandSecurityPrivacy />} />
+              <Route path="/on-demand-gws-with-gemini" element={<OnDemandGWSWithGemini />} />
+              <Route path="/on-demand-prompt-engineering" element={<OnDemandPromptEngineering />} />
+              <Route path="/on-demand-gemini-gems" element={<OnDemandGeminiGems />} />
+              <Route path="/on-demand-notebooklm" element={<OnDemandNotebookLM />} />
+              <Route path="/on-demand-google-vids" element={<OnDemandGoogleVids />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>
