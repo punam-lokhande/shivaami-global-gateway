@@ -46,15 +46,15 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-5xl font-semibold text-white mb-6 sm:mb-8 leading-[1.12] tracking-tight"
+            className="font-display text-[clamp(1.5rem,5vw,3rem)] font-semibold text-white mb-6 sm:mb-8 leading-[1.15] tracking-tight"
           >
-            <span className="block lg:whitespace-nowrap">Make Your IT Ecosystem</span>
-            <span className="block">
+            <span className="block whitespace-nowrap">Make Your IT Ecosystem</span>
+            <span className="block whitespace-nowrap">
               <span className="text-sky-300">Smarter</span>,{' '}
               <span className="text-teal-300">Safer</span>,{' '}
               <span className="bg-gradient-to-r from-sky-300 to-teal-300 bg-clip-text text-transparent">Smoother</span>
             </span>
-            <span className="block">with Shivaami.</span>
+            <span className="block whitespace-nowrap">with Shivaami.</span>
           </motion.h1>
 
           {/* Description */}
