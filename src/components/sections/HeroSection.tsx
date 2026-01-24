@@ -50,7 +50,7 @@ export default function HeroSection() {
           >
             Make Your IT Ecosystem<br />
             <span className="text-sky-300">Smarter</span>, <span className="text-teal-300">Safer</span>, <span className="bg-gradient-to-r from-sky-300 to-teal-300 bg-clip-text text-transparent">Smoother</span><br />
-            with Shivaami
+            with Shivaami.
           </motion.h1>
 
           {/* Description */}
