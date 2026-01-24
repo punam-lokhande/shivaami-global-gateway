@@ -39,18 +39,22 @@ export default function HeroSection() {
 
       {/* Content - Left aligned with proper spacing from nav */}
       <motion.div style={{ opacity }} className="relative z-10 w-full px-6 sm:px-8 lg:px-16 xl:px-24 pt-24 sm:pt-32 lg:pt-40 xl:pt-44 pb-12 sm:pb-16">
-        <div className="max-w-2xl">
+        <div className="max-w-3xl xl:max-w-4xl">
 
           {/* Headline */}
           <motion.h1
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-semibold text-white mb-6 sm:mb-8 leading-[1.15] tracking-tight"
+            className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-5xl font-semibold text-white mb-6 sm:mb-8 leading-[1.12] tracking-tight"
           >
-            Make Your IT Ecosystem<br />
-            <span className="text-sky-300">Smarter</span>, <span className="text-teal-300">Safer</span>, <span className="bg-gradient-to-r from-sky-300 to-teal-300 bg-clip-text text-transparent">Smoother</span><br />
-            with Shivaami.
+            <span className="block lg:whitespace-nowrap">Make Your IT Ecosystem</span>
+            <span className="block">
+              <span className="text-sky-300">Smarter</span>,{' '}
+              <span className="text-teal-300">Safer</span>,{' '}
+              <span className="bg-gradient-to-r from-sky-300 to-teal-300 bg-clip-text text-transparent">Smoother</span>
+            </span>
+            <span className="block">with Shivaami.</span>
           </motion.h1>
 
           {/* Description */}
