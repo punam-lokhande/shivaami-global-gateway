@@ -236,6 +236,7 @@ const menuContent: Record<string, MenuContent> = {
 
 export default function MegaMenu({ activeKey, anchorRect, onClose }: MegaMenuProps) {
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
+  const [hoveredItemRect, setHoveredItemRect] = useState<{ right: number; top: number } | null>(null);
   const [viewportWidth, setViewportWidth] = useState(() => (typeof window !== 'undefined' ? window.innerWidth : 1440));
   const navigate = useNavigate();
   const menu = menuContent[activeKey];
@@ -338,8 +339,15 @@ export default function MegaMenu({ activeKey, anchorRect, onClose }: MegaMenuPro
                       <li 
                         key={itemIdx} 
                         className="relative"
-                        onMouseEnter={() => setHoveredItem(itemKey)}
-                        onMouseLeave={() => setHoveredItem(null)}
+                        onMouseEnter={(e) => {
+                          setHoveredItem(itemKey);
+                          const rect = e.currentTarget.getBoundingClientRect();
+                          setHoveredItemRect({ right: rect.right, top: rect.top });
+                        }}
+                        onMouseLeave={() => {
+                          setHoveredItem(null);
+                          setHoveredItemRect(null);
+                        }}
                       >
                         <a
                           href={item.href || "#"}
@@ -367,49 +375,63 @@ export default function MegaMenu({ activeKey, anchorRect, onClose }: MegaMenuPro
                           </div>
                         </a>
                         
-                        {/* Nested Submenu */}
+                        {/* Nested Submenu - viewport aware positioning */}
                         <AnimatePresence>
                           {hasSubItems && isHovered && (
-                            <motion.div
-                              initial={{ opacity: 0, x: -10, scale: 0.95 }}
-                              animate={{ opacity: 1, x: 0, scale: 1 }}
-                              exit={{ opacity: 0, x: -10, scale: 0.95 }}
-                              transition={{ duration: 0.15, ease: 'easeOut' }}
-                              className="absolute left-full top-0 ml-2 w-56 bg-card rounded-xl border border-border shadow-2xl p-2 z-[100]"
-                              onMouseEnter={() => setHoveredItem(itemKey)}
-                              onMouseLeave={() => setHoveredItem(null)}
-                            >
-                              <div className="text-xs font-semibold text-primary uppercase tracking-wide mb-2 px-2">
-                                {item.label}
-                              </div>
-                              <ul className="space-y-0.5">
-                                {item.subItems?.map((subItem, subIdx) => {
-                                  const SubIcon = subItem.icon;
-                                  return (
-                                    <li key={subIdx}>
-                                      <a
-                                        href={subItem.href || "#"}
-                                        onClick={(e) => {
-                                          e.preventDefault();
-                                          handleNavigation(subItem.href);
-                                        }}
-                                        className="group/sub flex items-center gap-2.5 p-2 rounded-lg hover:bg-primary/10 transition-all duration-200"
-                                      >
-                                        <div className="w-7 h-7 rounded-md bg-secondary flex items-center justify-center flex-shrink-0 group-hover/sub:bg-primary/15 transition-all duration-200">
-                                          <SubIcon className="w-3.5 h-3.5 text-muted-foreground group-hover/sub:text-primary transition-colors" />
-                                        </div>
-                                        <div className="flex-1 min-w-0">
-                                          <span className="font-medium text-xs text-foreground group-hover/sub:text-primary transition-colors block">
-                                            {subItem.label}
-                                          </span>
-                                          <span className="text-[10px] text-muted-foreground">{subItem.desc}</span>
-                                        </div>
-                                      </a>
-                                    </li>
-                                  );
-                                })}
-                              </ul>
-                            </motion.div>
+                            (() => {
+                              // Calculate if submenu should appear on left or right
+                              const submenuWidth = 224; // w-56 = 14rem = 224px
+                              const spaceOnRight = hoveredItemRect ? viewportWidth - hoveredItemRect.right : 300;
+                              const showOnLeft = spaceOnRight < submenuWidth + 20;
+                              
+                              return (
+                                <motion.div
+                                  initial={{ opacity: 0, x: showOnLeft ? 10 : -10, scale: 0.95 }}
+                                  animate={{ opacity: 1, x: 0, scale: 1 }}
+                                  exit={{ opacity: 0, x: showOnLeft ? 10 : -10, scale: 0.95 }}
+                                  transition={{ duration: 0.15, ease: 'easeOut' }}
+                                  className={`absolute top-0 w-56 bg-card rounded-xl border border-border shadow-2xl p-2 z-[100] ${
+                                    showOnLeft ? 'right-full mr-2' : 'left-full ml-2'
+                                  }`}
+                                  onMouseEnter={() => setHoveredItem(itemKey)}
+                                  onMouseLeave={() => {
+                                    setHoveredItem(null);
+                                    setHoveredItemRect(null);
+                                  }}
+                                >
+                                  <div className="text-xs font-semibold text-primary uppercase tracking-wide mb-2 px-2">
+                                    {item.label}
+                                  </div>
+                                  <ul className="space-y-0.5">
+                                    {item.subItems?.map((subItem, subIdx) => {
+                                      const SubIcon = subItem.icon;
+                                      return (
+                                        <li key={subIdx}>
+                                          <a
+                                            href={subItem.href || "#"}
+                                            onClick={(e) => {
+                                              e.preventDefault();
+                                              handleNavigation(subItem.href);
+                                            }}
+                                            className="group/sub flex items-center gap-2.5 p-2 rounded-lg hover:bg-primary/10 transition-all duration-200"
+                                          >
+                                            <div className="w-7 h-7 rounded-md bg-secondary flex items-center justify-center flex-shrink-0 group-hover/sub:bg-primary/15 transition-all duration-200">
+                                              <SubIcon className="w-3.5 h-3.5 text-muted-foreground group-hover/sub:text-primary transition-colors" />
+                                            </div>
+                                            <div className="flex-1 min-w-0">
+                                              <span className="font-medium text-xs text-foreground group-hover/sub:text-primary transition-colors block">
+                                                {subItem.label}
+                                              </span>
+                                              <span className="text-[10px] text-muted-foreground">{subItem.desc}</span>
+                                            </div>
+                                          </a>
+                                        </li>
+                                      );
+                                    })}
+                                  </ul>
+                                </motion.div>
+                              );
+                            })()
                           )}
                         </AnimatePresence>
                       </li>
