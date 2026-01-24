@@ -48,7 +48,7 @@ export default function HeroSection() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-semibold text-white mb-6 sm:mb-8 leading-[1.15] tracking-tight"
           >
-            Make Your Ecosystem<br />
+            Make Your IT Ecosystem<br />
             <span className="text-sky-300">Smarter</span>, <span className="text-teal-300">Safer</span>, <span className="bg-gradient-to-r from-sky-300 to-teal-300 bg-clip-text text-transparent">Smoother</span><br />
             with Shivaami
           </motion.h1>
