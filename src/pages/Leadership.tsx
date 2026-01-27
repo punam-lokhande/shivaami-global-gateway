@@ -34,7 +34,6 @@ const leaders = [
     bio: "Punit started Shivaami as an Internet service company in 1997. He has a special way of meeting the specific needs of a wide and varied canvas of clients, numbering more than 20,000 at present. He believes passionately in the power of internet & marketing to grow businesses and industries. Punit has an MBA from Welingkar Institutes, Matunga. He is also a student of Brahma Kumari's World Spiritual University. Punit wants to help one lakh people in his lifetime.",
     color: 'from-[#0C4594] to-[#38B6FF]',
     quote: "The purpose of Shivaami is to bring positive change in the lives of people we connect, by offering solutions and services which brings profit and happiness.",
-    linkedinUrl: 'https://www.linkedin.com/in/punitshivaami/',
   },
   {
     name: 'Priyanka Khanna',
@@ -43,7 +42,6 @@ const leaders = [
     bio: "Priyanka joined Shivaami in 2010 and focuses on business development for Cloud offerings. Relationship management is her forte – whether it's with clients, team members or vendors. A persuasive leader, Priyanka is good at talent spotting and team building. She is an expert at partner & channel management. She manages the marketing and overlooks the entire gamut of digital marketing for Shivaami.",
     color: 'from-[#38B6FF] to-[#0C4594]',
     quote: "Building lasting relationships is the foundation of business success.",
-    linkedinUrl: 'https://www.linkedin.com/in/priyankakhanna17/',
   },
   {
     name: 'Chetana Chaudhari',
@@ -52,7 +50,6 @@ const leaders = [
     bio: "Chetana has fourteen years experience in analysis, design, development and implementation of Internet, cloud and business intelligent internet applications. She has the ability to translate business requirements into technical specifications and can integrate multiple applications across platforms. From handling presales to vendors, she is a multi-tasker. A natural leader, she inspires and motivates everyone in the team to give their best.",
     color: 'from-[#0C4594] to-[#082d61]',
     quote: "Translating vision into technology solutions that drive impact.",
-    linkedinUrl: 'https://www.linkedin.com/in/chetana-chaudhari-3117609/',
   },
   {
     name: 'Amee Thakkar',
@@ -61,7 +58,6 @@ const leaders = [
     bio: "Amee is the core foundation of Shivaami. She takes over multiple roles such as handling accounts, people management & payment collection. Her zeal and passion for women's empowerment have made Shivaami a women-centric organization in India. She strongly believes that everyone is creative & should take life in a playful way.",
     color: 'from-[#38B6FF] to-[#0C4594]',
     quote: "Empowering people to be creative and take life in a playful way.",
-    linkedinUrl: 'https://www.linkedin.com/in/amee-thakkar-45a119242/',
   },
 ];
 
@@ -215,9 +211,9 @@ function FeaturedLeader() {
                 <button className="w-12 h-12 rounded-xl bg-[#0C4594] hover:bg-[#0a3a7a] flex items-center justify-center transition-all duration-300 shadow-lg hover:shadow-xl">
                   <Linkedin className="w-5 h-5 text-white" />
                 </button>
-                {/* <button className="w-12 h-12 rounded-xl bg-[#38B6FF] hover:bg-[#2da8f0] flex items-center justify-center transition-all duration-300 shadow-lg hover:shadow-xl">
+                <button className="w-12 h-12 rounded-xl bg-[#38B6FF] hover:bg-[#2da8f0] flex items-center justify-center transition-all duration-300 shadow-lg hover:shadow-xl">
                   <Mail className="w-5 h-5 text-white" />
-                </button> */}
+                </button>
               </div>
             </motion.div>
           </div>
@@ -238,9 +234,9 @@ function LeaderCard({ leader, index }: { leader: typeof leaders[0]; index: numbe
         whileInView: { opacity: 1, y: 0 }
       }}
       transition={{ duration: 0.6 }}
-      className="group h-full"
+      className="group"
     >
-      <div className="bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 border border-[#e2e8f0] h-full flex flex-col">
+      <div className="bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 border border-[#e2e8f0]">
         {/* Image Section */}
         <div className="relative h-80 overflow-hidden">
           <img 
@@ -253,7 +249,7 @@ function LeaderCard({ leader, index }: { leader: typeof leaders[0]; index: numbe
         </div>
         
         {/* Content Section */}
-        <div className="p-6 flex flex-col flex-grow">
+        <div className="p-6">
           {/* Name and Role */}
           <h3 className="text-xl font-bold text-[#0C4594] mb-1">{leader.name}</h3>
           <p className="text-[#38B6FF] font-semibold text-sm mb-3">{leader.role}</p>
@@ -264,25 +260,20 @@ function LeaderCard({ leader, index }: { leader: typeof leaders[0]; index: numbe
           </div>
           
           {/* Bio */}
-          <p className="text-sm text-[#475569] leading-relaxed flex-grow">
+          <p className="text-sm text-[#475569] leading-relaxed line-clamp-4">
             {leader.bio}
           </p>
           
-          {/* Social Links - Removed Email button as it's commented out */}
+          {/* Social Links */}
           <div className="flex gap-2 mt-6 pt-4 border-t border-[#e2e8f0]">
-            <a
-              href={leader.linkedinUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-xl bg-[#f8fafc] hover:bg-[#0C4594] text-[#475569] hover:text-white transition-all duration-300 group/btn"
-            >
+            <button className="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-xl bg-[#f8fafc] hover:bg-[#0C4594] text-[#475569] hover:text-white transition-all duration-300 group/btn">
               <Linkedin className="w-4 h-4" />
               <span className="text-sm font-medium">Connect</span>
-            </a>
-            {/* <button className="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-xl bg-[#f8fafc] hover:bg-[#38B6FF] text-[#475569] hover:text-white transition-all duration-300 group/btn">
+            </button>
+            <button className="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-xl bg-[#f8fafc] hover:bg-[#38B6FF] text-[#475569] hover:text-white transition-all duration-300 group/btn">
               <Mail className="w-4 h-4" />
               <span className="text-sm font-medium">Email</span>
-            </button> */}
+            </button>
           </div>
         </div>
       </div>

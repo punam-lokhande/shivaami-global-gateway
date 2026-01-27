@@ -6,7 +6,7 @@ const reasons = [
   {
     icon: Award,
     title: 'Google & OEM-Backed Expertise',
-    description: 'Authorised Partner with direct access to Google and leading technology vendors.',
+    description: 'Premier partner with direct access to Google and leading technology vendors.',
   },
   {
     icon: Building2,
