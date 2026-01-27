@@ -57,7 +57,7 @@ const footerLinks = {
     ],
   },
   safer: {
-    title: 'Safer Security',
+    title: 'Safer',
     links: [
       { label: 'JumpCloud', href: '/jumpcloud' },
       { label: 'Scalefusion', href: '/scalefusion' },

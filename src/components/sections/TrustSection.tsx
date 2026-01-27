@@ -45,10 +45,10 @@ function AnimatedCounter({ end, suffix, duration = 2 }: CounterProps) {
 
 const stats = [
   { icon: Users, value: 20000, suffix: '+', label: 'Happy Customers' },
-  { icon: Calendar, value: 21, suffix: '+', label: 'Years of Excellence' },
+  { icon: Calendar, value: 22, suffix: '', label: 'Years of Excellence' },
   { icon: Award, value: 250, suffix: '+', label: 'Certified Specialists' },
-  { icon: Building, value: 10, suffix: '+', label: 'Years Google Partner' },
-  { icon: Globe, value: 6, suffix: '', label: 'Global Offices' },
+  { icon: Building, value: 15, suffix: '+', label: 'Years Google Partner' },
+  { icon: Globe, value: 5, suffix: '', label: 'Global Offices' },
   { icon: Heart, value: 80, suffix: '%', label: 'Women-Led Workforce' },
 ];
 
