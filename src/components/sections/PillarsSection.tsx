@@ -8,7 +8,7 @@ const pillars = [
     icon: Brain,
     accentIcon: Sparkles,
     title: 'Smarter Solutions',
-    link: '/gemini-enterprise',
+    // link: '/gemini-enterprise',
     subtitle: 'Intelligence that drives productivity',
     description: 'AI-powered tools and intelligent collaboration platforms that transform how your teams work, communicate, and innovate.',
     items: [
@@ -24,7 +24,7 @@ const pillars = [
     icon: Shield,
     accentIcon: Lock,
     title: 'Safer Security',
-    link: '/cloud-capabilities',
+    // link: '/cloud-capabilities',
     subtitle: 'Protection you can trust',
     description: 'Enterprise-grade security from identity management to cloud infrastructure, keeping your data and operations secure.',
     items: [
@@ -45,16 +45,17 @@ const pillars = [
     icon: Zap,
     accentIcon: Rocket,
     title: 'Smoother Services',
-    link: '/swiftmove',
+    // link: '/swiftmove',
     subtitle: 'Operations without friction',
     description: 'Expert migration, ongoing support, and continuous optimization services that ensure your technology works seamlessly.',
     items: [
-      { name: 'SwiftMove – Migration Services', desc: 'Fast, smooth migration service' },
-      { name: 'Managed Services – Pulse360', desc: 'Holistic managed services with constant monitoring' },
-      { name: 'Change Management – ChangePath', desc: 'Guiding teams through change effortlessly' },
-      { name: 'Security Assessment – SecureSight', desc: 'Insights and clarity on risks' },
-      { name: 'Staff Augmentation – TalentEdge', desc: 'Strengthening teams with a dedicated Shivaami expert' },
-      { name: 'Support Packages & AppScript', desc: 'Custom solutions for unique needs' },
+      { name: 'SwiftMove – Migration Services', desc: 'Fast, smooth migration service', link: '/swiftmove' },
+      { name: 'Managed Services – Pulse360', desc: 'Holistic managed services with constant monitoring', link: '/managed-services' },
+      { name: 'Change Management – ChangePath', desc: 'Guiding teams through change effortlessly', link: '/change-management' },
+      { name: 'Security Assessment – SecureSight', desc: 'Insights and clarity on risks', link: '/security-assessment' },
+      { name: 'Staff Augmentation – TalentEdge', desc: 'Strengthening teams with a dedicated Shivaami expert', link: '/staff-augmentation' },
+      { name: 'Support Packages', desc: 'Tailored packages for expert IT support', link: '/support-packages' },
+      { name: 'AppScript', desc: 'Custom scripts to automate your applications', link: '/appscript' },
     ],
     gradient: 'from-sky-600 via-blue-500 to-indigo-500',
     lightGradient: 'from-sky-500/10 to-indigo-500/10',
@@ -146,17 +147,32 @@ export default function PillarsSection() {
 
                     {/* Items with checkmarks */}
                     <ul className="space-y-3 mb-6">
-                      {pillar.items.map((item) => (
-                        <li key={item.name} className="text-sm">
+                      {pillar.items.map((item) => {
+                        const content = (
                           <div className="flex items-start gap-3">
                             <CheckCircle2 className={`w-4 h-4 flex-shrink-0 mt-0.5 ${pillar.iconColor}`} />
-                            <div>
-                              <span className="font-medium text-foreground">{item.name}</span>
+                            <div className="flex-1">
+                              <span className="font-medium text-foreground group-hover/item:text-primary transition-colors">{item.name}</span>
                               <p className="text-muted-foreground text-xs mt-0.5">{item.desc}</p>
                             </div>
+                            {'link' in item && (
+                              <ArrowRight className="w-4 h-4 text-muted-foreground/50 opacity-0 group-hover/item:opacity-100 transition-all" />
+                            )}
                           </div>
-                        </li>
-                      ))}
+                        );
+
+                        if ('link' in item && typeof item.link === 'string') {
+                          return (
+                            <li key={item.name} className="text-sm">
+                              <Link to={item.link} className="block p-2 -m-2 rounded-lg hover:bg-muted/50 transition-colors group/item">
+                                {content}
+                              </Link>
+                            </li>
+                          );
+                        }
+
+                        return <li key={item.name} className="text-sm"><div className="p-2 -m-2">{content}</div></li>;
+                      })}
                     </ul>
 
                   </div>

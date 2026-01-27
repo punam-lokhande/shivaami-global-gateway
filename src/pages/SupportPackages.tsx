@@ -369,7 +369,7 @@ function PricingSection() {
                   </div>
 
                   {/* CTA Button */}
-                  <Button 
+                  {/* <Button 
                     onClick={handleGetStarted}
                     className={`w-full py-6 rounded-xl font-semibold transition-all duration-300 ${
                       pkg.popular 
@@ -379,7 +379,7 @@ function PricingSection() {
                   >
                     Choose Plan
                     <ArrowRight className="ml-2 w-4 h-4" />
-                  </Button>
+                  </Button> */}
                 </div>
               </div>
             </motion.div>

@@ -3,7 +3,9 @@ import { useRef } from 'react';
 import { ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
+import { useRegion } from '@/contexts/RegionContext';
 import heroImage from '@/assets/hero-team-collaboration.jpg';
+import heroImageUSA from '@/assets/hero-team-collaboration-usa.jpg'; // Placeholder for USA image
 
 export default function HeroSection() {
   const ref = useRef<HTMLDivElement>(null);
@@ -14,6 +16,9 @@ export default function HeroSection() {
 
   const y = useTransform(scrollYProgress, [0, 1], ['0%', '30%']);
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+  
+  const { region } = useRegion();
+  const currentHeroImage = region === 'india' ? heroImage : heroImageUSA; // Select image based on region
 
   return (
     <section ref={ref} className="relative min-h-[80vh] sm:min-h-screen flex items-center overflow-hidden">
@@ -23,7 +28,7 @@ export default function HeroSection() {
         className="absolute inset-0 z-0"
       >
         <img
-          src={heroImage}
+          src={currentHeroImage}
           alt="Enterprise cloud and AI solutions"
           className="w-full h-full object-cover object-center sm:object-center md:object-[70%_center] lg:object-center"
           loading="eager"
