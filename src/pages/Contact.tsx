@@ -15,6 +15,7 @@ const offices = [
     phone: '+91 775 784 1333',
     email: 'info@shivaami.com',
     address: '1001, 10th Floor, Runwal R Square, LBS Road, Mulund West, Mumbai - 400080',
+    office_type:'Headquarter',
   },
   {
     region: 'USA',
@@ -22,6 +23,7 @@ const offices = [
     phone: '+1 408 333 4844',
     email: 'usa@shivaami.com',
     address: '33 S Wood Avenue, Suite 439, Iselin, New Jersey - 08830',
+    office_type:'Regional Office'
   },
 ];
 
@@ -155,7 +157,7 @@ export default function Contact() {
                     </div>
                     <div>
                       <h3 className="text-2xl font-bold text-[#0C4594]">{office.region}</h3>
-                      <p className="text-sm text-[#38B6FF] font-medium">Regional Office</p>
+                      <p className="text-sm text-[#38B6FF] font-medium">{office.office_type}</p>
                     </div>
                   </div>
 
