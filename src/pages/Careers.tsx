@@ -10,6 +10,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Label } from '@/components/ui/label';
 import { useToast } from '@/hooks/use-toast';
+import { API_ENDPOINTS } from '@/utils/api';
 import careersBanner from '@/assets/banners/careers-banner.jpg';
 
 const jobOpenings = [
@@ -120,20 +121,39 @@ export default function Careers() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!validateForm()) return;
+    console.log(JSON.stringify(formData, null, 2));
 
     setIsSubmitting(true);
-    
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-    
-    toast({
-      title: 'Application Submitted!',
-      description: 'Thank you for your interest. Redirecting...',
-    });
 
-    setTimeout(() => {
+    try {
+      const response = await fetch(API_ENDPOINTS.STORE_CAREER_DETAILS, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+
+      await response.json();
+      toast({
+        title: 'Application Submitted!',
+        description: 'Thank you for your interest. Redirecting...',
+      });
       navigate('/careers/thank-you');
-    }, 1000);
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      toast({
+        title: "Error",
+        description: "Failed to submit application. Please try again later.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (

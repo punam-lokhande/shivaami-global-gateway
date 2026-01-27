@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
@@ -26,11 +26,14 @@ import CTASection from '@/components/sections/CTASection';
 import { Button } from '@/components/ui/button';
 import { useRegion } from '@/contexts/RegionContext';
 import heroImage from '@/assets/banners/support-banner.jpg';
+import GetStartedDialog from '@/components/GetStartedDialog';
+
 
 // Hero Section
 function HeroSection() {
   const handleGetStarted = () => {
-    window.dispatchEvent(new CustomEvent('open-get-started-dialog'));
+    console.log("clicked")
+    document.dispatchEvent(new CustomEvent('openGetStartedDialog'));
   };
 
   return (
@@ -201,7 +204,7 @@ function PricingSection() {
   const { region } = useRegion();
 
   const handleGetStarted = () => {
-    window.dispatchEvent(new CustomEvent('open-get-started-dialog'));
+    document.dispatchEvent(new CustomEvent('openGetStartedDialog'));
   };
 
   const packages = [
@@ -480,6 +483,14 @@ function WhyChooseUsSection() {
 }
 
 export default function SupportPackages() {
+  const [dialogOpen, setDialogOpen] = useState(false);
+
+  useEffect(() => {
+    const handler = () => setDialogOpen(true);
+    document.addEventListener('openGetStartedDialog', handler);
+    return () => document.removeEventListener('openGetStartedDialog', handler);
+  }, []);
+
   return (
     <>
       <Helmet>
@@ -498,6 +509,7 @@ export default function SupportPackages() {
         <CTASection />
       </main>
       <Footer />
+      <GetStartedDialog open={dialogOpen} onOpenChange={setDialogOpen} />
     </>
   );
 }
