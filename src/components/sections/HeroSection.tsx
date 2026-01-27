@@ -18,7 +18,7 @@ export default function HeroSection() {
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
   
   const { region } = useRegion();
-  const currentHeroImage = region === 'india' ? heroImage : heroImageUSA; // Select image based on region
+  const currentHeroImage = region === 'usa' ? heroImage : heroImageUSA; // Select image based on region
 
   return (
     <section ref={ref} className="relative min-h-[80vh] sm:min-h-screen flex items-center overflow-hidden">
