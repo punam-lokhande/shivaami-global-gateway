@@ -1,12 +1,14 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { Brain, Shield, Zap, ArrowRight, Sparkles, Lock, Rocket, CheckCircle2 } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const pillars = [
   {
     icon: Brain,
     accentIcon: Sparkles,
     title: 'Smarter Solutions',
+    link: '/gemini-enterprise',
     subtitle: 'Intelligence that drives productivity',
     description: 'AI-powered tools and intelligent collaboration platforms that transform how your teams work, communicate, and innovate.',
     items: [
@@ -22,6 +24,7 @@ const pillars = [
     icon: Shield,
     accentIcon: Lock,
     title: 'Safer Security',
+    link: '/cloud-capabilities',
     subtitle: 'Protection you can trust',
     description: 'Enterprise-grade security from identity management to cloud infrastructure, keeping your data and operations secure.',
     items: [
@@ -42,6 +45,7 @@ const pillars = [
     icon: Zap,
     accentIcon: Rocket,
     title: 'Smoother Services',
+    link: '/swiftmove',
     subtitle: 'Operations without friction',
     description: 'Expert migration, ongoing support, and continuous optimization services that ensure your technology works seamlessly.',
     items: [
@@ -126,9 +130,11 @@ export default function PillarsSection() {
                   {/* Content */}
                   <div className="p-6 pt-10">
                     {/* Title & Subtitle */}
-                    <h3 className="font-display text-2xl font-bold text-foreground mb-1">
-                      {pillar.title}
-                    </h3>
+                    <Link to={pillar.link} className="group/link">
+                      <h3 className="font-display text-2xl font-bold text-foreground mb-1 hover:text-primary transition-colors">
+                        {pillar.title}
+                      </h3>
+                    </Link>
                     <p className={`text-sm font-medium bg-gradient-to-r ${pillar.gradient} bg-clip-text text-transparent mb-4`}>
                       {pillar.subtitle}
                     </p>
