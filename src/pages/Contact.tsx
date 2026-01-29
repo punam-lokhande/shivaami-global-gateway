@@ -231,14 +231,14 @@ export default function Contact() {
           />
         </div>
 
-        {/* Hero Content */}
-        <div className="relative z-10 w-full container mx-auto px-4 pt-32 pb-16 lg:pb-32">
+        {/* Hero Content - positioned at top of hero */}
+        <div className="absolute top-0 left-0 right-0 z-10 container mx-auto px-4 pt-32 lg:pt-36">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             className="text-center max-w-2xl mx-auto"
           >
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 font-display">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 font-display">
               Let's Connect
             </h1>
             <p className="text-lg md:text-xl text-white/80">
