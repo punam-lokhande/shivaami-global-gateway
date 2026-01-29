@@ -224,24 +224,26 @@ export default function Contact() {
         </div>
 
         {/* Content Container */}
-        <div className="relative z-10 container mx-auto px-4 pt-32 lg:pt-36 pb-8 lg:pb-16">
-          {/* Hero Text - Centered */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-center max-w-2xl mx-auto mb-8 lg:mb-12"
-          >
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 font-display">
-              Let's Connect
-            </h1>
-            <p className="text-lg md:text-xl text-white/80">
-              Ready to transform your business? Get in touch with our team and
-              we'll get back to you within 24 hours.
-            </p>
-          </motion.div>
+        <div className="relative z-10 container mx-auto px-4">
+          {/* Hero Text - Vertically centered in available space above form on desktop */}
+          <div className="pt-28 pb-8 lg:pt-0 lg:pb-0 lg:min-h-[45vh] lg:flex lg:items-center lg:justify-center">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="text-center max-w-2xl mx-auto"
+            >
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 font-display">
+                Let's Connect
+              </h1>
+              <p className="text-lg md:text-xl text-white/80">
+                Ready to transform your business? Get in touch with our team and
+                we'll get back to you within 24 hours.
+              </p>
+            </motion.div>
+          </div>
 
           {/* Form - Centered, overlapping into next section on desktop */}
-          <div className="flex justify-center lg:pb-0">
+          <div className="flex justify-center pb-8 lg:pb-0">
             <div className="lg:relative lg:top-16 lg:mb-[-8rem]">
               {ContactForm}
             </div>
