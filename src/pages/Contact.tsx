@@ -215,6 +215,22 @@ export default function Contact() {
     </motion.div>
   );
 
+  const HeroIntro = (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      className="text-center max-w-2xl mx-auto"
+    >
+      <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 font-display">
+        Let's Connect
+      </h1>
+      <p className="text-lg md:text-xl text-white/80">
+        Ready to transform your business? Get in touch with our team and we'll
+        get back to you within 24 hours.
+      </p>
+    </motion.div>
+  );
+
   return (
     <div className="min-h-screen bg-background">
       <Header />
@@ -232,30 +248,24 @@ export default function Contact() {
         </div>
 
         {/* Content Container */}
-        <div ref={heroLayoutRef} className="relative z-10 container mx-auto px-4">
-          {/* Hero Text - Vertically centered in available space above form on desktop */}
+        <div
+          ref={heroLayoutRef}
+          className="relative z-10 container mx-auto px-4 pt-32 lg:pt-36 pb-8 lg:pb-16"
+        >
+          {/* Desktop: hero text is an absolute layer flex-centered ABOVE the floating form */}
           <div
-            className="pt-28 pb-8 lg:pt-0 lg:pb-0 lg:flex lg:items-center lg:justify-center"
+            className="hidden lg:flex absolute inset-x-0 top-0 z-20 items-center justify-center"
             style={formTopOffset ? { height: formTopOffset } : undefined}
           >
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="text-center max-w-2xl mx-auto"
-            >
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 font-display">
-                Let's Connect
-              </h1>
-              <p className="text-lg md:text-xl text-white/80">
-                Ready to transform your business? Get in touch with our team and
-                we'll get back to you within 24 hours.
-              </p>
-            </motion.div>
+            {HeroIntro}
           </div>
+
+          {/* Mobile/Tablet: normal stacked flow (text first, form below) */}
+          <div className="lg:hidden mb-8">{HeroIntro}</div>
 
           {/* Form - Centered, overlapping into next section on desktop */}
           <div className="flex justify-center pb-8 lg:pb-0">
-            <div ref={formBlockRef} className="lg:relative lg:top-16 lg:mb-[-8rem]">
+            <div ref={formBlockRef} className="relative z-10 lg:relative lg:top-16 lg:mb-[-8rem]">
               {ContactForm}
             </div>
           </div>
