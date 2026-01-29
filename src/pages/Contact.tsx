@@ -211,7 +211,7 @@ export default function Contact() {
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      className="text-center max-w-2xl mx-auto"
+      className="text-center max-w-2xl mx-auto pt-24"
     >
       <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 font-display">
         Let's Connect
