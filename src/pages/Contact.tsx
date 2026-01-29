@@ -236,12 +236,12 @@ export default function Contact() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-left max-w-xl"
+            className="text-center max-w-2xl mx-auto"
           >
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 font-display">
               Let's Connect
             </h1>
-            <p className="text-lg md:text-xl text-white/80 max-w-lg">
+            <p className="text-lg md:text-xl text-white/80">
               Ready to transform your business? Get in touch with our team and
               we'll get back to you within 24 hours.
             </p>
@@ -249,7 +249,7 @@ export default function Contact() {
         </div>
 
         {/* Form - Absolutely positioned on desktop to overlap sections */}
-        <div className="hidden lg:block absolute left-1/2 lg:left-auto lg:right-[10%] xl:right-[15%] bottom-0 transform -translate-x-1/2 lg:translate-x-0 translate-y-1/2 z-20">
+        <div className="hidden lg:block absolute left-1/2 bottom-0 transform -translate-x-1/2 translate-y-1/2 z-20">
           {ContactForm}
         </div>
       </section>
