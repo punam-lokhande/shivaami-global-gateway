@@ -7,10 +7,9 @@ import { API_ENDPOINTS } from '@/utils/api';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import { toast } from 'sonner';
-import { useRef, useState } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import heroImage from '@/assets/banners/contact-hero.jpg';
-import { useDesktopOffsetTop } from '@/hooks/use-desktop-offset-top';
 
 const offices = [
   {
@@ -40,13 +39,6 @@ export default function Contact() {
   const [message, setMessage] = useState('');
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
   const [isLoading, setIsLoading] = useState(false);
-
-  const heroLayoutRef = useRef<HTMLDivElement | null>(null);
-  const formBlockRef = useRef<HTMLDivElement | null>(null);
-  const formTopOffset = useDesktopOffsetTop({
-    containerRef: heroLayoutRef,
-    elementRef: formBlockRef,
-  });
 
   const validate = () => {
     const newErrors: { [key: string]: string } = {};
@@ -247,25 +239,16 @@ export default function Contact() {
           />
         </div>
 
-        {/* Content Container */}
-        <div
-          ref={heroLayoutRef}
-          className="relative z-10 container mx-auto px-4 pt-32 lg:pt-36 pb-8 lg:pb-16"
-        >
-          {/* Desktop: hero text is an absolute layer flex-centered ABOVE the floating form */}
-          <div
-            className="hidden lg:flex absolute inset-x-0 top-0 z-20 items-center justify-center"
-            style={formTopOffset ? { height: formTopOffset } : undefined}
-          >
+        {/* Content Container - uses flex column on desktop to stack hero text + form */}
+        <div className="relative z-10 container mx-auto px-4 pt-28 lg:pt-32 pb-8 lg:pb-16 flex flex-col">
+          {/* Hero Text - flex-1 on desktop so it expands and centers in available space */}
+          <div className="lg:flex-1 lg:flex lg:items-center lg:justify-center lg:min-h-[180px] mb-8 lg:mb-12">
             {HeroIntro}
           </div>
 
-          {/* Mobile/Tablet: normal stacked flow (text first, form below) */}
-          <div className="lg:hidden mb-8">{HeroIntro}</div>
-
           {/* Form - Centered, overlapping into next section on desktop */}
-          <div className="flex justify-center pb-8 lg:pb-0">
-            <div ref={formBlockRef} className="relative z-10 lg:relative lg:top-16 lg:mb-[-8rem]">
+          <div className="flex justify-center lg:pb-0">
+            <div className="lg:relative lg:top-16 lg:mb-[-8rem]">
               {ContactForm}
             </div>
           </div>
