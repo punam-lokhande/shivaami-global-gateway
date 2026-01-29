@@ -91,7 +91,7 @@ export default function Newsletter() {
   const zohoForm = (
     <div id="sf3z129613819e83c149fddb6f9e33b70d7b2169c82c3c7474ea5ff0d5c809aee106" data-type="signupform" style={{ opacity: 1, display: 'none' }}>
       <div id="customForm">
-        <div className="quick_form_29_css" style={{ width: '300px', zIndex: 2, fontFamily: 'Arial', border: '1px none rgb(206, 206, 206)', backgroundColor: 'rgb(255, 255, 255)', backgroundPosition: '0px 100%', backgroundRepeat: 'no-repeat', overflow: 'hidden' }} name="SIGNUP_BODY">
+        <div className="quick_form_29_css" style={{ width: '300px', zIndex: 2, fontFamily: 'Arial', border: '1px none rgb(206, 206, 206)', backgroundColor: 'rgb(255, 255, 255)', backgroundPosition: '0px 100%', backgroundRepeat: 'no-repeat', overflow: 'hidden' }} data-name="SIGNUP_BODY">
           <div style={{ textAlign: 'center' }}>
             <div style={{ fontSize: '22px', fontFamily: '"Arial"', fontWeight: 'normal', color: 'rgb(0, 162, 234)', textAlign: 'left', padding: '30px 25px 5px', width: '100%', display: 'block' }} id="SIGNUP_HEADING">Join Our Newsletter</div>
             <div style={{ position: 'relative' }}>
@@ -99,7 +99,7 @@ export default function Newsletter() {
                 <table width="100%" cellPadding="0" cellSpacing="0" border={0}>
                   <tbody>
                     <tr>
-                      <td width="10%"><img className="successicon" src="https://lzyx-zgph.maillist-manage.net/images/challangeiconenable.jpg" align="absmiddle" alt="success" /></td>
+                      <td width="10%"><img className="successicon align-middle" src="https://lzyx-zgph.maillist-manage.net/images/challangeiconenable.jpg" alt="success" /></td>
                       <td><span id="signupSuccessMsg" style={{ color: 'rgb(73, 140, 132)', fontFamily: 'sans-serif', fontSize: '14px', wordBreak: 'break-word' }}>&nbsp;&nbsp;Thank you for Signing Up</span></td>
                     </tr>
                   </tbody>
