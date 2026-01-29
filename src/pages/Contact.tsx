@@ -7,9 +7,10 @@ import { API_ENDPOINTS } from '@/utils/api';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import { toast } from 'sonner';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import heroImage from '@/assets/banners/contact-hero.jpg';
+import { useDesktopOffsetTop } from '@/hooks/use-desktop-offset-top';
 
 const offices = [
   {
@@ -39,6 +40,13 @@ export default function Contact() {
   const [message, setMessage] = useState('');
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
   const [isLoading, setIsLoading] = useState(false);
+
+  const heroLayoutRef = useRef<HTMLDivElement | null>(null);
+  const formBlockRef = useRef<HTMLDivElement | null>(null);
+  const formTopOffset = useDesktopOffsetTop({
+    containerRef: heroLayoutRef,
+    elementRef: formBlockRef,
+  });
 
   const validate = () => {
     const newErrors: { [key: string]: string } = {};
@@ -224,9 +232,12 @@ export default function Contact() {
         </div>
 
         {/* Content Container */}
-        <div className="relative z-10 container mx-auto px-4">
+        <div ref={heroLayoutRef} className="relative z-10 container mx-auto px-4">
           {/* Hero Text - Vertically centered in available space above form on desktop */}
-          <div className="pt-28 pb-8 lg:pt-0 lg:pb-0 lg:min-h-[45vh] lg:flex lg:items-center lg:justify-center">
+          <div
+            className="pt-28 pb-8 lg:pt-0 lg:pb-0 lg:flex lg:items-center lg:justify-center"
+            style={formTopOffset ? { height: formTopOffset } : undefined}
+          >
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -244,7 +255,7 @@ export default function Contact() {
 
           {/* Form - Centered, overlapping into next section on desktop */}
           <div className="flex justify-center pb-8 lg:pb-0">
-            <div className="lg:relative lg:top-16 lg:mb-[-8rem]">
+            <div ref={formBlockRef} className="lg:relative lg:top-16 lg:mb-[-8rem]">
               {ContactForm}
             </div>
           </div>
