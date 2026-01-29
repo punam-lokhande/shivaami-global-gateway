@@ -1,9 +1,16 @@
-import { useRef } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { Phone, MapPin, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Link } from 'react-router-dom';
 import shivaamiLogo from '@/assets/shivaami-logo.png';
+
+declare global {
+  interface Window {
+    setupSF: (...args: any[]) => void;
+    runOnFormSubmit_sf3z129613819e83c149fddb6f9e33b70d7b2169c82c3c7474ea5ff0d5c809aee106: (th: any) => void;
+  }
+}
 
 // Social media icons as inline SVGs for proper branding
 const LinkedInIcon = () => (
@@ -116,6 +123,113 @@ const footerLinks = {
 
 export default function Footer() {
   const ref = useRef(null);
+  const [email, setEmail] = useState('');
+
+  useEffect(() => {
+    const script1 = document.createElement('script');
+    script1.type = 'text/javascript';
+    script1.src = 'https://lzyx-zgph.maillist-manage.net/js/optin.min.js';
+    script1.onload = () => {
+      if (window.setupSF) {
+        try {
+          window.setupSF('sf3z129613819e83c149fddb6f9e33b70d7b2169c82c3c7474ea5ff0d5c809aee106','ZCFORMVIEW',false,'light',false,'0');
+        } catch (error) {
+          console.error("Error setting up Zoho form:", error);
+        }
+      }
+    };
+    document.body.appendChild(script1);
+
+    const script2 = document.createElement('script');
+    script2.type = 'text/javascript';
+    script2.innerHTML = `
+      function runOnFormSubmit_sf3z129613819e83c149fddb6f9e33b70d7b2169c82c3c7474ea5ff0d5c809aee106(th){ /*Before submit, if you want to trigger your event, "include your code here"*/ };
+    `;
+    document.body.appendChild(script2);
+
+    const style = document.createElement('style');
+    style.innerHTML = `#customForm.quick_form_29_css * { -webkit-box-sizing: border-box !important; -moz-box-sizing: border-box !important; box-sizing: border-box !important; overflow-wrap: break-word }@media only screen and (max-width: 200px) {.quick_form_29_css[name="SIGNUP_BODY"] { width: 100% !important; min-width: 100% !important; margin: 0px auto !important; padding: 0px !important } }@media screen and (min-width: 320px) and (max-width: 580px) and (orientation: portrait) {.quick_form_29_css[name="SIGNUP_BODY"] { max-width: 300px !important; margin: 0px auto !important; padding: 0px !important } }@media only screen and (max-device-width: 1024px) {.quick_form_29_css[name="SIGNUP_BODY"] { max-width: 500px !important; margin: 0px auto !important } }@media only screen and (max-device-width: 1024px) and (orientation: landscape) {.quick_form_29_css[name="SIGNUP_BODY"] { max-width: 700px !important; margin: 0px auto !important } }@media screen and (min-width: 475px) and (max-width: 980px) and (orientation: landscape) {.quick_form_29_css[name="SIGNUP_BODY"] { max-width: 400px !important; margin: 0px auto !important; padding: 0px !important } }`;
+    document.head.appendChild(style);
+
+    return () => {
+      if (document.body.contains(script1)) {
+        document.body.removeChild(script1);
+      }
+      if (document.body.contains(script2)) {
+        document.body.removeChild(script2);
+      }
+      if (document.head.contains(style)) {
+        document.head.removeChild(style);
+      }
+    };
+  }, []);
+
+  const handleSubscribe = (e: React.FormEvent) => {
+    e.preventDefault();
+    const zohoEmailInput = document.getElementById('EMBED_FORM_EMAIL_LABEL') as HTMLInputElement;
+    const zohoSubmitButton = document.getElementById('zcWebOptin') as HTMLInputElement;
+
+    if (zohoEmailInput && zohoSubmitButton) {
+      zohoEmailInput.value = email;
+      zohoSubmitButton.click();
+    } else {
+      console.error('Zoho form elements not found.');
+    }
+  };
+
+  const zohoForm = (
+    <div id="sf3z129613819e83c149fddb6f9e33b70d7b2169c82c3c7474ea5ff0d5c809aee106" data-type="signupform" style={{ opacity: 1, display: 'none' }}>
+      <div id="customForm">
+        <div className="quick_form_29_css" style={{ width: '300px', zIndex: 2, fontFamily: 'Arial', border: '1px none rgb(206, 206, 206)', backgroundColor: 'rgb(255, 255, 255)', backgroundPosition: '0px 100%', backgroundRepeat: 'no-repeat', overflow: 'hidden' }} name="SIGNUP_BODY">
+          <div style={{ textAlign: 'center' }}>
+            <div style={{ fontSize: '22px', fontFamily: '"Arial"', fontWeight: 'normal', color: 'rgb(0, 162, 234)', textAlign: 'left', padding: '30px 25px 5px', width: '100%', display: 'block' }} id="SIGNUP_HEADING">Join Our Newsletter</div>
+            <div style={{ position: 'relative' }}>
+              <div id="Zc_SignupSuccess" style={{ display: 'none', position: 'absolute', marginLeft: '4%', width: '90%', backgroundColor: 'white', padding: '3px', border: '3px solid rgb(194, 225, 154)', marginTop: '10px', marginBottom: '10px', wordBreak: 'break-all' }}>
+                <table width="100%" cellPadding="0" cellSpacing="0" border={0}>
+                  <tbody>
+                    <tr>
+                      <td width="10%"><img className="successicon" src="https://lzyx-zgph.maillist-manage.net/images/challangeiconenable.jpg" align="absmiddle" alt="success" /></td>
+                      <td><span id="signupSuccessMsg" style={{ color: 'rgb(73, 140, 132)', fontFamily: 'sans-serif', fontSize: '14px', wordBreak: 'break-word' }}>&nbsp;&nbsp;Thank you for Signing Up</span></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <form method="POST" id="zcampaignOptinForm" style={{ margin: '0px', width: '100%' }} action="https://lzyx-zgph.maillist-manage.net/weboptin.zc" target="_zcSignup">
+              <div style={{ backgroundColor: 'rgb(255, 235, 232)', padding: '10px', color: 'rgb(210, 0, 0)', fontSize: '11px', margin: '20px 10px 0px', border: '1px solid rgb(255, 217, 211)', opacity: 1, display: 'none' }} id="errorMsgDiv">Please correct the marked field(s) below.</div>
+              <div style={{ position: 'relative', width: '250px', height: '41px', padding: '0 10px', margin: '20px 70px 0px 20px', display: 'inline-block' }}>
+                <span style={{ verticalAlign: 'middle', backgroundImage: 'url(https://campaigns.zoho.com/images/mail_icon.svg)', display: 'inline-block', borderTop: 'none', borderLeft: 'none', borderRight: 'none', width: '40px', backgroundSize: '25px', backgroundPosition: 'center center', border: 'solid rgb(214, 205, 205)', borderWidth: '1px 0 1px 1px', backgroundRepeat: 'no-repeat', height: '41px', boxSizing: 'border-box', float: 'left' }}></span>
+                <input type="text" style={{ fontSize: '17px', borderWidth: '1px', borderColor: 'rgb(214, 205, 205)', borderStyle: 'solid', width: '190px', height: '100%', zIndex: 4, outline: 'none', padding: '4px 10px 6px', boxSizing: 'border-box', color: 'rgb(113, 106, 106)', textAlign: 'left', fontFamily: '"Arial"', backgroundColor: 'transparent', borderRadius: '0px', display: 'inline-block', float: 'left' }} placeholder="Email" name="CONTACT_EMAIL" id="EMBED_FORM_EMAIL_LABEL" />
+              </div>
+              <div style={{ position: 'relative', width: '180px', height: '40px', margin: '20px 70px 50px 10px', display: 'inline-block' }}>
+                <input type="button" style={{ textAlign: 'center', width: '100%', height: '100%', zIndex: 5, border: 0, color: 'rgb(255, 255, 255)', cursor: 'pointer', outline: 'none', fontSize: '20px', backgroundColor: 'rgb(72, 134, 255)', borderRadius: '5px' }} name="SIGNUP_SUBMIT_BUTTON" id="zcWebOptin" value="Join Now" />
+              </div>
+              <input type="hidden" id="fieldBorder" value="" />
+              <input type="hidden" id="submitType" name="submitType" value="optinCustomView" />
+              <input type="hidden" id="emailReportId" name="emailReportId" value="" />
+              <input type="hidden" id="formType" name="formType" value="QuickForm" />
+              <input type="hidden" name="zx" id="cmpZuid" value="129589521" />
+              <input type="hidden" name="zcvers" value="3.0" />
+              <input type="hidden" name="oldListIds" id="allCheckedListIds" value="" />
+              <input type="hidden" id="mode" name="mode" value="OptinCreateView" />
+              <input type="hidden" id="zcld" name="zcld" value="13ae1bce1921e2b1" />
+              <input type="hidden" id="zctd" name="zctd" value="13ae1bce15aafbd1" />
+              <input type="hidden" id="document_domain" value="" />
+              <input type="hidden" id="zc_Url" value="lzyx-zgph.maillist-manage.net" />
+              <input type="hidden" id="new_optin_response_in" value="0" />
+              <input type="hidden" id="duplicate_optin_response_in" value="0" />
+              <input type="hidden" name="zc_trackCode" id="zc_trackCode" value="ZCFORMVIEW" />
+              <input type="hidden" id="zc_formIx" name="zc_formIx" value="3z129613819e83c149fddb6f9e33b70d7b2169c82c3c7474ea5ff0d5c809aee106" />
+              <input type="hidden" id="viewFrom" value="URL_ACTION" />
+              <span style={{ display: 'none' }} id="dt_CONTACT_EMAIL">1,true,6,Contact Email,2</span>
+              <span style={{ display: 'none' }} id="dt_FIRSTNAME">1,false,1,First Name,2</span>
+              <span style={{ display: 'none' }} id="dt_LASTNAME">1,false,1,Last Name,2</span>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 
   return (
     <footer ref={ref} className="bg-background text-foreground">
@@ -131,13 +245,16 @@ export default function Footer() {
                 Get the latest cloud insights and industry news delivered to your inbox.
               </p>
             </div>
-            <form className="flex flex-col sm:flex-row gap-3 w-full lg:w-auto">
+            <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-3 w-full lg:w-auto">
               <Input
                 type="email"
                 placeholder="Enter your email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
                 className="bg-secondary border-border text-foreground placeholder:text-muted-foreground w-full sm:w-64"
               />
-              <Button className="bg-primary hover:bg-primary/90 text-primary-foreground whitespace-nowrap">
+              <Button type="submit" className="bg-primary hover:bg-primary/90 text-primary-foreground whitespace-nowrap">
                 Subscribe
                 <ArrowRight className="ml-2 w-4 h-4" />
               </Button>
@@ -151,9 +268,9 @@ export default function Footer() {
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-7 gap-8 lg:gap-6 xl:gap-8 mb-12">
           {/* Logo & Contact */}
           <div className="col-span-2 sm:col-span-3 lg:col-span-1">
-            <div className="mb-6">
+            {/* <div className="mb-6">
               <img src={shivaamiLogo} alt="Shivaami" className="h-10 w-auto" />
-            </div>
+            </div> */}
             <div className="space-y-4 text-sm text-muted-foreground">
               {/* India Office */}
               <div className="space-y-2">
@@ -244,6 +361,7 @@ export default function Footer() {
           </div>
         </div>
       </div>
+      {zohoForm}
     </footer>
   );
 }

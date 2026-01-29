@@ -121,10 +121,10 @@ function StorySection() {
               className="grid grid-cols-2 gap-4"
             >
               {[
-                { number: '20+', label: 'Years of Excellence' },
+                { number: '22', label: 'Years of Excellence' },
                 { number: '20,000+', label: 'Clients Served' },
-                { number: '50+', label: 'Technology Partners' },
-                { number: '100+', label: 'Expert Professionals' },
+                { number: '80%', label: 'Women-Led Workforce' },
+                { number: '250+', label: 'Certified Specialists' },
               ].map((stat, idx) => (
                 <div key={idx} className="bg-gradient-to-br from-[#f8fafc] to-white p-6 rounded-2xl border border-[#e2e8f0] text-center hover:shadow-lg transition-shadow duration-300">
                   <div className="text-3xl md:text-4xl font-bold text-[#0C4594] mb-2">{stat.number}</div>
@@ -254,7 +254,7 @@ function CTASection() {
             Let us help you leverage the power of cloud technology and cybersecurity solutions to drive growth.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <Link to="/lets-connect">
+            <Link to="/contact">
               <Button size="lg" className="bg-[#38B6FF] hover:bg-[#2da8f0] text-white font-semibold px-10 py-7 text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
                 Contact Us
                 <ArrowRight className="w-5 h-5 ml-2" />

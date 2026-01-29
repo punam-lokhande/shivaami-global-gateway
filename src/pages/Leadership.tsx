@@ -212,9 +212,9 @@ function FeaturedLeader() {
               
               {/* Social Links */}
               <div className="flex gap-3 pt-4">
-                <button className="w-12 h-12 rounded-xl bg-[#0C4594] hover:bg-[#0a3a7a] flex items-center justify-center transition-all duration-300 shadow-lg hover:shadow-xl">
+                <a href={ceo.linkedinUrl} target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-xl bg-[#0C4594] hover:bg-[#0a3a7a] flex items-center justify-center transition-all duration-300 shadow-lg hover:shadow-xl">
                   <Linkedin className="w-5 h-5 text-white" />
-                </button>
+                </a>
                 {/* <button className="w-12 h-12 rounded-xl bg-[#38B6FF] hover:bg-[#2da8f0] flex items-center justify-center transition-all duration-300 shadow-lg hover:shadow-xl">
                   <Mail className="w-5 h-5 text-white" />
                 </button> */}
@@ -392,7 +392,7 @@ function CTASection() {
             Be part of a dynamic team that's shaping the future of cloud and cybersecurity solutions in India.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <Link to="/lets-connect">
+            <Link to="/careers">
               <Button size="lg" className="bg-[#38B6FF] hover:bg-[#2da8f0] text-white font-semibold px-10 py-7 text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 group">
                 View Careers
                 <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />

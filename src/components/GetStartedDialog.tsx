@@ -140,7 +140,7 @@ const GetStartedDialog = ({ open, onOpenChange }: GetStartedDialogProps) => {
           </DialogDescription>
         </DialogHeader>
         
-        <form onSubmit={handleSubmit} className="space-y-4 mt-4">
+        <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
           <div className="space-y-2">
             <Label htmlFor="name" className="text-foreground">Name *</Label>
             <Input
@@ -187,15 +187,15 @@ const GetStartedDialog = ({ open, onOpenChange }: GetStartedDialogProps) => {
             <Input
               id="website"
               name="website"
-              type="url"
+              type="text"
               value={formData.website}
               onChange={handleInputChange}
-              placeholder="https://yourcompany.com"
+              placeholder="yourcompany.com"
               className="bg-background border-border"
             />
           </div>
           
-          <div className="space-y-2">
+          <div className="space-y-2 md:col-span-2">
             <Label htmlFor="message" className="text-foreground">Message *</Label>
             <Textarea
               id="message"
@@ -209,7 +209,7 @@ const GetStartedDialog = ({ open, onOpenChange }: GetStartedDialogProps) => {
             />
           </div>
           
-          <div className="space-y-2">
+          <div className="space-y-2 md:col-span-2">
             <Label htmlFor="captchaAnswer" className="text-foreground">
               Security Captcha: What is {captcha.num1} + {captcha.num2}? *
             </Label>
@@ -225,14 +225,16 @@ const GetStartedDialog = ({ open, onOpenChange }: GetStartedDialogProps) => {
             />
           </div>
           
-          <Button 
-            type="submit" 
-            className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"
-            disabled={isSubmitting}
-          >
-            {isSubmitting ? 'Submitting...' : 'Submit'}
-            <Send className="ml-2 h-4 w-4" />
-          </Button>
+          <div className="md:col-span-2">
+            <Button 
+              type="submit" 
+              className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"
+              disabled={isSubmitting}
+            >
+              {isSubmitting ? 'Submitting...' : 'Submit'}
+              <Send className="ml-2 h-4 w-4" />
+            </Button>
+          </div>
         </form>
       </DialogContent>
     </Dialog>

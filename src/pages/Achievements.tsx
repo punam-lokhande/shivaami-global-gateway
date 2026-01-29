@@ -178,7 +178,7 @@ function HeroSection() {
           </motion.p>
 
           {/* Quick Stats */}
-          <motion.div
+          {/* <motion.div
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
@@ -196,7 +196,7 @@ function HeroSection() {
               <Award className="w-5 h-5 text-[#38B6FF]" />
               <span className="text-white font-semibold">APAC Recognition</span>
             </div>
-          </motion.div>
+          </motion.div> */}
         </div>
       </motion.div>
     </section>

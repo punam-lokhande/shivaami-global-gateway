@@ -291,7 +291,7 @@ function StatsSection() {
     <section className="py-16 bg-gradient-to-r from-[#0C4594] to-[#1a5ab8]">
       <div className="w-full px-6 sm:px-8 lg:px-16 xl:px-24">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-          {stats.map((stat, idx) => (
+          {/* {stats.map((stat, idx) => (
             <motion.div
               key={idx}
               initial={{ opacity: 0, y: 20 }}
@@ -303,7 +303,7 @@ function StatsSection() {
               <div className="text-4xl md:text-5xl font-bold text-white mb-2">{stat.value}</div>
               <div className="text-white/70">{stat.label}</div>
             </motion.div>
-          ))}
+          ))} */}
         </div>
       </div>
     </section>
@@ -313,7 +313,7 @@ function StatsSection() {
 // CTA Section
 function CTASection() {
   return (
-    <section className="py-20 bg-gradient-to-b from-slate-50 to-white">
+    <section className="py-16 bg-gradient-to-r from-[#0C4594] to-[#1a5ab8]">
       <div className="w-full px-6 sm:px-8 lg:px-16 xl:px-24">
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
@@ -322,16 +322,16 @@ function CTASection() {
           transition={{ duration: 0.6 }}
           className="max-w-4xl mx-auto text-center"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-[#0C4594] mb-6">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
             Partner with a Certified Leader
           </h2>
-          <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
+          <p className="text-lg text-white mb-8 max-w-2xl mx-auto">
             Experience the difference of working with an ISO-certified organization committed to quality, security, and service excellence.
           </p>
           <Link to="/contact">
             <Button 
               size="lg" 
-              className="bg-[#0C4594] hover:bg-[#0a3a7a] text-white font-semibold px-10 py-7 text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 group"
+              className="bg-[#38B6FF] text-white hover:bg-[#38B6FF]/90 font-semibold px-8 py-6 text-lg group shadow-lg"
             >
               Get in Touch
               <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
@@ -355,7 +355,7 @@ export default function Certifications() {
         <main className="flex-1">
           <HeroSection />
           <CertificationsSection />
-          <StatsSection />
+          {/* <StatsSection /> */}
           <CTASection />
         </main>
         <Footer />

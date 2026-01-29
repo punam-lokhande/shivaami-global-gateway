@@ -92,6 +92,11 @@ export default function Careers() {
     }
   };
 
+  const handleApplyClick = (profile: string) => {
+    handleInputChange('profile', profile);
+    scrollToForm();
+  };
+
   const validateForm = () => {
     const newErrors: Record<string, string> = {};
 
@@ -228,7 +233,7 @@ export default function Careers() {
 
       {/* Current Openings Section */}
       <section className="py-12 md:py-20">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="w-full px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -241,7 +246,7 @@ export default function Careers() {
             </p>
           </motion.div>
 
-          <div className="max-w-4xl mx-auto space-y-4 md:space-y-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
             {jobOpenings.map((job, index) => (
               <motion.div
                 key={job.title}
@@ -270,7 +275,7 @@ export default function Careers() {
                     </div>
                     <Button 
                       className="bg-primary hover:bg-primary/90 text-primary-foreground shrink-0 group/btn text-sm"
-                      onClick={scrollToForm}
+                      onClick={() => handleApplyClick(job.title)}
                     >
                       Apply Now
                       <ArrowRight className="w-4 h-4 ml-2 group-hover/btn:translate-x-1 transition-transform" />
