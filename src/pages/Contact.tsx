@@ -212,31 +212,24 @@ export default function Contact() {
       <Header />
 
       {/* Hero Section */}
-      <section className="relative min-h-[60vh] lg:min-h-[55vh] flex items-center overflow-visible">
+      <section className="relative overflow-visible bg-gradient-to-br from-[#0C4594] to-[#1a5ab8]">
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <img
             src={heroImage}
             alt="Contact Shivaami"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover opacity-30"
             loading="eager"
-          />
-          {/* Blue gradient overlay */}
-          <div
-            className="absolute inset-0"
-            style={{
-              background:
-                'linear-gradient(to right, rgba(12, 69, 148, 0.95) 0%, rgba(12, 69, 148, 0.85) 35%, rgba(12, 69, 148, 0.7) 60%, rgba(12, 69, 148, 0.5) 100%)',
-            }}
           />
         </div>
 
-        {/* Hero Content - positioned at top of hero */}
-        <div className="absolute top-0 left-0 right-0 z-10 container mx-auto px-4 pt-32 lg:pt-36">
+        {/* Content Container */}
+        <div className="relative z-10 container mx-auto px-4 pt-32 lg:pt-36 pb-8 lg:pb-16">
+          {/* Hero Text - Centered */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-center max-w-2xl mx-auto"
+            className="text-center max-w-2xl mx-auto mb-8 lg:mb-12"
           >
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 font-display">
               Let's Connect
@@ -246,18 +239,18 @@ export default function Contact() {
               we'll get back to you within 24 hours.
             </p>
           </motion.div>
-        </div>
 
-        {/* Form - Absolutely positioned on desktop to overlap sections */}
-        <div className="hidden lg:block absolute left-1/2 bottom-0 transform -translate-x-1/2 translate-y-1/2 z-20">
-          {ContactForm}
+          {/* Form - Centered, overlapping into next section on desktop */}
+          <div className="flex justify-center lg:pb-0">
+            <div className="lg:relative lg:top-16 lg:mb-[-8rem]">
+              {ContactForm}
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* Mobile Form - Shown below hero on mobile/tablet */}
-      <div className="lg:hidden px-4 py-8 bg-slate-50 flex justify-center">
-        {ContactForm}
-      </div>
+      {/* Spacer for mobile to account for normal form flow */}
+      <div className="lg:hidden h-0" />
 
       {/* Global Offices Section */}
       <section className="relative py-16 md:py-20 lg:pt-64 bg-slate-50">
