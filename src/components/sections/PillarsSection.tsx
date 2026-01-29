@@ -8,7 +8,7 @@ const pillars = [
     icon: Brain,
     accentIcon: Sparkles,
     title: 'Smarter Solutions',
-    // link: '/gemini-enterprise',
+    link: '/gemini-enterprise',
     subtitle: 'Intelligence that drives productivity',
     description: 'AI-powered tools and intelligent collaboration platforms that transform how your teams work, communicate, and innovate.',
     items: [
@@ -24,7 +24,7 @@ const pillars = [
     icon: Shield,
     accentIcon: Lock,
     title: 'Safer Security',
-    // link: '/cloud-capabilities',
+    link: '/cloud-capabilities',
     subtitle: 'Protection you can trust',
     description: 'Enterprise-grade security from identity management to cloud infrastructure, keeping your data and operations secure.',
     items: [
@@ -45,7 +45,7 @@ const pillars = [
     icon: Zap,
     accentIcon: Rocket,
     title: 'Smoother Services',
-    // link: '/swiftmove',
+    link: '/swiftmove',
     subtitle: 'Operations without friction',
     description: 'Expert migration, ongoing support, and continuous optimization services that ensure your technology works seamlessly.',
     items: [
