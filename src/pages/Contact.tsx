@@ -9,7 +9,7 @@ import Footer from '@/components/layout/Footer';
 import { toast } from 'sonner';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import heroImage from '@/assets/hero-team-collaboration.jpg';
+import heroImage from '@/assets/banners/contact-hero.jpg';
 
 const offices = [
   {
@@ -18,7 +18,7 @@ const offices = [
     phone: '+91 775 784 1333',
     email: 'info@shivaami.com',
     address: '1001, 10th Floor, Runwal R Square, LBS Road, Mulund West, Mumbai - 400080',
-    office_type:'Headquarter',
+    office_type: 'Headquarter',
   },
   {
     region: 'USA',
@@ -26,7 +26,7 @@ const offices = [
     phone: '+1 408 333 4844',
     email: 'usa@shivaami.com',
     address: '33 S Wood Avenue, Suite 439, Iselin, New Jersey - 08830',
-    office_type:'Regional Office'
+    office_type: 'Regional Office',
   },
 ];
 
@@ -72,7 +72,7 @@ export default function Contact() {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(formData),
     })
-      .then(response => {
+      .then((response) => {
         if (!response.ok) throw new Error('Network response was not ok');
         return response.json();
       })
@@ -86,7 +86,7 @@ export default function Contact() {
         setErrors({});
         navigate('/contact-us-thankyou');
       })
-      .catch(error => {
+      .catch((error) => {
         toast.error('Failed to send message. Please try again.');
         console.error('Error submitting form:', error);
       })
@@ -95,12 +95,124 @@ export default function Contact() {
       });
   };
 
+  // Contact Form Component (used once, positioned absolutely on desktop)
+  const ContactForm = (
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: 0.2 }}
+      className="bg-white rounded-2xl p-6 md:p-8 shadow-2xl w-full max-w-xl"
+    >
+      <h2 className="text-2xl font-bold text-[#0C4594] mb-6 font-display">
+        Send Us a Message
+      </h2>
+      <form onSubmit={handleSubmit} className="space-y-4">
+        <div className="grid md:grid-cols-2 gap-4">
+          <div>
+            <label className="block text-sm font-medium text-slate-700 mb-1.5">
+              Full Name <span className="text-red-500">*</span>
+            </label>
+            <Input
+              placeholder="John Doe"
+              value={fullName}
+              onChange={(e) => setFullName(e.target.value)}
+              className={`h-11 bg-slate-50 border-slate-200 focus:bg-white focus:border-[#0C4594] transition-colors ${errors.fullName ? 'border-red-500' : ''}`}
+            />
+            {errors.fullName && (
+              <p className="text-xs text-red-500 mt-1">{errors.fullName}</p>
+            )}
+          </div>
+          <div>
+            <label className="block text-sm font-medium text-slate-700 mb-1.5">
+              Email <span className="text-red-500">*</span>
+            </label>
+            <Input
+              type="email"
+              placeholder="john@company.com"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className={`h-11 bg-slate-50 border-slate-200 focus:bg-white focus:border-[#0C4594] transition-colors ${errors.email ? 'border-red-500' : ''}`}
+            />
+            {errors.email && (
+              <p className="text-xs text-red-500 mt-1">{errors.email}</p>
+            )}
+          </div>
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-4">
+          <div>
+            <label className="block text-sm font-medium text-slate-700 mb-1.5">
+              Phone <span className="text-red-500">*</span>
+            </label>
+            <Input
+              placeholder="+91 98765 43210"
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
+              className={`h-11 bg-slate-50 border-slate-200 focus:bg-white focus:border-[#0C4594] transition-colors ${errors.phone ? 'border-red-500' : ''}`}
+            />
+            {errors.phone && (
+              <p className="text-xs text-red-500 mt-1">{errors.phone}</p>
+            )}
+          </div>
+          <div>
+            <label className="block text-sm font-medium text-slate-700 mb-1.5">
+              Company <span className="text-red-500">*</span>
+            </label>
+            <Input
+              placeholder="Your Company"
+              value={company}
+              onChange={(e) => setCompany(e.target.value)}
+              className={`h-11 bg-slate-50 border-slate-200 focus:bg-white focus:border-[#0C4594] transition-colors ${errors.company ? 'border-red-500' : ''}`}
+            />
+            {errors.company && (
+              <p className="text-xs text-red-500 mt-1">{errors.company}</p>
+            )}
+          </div>
+        </div>
+
+        <div>
+          <label className="block text-sm font-medium text-slate-700 mb-1.5">
+            Message <span className="text-red-500">*</span>
+          </label>
+          <Textarea
+            placeholder="Tell us about your project..."
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+            rows={4}
+            className={`bg-slate-50 border-slate-200 focus:bg-white focus:border-[#0C4594] transition-colors resize-none ${errors.message ? 'border-red-500' : ''}`}
+          />
+          {errors.message && (
+            <p className="text-xs text-red-500 mt-1">{errors.message}</p>
+          )}
+        </div>
+
+        <Button
+          type="submit"
+          disabled={isLoading}
+          className="w-full h-12 bg-[#0C4594] hover:bg-[#0a3670] text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all"
+        >
+          {isLoading ? (
+            <>
+              <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+              Sending...
+            </>
+          ) : (
+            <>
+              <Send className="w-4 h-4 mr-2" />
+              Send Message
+            </>
+          )}
+        </Button>
+      </form>
+    </motion.div>
+  );
+
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      
-      {/* Hero Section with Form */}
-      <section className="relative min-h-[90vh] lg:min-h-[85vh] flex items-center overflow-hidden">
+
+      {/* Hero Section */}
+      <section className="relative min-h-[60vh] lg:min-h-[55vh] flex items-center overflow-visible">
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <img
@@ -110,122 +222,45 @@ export default function Contact() {
             loading="eager"
           />
           {/* Blue gradient overlay */}
-          <div 
-            className="absolute inset-0" 
+          <div
+            className="absolute inset-0"
             style={{
-              background: 'linear-gradient(to right, rgba(12, 69, 148, 0.95) 0%, rgba(12, 69, 148, 0.85) 35%, rgba(12, 69, 148, 0.7) 60%, rgba(12, 69, 148, 0.5) 100%)'
+              background:
+                'linear-gradient(to right, rgba(12, 69, 148, 0.95) 0%, rgba(12, 69, 148, 0.85) 35%, rgba(12, 69, 148, 0.7) 60%, rgba(12, 69, 148, 0.5) 100%)',
             }}
           />
         </div>
 
-        {/* Content Container */}
-        <div className="relative z-10 w-full container mx-auto px-4 pt-28 pb-16">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            {/* Left: Hero Text */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="text-left"
-            >
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 font-display">
-                Let's Connect
-              </h1>
-              <p className="text-lg md:text-xl text-white/80 mb-8 max-w-lg">
-                Ready to transform your business? Get in touch with our team and we'll get back to you within 24 hours.
-              </p>
-            </motion.div>
+        {/* Hero Content */}
+        <div className="relative z-10 w-full container mx-auto px-4 pt-32 pb-16 lg:pb-32">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="text-left max-w-xl"
+          >
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 font-display">
+              Let's Connect
+            </h1>
+            <p className="text-lg md:text-xl text-white/80 max-w-lg">
+              Ready to transform your business? Get in touch with our team and
+              we'll get back to you within 24 hours.
+            </p>
+          </motion.div>
+        </div>
 
-            {/* Right: Contact Form */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-              className="bg-white rounded-2xl p-6 md:p-8 shadow-2xl"
-            >
-              <h2 className="text-2xl font-bold text-[#0C4594] mb-6 font-display">
-                Send Us a Message
-              </h2>
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <div className="grid md:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-sm font-medium text-slate-700 mb-1.5">Full Name <span className="text-red-500">*</span></label>
-                    <Input 
-                      placeholder="John Doe" 
-                      value={fullName}
-                      onChange={(e) => setFullName(e.target.value)}
-                      className={`h-11 bg-slate-50 border-slate-200 focus:bg-white focus:border-[#0C4594] transition-colors ${errors.fullName ? 'border-red-500' : ''}`}
-                    />
-                    {errors.fullName && <p className="text-xs text-red-500 mt-1">{errors.fullName}</p>}
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-slate-700 mb-1.5">Email <span className="text-red-500">*</span></label>
-                    <Input 
-                      type="email"
-                      placeholder="john@company.com" 
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      className={`h-11 bg-slate-50 border-slate-200 focus:bg-white focus:border-[#0C4594] transition-colors ${errors.email ? 'border-red-500' : ''}`}
-                    />
-                    {errors.email && <p className="text-xs text-red-500 mt-1">{errors.email}</p>}
-                  </div>
-                </div>
-
-                <div className="grid md:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-sm font-medium text-slate-700 mb-1.5">Phone <span className="text-red-500">*</span></label>
-                    <Input 
-                      placeholder="+91 98765 43210"
-                      value={phone}
-                      onChange={(e) => setPhone(e.target.value)}
-                      className={`h-11 bg-slate-50 border-slate-200 focus:bg-white focus:border-[#0C4594] transition-colors ${errors.phone ? 'border-red-500' : ''}`}
-                    />
-                    {errors.phone && <p className="text-xs text-red-500 mt-1">{errors.phone}</p>}
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-slate-700 mb-1.5">Company <span className="text-red-500">*</span></label>
-                    <Input 
-                      placeholder="Your Company"
-                      value={company}
-                      onChange={(e) => setCompany(e.target.value)}
-                      className={`h-11 bg-slate-50 border-slate-200 focus:bg-white focus:border-[#0C4594] transition-colors ${errors.company ? 'border-red-500' : ''}`}
-                    />
-                    {errors.company && <p className="text-xs text-red-500 mt-1">{errors.company}</p>}
-                  </div>
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-slate-700 mb-1.5">Message <span className="text-red-500">*</span></label>
-                  <Textarea 
-                    placeholder="Tell us about your project..."
-                    value={message}
-                    onChange={(e) => setMessage(e.target.value)}
-                    rows={4}
-                    className={`bg-slate-50 border-slate-200 focus:bg-white focus:border-[#0C4594] transition-colors resize-none ${errors.message ? 'border-red-500' : ''}`}
-                  />
-                  {errors.message && <p className="text-xs text-red-500 mt-1">{errors.message}</p>}
-                </div>
-
-                <Button type="submit" disabled={isLoading} className="w-full h-12 bg-[#0C4594] hover:bg-[#0a3670] text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all">
-                  {isLoading ? (
-                    <>
-                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                      Sending...
-                    </>
-                  ) : (
-                    <>
-                      <Send className="w-4 h-4 mr-2" />
-                      Send Message
-                    </>
-                  )}
-                </Button>
-              </form>
-            </motion.div>
-          </div>
+        {/* Form - Absolutely positioned on desktop to overlap sections */}
+        <div className="hidden lg:block absolute left-1/2 lg:left-auto lg:right-[10%] xl:right-[15%] bottom-0 transform -translate-x-1/2 lg:translate-x-0 translate-y-1/2 z-20">
+          {ContactForm}
         </div>
       </section>
 
+      {/* Mobile Form - Shown below hero on mobile/tablet */}
+      <div className="lg:hidden px-4 py-8 bg-slate-50 flex justify-center">
+        {ContactForm}
+      </div>
+
       {/* Global Offices Section */}
-      <section className="py-16 md:py-20 bg-slate-50">
+      <section className="relative py-16 md:py-20 lg:pt-64 bg-slate-50">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -258,8 +293,12 @@ export default function Contact() {
                       <span className="text-3xl">{office.flag}</span>
                     </div>
                     <div>
-                      <h3 className="text-2xl font-bold text-[#0C4594]">{office.region}</h3>
-                      <p className="text-sm text-[#38B6FF] font-medium">{office.office_type}</p>
+                      <h3 className="text-2xl font-bold text-[#0C4594]">
+                        {office.region}
+                      </h3>
+                      <p className="text-sm text-[#38B6FF] font-medium">
+                        {office.office_type}
+                      </p>
                     </div>
                   </div>
 
@@ -273,8 +312,12 @@ export default function Contact() {
                         <Phone className="w-5 h-5 text-white" />
                       </div>
                       <div>
-                        <p className="text-xs text-muted-foreground uppercase tracking-wide mb-0.5">Phone</p>
-                        <p className="text-lg font-semibold text-[#0C4594] group-hover/item:text-[#38B6FF] transition-colors">{office.phone}</p>
+                        <p className="text-xs text-muted-foreground uppercase tracking-wide mb-0.5">
+                          Phone
+                        </p>
+                        <p className="text-lg font-semibold text-[#0C4594] group-hover/item:text-[#38B6FF] transition-colors">
+                          {office.phone}
+                        </p>
                       </div>
                     </a>
 
@@ -286,8 +329,12 @@ export default function Contact() {
                         <Mail className="w-5 h-5 text-white" />
                       </div>
                       <div>
-                        <p className="text-xs text-muted-foreground uppercase tracking-wide mb-0.5">Email</p>
-                        <p className="text-lg font-semibold text-[#0C4594] group-hover/item:text-[#38B6FF] transition-colors">{office.email}</p>
+                        <p className="text-xs text-muted-foreground uppercase tracking-wide mb-0.5">
+                          Email
+                        </p>
+                        <p className="text-lg font-semibold text-[#0C4594] group-hover/item:text-[#38B6FF] transition-colors">
+                          {office.email}
+                        </p>
                       </div>
                     </a>
 
@@ -296,8 +343,12 @@ export default function Contact() {
                         <MapPin className="w-5 h-5 text-white" />
                       </div>
                       <div>
-                        <p className="text-xs text-muted-foreground uppercase tracking-wide mb-0.5">Address</p>
-                        <p className="text-slate-700 font-medium leading-relaxed">{office.address}</p>
+                        <p className="text-xs text-muted-foreground uppercase tracking-wide mb-0.5">
+                          Address
+                        </p>
+                        <p className="text-slate-700 font-medium leading-relaxed">
+                          {office.address}
+                        </p>
                       </div>
                     </div>
                   </div>
