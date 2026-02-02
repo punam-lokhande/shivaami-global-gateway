@@ -6,7 +6,7 @@ const achievements = [
   { icon: Award, title: '6X Google Cloud Partner of the Year', year: '2024' },
   { icon: BadgeCheck, title: 'ISO 27001 Certified', year: '2023' },
   { icon: Shield, title: 'SOC 2 Type II Compliant', year: '2023' },
-  { icon: Star, title: 'Partner of the Year – APAC VAR by JumpCloud- 2024', year: '10+ Years' },
+  { icon: Star, title: 'JumpCloud Partner of the Year - APAC', year: '10+ Years' },
   { icon: Award, title: 'Microsoft Gold Partner', year: '2024' },
   { icon: BadgeCheck, title: 'AWS Advanced Partner', year: '2024' },
 ];

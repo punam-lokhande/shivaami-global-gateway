@@ -100,15 +100,6 @@ const menuContent: Record<string, MenuContent> = {
             ]
           },
           { 
-            icon: Server, 
-            label: 'Endpoint Management', 
-            desc: 'Manage all endpoints',
-            subItems: [
-              { icon: Server, label: 'SuperOps', desc: 'RMM & PSA platform', href: '/superops' },
-              { icon: Monitor, label: 'Atera', desc: 'IT management platform', href: '/atera' },
-            ]
-          },
-          { 
             icon: Cloud, 
             label: 'Cloud Infrastructure', 
             desc: 'Enterprise cloud platforms',
@@ -131,6 +122,18 @@ const menuContent: Record<string, MenuContent> = {
             ]
           },
           { 
+            icon: Laptop, 
+            label: 'Chrome Solutions', 
+            desc: 'Complete Chrome solutions',
+            subItems: [
+              { icon: Laptop, label: 'Chromebook', desc: 'Enterprise-grade laptops', href: '/chromebook' },
+              { icon: Box, label: 'Chromebox', desc: 'Desktop computing solutions', href: '/chromebox' },
+              { icon: Laptop, label: 'Chrome Enterprise', desc: 'Enterprise Chrome management', href: '/chrome-enterprise' },
+              { icon: Video, label: 'Google Meet Hardware Kit', desc: 'Conference room solutions', href: '/google-meet-hardware' },
+              { icon: Layers, label: 'ChromeOS Flex', desc: 'Transform existing devices', href: '/chromeos-flex' },
+            ]
+          },
+          { 
             icon: Lock, 
             label: 'Cloud Security', 
             desc: 'Secure your cloud assets',
@@ -142,15 +145,12 @@ const menuContent: Record<string, MenuContent> = {
             ]
           },
           { 
-            icon: Laptop, 
-            label: 'Chrome Solutions', 
-            desc: 'Complete Chrome solutions',
+            icon: Server, 
+            label: 'Endpoint Management', 
+            desc: 'Manage all endpoints',
             subItems: [
-              { icon: Laptop, label: 'Chromebook', desc: 'Enterprise-grade laptops', href: '/chromebook' },
-              { icon: Box, label: 'Chromebox', desc: 'Desktop computing solutions', href: '/chromebox' },
-              { icon: Laptop, label: 'Chrome Enterprise', desc: 'Enterprise Chrome management', href: '/chrome-enterprise' },
-              { icon: Video, label: 'Google Meet Hardware Kit', desc: 'Conference room solutions', href: '/google-meet-hardware' },
-              { icon: Layers, label: 'ChromeOS Flex', desc: 'Transform existing devices', href: '/chromeos-flex' },
+              { icon: Server, label: 'SuperOps', desc: 'RMM & PSA platform', href: '/superops' },
+              { icon: Monitor, label: 'Atera', desc: 'IT management platform', href: '/atera' },
             ]
           },
           { 
