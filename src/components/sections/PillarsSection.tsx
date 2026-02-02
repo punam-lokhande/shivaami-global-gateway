@@ -8,7 +8,7 @@ const pillars = [
     icon: Brain,
     accentIcon: Sparkles,
     title: 'Smarter Solutions',
-    link: '/gemini-enterprise',
+    link: '/smarter-solutions',
     subtitle: 'Intelligence that drives productivity',
     description: 'AI-powered tools and intelligent collaboration platforms that transform how your teams work, communicate, and innovate.',
     items: [

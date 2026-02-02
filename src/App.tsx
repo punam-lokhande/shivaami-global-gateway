@@ -129,6 +129,7 @@ import OnDemandGeminiGems from "./pages/OnDemandGeminiGems";
 import OnDemandNotebookLM from "./pages/OnDemandNotebookLM";
 import OnDemandGoogleVids from "./pages/OnDemandGoogleVids";
 import ThankYouContact from "./components/ThankYouContact";
+import SmarterSolutions from "./pages/SmarterSolutions";
 const queryClient = new QueryClient();
 
 // Scroll to top on route change
@@ -275,6 +276,7 @@ const App = () => (
               <Route path="/on-demand-gemini-gems" element={<OnDemandGeminiGems />} />
               <Route path="/on-demand-notebooklm" element={<OnDemandNotebookLM />} />
               <Route path="/on-demand-google-vids" element={<OnDemandGoogleVids />} />
+              <Route path="/smarter-solutions" element={<SmarterSolutions />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>
