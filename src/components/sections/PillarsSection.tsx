@@ -24,7 +24,7 @@ const pillars = [
     icon: Shield,
     accentIcon: Lock,
     title: 'Safer Security',
-    link: '/cloud-capabilities',
+    link: '/safer-security',
     subtitle: 'Protection you can trust',
     description: 'Enterprise-grade security from identity management to cloud infrastructure, keeping your data and operations secure.',
     items: [
