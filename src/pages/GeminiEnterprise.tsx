@@ -314,6 +314,7 @@ function ActivationSection() {
     </section>
   );
 }
+
 // FAQ Section
 function FAQSection() {
   const faqs = [
@@ -408,7 +409,6 @@ function FAQSection() {
     </section>
   );
 }
-
 import CTASection from '@/components/sections/CTASection';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@radix-ui/react-accordion';
 
@@ -429,8 +429,9 @@ export default function GeminiEnterprise() {
         <HeroSection />
         <FeaturesSection />
         <ActivationSection />
+         <FAQSection/>
         <CTASection />
-        <FAQSection/>
+       
       </main>
       <Footer />
       <GetStartedDialog open={showGetStartedDialog} onOpenChange={setShowGetStartedDialog} />
