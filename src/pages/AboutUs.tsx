@@ -42,7 +42,7 @@ function HeroSection() {
           alt="Team collaboration" 
           className="w-full h-full object-cover"
         />
-        {/* Dark gradient overlay for text readability */}
+        {/* Dark gradient overlay for text adability */}
         <div className="absolute inset-0 bg-gradient-to-r from-[#0C4594]/95 via-[#0C4594]/80 to-[#0C4594]/60" />
       </motion.div>
 
