@@ -1,7 +1,7 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { Search, Brain, Mail, ChevronRight, ExternalLink, ArrowRight, Sparkles, MessageSquare } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import { Input } from '@/components/ui/input';
@@ -418,7 +418,17 @@ function CTASection() {
 
 // Main Page Component
 export default function SmarterSolutions() {
-  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+  const [searchParams] = useSearchParams();
+  const categoryFromUrl = searchParams.get('category');
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(categoryFromUrl);
+
+  // Update selected category when URL changes
+  useEffect(() => {
+    const category = searchParams.get('category');
+    if (category && categories.find(c => c.id === category)) {
+      setSelectedCategory(category);
+    }
+  }, [searchParams]);
 
   return (
     <div className="min-h-screen bg-white">
