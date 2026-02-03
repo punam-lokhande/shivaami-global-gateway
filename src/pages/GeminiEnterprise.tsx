@@ -3,7 +3,8 @@ import { useRef, useState, useEffect } from 'react';
 import { 
   Brain, Search, Shield, 
   Users, HeadphonesIcon, CheckCircle2, ArrowRight, Play, Calendar, Clock,
-  Zap, Settings, Blocks, Workflow
+  Zap, Settings, Blocks, Workflow,
+  HelpCircle
 } from 'lucide-react';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
@@ -74,8 +75,7 @@ function HeroSection() {
             className="font-display text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-semibold text-white mb-4 sm:mb-6 leading-[1.15] tracking-tight"
           >
             Gemini Enterprise:<br />
-            <span className="text-[#38B6FF]">The Future</span> of<br />
-            Enterprise AI
+            <span className="text-[#38B6FF]">Enterprise-Ready AI</span> 
           </motion.h1>
 
           {/* Description */}
@@ -114,32 +114,32 @@ function FeaturesSection() {
     {
       icon: Search,
       title: 'Unified Enterprise Search',
-      desc: 'Access a single, intelligent search experience across your entire organization. Gemini Enterprise securely connects you to various tools, enabling employees to find the right information instantly.',
+      desc: 'Access a single, intelligent search experience across your entire organization. Gemini Enterprise securely connects you to various tools, enabling employees to find the right information instantly. No more switching between apps or searching through folders to find what you need.',
     },
     {
       icon: Brain,
       title: "Access to Google's Latest AI Models",
-      desc: "Empower your workforce with Google's most advanced AI capabilities, including Gemini 3 and Flash, NotebookLM Enterprise, Deep Research, Imagen, and Veo.",
+      desc: "Empower your workforce with Google's most advanced AI capabilities, including Gemini 3 and Flash, NotebookLM Enterprise, Deep Research, Imagen, and Veo. All models are delivered through a secure, enterprise-ready, and compliant framework.",
     },
     {
       icon: Blocks,
       title: 'Comprehensive AI Agent Ecosystem',
-      desc: 'Build custom agents using the no-code Agent Designer, integrate third-party agents from Box, Salesforce, and ServiceNow, or use Google-built agents from the Agent Gallery.',
+      desc: 'Build custom agents using the no-code Agent Designer, integrate third-party agents from Box, Salesforce, and ServiceNow, or use Google-built agents from the Agent Gallery. Gemini Enterprise centralizes management through Workbench, creating one of the most powerful AI agent ecosystems for enterprises.',
     },
     {
       icon: Shield,
       title: 'Enterprise-Grade Security & Compliance',
-      desc: 'Built with world-class security features such as VPC Security Controls, CMEK, Access Transparency, tenant isolation, and role-based access control.',
+      desc: 'Built with world-class security features such as VPC Security Controls, CMEK, Access Transparency, tenant isolation, and role-based access control. Shivaami ensures your AI agents operate in a fully governed, compliant environment following least-privilege principles.',
     },
     {
       icon: Zap,
       title: 'No-Code AI Agent Development',
-      desc: 'Create enterprise-grade AI agents that understand natural language, automate workflows, and deliver insights, without writing any code.',
+      desc: 'Create enterprise-grade AI agents that understand natural language, automate workflows, and deliver insights, without writing any code. Agent Designer enables business users to build tailored automation without dependency on development teams.',
     },
     {
       icon: Workflow,
       title: 'Seamlessly Integrated Into Your Workflow',
-      desc: 'Enable AI agents directly within Gmail, Docs, Sheets, and Drive, where your teams already work every day.',
+      desc: 'Enable AI agents directly within Gmail, Docs, Sheets, and Drive, where your teams already work every day. As a standalone Google Cloud platform, Gemini Enterprise delivers complete AI agent infrastructure beyond just a Workspace add-on.',
     },
   ];
 
@@ -252,13 +252,13 @@ function ActivationSection() {
       image: strategicPlanningImg,
       icon: Brain,
       title: 'Strategic AI Agent Planning',
-      desc: 'We understand your business processes and identify high-impact automation opportunities with an AI agent roadmap that delivers measurable ROI.',
+      desc: 'We understand your business processes and identify high-impact automation opportunities with an AI agent roadmap that delivers measurable ROI. No generic deployment. Every agent we build solves a real problem.',
     },
     {
       image: technicalDeploymentImg,
       icon: Settings,
       title: 'Zero-Friction Deployment',
-      desc: 'Complete technical setup: platform configuration, security controls, and integration with your existing tools like Salesforce, Jira, and Slack.',
+      desc: 'Complete technical setup: platform configuration, security controls, and integration with your existing tools like Salesforce, Jira, and Slack. Your team logs in to AI agents that are ready to work from day one.  ',
     },
     {
       image: securityConfigImg,
@@ -285,7 +285,7 @@ function ActivationSection() {
       <div className="w-full px-8 lg:px-16 xl:px-24">
         <motion.div {...fadeInUp} className="text-center mb-12">
           <h2 className="text-2xl md:text-3xl font-bold text-[#0C4594] mb-4">
-            How Shivaami Activates Gemini Enterprise Across Your Organization
+            How Shivaami Activates Gemini Enterprise Across Your Organization?
           </h2>
         </motion.div>
 
@@ -314,8 +314,103 @@ function ActivationSection() {
     </section>
   );
 }
+// FAQ Section
+function FAQSection() {
+  const faqs = [
+    {
+      question: "What is Gemini Enterprise?",
+      answer: "Gemini Enterprise is Google's advanced AI agent platform that transforms how organizations leverage artificial intelligence. It provides enterprise-grade AI capabilities, enabling businesses to deploy intelligent agents across teams without complex infrastructure management or technical expertise."
+    },
+    {
+      question: "Is Gemini Enterprise the same as Gemini for Google Workspace? ",
+      answer: "No. Gemini Enterprise is a standalone Google Cloud AI platform with comprehensive agent-building capabilities and enterprise features. It differs from Gemini for Google Workspace, which is an add-on for productivity apps like Gmail, Docs, and Sheets."
+    },
+    {
+      question: "Do I need technical expertise to build AI agents in Gemini Enterprise? ",
+      answer: "No technical expertise is required. Gemini Enterprise features a no-code visual Agent Designer that allows anyone to create custom AI agents without programming knowledge. Authorized partners like Shivaami also provide implementation support and training."
+    },
+    {
+      question: "How does Gemini Enterprise ensure enterprise data security and compliance?",
+      answer: "Gemini Enterprise includes enterprise-grade security features such as VPC Security Controls, Customer-Managed Encryption Keys (CMEK), Access Transparency, tenant isolation, and role-based access control (RBAC) to meet industry compliance standards."
+    },
+    {
+      question: "Can Gemini Enterprise integrate with existing business tools and applications?",
+      answer: "Yes. Gemini Enterprise integrates seamlessly with popular enterprise tools, including Salesforce, Jira, SharePoint, Outlook, Slack, Google Workspace, and supports third-party integrations from partners like Box and ServiceNow for unified workflows."
+    },
+    {
+      question: "What prebuilt AI agents are available in Gemini Enterprise?",
+      answer: "Gemini Enterprise offers ready-to-deploy prebuilt agents for common business functions, including data analysis, content generation, code assistance, customer support, and research. These agents can be implemented immediately without custom development or configuration."
+    }
+  ];
+
+  return (
+    <section className="py-16 bg-[#f8fafc]">
+      <div className="w-full px-8 lg:px-16 xl:px-24">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left - Image */}
+            <motion.div {...fadeInUp} className="relative">
+              <div className="absolute -inset-4 bg-gradient-to-r from-[#0C4594]/20 to-[#38B6FF]/20 rounded-3xl blur-2xl" />
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+                <img 
+                  src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=600&h=500&fit=crop" 
+                  alt="FAQ Support"
+                  className="w-full h-[400px] object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0C4594]/80 via-transparent to-transparent" />
+                <div className="absolute bottom-6 left-6 right-6">
+                  <div className="flex items-center gap-3 text-white">
+                    <div className="w-12 h-12 rounded-xl bg-[#38B6FF] flex items-center justify-center">
+                      <HelpCircle className="w-6 h-6" />
+                    </div>
+                    <div>
+                      <p className="font-semibold text-lg">Need Help?</p>
+                      <p className="text-white/80 text-sm">We're here 24x7</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Right - FAQ */}
+            <motion.div {...fadeInUp}>
+              <h2 className="text-2xl md:text-3xl font-bold text-[#0C4594] mb-6">
+                Frequently Asked Questions
+              </h2>
+              
+              <Accordion type="single" collapsible className="space-y-2">
+                {faqs.map((faq, idx) => (
+                  <AccordionItem 
+                    key={idx} 
+                    value={`item-${idx}`}
+                    className="bg-white border border-[#e2e8f0] rounded-xl px-4 overflow-hidden hover:border-[#38B6FF]/30 transition-colors"
+                  >
+                    <AccordionTrigger className="text-[#0C4594] hover:text-[#38B6FF] text-left py-4 hover:no-underline text-sm">
+                      <span className="font-medium">{faq.question}</span>
+                    </AccordionTrigger>
+                    <AccordionContent className="text-[#64748b] pb-4 text-sm">
+                      {faq.answer}
+                    </AccordionContent>
+                  </AccordionItem>
+                ))}
+              </Accordion>
+
+              <Link to="/contact" className="inline-block mt-6">
+                <Button className="bg-[#0C4594] hover:bg-[#0a3d80] text-white font-medium px-6 py-3 rounded-xl">
+                  Have more questions? Contact us
+                  <ArrowRight className="ml-2 w-4 h-4" />
+                </Button>
+              </Link>
+            </motion.div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
 
 import CTASection from '@/components/sections/CTASection';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@radix-ui/react-accordion';
 
 // Main Page Component
 export default function GeminiEnterprise() {
@@ -335,6 +430,7 @@ export default function GeminiEnterprise() {
         <FeaturesSection />
         <ActivationSection />
         <CTASection />
+        <FAQSection/>
       </main>
       <Footer />
       <GetStartedDialog open={showGetStartedDialog} onOpenChange={setShowGetStartedDialog} />

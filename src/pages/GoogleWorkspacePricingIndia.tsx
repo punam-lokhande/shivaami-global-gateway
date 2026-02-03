@@ -313,10 +313,10 @@ function PricingSection() {
 // Why Choose Shivaami Section
 function WhyShivaamiSection() {
   const strengths = [
-    { icon: Clock, value: "21+", label: "Years of cloud technology experience" },
+    { icon: Clock, value: "22", label: "Years of cloud technology experience" },
     { icon: Award, value: "250+", label: "Google Certified Professionals" },
     { icon: Phone, value: "24x7", label: "Customer support available" },
-    { icon: Building2, value: "6", label: "Offices across India & USA" },
+    { icon: Building2, value: "5", label: "Offices across India & USA" },
     { icon: Users, value: "20,000+", label: "Satisfied customers" },
     { icon: Star, value: "6", label: "Years as Award-winning Google Cloud Partner" },
   ];
@@ -362,9 +362,9 @@ function WhyShivaamiSection() {
         <motion.div {...fadeInUp} className="mt-12 text-center">
           <p className="text-[#475569] flex items-center justify-center gap-2 flex-wrap">
             <MapPin className="w-5 h-5 text-[#38B6FF]" />
-            <span><strong>India:</strong> Mumbai, Bengaluru, Chennai, Delhi, Surat</span>
+            <span><strong>India:</strong> Mumbai, Bengaluru, Chennai, Delhi</span>
             <span className="mx-2">|</span>
-            <span><strong>USA:</strong> New Jersey, San Francisco</span>
+            <span><strong>USA:</strong> New Jersey</span>
           </p>
         </motion.div>
       </div>
