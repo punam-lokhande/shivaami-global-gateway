@@ -1,11 +1,13 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef, useState, useEffect } from 'react';
-import { 
+import {
   Brain, Sparkles, Video, Image, Code, BookOpen, Coins, Youtube, HardDrive,
   CheckCircle2, ArrowRight, Play, Calendar,
   Zap, Shield, Users, HeadphonesIcon, TrendingUp, Settings,
-  Mail, Terminal
+  Mail, Terminal,
+  HelpCircle
 } from 'lucide-react';
+import { Helmet } from 'react-helmet-async';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import GetStartedDialog from '@/components/GetStartedDialog';
@@ -49,7 +51,7 @@ function HeroSection() {
   return (
     <section ref={ref} className="relative min-h-[55vh] sm:min-h-[60vh] md:min-h-[65vh] lg:min-h-[70vh] max-h-[700px] flex items-center overflow-hidden">
       {/* Full-width Background Image */}
-      <motion.div 
+      <motion.div
         style={{ y }}
         className="absolute inset-0 z-0"
       >
@@ -93,8 +95,8 @@ function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
           >
-            <Button 
-              size="lg" 
+            <Button
+              size="lg"
               onClick={handleGetStarted}
               className="bg-[#38B6FF] hover:bg-[#2da8f0] text-white font-semibold px-8 py-6 text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
             >
@@ -114,52 +116,52 @@ function FeaturesSection() {
     {
       icon: Brain,
       title: 'Gemini App',
-      desc: "Access Google's most advanced AI models, including Gemini 3 Pro and Gemini 2.5. Ask complex questions, conduct deep research, and analyze large documents.",
+      desc: "Access Google's most advanced AI models, including Gemini 3 Pro and Gemini 2.5. Ask complex questions, conduct deep research, and analyze large documents with support for 1,500 pages of file uploads. Experience the multimodal AI that understands text, images, code, and more. Get early access to Veo 3.1, Google's latest video generation model for creating professional-quality content.",
     },
     {
       icon: Mail,
       title: 'Gemini in Gmail, Docs, Vids, and More',
-      desc: 'Experience AI assistance natively embedded across all Google Workspace apps. Boost productivity with intelligent writing in Gmail, automated document creation in Docs.',
+      desc: 'Experience AI assistance natively embedded across all Google Workspace apps. Boost productivity with intelligent writing in Gmail, automated document creation in Docs, dynamic presentations in Slides, video production in Vids, and data analysis in Sheets. Get contextual suggestions and automated formatting right where you work.',
     },
     {
       icon: Video,
       title: 'Flow',
-      desc: "Create professional cinematic video content with Flow, custom-designed for Google DeepMind's Veo 3.1, Imagen, and Gemini models.",
+      desc: "Create professional cinematic video content with Flow, custom-designed for Google DeepMind's Veo 3.1, Imagen, and Gemini models. Generate high-quality video clips using simple prompts, maintain visual consistency across scenes with Integration to Video. Export the video in 1080p resolution with advanced camera controls for broadcast-ready content.",
     },
     {
       icon: Image,
       title: 'Whisk',
-      desc: 'Generate creative visuals instantly with Whisk, a Google Labs experimental tool for rapid visual ideation. Create custom images by combining prompts.',
+      desc: 'Generate creative visuals instantly with Whisk, a Google Labs experimental tool for rapid visual ideation. Create custom images by combining prompts for scene, subject, and style. Transform static images into dynamic 8-second video clips using Whisk Animate, powered by Veo 3, bringing your creative vision to life with cinematic quality.',
     },
     {
       icon: Code,
       title: 'Jules',
-      desc: 'Meet Jules, an advanced AI-powered coding agent built on Gemini 2.5 Pro. Jules independently handles complex coding tasks and integrates with GitHub.',
+      desc: 'Meet Jules, an advanced AI-powered coding agent built on Gemini 2.5 Pro. Jules independently handles complex coding tasks, seamlessly integrates with GitHub repositories, writes production-ready code, debugs issues, and automates routine programming tasks. Experience the highest task limits and priority access to the latest models for maximum development velocity.',
     },
     {
       icon: Terminal,
       title: 'Gemini Code Assist and Gemini CLI',
-      desc: 'Accelerate development with enterprise-grade AI coding assistance. Intelligent code completions and codebase understanding in VS Code and JetBrains IDEs.',
+      desc: 'Accelerate development with enterprise-grade AI coding assistance. Gemini Code Assist provides intelligent code completions and codebase understanding in VS Code and JetBrains IDEs, and Gemini CLI delivers AI-powered terminal assistance for coding and automation. Experience the highest daily request limit with Gemini 2.5 Pro and Flash models.',
     },
     {
       icon: BookOpen,
       title: 'NotebookLM',
-      desc: 'Transform documents and research into a powerful AI knowledge management system. Generates insights, creates summaries, and produces audio overviews.',
+      desc: 'Transform documents and research into a powerful AI knowledge management system. NotebookLM analyzes multiple sources, generates insights, creates summaries, and produces audio overviews from your content. Turn static information into interactive knowledge that answers questions, surfaces patterns, and accelerates decision-making across your organization.',
     },
     {
       icon: Coins,
       title: 'Monthly AI Credits',
-      desc: 'Receive 25,000 AI credits each month for your creative projects. Use credits across Flow and Whisk to produce unlimited creative content.',
+      desc: 'Receive 25,000 AI credits each month for your creative projects. Use credits across Flow (AI filmmaking) and Whisk (image generation) to produce unlimited creative content. Credits refresh monthly, enabling your team to create cinematic videos and generate custom visuals without limitations or additional costs for high-volume production.',
     },
     {
       icon: Youtube,
       title: 'YouTube Premium',
-      desc: 'Enjoy ad-free entertainment with YouTube Premium included at no extra cost. Watch videos ad-free, enable background playback.',
+      desc: 'Enjoy ad-free entertainment with YouTube Premium included at no extra cost. Watch videos ad-free, enable background playback, download content for offline viewing, and access YouTube Music Premium. Get uninterrupted learning, entertainment, and music streaming as part of your AI Ultra subscription for enhanced work-life integration.',
     },
     {
       icon: HardDrive,
       title: 'Enhanced Storage',
-      desc: 'Secure your digital assets with 30 TB of premium cloud storage across Google Drive, Gmail, and Google Photos.',
+      desc: 'Secure your digital assets with 30 TB of premium cloud storage across Google Drive, Gmail, and Google Photos. Store unlimited files, emails, and high-resolution media with enterprise-grade infrastructure, automatic backup, version history, and seamless access across all devices. Never worry about storage limits or data loss again.',
     },
   ];
 
@@ -203,7 +205,7 @@ function FlipCard({ title, description, image, icon: Icon }: { title: string; de
   const [isFlipped, setIsFlipped] = useState(false);
 
   return (
-    <div 
+    <div
       className="relative h-[280px] perspective-1000 cursor-pointer group"
       onMouseEnter={() => setIsFlipped(true)}
       onMouseLeave={() => setIsFlipped(false)}
@@ -214,18 +216,18 @@ function FlipCard({ title, description, image, icon: Icon }: { title: string; de
         style={{ transformStyle: 'preserve-3d' }}
       >
         {/* Front Side */}
-        <div 
+        <div
           className="absolute inset-0 backface-hidden rounded-xl overflow-hidden"
           style={{ backfaceVisibility: 'hidden' }}
         >
-          <img 
-            src={image} 
+          <img
+            src={image}
             alt={title}
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#0C4594] via-[#0C4594]/70 to-[#0C4594]/40" />
           <div className="absolute inset-0 bg-gradient-to-br from-[#38B6FF]/40 to-transparent" />
-          
+
           <div className="absolute bottom-0 left-0 right-0 p-5">
             <div className="w-10 h-10 rounded-lg bg-[#38B6FF] flex items-center justify-center mb-3">
               <Icon className="w-5 h-5 text-white" />
@@ -239,13 +241,13 @@ function FlipCard({ title, description, image, icon: Icon }: { title: string; de
         </div>
 
         {/* Back Side */}
-        <div 
+        <div
           className="absolute inset-0 backface-hidden rounded-xl overflow-hidden bg-gradient-to-br from-[#0C4594] to-[#082d61] p-5 flex flex-col justify-center"
           style={{ backfaceVisibility: 'hidden', transform: 'rotateY(180deg)' }}
         >
           <div className="absolute inset-0 opacity-20">
-            <img 
-              src={image} 
+            <img
+              src={image}
               alt={title}
               className="w-full h-full object-cover blur-sm"
             />
@@ -296,6 +298,13 @@ function ActivationSection() {
       title: '24/7 Expert Support',
       desc: 'Our Google-certified engineers are standing by to help you anytime you want. You are basically just a call away.',
     },
+
+    {
+      image: ongoingSupportImg,
+      icon: HeadphonesIcon,
+      title: 'Continuous AI Strategy Updates',
+      desc: 'Google releases new AI features monthly, and we make sure youre always running the latest, most powerful version.',
+    },
   ];
 
   return (
@@ -307,8 +316,8 @@ function ActivationSection() {
           </h2>
         </motion.div>
 
-        <motion.div 
-          {...staggerContainer} 
+        <motion.div
+          {...staggerContainer}
           className="grid md:grid-cols-3 lg:grid-cols-5 gap-4 max-w-7xl mx-auto"
         >
           {steps.map((step, idx) => (
@@ -319,7 +328,7 @@ function ActivationSection() {
                 whileInView: { opacity: 1, y: 0 }
               }}
             >
-              <FlipCard 
+              <FlipCard
                 title={step.title}
                 description={step.desc}
                 image={step.image}
@@ -333,7 +342,103 @@ function ActivationSection() {
   );
 }
 
+// FAQ Section
+function FAQSection() {
+  const faqs = [
+    {
+      question: "What is Google AI Ultra?",
+      answer: "Google AI Ultra is Google's most advanced AI subscription plan, providing access to cutting-edge AI models, including Gemini Ultra. It includes 30 TB of storage, enhanced AI capabilities, and premium features across Google Workspace apps."
+    },
+    {
+      question: "How does Google AI Ultra integrate with Google Workspace? ",
+      answer: "Google AI Ultra works seamlessly within Gmail, Docs, Sheets, Slides, Meet, and other Workspace apps. Users can draft emails, generate documents, analyze data, and create presentations with AI assistance integrated directly into their workflow."
+    },
+    {
+      question: "Do I need a special license to access Google AI Ultra? ",
+      answer: "Yes, Google AI Ultra requires a specific subscription plan. It is available as part of Google's AI-powered Workspace offerings and can be deployed for organizations through authorized partners."
+    },
+    {
+      question: "Is Google AI Ultra secure? ",
+      answer: "Yes, Google AI Ultra follows enterprise-grade security and compliance standards. All data remains encrypted and private within your organization's Workspace environment with comprehensive compliance controls."
+    },
+    {
+      question: "What makes Google AI Ultra different from other AI assistants? ",
+      answer: "Google AI Ultra offers advanced multimodal AI capabilities with native integration across all Google Workspace apps. It functions as an intelligent assistant built directly into your daily workflow rather than as a separate tool."
+    },
+    {
+      question: "Who should use Google AI Ultra? ",
+      answer: "Google AI Ultra is ideal for teams requiring advanced AI capabilities, including content creators, data analysts, developers, researchers, and organizations seeking the highest level of AI functionality for competitive advantage."
+    }
+  ];
+
+  return (
+    <section className="py-16 bg-[#f8fafc]">
+      <div className="w-full px-8 lg:px-16 xl:px-24">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left - Image */}
+            <motion.div {...fadeInUp} className="relative">
+              <div className="absolute -inset-4 bg-gradient-to-r from-[#0C4594]/20 to-[#38B6FF]/20 rounded-3xl blur-2xl" />
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+                <img
+                  src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=600&h=500&fit=crop"
+                  alt="FAQ Support"
+                  className="w-full h-[400px] object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0C4594]/80 via-transparent to-transparent" />
+                <div className="absolute bottom-6 left-6 right-6">
+                  <div className="flex items-center gap-3 text-white">
+                    <div className="w-12 h-12 rounded-xl bg-[#38B6FF] flex items-center justify-center">
+                      <HelpCircle className="w-6 h-6" />
+                    </div>
+                    <div>
+                      <p className="font-semibold text-lg">Need Help?</p>
+                      <p className="text-white/80 text-sm">We're here 24x7</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Right - FAQ */}
+            <motion.div {...fadeInUp}>
+              <h2 className="text-2xl md:text-3xl font-bold text-[#0C4594] mb-6">
+                Frequently Asked Questions
+              </h2>
+
+              <Accordion type="single" collapsible className="space-y-2">
+                {faqs.map((faq, idx) => (
+                  <AccordionItem
+                    key={idx}
+                    value={`item-${idx}`}
+                    className="bg-white border border-[#e2e8f0] rounded-xl px-4 overflow-hidden hover:border-[#38B6FF]/30 transition-colors"
+                  >
+                    <AccordionTrigger className="text-[#0C4594] hover:text-[#38B6FF] text-left py-4 hover:no-underline text-sm">
+                      <span className="font-medium">{faq.question}</span>
+                    </AccordionTrigger>
+                    <AccordionContent className="text-[#64748b] pb-4 text-sm">
+                      {faq.answer}
+                    </AccordionContent>
+                  </AccordionItem>
+                ))}
+              </Accordion>
+
+              <Link to="/contact" className="inline-block mt-6">
+                <Button className="bg-[#0C4594] hover:bg-[#0a3d80] text-white font-medium px-6 py-3 rounded-xl">
+                  Have more questions? Contact us
+                  <ArrowRight className="ml-2 w-4 h-4" />
+                </Button>
+              </Link>
+            </motion.div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 import CTASection from '@/components/sections/CTASection';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@radix-ui/react-accordion';
 
 // Main Page Component
 export default function GoogleAIUltra() {
@@ -345,18 +450,75 @@ export default function GoogleAIUltra() {
     return () => document.removeEventListener('openGetStartedDialog', handleOpenDialog);
   }, []);
 
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is Google AI Ultra?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Google AI Ultra is Google's most advanced AI subscription plan, providing access to cutting-edge AI models, including Gemini Ultra. It includes 30 TB of storage, enhanced AI capabilities, and premium features across Google Workspace apps."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does Google AI Ultra integrate with Google Workspace?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Google AI Ultra works seamlessly within Gmail, Docs, Sheets, Slides, Meet, and other Workspace apps. Users can draft emails, generate documents, analyze data, and create presentations with AI assistance integrated directly into their workflow."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do I need a special license to access Google AI Ultra?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, Google AI Ultra requires a specific subscription plan. It is available as part of Google's AI-powered Workspace offerings and can be deployed for organizations through authorized partners."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is Google AI Ultra secure?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, Google AI Ultra follows enterprise-grade security and compliance standards. All data remains encrypted and private within your organization's Workspace environment with comprehensive compliance controls."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What makes Google AI Ultra different from other AI assistants?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Google AI Ultra offers advanced multimodal AI capabilities with native integration across all Google Workspace apps. It functions as an intelligent assistant built directly into your daily workflow rather than as a separate tool."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Who should use Google AI Ultra?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Google AI Ultra is ideal for teams requiring advanced AI capabilities, including content creators, data analysts, developers, researchers, and organizations seeking the highest level of AI functionality for competitive advantage."
+        }
+      }
+    ]
+  };
+
   return (
     <>
-      <head>
+      <Helmet>
         <title>Google AI Ultra for Business - Most Powerful AI | Shivaami</title>
         <meta name="description" content="Unleash Google AI Ultra's full potential with Shivaami. Get exclusive access to the Gemini app, Veo 3 video generation, Deep Research, and 30TB storage. Transform your enterprise." />
-      </head>
+        <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
+      </Helmet>
       <div className="min-h-screen bg-white">
         <Header />
         <main>
           <HeroSection />
           <FeaturesSection />
           <ActivationSection />
+          <FAQSection />
           <CTASection />
         </main>
         <Footer />

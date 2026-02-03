@@ -5,7 +5,7 @@ import { Award, Building2, Users, Rocket, Shield, CheckCircle } from 'lucide-rea
 const reasons = [
   {
     icon: Award,
-    title: 'Google & OEM-Backed Expertise',
+    title: 'Google Cloud & OEM-Backed Expertise',
     description: 'Authorised Partner with direct access to Google and leading technology vendors.',
   },
   {

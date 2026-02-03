@@ -269,14 +269,14 @@ function ActivationSection() {
     {
       image: teamTrainingImg,
       icon: Users,
-      title: 'Team Enablement',
-      desc: 'We train your teams on prebuilt agents, no-code tools, and AI integration into daily workflows with hands-on workshops.',
+      title: 'Team Enablement & Agent Training',
+      desc: 'We dont just hand over technology. We train your teams on how to use prebuilt agents, build their own with no-code tools, and integrate AI into daily workflows. Hands-on workshops, department-specific use cases, and ongoing support ensure adoption.',
     },
     {
       image: ongoingSupportImg,
       icon: HeadphonesIcon,
-      title: 'Ongoing Support',
-      desc: 'Platform updates, new feature guidance, and 24/7 technical support with 4-minute response times.',
+      title: 'Ongoing Support & Updates',
+      desc: 'Google releases new AI models and agent capabilities monthly. We keep your platform updated, help you leverage new features, and provide 24/7 technical support. Average response time: 4 minutes. Resolution time: under 40 minutes.',
     },
   ];
 
@@ -409,6 +409,8 @@ function FAQSection() {
     </section>
   );
 }
+
+
 import CTASection from '@/components/sections/CTASection';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@radix-ui/react-accordion';
 
@@ -429,7 +431,7 @@ export default function GeminiEnterprise() {
         <HeroSection />
         <FeaturesSection />
         <ActivationSection />
-         <FAQSection/>
+        <FAQSection/>
         <CTASection />
        
       </main>
