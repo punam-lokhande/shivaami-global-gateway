@@ -9,6 +9,7 @@ import { Dialog, DialogContent } from '@/components/ui/dialog';
 
 // Banner image
 import achievementsBanner from '@/assets/banners/achievements-banner.jpg';
+import googleEnterprise2013 from '@/assets/awards/google-enterprise-2013-sf.jpg';
 
 interface AwardItem {
   title: string;
@@ -126,6 +127,12 @@ const awardsData: YearData[] = [
     year: '2015',
     awards: [
       { title: 'ChannelWorld Premier 100 Main Award', image: 'https://www.shivaami.com/assets/images/award/awards-2015-1-2.jpg' },
+    ],
+  },
+  {
+    year: '2013',
+    awards: [
+      { title: 'Google Enterprise 2013 Top Sales Performer Contest Winner Event - San Francisco', image: googleEnterprise2013 },
     ],
   },
 ];
