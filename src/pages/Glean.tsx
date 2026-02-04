@@ -1,6 +1,6 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef, useState, useEffect } from 'react';
-import { Search, Brain, Users, Bot, Shield, Zap, Target, Settings, Lock, GraduationCap, Headphones, ArrowRight, CheckCircle2, Calendar, Play } from 'lucide-react';
+import { Search, Brain, Users, Bot, Shield, Zap, Target, Settings, Lock, GraduationCap, Headphones, ArrowRight, CheckCircle2, Calendar, Play, HelpCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
@@ -307,8 +307,104 @@ function ActivationSection() {
     </section>
   );
 }
+// FAQ Section
+function FAQSection() {
+  const faqs = [
+    {
+      question: "What is Glean, and how does it help enterprises manage knowledge?",
+      answer: "Glean is an AI-powered enterprise search platform that connects all company apps (Slack, Drive, SharePoint, Salesforce) into one unified search experience. It delivers personalized, contextual answers from across your knowledge base, reducing search time and improving productivity for teams in India and globally."
+    },
+    {
+      question: "How to choose a knowledge management system for a mid-sized business?",
+      answer: "Choose a system offering AI-powered search, seamless integration with existing tools (Slack, Drive, SharePoint), a user-friendly interface, and scalability. Glean's unified search platform connects all knowledge sources, reducing search time and improving productivity, perfect for growing Indian mid-market companies."
+    },
+    {
+      question: "Pricing models for enterprise knowledge management software in India?",
+      answer: "Enterprise knowledge management platforms like Glean typically offer subscription-based pricing (per user/month or annual contracts). Pricing varies by features, integrations, and user count. Contact Glean for India-specific pricing with local billing, implementation support, and scalability options for enterprises."
+    },
+    {
+      question: "Best platforms for integrating AI with company knowledge repositories?",
+      answer: "Glean leads with AI-powered enterprise search that integrates across 100+ apps (Google Workspace, Microsoft 365, Slack, Salesforce). Its generative AI delivers contextual answers from company knowledge, reducing information silos, trusted by enterprises in India, APAC, and globally for intelligent knowledge access."
+    },
+    {
+      question: "Where to buy subscription plans for knowledge management tools?",
+      answer: "You can purchase Glean subscriptions directly through their website or authorized partners. Enterprise plans include custom integrations, security compliance (SOC 2, GDPR), and dedicated support. Indian businesses benefit from regional onboarding, training, and scalable pricing for distributed teams."
+    },
+    {
+      question: "What are the top AI-powered knowledge management platforms available?",
+      answer: "Top platforms include Glean, Microsoft Viva, Notion AI, and Guru. Glean excels with personalized AI search across all company apps, auto-generated answers, and role-based permissions. It's designed for enterprises prioritizing secure, scalable knowledge access, widely adopted across India and APAC markets."
+    }
+  ];
+
+  return (
+    <section className="py-16 bg-[#f8fafc]">
+      <div className="w-full px-8 lg:px-16 xl:px-24">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left - Image */}
+            <motion.div {...fadeInUp} className="relative">
+              <div className="absolute -inset-4 bg-gradient-to-r from-[#0C4594]/20 to-[#38B6FF]/20 rounded-3xl blur-2xl" />
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+                <img 
+                  src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=600&h=500&fit=crop" 
+                  alt="FAQ Support"
+                  className="w-full h-[400px] object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0C4594]/80 via-transparent to-transparent" />
+                <div className="absolute bottom-6 left-6 right-6">
+                  <div className="flex items-center gap-3 text-white">
+                    <div className="w-12 h-12 rounded-xl bg-[#38B6FF] flex items-center justify-center">
+                      <HelpCircle className="w-6 h-6" />
+                    </div>
+                    <div>
+                      <p className="font-semibold text-lg">Need Help?</p>
+                      <p className="text-white/80 text-sm">We're here 24x7</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Right - FAQ */}
+            <motion.div {...fadeInUp}>
+              <h2 className="text-2xl md:text-3xl font-bold text-[#0C4594] mb-6">
+                Frequently Asked Questions
+              </h2>
+              
+              <Accordion type="single" collapsible className="space-y-2">
+                {faqs.map((faq, idx) => (
+                  <AccordionItem 
+                    key={idx} 
+                    value={`item-${idx}`}
+                    className="bg-white border border-[#e2e8f0] rounded-xl px-4 overflow-hidden hover:border-[#38B6FF]/30 transition-colors"
+                  >
+                    <AccordionTrigger className="text-[#0C4594] hover:text-[#38B6FF] text-left py-4 hover:no-underline text-sm">
+                      <span className="font-medium">{faq.question}</span>
+                    </AccordionTrigger>
+                    <AccordionContent className="text-[#64748b] pb-4 text-sm">
+                      {faq.answer}
+                    </AccordionContent>
+                  </AccordionItem>
+                ))}
+              </Accordion>
+
+              <Link to="/contact" className="inline-block mt-6">
+                <Button className="bg-[#0C4594] hover:bg-[#0a3d80] text-white font-medium px-6 py-3 rounded-xl">
+                  Have more questions? Contact us
+                  <ArrowRight className="ml-2 w-4 h-4" />
+                </Button>
+              </Link>
+            </motion.div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 
 import CTASection from '@/components/sections/CTASection';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@radix-ui/react-accordion';
 
 const Glean = () => {
   const [showGetStartedDialog, setShowGetStartedDialog] = useState(false);
@@ -319,9 +415,61 @@ const Glean = () => {
     return () => document.removeEventListener('openGetStartedDialog', handleOpenDialog);
   }, []);
 
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [{
+    "@type": "Question",
+    "name": "What is Glean, and how does it help enterprises manage knowledge?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Glean is an AI-powered enterprise search platform that connects all company apps (Slack, Drive, SharePoint, Salesforce) into one unified search experience. It delivers personalized, contextual answers from across your knowledge base, reducing search time and improving productivity for teams in India and globally."
+    }
+  },{
+    "@type": "Question",
+    "name": "How to choose a knowledge management system for a mid-sized business?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Choose a system offering AI-powered search, seamless integration with existing tools (Slack, Drive, SharePoint), a user-friendly interface, and scalability. Glean's unified search platform connects all knowledge sources, reducing search time and improving productivity, perfect for growing Indian mid-market companies."
+    }
+  },{
+    "@type": "Question",
+    "name": "Pricing models for enterprise knowledge management software in India?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Enterprise knowledge management platforms like Glean typically offer subscription-based pricing (per user/month or annual contracts). Pricing varies by features, integrations, and user count. Contact Glean for India-specific pricing with local billing, implementation support, and scalability options for enterprises."
+    }
+  },{
+    "@type": "Question",
+    "name": "Best platforms for integrating AI with company knowledge repositories?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Glean leads with AI-powered enterprise search that integrates across 100+ apps (Google Workspace, Microsoft 365, Slack, Salesforce). Its generative AI delivers contextual answers from company knowledge, reducing information silos, trusted by enterprises in India, APAC, and globally for intelligent knowledge access."
+    }
+  },{
+    "@type": "Question",
+    "name": "Where to buy subscription plans for knowledge management tools?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "You can purchase Glean subscriptions directly through their website or authorized partners. Enterprise plans include custom integrations, security compliance (SOC 2, GDPR), and dedicated support. Indian businesses benefit from regional onboarding, training, and scalable pricing for distributed teams."
+    }
+  },{
+    "@type": "Question",
+    "name": "What are the top AI-powered knowledge management platforms available?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Top platforms include Glean, Microsoft Viva, Notion AI, and Guru. Glean excels with personalized AI search across all company apps, auto-generated answers, and role-based permissions. It's designed for enterprises prioritizing secure, scalable knowledge access, widely adopted across India and APAC markets."
+    }
+  }]
+}
+
+
   return (
     <div className="min-h-screen">
       <Header />
+
+      <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
       <main>
         <HeroSection />
         <FeaturesSection />

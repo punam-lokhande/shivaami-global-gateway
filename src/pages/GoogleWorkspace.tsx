@@ -1,6 +1,6 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef, useState, useEffect } from 'react';
-import { Users, Shield, Cloud, Video, Mail, Smartphone, Settings, Puzzle, Target, Rocket, Lock, GraduationCap, Headphones, ArrowRight, CheckCircle2, Calendar, Award } from 'lucide-react';
+import { Users, Shield, Cloud, Video, Mail, Smartphone, Settings, Puzzle, Target, Rocket, Lock, GraduationCap, Headphones, ArrowRight, CheckCircle2, Calendar, Award, HelpCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
@@ -71,8 +71,8 @@ function HeroSection() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="font-display text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-semibold text-white mb-4 sm:mb-6 leading-[1.15] tracking-tight"
           >
-            Transform Work with<br />
-            <span className="text-[#38B6FF]">Google Workspace</span>
+            Google Workspace:<br />
+            <span className="text-[#38B6FF]">Transform Work Solutions</span>
           </motion.h1>
 
           {/* Description */}
@@ -723,6 +723,7 @@ function ProvenExcellenceSection() {
 }
 
 import CTASection from '@/components/sections/CTASection';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@radix-ui/react-accordion';
 
 const GoogleWorkspace = () => {
   const [transferDialogOpen, setTransferDialogOpen] = useState(false);
@@ -734,9 +735,158 @@ const GoogleWorkspace = () => {
     return () => document.removeEventListener('openGetStartedDialog', handleOpenDialog);
   }, []);
 
+  // FAQ Section
+function FAQSection() {
+  const faqs = [
+    {
+      question: "What is Google Workspace?",
+      answer: "Google Workspace (formerly G Suite) is a cloud-based productivity suite that includes professional email (Gmail for Business), document sharing and collaboration tools (Docs, Sheets, Slides), video conferencing (Meet), cloud storage (Drive), and more."
+    },
+    {
+      question: "Why choose Google Workspace with Shivaami?",
+      answer: "As a certified Google Workspace reseller, we have extensive expertise in deploying and managing Workspace for businesses of all sizes. We offer personalized support, ensuring a smooth transition and maximizing your return on investment."
+    },
+    {
+      question: "How does Gmail in Google Workspace differ from free Gmail?",
+      answer: "Paid Google Workspace provides you with several features and integrations not available in the free consumer version of the apps. It includes custom business email @yourcompany, unlimited group email addresses, 99.9% guaranteed uptime, twice the storage of free Gmail, customized logo branding for your company, zero ads, 24/7 support, Google Workspace Sync for Microsoft Outlook, and more."
+    },
+    {
+      question: "Can I import or migrate my existing email and contacts to Google Workspace?",
+      answer: "Yes, while moving to Google Workspace from another application or service, like Microsoft Outlook, you can migrate your old mail, contacts, and calendar data with you. We have a variety of options for migrating data into Google Workspace, depending on the size of the data in your organization."
+    },
+    {
+      question: "Do I need to use third-party tools to keep my data secure within Google?",
+      answer: "Without using third-party tools, Google offers the security features required for most customers directly in Google Workspace. Google Workspace’s Business and Enterprise editions offer additional security features, like advanced Google Drive auditing and security key management at scale. In all the plans, Google Workspace admin has control over system configuration and applications from a single dashboard through our Admin console —regardless of the size of the organization."
+    },
+    {
+      question: "Do I need to have a domain to activate a Google Workspace account?",
+      answer: "Email service will only work with a valid registered domain and an up-to-date MX record. If you don’t have a domain, we will help you buy the domain of your choice and then set up Google Workspace for you. Domain cost is not included in Google Workspace. For instance, when Emails are sent to an address with an expired domain, they would bounce back to the sender with a notification that the message was undelivered."
+    }
+  ];
+
+  return (
+    <section className="py-16 bg-[#f8fafc]">
+      <div className="w-full px-8 lg:px-16 xl:px-24">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left - Image */}
+            <motion.div {...fadeInUp} className="relative">
+              <div className="absolute -inset-4 bg-gradient-to-r from-[#0C4594]/20 to-[#38B6FF]/20 rounded-3xl blur-2xl" />
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+                <img 
+                  src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=600&h=500&fit=crop" 
+                  alt="FAQ Support"
+                  className="w-full h-[400px] object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0C4594]/80 via-transparent to-transparent" />
+                <div className="absolute bottom-6 left-6 right-6">
+                  <div className="flex items-center gap-3 text-white">
+                    <div className="w-12 h-12 rounded-xl bg-[#38B6FF] flex items-center justify-center">
+                      <HelpCircle className="w-6 h-6" />
+                    </div>
+                    <div>
+                      <p className="font-semibold text-lg">Need Help?</p>
+                      <p className="text-white/80 text-sm">We're here 24x7</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Right - FAQ */}
+            <motion.div {...fadeInUp}>
+              <h2 className="text-2xl md:text-3xl font-bold text-[#0C4594] mb-6">
+                Frequently Asked Questions
+              </h2>
+              
+              <Accordion type="single" collapsible className="space-y-2">
+                {faqs.map((faq, idx) => (
+                  <AccordionItem 
+                    key={idx} 
+                    value={`item-${idx}`}
+                    className="bg-white border border-[#e2e8f0] rounded-xl px-4 overflow-hidden hover:border-[#38B6FF]/30 transition-colors"
+                  >
+                    <AccordionTrigger className="text-[#0C4594] hover:text-[#38B6FF] text-left py-4 hover:no-underline text-sm">
+                      <span className="font-medium">{faq.question}</span>
+                    </AccordionTrigger>
+                    <AccordionContent className="text-[#64748b] pb-4 text-sm">
+                      {faq.answer}
+                    </AccordionContent>
+                  </AccordionItem>
+                ))}
+              </Accordion>
+
+              <Link to="/contact" className="inline-block mt-6">
+                <Button className="bg-[#0C4594] hover:bg-[#0a3d80] text-white font-medium px-6 py-3 rounded-xl">
+                  Have more questions? Contact us
+                  <ArrowRight className="ml-2 w-4 h-4" />
+                </Button>
+              </Link>
+            </motion.div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+
+
+
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [{
+    "@type": "Question",
+    "name": "What is Google Workspace?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Google Workspace (formerly G Suite) is a cloud-based productivity suite that includes professional email (Gmail for Business), document sharing and collaboration tools (Docs, Sheets, Slides), video conferencing (Meet), cloud storage (Drive), and more."
+    }
+  },{
+    "@type": "Question",
+    "name": "Why choose Google Workspace with Shivaami?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "As a certified Google Workspace reseller, we have extensive expertise in deploying and managing Workspace for businesses of all sizes. We offer personalized support, ensuring a smooth transition and maximizing your return on investment."
+    }
+  },{
+    "@type": "Question",
+    "name": "How does Gmail in Google Workspace differ from free Gmail?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Paid Google Workspace provides you with several features and integrations not available in the free consumer version of the apps. It includes custom business email @yourcompany, unlimited group email addresses, 99.9% guaranteed uptime, twice the storage of free Gmail, customized logo branding for your company, zero ads, 24/7 support, Google Workspace Sync for Microsoft Outlook, and more."
+    }
+  },{
+    "@type": "Question",
+    "name": "Can I import or migrate my existing email and contacts to Google Workspace?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes, while moving to Google Workspace from another application or service, like Microsoft Outlook, you can migrate your old mail, contacts, and calendar data with you. We have a variety of options for migrating data into Google Workspace, depending on the size of the data in your organization."
+    }
+  },{
+    "@type": "Question",
+    "name": "Do I need to use third-party tools to keep my data secure within Google?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Without using third-party tools, Google offers the security features required for most customers directly in Google Workspace. Google Workspace’s Business and Enterprise editions offer additional security features, like advanced Google Drive auditing and security key management at scale. In all the plans, Google Workspace admin has control over system configuration and applications from a single dashboard through our Admin console —regardless of the size of the organization."
+    }
+  },{
+    "@type": "Question",
+    "name": "Do I need to have a domain to activate a Google Workspace account?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Email service will only work with a valid registered domain and an up-to-date MX record. If you don’t have a domain, we will help you buy the domain of your choice and then set up Google Workspace for you. Domain cost is not included in Google Workspace. For instance, when Emails are sent to an address with an expired domain, they would bounce back to the sender with a notification that the message was undelivered."
+    }
+  }]
+}
+
+
   return (
     <div className="min-h-screen">
       <Header />
+      <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
       <main>
         <HeroSection />
         <FeaturesSection />

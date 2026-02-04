@@ -85,7 +85,7 @@ function HeroSection() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-sm sm:text-base lg:text-lg text-white/80 max-w-2xl mb-6 sm:mb-8 leading-relaxed font-body"
           >
-            Gemini Enterprise is Google's agentic AI platform built to automate business operations across every department. As an official onboarding partner, Shivaami helps organizations deploy AI agents that integrate with your workflow.
+            Gemini Enterprise is Google's agentic AI platform built to automate business operations across every department.
           </motion.p>
 
           <motion.div
@@ -119,7 +119,7 @@ function FeaturesSection() {
     {
       icon: Brain,
       title: "Access to Google's Latest AI Models",
-      desc: "Empower your workforce with Google's most advanced AI capabilities, including Gemini 3 and Flash, NotebookLM Enterprise, Deep Research, Imagen, and Veo. All models are delivered through a secure, enterprise-ready, and compliant framework.",
+      desc: "Empower your workforce with Google’s most advanced AI capabilities, including Gemini 3 and Flash, NotebookLM Enterprise, Deep Research, Imagen, and Veo. All models are delivered through a secure, enterprise-ready, and compliant framework.",
     },
     {
       icon: Blocks,
@@ -150,6 +150,7 @@ function FeaturesSection() {
           <h2 className="text-3xl md:text-4xl font-bold text-[#0C4594] mb-4">
             What Gemini Enterprise Delivers
           </h2>
+          Gemini Enterprise is Google's agentic AI platform built to automate business operations across every department. As an official onboarding partner, Shivaami helps organizations deploy AI agents that integrate with your workflow.
         </motion.div>
 
         <motion.div {...staggerContainer} className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
