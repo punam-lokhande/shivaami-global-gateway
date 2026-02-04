@@ -82,7 +82,8 @@ function HeroSection() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-sm sm:text-base lg:text-lg text-white/80 max-w-2xl mb-6 sm:mb-8 leading-relaxed font-body"
           >
-            Google Workspace is a cloud productivity suite built for modern teams. Shivaami is a certified Google Workspace reseller and implementation partner in India helping enterprises migrate, secure, and scale.
+          Google Workspace delivers cloud productivity via Gmail, Drive, Meet, Docs, and Sheets for secure collaboration. Shivaami, a certified Google Workspace partner in India and USA, helps organizations deploy and scale.
+
           </motion.p>
 
           <motion.div
@@ -111,42 +112,42 @@ function FeaturesSection() {
     {
       icon: Users,
       title: "Real-Time Collaboration",
-      desc: "Teams work together on documents, spreadsheets, and presentations simultaneously. Changes sync instantly across all devices."
+      desc: " Teams work together on documents, spreadsheets, and presentations simultaneously. Changes sync instantly across all devices. No version conflicts or email attachments needed."
     },
     {
       icon: Shield,
       title: "Enterprise-Grade Security",
-      desc: "Built-in protection includes phishing defense, malware scanning, and data loss prevention. Two-factor authentication and endpoint management."
+      desc: "Built-in protection includes phishing defense, malware scanning, and data loss prevention. Admin controls let you enforce policies at scale. Two-factor authentication and endpoint management keep data secure."
     },
     {
       icon: Cloud,
       title: "Cloud Storage and Access",
-      desc: "Every user gets secure cloud storage with Drive. Files are accessible from any device, anywhere with advanced search and AI-powered suggestions."
+      desc: "Every user gets secure cloud storage with Drive. Files are accessible from any device, anywhere. Advanced search and AI-powered suggestions speed up work."
     },
     {
       icon: Video,
       title: "Video Conferencing Built In",
-      desc: "Google Meet supports HD video calls for up to 500 participants. Screen sharing, live captions, and recording come standard."
+      desc: "Google Meet supports HD video calls for up to 500 participants. Screen sharing, live captions, and recording come standard. No additional licenses or plugins required."
     },
     {
       icon: Mail,
       title: "Seamless Email Management",
-      desc: "Gmail for business includes a custom domain email with powerful spam filtering. Smart compose and priority inbox boost productivity."
+      desc: "Gmail for business includes a custom domain email with powerful spam filtering. Smart compose and priority inbox boost productivity. Integration with Calendar and Tasks keeps teams organized."
     },
     {
       icon: Smartphone,
       title: "Mobile-First Experience",
-      desc: "All apps work fully on iOS and Android devices. Offline mode ensures productivity without connectivity."
+      desc: "All apps work fully on iOS and Android devices. Offline mode ensures productivity without connectivity. Device management tools secure mobile access."
     },
     {
       icon: Settings,
       title: "Admin Controls and Insights",
-      desc: "Centralized dashboard manages users, devices, and security policies. Usage reports show adoption trends and storage needs."
+      desc: "Centralized dashboard manages users, devices, and security policies. Usage reports show adoption trends and storage needs. Audit logs track all account activity."
     },
     {
       icon: Puzzle,
       title: "Third-Party Integration",
-      desc: "Connect with thousands of business apps through the Workspace Marketplace. APIs enable custom integrations."
+      desc: "Connect with thousands of business apps through the Workspace Marketplace. APIs enable custom integrations with existing tools. Single sign-on simplifies access across platforms."
     }
   ];
 
@@ -459,31 +460,31 @@ function ActivationSection() {
       image: strategicPlanningImg,
       icon: Target,
       title: 'Strategy and Planning',
-      desc: 'We assess your current infrastructure and design a migration roadmap. Our team identifies security requirements and compliance needs upfront.',
+      desc: 'We assess your current infrastructure and design a migration roadmap. Our team identifies security requirements and compliance needs upfront. You get a clear deployment plan with timelines and milestones.',
     },
     {
       image: technicalDeploymentImg,
       icon: Rocket,
       title: 'Deployment and Integration',
-      desc: 'Shivaami handles the complete migration from legacy systems. We configure domain settings, user accounts, and organizational structures.',
+      desc: 'Shivaami handles the complete migration from legacy systems or competitor platforms. We configure domain settings, user accounts, and organizational structures. Your email, files, and calendars transfer with zero data loss.',
     },
     {
       image: securityConfigImg,
       icon: Lock,
       title: 'Security and Compliance',
-      desc: 'Our experts implement data loss prevention policies and access controls. We configure mobile device management and endpoint security.',
+      desc: 'Our experts implement data loss prevention policies and access controls. We configure mobile device management and endpoint security. Audit logging and compliance reporting align with your industry standards.',
     },
     {
       image: teamTrainingImg,
       icon: GraduationCap,
       title: 'User Enablement and Adoption',
-      desc: 'We deliver customized training sessions for end-users and administrators. Change management support ensures teams adopt new workflows smoothly.',
+      desc: 'We deliver customized training sessions for end-users and administrators. Change management support ensures teams adopt new workflows smoothly. Quick reference guides and on-demand resources speed up learning.',
     },
     {
       image: ongoingSupportImg,
       icon: Headphones,
       title: 'Ongoing Optimization and Support',
-      desc: 'Shivaami provides dedicated technical support for your Google Workspace environment. We monitor performance and optimize configurations.',
+      desc: 'Shivaami provides dedicated technical support for your Google Workspace environment. We monitor performance, manage updates, and optimize configurations to ensure optimal performance. Regular health checks identify opportunities to improve efficiency and security.',
     },
   ];
 
@@ -498,7 +499,7 @@ function ActivationSection() {
 
         <motion.div 
           {...staggerContainer} 
-          className="grid md:grid-cols-3 lg:grid-cols-5 gap-4 max-w-7xl mx-auto"
+          className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6"
         >
           {steps.map((step, idx) => (
             <motion.div
@@ -724,6 +725,7 @@ function ProvenExcellenceSection() {
 
 import CTASection from '@/components/sections/CTASection';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@radix-ui/react-accordion';
+import { Helmet } from 'react-helmet-async';
 
 const GoogleWorkspace = () => {
   const [transferDialogOpen, setTransferDialogOpen] = useState(false);
@@ -816,12 +818,12 @@ function FAQSection() {
                 ))}
               </Accordion>
 
-              <Link to="/contact" className="inline-block mt-6">
+              {/* <Link to="/contact" className="inline-block mt-6">
                 <Button className="bg-[#0C4594] hover:bg-[#0a3d80] text-white font-medium px-6 py-3 rounded-xl">
                   Have more questions? Contact us
                   <ArrowRight className="ml-2 w-4 h-4" />
                 </Button>
-              </Link>
+              </Link> */}
             </motion.div>
           </div>
         </div>
@@ -884,6 +886,13 @@ const faqSchema = {
 
 
   return (
+    <>  <Helmet>
+<title>Google Workspace Partner in India & USA | Shivaami</title>
+ <meta name="description" content="Google Workspace (Formerly G Suite) includes communication, collaboration, and productivity apps. Contact Shivaami, a trusted Google Workspace partner in India & the USA." />
+<link rel="canonical" href="https://www.shivaami.com/google-workspace" />
+ <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
+ </Helmet>
+
     <div className="min-h-screen">
       <Header />
       <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
@@ -895,6 +904,7 @@ const faqSchema = {
         
         <ActivationSection />
         <RecognizedLeaderSection />
+        <FAQSection />
         <CTASection />
       </main>
       <Footer />
@@ -906,7 +916,7 @@ const faqSchema = {
         open={getStartedDialogOpen} 
         onOpenChange={setGetStartedDialogOpen} 
       />
-    </div>
+    </div></>
   );
 };
 

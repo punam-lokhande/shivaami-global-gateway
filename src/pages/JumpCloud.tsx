@@ -3,7 +3,8 @@ import { useRef, useState, useEffect } from 'react';
 import { 
   FolderSync, Monitor, KeyRound, ShieldCheck, UserCog, Lock, 
   Wifi, Brain, Settings, Shield, Users, HeadphonesIcon, 
-  CheckCircle2, ArrowRight, Play, Calendar, Blocks
+  CheckCircle2, ArrowRight, Play, Calendar, Blocks,
+  HelpCircle
 } from 'lucide-react';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
@@ -74,8 +75,8 @@ function HeroSection() {
             className="font-display text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-semibold text-white mb-4 sm:mb-6 leading-[1.15] tracking-tight"
           >
             JumpCloud:<br />
-            <span className="text-[#38B6FF]">Unified Identity</span> and<br />
-            Device Management
+            <span className="text-[#38B6FF]">Unified Identity Control</span> 
+          
           </motion.h1>
 
           {/* Description */}
@@ -119,7 +120,7 @@ function FeaturesSection() {
     {
       icon: Monitor,
       title: 'Cross-Platform Device Management',
-      desc: 'Manage Windows, macOS, Linux, iOS, and Android devices from one console. Enforce security policies, automate updates, and maintain compliance without manual effort.',
+      desc: 'Manage Windows, macOS, Linux, iOS, and Android devices from one console. Enforce security policies, automate updates, and maintain compliance without manual effort',
     },
     {
       icon: KeyRound,
@@ -283,12 +284,7 @@ function ActivationSection() {
       title: 'User Adoption & Enablement',
       desc: 'We help teams adopt new workflows through training, documentation, and guided onboarding so value is realised quickly.',
     },
-    {
-      image: strategicPlanningImg,
-      icon: HeadphonesIcon,
-      title: 'Ongoing Optimisation & Support',
-      desc: 'Your organisation evolves, and your identity platform should too. We provide continuous support, optimisation, and advisory services as you scale.',
-    },
+   
   ];
 
   return (
@@ -302,7 +298,7 @@ function ActivationSection() {
 
         <motion.div 
           {...staggerContainer} 
-          className="grid md:grid-cols-3 lg:grid-cols-6 gap-4 max-w-7xl mx-auto"
+          className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6"
         >
           {steps.map((step, idx) => (
             <motion.div
@@ -327,6 +323,8 @@ function ActivationSection() {
 }
 
 import CTASection from '@/components/sections/CTASection';
+import { Helmet } from 'react-helmet-async';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@radix-ui/react-accordion';
 
 // Main Page Component
 export default function JumpCloud() {
@@ -338,17 +336,178 @@ export default function JumpCloud() {
     return () => document.removeEventListener('openGetStartedDialog', handleOpenDialog);
   }, []);
 
+
+// FAQ Section
+function FAQSection() {
+  const faqs = [
+    {
+      question: "How can I remotely manage cloud-based directory services for my enterprise?",
+      answer: "JumpCloud's Directory-as-a-Service (DaaS) platform lets you manage user identities, devices (Windows, Mac, Linux), and application access from one cloud interface. It supports LDAP, SAML, OAuth, and Kerberos with MFA and zero-trust security, accessible remotely worldwide."
+    },
+    {
+      question: "What are the best cloud identity management platforms for Indian businesses?",
+      answer: "JumpCloud, miniOrange, Okta, Microsoft Entra ID, and Scalefusion are top choices for Indian enterprises in 2025. JumpCloud stands out for scalable, compliance-ready identity management with local support, cost-effectiveness, and integration across hybrid environments."
+    },
+    {
+      question: "How do I set up secure access for remote employees using cloud directory services?",
+      answer: "JumpCloud centralizes identity and access management with MFA, conditional access, and single sign-on (SSO) for cloud and on-premises apps. Remote device management and zero-trust policies ensure secure, seamless access for distributed teams across India and APAC."
+    },
+    {
+      question: "Which cloud directory service supports LDAP and RADIUS protocols?",
+      answer: "JumpCloud supports both LDAP and RADIUS protocols, enabling secure authentication for apps, servers, and network devices from a single cloud platform. It eliminates on-premises infrastructure while providing SSO, MFA, device management, and identity governance, ideal for hybrid IT environments."
+    },
+    {
+      question: "Does JumpCloud offer multi-factor authentication (MFA) for enterprises?",
+      answer: "Yes, JumpCloud includes built-in MFA with support for TOTP apps, push notifications, and hardware tokens. It integrates seamlessly with SSO and conditional access policies, strengthening security for user logins, device access, and application authentication, critical for compliance in India and globally."
+    },
+    {
+      question: "What devices and operating systems does JumpCloud support?",
+      answer: "JumpCloud supports Windows, Mac, Linux, iOS, and Android devices from a unified cloud directory. IT admins can remotely manage endpoints, enforce security policies, and control user access across heterogeneous environments, perfect for diverse, distributed teams in Indian and APAC enterprises."
+    }
+  ];
+
   return (
+    <section className="py-16 bg-[#f8fafc]">
+      <div className="w-full px-8 lg:px-16 xl:px-24">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left - Image */}
+            <motion.div {...fadeInUp} className="relative">
+              <div className="absolute -inset-4 bg-gradient-to-r from-[#0C4594]/20 to-[#38B6FF]/20 rounded-3xl blur-2xl" />
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+                <img 
+                  src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=600&h=500&fit=crop" 
+                  alt="FAQ Support"
+                  className="w-full h-[400px] object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0C4594]/80 via-transparent to-transparent" />
+                <div className="absolute bottom-6 left-6 right-6">
+                  <div className="flex items-center gap-3 text-white">
+                    <div className="w-12 h-12 rounded-xl bg-[#38B6FF] flex items-center justify-center">
+                      <HelpCircle className="w-6 h-6" />
+                    </div>
+                    <div>
+                      <p className="font-semibold text-lg">Need Help?</p>
+                      <p className="text-white/80 text-sm">We're here 24x7</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Right - FAQ */}
+            <motion.div {...fadeInUp}>
+              <h2 className="text-2xl md:text-3xl font-bold text-[#0C4594] mb-6">
+                Frequently Asked Questions
+              </h2>
+              
+              <Accordion type="single" collapsible className="space-y-2">
+                {faqs.map((faq, idx) => (
+                  <AccordionItem 
+                    key={idx} 
+                    value={`item-${idx}`}
+                    className="bg-white border border-[#e2e8f0] rounded-xl px-4 overflow-hidden hover:border-[#38B6FF]/30 transition-colors"
+                  >
+                    <AccordionTrigger className="text-[#0C4594] hover:text-[#38B6FF] text-left py-4 hover:no-underline text-sm">
+                      <span className="font-medium">{faq.question}</span>
+                    </AccordionTrigger>
+                    <AccordionContent className="text-[#64748b] pb-4 text-sm">
+                      {faq.answer}
+                    </AccordionContent>
+                  </AccordionItem>
+                ))}
+              </Accordion>
+
+              {/* <Link to="/contact" className="inline-block mt-6">
+                <Button className="bg-[#0C4594] hover:bg-[#0a3d80] text-white font-medium px-6 py-3 rounded-xl">
+                  Have more questions? Contact us
+                  <ArrowRight className="ml-2 w-4 h-4" />
+                </Button>
+              </Link> */}
+            </motion.div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+
+
+
+
+
+const faqSchema ={
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [{
+    "@type": "Question",
+    "name": "How can I remotely manage cloud-based directory services for my enterprise?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "JumpCloud's Directory-as-a-Service (DaaS) platform lets you manage user identities, devices (Windows, Mac, Linux), and application access from one cloud interface. It supports LDAP, SAML, OAuth, and Kerberos with MFA and zero-trust security, accessible remotely worldwide."
+    }
+  },{
+    "@type": "Question",
+    "name": "What are the best cloud identity management platforms for Indian businesses?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "JumpCloud, miniOrange, Okta, Microsoft Entra ID, and Scalefusion are top choices for Indian enterprises in 2025. JumpCloud stands out for scalable, compliance-ready identity management with local support, cost-effectiveness, and integration across hybrid environments."
+    }
+  },{
+    "@type": "Question",
+    "name": "How do I set up secure access for remote employees using cloud directory services?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "JumpCloud centralizes identity and access management with MFA, conditional access, and single sign-on (SSO) for cloud and on-premises apps. Remote device management and zero-trust policies ensure secure, seamless access for distributed teams across India and APAC."
+    }
+  },{
+    "@type": "Question",
+    "name": "Which cloud directory service supports LDAP and RADIUS protocols?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "JumpCloud supports both LDAP and RADIUS protocols, enabling secure authentication for apps, servers, and network devices from a single cloud platform. It eliminates on-premises infrastructure while providing SSO, MFA, device management, and identity governance, ideal for hybrid IT environments."
+    }
+  },{
+    "@type": "Question",
+    "name": "Does JumpCloud offer multi-factor authentication (MFA) for enterprises?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes, JumpCloud includes built-in MFA with support for TOTP apps, push notifications, and hardware tokens. It integrates seamlessly with SSO and conditional access policies, strengthening security for user logins, device access, and application authentication, critical for compliance in India and globally."
+    }
+  },{
+    "@type": "Question",
+    "name": "What devices and operating systems does JumpCloud support?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "JumpCloud supports Windows, Mac, Linux, iOS, and Android devices from a unified cloud directory. IT admins can remotely manage endpoints, enforce security policies, and control user access across heterogeneous environments, perfect for diverse, distributed teams in Indian and APAC enterprises."
+    }
+  }]
+}
+
+
+
+
+  return (
+    <>
+      <Helmet>
+<title>JumpCloud Identity & Device Management Partner in India & USA | Shivaami</title>
+ <meta name="description" content="Unleash Google AI Ultra's full potential with Shivaami. Get exclusive access to the Gemini app, Veo 3 video generation, Deep Research, and 30TB storage. Transform your enterprise." />
+<link rel="canonical" href="https://www.shivaami.com/jumpcloud" />
+ <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
+ </Helmet>
+
     <div className="min-h-screen bg-white">
       <Header />
       <main>
         <HeroSection />
         <FeaturesSection />
         <ActivationSection />
+        <FAQSection />
         <CTASection />
       </main>
       <Footer />
       <GetStartedDialog open={showGetStartedDialog} onOpenChange={setShowGetStartedDialog} />
-    </div>
+    </div></>
   );
 }

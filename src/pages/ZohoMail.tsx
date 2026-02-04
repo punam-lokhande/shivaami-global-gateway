@@ -2,7 +2,8 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef, useState, useEffect } from 'react';
 import { 
   Mail, Globe, Calendar, Smartphone, Users, Database, Shield, Lock,
-  Settings, CheckCircle2, ArrowRight, Play, Phone
+  Settings, CheckCircle2, ArrowRight, Play, Phone,
+  HelpCircle
 } from 'lucide-react';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
@@ -83,7 +84,7 @@ function HeroSection() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-sm sm:text-base lg:text-lg text-white/80 max-w-2xl mb-6 sm:mb-8 leading-relaxed font-body"
           >
-            Zoho Mail is a professional email platform designed for privacy and productivity. Shivaami is a certified Zoho partner helping businesses deploy and manage Zoho Mail with seamless migration and user training.
+            Zoho Mail is a secure, privacy-focused email platform offering custom domain hosting, calendars, and collaboration tools. Shivaami, a certified Zoho partner, helps businesses deploy and manage Zoho Mail seamlessly across India.
           </motion.p>
 
           <motion.div
@@ -112,42 +113,42 @@ function FeaturesSection() {
     {
       icon: Globe,
       title: 'Custom Domain Email',
-      desc: 'Use your company domain for all email addresses. Professional branding builds trust with customers and partners.',
+      desc: ' Use your company domain for all email addresses. Professional branding builds trust with customers and partners. Multiple domain support for businesses with different brands.',
     },
     {
       icon: Calendar,
       title: 'Integrated Calendar and Contacts',
-      desc: 'Schedule meetings and manage contacts within the same platform. Calendar sharing enables team coordination.',
+      desc: 'Schedule meetings and manage contacts within the same platform. Calendar sharing enables team coordination and availability tracking. Contact groups simplify bulk communication.',
     },
     {
       icon: Smartphone,
       title: 'Mobile and Desktop Access',
-      desc: 'Native apps for iOS, Android, Windows, and macOS. Offline access ensures productivity without internet.',
+      desc: 'Native apps for iOS, Android, Windows, and macOS. Offline access ensures productivity without internet connectivity. Push notifications keep you updated in real time.',
     },
     {
       icon: Users,
       title: 'Collaboration Tools',
-      desc: 'The Streams feature enables team discussions and file sharing. Task management integrates with email and calendar.',
+      desc: 'The Streams feature enables team discussions and file sharing. Task management integrates with email and calendar. Notes capture ideas and meeting minutes.',
     },
     {
       icon: Database,
       title: 'Storage and Attachments',
-      desc: 'Generous mailbox storage per user with flexible plans. Large attachment support through integrated cloud storage.',
+      desc: ' Generous mailbox storage per user with flexible plans. Large attachment support through integrated cloud storage. Archive old emails without losing access.',
     },
     {
       icon: Shield,
       title: 'Security Features',
-      desc: 'Two-factor authentication protects accounts from unauthorized access. Email encryption secures messages in transit.',
+      desc: 'Two-factor authentication protects accounts from unauthorized access. Email encryption secures messages in transit. Spam and virus filtering block threats automatically.',
     },
     {
       icon: Settings,
       title: 'Admin Controls',
-      desc: 'Centralized management console for user accounts and settings. Email retention policies support compliance requirements.',
+      desc: 'Centralized management console for user accounts and settings. Email retention policies support compliance requirements. Usage reports track storage and activity patterns.',
     },
     {
       icon: Lock,
       title: 'Privacy Focused',
-      desc: 'Ad-free experience with no data mining. Your business emails stay private and secure.',
+      desc: 'Flexible mailbox storage options and large attachment support via integrated cloud storage ensure your email system scales as your business grows.',
     },
   ];
 
@@ -258,31 +259,31 @@ function ActivationSection() {
       image: strategicPlanningImg,
       icon: Settings,
       title: 'Strategy and Planning',
-      desc: 'We evaluate your email requirements and recommend the right Zoho Mail plan. Our team assesses migration complexity from your current email system.',
+      desc: 'We evaluate your email requirements and recommend the right Zoho Mail plan. Our team assesses migration complexity from your current email system. You get a clear implementation plan with a timeline and milestones.',
     },
     {
       image: technicalDeploymentImg,
       icon: Globe,
       title: 'Deployment and Integration',
-      desc: 'Shivaami configures your domain DNS settings for email delivery. We create user accounts and set up organizational structure.',
+      desc: 'Shivaami configures your domain DNS settings for email delivery. We create user accounts and set up organizational structure. Your team gets working email addresses quickly and reliably.',
     },
     {
       image: securityConfigImg,
       icon: Shield,
       title: 'Security and Compliance',
-      desc: 'Our experts enable two-factor authentication and security policies. We configure spam filtering and data retention rules.',
+      desc: 'Our experts enable two-factor authentication and security policies. We configure spam filtering and data retention rules. Backup procedures protect against data loss.',
     },
     {
       image: teamTrainingImg,
       icon: Users,
       title: 'User Enablement and Adoption',
-      desc: 'We provide training on email features, calendar, and collaboration tools. Quick start guides help users transition smoothly.',
+      desc: 'We provide training on email features, calendar, and collaboration tools. Quick start guides help users transition smoothly. Ongoing support addresses questions and issues promptly.',
     },
     {
       image: ongoingSupportImg,
       icon: Phone,
       title: 'Ongoing Optimization and Support',
-      desc: 'Shivaami manages your Zoho Mail environment with proactive monitoring. We handle user additions, storage upgrades, and technical issues.',
+      desc: 'Shivaami manages your Zoho Mail environment with proactive monitoring. We handle user additions, storage upgrades, and technical issues. Regular reviews ensure optimal performance and cost efficiency.',
     },
   ];
 
@@ -297,7 +298,7 @@ function ActivationSection() {
 
         <motion.div 
           {...staggerContainer} 
-          className="grid md:grid-cols-3 lg:grid-cols-5 gap-4 max-w-7xl mx-auto"
+          className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6"
         >
           {steps.map((step, idx) => (
             <motion.div
@@ -322,6 +323,7 @@ function ActivationSection() {
 }
 
 import CTASection from '@/components/sections/CTASection';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@radix-ui/react-accordion';
 
 // Main Page Component
 export default function ZohoMail() {
@@ -333,17 +335,170 @@ export default function ZohoMail() {
     return () => document.removeEventListener('openGetStartedDialog', handleOpenDialog);
   }, []);
 
+// FAQ Section
+function FAQSection() {
+  const faqs = [
+    {
+      question: "How do I set up a professional email address for my business?",
+      answer: "Zoho Mail offers secure, ad-free business email hosting with custom domain support. The free plan includes 5GB storage for up to 5 users. Setup involves simple domain verification, with enterprise-grade encryption and mobile access included."
+    },
+    {
+      question: "What is the best email hosting provider for small businesses in India?",
+      answer: "Zoho Mail is ideal for Indian SMBs, offering affordable, secure email hosting with local data residency. It includes integrated productivity tools and GDPR/ISO compliance, making it cost-effective compared to Google Workspace and Microsoft 365."
+    },
+    {
+      question: "What are Zoho Mail's pricing plans and collaboration features?",
+      answer: "Zoho Mail offers three plans: Mail Lite (₹59/user/month), Workplace Standard (₹99/user/month with collaboration tools), Mail Premium (₹199/user/month), and Workplace Professional (₹399/user/month with advanced features). All include email, storage, and productivity apps, billed annually."
+    },
+    {
+      question: "How do I enable two-factor authentication (2FA) on Zoho Mail?",
+      answer: "Go to My Account > Security, click Enable under Two-Factor Authentication, choose your verification method (app/SMS/email), and complete setup. This protects your business email from unauthorized access, critical for compliance in India and APAC."
+    },
+    {
+      question: "Does Zoho Mail offer a free trial or free plan for businesses?",
+      answer: "Yes, Zoho Mail has a forever-free plan for up to 5 users with custom domain hosting. Paid plans include a 15-day free trial with collaboration tools like chat and video meetings, ideal for Indian startups evaluating business email."
+    },
+    {
+      question: "Why choose Zoho Mail for business email in India and APAC?",
+      answer: "Zoho Mail offers affordable, secure email with local data centers, GDPR/ISO compliance, and integration with Zoho's suite (CRM, Projects). Ad-free experience and 24/7 support make it perfect for privacy-focused SMBs across APAC markets."
+    }
+  ];
+
   return (
+    <section className="py-16 bg-[#f8fafc]">
+      <div className="w-full px-8 lg:px-16 xl:px-24">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left - Image */}
+            <motion.div {...fadeInUp} className="relative">
+              <div className="absolute -inset-4 bg-gradient-to-r from-[#0C4594]/20 to-[#38B6FF]/20 rounded-3xl blur-2xl" />
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+                <img 
+                  src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=600&h=500&fit=crop" 
+                  alt="FAQ Support"
+                  className="w-full h-[400px] object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0C4594]/80 via-transparent to-transparent" />
+                <div className="absolute bottom-6 left-6 right-6">
+                  <div className="flex items-center gap-3 text-white">
+                    <div className="w-12 h-12 rounded-xl bg-[#38B6FF] flex items-center justify-center">
+                      <HelpCircle className="w-6 h-6" />
+                    </div>
+                    <div>
+                      <p className="font-semibold text-lg">Need Help?</p>
+                      <p className="text-white/80 text-sm">We're here 24x7</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Right - FAQ */}
+            <motion.div {...fadeInUp}>
+              <h2 className="text-2xl md:text-3xl font-bold text-[#0C4594] mb-6">
+                Frequently Asked Questions
+              </h2>
+              
+              <Accordion type="single" collapsible className="space-y-2">
+                {faqs.map((faq, idx) => (
+                  <AccordionItem 
+                    key={idx} 
+                    value={`item-${idx}`}
+                    className="bg-white border border-[#e2e8f0] rounded-xl px-4 overflow-hidden hover:border-[#38B6FF]/30 transition-colors"
+                  >
+                    <AccordionTrigger className="text-[#0C4594] hover:text-[#38B6FF] text-left py-4 hover:no-underline text-sm">
+                      <span className="font-medium">{faq.question}</span>
+                    </AccordionTrigger>
+                    <AccordionContent className="text-[#64748b] pb-4 text-sm">
+                      {faq.answer}
+                    </AccordionContent>
+                  </AccordionItem>
+                ))}
+              </Accordion>
+
+              {/* <Link to="/contact" className="inline-block mt-6">
+                <Button className="bg-[#0C4594] hover:bg-[#0a3d80] text-white font-medium px-6 py-3 rounded-xl">
+                  Have more questions? Contact us
+                  <ArrowRight className="ml-2 w-4 h-4" />
+                </Button>
+              </Link> */}
+            </motion.div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+
+
+
+
+const faqSchema = 
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [{
+    "@type": "Question",
+    "name": "How do I set up a professional email address for my business?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Zoho Mail offers secure, ad-free business email hosting with custom domain support. The free plan includes 5GB storage for up to 5 users. Setup involves simple domain verification, with enterprise-grade encryption and mobile access included."
+    }
+  },{
+    "@type": "Question",
+    "name": "What is the best email hosting provider for small businesses in India?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Zoho Mail is ideal for Indian SMBs, offering affordable, secure email hosting with local data residency. It includes integrated productivity tools and GDPR/ISO compliance, making it cost-effective compared to Google Workspace and Microsoft 365."
+    }
+  },{
+    "@type": "Question",
+    "name": "What are Zoho Mail's pricing plans and collaboration features?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Zoho Mail offers three plans: Mail Lite (₹59/user/month), Workplace Standard (₹99/user/month with collaboration tools), Mail Premium (₹199/user/month), and Workplace Professional (₹399/user/month with advanced features). All include email, storage, and productivity apps, billed annually."
+    }
+  },{
+    "@type": "Question",
+    "name": "How do I enable two-factor authentication (2FA) on Zoho Mail?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Go to My Account > Security, click Enable under Two-Factor Authentication, choose your verification method (app/SMS/email), and complete setup. This protects your business email from unauthorized access, critical for compliance in India and APAC."
+    }
+  },{
+    "@type": "Question",
+    "name": "Does Zoho Mail offer a free trial or free plan for businesses?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes, Zoho Mail has a forever-free plan for up to 5 users with custom domain hosting. Paid plans include a 15-day free trial with collaboration tools like chat and video meetings, ideal for Indian startups evaluating business email."
+    }
+  },{
+    "@type": "Question",
+    "name": "Why choose Zoho Mail for business email in India and APAC?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Zoho Mail offers affordable, secure email with local data centers, GDPR/ISO compliance, and integration with Zoho's suite (CRM, Projects). Ad-free experience and 24/7 support make it perfect for privacy-focused SMBs across APAC markets."
+    }
+  }]
+}
+
+
+
+
+  return (
+    <>
     <div className="min-h-screen bg-white">
       <Header />
       <main>
         <HeroSection />
         <FeaturesSection />
         <ActivationSection />
+        <FAQSection />
         <CTASection />
       </main>
       <Footer />
       <GetStartedDialog open={showGetStartedDialog} onOpenChange={setShowGetStartedDialog} />
-    </div>
+    </div></>
   );
 }

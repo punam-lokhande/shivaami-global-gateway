@@ -313,7 +313,7 @@ function ActivationSection() {
 
         <motion.div
           {...staggerContainer}
-          className="grid md:grid-cols-3 lg:grid-cols-5 gap-4 max-w-7xl mx-auto"
+          className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6"
         >
           {steps.map((step, idx) => (
             <motion.div
@@ -418,12 +418,12 @@ function FAQSection() {
                 ))}
               </Accordion>
 
-              <Link to="/contact" className="inline-block mt-6">
+              {/* <Link to="/contact" className="inline-block mt-6">
                 <Button className="bg-[#0C4594] hover:bg-[#0a3d80] text-white font-medium px-6 py-3 rounded-xl">
                   Have more questions? Contact us
                   <ArrowRight className="ml-2 w-4 h-4" />
                 </Button>
-              </Link>
+              </Link> */}
             </motion.div>
           </div>
         </div>

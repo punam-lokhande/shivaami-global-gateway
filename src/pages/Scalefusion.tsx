@@ -20,7 +20,9 @@ import {
   HeadphonesIcon,
   Calendar,
   CheckCircle2,
-  ArrowRight
+  ArrowRight,
+  Link,
+  HelpCircle
 } from "lucide-react";
 import scalefusionBanner from "@/assets/banners/scalefusion-banner.jpg";
 import strategicPlanning from "@/assets/activation/strategic-planning.jpg";
@@ -87,8 +89,9 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            Scalefusion: Unified Endpoint Security Management
+          >  Scalefusion: Unified <br />
+            <span className="text-[#38B6FF]">Endpoint Security Management</span>
+          
           </motion.h1>
           <motion.p 
             className="text-sm sm:text-base lg:text-lg text-white/80 max-w-2xl mb-6 sm:mb-8 leading-relaxed font-body"
@@ -96,7 +99,7 @@ const HeroSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            A unified endpoint management platform for mobile and desktop devices. Secure, monitor, and manage Android, iOS, Windows, macOS, and rugged devices from one console.
+          Scalefusion is a unified endpoint management platform that secures and manages Android, iOS, Windows, and macOS devices from one console. Shivaami, a certified Scalefusion partner, helps enterprises deploy device security solutions across India.
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -122,42 +125,42 @@ const features = [
   {
     icon: Monitor,
     title: "Multi-Platform Device Management",
-    description: "Manage Android, iOS, Windows, and macOS devices from one dashboard. A single pane of glass reduces administrative complexity."
+    description: "Manage Android, iOS, Windows, and macOS devices from one dashboard. A single pane of glass reduces administrative complexity. Unified policies apply across different device types."
   },
   {
     icon: Lock,
     title: "Kiosk and Lockdown Mode",
-    description: "Transform devices into dedicated kiosks for specific applications. Lock down features to prevent unauthorized usage."
+    description: "Transform devices into dedicated kiosks for specific applications. Lock down features to prevent unauthorized usage. Perfect for retail, healthcare, and field operations."
   },
   {
     icon: AppWindow,
     title: "Application Management",
-    description: "Push, update, and remove apps remotely across all managed devices. App blacklisting prevents unauthorized software installation."
+    description: "Push, update, and remove apps remotely across all managed devices. App blacklisting prevents the installation of unauthorized software. Enterprise app stores simplify the distribution of internal applications."
   },
   {
     icon: Shield,
     title: "Security and Compliance",
-    description: "Enforce password policies, encryption, and screen lock requirements. Remote wipe protects data on lost or stolen devices."
+    description: "Enforce password policies, encryption, and screen lock requirements. Remote wipe protects data on lost or stolen devices. Compliance reporting demonstrates adherence to security standards."
   },
   {
     icon: MapPin,
     title: "Location Tracking",
-    description: "Real-time GPS tracking shows device locations on a map. Geofencing triggers alerts when devices enter or exit defined areas."
+    description: "Real-time GPS tracking shows device locations on a map. Geofencing triggers alerts when devices enter or exit defined areas. Historical location data supports audit and compliance needs."
   },
   {
     icon: FileText,
     title: "Content Management",
-    description: "Distribute documents, videos, and media to devices remotely. Content updates push automatically to targeted device groups."
+    description: "Distribute documents, videos, and media to devices remotely. Content updates push automatically to targeted device groups. Secure file sharing eliminates email attachments."
   },
   {
     icon: Headphones,
     title: "Remote Support and Control",
-    description: "View device screens and provide remote assistance. Troubleshoot issues without physical access to devices."
+    description: "View device screens and provide remote assistance. Troubleshoot issues without physical access to devices. Remote commands restart devices or clear caches."
   },
   {
     icon: BarChart3,
     title: "Usage Analytics",
-    description: "Monitor app usage, data consumption, and battery performance. Reports identify devices needing attention or replacement."
+    description: "Monitor app usage, data consumption, and battery performance. Reports identify devices needing attention or replacement. Insights optimize device lifecycle management."
   }
 ];
 
@@ -168,9 +171,7 @@ const FeaturesSection = () => (
         <h2 className="text-2xl md:text-3xl font-bold text-[#0C4594] mb-4">
           What Scalefusion Delivers
         </h2>
-        <p className="text-gray-600 max-w-2xl mx-auto">
-          Comprehensive device control, kiosk mode, and security enforcement for your entire device fleet
-        </p>
+
       </motion.div>
       
       <motion.div 
@@ -257,31 +258,31 @@ const activationSteps = [
     image: strategicPlanning,
     icon: Brain,
     title: "Strategy and Planning",
-    description: "We assess your device landscape and define management requirements. Our team recommends policies for security, compliance, and operational needs."
+    description: "We assess your device landscape and define management requirements. Our team recommends policies for security, compliance, and operational needs. You get a deployment plan aligned with your business objectives."
   },
   {
     image: technicalDeployment,
     icon: Rocket,
     title: "Deployment and Integration",
-    description: "Shivaami configures Scalefusion policies and organizational structure. We handle device enrollment using bulk methods or self-service options."
+    description: "Shivaami configures Scalefusion policies and organizational structure. We handle device enrollment using bulk methods or self-service options. Your devices come under management quickly and efficiently."
   },
   {
     image: securityConfig,
     icon: Settings,
     title: "Security and Compliance",
-    description: "Our experts implement security policies, app controls, and compliance settings. We configure location tracking, geofencing, and content distribution."
+    description: "Our experts implement security policies, app controls, and compliance settings. We configure location tracking, geofencing, and content distribution. Audit capabilities support governance requirements."
   },
   {
     image: teamTraining,
     icon: GraduationCap,
     title: "User Enablement and Adoption",
-    description: "We train IT administrators on platform features and best practices. End-user guides explain device enrollment and usage policies."
+    description: "We train IT administrators on platform features and best practices. End-user guides explain device enrollment and usage policies. Support procedures address common device management scenarios."
   },
   {
     image: ongoingSupport,
     icon: HeadphonesIcon,
     title: "Ongoing Optimization and Support",
-    description: "Shivaami provides ongoing management and policy optimization. We monitor device health, resolve issues, and implement updates."
+    description: "Shivaami provides ongoing management and policy optimization. We monitor device health, resolve issues, and implement updates. Regular reviews ensure your MDM strategy evolves with business needs."
   }
 ];
 
@@ -318,6 +319,8 @@ const ActivationSection = () => (
 );
 
 import CTASection from '@/components/sections/CTASection';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@radix-ui/react-accordion";
+import { Helmet } from "react-helmet-async";
 
 const Scalefusion = () => {
   const [showGetStartedDialog, setShowGetStartedDialog] = useState(false);
@@ -328,18 +331,174 @@ const Scalefusion = () => {
     return () => document.removeEventListener('openGetStartedDialog', handleOpenDialog);
   }, []);
 
+
+// FAQ Section
+function FAQSection() {
+  const faqs = [
+    {
+      question: "Can I integrate Scalefusion with my existing IT infrastructure?",
+      answer: "Yes, Scalefusion integrates seamlessly with existing IT systems, including Active Directory, Azure AD, G Suite, and MDM/EMM platforms. It supports APIs for custom integrations, enabling unified device management across Android, iOS, Windows, and macOS—ideal for Indian enterprises with hybrid infrastructure."
+    },
+    {
+      question: "Which device management service offers remote app installation and updates?",
+      answer: "Scalefusion enables remote app installation, updates, and removal across Android, iOS, Windows, and macOS devices from a centralized dashboard. IT admins can push enterprise apps, configure settings, and automate updates—essential for managing distributed teams across India and APAC regions."
+    },
+    {
+      question: "Where can I find cloud-based mobile device management tools?",
+      answer: "Scalefusion is a cloud-based MDM/UEM platform available globally, including India and APAC markets. It offers device enrollment, security policies, kiosk mode, and remote management for Android, iOS, Windows, and macOS, accessible via web console or mobile app with local support."
+    },
+    {
+      question: "How do I set up kiosk mode on corporate tablets using Scalefusion?",
+      answer: "Scalefusion's kiosk mode locks tablets to specific apps or websites. Enroll devices, create a kiosk profile in the dashboard, select allowed apps/URLs, configure settings (disable home/power buttons), and deploy remotely. Ideal for retail, healthcare, and education sectors in India."
+    },
+    {
+      question: "What are Scalefusion's pricing plans for device management?",
+      answer: "Scalefusion offers flexible pricing starting at $2/device/month for essential MDM features. Plans include Growth ($3/device/month), business ($5/device/month), and Enterprise ($6/device/month) with advanced security, kiosk mode, and app management. Annual billing available. Contact for India-specific pricing with local billing and volume discounts."
+    },
+    {
+      question: "Does Scalefusion support multi-OS device management for enterprises?",
+      answer: "Yes, Scalefusion is a Unified Endpoint Management (UEM) platform supporting Android, iOS, Windows, macOS, Linux, and Wear OS from one console. Manage BYOD, corporate-owned devices, and rugged hardware with unified policies—perfect for diverse IT environments across Indian and APAC enterprises."
+    }
+  ];
+
   return (
+    <section className="py-16 bg-[#f8fafc]">
+      <div className="w-full px-8 lg:px-16 xl:px-24">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left - Image */}
+            <motion.div {...fadeInUp} className="relative">
+              <div className="absolute -inset-4 bg-gradient-to-r from-[#0C4594]/20 to-[#38B6FF]/20 rounded-3xl blur-2xl" />
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+                <img 
+                  src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=600&h=500&fit=crop" 
+                  alt="FAQ Support"
+                  className="w-full h-[400px] object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0C4594]/80 via-transparent to-transparent" />
+                <div className="absolute bottom-6 left-6 right-6">
+                  <div className="flex items-center gap-3 text-white">
+                    <div className="w-12 h-12 rounded-xl bg-[#38B6FF] flex items-center justify-center">
+                      <HelpCircle className="w-6 h-6" />
+                    </div>
+                    <div>
+                      <p className="font-semibold text-lg">Need Help?</p>
+                      <p className="text-white/80 text-sm">We're here 24x7</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Right - FAQ */}
+            <motion.div {...fadeInUp}>
+              <h2 className="text-2xl md:text-3xl font-bold text-[#0C4594] mb-6">
+                Frequently Asked Questions
+              </h2>
+              
+              <Accordion type="single" collapsible className="space-y-2">
+                {faqs.map((faq, idx) => (
+                  <AccordionItem 
+                    key={idx} 
+                    value={`item-${idx}`}
+                    className="bg-white border border-[#e2e8f0] rounded-xl px-4 overflow-hidden hover:border-[#38B6FF]/30 transition-colors"
+                  >
+                    <AccordionTrigger className="text-[#0C4594] hover:text-[#38B6FF] text-left py-4 hover:no-underline text-sm">
+                      <span className="font-medium">{faq.question}</span>
+                    </AccordionTrigger>
+                    <AccordionContent className="text-[#64748b] pb-4 text-sm">
+                      {faq.answer}
+                    </AccordionContent>
+                  </AccordionItem>
+                ))}
+              </Accordion>
+
+              {/* <Link to="/contact" className="inline-block mt-6">
+                <Button className="bg-[#0C4594] hover:bg-[#0a3d80] text-white font-medium px-6 py-3 rounded-xl">
+                  Have more questions? Contact us
+                  <ArrowRight className="ml-2 w-4 h-4" />
+                </Button>
+              </Link> */}
+            </motion.div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+
+
+
+const faqSchema ={
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [{
+    "@type": "Question",
+    "name": "Can I integrate Scalefusion with my existing IT infrastructure?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes, Scalefusion integrates seamlessly with existing IT systems, including Active Directory, Azure AD, G Suite, and MDM/EMM platforms. It supports APIs for custom integrations, enabling unified device management across Android, iOS, Windows, and macOS—ideal for Indian enterprises with hybrid infrastructure."
+    }
+  },{
+    "@type": "Question",
+    "name": "Which device management service offers remote app installation and updates?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Scalefusion enables remote app installation, updates, and removal across Android, iOS, Windows, and macOS devices from a centralized dashboard. IT admins can push enterprise apps, configure settings, and automate updates—essential for managing distributed teams across India and APAC regions."
+    }
+  },{
+    "@type": "Question",
+    "name": "Where can I find cloud-based mobile device management tools?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Scalefusion is a cloud-based MDM/UEM platform available globally, including India and APAC markets. It offers device enrollment, security policies, kiosk mode, and remote management for Android, iOS, Windows, and macOS, accessible via web console or mobile app with local support."
+    }
+  },{
+    "@type": "Question",
+    "name": "How do I set up kiosk mode on corporate tablets using Scalefusion?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Scalefusion's kiosk mode locks tablets to specific apps or websites. Enroll devices, create a kiosk profile in the dashboard, select allowed apps/URLs, configure settings (disable home/power buttons), and deploy remotely. Ideal for retail, healthcare, and education sectors in India."
+    }
+  },{
+    "@type": "Question",
+    "name": "What are Scalefusion's pricing plans for device management?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Scalefusion offers flexible pricing starting at $2/device/month for essential MDM features. Plans include Growth ($3/device/month), business ($5/device/month), and Enterprise ($6/device/month) with advanced security, kiosk mode, and app management. Annual billing available. Contact for India-specific pricing with local billing and volume discounts."
+    }
+  },{
+    "@type": "Question",
+    "name": "Does Scalefusion support multi-OS device management for enterprises?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes, Scalefusion is a Unified Endpoint Management (UEM) platform supporting Android, iOS, Windows, macOS, Linux, and Wear OS from one console. Manage BYOD, corporate-owned devices, and rugged hardware with unified policies—perfect for diverse IT environments across Indian and APAC enterprises."
+    }
+  }]
+}
+
+return (
+    <>
+     <Helmet>
+<title>Scalefusion MDM Partner India | Device Management by Shivaami</title>
+ <meta name="description" content="Deploy Scalefusion mobile device management with Shivaami. Secure and manage Android, iOS, Windows, and macOS devices. Expert MDM implementation and support." />
+<link rel="canonical" href="https://www.shivaami.com/scalefusion" />
+ <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
+ </Helmet>
+
     <div className="min-h-screen bg-white">
       <Header />
       <main>
         <HeroSection />
         <FeaturesSection />
         <ActivationSection />
+        <FAQSection />
         <CTASection />
       </main>
       <Footer />
       <GetStartedDialog open={showGetStartedDialog} onOpenChange={setShowGetStartedDialog} />
-    </div>
+    </div></>
   );
 };
 

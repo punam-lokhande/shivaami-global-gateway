@@ -276,7 +276,7 @@ function ActivationSection() {
   ];
 
   return (
-    <section className="py-16 bg-white">
+    <section className="py-20 bg-white">
       <div className="w-full px-8 lg:px-16 xl:px-24">
         <motion.div {...fadeInUp} className="text-center mb-12">
           <h2 className="text-2xl md:text-3xl font-bold text-[#0C4594] mb-4">
@@ -286,7 +286,7 @@ function ActivationSection() {
 
         <motion.div 
           {...staggerContainer} 
-          className="grid md:grid-cols-3 lg:grid-cols-5 gap-4 max-w-7xl mx-auto"
+          className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6"
         >
           {steps.map((step, idx) => (
             <motion.div
@@ -390,12 +390,12 @@ function FAQSection() {
                 ))}
               </Accordion>
 
-              <Link to="/contact" className="inline-block mt-6">
+              {/* <Link to="/contact" className="inline-block mt-6">
                 <Button className="bg-[#0C4594] hover:bg-[#0a3d80] text-white font-medium px-6 py-3 rounded-xl">
                   Have more questions? Contact us
                   <ArrowRight className="ml-2 w-4 h-4" />
                 </Button>
-              </Link>
+              </Link> */}
             </motion.div>
           </div>
         </div>
@@ -483,6 +483,7 @@ const faqSchema = {
         <HeroSection />
         <FeaturesSection />
         <ActivationSection />
+        <FAQSection />
         <CTASection />
       </main>
       <Footer />

@@ -453,12 +453,12 @@ function FAQSection() {
                 ))}
               </Accordion>
 
-              <Link to="/contact" className="inline-block mt-6">
+              {/* <Link to="/contact" className="inline-block mt-6">
                 <Button className="bg-[#0C4594] hover:bg-[#0a3d80] text-white font-medium px-6 py-3 rounded-xl">
                   Have more questions? Contact us
                   <ArrowRight className="ml-2 w-4 h-4" />
                 </Button>
-              </Link>
+              </Link> */}
             </motion.div>
           </div>
         </div>
@@ -530,6 +530,7 @@ export default function GoogleWorkspacePricingIndia() {
       <Helmet>
         <title>Google Workspace Pricing India | Plans & Pricing | Shivaami</title>
         <meta name="description" content="Google Workspace pricing for Indian businesses. Compare Business Starter, Standard, Plus & Enterprise plans. Get local support from Shivaami - India's trusted Google Cloud Partner." />
+        
       </Helmet>
       <Header />
       <main>

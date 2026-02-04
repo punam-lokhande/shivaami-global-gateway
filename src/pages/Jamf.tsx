@@ -20,7 +20,9 @@ import {
   HeadphonesIcon,
   Calendar,
   CheckCircle2,
-  ArrowRight
+  ArrowRight,
+  Link,
+  HelpCircle
 } from "lucide-react";
 import jamfBanner from "@/assets/banners/jamf-banner.jpg";
 import strategicPlanning from "@/assets/activation/strategic-planning.jpg";
@@ -87,8 +89,8 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            Manage Apple Devices at Scale with <span className="text-[#38B6FF]">Jamf</span>
+          > Jamf: Manage Apple<br />
+            <span className="text-[#38B6FF]"> Devices at Scale</span>
           </motion.h1>
           <motion.p 
             className="text-sm sm:text-base lg:text-lg text-white/80 max-w-2xl mb-6 sm:mb-8 leading-relaxed font-body"
@@ -96,7 +98,7 @@ const HeroSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            Jamf is the leading Apple device management platform built specifically for Mac, iPad, iPhone, and Apple TV. It simplifies deployment, security, and support for Apple ecosystems.
+          Jamf is the leading Apple device management platform for Mac, iPad, iPhone, and Apple TV, offering seamless deployment and security. Shivaami partners with Jamf to deploy Apple solutions for enterprises across India.
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -122,42 +124,42 @@ const features = [
   {
     icon: Rocket,
     title: "Zero-Touch Deployment",
-    description: "Devices enroll automatically when users first power them on. Pre-configured settings and apps install without IT intervention."
+    description: "Devices enroll automatically when users first power them on. Pre-configured settings and apps install without IT intervention. Users start working immediately with corporate resources ready."
   },
   {
     icon: Monitor,
     title: "Comprehensive Mac Management",
-    description: "Deploy macOS updates, security patches, and software remotely. FileVault encryption and firmware passwords enforce security standards."
+    description: "Deploy macOS updates, security patches, and software remotely. FileVault encryption and firmware passwords enforce security standards. User and computer groups enable targeted management."
   },
   {
     icon: Smartphone,
     title: "iPad and iPhone Control",
-    description: "Supervised mode provides advanced management capabilities. App distribution happens through managed app store or volume licensing."
+    description: "Supervised mode provides advanced management capabilities. App distribution happens through managed app store or volume licensing. Shared iPad supports multiple users on single devices."
   },
   {
     icon: Tv,
     title: "Apple TV Management",
-    description: "Configure Apple TV devices for conference rooms and digital signage. Push apps, wallpapers, and settings remotely."
+    description: "Configure Apple TV devices for conference rooms and digital signage. Push apps, wallpapers, and settings remotely. AirPlay restrictions control screen mirroring permissions."
   },
   {
     icon: AppWindow,
     title: "Self Service Portal",
-    description: "Users install approved apps and perform basic troubleshooting independently. IT curates available options by department or role."
+    description: "Users install approved apps and perform basic troubleshooting independently. IT curates available options by department or role. Reduces helpdesk tickets and empowers users."
   },
   {
     icon: Shield,
     title: "Security and Compliance",
-    description: "Enforce security baselines aligned with CIS benchmarks. Detect jailbroken or compromised devices automatically."
+    description: "Enforce security baselines aligned with CIS benchmarks. Detect jailbroken or compromised devices automatically. Compliance reports demonstrate security posture to auditors."
   },
   {
     icon: RefreshCw,
     title: "Application Patching",
-    description: "Automate updates for third-party applications beyond Apple software. Patch management reduces vulnerabilities and security risks."
+    description: "Automate updates for third-party applications beyond Apple software. Patch management reduces vulnerabilities and security risks. Flexible scheduling minimizes user disruption."
   },
   {
     icon: Headphones,
     title: "Remote Support Tools",
-    description: "Screen sharing and remote commands accelerate troubleshooting. Lock, wipe, or locate lost devices remotely."
+    description: "Screen sharing and remote commands accelerate troubleshooting. Lock, wipe, or locate lost devices remotely. Inventory data provides detailed device information for support tickets."
   }
 ];
 
@@ -168,9 +170,7 @@ const FeaturesSection = () => (
         <h2 className="text-2xl md:text-3xl font-bold text-[#0C4594] mb-4">
           What Jamf Delivers
         </h2>
-        <p className="text-gray-600 max-w-2xl mx-auto">
-          Seamless Apple integration, zero-touch deployment, and comprehensive security features
-        </p>
+      
       </motion.div>
       
       <motion.div 
@@ -257,31 +257,31 @@ const activationSteps = [
     image: strategicPlanning,
     icon: Brain,
     title: "Strategy and Planning",
-    description: "We assess your Apple device strategy and define management goals. Our team designs enrollment workflows, policies, and organizational structure."
+    description: "We assess your Apple device strategy and define management goals. Our team designs enrollment workflows, policies, and organizational structure. You get a Jamf implementation plan aligned with Apple best practices."
   },
   {
     image: technicalDeployment,
     icon: Settings,
     title: "Deployment and Integration",
-    description: "Shivaami configures Jamf Pro with your Apple Business Manager or Apple School Manager. We create policies, packages, and configuration profiles."
+    description: "Shivaami configures Jamf Pro with your Apple Business Manager or Apple School Manager. We create policies, packages, and configuration profiles. Your Apple devices enroll and configure automatically."
   },
   {
     image: securityConfig,
     icon: Lock,
     title: "Security and Compliance",
-    description: "Our experts implement security baselines and compliance policies. We configure encryption, password requirements, and access controls."
+    description: "Our experts implement security baselines and compliance policies. We configure encryption, password requirements, and access controls. Audit reporting supports governance and compliance needs."
   },
   {
     image: teamTraining,
     icon: GraduationCap,
     title: "User Enablement and Adoption",
-    description: "We train IT teams on Jamf administration and troubleshooting. Self Service portal design empowers users while reducing IT burden."
+    description: "We train IT teams on Jamf administration and troubleshooting. Self Service portal design empowers users while reducing IT burden. Documentation supports ongoing operations."
   },
   {
     image: ongoingSupport,
     icon: HeadphonesIcon,
     title: "Ongoing Optimization and Support",
-    description: "Shivaami provides managed Jamf services with proactive monitoring. We handle policy updates, application patching, and issue resolution."
+    description: "Shivaami provides managed Jamf services with proactive monitoring. We handle policy updates, application patching, and issue resolution. Regular reviews optimize your Apple management strategy."
   }
 ];
 
@@ -292,9 +292,7 @@ const ActivationSection = () => (
         <h2 className="text-2xl md:text-3xl font-bold text-[#0C4594] mb-4">
           How Shivaami Helps You Succeed?
         </h2>
-        <p className="text-gray-600 max-w-2xl mx-auto">
-          As a Jamf partner, we bring specialized Apple expertise to your organization
-        </p>
+      
       </motion.div>
 
       <motion.div 
@@ -318,6 +316,8 @@ const ActivationSection = () => (
 );
 
 import CTASection from '@/components/sections/CTASection';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@radix-ui/react-accordion";
+import { Helmet } from "react-helmet-async";
 
 const Jamf = () => {
   const [showGetStartedDialog, setShowGetStartedDialog] = useState(false);
@@ -328,18 +328,174 @@ const Jamf = () => {
     return () => document.removeEventListener('openGetStartedDialog', handleOpenDialog);
   }, []);
 
+
+// FAQ Section
+function FAQSection() {
+  const faqs = [
+    {
+      question: "How can I manage Apple devices remotely in an enterprise environment?",
+      answer: "Jamf enables centralized remote management of Mac, iPhone, iPad, and Apple TV devices. Deploy apps, enforce security policies, configure settings, and troubleshoot remotely from one cloud console. Available in India through authorized partners like Shivaami for seamless implementation and support."
+    },
+    {
+      question: "What are the top device management solutions for macOS and iOS in India?",
+      answer: "Jamf is the leading Apple-specific MDM solution trusted by enterprises in India and globally. Shivaami, an authorized Jamf partner, provides deployment, training, and local support. Jamf offers superior macOS/iOS management compared to generic MDM platforms, with Apple-native features and seamless integration."
+    },
+    {
+      question: "Which companies offer cloud-based mobile device management for Apple products?",
+      answer: "Jamf provides cloud-based MDM exclusively for Apple ecosystems (Mac, iPhone, iPad). In India, Shivaami is an authorized Jamf reseller offering complete solutions, including Jamf Pro, Jamf Now, and Jamf School, with implementation support, training, and ongoing technical assistance for enterprises."
+    },
+    {
+      question: "What are Jamf's pricing plans for enterprise Apple device management?",
+      answer: "Jamf pricing varies by product: Jamf Now (SMBs), Jamf Pro (enterprises), and Jamf School (education). Pricing is per-device annually with tiered discounts. Contact Shivaami for India-specific pricing, volume discounts, and bundled services, including deployment support and training for your organization."
+    },
+    {
+      question: "Does Jamf support zero-touch deployment for Apple devices?",
+      answer: "Yes, Jamf integrates with Apple Business Manager for zero-touch deployment. Devices automatically enroll, configure, and receive apps/policies upon activation, with no manual IT intervention. Shivaami helps Indian enterprises set up automated workflows, reducing deployment time and ensuring consistent security configurations across all Apple devices."
+    },
+    {
+      question: "Why choose Jamf with Shivaami for Apple device management in India?",
+      answer: "Jamf offers Apple-native MDM with superior macOS/iOS control, security, and user experience. Shivaami, as an authorized Jamf partner, provides end-to-end support, from license procurement and implementation to training and ongoing technical assistance, ensuring smooth Apple fleet management for Indian enterprises and APAC markets."
+    }
+  ];
+
   return (
+    <section className="py-16 bg-[#f8fafc]">
+      <div className="w-full px-8 lg:px-16 xl:px-24">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left - Image */}
+            <motion.div {...fadeInUp} className="relative">
+              <div className="absolute -inset-4 bg-gradient-to-r from-[#0C4594]/20 to-[#38B6FF]/20 rounded-3xl blur-2xl" />
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+                <img 
+                  src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=600&h=500&fit=crop" 
+                  alt="FAQ Support"
+                  className="w-full h-[400px] object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0C4594]/80 via-transparent to-transparent" />
+                <div className="absolute bottom-6 left-6 right-6">
+                  <div className="flex items-center gap-3 text-white">
+                    <div className="w-12 h-12 rounded-xl bg-[#38B6FF] flex items-center justify-center">
+                      <HelpCircle className="w-6 h-6" />
+                    </div>
+                    <div>
+                      <p className="font-semibold text-lg">Need Help?</p>
+                      <p className="text-white/80 text-sm">We're here 24x7</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Right - FAQ */}
+            <motion.div {...fadeInUp}>
+              <h2 className="text-2xl md:text-3xl font-bold text-[#0C4594] mb-6">
+                Frequently Asked Questions
+              </h2>
+              
+              <Accordion type="single" collapsible className="space-y-2">
+                {faqs.map((faq, idx) => (
+                  <AccordionItem 
+                    key={idx} 
+                    value={`item-${idx}`}
+                    className="bg-white border border-[#e2e8f0] rounded-xl px-4 overflow-hidden hover:border-[#38B6FF]/30 transition-colors"
+                  >
+                    <AccordionTrigger className="text-[#0C4594] hover:text-[#38B6FF] text-left py-4 hover:no-underline text-sm">
+                      <span className="font-medium">{faq.question}</span>
+                    </AccordionTrigger>
+                    <AccordionContent className="text-[#64748b] pb-4 text-sm">
+                      {faq.answer}
+                    </AccordionContent>
+                  </AccordionItem>
+                ))}
+              </Accordion>
+
+               {/* <Link to="/contact" className="inline-block mt-6">
+                <Button className="bg-[#0C4594] hover:bg-[#0a3d80] text-white font-medium px-6 py-3 rounded-xl">
+                  Have more questions? Contact us
+                  <ArrowRight className="ml-2 w-4 h-4" />
+                </Button>
+              </Link> */} 
+            </motion.div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+
+const faqSchema ={
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [{
+    "@type": "Question",
+    "name": "How can I manage Apple devices remotely in an enterprise environment?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Jamf enables centralized remote management of Mac, iPhone, iPad, and Apple TV devices. Deploy apps, enforce security policies, configure settings, and troubleshoot remotely from one cloud console. Available in India through authorized partners like Shivaami for seamless implementation and support."
+    }
+  },{
+    "@type": "Question",
+    "name": "What are the top device management solutions for macOS and iOS in India?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Jamf is the leading Apple-specific MDM solution trusted by enterprises in India and globally. Shivaami, an authorized Jamf partner, provides deployment, training, and local support. Jamf offers superior macOS/iOS management compared to generic MDM platforms, with Apple-native features and seamless integration."
+    }
+  },{
+    "@type": "Question",
+    "name": "Which companies offer cloud-based mobile device management for Apple products?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Jamf provides cloud-based MDM exclusively for Apple ecosystems (Mac, iPhone, iPad). In India, Shivaami is an authorized Jamf reseller offering complete solutions, including Jamf Pro, Jamf Now, and Jamf School, with implementation support, training, and ongoing technical assistance for enterprises."
+    }
+  },{
+    "@type": "Question",
+    "name": "What are Jamf's pricing plans for enterprise Apple device management?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Jamf pricing varies by product: Jamf Now (SMBs), Jamf Pro (enterprises), and Jamf School (education). Pricing is per-device annually with tiered discounts. Contact Shivaami for India-specific pricing, volume discounts, and bundled services, including deployment support and training for your organization."
+    }
+  },{
+    "@type": "Question",
+    "name": "Does Jamf support zero-touch deployment for Apple devices?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes, Jamf integrates with Apple Business Manager for zero-touch deployment. Devices automatically enroll, configure, and receive apps/policies upon activation, with no manual IT intervention. Shivaami helps Indian enterprises set up automated workflows, reducing deployment time and ensuring consistent security configurations across all Apple devices."
+    }
+  },{
+    "@type": "Question",
+    "name": "Why choose Jamf with Shivaami for Apple device management in India?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Jamf offers Apple-native MDM with superior macOS/iOS control, security, and user experience. Shivaami, as an authorized Jamf partner, provides end-to-end support, from license procurement and implementation to training and ongoing technical assistance, ensuring smooth Apple fleet management for Indian enterprises and APAC markets."
+    }
+  }]
+}
+
+
+
+
+  return (
+    <>  <Helmet>
+<title>Jamf Partner in India & USA | Apple Device Management by Shivaami</title>
+ <meta name="description" content="Deploy Jamf for Apple device management with Shivaami. Expert implementation for Mac, iPad, iPhone, and Apple TV. Certified Jamf partner in India & USA." />
+<link rel="canonical" href="https://www.shivaami.com/jamf" />
+ <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
+ </Helmet>
+
     <div className="min-h-screen bg-white">
       <Header />
       <main>
         <HeroSection />
         <FeaturesSection />
         <ActivationSection />
+        <FAQSection />
         <CTASection />
       </main>
       <Footer />
       <GetStartedDialog open={showGetStartedDialog} onOpenChange={setShowGetStartedDialog} />
-    </div>
+    </div></>
   );
 };
 
