@@ -174,7 +174,7 @@ function FeaturesSection() {
           </h2>
         </motion.div>
 
-        <motion.div {...staggerContainer} className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+        <motion.div {...staggerContainer} className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-3 xl:grid-cols-5 gap-6">
           {features.map((feature, idx) => {
             const Icon = feature.icon;
             return (
