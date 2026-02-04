@@ -69,8 +69,9 @@ function HeroSection() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="font-display text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-semibold text-white mb-4 sm:mb-6 leading-[1.15] tracking-tight"
           >
-            Glean: <span className="text-[#38B6FF]">Unified</span><br />
-            Enterprise Knowledge Search
+            Glean: <span className="text-[#38B6FF]">Enterprise AI </span><br />
+           Knowledge Assistant
+
           </motion.h1>
 
           {/* Description */}
@@ -80,7 +81,8 @@ function HeroSection() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-sm sm:text-base lg:text-lg text-white/80 max-w-2xl mb-6 sm:mb-8 leading-relaxed font-body"
           >
-            Glean is an enterprise AI platform that helps teams find answers, knowledge, and context across all their work tools from one place. Shivaami helps organizations deploy Glean securely and turn internal knowledge into real business impact.
+           Glean is an enterprise AI platform that connects your entire digital workspace, enabling instant search across all tools, apps, and documents while building custom AI assistants. Shivaami partners with organizations to deploy Glean securely. 
+
           </motion.p>
 
           <motion.div
@@ -109,32 +111,32 @@ function FeaturesSection() {
     {
       icon: Search,
       title: "Unified enterprise search across all your tools",
-      desc: "Glean connects to tools like Google Workspace, Slack, Jira, Confluence, Salesforce, GitHub, and more. Search once and find everything."
+      desc: "Glean connects to tools like Google Workspace, Slack, Jira, Confluence, Salesforce, GitHub, and more. Employees can search once and find documents, conversations, tickets, and files without switching between apps."
     },
     {
       icon: Brain,
       title: "AI-powered answers, not just links",
-      desc: "Instead of returning a long list of results, Glean understands questions in natural language and provides direct answers and summaries."
+      desc: " Instead of returning a long list of results, Glean understands questions in natural language and provides direct answers, summaries, and relevant context based on your company’s data."
     },
     {
       icon: Users,
       title: "Personalized results for every employee",
-      desc: "Glean uses a knowledge graph to understand roles, teams, and projects. Results are personalized while respecting existing permissions."
+      desc: "Glean uses a knowledge graph to understand roles, teams, and projects. Results are personalized so each user sees what matters most to them while respecting existing permissions."
     },
     {
       icon: Bot,
       title: "Built-in AI assistant for daily work",
-      desc: "Employees can ask Glean to summarize documents, find experts, answer onboarding questions, and surface key information instantly."
+      desc: "Employees can ask Glean to summarize documents, find experts, answer onboarding questions, and surface key information instantly, helping teams move faster with less effort."
     },
     {
       icon: Shield,
       title: "Enterprise-grade security and permissions",
-      desc: "Glean enforces your existing access controls in real time. Data remains secure, encrypted, and fully governed."
+      desc: "Glean enforces your existing access controls in real time. Employees only see what they are authorized to see. Data remains secure, encrypted, and fully governed."
     },
     {
       icon: Zap,
       title: "Fast time to value",
-      desc: "Most organizations go live within days. As employees search and work, Glean continuously improves relevance and accuracy."
+      desc: " Most organizations live within days. As employees search and work, Glean continuously improves relevance and accuracy without manual training."
     }
   ];
 
@@ -245,31 +247,31 @@ function ActivationSection() {
       image: strategicPlanningImg,
       icon: Target,
       title: 'Knowledge & Search Strategy',
-      desc: 'We understand how your teams work, where knowledge gets stuck, and design a Glean deployment plan that delivers measurable productivity gains.',
+      desc: 'We start by understanding how your teams work, where knowledge gets stuck, and which tools matter most. We then design a Glean deployment plan that delivers measurable productivity gains within the first 90 days.',
     },
     {
       image: technicalDeploymentImg,
       icon: Settings,
       title: 'End-to-End Technical Deployment',
-      desc: 'We manage connector setup, indexing, access controls, and integrations with your existing systems. Your teams start finding answers immediately.',
+      desc: 'We manage connector setup, indexing, access controls, and integrations with your existing systems. Your teams log in and start finding answers immediately without disruption.',
     },
     {
       image: securityConfigImg,
       icon: Lock,
       title: 'Security & Compliance',
-      desc: 'We align Glean with your enterprise security requirements, including access policies, audit readiness, and data governance for regulated industries.',
+      desc: 'We align Glean with your enterprise security requirements, including access policies, audit readiness, and data governance. This is especially critical for regulated industries.',
     },
     {
       image: teamTrainingImg,
       icon: GraduationCap,
       title: 'User Enablement & Adoption',
-      desc: 'We train teams on how to search smarter, ask better questions, and use Glean\'s AI assistant in daily workflows with role-based sessions.',
+      desc: 'We train teams on how to search smarter, ask better questions, and use Glean’s AI assistant in daily workflows. Role-based sessions and real use cases ensure adoption across departments.',
     },
     {
       image: ongoingSupportImg,
       icon: Headphones,
       title: 'Ongoing Optimization & Support',
-      desc: 'We track usage, identify gaps, and help you improve search relevance over time. Our certified engineers provide 24/7 support.',
+      desc: 'We track usage, identify gaps, and help you improve search relevance over time. Our certified engineers provide 24/7 support with fast response and resolution times.',
     },
   ];
 
@@ -405,6 +407,7 @@ function FAQSection() {
 
 import CTASection from '@/components/sections/CTASection';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@radix-ui/react-accordion';
+import { Helmet } from 'react-helmet-async';
 
 const Glean = () => {
   const [showGetStartedDialog, setShowGetStartedDialog] = useState(false);
@@ -466,10 +469,16 @@ const faqSchema = {
 
 
   return (
+    <>
+      <Helmet>
+<title>Glean Partner | Enterprise AI for Faster Decisions & Work | Shivaami</title>
+ <meta name="description" content="Transform how work gets done with Glean’s enterprise AI. Shivaami helps enterprises deploy secure, connected AI that answers questions, accelerates decisions, and powers everyday work." />
+<link rel="canonical" href="https://www.shivaami.com/glean" />
+ <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
+ </Helmet>
+
     <div className="min-h-screen">
       <Header />
-
-      <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
       <main>
         <HeroSection />
         <FeaturesSection />
@@ -478,7 +487,7 @@ const faqSchema = {
       </main>
       <Footer />
       <GetStartedDialog open={showGetStartedDialog} onOpenChange={setShowGetStartedDialog} />
-    </div>
+    </div></>
   );
 };
 

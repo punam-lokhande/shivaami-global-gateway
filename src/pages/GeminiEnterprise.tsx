@@ -417,6 +417,7 @@ function FAQSection() {
 
 import CTASection from '@/components/sections/CTASection';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@radix-ui/react-accordion';
+import { Helmet } from 'react-helmet-async';
 
 // Main Page Component
 export default function GeminiEnterprise() {
@@ -477,10 +478,20 @@ export default function GeminiEnterprise() {
 
 
   return (
+<>
+<Helmet>
+<title>Gemini Enterprise Onboarding Partner | AI Agents for Enterprise – Shivaami</title>
+ <meta name="description" content="Deploy AI agents across your enterprise with Gemini Enterprise. Shivaami, an official Google onboarding partner, helps you scale AI for marketing, sales, HR & more." />
+<link rel="canonical" href="https://www.shivaami.com/gemini-enterprise" />
+ <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
+ </Helmet>
+
+
+    
     <div className="min-h-screen bg-white">
 
       <Header />
-       <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
+       
       <main>
         <HeroSection />
         <FeaturesSection />
@@ -491,6 +502,6 @@ export default function GeminiEnterprise() {
       </main>
       <Footer />
       <GetStartedDialog open={showGetStartedDialog} onOpenChange={setShowGetStartedDialog} />
-    </div>
+    </div></>
   );
 }
