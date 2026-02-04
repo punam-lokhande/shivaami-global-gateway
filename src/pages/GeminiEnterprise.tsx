@@ -271,7 +271,7 @@ function ActivationSection() {
       image: teamTrainingImg,
       icon: Users,
       title: 'Team Enablement & Agent Training',
-      desc: 'We dont just hand over technology. We train your teams on how to use prebuilt agents, build their own with no-code tools, and integrate AI into daily workflows. Hands-on workshops, department-specific use cases, and ongoing support ensure adoption.',
+      desc: 'We do not just hand over technology. We train your teams on how to use prebuilt agents, build their own with no-code tools, and integrate AI into daily workflows. Hands-on workshops, department-specific use cases, and ongoing support ensure adoption.',
     },
     {
       image: ongoingSupportImg,
@@ -344,6 +344,9 @@ function FAQSection() {
       answer: "Gemini Enterprise offers ready-to-deploy prebuilt agents for common business functions, including data analysis, content generation, code assistance, customer support, and research. These agents can be implemented immediately without custom development or configuration."
     }
   ];
+
+
+
 
   return (
     <section className="py-16 bg-[#f8fafc]">
@@ -424,10 +427,60 @@ export default function GeminiEnterprise() {
     document.addEventListener('openGetStartedDialog', handleOpenDialog);
     return () => document.removeEventListener('openGetStartedDialog', handleOpenDialog);
   }, []);
+  const faqSchema ={
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [{
+    "@type": "Question",
+    "name": "What is Gemini Enterprise?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Gemini Enterprise is Google's advanced AI agent platform that transforms how organizations leverage artificial intelligence. It provides enterprise-grade AI capabilities, enabling businesses to deploy intelligent agents across teams without complex infrastructure management or technical expertise."
+    }
+  },{
+    "@type": "Question",
+    "name": "Is Gemini Enterprise the same as Gemini for Google Workspace?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No. Gemini Enterprise is a standalone Google Cloud AI platform with comprehensive agent-building capabilities and enterprise features. It differs from Gemini for Google Workspace, which is an add-on for productivity apps like Gmail, Docs, and Sheets."
+    }
+  },{
+    "@type": "Question",
+    "name": "Do I need technical expertise to build AI agents in Gemini Enterprise?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No technical expertise is required. Gemini Enterprise features a no-code visual Agent Designer that allows anyone to create custom AI agents without programming knowledge. Authorized partners like Shivaami also provide implementation support and training."
+    }
+  },{
+    "@type": "Question",
+    "name": "How does Gemini Enterprise ensure enterprise data security and compliance?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Gemini Enterprise includes enterprise-grade security features such as VPC Security Controls, Customer-Managed Encryption Keys (CMEK), Access Transparency, tenant isolation, and role-based access control (RBAC) to meet industry compliance standards."
+    }
+  },{
+    "@type": "Question",
+    "name": "Can Gemini Enterprise integrate with existing business tools and applications?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes. Gemini Enterprise integrates seamlessly with popular enterprise tools, including Salesforce, Jira, SharePoint, Outlook, Slack, Google Workspace, and supports third-party integrations from partners like Box and ServiceNow for unified workflows."
+    }
+  },{
+    "@type": "Question",
+    "name": "What prebuilt AI agents are available in Gemini Enterprise?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Gemini Enterprise offers ready-to-deploy prebuilt agents for common business functions, including data analysis, content generation, code assistance, customer support, and research. These agents can be implemented immediately without custom development or configuration."
+    }
+  }]
+}
+
 
   return (
     <div className="min-h-screen bg-white">
+
       <Header />
+       <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
       <main>
         <HeroSection />
         <FeaturesSection />

@@ -87,7 +87,7 @@ function HeroSection() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-sm sm:text-base lg:text-lg text-white/80 max-w-2xl mb-6 sm:mb-8 leading-relaxed font-body"
           >
-            Google's most powerful AI engine, built directly into the apps your team already uses every day. Shivaami architects your AI transformation, trains your people, and delivers real business results.
+           Google AI Ultra delivers enterprise-grade artificial intelligence across Gmail, Docs, Sheets, and Meet, powering smarter workflows with advanced automation. As a certified Google Cloud partner, Shivaami enables seamless deployment and adoption across organizations.
           </motion.p>
 
           <motion.div
@@ -299,12 +299,7 @@ function ActivationSection() {
       desc: 'Our Google-certified engineers are standing by to help you anytime you want. You are basically just a call away.',
     },
 
-    {
-      image: ongoingSupportImg,
-      icon: HeadphonesIcon,
-      title: 'Continuous AI Strategy Updates',
-      desc: 'Google releases new AI features monthly, and we make sure youre always running the latest, most powerful version.',
-    },
+
   ];
 
   return (
