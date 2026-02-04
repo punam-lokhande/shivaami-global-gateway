@@ -20,7 +20,9 @@ import {
   HeadphonesIcon,
   Calendar,
   CheckCircle2,
-  ArrowRight
+  ArrowRight,
+  Link,
+  HelpCircle
 } from "lucide-react";
 import superopsBanner from "@/assets/banners/superops-banner.jpg";
 import strategicPlanning from "@/assets/activation/strategic-planning.jpg";
@@ -88,15 +90,17 @@ const HeroSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            Unify IT Operations with <span className="text-[#38B6FF]">SuperOps</span>
+            <span className="text-[#38B6FF]">SuperOps: Flexible</span> IT Operations Solutions
           </motion.h1>
+            
+
           <motion.p 
             className="text-sm sm:text-base lg:text-lg text-white/80 max-w-2xl mb-6 sm:mb-8 leading-relaxed font-body"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            SuperOps is a unified platform combining remote monitoring, service desk, and professional services automation. Consolidate multiple IT management tools into one integrated solution.
+          SuperOps is a unified platform combining remote monitoring, service desk, and professional services automation into one integrated solution. Shivaami partners with SuperOps to implement and optimize IT operations for managed service providers across India.
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -122,42 +126,42 @@ const features = [
   {
     icon: Monitor,
     title: "Remote Monitoring and Management",
-    description: "Monitor devices, servers, and network infrastructure in real time. Automated alerts notify teams of issues before users report them."
+    description: "Monitor devices, servers, and network infrastructure in real time. Automated alerts notify teams of issues before users report them. Remote access enables quick troubleshooting and resolution."
   },
   {
     icon: Headphones,
     title: "Integrated Service Desk",
-    description: "Ticketing system tracks requests from submission to resolution. SLA management ensures timely response and resolution."
+    description: "Ticketing system tracks requests from submission to resolution. SLA management ensures timely response and resolution. Self-service portal reduces routine IT requests."
   },
   {
     icon: Briefcase,
     title: "Professional Services Automation",
-    description: "Project management tools track time, budgets, and deliverables. Client billing integrates with time tracking and expenses."
+    description: "Project management tools track time, budgets, and deliverables. Client billing integrates with time tracking and expenses. Resource scheduling optimizes team utilization."
   },
   {
     icon: RefreshCw,
     title: "Patch Management",
-    description: "Automate patch deployment across Windows, macOS, and third-party applications. Approval workflows control update timing and testing."
+    description: "Automate patch deployment across Windows, macOS, and third-party applications. Approval workflows control update timing and testing. Compliance reporting demonstrates patch coverage."
   },
   {
     icon: Package,
     title: "Asset Management",
-    description: "Track hardware and software inventory automatically. License management prevents over-licensing or compliance gaps."
+    description: "Track hardware and software inventory automatically. License management prevents over-licensing or compliance gaps. Asset lifecycle data supports planning and budgeting."
   },
   {
     icon: Users,
     title: "Client Portal",
-    description: "Customers view ticket status and submit requests independently. Knowledge base articles reduce repetitive support questions."
+    description: "Customers view ticket status and submit requests independently. Knowledge base articles reduce repetitive support questions. Transparency improves client satisfaction."
   },
   {
     icon: BarChart3,
     title: "Reporting and Analytics",
-    description: "Performance dashboards show ticket volume, response times, and resolution rates. Client health scores identify accounts needing attention."
+    description: "Performance dashboards show ticket volume, response times, and resolution rates. Client health scores identify accounts needing attention. Business reports support data-driven decisions."
   },
   {
     icon: Workflow,
     title: "Automation and Workflows",
-    description: "Automate routine tasks like onboarding and software deployment. Custom scripts extend platform capabilities."
+    description: "Automate routine tasks like onboarding and software deployment. Custom scripts extend platform capabilities. Integration with other tools eliminates manual data entry."
   }
 ];
 
@@ -168,9 +172,7 @@ const FeaturesSection = () => (
         <h2 className="text-2xl md:text-3xl font-bold text-[#0C4594] mb-4">
           What SuperOps Delivers
         </h2>
-        <p className="text-gray-600 max-w-2xl mx-auto">
-          Operational efficiency and client management for MSPs and IT teams
-        </p>
+       
       </motion.div>
       
       <motion.div 
@@ -257,31 +259,31 @@ const activationSteps = [
     image: strategicPlanning,
     icon: Brain,
     title: "Strategy and Planning",
-    description: "We assess your current IT operations and identify consolidation opportunities. Our team designs SuperOps configuration aligned with service delivery model."
+    description: "We assess your current IT operations and identify consolidation opportunities. Our team designs SuperOps configuration aligned with the service delivery model. You get an implementation plan that streamlines operations."
   },
   {
     image: technicalDeployment,
     icon: Settings,
     title: "Deployment and Integration",
-    description: "Shivaami configures SuperOps modules and organizational structure. We migrate data from existing tools and establish integrations."
+    description: "Shivaami configures SuperOps modules and organizational structure. We migrate data from existing tools and establish integrations. Your team starts using the unified platform quickly."
   },
   {
     image: securityConfig,
     icon: Shield,
     title: "Security and Compliance",
-    description: "Our experts implement access controls and audit logging. We configure patch management and compliance reporting."
+    description: "Our experts implement access controls and audit logging. We configure patch management and compliance reporting. Security settings protect both your organization and clients."
   },
   {
     image: teamTraining,
     icon: GraduationCap,
     title: "User Enablement and Adoption",
-    description: "We train IT staff on platform features and best practices. Documentation supports ongoing operations and troubleshooting."
+    description: "We train IT staff on platform features and best practices. Documentation supports ongoing operations and troubleshooting. Process guidance helps teams leverage full platform capabilities."
   },
   {
     image: ongoingSupport,
     icon: HeadphonesIcon,
     title: "Ongoing Optimization and Support",
-    description: "Shivaami provides guidance on workflow optimization and automation. We help refine processes as your operations evolve."
+    description: "Shivaami guides workflow optimization and automation. We help refine processes as your operations evolve. Regular reviews identify opportunities to increase efficiency."
   }
 ];
 
@@ -292,9 +294,7 @@ const ActivationSection = () => (
         <h2 className="text-2xl md:text-3xl font-bold text-[#0C4594] mb-4">
           How Shivaami Helps You Succeed?
         </h2>
-        <p className="text-gray-600 max-w-2xl mx-auto">
-          Our SuperOps partnership helps you maximize platform value
-        </p>
+       
       </motion.div>
 
       <motion.div 
@@ -318,6 +318,8 @@ const ActivationSection = () => (
 );
 
 import CTASection from '@/components/sections/CTASection';
+import { Helmet } from "react-helmet-async";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@radix-ui/react-accordion";
 
 const SuperOps = () => {
   const [showGetStartedDialog, setShowGetStartedDialog] = useState(false);
@@ -328,18 +330,172 @@ const SuperOps = () => {
     return () => document.removeEventListener('openGetStartedDialog', handleOpenDialog);
   }, []);
 
+
+
+// FAQ Section
+function FAQSection() {
+  const faqs = [
+    {
+      question: "What is SuperOps used for?",
+      answer: "SuperOps is used to manage IT operations through a unified platform that combines Remote Monitoring and Management (RMM), Service Desk, and Professional Services Automation (PSA). IT teams and managed service providers use SuperOps to monitor infrastructure, manage tickets, automate workflows, and deliver IT services efficiently."
+    },
+    {
+      question: "Who should use SuperOps?",
+      answer: "SuperOps is designed for managed service providers (MSPs) and internal IT teams that want to consolidate multiple IT management tools into one platform. It is well suited for organizations looking to improve service delivery, streamline workflows, and gain better visibility into operations and client performance."
+    },
+    {
+      question: "How does SuperOps help improve IT service delivery?",
+      answer: "SuperOps improves IT service delivery by centralizing monitoring, ticketing, asset management, and automation. Real-time alerts, SLA tracking, and workflow automation help teams resolve issues faster, reduce downtime, and deliver consistent support experiences to end users and clients."
+    },
+    {
+      question: "What is the difference between SuperOps and traditional RMM or PSA tools?",
+      answer: "Unlike standalone RMM or PSA tools, SuperOps combines monitoring, service desk, project management, billing, and automation into a single integrated platform. This reduces tool sprawl, eliminates data silos, and gives IT teams a unified view of operations and service performance."
+    },
+    {
+      question: "Can SuperOps replace multiple IT management tools?",
+      answer: "Yes, SuperOps can replace multiple IT management tools by providing RMM, PSA, service desk, asset management, patching, and reporting in one solution. This consolidation simplifies operations, lowers licensing costs, and improves efficiency by reducing manual handoffs between systems."
+    },
+    {
+      question: "How can IT teams in India implement SuperOps?",
+      answer: "IT teams in India can implement SuperOps by working with a certified partner like Shivaami. The implementation includes operational assessment, platform configuration, data migration, workflow automation, staff training, and ongoing optimization to ensure effective and scalable IT service delivery."
+    }
+  ];
+
   return (
+    <section className="py-16 bg-[#f8fafc]">
+      <div className="w-full px-8 lg:px-16 xl:px-24">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left - Image */}
+            <motion.div {...fadeInUp} className="relative">
+              <div className="absolute -inset-4 bg-gradient-to-r from-[#0C4594]/20 to-[#38B6FF]/20 rounded-3xl blur-2xl" />
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+                <img 
+                  src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=600&h=500&fit=crop" 
+                  alt="FAQ Support"
+                  className="w-full h-[400px] object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0C4594]/80 via-transparent to-transparent" />
+                <div className="absolute bottom-6 left-6 right-6">
+                  <div className="flex items-center gap-3 text-white">
+                    <div className="w-12 h-12 rounded-xl bg-[#38B6FF] flex items-center justify-center">
+                      <HelpCircle className="w-6 h-6" />
+                    </div>
+                    <div>
+                      <p className="font-semibold text-lg">Need Help?</p>
+                      <p className="text-white/80 text-sm">We're here 24x7</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Right - FAQ */}
+            <motion.div {...fadeInUp}>
+              <h2 className="text-2xl md:text-3xl font-bold text-[#0C4594] mb-6">
+                Frequently Asked Questions
+              </h2>
+              
+              <Accordion type="single" collapsible className="space-y-2">
+                {faqs.map((faq, idx) => (
+                  <AccordionItem 
+                    key={idx} 
+                    value={`item-${idx}`}
+                    className="bg-white border border-[#e2e8f0] rounded-xl px-4 overflow-hidden hover:border-[#38B6FF]/30 transition-colors"
+                  >
+                    <AccordionTrigger className="text-[#0C4594] hover:text-[#38B6FF] text-left py-4 hover:no-underline text-sm">
+                      <span className="font-medium">{faq.question}</span>
+                    </AccordionTrigger>
+                    <AccordionContent className="text-[#64748b] pb-4 text-sm">
+                      {faq.answer}
+                    </AccordionContent>
+                  </AccordionItem>
+                ))}
+              </Accordion>
+
+            
+            </motion.div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+
+const faqSchema ={
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [{
+    "@type": "Question",
+    "name": "What is SuperOps used for?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "SuperOps is used to manage IT operations through a unified platform that combines Remote Monitoring and Management (RMM), Service Desk, and Professional Services Automation (PSA). IT teams and managed service providers use SuperOps to monitor infrastructure, manage tickets, automate workflows, and deliver IT services efficiently."
+    }
+  },{
+    "@type": "Question",
+    "name": "Who should use SuperOps?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "SuperOps is designed for managed service providers (MSPs) and internal IT teams that want to consolidate multiple IT management tools into one platform. It is well suited for organizations looking to improve service delivery, streamline workflows, and gain better visibility into operations and client performance."
+    }
+  },{
+    "@type": "Question",
+    "name": "How does SuperOps help improve IT service delivery?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "SuperOps improves IT service delivery by centralizing monitoring, ticketing, asset management, and automation. Real-time alerts, SLA tracking, and workflow automation help teams resolve issues faster, reduce downtime, and deliver consistent support experiences to end users and clients."
+    }
+  },{
+    "@type": "Question",
+    "name": "What is the difference between SuperOps and traditional RMM or PSA tools?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Unlike standalone RMM or PSA tools, SuperOps combines monitoring, service desk, project management, billing, and automation into a single integrated platform. This reduces tool sprawl, eliminates data silos, and gives IT teams a unified view of operations and service performance."
+    }
+  },{
+    "@type": "Question",
+    "name": "Can SuperOps replace multiple IT management tools?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes, SuperOps can replace multiple IT management tools by providing RMM, PSA, service desk, asset management, patching, and reporting in one solution. This consolidation simplifies operations, lowers licensing costs, and improves efficiency by reducing manual handoffs between systems."
+    }
+  },{
+    "@type": "Question",
+    "name": "How can IT teams in India implement SuperOps?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "IT teams in India can implement SuperOps by working with a certified partner like Shivaami. The implementation includes operational assessment, platform configuration, data migration, workflow automation, staff training, and ongoing optimization to ensure effective and scalable IT service delivery."
+    }
+  }]
+}
+
+
+
+
+
+  return (
+    <>
+     <Helmet>
+<title>SuperOps Partner in India & USA | IT Operations Platform by Shivaami</title>
+ <meta name="description" content="Deploy SuperOps unified IT operations platform with Shivaami. RMM, PSA, and service desk in one solution. Streamline managed services delivery." />
+<link rel="canonical" href="https://www.shivaami.com/superops" />
+<script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
+ </Helmet>
+
     <div className="min-h-screen bg-white">
       <Header />
       <main>
         <HeroSection />
         <FeaturesSection />
         <ActivationSection />
+        <FAQSection />
         <CTASection />
       </main>
       <Footer />
       <GetStartedDialog open={showGetStartedDialog} onOpenChange={setShowGetStartedDialog} />
-    </div>
+    </div></>
   );
 };
 

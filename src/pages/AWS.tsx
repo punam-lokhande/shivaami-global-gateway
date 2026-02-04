@@ -18,7 +18,8 @@ import {
   HeadphonesIcon,
   Calendar,
   CheckCircle2,
-  ArrowRight
+  ArrowRight,
+  HelpCircle
 } from "lucide-react";
 import awsBanner from "@/assets/banners/aws-banner.jpg";
 import strategicPlanning from "@/assets/activation/strategic-planning.jpg";
@@ -71,10 +72,10 @@ const HeroSection = () => {
       <motion.div className="relative z-10 w-full px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24 pt-24 sm:pt-28 md:pt-32 lg:pt-36" style={{ opacity }}>
         <div className="max-w-3xl">
           <motion.h1 className="font-display text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-semibold text-white mb-4 sm:mb-6 leading-[1.15] tracking-tight" initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2 }}>
-            Build on <span className="text-[#38B6FF]">AWS</span> Cloud Infrastructure
+           <span className="text-[#38B6FF]">AWS : Build on Cloud</span> Infrastructure Solutions
           </motion.h1>
           <motion.p className="text-sm sm:text-base lg:text-lg text-white/80 max-w-2xl mb-6 sm:mb-8 leading-relaxed font-body" initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.4 }}>
-            Amazon Web Services provides comprehensive cloud infrastructure including compute, storage, databases, and networking. Broadest service portfolio with global reach and enterprise reliability.
+           Amazon Web Services provides comprehensive cloud infrastructure including compute, storage, databases, and networking with global reach. Shivaami, an Advanced AWS Consulting Partner, architects and manages AWS environments for enterprises across India.
           </motion.p>
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.6 }}>
             <Button size="lg" onClick={handleGetStarted} className="bg-[#38B6FF] hover:bg-[#2da8f0] text-white font-semibold px-8 py-6 text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
@@ -92,42 +93,42 @@ const features = [
   {
     icon: Server,
     title: "Compute Services",
-    description: "EC2 instances provide flexible virtual servers. Lambda enables serverless computing. Elastic Container Service runs containerized applications at scale."
+    description: "EC2 instances provide flexible virtual servers for any workload. Lambda enables serverless computing without infrastructure management. Elastic Container Service runs containerized applications at scale."
   },
   {
     icon: Database,
     title: "Storage Solutions",
-    description: "S3 object storage offers unlimited scalability. EBS volumes provide block storage for databases. Glacier archives data cost-effectively."
+    description: "SS3 object storage offers unlimited scalability with high durability. EBS volumes provide block storage for databases and applications. Glacier archives data cost-effectively for long-term retention."
   },
   {
     icon: Layers,
     title: "Database Services",
-    description: "RDS manages relational databases including PostgreSQL, MySQL, and Oracle. DynamoDB delivers NoSQL performance at any scale."
+    description: "RDS manages relational databases including PostgreSQL, MySQL, and Oracle. DynamoDB delivers NoSQL performance at any scale. Aurora provides MySQL and PostgreSQL compatibility with cloud advantages."
   },
   {
     icon: Network,
     title: "Networking Capabilities",
-    description: "VPC creates isolated network environments. Direct Connect establishes dedicated connections. CloudFront CDN delivers content globally."
+    description: "VPC creates isolated network environments with complete control. Direct Connect establishes dedicated connections to AWS. CloudFront CDN delivers content globally with low latency."
   },
   {
     icon: Shield,
     title: "Security and Identity",
-    description: "IAM controls access with granular permissions. CloudTrail logs all API activity. AWS Shield protects against DDoS attacks."
+    description: "IAM controls access with granular permissions and policies. CloudTrail logs all API activity for audit and compliance. AWS Shield protects against DDoS attacks automatically."
   },
   {
     icon: BarChart3,
     title: "Analytics and AI",
-    description: "Redshift enables petabyte-scale data warehousing. SageMaker simplifies ML model development. Athena queries data directly in S3."
+    description: "Redshift enables petabyte-scale data warehousing. SageMaker simplifies machine learning model development and deployment. Athena queries data directly in S3 without infrastructure."
   },
   {
     icon: Cloud,
     title: "Application Integration",
-    description: "API Gateway creates and manages APIs at scale. SNS provides messaging for distributed applications. SQS queues messages reliably."
+    description: "API Gateway creates and manages APIs at any scale. SNS provides messaging for distributed applications. SQS queues messages reliably for asynchronous processing."
   },
   {
     icon: Settings,
     title: "Management Tools",
-    description: "CloudWatch monitors applications comprehensively. Systems Manager automates operational tasks. Cost Explorer analyzes spending."
+    description: "CloudWatch monitors applications and infrastructure comprehensively. Systems Manager automates operational tasks across resources. Cost Explorer analyzes spending and identifies optimization opportunities."
   }
 ];
 
@@ -138,9 +139,7 @@ const FeaturesSection = () => (
         <h2 className="text-2xl md:text-3xl font-bold text-[#0C4594] mb-4">
           What AWS Cloud Delivers
         </h2>
-        <p className="text-gray-600 max-w-2xl mx-auto">
-          Scalability, innovation capabilities, and extensive partner ecosystem
-        </p>
+      
       </motion.div>
       
       <motion.div 
@@ -227,31 +226,31 @@ const activationSteps = [
     image: strategicPlanning,
     icon: Brain,
     title: "Strategy and Planning",
-    description: "We assess your applications and design AWS cloud architecture. Our team creates migration strategies with risk mitigation plans."
+    description: "We assess your applications and design AWS cloud architecture. Our team creates migration strategies with risk mitigation plans. You get detailed roadmap with business case and timelines."
   },
   {
     image: technicalDeployment,
     icon: Settings,
     title: "Deployment and Integration",
-    description: "Shivaami migrates workloads using proven methodologies and automation. We configure networking, security, and operational tools."
+    description: "Shivaami migrates workloads using proven methodologies and automation. We configure networking, security, and operational tools. Your applications run on AWS with optimized performance."
   },
   {
     image: securityConfig,
     icon: Shield,
     title: "Security and Compliance",
-    description: "Our security specialists implement AWS best practices and controls. We configure monitoring, logging, and incident response capabilities."
+    description: "Our security specialists implement AWS best practices and controls. We configure monitoring, logging, and incident response capabilities. Compliance frameworks align with regulatory requirements."
   },
   {
     image: teamTraining,
     icon: GraduationCap,
     title: "User Enablement and Adoption",
-    description: "We train development and operations teams on AWS services. Knowledge transfer ensures your staff manages infrastructure effectively."
+    description: "We train development and operations teams on AWS services. Knowledge transfer ensures your staff manages infrastructure effectively. Documentation and runbooks support ongoing operations."
   },
   {
     image: ongoingSupport,
     icon: HeadphonesIcon,
     title: "Ongoing Optimization and Support",
-    description: "Shivaami provides managed services with 24/7 monitoring and support. We continuously optimize costs, performance, and architecture."
+    description: "Shivaami provides managed services with 24/7 monitoring and support. We continuously optimize costs, performance, and architecture. Regular reviews identify modernization opportunities."
   }
 ];
 
@@ -288,6 +287,8 @@ const ActivationSection = () => (
 );
 
 import CTASection from '@/components/sections/CTASection';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@radix-ui/react-accordion";
+import { Helmet } from "react-helmet-async";
 
 const AWS = () => {
   const [showGetStartedDialog, setShowGetStartedDialog] = useState(false);
@@ -296,13 +297,165 @@ const AWS = () => {
     document.addEventListener('openGetStartedDialog', handleOpenDialog);
     return () => document.removeEventListener('openGetStartedDialog', handleOpenDialog);
   }, []);
+
+// FAQ Section
+function FAQSection() {
+  const faqs = [
+    {
+      question: "What is AWS (Amazon Web Services)?",
+      answer: "AWS (Amazon Web Services) is Amazon's comprehensive cloud computing platform that provides on-demand services, including computing power, storage solutions, databases, machine learning, analytics, and networking. It enables organizations to build, deploy, and scale applications with flexibility and cost-efficiency."
+    },
+    {
+      question: "How can AWS be used for business operations? ",
+      answer: "AWS supports diverse business needs, including web hosting, application deployment, data storage and backup, big data analytics, machine learning model training, IoT solutions, and disaster recovery. It provides scalable infrastructure for startups, enterprises, and government organizations."
+    },
+    {
+      question: "Is AWS only for large enterprises, or can small businesses benefit too? ",
+      answer: "AWS serves businesses of all sizes with its flexible pay-as-you-go pricing model. Small businesses and startups benefit from low initial costs and scalability, while large enterprises leverage their comprehensive services and global infrastructure for complex requirements."
+    },
+    {
+      question: "Is AWS compliant with industry standards and regulations? ",
+      answer: "Yes, AWS maintains compliance with major industry standards, including ISO 27001, SOC 1/2/3, HIPAA, GDPR, PCI DSS, and FedRAMP. AWS provides compliance documentation and tools to help customers meet their specific regulatory requirements."
+    },
+    {
+      question: "What security features does AWS provide? ",
+      answer: "AWS offers enterprise-grade security with data encryption, identity and access management (IAM), network firewalls, DDoS protection, security monitoring tools, and compliance certifications. AWS follows a shared responsibility model for comprehensive security coverage."
+    },
+    {
+      question: "Can Shivaami customize AWS solutions for my specific business needs? ",
+      answer: "Yes, Shivaami provides tailored AWS implementation and migration services designed to address your unique business requirements. Our expertise ensures optimal cloud architecture, cost optimization, security configuration, and seamless deployment for maximum results."
+    }
+  ];
+
   return (
+    <section className="py-16 bg-[#f8fafc]">
+      <div className="w-full px-8 lg:px-16 xl:px-24">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left - Image */}
+            <motion.div {...fadeInUp} className="relative">
+              <div className="absolute -inset-4 bg-gradient-to-r from-[#0C4594]/20 to-[#38B6FF]/20 rounded-3xl blur-2xl" />
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+                <img 
+                  src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=600&h=500&fit=crop" 
+                  alt="FAQ Support"
+                  className="w-full h-[400px] object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0C4594]/80 via-transparent to-transparent" />
+                <div className="absolute bottom-6 left-6 right-6">
+                  <div className="flex items-center gap-3 text-white">
+                    <div className="w-12 h-12 rounded-xl bg-[#38B6FF] flex items-center justify-center">
+                      <HelpCircle className="w-6 h-6" />
+                    </div>
+                    <div>
+                      <p className="font-semibold text-lg">Need Help?</p>
+                      <p className="text-white/80 text-sm">We're here 24x7</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Right - FAQ */}
+            <motion.div {...fadeInUp}>
+              <h2 className="text-2xl md:text-3xl font-bold text-[#0C4594] mb-6">
+                Frequently Asked Questions
+              </h2>
+              
+              <Accordion type="single" collapsible className="space-y-2">
+                {faqs.map((faq, idx) => (
+                  <AccordionItem 
+                    key={idx} 
+                    value={`item-${idx}`}
+                    className="bg-white border border-[#e2e8f0] rounded-xl px-4 overflow-hidden hover:border-[#38B6FF]/30 transition-colors"
+                  >
+                    <AccordionTrigger className="text-[#0C4594] hover:text-[#38B6FF] text-left py-4 hover:no-underline text-sm">
+                      <span className="font-medium">{faq.question}</span>
+                    </AccordionTrigger>
+                    <AccordionContent className="text-[#64748b] pb-4 text-sm">
+                      {faq.answer}
+                    </AccordionContent>
+                  </AccordionItem>
+                ))}
+              </Accordion>
+
+              
+            </motion.div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+const faqSchema ={
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [{
+    "@type": "Question",
+    "name": "What is AWS (Amazon Web Services)?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "AWS (Amazon Web Services) is Amazon's comprehensive cloud computing platform that provides on-demand services, including computing power, storage solutions, databases, machine learning, analytics, and networking. It enables organizations to build, deploy, and scale applications with flexibility and cost-efficiency."
+    }
+  },{
+    "@type": "Question",
+    "name": "How can AWS be used for business operations?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "AWS supports diverse business needs, including web hosting, application deployment, data storage and backup, big data analytics, machine learning model training, IoT solutions, and disaster recovery. It provides scalable infrastructure for startups, enterprises, and government organizations."
+    }
+  },{
+    "@type": "Question",
+    "name": "Is AWS only for large enterprises, or can small businesses benefit too?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "AWS serves businesses of all sizes with its flexible pay-as-you-go pricing model. Small businesses and startups benefit from low initial costs and scalability, while large enterprises leverage their comprehensive services and global infrastructure for complex requirements."
+    }
+  },{
+    "@type": "Question",
+    "name": "Is AWS compliant with industry standards and regulations?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes, AWS maintains compliance with major industry standards, including ISO 27001, SOC 1/2/3, HIPAA, GDPR, PCI DSS, and FedRAMP. AWS provides compliance documentation and tools to help customers meet their specific regulatory requirements."
+    }
+  },{
+    "@type": "Question",
+    "name": "What security features does AWS provide?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "AWS offers enterprise-grade security with data encryption, identity and access management (IAM), network firewalls, DDoS protection, security monitoring tools, and compliance certifications. AWS follows a shared responsibility model for comprehensive security coverage."
+    }
+  },{
+    "@type": "Question",
+    "name": "Can Shivaami customize AWS solutions for my specific business needs?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes, Shivaami provides tailored AWS implementation and migration services designed to address your unique business requirements. Our expertise ensures optimal cloud architecture, cost optimization, security configuration, and seamless deployment for maximum results."
+    }
+  }]
+}
+
+
+
+
+  return (
+
+    <>
+  <Helmet>
+<title>AWS Partner in India & USA | Cloud Solutions by Shivaami</title>
+ <meta name="description" content="Deploy AWS cloud infrastructure with Shivaami. Expert migration, architecture design, and managed services. Advanced AWS consulting partner in India." />
+<link rel="canonical" href="https://www.shivaami.com/aws" />
+ <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
+ </Helmet>
+
+
     <div className="min-h-screen bg-white">
       <Header />
-      <main><HeroSection /><FeaturesSection /><ActivationSection /><CTASection /></main>
+      <main><HeroSection /><FeaturesSection /><ActivationSection /> <FAQSection /> <CTASection /></main>
       <Footer />
       <GetStartedDialog open={showGetStartedDialog} onOpenChange={setShowGetStartedDialog} />
-    </div>
+    </div></>
   );
 };
 export default AWS;

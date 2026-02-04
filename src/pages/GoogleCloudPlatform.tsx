@@ -18,7 +18,8 @@ import {
   HeadphonesIcon,
   Calendar,
   CheckCircle2,
-  ArrowRight
+  ArrowRight,
+  HelpCircle
 } from "lucide-react";
 import gcpBanner from "@/assets/banners/gcp-banner.jpg";
 import strategicPlanning from "@/assets/activation/strategic-planning.jpg";
@@ -86,7 +87,7 @@ const HeroSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            Build on <span className="text-[#34A853]">Google Cloud</span> Platform
+           <span className="text-[#38B6FF]">Google Cloud Platform :</span> Scalable Cloud Infrastructure
           </motion.h1>
           <motion.p 
             className="text-sm sm:text-base lg:text-lg text-white/80 max-w-2xl mb-6 sm:mb-8 leading-relaxed font-body"
@@ -94,7 +95,7 @@ const HeroSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            Google Cloud Platform is an enterprise cloud infrastructure built for innovation and scale. It delivers computing power, storage, databases, machine learning, and analytics on Google's global network. Shivaami is a Premier Google Cloud Partner serving enterprises across India.
+          Google Cloud Platform delivers enterprise cloud infrastructure with computing, storage, databases, machine learning, and analytics on Google's global network. Shivaami, a Premier Google Cloud Partner, designs cloud solutions for enterprises.
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -120,7 +121,7 @@ const features = [
   {
     icon: Server,
     title: "Compute Power at Scale",
-    description: "Run workloads on virtual machines, containers, or serverless platforms. Autoscaling automatically adjusts resources based on demand. Select from general-purpose or specialized machine types."
+    description: "Run workloads on virtual machines, containers, or serverless platforms. Autoscaling automatically adjusts resources based on demand. Select from general-purpose or specialized machine types tailored to your specific needs."
   },
   {
     icon: Globe,
@@ -130,33 +131,29 @@ const features = [
   {
     icon: BarChart3,
     title: "Advanced Data Analytics",
-    description: "BigQuery analyzes petabytes of data in seconds without infrastructure management. Data Studio creates visual reports. Looker enables embedded analytics across your organization."
+    description: "BigQuery analyzes petabytes of data in seconds without infrastructure management. Data Studio creates visual reports from multiple sources. Looker enables embedded analytics across your organization."
   },
   {
     icon: Brain,
     title: "Machine Learning and AI",
-    description: "Pre-trained models accelerate computer vision, language, and recommendation systems. Vertex AI provides tools to build, deploy, and scale custom models. AutoML simplifies ML."
+    description: "Pre-trained models accelerate computer vision, language, and recommendation systems. Vertex AI provides tools to build, deploy, and scale custom models. AutoML simplifies machine learning for teams without deep expertise."
   },
   {
     icon: Database,
     title: "Managed Databases",
-    description: "Cloud SQL supports PostgreSQL, MySQL, and SQL Server with automatic backups. Firestore delivers NoSQL scalability. Bigtable handles massive analytical and operational workloads."
+    description: "Cloud SQL supports PostgreSQL, MySQL, and SQL Server with automatic backups. Firestore delivers NoSQL scalability for mobile and web applications. Bigtable handles massive analytical and operational workloads."
   },
   {
     icon: Container,
     title: "Kubernetes and Containers",
-    description: "Google Kubernetes Engine manages containerized applications with enterprise reliability. Autopilot mode removes cluster management overhead. Built-in monitoring and logging."
+    description: "Google Kubernetes Engine manages containerized applications with enterprise reliability. Autopilot mode removes cluster management overhead completely. Built-in monitoring and logging simplify operations."
   },
   {
     icon: Shield,
     title: "Security and Compliance",
-    description: "Infrastructure encryption protects data at rest and in transit by default. IAM controls permissions at granular levels. Certifications include ISO, SOC, PCI DSS, and HIPAA."
+    description: " Infrastructure encryption protects data at rest and in transit by default. Identity and Access Management controls permissions at granular levels. Compliance certifications include ISO, SOC, PCI DSS, and HIPAA."
   },
-  {
-    icon: Network,
-    title: "Networking Solutions",
-    description: "Virtual Private Cloud isolates resources with complete control. Cloud Interconnect provides dedicated private connectivity. Load balancing distributes traffic globally."
-  }
+ 
 ];
 
 const FeaturesSection = () => (
@@ -166,9 +163,7 @@ const FeaturesSection = () => (
         <h2 className="text-2xl md:text-3xl font-bold text-[#1a73e8] mb-4">
           What Google Cloud Platform Delivers
         </h2>
-        <p className="text-gray-600 max-w-2xl mx-auto">
-          Enterprise cloud infrastructure built for innovation, performance, security, and advanced data capabilities
-        </p>
+      
       </motion.div>
       
       <motion.div 
@@ -255,31 +250,31 @@ const activationSteps = [
     image: strategicPlanning,
     icon: Brain,
     title: "Strategy and Planning",
-    description: "We analyze your applications and infrastructure to build a cloud migration strategy. Our team identifies performance improvements and modernization opportunities with a detailed roadmap."
+    description: "We analyze your applications and infrastructure to build a cloud migration strategy. Our team identifies performance improvements and modernization opportunities. Then, you receive a detailed roadmap with prioritized workloads and timelines."
   },
   {
     image: technicalDeployment,
     icon: Settings,
     title: "Deployment and Integration",
-    description: "Shivaami architects design solutions using GCP best practices and reference architectures. We handle workload migration, including lift-and-shift and re-platforming approaches."
+    description: "Shivaami architects design solutions using GCP best practices and reference architectures. We handle workload migration, including lift-and-shift and re-platforming approaches. Your applications move to the cloud with minimal disruption."
   },
   {
     image: securityConfig,
     icon: Shield,
     title: "Security and Compliance",
-    description: "Our security specialists implement identity management, network controls, and encryption policies. We configure logging, monitoring, and threat detection across your environment."
+    description: "Our security specialists implement identity management, network controls, and encryption policies. We configure logging, monitoring, and threat detection across your environment. Compliance frameworks align with industry regulations and internal policies."
   },
   {
     image: teamTraining,
     icon: GraduationCap,
     title: "User Enablement and Adoption",
-    description: "We train your DevOps and IT teams on GCP tools and operational procedures. Knowledge transfer ensures your staff can manage and optimize cloud resources."
+    description: "We train your DevOps and IT teams on GCP tools and operational procedures. Knowledge transfer ensures your staff can manage and optimize cloud resources. Documentation and runbooks support ongoing operations."
   },
   {
     image: ongoingSupport,
     icon: HeadphonesIcon,
     title: "Ongoing Optimization and Support",
-    description: "Shivaami provides managed services with 24/7 monitoring and incident response. We continuously optimize costs, performance, and resource utilization."
+    description: "Shivaami provides managed services with 24/7 monitoring and incident response. We continuously optimize costs, performance, and resource utilization. Regular architecture reviews identify opportunities for improvement and innovation."
   }
 ];
 
@@ -290,9 +285,7 @@ const ActivationSection = () => (
         <h2 className="text-2xl md:text-3xl font-bold text-[#1a73e8] mb-4">
           How Shivaami Helps You Succeed
         </h2>
-        <p className="text-gray-600 max-w-2xl mx-auto">
-          As a Premier Partner, we provide direct access to Google Cloud resources and manage billing, licensing, and support escalations on your behalf
-        </p>
+      
       </motion.div>
 
       <motion.div 
@@ -316,6 +309,8 @@ const ActivationSection = () => (
 );
 
 import CTASection from '@/components/sections/CTASection';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@radix-ui/react-accordion";
+import { Helmet } from "react-helmet-async";
 
 const GoogleCloudPlatform = () => {
   const [showGetStartedDialog, setShowGetStartedDialog] = useState(false);
@@ -332,18 +327,170 @@ const GoogleCloudPlatform = () => {
     return () => document.removeEventListener('openGetStartedDialog', handleOpenDialog);
   }, []);
 
+// FAQ Section
+function FAQSection() {
+  const faqs = [
+    {
+      question: "What is the Google Cloud Platform (GCP)?",
+      answer: "Google Cloud Platform (GCP) is a comprehensive suite of cloud computing services hosted on Google's global infrastructure. It provides businesses with scalable computing resources, data storage, machine learning tools, and application development services."
+    },
+    {
+      question: "What are the key advantages of using GCP?",
+      answer: "GCP offers superior performance with Google's high-speed global network, automatic security updates, advanced data analytics capabilities, competitive pricing with sustained-use discounts, and seamless integration with Google Workspace and other Google services."
+    },
+    {
+      question: "Is Google Cloud Platform (GCP) suitable for my business needs?",
+      answer: "Yes, GCP is designed to serve businesses of all sizes and industries. It offers flexible solutions for data storage, application development, machine learning, big data analytics, and infrastructure management tailored to diverse business requirements."
+    },
+    {
+      question: "What services does Google Cloud Platform offer?",
+      answer: "GCP provides a wide range of services, including Compute Engine for virtual machines, Cloud Storage for data storage, BigQuery for data analytics, Kubernetes Engine for container orchestration, and AI/ML services for artificial intelligence applications."
+    },
+    {
+      question: "How secure is Google Cloud Platform?",
+      answer: "GCP implements enterprise-grade security with multiple layers of protection, including data encryption at rest and in transit, identity and access management, DDoS protection, compliance certifications, and 24/7 security monitoring by Google's security teams."
+    },
+    {
+      question: "How does GCP pricing work?",
+      answer: "GCP uses a pay-as-you-go pricing model where you only pay for the resources you consume. It offers sustained-use discounts for long-running workloads, committed-use discounts for predictable usage, and a pricing calculator to estimate costs before deployment."
+    }
+  ];
+
   return (
+    <section className="py-16 bg-[#f8fafc]">
+      <div className="w-full px-8 lg:px-16 xl:px-24">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left - Image */}
+            <motion.div {...fadeInUp} className="relative">
+              <div className="absolute -inset-4 bg-gradient-to-r from-[#0C4594]/20 to-[#38B6FF]/20 rounded-3xl blur-2xl" />
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+                <img 
+                  src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=600&h=500&fit=crop" 
+                  alt="FAQ Support"
+                  className="w-full h-[400px] object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0C4594]/80 via-transparent to-transparent" />
+                <div className="absolute bottom-6 left-6 right-6">
+                  <div className="flex items-center gap-3 text-white">
+                    <div className="w-12 h-12 rounded-xl bg-[#38B6FF] flex items-center justify-center">
+                      <HelpCircle className="w-6 h-6" />
+                    </div>
+                    <div>
+                      <p className="font-semibold text-lg">Need Help?</p>
+                      <p className="text-white/80 text-sm">We're here 24x7</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Right - FAQ */}
+            <motion.div {...fadeInUp}>
+              <h2 className="text-2xl md:text-3xl font-bold text-[#0C4594] mb-6">
+                Frequently Asked Questions
+              </h2>
+              
+              <Accordion type="single" collapsible className="space-y-2">
+                {faqs.map((faq, idx) => (
+                  <AccordionItem 
+                    key={idx} 
+                    value={`item-${idx}`}
+                    className="bg-white border border-[#e2e8f0] rounded-xl px-4 overflow-hidden hover:border-[#38B6FF]/30 transition-colors"
+                  >
+                    <AccordionTrigger className="text-[#0C4594] hover:text-[#38B6FF] text-left py-4 hover:no-underline text-sm">
+                      <span className="font-medium">{faq.question}</span>
+                    </AccordionTrigger>
+                    <AccordionContent className="text-[#64748b] pb-4 text-sm">
+                      {faq.answer}
+                    </AccordionContent>
+                  </AccordionItem>
+                ))}
+              </Accordion>
+
+            
+            </motion.div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+
+
+
+const faqSchema ={
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [{
+    "@type": "Question",
+    "name": "What is the Google Cloud Platform (GCP)?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Google Cloud Platform (GCP) is a comprehensive suite of cloud computing services hosted on Google's global infrastructure. It provides businesses with scalable computing resources, data storage, machine learning tools, and application development services."
+    }
+  },{
+    "@type": "Question",
+    "name": "What are the key advantages of using GCP?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "GCP offers superior performance with Google's high-speed global network, automatic security updates, advanced data analytics capabilities, competitive pricing with sustained-use discounts, and seamless integration with Google Workspace and other Google services."
+    }
+  },{
+    "@type": "Question",
+    "name": "Is Google Cloud Platform (GCP) suitable for my business needs?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes, GCP is designed to serve businesses of all sizes and industries. It offers flexible solutions for data storage, application development, machine learning, big data analytics, and infrastructure management tailored to diverse business requirements."
+    }
+  },{
+    "@type": "Question",
+    "name": "What services does Google Cloud Platform offer?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "GCP provides a wide range of services, including Compute Engine for virtual machines, Cloud Storage for data storage, BigQuery for data analytics, Kubernetes Engine for container orchestration, and AI/ML services for artificial intelligence applications."
+    }
+  },{
+    "@type": "Question",
+    "name": "How secure is Google Cloud Platform?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "GCP implements enterprise-grade security with multiple layers of protection, including data encryption at rest and in transit, identity and access management, DDoS protection, compliance certifications, and 24/7 security monitoring by Google's security teams."
+    }
+  },{
+    "@type": "Question",
+    "name": "How does GCP pricing work?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "GCP uses a pay-as-you-go pricing model where you only pay for the resources you consume. It offers sustained-use discounts for long-running workloads, committed-use discounts for predictable usage, and a pricing calculator to estimate costs before deployment."
+    }
+  }]
+}
+
+
+
+  return (
+    <>
+  <Helmet>
+<title>Google Cloud Partner in India & USA | GCP Solutions by Shivaami</title>
+ <meta name="description" content="Deploy and manage Google Cloud with Shivaami. Expert cloud migration, architecture design, and managed services. Premier GCP partner in India & USA." />
+<link rel="canonical" href="https://www.shivaami.com/google-cloud-platform" />
+ <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
+ </Helmet>
+
     <div className="min-h-screen bg-white">
       <Header />
       <main>
         <HeroSection />
         <FeaturesSection />
         <ActivationSection />
+         <FAQSection />
         <CTASection />
       </main>
       <Footer />
       <GetStartedDialog open={showGetStartedDialog} onOpenChange={setShowGetStartedDialog} />
-    </div>
+    </div></>
   );
 };
 

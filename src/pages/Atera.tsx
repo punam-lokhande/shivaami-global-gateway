@@ -20,7 +20,8 @@ import {
   HeadphonesIcon,
   Calendar,
   CheckCircle2,
-  ArrowRight
+  ArrowRight,
+  HelpCircle
 } from "lucide-react";
 import ateraBanner from "@/assets/banners/atera-banner.jpg";
 import strategicPlanning from "@/assets/activation/strategic-planning.jpg";
@@ -88,7 +89,7 @@ const HeroSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            Simplify IT Management with <span className="text-[#38B6FF]">Atera</span>
+           <span className="text-[#38B6FF]">Atera: RMM Solution</span> for IT Team
           </motion.h1>
           <motion.p 
             className="text-sm sm:text-base lg:text-lg text-white/80 max-w-2xl mb-6 sm:mb-8 leading-relaxed font-body"
@@ -96,7 +97,7 @@ const HeroSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            Atera is an all-in-one IT management platform combining remote monitoring, helpdesk, and automation. Unlimited agent monitoring with per-technician pricing for simplicity and affordability.
+          Atera is an all-in-one IT management platform combining remote monitoring, helpdesk, and automation with affordable per-technician pricing. Shivaami partners with Atera to implement IT management solutions for organizations across India.
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -122,42 +123,42 @@ const features = [
   {
     icon: Monitor,
     title: "Remote Monitoring and Management",
-    description: "Monitor unlimited endpoints with real-time performance data. Automated alerts detect issues before they impact users."
+    description: "Monitor unlimited endpoints with real-time performance data. Automated alerts detect issues before they impact users. Remote access tools enable quick troubleshooting from anywhere."
   },
   {
     icon: Headphones,
     title: "Integrated Helpdesk",
-    description: "Built-in ticketing system manages requests from creation to resolution. Email integration converts messages into tickets automatically."
+    description: "Built-in ticketing system manages requests from creation to resolution. Email integration converts messages into tickets automatically. The customer portal lets users submit and track requests."
   },
   {
     icon: RefreshCw,
     title: "Patch Management",
-    description: "Automate Windows and third-party application patching. Approval workflows control which patches deploy when."
+    description: "Automate Windows and third-party application patching. Approval workflows control which patches deploy when. Reporting shows patch coverage and compliance status."
   },
   {
     icon: Network,
     title: "Network Discovery",
-    description: "Automatically discover devices and map network topology. Asset inventory includes hardware specifications and software installations."
+    description: "Automatically discover devices and map network topology. Asset inventory includes hardware specifications and software installations. Real-time status monitoring identifies offline devices."
   },
   {
     icon: Code,
     title: "Automation Scripts",
-    description: "Library of pre-built scripts handles common IT tasks. Custom scripts extend functionality for unique requirements."
+    description: "A library of pre-built scripts handles common IT tasks. Custom scripts extend functionality for unique requirements. Scheduled automation reduces manual workload."
   },
   {
     icon: Workflow,
     title: "IT Automation",
-    description: "Create workflows that respond to specific conditions automatically. Auto-remediation fixes issues without manual intervention."
+    description: "Create workflows that respond to specific conditions automatically. Auto-remediation fixes issues without manual intervention. Policy-based automation ensures consistency."
   },
   {
     icon: BarChart3,
     title: "Reporting and Analytics",
-    description: "Performance dashboards show key metrics and trends. Custom reports address specific business questions."
+    description: "Performance dashboards show key metrics and trends. Custom reports address specific business questions. Client reporting demonstrates value and justifies billing."
   },
   {
     icon: Smartphone,
     title: "Mobile Management",
-    description: "Monitor and manage infrastructure from iOS or Android devices. Mobile ticketing keeps technicians productive on the go."
+    description: "Monitor and manage infrastructure from iOS or Android devices. Mobile ticketing keeps technicians productive on the go. Push notifications ensure rapid response to critical alerts."
   }
 ];
 
@@ -168,9 +169,7 @@ const FeaturesSection = () => (
         <h2 className="text-2xl md:text-3xl font-bold text-[#0C4594] mb-4">
           What Atera Delivers
         </h2>
-        <p className="text-gray-600 max-w-2xl mx-auto">
-          Simplicity, affordability, and comprehensive features for IT teams and MSPs
-        </p>
+        
       </motion.div>
       
       <motion.div 
@@ -257,31 +256,31 @@ const activationSteps = [
     image: strategicPlanning,
     icon: Brain,
     title: "Strategy and Planning",
-    description: "We evaluate your IT management needs and recommend Atera configuration. Our team identifies monitoring requirements and automation opportunities."
+    description: "We evaluate your IT management needs and recommend an Atera configuration. Our team identifies monitoring requirements and automation opportunities. You get a deployment plan aligned with your operational model."
   },
   {
     image: technicalDeployment,
     icon: Settings,
     title: "Deployment and Integration",
-    description: "Shivaami installs agents, configures monitoring thresholds, and sets up alerting. We customize the ticketing system and create automation scripts."
+    description: "Shivaami installs agents, configures monitoring thresholds, and sets up alerting. We customize the ticketing system and create automation scripts. Your team starts monitoring and managing endpoints quickly."
   },
   {
     image: securityConfig,
     icon: Shield,
     title: "Security and Compliance",
-    description: "Our experts configure access controls and audit logging. We implement patch management policies and compliance reporting."
+    description: "Our experts configure access controls and audit logging. We implement patch management policies and compliance reporting. Security settings protect your infrastructure and data."
   },
   {
     image: teamTraining,
     icon: GraduationCap,
     title: "User Enablement and Adoption",
-    description: "We train technicians on monitoring, ticketing, and automation features. Best practices guidance improves efficiency and consistency."
+    description: "We train technicians on monitoring, ticketing, and automation features. Best practices guidance improves efficiency and consistency. Documentation supports ongoing operations."
   },
   {
     image: ongoingSupport,
     icon: HeadphonesIcon,
     title: "Ongoing Optimization and Support",
-    description: "Shivaami provides guidance on automation opportunities and workflow improvements. We help refine alerting and monitoring as your environment evolves."
+    description: "Shivaami provides guidance on automation opportunities and workflow improvements. We help refine alerting and monitoring as your environment evolves. Regular reviews ensure you leverage platform capabilities fully."
   }
 ];
 
@@ -292,9 +291,7 @@ const ActivationSection = () => (
         <h2 className="text-2xl md:text-3xl font-bold text-[#0C4594] mb-4">
           How Shivaami Helps You Succeed?
         </h2>
-        <p className="text-gray-600 max-w-2xl mx-auto">
-          As an Atera partner, we accelerate deployment and maximize value
-        </p>
+       
       </motion.div>
 
       <motion.div 
@@ -318,6 +315,8 @@ const ActivationSection = () => (
 );
 
 import CTASection from '@/components/sections/CTASection';
+import { Helmet } from "react-helmet-async";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@radix-ui/react-accordion";
 
 const Atera = () => {
   const [showGetStartedDialog, setShowGetStartedDialog] = useState(false);
@@ -328,18 +327,171 @@ const Atera = () => {
     return () => document.removeEventListener('openGetStartedDialog', handleOpenDialog);
   }, []);
 
+// FAQ Section
+function FAQSection() {
+  const faqs = [
+    {
+      question: "What is Atera used for?",
+      answer: "Atera is used for IT management through an all-in-one platform that combines Remote Monitoring and Management (RMM), helpdesk, patch management, and automation. IT teams and managed service providers use Atera to monitor endpoints, manage tickets, automate routine tasks, and improve IT service delivery."
+    },
+    {
+      question: "Is Atera an ITSM tool?",
+      answer: "Atera includes IT Service Management (ITSM) capabilities such as ticketing, SLA tracking, asset management, and reporting. While it is not a standalone ITSM-only platform, it combines ITSM features with RMM and automation, making it suitable for IT teams that want a unified IT operations solution."
+    },
+    {
+      question: "How is Atera different from other RMM tools?",
+      answer: "Atera uses a per-technician pricing model with unlimited endpoint monitoring, unlike many RMM tools that charge per device. This makes it cost-effective for growing IT teams and MSPs. Atera also integrates RMM, helpdesk, automation, and reporting into a single platform."
+    },
+    {
+      question: "Is Atera free to use?",
+      answer: "Atera is not free, but it offers subscription plans based on the number of technicians rather than devices. This pricing model allows organizations to scale monitoring without increasing costs per endpoint. Atera may offer trials or demos to evaluate the platform before purchase."
+    },
+    {
+      question: "Who should use Atera?",
+      answer: "Atera is ideal for managed service providers (MSPs) and internal IT teams that want a simple, affordable, and comprehensive IT management solution. It is especially suitable for teams looking to reduce tool sprawl, automate IT operations, and improve response times."
+    },
+    {
+      question: "How can IT teams in India implement Atera?",
+      answer: "IT teams in India can implement Atera by working with an experienced partner like Shivaami. The implementation includes requirements assessment, agent deployment, monitoring and alert configuration, helpdesk setup, automation scripting, staff training, and ongoing optimization to ensure efficient IT operations."
+    }
+  ];
+
   return (
+    <section className="py-16 bg-[#f8fafc]">
+      <div className="w-full px-8 lg:px-16 xl:px-24">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left - Image */}
+            <motion.div {...fadeInUp} className="relative">
+              <div className="absolute -inset-4 bg-gradient-to-r from-[#0C4594]/20 to-[#38B6FF]/20 rounded-3xl blur-2xl" />
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+                <img 
+                  src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=600&h=500&fit=crop" 
+                  alt="FAQ Support"
+                  className="w-full h-[400px] object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0C4594]/80 via-transparent to-transparent" />
+                <div className="absolute bottom-6 left-6 right-6">
+                  <div className="flex items-center gap-3 text-white">
+                    <div className="w-12 h-12 rounded-xl bg-[#38B6FF] flex items-center justify-center">
+                      <HelpCircle className="w-6 h-6" />
+                    </div>
+                    <div>
+                      <p className="font-semibold text-lg">Need Help?</p>
+                      <p className="text-white/80 text-sm">We're here 24x7</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Right - FAQ */}
+            <motion.div {...fadeInUp}>
+              <h2 className="text-2xl md:text-3xl font-bold text-[#0C4594] mb-6">
+                Frequently Asked Questions
+              </h2>
+              
+              <Accordion type="single" collapsible className="space-y-2">
+                {faqs.map((faq, idx) => (
+                  <AccordionItem 
+                    key={idx} 
+                    value={`item-${idx}`}
+                    className="bg-white border border-[#e2e8f0] rounded-xl px-4 overflow-hidden hover:border-[#38B6FF]/30 transition-colors"
+                  >
+                    <AccordionTrigger className="text-[#0C4594] hover:text-[#38B6FF] text-left py-4 hover:no-underline text-sm">
+                      <span className="font-medium">{faq.question}</span>
+                    </AccordionTrigger>
+                    <AccordionContent className="text-[#64748b] pb-4 text-sm">
+                      {faq.answer}
+                    </AccordionContent>
+                  </AccordionItem>
+                ))}
+              </Accordion>
+            </motion.div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+
+
+const faqSchema ={
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [{
+    "@type": "Question",
+    "name": "What is Atera used for?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Atera is used for IT management through an all-in-one platform that combines Remote Monitoring and Management (RMM), helpdesk, patch management, and automation. IT teams and managed service providers use Atera to monitor endpoints, manage tickets, automate routine tasks, and improve IT service delivery."
+    }
+  },{
+    "@type": "Question",
+    "name": "Is Atera an ITSM tool?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Atera includes IT Service Management (ITSM) capabilities such as ticketing, SLA tracking, asset management, and reporting. While it is not a standalone ITSM-only platform, it combines ITSM features with RMM and automation, making it suitable for IT teams that want a unified IT operations solution."
+    }
+  },{
+    "@type": "Question",
+    "name": "How is Atera different from other RMM tools?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Atera uses a per-technician pricing model with unlimited endpoint monitoring, unlike many RMM tools that charge per device. This makes it cost-effective for growing IT teams and MSPs. Atera also integrates RMM, helpdesk, automation, and reporting into a single platform."
+    }
+  },{
+    "@type": "Question",
+    "name": "Is Atera free to use?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Atera is not free, but it offers subscription plans based on the number of technicians rather than devices. This pricing model allows organizations to scale monitoring without increasing costs per endpoint. Atera may offer trials or demos to evaluate the platform before purchase."
+    }
+  },{
+    "@type": "Question",
+    "name": "Who should use Atera?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Atera is ideal for managed service providers (MSPs) and internal IT teams that want a simple, affordable, and comprehensive IT management solution. It is especially suitable for teams looking to reduce tool sprawl, automate IT operations, and improve response times."
+    }
+  },{
+    "@type": "Question",
+    "name": "How can IT teams in India implement Atera?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "IT teams in India can implement Atera by working with an experienced partner like Shivaami. The implementation includes requirements assessment, agent deployment, monitoring and alert configuration, helpdesk setup, automation scripting, staff training, and ongoing optimization to ensure efficient IT operations."
+    }
+  }]
+}
+
+
+
+
+
+
+
+  return (
+    <>
+     <Helmet>
+<title>Atera Partner in India & USA | RMM and Service Desk by Shivaami</title>
+ <meta name="description" content="Deploy Atera remote monitoring and helpdesk platform with Shivaami. All-in-one IT management solution. Expert implementation for MSPs and IT teams." />
+<link rel="canonical" href="https://www.shivaami.com/atera" />
+ <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
+ </Helmet>
+
     <div className="min-h-screen bg-white">
       <Header />
       <main>
         <HeroSection />
         <FeaturesSection />
         <ActivationSection />
+         <FAQSection />
         <CTASection />
       </main>
       <Footer />
       <GetStartedDialog open={showGetStartedDialog} onOpenChange={setShowGetStartedDialog} />
-    </div>
+    </div> </>
   );
 };
 
