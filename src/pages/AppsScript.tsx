@@ -73,7 +73,8 @@ function HeroSection() {
             className="font-display text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-semibold text-white mb-4 sm:mb-6 leading-[1.15] tracking-tight"
           >
           
-            <span className="text-[#38B6FF]">Google Apps Script:</span> Custom Automation for Enterprises
+            <span className="text-[#38B6FF]">Google Apps Script: Custom</span> Automation for Enterprises
+
           </motion.h1>
 
           <motion.p
