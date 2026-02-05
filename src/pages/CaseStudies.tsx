@@ -19,6 +19,7 @@ import aryaLogo from '@/assets/clients/arya.jpg';
 import biltLogo from '@/assets/clients/bilt.jpg';
 import bmmLogo from '@/assets/clients/bmm.jpg';
 import cedcommerceLogo from '@/assets/clients/cedcommerce.jpg';
+import { Helmet } from 'react-helmet-async';
 
 // Industries with their case studies
 const industries = [
@@ -524,6 +525,15 @@ function CTASection() {
 
 export default function CaseStudies() {
   return (
+
+    <>
+     <Helmet>
+<title>About Shivaami | Company Vision and Mission</title>
+ <meta name="description" content="Explore Shivaami's collection of case studies and learn how our technology solutions have helped businesses across various industries to achieve their goals." />
+<link rel="canonical" href="https://www.shivaami.com/case-studies" />
+ </Helmet>
+
+
     <div className="min-h-screen bg-white flex flex-col">
       <Header />
       <main className="flex-1">
@@ -532,6 +542,6 @@ export default function CaseStudies() {
         <CTASection />
       </main>
       <Footer />
-    </div>
+    </div></>
   );
 }

@@ -144,10 +144,12 @@ export default function Newsletter() {
 
   return (
     <>
-      <Helmet>
-        <title>Newsletter | Shivaami</title>
-        <meta name="description" content="Get the latest IT insights and Shivaami news delivered monthly. Expert analysis, cost-saving strategies, and security updates." />
-      </Helmet>
+     <Helmet>
+<title>Webinars Hub | Live & Recorded Sessions by Shivaami</title>
+<meta name="description" content="Join our community and stay ahead with Shivaami's newsletter. Get expert insights on AI, cloud security, IT solutions, and industry trends delivered straight to your inbox." />
+<link rel="canonical" href="https://www.shivaami.com/newsletter" />
+ </Helmet>
+
 
       <Header />
 
