@@ -284,7 +284,7 @@ function ActivationSection() {
       image: securityConfigImg,
       icon: Shield,
       title: 'Security & Compliance Lock-In',
-      desc: 'We configure your environment for maximum security: data encryption, access controls, audit logs, and compliance alignment.',
+      desc: 'We configure your environment for maximum security: data encryption, access controls, audit logs, and compliance alignment for your industry.',
     },
     {
       image: technicalDeploymentImg,
