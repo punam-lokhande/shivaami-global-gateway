@@ -106,6 +106,34 @@ function HeroSection() {
   );
 }
 
+// Reusable Card with Background Image
+function ImageCard({ icon: Icon, title, desc, image }: { icon: React.ElementType; title: string; desc: string; image: string }) {
+  return (
+    <motion.div
+      variants={{
+        initial: { opacity: 0, y: 20 },
+        whileInView: { opacity: 1, y: 0 }
+      }}
+      className="relative rounded-2xl overflow-hidden group h-[300px] cursor-pointer"
+    >
+      <img 
+        src={image} 
+        alt={title}
+        className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-[#0C4594] via-[#0C4594]/80 to-[#0C4594]/50 group-hover:from-[#0C4594] group-hover:via-[#0C4594]/85 group-hover:to-[#0C4594]/60 transition-all duration-300" />
+      
+      <div className="relative z-10 h-full flex flex-col justify-end p-5">
+        <div className="w-11 h-11 rounded-xl bg-[#38B6FF] flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
+          <Icon className="w-5 h-5 text-white" />
+        </div>
+        <h3 className="text-base font-semibold text-white mb-2">{title}</h3>
+        <p className="text-white/80 text-sm leading-relaxed line-clamp-3">{desc}</p>
+      </div>
+    </motion.div>
+  );
+}
+
 // Calendar Solutions Section
 function CalendarSolutionsSection() {
   const calendarFeatures = [
@@ -113,21 +141,25 @@ function CalendarSolutionsSection() {
       icon: CalendarDays,
       title: 'Conflict Booking Restriction',
       desc: 'Restricts a user from booking more than one meeting room for the same time. Automatically deletes conflicting bookings to prevent double-bookings.',
+      image: 'https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=800&auto=format&fit=crop&q=80',
     },
     {
       icon: Clock,
       title: 'Advance Booking Restriction',
       desc: 'Meeting rooms can be booked only within the defined advance time period (e.g., 7 days). Only admins can book beyond this window.',
+      image: 'https://images.unsplash.com/photo-1506784983877-45594efa4cbe?w=800&auto=format&fit=crop&q=80',
     },
     {
       icon: CalendarDays,
       title: 'Full-Day Booking Restriction',
       desc: 'Meeting rooms can only be booked for a defined period of time. Only admins can book full-day events, ensuring proper resource management.',
+      image: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800&auto=format&fit=crop&q=80',
     },
     {
       icon: Clock,
       title: 'Maximum Meeting Duration Restriction',
       desc: 'Delete events scheduled beyond the permissible timeline (e.g., 4 hours) and notify the user automatically.',
+      image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&auto=format&fit=crop&q=80',
     },
   ];
 
@@ -144,25 +176,9 @@ function CalendarSolutionsSection() {
         </motion.div>
 
         <motion.div {...staggerContainer} className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {calendarFeatures.map((feature, idx) => {
-            const Icon = feature.icon;
-            return (
-              <motion.div
-                key={idx}
-                variants={{
-                  initial: { opacity: 0, y: 20 },
-                  whileInView: { opacity: 1, y: 0 }
-                }}
-                className="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 group"
-              >
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#0C4594] to-[#1E88E5] flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                  <Icon className="w-6 h-6 text-white" />
-                </div>
-                <h3 className="text-lg font-semibold text-[#0C4594] mb-2">{feature.title}</h3>
-                <p className="text-gray-600 text-sm leading-relaxed">{feature.desc}</p>
-              </motion.div>
-            );
-          })}
+          {calendarFeatures.map((feature, idx) => (
+            <ImageCard key={idx} {...feature} />
+          ))}
         </motion.div>
       </div>
     </section>
@@ -223,34 +239,9 @@ function EmailSolutionsSection() {
         </motion.div>
 
         <motion.div {...staggerContainer} className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {emailFeatures.map((feature, idx) => {
-            const Icon = feature.icon;
-            return (
-              <motion.div
-                key={idx}
-                variants={{
-                  initial: { opacity: 0, y: 20 },
-                  whileInView: { opacity: 1, y: 0 }
-                }}
-                className="relative rounded-2xl overflow-hidden group h-[320px] cursor-pointer"
-              >
-                <img 
-                  src={feature.image} 
-                  alt={feature.title}
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0C4594] via-[#0C4594]/80 to-[#0C4594]/50 group-hover:from-[#0C4594] group-hover:via-[#0C4594]/85 group-hover:to-[#0C4594]/60 transition-all duration-300" />
-                
-                <div className="relative z-10 h-full flex flex-col justify-end p-6">
-                  <div className="w-12 h-12 rounded-xl bg-[#38B6FF] flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                    <Icon className="w-6 h-6 text-white" />
-                  </div>
-                  <h3 className="text-lg font-semibold text-white mb-2">{feature.title}</h3>
-                  <p className="text-white/80 text-sm leading-relaxed">{feature.desc}</p>
-                </div>
-              </motion.div>
-            );
-          })}
+          {emailFeatures.map((feature, idx) => (
+            <ImageCard key={idx} {...feature} />
+          ))}
         </motion.div>
       </div>
     </section>
@@ -264,51 +255,61 @@ function SecurityComplianceSection() {
       icon: AlertTriangle,
       title: 'Users Without Recovery',
       desc: 'List of users who did not add a recovery email ID. Helps maintain account security standards.',
+      image: 'https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=800&auto=format&fit=crop&q=80',
     },
     {
       icon: Activity,
       title: 'Last Login Information',
       desc: 'Track user last login information from the last 6 months of logs. Helps identify account usage patterns.',
+      image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&auto=format&fit=crop&q=80',
     },
     {
       icon: Shield,
       title: '2SV Enablement Status',
       desc: 'List of users who did not enable 2-step verification. Critical for security compliance.',
+      image: 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&auto=format&fit=crop&q=80',
     },
     {
       icon: UserCheck,
       title: 'User Creation & Deletion',
       desc: 'Lists users created and deleted within a defined time period (last 6 months only). Helps with audit account management.',
+      image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&auto=format&fit=crop&q=80',
     },
     {
       icon: Smartphone,
       title: 'Device Compliance Logs',
       desc: 'Helps identify non-compliant devices from where the organisation\'s data is being accessed.',
+      image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&auto=format&fit=crop&q=80',
     },
     {
       icon: Smartphone,
       title: 'Device OS Logs',
       desc: 'Fetches the client OS details from where the organisation data is being accessed. Helps maintain device inventory.',
+      image: 'https://images.unsplash.com/photo-1526498460520-4c246339dccb?w=800&auto=format&fit=crop&q=80',
     },
     {
       icon: Activity,
       title: 'Administrator Activity Logs',
       desc: 'Fetches admin log events for a defined number of days. Helps focus on limited logs instead of the entire log bank.',
+      image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&auto=format&fit=crop&q=80',
     },
     {
       icon: Share2,
       title: 'External File Sharing',
       desc: 'Helps retrieve logs for files shared externally. Critical for data loss prevention.',
+      image: 'https://images.unsplash.com/photo-1553484771-371a605b060b?w=800&auto=format&fit=crop&q=80',
     },
     {
       icon: AppWindow,
       title: 'Third-Party Application Logs',
       desc: 'Identifies third-party applications connected with user accounts. Critical to assess security posture.',
+      image: 'https://images.unsplash.com/photo-1551650975-87deedd944c3?w=800&auto=format&fit=crop&q=80',
     },
     {
       icon: UserX,
       title: 'Inactive Users',
       desc: 'Helps identify users who have not signed in for a defined time range. Supports license optimisation.',
+      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&auto=format&fit=crop&q=80',
     },
   ];
 
@@ -325,25 +326,9 @@ function SecurityComplianceSection() {
         </motion.div>
 
         <motion.div {...staggerContainer} className="grid md:grid-cols-2 lg:grid-cols-5 gap-6">
-          {securityFeatures.map((feature, idx) => {
-            const Icon = feature.icon;
-            return (
-              <motion.div
-                key={idx}
-                variants={{
-                  initial: { opacity: 0, y: 20 },
-                  whileInView: { opacity: 1, y: 0 }
-                }}
-                className="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 group"
-              >
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#0C4594] to-[#1E88E5] flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                  <Icon className="w-6 h-6 text-white" />
-                </div>
-                <h3 className="text-lg font-semibold text-[#0C4594] mb-2">{feature.title}</h3>
-                <p className="text-gray-600 text-sm leading-relaxed">{feature.desc}</p>
-              </motion.div>
-            );
-          })}
+          {securityFeatures.map((feature, idx) => (
+            <ImageCard key={idx} {...feature} />
+          ))}
         </motion.div>
       </div>
     </section>
@@ -375,7 +360,7 @@ function DataReportingSection() {
       icon: Building,
       title: 'OU Member Count',
       desc: 'List user count from a specific OU. Helps reduce admin efforts in user management.',
-      image: 'https://images.unsplash.com/photo-1553484771-371a605b060b?w=800&auto=format&fit=crop&q=80',
+      image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&auto=format&fit=crop&q=80',
     },
     {
       icon: Newspaper,
@@ -398,34 +383,9 @@ function DataReportingSection() {
         </motion.div>
 
         <motion.div {...staggerContainer} className="grid md:grid-cols-2 lg:grid-cols-5 gap-6">
-          {dataFeatures.map((feature, idx) => {
-            const Icon = feature.icon;
-            return (
-              <motion.div
-                key={idx}
-                variants={{
-                  initial: { opacity: 0, y: 20 },
-                  whileInView: { opacity: 1, y: 0 }
-                }}
-                className="relative rounded-2xl overflow-hidden group h-[320px] cursor-pointer"
-              >
-                <img 
-                  src={feature.image} 
-                  alt={feature.title}
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0C4594] via-[#0C4594]/80 to-[#0C4594]/50 group-hover:from-[#0C4594] group-hover:via-[#0C4594]/85 group-hover:to-[#0C4594]/60 transition-all duration-300" />
-                
-                <div className="relative z-10 h-full flex flex-col justify-end p-6">
-                  <div className="w-12 h-12 rounded-xl bg-[#38B6FF] flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                    <Icon className="w-6 h-6 text-white" />
-                  </div>
-                  <h3 className="text-lg font-semibold text-white mb-2">{feature.title}</h3>
-                  <p className="text-white/80 text-sm leading-relaxed">{feature.desc}</p>
-                </div>
-              </motion.div>
-            );
-          })}
+          {dataFeatures.map((feature, idx) => (
+            <ImageCard key={idx} {...feature} />
+          ))}
         </motion.div>
       </div>
     </section>
