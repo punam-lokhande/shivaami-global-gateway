@@ -114,7 +114,7 @@ function ImageCard({ icon: Icon, title, desc, image }: { icon: React.ElementType
         initial: { opacity: 0, y: 20 },
         whileInView: { opacity: 1, y: 0 }
       }}
-      className="relative rounded-2xl overflow-hidden group h-[300px] cursor-pointer"
+      className="relative rounded-2xl overflow-hidden group min-h-[320px] cursor-pointer"
     >
       <img 
         src={image} 
@@ -128,7 +128,7 @@ function ImageCard({ icon: Icon, title, desc, image }: { icon: React.ElementType
           <Icon className="w-5 h-5 text-white" />
         </div>
         <h3 className="text-base font-semibold text-white mb-2">{title}</h3>
-        <p className="text-white/80 text-sm leading-relaxed line-clamp-3">{desc}</p>
+        <p className="text-white/80 text-sm leading-relaxed">{desc}</p>
       </div>
     </motion.div>
   );
