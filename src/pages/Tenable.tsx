@@ -19,7 +19,8 @@ import {
   HeadphonesIcon,
   Calendar,
   CheckCircle2,
-  ArrowRight
+  ArrowRight,
+  HelpCircle
 } from "lucide-react";
 import tenableBanner from "@/assets/banners/tenable-banner.jpg";
 import strategicPlanning from "@/assets/activation/strategic-planning.jpg";
@@ -88,7 +89,7 @@ const HeroSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            Manage Cyber Risk with <span className="text-[#38B6FF]">Tenable</span>
+         <span className="text-[#38B6FF]">Tenable: Manage</span> Cyber Risk Solutions
           </motion.h1>
           <motion.p 
             className="text-sm sm:text-base lg:text-lg text-white/80 max-w-2xl mb-6 sm:mb-8 leading-relaxed font-body"
@@ -96,7 +97,7 @@ const HeroSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            Cyber exposure management platform that identifies and prioritizes vulnerabilities. Continuous assessment across IT infrastructure, cloud, containers, and web applications.
+          Tenable is an exposure platform that identifies and prioritises vulnerabilities across IT infrastructure, cloud environments, and applications. Shivaami partners with Tenable to deliver management for enterprises in India and the US.
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -122,42 +123,42 @@ const features = [
   {
     icon: Scan,
     title: "Continuous Network Scanning",
-    description: "Nessus technology discovers assets and identifies vulnerabilities automatically. Agent and agentless scanning options fit different environments."
+    description: "Nessus technology discovers assets and identifies vulnerabilities automatically. Agent and agentless scanning options fit different environments. Credentialed scans provide deeper insight into system configurations."
   },
   {
     icon: Cloud,
     title: "Cloud Security",
-    description: "Tenable Cloud Security assesses AWS, Azure, and Google Cloud environments. Misconfiguration detection identifies security weaknesses."
+    description: "Tenable Cloud Security assesses AWS, Azure, and Google Cloud environments. Misconfiguration detection identifies security weaknesses in cloud resources. Compliance monitoring tracks adherence to security standards."
   },
   {
     icon: Box,
     title: "Container Security",
-    description: "Scan container images for vulnerabilities before deployment. Runtime security monitors container behavior for threats."
+    description: "Scan container images for vulnerabilities before deployment. Runtime security monitors container behavior for threats. Integration with CI/CD pipelines prevents vulnerable code promotion."
   },
   {
     icon: Globe,
     title: "Web Application Scanning",
-    description: "Automated testing identifies vulnerabilities in web applications and APIs. Dynamic and static analysis techniques provide coverage."
+    description: "Automated testing identifies vulnerabilities in web applications and APIs. Dynamic and static analysis techniques provide comprehensive coverage. Integration with development tools enables shift-left security."
   },
   {
     icon: Target,
     title: "Vulnerability Prioritization",
-    description: "Predictive prioritization scores vulnerabilities by exploit likelihood. Asset criticality analysis focuses on business-critical systems."
+    description: " Predictive prioritization scores vulnerabilities by exploit likelihood. Asset criticality analysis focuses on business-critical systems. Remediation guidance provides clear action steps."
   },
   {
     icon: Users,
     title: "Active Directory Assessment",
-    description: "Identify privilege escalation paths and weak configurations. Attack path analysis shows how attackers could move through environment."
+    description: "Identify privilege escalation paths and weak configurations. Attack path analysis shows how attackers could move through the environment. Hardening recommendations improve Active Directory security."
   },
   {
     icon: Cpu,
     title: "Operational Technology Security",
-    description: "Discover and assess industrial control systems and SCADA devices. Passive monitoring avoids disrupting production systems."
+    description: "Discover and assess industrial control systems and SCADA devices. Passive monitoring avoids disrupting production systems. OT-specific vulnerability intelligence supports safe operations."
   },
   {
     icon: FileCheck,
     title: "Compliance Reporting",
-    description: "Pre-built audit templates support PCI DSS, HIPAA, NIST, and other frameworks. Executive dashboards communicate risk to leaders."
+    description: "Pre-built audit templates support PCI DSS, HIPAA, NIST, and other frameworks. Continuous monitoring tracks compliance status over time. Executive dashboards communicate risk to business leaders."
   }
 ];
 
@@ -255,31 +256,31 @@ const activationSteps = [
     image: strategicPlanning,
     icon: Brain,
     title: "Strategy and Planning",
-    description: "We assess your current vulnerability management approach and design improvement roadmap. Our team identifies scanning requirements and asset coverage needs."
+    description: "We assess your current vulnerability management approach and designan improvement roadmap. Our team identifies scanning requirements and asset coverage needs. You get a deployment plan for comprehensive exposure management."
   },
   {
     image: technicalDeployment,
     icon: Settings,
     title: "Deployment and Integration",
-    description: "Shivaami deploys Tenable scanners and configures scan policies. We integrate with IT systems for asset discovery and enrichment."
+    description: "Shivaami deploys Tenable scanners and configures scan policies. We integrate with IT systems for asset discovery and enrichment. Your environment gains vulnerability visibility quickly."
   },
   {
     image: securityConfig,
     icon: Shield,
     title: "Security and Compliance",
-    description: "Our experts configure prioritization models and compliance templates. We tune scanning to balance coverage and operational impact."
+    description: "Our experts configure prioritization models and compliance templates. We tune scanning to balance coverage and operational impact. Reporting demonstrates risk posture and improvement trends."
   },
   {
     image: teamTraining,
     icon: GraduationCap,
     title: "User Enablement and Adoption",
-    description: "We train security teams on vulnerability analysis and remediation workflows. Integration with ticketing systems enables tracking."
+    description: "We train security teams on vulnerability analysis and remediation workflows. Integration with ticketing systems enables tracking of remediation. Process guidance improves vulnerability management effectiveness."
   },
   {
     image: ongoingSupport,
     icon: HeadphonesIcon,
     title: "Ongoing Optimization and Support",
-    description: "Shivaami provides managed vulnerability services with continuous scanning. We analyze results and track remediation progress."
+    description: "Shivaami provides managed vulnerability services with continuous scanning. We analyze results, validate findings, and track remediation. Regular reviews optimize scan coverage and prioritization models."
   }
 ];
 
@@ -290,9 +291,7 @@ const ActivationSection = () => (
         <h2 className="text-2xl md:text-3xl font-bold text-[#0C4594] mb-4">
           How Shivaami Helps You Succeed?
         </h2>
-        <p className="text-gray-600 max-w-2xl mx-auto">
-          As a Tenable partner, we bring vulnerability management expertise
-        </p>
+    
       </motion.div>
 
       <motion.div 
@@ -316,6 +315,8 @@ const ActivationSection = () => (
 );
 
 import CTASection from '@/components/sections/CTASection';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@radix-ui/react-accordion";
+import { Helmet } from "react-helmet-async";
 
 const Tenable = () => {
   const [dialogOpen, setDialogOpen] = useState(false);
@@ -326,18 +327,171 @@ const Tenable = () => {
     return () => document.removeEventListener('openGetStartedDialog', handleOpenDialog);
   }, []);
 
+
+// FAQ Section
+function FAQSection() {
+  const faqs = [
+    {
+      question: "Is Tenable a monitoring tool?",
+      answer: "Yes, Tenable is a vulnerability management and security monitoring platform. It continuously scans IT infrastructure, cloud environments, endpoints, and operational technology to identify, assess, and prioritise security vulnerabilities and exposure risks across the organisation."
+    },
+    {
+      question: "What does Tenable do?",
+      answer: "Tenable helps organisations identify a wide range of security risks, including software vulnerabilities, misconfigurations, exposed assets, weak credentials, and attack paths across IT infrastructure, cloud environments, Active Directory, and operational technology. It prioritises these risks based on real-world exploitability and business impact."
+    },
+    {
+      question: "How does Tenable help with compliance?",
+      answer: "Tenable supports compliance by continuously assessing systems against regulatory and security frameworks such as PCI DSS, ISO 27001, NIST, and HIPAA. It provides automated compliance reporting, risk tracking, and remediation insights to simplify audits and governance."
+    },
+    {
+      question: "Is Tenable suitable for businesses of all sizes?",
+      answer: "Yes, Tenable offers scalable vulnerability management solutions suitable for small businesses, mid-market organisations, and large enterprises. Flexible deployment options and subscription-based licensing make it accessible without heavy infrastructure requirements."
+    },
+    {
+      question: " Is Check Point suitable for small and mid-sized businesses?",
+      answer: "Yes, Check Point offers scalable security solutions suitable for small and mid-sized businesses. Flexible licensing, cloud-based security options, and centralized management make enterprise-grade protection accessible without high operational complexity."
+    },
+    {
+      question: "How can organisations in India implement Tenable?",
+      answer: "Organisations in India can implement Tenable by working with an experienced cybersecurity partner like Shivaami. The implementation includes asset discovery, vulnerability scanning configuration, compliance alignment, risk prioritisation, and ongoing monitoring to ensure effective cyber risk management."
+    }
+  ];
+
   return (
+    <section className="py-16 bg-[#f8fafc]">
+      <div className="w-full px-8 lg:px-16 xl:px-24">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left - Image */}
+            <motion.div {...fadeInUp} className="relative">
+              <div className="absolute -inset-4 bg-gradient-to-r from-[#0C4594]/20 to-[#38B6FF]/20 rounded-3xl blur-2xl" />
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+                <img 
+                  src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=600&h=500&fit=crop" 
+                  alt="FAQ Support"
+                  className="w-full h-[400px] object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0C4594]/80 via-transparent to-transparent" />
+                <div className="absolute bottom-6 left-6 right-6">
+                  <div className="flex items-center gap-3 text-white">
+                    <div className="w-12 h-12 rounded-xl bg-[#38B6FF] flex items-center justify-center">
+                      <HelpCircle className="w-6 h-6" />
+                    </div>
+                    <div>
+                      <p className="font-semibold text-lg">Need Help?</p>
+                      <p className="text-white/80 text-sm">We're here 24x7</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Right - FAQ */}
+            <motion.div {...fadeInUp}>
+              <h2 className="text-2xl md:text-3xl font-bold text-[#0C4594] mb-6">
+                Frequently Asked Questions
+              </h2>
+              
+              <Accordion type="single" collapsible className="space-y-2">
+                {faqs.map((faq, idx) => (
+                  <AccordionItem 
+                    key={idx} 
+                    value={`item-${idx}`}
+                    className="bg-white border border-[#e2e8f0] rounded-xl px-4 overflow-hidden hover:border-[#38B6FF]/30 transition-colors"
+                  >                   <AccordionTrigger className="text-[#0C4594] hover:text-[#38B6FF] text-left py-4 hover:no-underline text-sm">
+                      <span className="font-medium">{faq.question}</span>
+                    </AccordionTrigger>
+                    <AccordionContent className="text-[#64748b] pb-4 text-sm">
+                      {faq.answer}
+                    </AccordionContent>
+                  </AccordionItem>
+                ))}
+              </Accordion>
+
+                         </motion.div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+
+
+const faqSchema ={
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [{
+    "@type": "Question",
+    "name": "Is Tenable a monitoring tool?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes, Tenable is a vulnerability management and security monitoring platform. It continuously scans IT infrastructure, cloud environments, endpoints, and operational technology to identify, assess, and prioritise security vulnerabilities and exposure risks across the organisation."
+    }
+  },{
+    "@type": "Question",
+    "name": "What does Tenable do?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Tenable helps organisations discover and manage cyber risk by providing visibility into assets, vulnerabilities, misconfigurations, and exposures. It enables security teams to prioritise remediation efforts and improve overall security posture across on-premises, cloud, and hybrid environments."
+    }
+  },{
+    "@type": "Question",
+    "name": "What types of security risks does Tenable help identify?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Tenable helps organisations identify a wide range of security risks, including software vulnerabilities, misconfigurations, exposed assets, weak credentials, and attack paths across IT infrastructure, cloud environments, Active Directory, and operational technology. It prioritises these risks based on real-world exploitability and business impact."
+    }
+  },{
+    "@type": "Question",
+    "name": "How does Tenable help with compliance?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Tenable supports compliance by continuously assessing systems against regulatory and security frameworks such as PCI DSS, ISO 27001, NIST, and HIPAA. It provides automated compliance reporting, risk tracking, and remediation insights to simplify audits and governance."
+    }
+  },{
+    "@type": "Question",
+    "name": "Is Tenable suitable for businesses of all sizes?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes, Tenable offers scalable vulnerability management solutions suitable for small businesses, mid-market organisations, and large enterprises. Flexible deployment options and subscription-based licensing make it accessible without heavy infrastructure requirements."
+    }
+  },{
+    "@type": "Question",
+    "name": "How can organisations in India implement Tenable?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Organisations in India can implement Tenable by working with an experienced cybersecurity partner like Shivaami. The implementation includes asset discovery, vulnerability scanning configuration, compliance alignment, risk prioritisation, and ongoing monitoring to ensure effective cyber risk management."
+    }
+  }]
+}
+
+
+
+
+  return (
+
+    <>
+     <Helmet>
+<title>Tenable Partner India | Vulnerability Management by Shivaami</title>
+ <meta name="description" content="Deploy Tenable vulnerability management with Shivaami. Continuous exposure assessment and risk prioritization. Certified Tenable partner in India." />
+<link rel="canonical" href="https://www.shivaami.com/tenable" />
+ <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
+ </Helmet>
+
+
     <div className="min-h-screen bg-white">
       <Header />
       <main>
         <HeroSection />
         <FeaturesSection />
         <ActivationSection />
+        <FAQSection />
         <CTASection />
       </main>
       <Footer />
       <GetStartedDialog open={dialogOpen} onOpenChange={setDialogOpen} />
-    </div>
+    </div></>
   );
 };
 

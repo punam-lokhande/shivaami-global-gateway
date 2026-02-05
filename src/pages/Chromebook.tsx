@@ -3,7 +3,8 @@ import { useRef, useState, useEffect } from 'react';
 import { 
   Laptop, Zap, Shield, 
   Users, HeadphonesIcon, CheckCircle2, ArrowRight, Calendar,
-  Clock, Cloud, Battery, RefreshCw, Wifi, Settings
+  Clock, Cloud, Battery, RefreshCw, Wifi, Settings,
+  HelpCircle
 } from 'lucide-react';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
@@ -68,8 +69,7 @@ function HeroSection() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="font-display text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-semibold text-white mb-4 sm:mb-6 leading-[1.15] tracking-tight"
           >
-            Modern Computing<br />
-            <span className="text-[#38B6FF]">with Chromebook</span>
+             <span className="text-[#38B6FF]">Chromebook: Modern</span> Computing Solutions
           </motion.h1>
 
           <motion.p
@@ -78,7 +78,7 @@ function HeroSection() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-sm sm:text-base lg:text-lg text-white/80 max-w-2xl mb-6 sm:mb-8 leading-relaxed font-body"
           >
-            Chromebook devices run Chrome OS, providing fast boot times, automatic updates, and built-in security. They integrate seamlessly with Google Workspace and web applications. Organizations choose them for simplicity, security, and low total cost of ownership.
+          Chromebook devices run ChromeOS, offering fast boot times, automatic updates, built-in security, and seamless Google Workspace integration. Shivaami, an authorised reseller, helps deploy and manage fleets in India and the US.
           </motion.p>
 
           <motion.div
@@ -121,7 +121,7 @@ function FeaturesSection() {
     {
       icon: Battery,
       title: 'Long Battery Life',
-      desc: 'Most models run 10-12 hours on single charge. Efficient architecture maximizes productivity without power concerns. Mobile workers stay productive throughout the day.',
+      desc: 'Most models run 10-12 hours on a single charge. Efficient architecture maximizes productivity without power concerns. Mobile workers stay productive throughout the day.',
     },
     {
       icon: Cloud,
@@ -136,7 +136,7 @@ function FeaturesSection() {
     {
       icon: Wifi,
       title: 'Offline Capabilities',
-      desc: 'Core applications work without internet connectivity. Gmail, Drive, and Docs sync when connection returns. Productivity continues during connectivity gaps.',
+      desc: 'Core applications work without internet connectivity. Gmail, Drive, and Docs sync when the connection returns. Productivity continues during connectivity gaps.',
     },
     {
       icon: Clock,
@@ -154,7 +154,8 @@ function FeaturesSection() {
           </h2>
         </motion.div>
 
-        <motion.div {...staggerContainer} className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <motion.div {...staggerContainer} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            
           {features.map((feature, idx) => {
             const Icon = feature.icon;
             return (
@@ -190,7 +191,7 @@ function FlipCard({ title, description, image, icon: Icon }: { title: string; de
       onMouseLeave={() => setIsFlipped(false)}
     >
       <motion.div
-        className="relative w-full h-full preserve-3d transition-transform duration-700"
+       className="w-full h-full relative preserve-3d transition-transform duration-500"
         animate={{ rotateY: isFlipped ? 180 : 0 }}
         style={{ transformStyle: 'preserve-3d' }}
       >
@@ -248,36 +249,36 @@ function ActivationSection() {
       image: strategicPlanningImg,
       icon: Laptop,
       title: 'Strategy and Planning',
-      desc: 'We assess your computing needs and recommend appropriate Chromebook models. Our team evaluates application compatibility and cloud readiness.',
+      desc: 'We assess your computing needs and recommend appropriate Chromebook models. Our team evaluates application compatibility and cloud readiness. You get device selection guidance aligned with requirements.',
     },
     {
       image: technicalDeploymentImg,
       icon: Settings,
       title: 'Deployment and Integration',
-      desc: 'Shivaami handles device procurement and Chrome Enterprise licensing. We configure policies, install applications, and prepare devices for users.',
+      desc: 'Shivaami handles device procurement and Chrome Enterprise licensing. We configure policies, install applications, and prepare devices for users. Your team receives ready-to-use Chromebooks.',
     },
     {
       image: securityConfigImg,
       icon: Shield,
       title: 'Security and Compliance',
-      desc: 'Our experts implement security policies and access controls. We configure device settings and application permissions for ongoing security.',
+      desc: 'Our experts implement security policies and access controls. We configure device settings and application permissions. Management ensures ongoing security and compliance.',
     },
     {
       image: teamTrainingImg,
       icon: Users,
       title: 'User Enablement',
-      desc: 'We provide training on Chrome OS features and workflows. Quick start guides help users transition smoothly to Chromebook.',
+      desc: 'We provide training on Chrome OS features and workflows. Quick start guides help users transition smoothly. Support resources address common questions and scenarios.',
     },
     {
       image: ongoingSupportImg,
       icon: HeadphonesIcon,
       title: 'Ongoing Support',
-      desc: 'Shivaami manages your Chromebook fleet with policy updates. We handle device troubleshooting and warranty coordination.',
+      desc: 'Shivaami manages your Chromebook fleet with policy updates. We handle device troubleshooting and warranty coordination. Regular reviews optimize configurations and identify opportunities.',
     },
   ];
 
   return (
-    <section className="py-16 bg-white">
+   <section className="py-20 bg-white">
       <div className="w-full px-8 lg:px-16 xl:px-24">
         <motion.div {...fadeInUp} className="text-center mb-12">
           <h2 className="text-2xl md:text-3xl font-bold text-[#0C4594] mb-4">
@@ -287,7 +288,7 @@ function ActivationSection() {
 
         <motion.div 
           {...staggerContainer} 
-          className="grid md:grid-cols-3 lg:grid-cols-5 gap-4 max-w-7xl mx-auto"
+          className="grid md:grid-cols-3 lg:grid-cols-5 gap-4 max-w-8xl mx-auto"
         >
           {steps.map((step, idx) => (
             <motion.div
@@ -312,6 +313,8 @@ function ActivationSection() {
 }
 
 import CTASection from '@/components/sections/CTASection';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@radix-ui/react-accordion';
+import { Helmet } from 'react-helmet-async';
 
 export default function Chromebook() {
   const [dialogOpen, setDialogOpen] = useState(false);
@@ -322,17 +325,177 @@ export default function Chromebook() {
     return () => document.removeEventListener('openGetStartedDialog', handleOpenDialog);
   }, []);
 
+
+// FAQ Section
+function FAQSection() {
+  const faqs = [
+    {
+      question: "Does Microsoft Office work on Chromebooks?",
+      answer: "Users can open, edit, download, and save Microsoft Office files on Chromebooks using Office Online or the Microsoft 365 web apps."
+    },
+    {
+      question: "Does iTunes work on a Chromebook?",
+      answer: "iTunes does not work on a Chromebook. However, users can upload music from their iTunes library to YouTube Music or other cloud-based music services."
+    },
+    {
+      question: "What's the difference between Chromebooks and other laptops, like Windows or Mac?",
+      answer: "Chromebooks are lightweight, fast-booting devices that run on Chrome OS and rely primarily on web-based applications. They typically offer longer battery life and built-in virus protection compared to Windows and Mac laptops."
+    },
+    {
+      question: "How do I listen to music and watch videos on a Chromebook?",
+      answer: "Users can stream music through services like YouTube Music, Spotify, or other web-based music players. For videos and movies, YouTube, Netflix, and other streaming platforms are available through the Chrome browser."
+    },
+    {
+      question: "Can I use a Chromebook offline?",
+      answer: "Yes, Chromebooks can be used offline for many tasks. Users can access Gmail, Google Docs, Sheets, Slides, and other Google apps offline by enabling offline mode in their settings."
+    },
+    {
+      question: "How much storage does a Chromebook have?",
+      answer: "Most Chromebooks come with 32 GB to 128 GB of local storage. However, Chromebooks are designed to store files in the cloud using Google Drive, where users typically receive 15 GB of free storage with their Google account."
+    }
+  ];
+
   return (
+    <section className="py-16 bg-[#f8fafc]">
+      <div className="w-full px-8 lg:px-16 xl:px-24">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left - Image */}
+            <motion.div {...fadeInUp} className="relative">
+              <div className="absolute -inset-4 bg-gradient-to-r from-[#0C4594]/20 to-[#38B6FF]/20 rounded-3xl blur-2xl" />
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+                <img 
+                  src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=600&h=500&fit=crop" 
+                  alt="FAQ Support"
+                  className="w-full h-[400px] object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0C4594]/80 via-transparent to-transparent" />
+                <div className="absolute bottom-6 left-6 right-6">
+                  <div className="flex items-center gap-3 text-white">
+                    <div className="w-12 h-12 rounded-xl bg-[#38B6FF] flex items-center justify-center">
+                      <HelpCircle className="w-6 h-6" />
+                    </div>
+                    <div>
+                      <p className="font-semibold text-lg">Need Help?</p>
+                      <p className="text-white/80 text-sm">We're here 24x7</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Right - FAQ */}
+            <motion.div {...fadeInUp}>
+              <h2 className="text-2xl md:text-3xl font-bold text-[#0C4594] mb-6">
+                Frequently Asked Questions
+              </h2>
+              
+              <Accordion type="single" collapsible className="space-y-2">
+                {faqs.map((faq, idx) => (
+                  <AccordionItem 
+                    key={idx} 
+                    value={`item-${idx}`}
+                    className="bg-white border border-[#e2e8f0] rounded-xl px-4 overflow-hidden hover:border-[#38B6FF]/30 transition-colors"
+                  >
+                    <AccordionTrigger className="text-[#0C4594] hover:text-[#38B6FF] text-left py-4 hover:no-underline text-sm">
+                      <span className="font-medium">{faq.question}</span>
+                    </AccordionTrigger>
+                    <AccordionContent className="text-[#64748b] pb-4 text-sm">
+                      {faq.answer}
+                    </AccordionContent>
+                  </AccordionItem>
+                ))}
+              </Accordion>
+
+              <Link to="/contact" className="inline-block mt-6">
+                <Button className="bg-[#0C4594] hover:bg-[#0a3d80] text-white font-medium px-6 py-3 rounded-xl">
+                  Have more questions? Contact us
+                  <ArrowRight className="ml-2 w-4 h-4" />
+                </Button>
+              </Link>
+            </motion.div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+
+
+const faqSchema ={
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [{
+    "@type": "Question",
+    "name": "Does Microsoft Office work on Chromebooks?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Users can open, edit, download, and save Microsoft Office files on Chromebooks using Office Online or the Microsoft 365 web apps."
+    }
+  },{
+    "@type": "Question",
+    "name": "Does iTunes work on a Chromebook?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "iTunes does not work on a Chromebook. However, users can upload music from their iTunes library to YouTube Music or other cloud-based music services."
+    }
+  },{
+    "@type": "Question",
+    "name": "What's the difference between Chromebooks and other laptops, like Windows or Mac?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Chromebooks are lightweight, fast-booting devices that run on Chrome OS and rely primarily on web-based applications. They typically offer longer battery life and built-in virus protection compared to Windows and Mac laptops."
+    }
+  },{
+    "@type": "Question",
+    "name": "How do I listen to music and watch videos on a Chromebook?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Users can stream music through services like YouTube Music, Spotify, or other web-based music players. For videos and movies, YouTube, Netflix, and other streaming platforms are available through the Chrome browser."
+    }
+  },{
+    "@type": "Question",
+    "name": "Can I use a Chromebook offline?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes, Chromebooks can be used offline for many tasks. Users can access Gmail, Google Docs, Sheets, Slides, and other Google apps offline by enabling offline mode in their settings."
+    }
+  },{
+    "@type": "Question",
+    "name": "How much storage does a Chromebook have?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Most Chromebooks come with 32 GB to 128 GB of local storage. However, Chromebooks are designed to store files in the cloud using Google Drive, where users typically receive 15 GB of free storage with their Google account."
+    }
+  }]
+}
+
+
+
+
+  return (
+
+    <>
+  <Helmet>
+<title>Chromebook Reseller in India | Enterprise Devices by Shivaami</title>
+ <meta name="description" content="Deploy Chromebooks with Shivaami. Fast, secure, and easy-to-manage laptops for enterprises. Authorized Chromebook partner in India." />
+<link rel="canonical" href="https://www.shivaami.com/chromebook" />
+ <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
+ </Helmet>
+
+
     <div className="min-h-screen bg-white">
       <Header />
       <main>
         <HeroSection />
         <FeaturesSection />
         <ActivationSection />
+          <FAQSection />
         <CTASection />
       </main>
       <Footer />
       <GetStartedDialog open={dialogOpen} onOpenChange={setDialogOpen} />
-    </div>
+    </div></>
   );
 }

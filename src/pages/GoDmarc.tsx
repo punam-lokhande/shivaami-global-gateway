@@ -19,7 +19,8 @@ import {
   HeadphonesIcon,
   Calendar,
   CheckCircle2,
-  ArrowRight
+  ArrowRight,
+  HelpCircle
 } from "lucide-react";
 import goDmarcBanner from "@/assets/banners/godmarc-banner.jpg";
 import strategicPlanning from "@/assets/activation/strategic-planning.jpg";
@@ -28,6 +29,8 @@ import securityConfig from "@/assets/activation/security-config.jpg";
 import teamTraining from "@/assets/activation/team-training.jpg";
 import ongoingSupport from "@/assets/activation/ongoing-support.jpg";
 import GetStartedDialog from "@/components/GetStartedDialog";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@radix-ui/react-accordion";
+import { Helmet } from "react-helmet-async";
 
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },
@@ -63,7 +66,7 @@ const HeroSection = () => {
   return (
     <section 
       ref={sectionRef}
-      className="relative w-full min-h-[60vh] md:min-h-[65vh] lg:min-h-[70vh] max-h-[700px] flex items-center justify-center overflow-hidden"
+      className="relative w-full min-h-[55vh] sm:min-h-[60vh] max-h-[700px] flex items-center justify-center overflow-hidden"
     >
       <motion.div 
         className="absolute inset-0 z-0"
@@ -88,7 +91,7 @@ const HeroSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            Protect Your Email Domain with <span className="text-[#38B6FF]">GoDMARC</span>
+          <span className="text-[#38B6FF]">GoDMARC: Email</span> Domain Protection
           </motion.h1>
           <motion.p 
             className="text-lg md:text-xl text-white/90 mb-8 leading-relaxed"
@@ -96,7 +99,7 @@ const HeroSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            Email authentication platform implementing DMARC, SPF, and DKIM protocols. Protect your domain from spoofing, improve deliverability, and protect brand reputation.
+           GoDMARC is an email authentication platform implementing DMARC, SPF, and DKIM to protect domains from spoofing and fraud. Shivaami partners with GoDMARC to deliver email security in India and the US.
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -132,42 +135,42 @@ const features = [
   {
     icon: Shield,
     title: "DMARC Implementation",
-    description: "Authenticate emails sent from your domain with industry-standard protocol. Prevent attackers from spoofing your domain in phishing attacks."
+    description: "Authenticate emails sent from your domain with the industry-standard protocol. Prevent attackers from spoofing your domain in phishing attacks. Policy enforcement tells recipients how to handle unauthenticated emails."
   },
   {
     icon: Key,
     title: "SPF Configuration",
-    description: "Specify which mail servers can send email for your domain. Simple validation prevents basic spoofing attempts."
+    description: "Specify which mail servers can send email for your domain. Simple validation prevents basic spoofing attempts. Works alongside DMARC for comprehensive protection."
   },
   {
     icon: Lock,
     title: "DKIM Signing",
-    description: "Cryptographic signatures verify email integrity and authenticity. Prevents message tampering during transmission."
+    description: "Cryptographic signatures verify email integrity and authenticity. Prevents message tampering during transmission. Receiving servers validate signatures automatically."
   },
   {
     icon: BarChart3,
     title: "Monitoring and Reporting",
-    description: "Track all email sent using your domain. Identify unauthorized sending sources quickly with aggregate reports."
+    description: "Track all emails sent using your domain. Identify unauthorized sending sources quickly. Aggregate reports show authentication success rates."
   },
   {
     icon: AlertTriangle,
     title: "Policy Enforcement",
-    description: "Gradually move from monitoring to enforcement with confidence. Quarantine or reject unauthenticated emails at recipient servers."
+    description: "Gradually move from monitoring to enforcement with confidence. Quarantine or reject unauthenticated emails at recipient servers. Protect recipients while maintaining legitimate email flow."
   },
   {
     icon: TrendingUp,
     title: "Deliverability Improvement",
-    description: "Authenticated emails bypass spam filters more reliably. Major email providers prioritize properly authenticated messages."
+    description: "Authenticated emails bypass spam filters more reliably. Major email providers prioritize properly authenticated messages. Reputation benefits from demonstrated security practices."
   },
   {
     icon: Zap,
     title: "Threat Intelligence",
-    description: "Identify phishing campaigns targeting your domain. Receive alerts when spoofing attempts occur."
+    description: "Identify phishing campaigns targeting your domain. Receive alerts when spoofing attempts occur. Intelligence informs security awareness training."
   },
   {
     icon: FileCheck,
     title: "Compliance Support",
-    description: "Meet regulatory requirements for email security. Documentation supports audit and compliance processes."
+    description: "Meet regulatory requirements for email security. Documentation supports audit and compliance processes. Demonstrate proactive email protection measures."
   }
 ];
 
@@ -178,9 +181,7 @@ const FeaturesSection = () => (
         <h2 className="text-2xl md:text-3xl font-bold text-[#0C4594] mb-4">
           What GoDMARC Delivers
         </h2>
-        <p className="text-gray-600 max-w-2xl mx-auto">
-          Prevent phishing attacks, improve deliverability, and protect brand reputation
-        </p>
+      
       </motion.div>
       
       <motion.div 
@@ -265,31 +266,31 @@ const activationSteps = [
     image: strategicPlanning,
     icon: Brain,
     title: "Strategy and Planning",
-    description: "We audit your current email authentication configuration. Our team identifies all legitimate email sources for your domain."
+    description: "We audit your current email authentication configuration. Our team identifies all legitimate email sources for your domain. You get a roadmap for complete DMARC implementation."
   },
   {
     image: technicalDeployment,
     icon: Settings,
     title: "Deployment and Integration",
-    description: "Shivaami configures SPF, DKIM, and DMARC records correctly. We work with email service providers to enable authentication."
+    description: "Shivaami configures SPF, DKIM, and DMARC records correctly. We work with email service providers to enable authentication. Your domain gains protection without disrupting legitimate email."
   },
   {
     image: securityConfig,
     icon: Shield,
     title: "Security and Compliance",
-    description: "Our experts monitor authentication reports and identify issues. We gradually enforce policies as confidence grows."
+    description: "Our experts monitor authentication reports and identify issues. We gradually enforce policies as confidence grows. Complete protection prevents domain spoofing effectively."
   },
   {
     image: teamTraining,
     icon: GraduationCap,
     title: "User Enablement and Adoption",
-    description: "We explain email authentication to stakeholders clearly. Communication addresses any concerns about email deliverability."
+    description: "We explain email authentication to stakeholders clearly. Communication addresses any concerns about email deliverability. Guidance ensures a smooth transition to enforcement."
   },
   {
     image: ongoingSupport,
     icon: HeadphonesIcon,
     title: "Ongoing Optimization and Support",
-    description: "Shivaami monitors your DMARC environment continuously. We add new email sources as your business evolves."
+    description: "Shivaami monitors your DMARC environment continuously. We add new email sources as your business evolves. Regular reviews ensure ongoing protection and compliance."
   }
 ];
 
@@ -300,9 +301,7 @@ const ActivationSection = () => (
         <h2 className="text-2xl md:text-3xl font-bold text-[#0C4594] mb-4">
           How Shivaami Helps You Succeed?
         </h2>
-        <p className="text-gray-600 max-w-2xl mx-auto">
-          Our email security expertise ensures successful DMARC implementation
-        </p>
+       
       </motion.div>
 
       <motion.div 
@@ -391,18 +390,170 @@ const GoDmarc = () => {
     document.addEventListener('openGetStartedDialog', handleOpenDialog);
     return () => document.removeEventListener('openGetStartedDialog', handleOpenDialog);
   }, []);
+
+
+// FAQ Section
+function FAQSection() {
+  const faqs = [
+    {
+      question: "Why is DMARC needed for email security?",
+      answer: "DMARC (Domain-based Message Authentication, Reporting, and Conforming) helps organizations authenticate legitimate email senders and prevent unauthorized use of their domain. It protects against email spoofing, phishing attacks, and brand impersonation by verifying sender identity."
+    },
+    {
+      question: "Does DMARC affect the way my emails get delivered?",
+      answer: "DMARC can be configured with different policy levels (none, quarantine, reject) that determine how receiving servers handle failed authentication. Organizations typically start with monitoring mode to avoid delivery issues, then gradually implement stricter policies based on authentication data."
+    },
+    {
+      question: "What is GoDMARC, and how does it help organizations?",
+      answer: "GoDMARC is a SaaS and Managed Services solution that simplifies DMARC deployment and management for businesses. It provides easy implementation, real-time monitoring, detailed reporting, and expert support to protect your domain from email-based threats."
+    },
+    {
+      question: "How does DMARC work with SPF and DKIM?",
+      answer: "DMARC builds upon existing email authentication protocols, SPF (Sender Policy Framework) and DKIM (DomainKeys Identified Mail). It requires at least one of these authentication methods to pass and provides domain owners with visibility and control over email authentication results."
+    },
+    {
+      question: "What reports does DMARC provide?",
+      answer: "DMARC generates aggregate reports showing authentication results and forensic reports with detailed information about failed authentication attempts. These reports help identify legitimate sending sources, detect spoofing attempts, and monitor email channel health."
+    },
+    {
+      question: "How long does it take to implement DMARC?",
+      answer: "DMARC implementation is a phased process. Initial setup with a monitoring policy can be completed within hours, but moving to enforcement policies typically takes several weeks to months as organizations analyze reports, identify legitimate sources, and ensure proper authentication."
+    }
+  ];
+
   return (
+    <section className="py-16 bg-[#f8fafc]">
+      <div className="w-full px-8 lg:px-16 xl:px-24">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left - Image */}
+            <motion.div {...fadeInUp} className="relative">
+              <div className="absolute -inset-4 bg-gradient-to-r from-[#0C4594]/20 to-[#38B6FF]/20 rounded-3xl blur-2xl" />
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+                <img 
+                  src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=600&h=500&fit=crop" 
+                  alt="FAQ Support"
+                  className="w-full h-[400px] object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0C4594]/80 via-transparent to-transparent" />
+                <div className="absolute bottom-6 left-6 right-6">
+                  <div className="flex items-center gap-3 text-white">
+                    <div className="w-12 h-12 rounded-xl bg-[#38B6FF] flex items-center justify-center">
+                      <HelpCircle className="w-6 h-6" />
+                    </div>
+                    <div>
+                      <p className="font-semibold text-lg">Need Help?</p>
+                      <p className="text-white/80 text-sm">We're here 24x7</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Right - FAQ */}
+            <motion.div {...fadeInUp}>
+              <h2 className="text-2xl md:text-3xl font-bold text-[#0C4594] mb-6">
+                Frequently Asked Questions
+              </h2>
+              
+              <Accordion type="single" collapsible className="space-y-2">
+                {faqs.map((faq, idx) => (
+                  <AccordionItem 
+                    key={idx} 
+                    value={`item-${idx}`}
+                    className="bg-white border border-[#e2e8f0] rounded-xl px-4 overflow-hidden hover:border-[#38B6FF]/30 transition-colors"
+                  >
+                    <AccordionTrigger className="text-[#0C4594] hover:text-[#38B6FF] text-left py-4 hover:no-underline text-sm">
+                      <span className="font-medium">{faq.question}</span>
+                    </AccordionTrigger>
+                    <AccordionContent className="text-[#64748b] pb-4 text-sm">
+                      {faq.answer}
+                    </AccordionContent>
+                  </AccordionItem>
+                ))}
+              </Accordion>
+
+                         </motion.div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+const faqSchema ={
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [{
+    "@type": "Question",
+    "name": "Why is DMARC needed for email security?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "DMARC (Domain-based Message Authentication, Reporting, and Conforming) helps organizations authenticate legitimate email senders and prevent unauthorized use of their domain. It protects against email spoofing, phishing attacks, and brand impersonation by verifying sender identity."
+    }
+  },{
+    "@type": "Question",
+    "name": "Does DMARC affect the way my emails get delivered?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "DMARC can be configured with different policy levels (none, quarantine, reject) that determine how receiving servers handle failed authentication. Organizations typically start with monitoring mode to avoid delivery issues, then gradually implement stricter policies based on authentication data."
+    }
+  },{
+    "@type": "Question",
+    "name": "What is GoDMARC, and how does it help organizations?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "GoDMARC is a SaaS and Managed Services solution that simplifies DMARC deployment and management for businesses. It provides easy implementation, real-time monitoring, detailed reporting, and expert support to protect your domain from email-based threats."
+    }
+  },{
+    "@type": "Question",
+    "name": "How does DMARC work with SPF and DKIM?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "DMARC builds upon existing email authentication protocols, SPF (Sender Policy Framework) and DKIM (DomainKeys Identified Mail). It requires at least one of these authentication methods to pass and provides domain owners with visibility and control over email authentication results."
+    }
+  },{
+    "@type": "Question",
+    "name": "What reports does DMARC provide?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "DMARC generates aggregate reports showing authentication results and forensic reports with detailed information about failed authentication attempts. These reports help identify legitimate sending sources, detect spoofing attempts, and monitor email channel health."
+    }
+  },{
+    "@type": "Question",
+    "name": "How long does it take to implement DMARC?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "DMARC implementation is a phased process. Initial setup with a monitoring policy can be completed within hours, but moving to enforcement policies typically takes several weeks to months as organizations analyze reports, identify legitimate sources, and ensure proper authentication."
+    }
+  }]
+}
+
+
+
+  return (
+    <>
+
+ <Helmet>
+<title>GoDMARC Partner India | Email Authentication by Shivaami</title>
+ <meta name="description" content="Deploy GoDMARC email authentication with Shivaami. Protect your domain from spoofing and phishing. Expert DMARC implementation and monitoring." />
+<link rel="canonical" href="https://www.shivaami.com/godmarc" />
+ <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
+ </Helmet>
+
+
     <div className="min-h-screen bg-white">
       <Header />
       <main>
         <HeroSection />
         <FeaturesSection />
         <ActivationSection />
+        <FAQSection />
         <CalendarCTASection />
       </main>
       <Footer />
       <GetStartedDialog open={dialogOpen} onOpenChange={setDialogOpen} />
-    </div>
+    </div></>
   );
 };
 

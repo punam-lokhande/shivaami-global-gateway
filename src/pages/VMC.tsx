@@ -19,7 +19,8 @@ import {
   HeadphonesIcon,
   Calendar,
   CheckCircle2,
-  ArrowRight
+  ArrowRight,
+  HelpCircle
 } from "lucide-react";
 import vmcBanner from "@/assets/banners/vmc-banner.jpg";
 import strategicPlanning from "@/assets/activation/strategic-planning.jpg";
@@ -28,6 +29,8 @@ import securityConfig from "@/assets/activation/security-config.jpg";
 import teamTraining from "@/assets/activation/team-training.jpg";
 import ongoingSupport from "@/assets/activation/ongoing-support.jpg";
 import GetStartedDialog from "@/components/GetStartedDialog";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@radix-ui/react-accordion";
+import { Helmet } from "react-helmet-async";
 
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },
@@ -63,7 +66,7 @@ const HeroSection = () => {
   return (
     <section 
       ref={sectionRef}
-      className="relative w-full min-h-[60vh] md:min-h-[65vh] lg:min-h-[70vh] max-h-[700px] flex items-center justify-center overflow-hidden"
+      className="relative w-full min-h-[55vh] sm:min-h-[60vh] max-h-[700px] flex items-center justify-center overflow-hidden"
     >
       <motion.div 
         className="absolute inset-0 z-0"
@@ -78,7 +81,8 @@ const HeroSection = () => {
       </motion.div>
 
       <motion.div 
-        className="relative z-10 w-full px-8 lg:px-16 xl:px-24"
+        
+             className="relative z-10 w-full px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24 pt-24 sm:pt-28 md:pt-32 lg:pt-36"
         style={{ opacity }}
       >
         <div className="max-w-3xl">
@@ -88,7 +92,7 @@ const HeroSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            Display Your Brand with <span className="text-[#38B6FF]">Verified Mark Certificates</span>
+           <span className="text-[#38B6FF]">VMC: Verified</span> Brand Display
           </motion.h1>
           <motion.p 
             className="text-lg md:text-xl text-white/90 mb-8 leading-relaxed"
@@ -96,7 +100,7 @@ const HeroSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            Enable your brand logo to appear next to authenticated emails in recipient inboxes. Increase brand visibility, build trust, and improve email engagement.
+          Verified Mark Certificates display brand logos beside authenticated emails, requiring DMARC enforcement and trademark verification for trust. Shivaami helps organisations obtain and deploy VMCs in India and the US.
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -132,42 +136,42 @@ const features = [
   {
     icon: Image,
     title: "Brand Logo Display",
-    description: "Your registered trademark logo appears in email clients supporting BIMI. Visual recognition builds immediate trust with recipients."
+    description: "Your registered trademark logo appears in email clients supporting BIMI. Increased visibility differentiates legitimate emails from phishing. Visual recognition builds immediate trust with recipients."
   },
   {
     icon: Shield,
     title: "Email Authentication Requirement",
-    description: "VMCs require DMARC enforcement at reject or quarantine policy. Ensures only authenticated emails display your logo."
+    description: "VMCs require DMARC enforcement at reject or quarantine policy. Ensures only authenticated emails display your logo. Combined security and branding benefit."
   },
   {
     icon: Award,
     title: "Trademark Verification",
-    description: "Certificate authorities verify your legal trademark ownership. Prevents unauthorized use of your brand in email."
+    description: "Certificate authorities verify your legal trademark ownership. Prevents unauthorized use of your brand in email. Legal protection complements technical security."
   },
   {
     icon: TrendingUp,
     title: "Improved Engagement",
-    description: "Branded emails receive higher open rates than generic messages. Marketing and transactional emails benefit equally."
+    description: "Branded emails receive higher open rates than generic messages. Logo recognition encourages recipients to interact with content. Marketing and transactional emails benefit equally."
   },
   {
     icon: AlertTriangle,
     title: "Phishing Protection",
-    description: "Absence of logo signals potential phishing to recipients. Visual indicator helps users identify legitimate communications."
+    description: " Absence of logo signals potential phishing to recipients. Visual indicator helps users identify legitimate communications. Reduces successful phishing attacks against your customers."
   },
   {
     icon: Globe,
     title: "Cross-Platform Support",
-    description: "Major email providers including Gmail, Apple Mail, and Yahoo support BIMI. Growing adoption increases visibility over time."
+    description: "Major email providers, including Gmail, Apple Mail, and Yahoo, support BIMI. Growing adoption increases brand visibility over time. Future-proof investment in email branding."
   },
   {
     icon: SettingsIcon,
     title: "Simplified Management",
-    description: "Single VMC publishes logo across all supporting email clients. Centralized approach simplifies brand consistency."
+    description: "Single VMC publishes logo across all supporting email clients. No need to configure each platform separately. A centralized approach simplifies brand consistency."
   },
   {
     icon: Heart,
     title: "Compliance and Trust",
-    description: "Demonstrates commitment to email security and authentication. Builds credibility with security-conscious recipients."
+    description: "Demonstrates commitment to email security and authentication. Builds credibility with security-conscious recipients. Supports brand reputation protection initiatives."
   }
 ];
 
@@ -265,31 +269,31 @@ const activationSteps = [
     image: strategicPlanning,
     icon: Brain,
     title: "Strategy and Planning",
-    description: "We assess your DMARC readiness for VMC requirements. Our team guides trademark verification process."
+    description: "We assess your DMARC readiness for VMC requirements. Our team guides the trademark verification process. You get clear steps to achieve logo display in inboxes."
   },
   {
     image: technicalDeployment,
     icon: Settings,
     title: "Deployment and Integration",
-    description: "Shivaami implements DMARC enforcement if not already in place. We prepare logo files meeting technical specifications."
+    description: "Shivaami implements DMARC enforcement if not already in place. We prepare logo files meeting technical specifications. Certificate procurement and DNS configuration complete the process."
   },
   {
     image: securityConfig,
     icon: Shield,
     title: "Security and Compliance",
-    description: "Our experts ensure DMARC enforcement meets VMC requirements. We verify trademark documentation completeness."
+    description: "Our experts ensure DMARC enforcement meets VMC requirements. We verify trademark documentation completeness. Legal and technical requirements align properly."
   },
   {
     image: teamTraining,
     icon: GraduationCap,
     title: "User Enablement and Adoption",
-    description: "We explain VMC benefits to marketing and security teams. Communication addresses timeline and requirements."
+    description: "We explain VMC benefits to marketing and security teams. Communication addresses timeline and requirements. Stakeholders understand value and process."
   },
   {
     image: ongoingSupport,
     icon: HeadphonesIcon,
     title: "Ongoing Optimization and Support",
-    description: "Shivaami monitors VMC validity and email authentication. We handle renewals and maintain proper configuration."
+    description: "Shivaami monitors VMC validity and email authentication. We handle renewals and maintain proper configuration. Your brand remains visible in customers' inboxes consistently."
   }
 ];
 
@@ -391,18 +395,173 @@ const VMC = () => {
     document.addEventListener('openGetStartedDialog', handleOpenDialog);
     return () => document.removeEventListener('openGetStartedDialog', handleOpenDialog);
   }, []);
+
+// FAQ Section
+function FAQSection() {
+  const faqs = [
+    {
+      question: "What are the key functions of Verified Mark Certificates (VMC)?",
+      answer: "Verified Mark Certificates protect and authenticate your organization's brand identity in email communications. They display your official logo next to sent emails, prevent spammers from misusing your brand, and build recipient trust by visually confirming the legitimacy of your emails."
+    },
+    {
+      question: "How many VMCs are required for multiple domains?",
+      answer: "A single VMC can cover all domains under one organization, provided you use the same logo across all email channels. However, if you wish to display different logos for different domains, you will need to purchase a separate VMC for each unique logo."
+    },
+    {
+      question: "Is a registered trademark required to obtain a VMC?",
+      answer: "Yes, a registered trademark is a mandatory requirement for obtaining a Verified Mark Certificate. Organizations must provide valid trademark registration documentation before a VMC can be issued and activated."
+    },
+    {
+      question: "How does VMC work with DMARC authentication?",
+      answer: "VMCs work in conjunction with DMARC, SPF, and DKIM email authentication protocols. Once your domain passes DMARC authentication, the VMC enables your registered logo to be displayed in the recipient's email inbox automatically."
+    },
+    {
+      question: "What are the benefits of VMC for email marketing?",
+      answer: "VMCs significantly improve email marketing performance by increasing brand visibility, boosting recipient trust, and improving email open rates. Displaying your authenticated logo helps distinguish legitimate emails from phishing attempts and strengthens brand recognition."
+    },
+    {
+      question: "How long does it take to obtain a Verified Mark Certificate?",
+      answer: "The VMC issuance process typically takes 3-5 business days after submitting all required documentation including trademark registration proof and domain validation. Shivaami assists organizations throughout the application process to ensure quick and hassle-free VMC deployment."
+    }
+  ];
+
   return (
+    <section className="py-16 bg-[#f8fafc]">
+      <div className="w-full px-8 lg:px-16 xl:px-24">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left - Image */}
+            <motion.div {...fadeInUp} className="relative">
+              <div className="absolute -inset-4 bg-gradient-to-r from-[#0C4594]/20 to-[#38B6FF]/20 rounded-3xl blur-2xl" />
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+                <img 
+                  src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=600&h=500&fit=crop" 
+                  alt="FAQ Support"
+                  className="w-full h-[400px] object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0C4594]/80 via-transparent to-transparent" />
+                <div className="absolute bottom-6 left-6 right-6">
+                  <div className="flex items-center gap-3 text-white">
+                    <div className="w-12 h-12 rounded-xl bg-[#38B6FF] flex items-center justify-center">
+                      <HelpCircle className="w-6 h-6" />
+                    </div>
+                    <div>
+                      <p className="font-semibold text-lg">Need Help?</p>
+                      <p className="text-white/80 text-sm">We're here 24x7</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Right - FAQ */}
+            <motion.div {...fadeInUp}>
+              <h2 className="text-2xl md:text-3xl font-bold text-[#0C4594] mb-6">
+                Frequently Asked Questions
+              </h2>
+              
+              <Accordion type="single" collapsible className="space-y-2">
+                {faqs.map((faq, idx) => (
+                  <AccordionItem 
+                    key={idx} 
+                    value={`item-${idx}`}
+                    className="bg-white border border-[#e2e8f0] rounded-xl px-4 overflow-hidden hover:border-[#38B6FF]/30 transition-colors"
+                  >
+                    <AccordionTrigger className="text-[#0C4594] hover:text-[#38B6FF] text-left py-4 hover:no-underline text-sm">
+                      <span className="font-medium">{faq.question}</span>
+                    </AccordionTrigger>
+                    <AccordionContent className="text-[#64748b] pb-4 text-sm">
+                      {faq.answer}
+                    </AccordionContent>
+                  </AccordionItem>
+                ))}
+              </Accordion>
+
+          
+            </motion.div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+
+const faqSchema ={
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [{
+    "@type": "Question",
+    "name": "What are the key functions of Verified Mark Certificates (VMC)?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Verified Mark Certificates protect and authenticate your organization's brand identity in email communications. They display your official logo next to sent emails, prevent spammers from misusing your brand, and build recipient trust by visually confirming the legitimacy of your emails."
+    }
+  },{
+    "@type": "Question",
+    "name": "How many VMCs are required for multiple domains?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "A single VMC can cover all domains under one organization, provided you use the same logo across all email channels. However, if you wish to display different logos for different domains, you will need to purchase a separate VMC for each unique logo."
+    }
+  },{
+    "@type": "Question",
+    "name": "Is a registered trademark required to obtain a VMC?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes, a registered trademark is a mandatory requirement for obtaining a Verified Mark Certificate. Organizations must provide valid trademark registration documentation before a VMC can be issued and activated."
+    }
+  },{
+    "@type": "Question",
+    "name": "How does VMC work with DMARC authentication?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "VMCs work in conjunction with DMARC, SPF, and DKIM email authentication protocols. Once your domain passes DMARC authentication, the VMC enables your registered logo to be displayed in the recipient's email inbox automatically."
+    }
+  },{
+    "@type": "Question",
+    "name": "What are the benefits of VMC for email marketing?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "VMCs significantly improve email marketing performance by increasing brand visibility, boosting recipient trust, and improving email open rates. Displaying your authenticated logo helps distinguish legitimate emails from phishing attempts and strengthens brand recognition."
+    }
+  },{
+    "@type": "Question",
+    "name": "How long does it take to obtain a Verified Mark Certificate?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "The VMC issuance process typically takes 3-5 business days after submitting all required documentation including trademark registration proof and domain validation. Shivaami assists organizations throughout the application process to ensure quick and hassle-free VMC deployment."
+    }
+  }]
+}
+
+
+
+
+  return (
+    <>
+
+  <Helmet>
+<title>VMC Certificates Provider | Brand Indicators by Shivaami</title>
+ <meta name="description" content="Get Verified Mark Certificates from Shivaami. Display your logo in email inboxes. Build trust and improve email engagement with VMC." />
+<link rel="canonical" href="https://www.shivaami.com/vmc" />
+ <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
+ </Helmet>
+
+
+
     <div className="min-h-screen bg-white">
       <Header />
       <main>
         <HeroSection />
         <FeaturesSection />
         <ActivationSection />
+        <FAQSection />
         <CalendarCTASection />
       </main>
       <Footer />
       <GetStartedDialog open={dialogOpen} onOpenChange={setDialogOpen} />
-    </div>
+    </div></>
   );
 };
 

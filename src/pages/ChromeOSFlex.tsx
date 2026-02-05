@@ -3,7 +3,8 @@ import { useRef, useState, useEffect } from 'react';
 import { 
   Layers, RefreshCw, Shield, 
   Users, HeadphonesIcon, CheckCircle2, ArrowRight, Calendar,
-  Zap, Cloud, Leaf, Settings, Monitor, Lock
+  Zap, Cloud, Leaf, Settings, Monitor, Lock,
+  HelpCircle
 } from 'lucide-react';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
@@ -68,8 +69,8 @@ function HeroSection() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="font-display text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-semibold text-white mb-4 sm:mb-6 leading-[1.15] tracking-tight"
           >
-            Modernize Legacy Devices<br />
-            <span className="text-[#38B6FF]">with Chrome OS Flex</span>
+          
+            <span className="text-[#38B6FF]">ChromeOS Flex : Device </span><br /> Modernization Platform
           </motion.h1>
 
           <motion.p
@@ -78,7 +79,7 @@ function HeroSection() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-sm sm:text-base lg:text-lg text-white/80 max-w-2xl mb-6 sm:mb-8 leading-relaxed font-body"
           >
-            Chrome OS Flex brings Chrome OS to existing PCs and Macs. It transforms aging hardware into fast, secure, and manageable devices. Organizations use it to extend device lifecycles, reduce e-waste, and standardize on Chrome management.
+           ChromeOS Flex brings ChromeOS to existing PCs and Macs, turning ageing hardware into fast, secure devices. Shivaami helps enterprises in India and the US deploy ChromeOS Flex and manage migration.
           </motion.p>
 
           <motion.div
@@ -106,7 +107,7 @@ function FeaturesSection() {
     {
       icon: RefreshCw,
       title: 'Hardware Reuse',
-      desc: 'Install on existing Windows or Mac computers. Extend useful life of older devices by years. Avoid premature hardware replacement costs.',
+      desc: 'Install on existing Windows or Mac computers. Extend the useful life of older devices by years. Avoid premature hardware replacement costs.',
     },
     {
       icon: Zap,
@@ -131,7 +132,7 @@ function FeaturesSection() {
     {
       icon: HeadphonesIcon,
       title: 'Simplified Support',
-      desc: 'Fewer moving parts reduce troubleshooting complexity. Cloud-based tools enable remote management. IT burden decreases significantly.',
+      desc: 'Fewer moving parts reduce troubleshooting complexity. Cloud-based tools enable remote management. The IT burden decreases significantly.',
     },
     {
       icon: Monitor,
@@ -248,31 +249,31 @@ function ActivationSection() {
       image: strategicPlanningImg,
       icon: Layers,
       title: 'Strategy and Planning',
-      desc: 'We inventory your device fleet and assess Chrome OS Flex compatibility. Our team identifies suitable devices and migration priorities.',
+      desc: 'We inventory your device fleet and assess Chrome OS Flex compatibility. Our team identifies suitable devices and migration priorities. You get a deployment plan with a phased rollout approach.',
     },
     {
       image: technicalDeploymentImg,
       icon: Settings,
       title: 'Deployment and Integration',
-      desc: 'Shivaami creates installation media and configures automated deployment. We migrate users, back up data, and install Chrome OS Flex.',
+      desc: 'Shivaami creates installation media and configures automated deployment. We migrate users, back up data, and install Chrome OS Flex. Your devices transform to Chrome OS with minimal disruption.',
     },
     {
       image: securityConfigImg,
       icon: Shield,
       title: 'Security and Compliance',
-      desc: 'Our experts implement Chrome Enterprise policies on converted devices. We configure security settings and access controls across the fleet.',
+      desc: 'Our experts implement Chrome Enterprise policies on converted devices. We configure security settings and access controls. Management ensures consistent protection across the fleet.',
     },
     {
       image: teamTrainingImg,
       icon: Users,
       title: 'User Enablement',
-      desc: 'We communicate changes to affected users with clear guidance. Training addresses workflow differences and new features for smooth adoption.',
+      desc: 'We communicate changes to affected users with clear guidance. Training addresses workflow differences and new features. Support resources help users adapt successfully.',
     },
     {
       image: ongoingSupportImg,
       icon: HeadphonesIcon,
       title: 'Ongoing Support',
-      desc: 'Shivaami manages Chrome OS Flex devices alongside Chromebooks. We handle policy updates and identify additional conversion candidates.',
+      desc: 'Shivaami manages Chrome OS Flex devices alongside Chromebooks. We handle policy updates and troubleshooting. Regular reviews identify additional conversion candidates.',
     },
   ];
 
@@ -287,7 +288,7 @@ function ActivationSection() {
 
         <motion.div 
           {...staggerContainer} 
-          className="grid md:grid-cols-3 lg:grid-cols-5 gap-4 max-w-7xl mx-auto"
+          className="grid md:grid-cols-3 lg:grid-cols-5 gap-4 max-w-8xl mx-auto"
         >
           {steps.map((step, idx) => (
             <motion.div
@@ -312,6 +313,7 @@ function ActivationSection() {
 }
 
 import CTASection from '@/components/sections/CTASection';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@radix-ui/react-accordion';
 
 export default function ChromeOSFlex() {
   const [dialogOpen, setDialogOpen] = useState(false);
@@ -322,6 +324,157 @@ export default function ChromeOSFlex() {
     return () => document.removeEventListener('openGetStartedDialog', handleOpenDialog);
   }, []);
 
+
+// FAQ Section
+function FAQSection() {
+  const faqs = [
+    {
+      question: "What is Chrome OS Flex?",
+      answer: "Chrome OS Flex is a free, cloud-based operating system that can be installed on older Mac and PC devices. It provides a fast, secure computing experience and extends the life of existing hardware."
+    },
+    {
+      question: "Why use Chrome OS Flex?",
+      answer: "Chrome OS Flex helps organizations modernize their existing devices by converting them into secure, fast Chrome OS machines. This reduces e-waste, saves costs on new hardware, and improves device performance."
+    },
+    {
+      question: "Are Google Play and Android apps supported by Chrome OS Flex?",
+      answer: "No, Chrome OS Flex does not support Google Play or Android apps. However, users can access web-based applications and progressive web apps through the Chrome browser."
+    },
+    {
+      question: "Will CloudReady customers have to pay for Chrome OS Flex?",
+      answer: "CloudReady Home Edition users can upgrade to Chrome OS Flex for free. CloudReady Enterprise customers will need to migrate to Chrome OS Flex Enterprise Edition, which requires a license."
+    },
+    {
+      question: "What are the system requirements for Chrome OS Flex?",
+      answer: "Chrome OS Flex requires at least an Intel or AMD processor, 4 GB of RAM, and 16 GB of internal storage. A full list of certified devices is available on Google's official website."
+    },
+    {
+      question: "Can I dual-boot Chrome OS Flex with another operating system?",
+      answer: "No, Chrome OS Flex does not support dual booting. Installing Chrome OS Flex will replace the existing operating system on the device completely."
+    }
+  ];
+
+  return (
+    <section className="py-16 bg-[#f8fafc]">
+      <div className="w-full px-8 lg:px-16 xl:px-24">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left - Image */}
+            <motion.div {...fadeInUp} className="relative">
+              <div className="absolute -inset-4 bg-gradient-to-r from-[#0C4594]/20 to-[#38B6FF]/20 rounded-3xl blur-2xl" />
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+                <img 
+                  src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=600&h=500&fit=crop" 
+                  alt="FAQ Support"
+                  className="w-full h-[400px] object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0C4594]/80 via-transparent to-transparent" />
+                <div className="absolute bottom-6 left-6 right-6">
+                  <div className="flex items-center gap-3 text-white">
+                    <div className="w-12 h-12 rounded-xl bg-[#38B6FF] flex items-center justify-center">
+                      <HelpCircle className="w-6 h-6" />
+                    </div>
+                    <div>
+                      <p className="font-semibold text-lg">Need Help?</p>
+                      <p className="text-white/80 text-sm">We're here 24x7</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Right - FAQ */}
+            <motion.div {...fadeInUp}>
+              <h2 className="text-2xl md:text-3xl font-bold text-[#0C4594] mb-6">
+                Frequently Asked Questions
+              </h2>
+              
+              <Accordion type="single" collapsible className="space-y-2">
+                {faqs.map((faq, idx) => (
+                  <AccordionItem 
+                    key={idx} 
+                    value={`item-${idx}`}
+                    className="bg-white border border-[#e2e8f0] rounded-xl px-4 overflow-hidden hover:border-[#38B6FF]/30 transition-colors"
+                  >
+                    <AccordionTrigger className="text-[#0C4594] hover:text-[#38B6FF] text-left py-4 hover:no-underline text-sm">
+                      <span className="font-medium">{faq.question}</span>
+                    </AccordionTrigger>
+                    <AccordionContent className="text-[#64748b] pb-4 text-sm">
+                      {faq.answer}
+                    </AccordionContent>
+                  </AccordionItem>
+                ))}
+              </Accordion>
+
+              <Link to="/contact" className="inline-block mt-6">
+                <Button className="bg-[#0C4594] hover:bg-[#0a3d80] text-white font-medium px-6 py-3 rounded-xl">
+                  Have more questions? Contact us
+                  <ArrowRight className="ml-2 w-4 h-4" />
+                </Button>
+              </Link>
+            </motion.div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+
+
+
+const faqSchema ={
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [{
+    "@type": "Question",
+    "name": "What is Chrome OS Flex?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Chrome OS Flex is a free, cloud-based operating system that can be installed on older Mac and PC devices. It provides a fast, secure computing experience and extends the life of existing hardware."
+    }
+  },{
+    "@type": "Question",
+    "name": "Why use Chrome OS Flex?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Chrome OS Flex helps organizations modernize their existing devices by converting them into secure, fast Chrome OS machines. This reduces e-waste, saves costs on new hardware, and improves device performance."
+    }
+  },{
+    "@type": "Question",
+    "name": "Are Google Play and Android apps supported by Chrome OS Flex?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No, Chrome OS Flex does not support Google Play or Android apps. However, users can access web-based applications and progressive web apps through the Chrome browser."
+    }
+  },{
+    "@type": "Question",
+    "name": "Will CloudReady customers have to pay for Chrome OS Flex?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "CloudReady Home Edition users can upgrade to Chrome OS Flex for free. CloudReady Enterprise customers will need to migrate to Chrome OS Flex Enterprise Edition, which requires a license."
+    }
+  },{
+    "@type": "Question",
+    "name": "What are the system requirements for Chrome OS Flex?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Chrome OS Flex requires at least an Intel or AMD processor, 4 GB of RAM, and 16 GB of internal storage. A full list of certified devices is available on Google's official website."
+    }
+  },{
+    "@type": "Question",
+    "name": "Can I dual-boot Chrome OS Flex with another operating system?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No, Chrome OS Flex does not support dual booting. Installing Chrome OS Flex will replace the existing operating system on the device completely."
+    }
+  }]
+}
+
+
+
+
+
   return (
     <div className="min-h-screen bg-white">
       <Header />
@@ -329,6 +482,7 @@ export default function ChromeOSFlex() {
         <HeroSection />
         <FeaturesSection />
         <ActivationSection />
+        <FAQSection />
         <CTASection />
       </main>
       <Footer />

@@ -18,7 +18,8 @@ import {
   HeadphonesIcon,
   Calendar,
   CheckCircle2,
-  ArrowRight
+  ArrowRight,
+  HelpCircle
 } from "lucide-react";
 import checkPointBanner from "@/assets/banners/checkpoint-banner.jpg";
 import strategicPlanning from "@/assets/activation/strategic-planning.jpg";
@@ -87,7 +88,7 @@ const HeroSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            Comprehensive Security with <span className="text-[#38B6FF]">Check Point</span>
+          <span className="text-[#38B6FF]">Check Point :</span> Enterprise Security Protection 
           </motion.h1>
           <motion.p 
             className="text-sm sm:text-base lg:text-lg text-white/80 max-w-2xl mb-6 sm:mb-8 leading-relaxed font-body"
@@ -95,7 +96,7 @@ const HeroSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            Cybersecurity solutions protecting networks, cloud, mobile, and IoT environments. Advanced firewalls, threat prevention, and unified management.
+          Check Point delivers cybersecurity solutions protecting networks, cloud, mobile, and IoT with advanced firewalls and threat prevention. Shivaami, a certified partner, implements security solutions for enterprises across India & US.
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -121,42 +122,42 @@ const features = [
   {
     icon: Shield,
     title: "Network Security Gateways",
-    description: "Next-generation firewalls inspect all traffic with high performance. Application control manages access regardless of port or protocol."
+    description: "Next-generation firewalls inspect all traffic with high performance. Application control manages access regardless of port or protocol. Unified threat management consolidates security functions in a single appliance."
   },
   {
     icon: Zap,
     title: "Advanced Threat Prevention",
-    description: "SandBlast technology blocks zero-day malware and targeted attacks. CPU-level exploit prevention stops attacks before execution."
+    description: "SandBlast technology blocks zero-day malware and targeted attacks. CPU-level exploit prevention stops attacks before they execute. Threat extraction removes exploits from files before delivery."
   },
   {
     icon: Cloud,
     title: "Cloud Security",
-    description: "CloudGuard protects workloads across AWS, Azure, Google Cloud, and Kubernetes. Automated security extends to containers and serverless."
+    description: "CloudGuard protects workloads across AWS, Azure, Google Cloud, and Kubernetes. Automated security extends to containers and serverless functions. Unified policies ensure consistent protection across hybrid environments."
   },
   {
     icon: Smartphone,
     title: "Mobile Security",
-    description: "Harmony Mobile protects devices against network and application threats. Zero-phishing technology blocks credential theft attempts."
+    description: "Harmony Mobile protects devices against network and application threats. Mobile threat defense prevents phishing and man-in-the-middle attacks. Zero-phishing technology blocks credential theft attempts."
   },
   {
     icon: Mail,
     title: "Email Security",
-    description: "Advanced threat protection blocks phishing emails and malicious attachments. Data loss prevention stops sensitive information leaks."
+    description: "Advanced threat protection blocks phishing emails and malicious attachments. URL protection prevents users from accessing dangerous websites. Data loss prevention stops sensitive information from leaving via email."
   },
   {
     icon: Monitor,
     title: "Endpoint Protection",
-    description: "Harmony Endpoint provides complete endpoint security with single agent. Ransomware protection uses behavioral analysis."
+    description: "Harmony Endpoint provides complete endpoint security with a single agent. Ransomware protection uses behavioral analysis and threat intelligence. Forensic capabilities support incident investigation."
   },
   {
     icon: Cpu,
     title: "IoT Security",
-    description: "Discover and classify IoT devices automatically. Vulnerability assessment identifies security weaknesses in IoT environments."
+    description: "Discover and classify IoT devices automatically. Vulnerability assessment identifies security weaknesses. Segmentation policies isolate IoT networks from critical systems."
   },
   {
     icon: SettingsIcon,
     title: "Unified Management",
-    description: "Single management console controls all security infrastructure. Centralized policies simplify administration and ensure consistency."
+    description: "A single management console controls all security infrastructure. Centralized policies simplify administration and ensure consistency. Reporting provides comprehensive security visibility."
   }
 ];
 
@@ -167,9 +168,7 @@ const FeaturesSection = () => (
         <h2 className="text-2xl md:text-3xl font-bold text-[#0C4594] mb-4">
           What Check Point Delivers
         </h2>
-        <p className="text-gray-600 max-w-2xl mx-auto">
-          Consolidated security, threat intelligence, and multi-layer protection
-        </p>
+        
       </motion.div>
       
       <motion.div 
@@ -254,31 +253,31 @@ const activationSteps = [
     image: strategicPlanning,
     icon: Brain,
     title: "Strategy and Planning",
-    description: "We assess your security architecture and identify protection gaps. Our team designs Check Point solutions aligned with threat landscape."
+    description: "We assess your security architecture and identify protection gaps. Our team designs Check Point solutions aligned with the threat landscape. You get a security roadmap with implementation priorities."
   },
   {
     image: technicalDeployment,
     icon: Settings,
     title: "Deployment and Integration",
-    description: "Shivaami deploys and configures Check Point security infrastructure. We integrate with existing network and security tools."
+    description: "Shivaami deploys and configures Check Point security infrastructure. We integrate with existing network and security tools. Your environment gains advanced protection with proper segmentation."
   },
   {
     image: securityConfig,
     icon: Shield,
     title: "Security and Compliance",
-    description: "Our experts configure threat prevention policies and security controls. We implement best practices for network security."
+    description: "Our experts configure threat prevention policies and security controls. We implement best practices for network security and access control. Compliance reporting supports regulatory requirements."
   },
   {
     image: teamTraining,
     icon: GraduationCap,
     title: "User Enablement and Adoption",
-    description: "We train security teams on platform management and threat investigation. Operational procedures document response to security events."
+    description: "We train security teams on platform management and threat investigation. Operational procedures document response to security events. Knowledge transfer ensures effective ongoing operations."
   },
   {
     image: ongoingSupport,
     icon: HeadphonesIcon,
     title: "Ongoing Optimization and Support",
-    description: "Shivaami provides managed security services with continuous monitoring. We tune policies and update protections."
+    description: "Shivaami provides managed security services with continuous monitoring. We tune policies, investigate alerts, and update protections. Regular security reviews ensure effectiveness against evolving threats."
   }
 ];
 
@@ -289,9 +288,7 @@ const ActivationSection = () => (
         <h2 className="text-2xl md:text-3xl font-bold text-[#0C4594] mb-4">
           How Shivaami Helps You Succeed?
         </h2>
-        <p className="text-gray-600 max-w-2xl mx-auto">
-          As a Check Point partner, we deliver deep security expertise
-        </p>
+        
       </motion.div>
 
       <motion.div 
@@ -315,6 +312,8 @@ const ActivationSection = () => (
 );
 
 import CTASection from '@/components/sections/CTASection';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@radix-ui/react-accordion";
+import { Helmet } from "react-helmet-async";
 
 const CheckPoint = () => {
   const [dialogOpen, setDialogOpen] = useState(false);
@@ -325,18 +324,172 @@ const CheckPoint = () => {
     return () => document.removeEventListener('openGetStartedDialog', handleOpenDialog);
   }, []);
 
+
+// FAQ Section
+function FAQSection() {
+  const faqs = [
+    {
+      question: "What is Check Point?",
+      answer: "Check Point is a global cybersecurity company that provides security solutions for networks, endpoints, cloud, and mobile environments. Organizations use Check Point to prevent cyber attacks, protect data, and maintain compliance across on-premises, hybrid, and cloud infrastructures."
+    },
+    {
+      question: "What is Check Point software used for?",
+      answer: "Check Point software is used for network security, firewall protection, intrusion prevention, threat detection, and data security. It monitors and controls network traffic, blocks malicious activity, and protects sensitive information across enterprise environments."
+    },
+    {
+      question: "What are the key products offered by Check Point?",
+      answer: "Check Point’s security portfolio includes:Quantum for network security and next-generation firewalls. Harmony for endpoint, email, and user protection. CloudGuard for cloud and workload security. Infinity Platform for unified security management and threat prevention. Together, these solutions provide end-to-end cyber protection."
+    },
+    {
+      question: "How does Check Point protect against advanced cyber threats?",
+      answer: "Check Point uses AI-powered threat prevention, deep packet inspection, and real-time threat intelligence to detect and block advanced cyber threats. Its multi-layered security architecture protects networks, applications, and data against ransomware, zero-day attacks, and advanced persistent threats."
+    },
+    {
+      question: " Is Check Point suitable for small and mid-sized businesses?",
+      answer: "Yes, Check Point offers scalable security solutions suitable for small and mid-sized businesses. Flexible licensing, cloud-based security options, and centralized management make enterprise-grade protection accessible without high operational complexity."
+    },
+    {
+      question: "How can organizations in India implement Check Point?",
+      answer: "Organizations in India can implement Check Point by working with an experienced cybersecurity partner like Shivaami. The implementation includes security assessment, solution design, deployment, policy configuration, integration with existing infrastructure, and ongoing monitoring to ensure strong protection and compliance."
+    }
+  ];
+
   return (
+    <section className="py-16 bg-[#f8fafc]">
+      <div className="w-full px-8 lg:px-16 xl:px-24">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left - Image */}
+            <motion.div {...fadeInUp} className="relative">
+              <div className="absolute -inset-4 bg-gradient-to-r from-[#0C4594]/20 to-[#38B6FF]/20 rounded-3xl blur-2xl" />
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+                <img 
+                  src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=600&h=500&fit=crop" 
+                  alt="FAQ Support"
+                  className="w-full h-[400px] object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0C4594]/80 via-transparent to-transparent" />
+                <div className="absolute bottom-6 left-6 right-6">
+                  <div className="flex items-center gap-3 text-white">
+                    <div className="w-12 h-12 rounded-xl bg-[#38B6FF] flex items-center justify-center">
+                      <HelpCircle className="w-6 h-6" />
+                    </div>
+                    <div>
+                      <p className="font-semibold text-lg">Need Help?</p>
+                      <p className="text-white/80 text-sm">We're here 24x7</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Right - FAQ */}
+            <motion.div {...fadeInUp}>
+              <h2 className="text-2xl md:text-3xl font-bold text-[#0C4594] mb-6">
+                Frequently Asked Questions
+              </h2>
+              
+              <Accordion type="single" collapsible className="space-y-2">
+                {faqs.map((faq, idx) => (
+                  <AccordionItem 
+                    key={idx} 
+                    value={`item-${idx}`}
+                    className="bg-white border border-[#e2e8f0] rounded-xl px-4 overflow-hidden hover:border-[#38B6FF]/30 transition-colors"
+                  >
+                    <AccordionTrigger className="text-[#0C4594] hover:text-[#38B6FF] text-left py-4 hover:no-underline text-sm">
+                      <span className="font-medium">{faq.question}</span>
+                    </AccordionTrigger>
+                    <AccordionContent className="text-[#64748b] pb-4 text-sm">
+                      {faq.answer}
+                    </AccordionContent>
+                  </AccordionItem>
+                ))}
+              </Accordion>
+
+                 </motion.div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+
+
+
+
+const faqSchema ={
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [{
+    "@type": "Question",
+    "name": "What is Check Point?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Wiz is a cloud-native security platform that provides complete visibility into cloud environments. It identifies security risks such as misconfigurations, vulnerabilities, excessive permissions, and exposed data across cloud workloads, helping organizations secure their cloud infrastructure proactively."
+    }
+  },{
+    "@type": "Question",
+    "name": "What is Check Point software used for?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Check Point software is used for network security, firewall protection, intrusion prevention, threat detection, and data security. It monitors and controls network traffic, blocks malicious activity, and protects sensitive information across enterprise environments."
+    }
+  },{
+    "@type": "Question",
+    "name": "What are the key products offered by Check Point?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Check Point’s security portfolio includes: Quantum for network security and next-generation firewalls. Harmony for endpoint, email, and user protection. CloudGuard for cloud and workload security. Infinity Platform for unified security management and threat prevention. Together, these solutions provide end-to-end cyber protection."
+    }
+  },{
+    "@type": "Question",
+    "name": "How does Check Point protect against advanced cyber threats?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Check Point uses AI-powered threat prevention, deep packet inspection, and real-time threat intelligence to detect and block advanced cyber threats. Its multi-layered security architecture protects networks, applications, and data against ransomware, zero-day attacks, and advanced persistent threats."
+    }
+  },{
+    "@type": "Question",
+    "name": "Is Check Point suitable for small and mid-sized businesses?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes, Check Point offers scalable security solutions suitable for small and mid-sized businesses. Flexible licensing, cloud-based security options, and centralized management make enterprise-grade protection accessible without high operational complexity."
+    }
+  },{
+    "@type": "Question",
+    "name": "How can organizations in India implement Check Point?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Organizations in India can implement Check Point by working with an experienced cybersecurity partner like Shivaami. The implementation includes security assessment, solution design, deployment, policy configuration, integration with existing infrastructure, and ongoing monitoring to ensure strong protection and compliance."
+    }
+  }]
+}
+
+
+  return (
+
+    <>
+ <Helmet>
+<title>Check Point Partner India | Cybersecurity Solutions by Shivaami</title>
+ <meta name="description" content="Deploy Check Point security solutions with Shivaami. Network security, cloud protection, and threat prevention. Certified Check Point partner in India." />
+<link rel="canonical" href="https://www.shivaami.com/checkpoint" />
+ <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
+ </Helmet>
+
+    
     <div className="min-h-screen bg-white">
       <Header />
       <main>
         <HeroSection />
         <FeaturesSection />
         <ActivationSection />
+        <FAQSection />
         <CTASection />
       </main>
       <Footer />
       <GetStartedDialog open={dialogOpen} onOpenChange={setDialogOpen} />
-    </div>
+    </div></>
   );
 };
 

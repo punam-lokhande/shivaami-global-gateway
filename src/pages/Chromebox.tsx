@@ -3,7 +3,8 @@ import { useRef, useState, useEffect } from 'react';
 import { 
   Box, Monitor, Shield, 
   Users, HeadphonesIcon, CheckCircle2, ArrowRight, Calendar,
-  Cpu, Lock, Settings, Tv, Video, Presentation
+  Cpu, Lock, Settings, Tv, Video, Presentation,
+  HelpCircle
 } from 'lucide-react';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
@@ -68,8 +69,9 @@ function HeroSection() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="font-display text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-semibold text-white mb-4 sm:mb-6 leading-[1.15] tracking-tight"
           >
-            Efficient Desktop<br />
-            <span className="text-[#38B6FF]">Computing with Chromebox</span>
+         
+            <span className="text-[#38B6FF]">Chromebox: Efficient</span> <br />Desktop Computing
+
           </motion.h1>
 
           <motion.p
@@ -78,7 +80,7 @@ function HeroSection() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-sm sm:text-base lg:text-lg text-white/80 max-w-2xl mb-6 sm:mb-8 leading-relaxed font-body"
           >
-            Chromebox is a compact desktop computer running Chrome OS. It delivers the same speed, security, and manageability as Chromebook in a desktop form factor. Organizations choose it for office workstations, kiosks, digital signage, and meeting room solutions.
+           Chromebox is a compact desktop running ChromeOS, delivering speed, security, and manageability for offices and kiosks. Shivaami, an authorised reseller, helps enterprises in India and the US deploy and manage solutions.
           </motion.p>
 
           <motion.div
@@ -111,32 +113,32 @@ function FeaturesSection() {
     {
       icon: Monitor,
       title: 'Multiple Display Support',
-      desc: 'Drive two or more monitors from single device. Ideal for productivity workstations and data analysis roles. HDMI and DisplayPort outputs provide connectivity options.',
+      desc: 'Drive two or more monitors from a single device. Ideal for productivity workstations and data analysis roles. HDMI and DisplayPort outputs provide connectivity options.',
     },
     {
       icon: Cpu,
       title: 'High Performance',
-      desc: 'Intel processors handle demanding web applications and multitasking. Sufficient power for office productivity and business applications. Consistent performance without degradation.',
+      desc: ' Intel processors handle demanding web applications and multitasking. Sufficient power for office productivity and business applications. Consistent performance without degradation over time.',
     },
     {
       icon: Settings,
       title: 'Centralized Management',
-      desc: 'Chrome Enterprise management applies policies across all devices. Remote configuration eliminates need for physical access. Cloud-based console simplifies fleet management.',
+      desc: 'Chrome Enterprise management applies policies across all devices. Remote configuration eliminates the need for physical access. Cloud-based console simplifies fleet management.',
     },
     {
       icon: Shield,
       title: 'Security Features',
-      desc: 'Same verified boot and sandboxing as Chromebook. Automatic security updates protect against threats. Tamper-resistant hardware prevents unauthorized modifications.',
+      desc: 'Same verified boot and sandboxing as Chromebook. Automatic security updates protect against threats. Tamper-resistant hardware prevents unauthorised modifications.',
     },
     {
       icon: Lock,
       title: 'Kiosk Mode',
-      desc: 'Lock device to single application for dedicated use cases. Perfect for reception areas, retail, and public access. Restricted access prevents unauthorized usage.',
+      desc: 'Lock the device to a single application for dedicated use cases. Perfect for reception areas, retail, and public access. Restricted access prevents unauthorised usage.',
     },
     {
       icon: Tv,
       title: 'Digital Signage',
-      desc: 'Display presentations, dashboards, or promotional content. Scheduling capabilities rotate content automatically. Remote content updates from central console.',
+      desc: 'Display presentations, dashboards, or promotional content. Scheduling capabilities rotate content automatically. Remote content updates from the central console.',
     },
     {
       icon: Video,
@@ -248,31 +250,31 @@ function ActivationSection() {
       image: strategicPlanningImg,
       icon: Box,
       title: 'Strategy and Planning',
-      desc: 'We assess your desktop computing requirements and recommend appropriate models. Our team identifies use cases and deployment locations.',
+      desc: 'We assess your desktop computing requirements and recommend appropriate models. Our team identifies use cases and deployment locations. You get device and configuration recommendations aligned with needs.',
     },
     {
       image: technicalDeploymentImg,
       icon: Settings,
       title: 'Deployment and Integration',
-      desc: 'Shivaami handles device procurement and Chrome Enterprise licensing. We configure policies, install peripherals, and prepare workstations.',
+      desc: 'Shivaami handles device procurement and Chrome Enterprise licensing. We configure policies, install peripherals, and prepare workstations. Your desktops are deploy-ready for immediate use.',
     },
     {
       image: securityConfigImg,
       icon: Shield,
       title: 'Security and Compliance',
-      desc: 'Our experts implement security policies and access restrictions. We configure kiosk mode for dedicated-use devices and ensure consistent security.',
+      desc: 'Our experts implement security policies and access restrictions. We configure kiosk mode for dedicated-use devices. Management ensures consistent security across all locations.',
     },
     {
       image: teamTrainingImg,
       icon: Users,
       title: 'User Enablement',
-      desc: 'We provide training on Chrome OS for desktop users. Setup guides help IT teams deploy and maintain devices effectively.',
+      desc: 'We provide training on Chrome OS for desktop users. Setup guides help IT teams deploy and maintain devices. Support resources address troubleshooting and common issues.',
     },
     {
       image: ongoingSupportImg,
       icon: HeadphonesIcon,
       title: 'Ongoing Support',
-      desc: 'Shivaami manages your Chromebox fleet with policy updates. We handle device issues and coordinate warranty service.',
+      desc: 'Shivaami manages your Chromebox fleet with policy updates. We handle device issues and coordinate warranty service. Regular reviews optimize configurations and usage.',
     },
   ];
 
@@ -312,6 +314,8 @@ function ActivationSection() {
 }
 
 import CTASection from '@/components/sections/CTASection';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@radix-ui/react-accordion';
+import { Helmet } from 'react-helmet-async';
 
 export default function Chromebox() {
   const [dialogOpen, setDialogOpen] = useState(false);
@@ -322,17 +326,173 @@ export default function Chromebox() {
     return () => document.removeEventListener('openGetStartedDialog', handleOpenDialog);
   }, []);
 
+// FAQ Section
+function FAQSection() {
+  const faqs = [
+    {
+      question: "Is Chromebox safe to use?",
+      answer: "Yes, Chromebox is safe to use and features built-in security with automatic updates, sandboxing, and verified boot. User accounts are easily switchable, keeping all data private and secure."
+    },
+    {
+      question: "Is Chromebox easy to use?",
+      answer: "Chromebox is easy to use with a simple, intuitive interface. It boots up in seconds and requires minimal setup, making it ideal for both personal and business use."
+    },
+    {
+      question: "Is Chromebox a portable device?",
+      answer: "Chromebox is a compact desktop device, not a portable laptop. However, its small size makes it easy to move between workspaces or transport when needed."
+    },
+    {
+      question: "How to check the Chromebox serial number?",
+      answer: "Users can check the serial number on the label located on the bottom of the Chromebox unit or by accessing the device settings under About Chrome OS."
+    },
+    {
+      question: "Is Chromebox a secure device?",
+      answer: "Yes, Chromebox is a secure device with multiple layers of protection, including automatic security updates, data encryption, and verified boot to prevent malware."
+    },
+    {
+      question: "Can I connect multiple monitors to a Chromebox?",
+      answer: "Yes, most Chromebox models support dual monitor setups through HDMI or DisplayPort connections, allowing users to expand their workspace for enhanced productivity."
+    }
+  ];
+
   return (
+    <section className="py-16 bg-[#f8fafc]">
+      <div className="w-full px-8 lg:px-16 xl:px-24">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left - Image */}
+            <motion.div {...fadeInUp} className="relative">
+              <div className="absolute -inset-4 bg-gradient-to-r from-[#0C4594]/20 to-[#38B6FF]/20 rounded-3xl blur-2xl" />
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+                <img 
+                  src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=600&h=500&fit=crop" 
+                  alt="FAQ Support"
+                  className="w-full h-[400px] object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0C4594]/80 via-transparent to-transparent" />
+                <div className="absolute bottom-6 left-6 right-6">
+                  <div className="flex items-center gap-3 text-white">
+                    <div className="w-12 h-12 rounded-xl bg-[#38B6FF] flex items-center justify-center">
+                      <HelpCircle className="w-6 h-6" />
+                    </div>
+                    <div>
+                      <p className="font-semibold text-lg">Need Help?</p>
+                      <p className="text-white/80 text-sm">We're here 24x7</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Right - FAQ */}
+            <motion.div {...fadeInUp}>
+              <h2 className="text-2xl md:text-3xl font-bold text-[#0C4594] mb-6">
+                Frequently Asked Questions
+              </h2>
+              
+              <Accordion type="single" collapsible className="space-y-2">
+                {faqs.map((faq, idx) => (
+                  <AccordionItem 
+                    key={idx} 
+                    value={`item-${idx}`}
+                    className="bg-white border border-[#e2e8f0] rounded-xl px-4 overflow-hidden hover:border-[#38B6FF]/30 transition-colors"
+                  >
+                    <AccordionTrigger className="text-[#0C4594] hover:text-[#38B6FF] text-left py-4 hover:no-underline text-sm">
+                      <span className="font-medium">{faq.question}</span>
+                    </AccordionTrigger>
+                    <AccordionContent className="text-[#64748b] pb-4 text-sm">
+                      {faq.answer}
+                    </AccordionContent>
+                  </AccordionItem>
+                ))}
+              </Accordion>
+
+              <Link to="/contact" className="inline-block mt-6">
+                <Button className="bg-[#0C4594] hover:bg-[#0a3d80] text-white font-medium px-6 py-3 rounded-xl">
+                  Have more questions? Contact us
+                  <ArrowRight className="ml-2 w-4 h-4" />
+                </Button>
+              </Link>
+            </motion.div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+const faqSchema ={
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [{
+    "@type": "Question",
+    "name": "Is Chromebox safe to use?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes, Chromebox is safe to use and features built-in security with automatic updates, sandboxing, and verified boot. User accounts are easily switchable, keeping all data private and secure."
+    }
+  },{
+    "@type": "Question",
+    "name": "Is Chromebox easy to use?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Chromebox is easy to use with a simple, intuitive interface. It boots up in seconds and requires minimal setup, making it ideal for both personal and business use."
+    }
+  },{
+    "@type": "Question",
+    "name": "Is Chromebox a portable device?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Chromebox is a compact desktop device, not a portable laptop. However, its small size makes it easy to move between workspaces or transport when needed."
+    }
+  },{
+    "@type": "Question",
+    "name": "How to check the Chromebox serial number?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Users can check the serial number on the label located on the bottom of the Chromebox unit or by accessing the device settings under \"About Chrome OS."
+    }
+  },{
+    "@type": "Question",
+    "name": "Is Chromebox a secure device?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes, Chromebox is a secure device with multiple layers of protection, including automatic security updates, data encryption, and verified boot to prevent malware."
+    }
+  },{
+    "@type": "Question",
+    "name": "Can I connect multiple monitors to a Chromebox?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes, most Chromebox models support dual monitor setups through HDMI or DisplayPort connections, allowing users to expand their workspace for enhanced productivity."
+    }
+  }]
+}
+
+
+
+
+  return (
+
+<>
+  <Helmet>
+<title>Chromebox Reseller in India | Desktop Solutions by Shivaami</title>
+ <meta name="description" content="Deploy Chromebox desktops with Shivaami. Compact, secure, and managed desktop computing. Authorised Chromebox partner in India." />
+<link rel="canonical" href="https://www.shivaami.com/chromebox" />
+ <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
+ </Helmet>
+
     <div className="min-h-screen bg-white">
       <Header />
       <main>
         <HeroSection />
         <FeaturesSection />
         <ActivationSection />
+         <FAQSection />
         <CTASection />
       </main>
       <Footer />
       <GetStartedDialog open={dialogOpen} onOpenChange={setDialogOpen} />
-    </div>
+    </div></>
   );
 }

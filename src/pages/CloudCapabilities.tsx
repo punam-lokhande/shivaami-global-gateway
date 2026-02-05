@@ -21,7 +21,8 @@ import {
   Clock,
   Calendar,
   CheckCircle2,
-  GraduationCap
+  GraduationCap,
+  HelpCircle
 } from "lucide-react";
 import cloudBanner from "@/assets/banners/cloud-capabilities-banner.jpg";
 import strategicPlanning from "@/assets/activation/strategic-planning.jpg";
@@ -103,7 +104,7 @@ const HeroSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            Accelerate Innovation with <span className="text-[#38B6FF]">Cloud Capabilities</span>
+          <span className="text-[#38B6FF]">Cloud Capabilities: Accelerating </span> Innovation at Scale
           </motion.h1>
           <motion.p 
             className="text-sm sm:text-base lg:text-lg text-white/80 max-w-2xl mb-6 sm:mb-8 leading-relaxed font-body"
@@ -111,7 +112,7 @@ const HeroSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            Cloud computing transforms how organizations build, deploy, and scale technology. It delivers on-demand infrastructure, platform services, and software applications over the internet. Shivaami is a certified cloud solutions partner in India.
+           Cloud computing delivers on-demand infrastructure, platforms, and applications for agility, cost efficiency, and faster innovation. Shivaami, a certified partner, helps enterprises in India and the US architect, migrate, and optimise infrastructure.
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -183,9 +184,7 @@ const FeaturesSection = () => (
         <h2 className="text-2xl md:text-3xl font-bold text-[#0C4594] mb-4">
           What Cloud Capabilities Deliver
         </h2>
-        <p className="text-gray-600 max-w-2xl mx-auto">
-          Transform your business with agility, cost efficiency, and the ability to innovate faster
-        </p>
+        
       </motion.div>
       
       <motion.div 
@@ -278,25 +277,25 @@ const activationSteps = [
     image: technicalDeployment,
     icon: Layers,
     title: "Architecture and Design",
-    description: "Shivaami designs secure, scalable cloud architectures aligned with your needs. We select optimal services for compute, storage, networking, and databases. Your infrastructure blueprint follows industry best practices."
+    description: "Shivaami designs secure, scalable cloud architectures aligned with your needs. We select optimal services for compute, storage, networking, and databases. Your infrastructure blueprint follows industry best practices and well-architected frameworks."
   },
   {
     image: securityConfig,
     icon: RefreshCw,
     title: "Migration and Modernization",
-    description: "Our experts execute migrations from on-premise to cloud with minimal disruption. We handle lift-and-shift, re-platforming, and application refactoring. Your systems transfer with validated data integrity."
+    description: "Our experts execute migrations from on-premise to cloud with minimal disruption. We handle lift-and-shift, re-platforming, and application refactoring. Your systems transfer with validated data integrity and performance benchmarks."
   },
   {
     image: teamTraining,
     icon: Lock,
     title: "Security and Governance",
-    description: "We implement identity management, network security, and encryption standards. Cloud-native security tools monitor threats and enforce compliance policies. Role-based access controls protect resources."
+    description: "We implement identity management, network security, and encryption standards. Cloud-native security tools monitor threats and enforce compliance policies. Role-based access controls protect resources across your environment."
   },
   {
     image: ongoingSupport,
     icon: TrendingUp,
     title: "Optimization and Cost Management",
-    description: "Shivaami continuously monitors cloud spending and resource utilization. We implement auto-scaling, right-sizing, and reserved capacity strategies. Regular optimization reviews reduce costs."
+    description: "Shivaami continuously monitors cloud spending and resource utilization. We implement auto-scaling, right-sizing, and reserved capacity strategies. Regular optimization reviews identify opportunities to reduce costs and improve performance."
   }
 ];
 
@@ -385,6 +384,8 @@ const ManagedServicesSection = () => (
 );
 
 import CTASection from '@/components/sections/CTASection';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@radix-ui/react-accordion";
+import { Helmet } from "react-helmet-async";
 
 const CloudCapabilities = () => {
   const [dialogOpen, setDialogOpen] = useState(false);
@@ -395,7 +396,161 @@ const CloudCapabilities = () => {
     return () => document.removeEventListener('openGetStartedDialog', handleOpenDialog);
   }, []);
 
+// FAQ Section
+function FAQSection() {
+  const faqs = [
+    {
+      question: "What is an enterprise cloud?",
+      answer: "An enterprise cloud is a dedicated cloud computing environment designed to meet the specific needs of large organizations. It provides scalable infrastructure, enhanced security, and customizable services for data storage, application deployment, and business operations across the entire organization."
+    },
+    {
+      question: "What are the 4 types of cloud services?",
+      answer: "The four main types of cloud services are Infrastructure as a Service (IaaS), Platform as a Service (PaaS), Software as a Service (SaaS), and Function as a Service (FaaS). Each offers a different level of management and customization based on specific business requirements."
+    },
+    {
+      question: "How can Shivaami help my organization with cloud migration and management?",
+      answer: "Shivaami provides end-to-end cloud solutions, including assessment, planning, migration, and ongoing management across AWS, GCP, and Microsoft Azure. Our experts ensure a smooth transition tailored to your business needs, optimizing performance, security, and cost efficiency throughout the process."
+    },
+    {
+      question: "What are the big 3 cloud companies?",
+      answer: "The three leading cloud service providers are Amazon Web Services (AWS), Microsoft Azure, and Google Cloud Platform (GCP). These providers dominate the cloud computing market, offering comprehensive services ranging from basic infrastructure to advanced AI and machine learning capabilities."
+    },
+    {
+      question: "What is a cloud-based enterprise system?",
+      answer: "A cloud-based enterprise system is a centralized platform that delivers business applications, data management, and IT services over the internet. It enables organizations to streamline operations, enhance collaboration, and reduce on-premises infrastructure costs while maintaining high performance and security."
+    },
+    {
+      question: "What are the key benefits of migrating to the cloud?",
+      answer: "Cloud migration offers organizations significant advantages, including reduced IT infrastructure costs, increased scalability, improved data security, faster deployment of applications, enhanced disaster recovery capabilities, and seamless access to the latest technological innovations without heavy upfront investments."
+    }
+  ];
+
   return (
+    <section className="py-16 bg-[#f8fafc]">
+      <div className="w-full px-8 lg:px-16 xl:px-24">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left - Image */}
+            <motion.div {...fadeInUp} className="relative">
+              <div className="absolute -inset-4 bg-gradient-to-r from-[#0C4594]/20 to-[#38B6FF]/20 rounded-3xl blur-2xl" />
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+                <img 
+                  src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=600&h=500&fit=crop" 
+                  alt="FAQ Support"
+                  className="w-full h-[400px] object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0C4594]/80 via-transparent to-transparent" />
+                <div className="absolute bottom-6 left-6 right-6">
+                  <div className="flex items-center gap-3 text-white">
+                    <div className="w-12 h-12 rounded-xl bg-[#38B6FF] flex items-center justify-center">
+                      <HelpCircle className="w-6 h-6" />
+                    </div>
+                    <div>
+                      <p className="font-semibold text-lg">Need Help?</p>
+                      <p className="text-white/80 text-sm">We're here 24x7</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Right - FAQ */}
+            <motion.div {...fadeInUp}>
+              <h2 className="text-2xl md:text-3xl font-bold text-[#0C4594] mb-6">
+                Frequently Asked Questions
+              </h2>
+              
+              <Accordion type="single" collapsible className="space-y-2">
+                {faqs.map((faq, idx) => (
+                  <AccordionItem 
+                    key={idx} 
+                    value={`item-${idx}`}
+                    className="bg-white border border-[#e2e8f0] rounded-xl px-4 overflow-hidden hover:border-[#38B6FF]/30 transition-colors"
+                  >
+                    <AccordionTrigger className="text-[#0C4594] hover:text-[#38B6FF] text-left py-4 hover:no-underline text-sm">
+                      <span className="font-medium">{faq.question}</span>
+                    </AccordionTrigger>
+                    <AccordionContent className="text-[#64748b] pb-4 text-sm">
+                      {faq.answer}
+                    </AccordionContent>
+                  </AccordionItem>
+                ))}
+              </Accordion>
+
+                          </motion.div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+
+
+const faqSchema ={
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [{
+    "@type": "Question",
+    "name": "What is an enterprise cloud?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "An enterprise cloud is a dedicated cloud computing environment designed to meet the specific needs of large organizations. It provides scalable infrastructure, enhanced security, and customizable services for data storage, application deployment, and business operations across the entire organization."
+    }
+  },{
+    "@type": "Question",
+    "name": "What are the 4 types of cloud services?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "The four main types of cloud services are Infrastructure as a Service (IaaS), Platform as a Service (PaaS), Software as a Service (SaaS), and Function as a Service (FaaS). Each offers a different level of management and customization based on specific business requirements."
+    }
+  },{
+    "@type": "Question",
+    "name": "How can Shivaami help my organization with cloud migration and management?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Shivaami provides end-to-end cloud solutions, including assessment, planning, migration, and ongoing management across AWS, GCP, and Microsoft Azure. Our experts ensure a smooth transition tailored to your business needs, optimizing performance, security, and cost efficiency throughout the process."
+    }
+  },{
+    "@type": "Question",
+    "name": "What are the big 3 cloud companies?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "The three leading cloud service providers are Amazon Web Services (AWS), Microsoft Azure, and Google Cloud Platform (GCP). These providers dominate the cloud computing market, offering comprehensive services ranging from basic infrastructure to advanced AI and machine learning capabilities."
+    }
+  },{
+    "@type": "Question",
+    "name": "What is a cloud-based enterprise system?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "A cloud-based enterprise system is a centralized platform that delivers business applications, data management, and IT services over the internet. It enables organizations to streamline operations, enhance collaboration, and reduce on-premises infrastructure costs while maintaining high performance and security."
+    }
+  },{
+    "@type": "Question",
+    "name": "What are the key benefits of migrating to the cloud?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Cloud migration offers organizations significant advantages, including reduced IT infrastructure costs, increased scalability, improved data security, faster deployment of applications, enhanced disaster recovery capabilities, and seamless access to the latest technological innovations without heavy upfront investments."
+    }
+  }]
+}
+
+
+
+
+  
+  return (
+
+    <>
+  <Helmet>
+<title>Transform Your Business with Advanced Cloud Solutions | Shivaami</title>
+ <meta name="description" content="Build scalable cloud infrastructure with Shivaami. Expert cloud migration, architecture design, and managed services. Trusted enterprise cloud partner across India." />
+<link rel="canonical" href="https://www.shivaami.com/cloud-capabilities" />
+ <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
+ </Helmet>
+
+
+
     <div className="min-h-screen bg-white">
       <Header />
       <main>
@@ -403,11 +558,12 @@ const CloudCapabilities = () => {
         <FeaturesSection />
         <ActivationSection />
         <ManagedServicesSection />
+        <FAQSection />
         <CTASection />
       </main>
       <Footer />
       <GetStartedDialog open={dialogOpen} onOpenChange={setDialogOpen} />
-    </div>
+    </div></>
   );
 };
 

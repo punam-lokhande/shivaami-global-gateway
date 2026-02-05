@@ -4,7 +4,8 @@ import { Helmet } from 'react-helmet-async';
 import { 
   Video, Monitor, Camera, Mic, Speaker, Users, 
   HeadphonesIcon, CheckCircle2, ArrowRight, Calendar,
-  Settings, Shield, Clock, Zap, LayoutGrid, Globe
+  Settings, Shield, Clock, Zap, LayoutGrid, Globe,
+  HelpCircle
 } from 'lucide-react';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
@@ -69,8 +70,8 @@ function HeroSection() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="font-display text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-semibold text-white mb-4 sm:mb-6 leading-[1.15] tracking-tight"
           >
-            Google Meet:<br />
-            <span className="text-[#38B6FF]">Smart Meeting Rooms</span>
+           
+            <span className="text-[#38B6FF]">Google Meet Hardware :</span> Smart Meeting Rooms<br />
           </motion.h1>
 
           <motion.p
@@ -79,7 +80,7 @@ function HeroSection() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-sm sm:text-base lg:text-lg text-white/80 max-w-2xl mb-6 sm:mb-8 leading-relaxed font-body"
           >
-            Google Meet hardware kits deliver professional video conferencing for meeting rooms. They include cameras, speakers, microphones, and touchscreen controllers optimized for Google Meet. Organizations choose them for reliable video quality, simple user experience, and seamless Calendar integration.
+           Google Meet hardware kits deliver professional video conferencing for meeting rooms with cameras, speakers, and touchscreen controllers optimized for Google Meet. Shivaami helps organizations deploy Google Meet hardware solutions.
           </motion.p>
 
           <motion.div
@@ -249,7 +250,7 @@ function ActivationSection() {
       image: strategicPlanningImg,
       icon: Video,
       title: 'Strategy and Planning',
-      desc: 'We assess your meeting spaces and usage patterns. Our team recommends appropriate hardware for each room type. You get room-by-room design aligned with requirements.',
+      desc: 'We assess your meeting spaces and usage patterns. Our team recommends appropriate hardware for each room type. You get a room-by-room design aligned with requirements.',
     },
     {
       image: technicalDeploymentImg,
@@ -273,7 +274,7 @@ function ActivationSection() {
       image: ongoingSupportImg,
       icon: HeadphonesIcon,
       title: 'Ongoing Optimization and Support',
-      desc: 'Shivaami monitors room system health and performance remotely. We handle firmware updates and troubleshooting. Regular reviews optimize configurations and identify improvements.',
+      desc: 'Shivaami monitors room system health and performance remotely. We handle firmware updates and troubleshooting. Regular reviews optimise configurations and identify improvements.',
     },
   ];
 
@@ -284,14 +285,12 @@ function ActivationSection() {
           <h2 className="text-2xl md:text-3xl font-bold text-[#0C4594] mb-4">
             How Shivaami Helps You Succeed
           </h2>
-          <p className="text-[#475569] max-w-3xl mx-auto">
-            As a Google Meet hardware partner, we bring deployment expertise. Our team understands room acoustics, lighting, and equipment placement. You get professional video conferencing with reliable support.
-          </p>
+         
         </motion.div>
 
         <motion.div 
           {...staggerContainer} 
-          className="grid md:grid-cols-3 lg:grid-cols-5 gap-4 max-w-7xl mx-auto"
+          className="grid md:grid-cols-3 lg:grid-cols-5 gap-4 max-w-8xl mx-auto"
         >
           {steps.map((step, idx) => (
             <motion.div
@@ -316,6 +315,7 @@ function ActivationSection() {
 }
 
 import CTASection from '@/components/sections/CTASection';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@radix-ui/react-accordion';
 
 export default function GoogleMeetHardware() {
   const [dialogOpen, setDialogOpen] = useState(false);
@@ -326,21 +326,174 @@ export default function GoogleMeetHardware() {
     return () => document.removeEventListener('openGetStartedDialog', handleOpenDialog);
   }, []);
 
+
+// FAQ Section
+function FAQSection() {
+  const faqs = [
+    {
+      question: "What is the Google Meet Hardware Kit?",
+      answer: "Google Meet Hardware Kit is a video conferencing solution designed for meeting rooms. It enables organisations to conduct high-quality video meetings and collaborate with colleagues from anywhere."
+    },
+    {
+      question: "What's in the Google Meet Hardware Kit?",
+      answer: "The Kit includes a Google Meet Compute System, a high-definition camera, a speakermic for clear audio, a touch screen controller, and all necessary cables for setup."
+    },
+    {
+      question: "Are the meetings in the Google Meet Hardware Kit secured?",
+      answer: "Yes, meetings conducted through Google Meet Hardware are encrypted and secured with Google's built-in security features, ensuring privacy and data protection for all participants."
+    },
+    {
+      question: "Is the Google Meet Hardware Kit easy to set up?",
+      answer: "Yes, the Google Meet Hardware Kit is designed for quick and easy installation. It can be set up in meeting rooms within minutes and managed remotely through the Google Admin console."
+    },
+    {
+      question: "What room sizes does the Google Meet Hardware Kit support?",
+      answer: "Google Meet Hardware Kits are available in different configurations to support various room sizes, from small huddle rooms to large conference rooms accommodating multiple participants."
+    },
+    {
+      question: "Can Google Meet Hardware integrate with existing calendar systems?",
+      answer: "Yes, Google Meet Hardware integrates seamlessly with Google Calendar and other calendar systems, allowing users to schedule and join meetings directly from the touch screen controller or their calendar invites."
+    }
+  ];
+
   return (
+    <section className="py-16 bg-[#f8fafc]">
+      <div className="w-full px-8 lg:px-16 xl:px-24">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left - Image */}
+            <motion.div {...fadeInUp} className="relative">
+              <div className="absolute -inset-4 bg-gradient-to-r from-[#0C4594]/20 to-[#38B6FF]/20 rounded-3xl blur-2xl" />
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+                <img 
+                  src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=600&h=500&fit=crop" 
+                  alt="FAQ Support"
+                  className="w-full h-[400px] object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0C4594]/80 via-transparent to-transparent" />
+                <div className="absolute bottom-6 left-6 right-6">
+                  <div className="flex items-center gap-3 text-white">
+                    <div className="w-12 h-12 rounded-xl bg-[#38B6FF] flex items-center justify-center">
+                      <HelpCircle className="w-6 h-6" />
+                    </div>
+                    <div>
+                      <p className="font-semibold text-lg">Need Help?</p>
+                      <p className="text-white/80 text-sm">We're here 24x7</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Right - FAQ */}
+            <motion.div {...fadeInUp}>
+              <h2 className="text-2xl md:text-3xl font-bold text-[#0C4594] mb-6">
+                Frequently Asked Questions
+              </h2>
+              
+              <Accordion type="single" collapsible className="space-y-2">
+                {faqs.map((faq, idx) => (
+                  <AccordionItem 
+                    key={idx} 
+                    value={`item-${idx}`}
+                    className="bg-white border border-[#e2e8f0] rounded-xl px-4 overflow-hidden hover:border-[#38B6FF]/30 transition-colors"
+                  >
+                    <AccordionTrigger className="text-[#0C4594] hover:text-[#38B6FF] text-left py-4 hover:no-underline text-sm">
+                      <span className="font-medium">{faq.question}</span>
+                    </AccordionTrigger>
+                    <AccordionContent className="text-[#64748b] pb-4 text-sm">
+                      {faq.answer}
+                    </AccordionContent>
+                  </AccordionItem>
+                ))}
+              </Accordion>
+
+              <Link to="/contact" className="inline-block mt-6">
+                <Button className="bg-[#0C4594] hover:bg-[#0a3d80] text-white font-medium px-6 py-3 rounded-xl">
+                  Have more questions? Contact us
+                  <ArrowRight className="ml-2 w-4 h-4" />
+                </Button>
+              </Link>
+            </motion.div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+
+
+
+const faqSchema ={
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [{
+    "@type": "Question",
+    "name": "What is the Google Meet Hardware Kit?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Google Meet Hardware Kit is a video conferencing solution designed for meeting rooms. It enables organisations to conduct high-quality video meetings and collaborate with colleagues from anywhere."
+    }
+  },{
+    "@type": "Question",
+    "name": "What's in the Google Meet Hardware Kit?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "The Kit includes a Google Meet Compute System, a high-definition camera, a speakermic for clear audio, a touch screen controller, and all necessary cables for setup."
+    }
+  },{
+    "@type": "Question",
+    "name": "Are the meetings in the Google Meet Hardware Kit secured?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes, meetings conducted through Google Meet Hardware are encrypted and secured with Google's built-in security features, ensuring privacy and data protection for all participants."
+    }
+  },{
+    "@type": "Question",
+    "name": "Is the Google Meet Hardware Kit easy to set up?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes, the Google Meet Hardware Kit is designed for quick and easy installation. It can be set up in meeting rooms within minutes and managed remotely through the Google Admin console."
+    }
+  },{
+    "@type": "Question",
+    "name": "What room sizes does the Google Meet Hardware Kit support?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Google Meet Hardware Kits are available in different configurations to support various room sizes, from small huddle rooms to large conference rooms accommodating multiple participants."
+    }
+  },{
+    "@type": "Question",
+    "name": "Can Google Meet Hardware integrate with existing calendar systems?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes, Google Meet Hardware integrates seamlessly with Google Calendar and other calendar systems, allowing users to schedule and join meetings directly from the touch screen controller or their calendar invites."
+    }
+  }]
+}
+
+
+
+
+  return (
+    <>
     <div className="min-h-screen bg-white">
       <Helmet>
         <title>Google Meet Hardware India | Video Solutions by Shivaami</title>
         <meta name="description" content="Deploy Google Meet hardware with Shivaami. Conference room solutions for hybrid work. Authorized Google Meet hardware partner in India." />
       </Helmet>
       <Header />
+    
       <main>
         <HeroSection />
         <FeaturesSection />
         <ActivationSection />
+        <FAQSection />
         <CTASection />
       </main>
       <Footer />
       <GetStartedDialog open={dialogOpen} onOpenChange={setDialogOpen} />
-    </div>
+    </div></>
   );
 }

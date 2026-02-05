@@ -19,7 +19,8 @@ import {
   HeadphonesIcon,
   Calendar,
   CheckCircle2,
-  ArrowRight
+  ArrowRight,
+  HelpCircle
 } from "lucide-react";
 import sslBanner from "@/assets/banners/ssl-banner.jpg";
 import strategicPlanning from "@/assets/activation/strategic-planning.jpg";
@@ -28,6 +29,8 @@ import securityConfig from "@/assets/activation/security-config.jpg";
 import teamTraining from "@/assets/activation/team-training.jpg";
 import ongoingSupport from "@/assets/activation/ongoing-support.jpg";
 import GetStartedDialog from "@/components/GetStartedDialog";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@radix-ui/react-accordion";
+import { Helmet } from "react-helmet-async";
 
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },
@@ -88,7 +91,7 @@ const HeroSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            Secure Your Website with <span className="text-[#38B6FF]">SSL Certificates</span>
+          <span className="text-[#38B6FF]">SSL Certificates: Website</span> Security Essentials
           </motion.h1>
           <motion.p 
             className="text-sm sm:text-base lg:text-lg text-white/80 max-w-2xl mb-6 sm:mb-8 leading-relaxed font-body"
@@ -96,7 +99,7 @@ const HeroSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            Encrypt data between web browsers and servers, protecting sensitive information. Authenticate website identity and enable HTTPS connections.
+            SSL certificates encrypt data between browsers and servers, authenticating website identity and enabling HTTPS for security and trust. Shivaami provides SSL certificates from trusted authorities, handling procurement, installation, and renewal.
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -122,42 +125,42 @@ const features = [
   {
     icon: Lock,
     title: "Data Encryption",
-    description: "Protect sensitive information including passwords, payment details, and personal data. 256-bit encryption prevents interception during transmission."
+    description: "Protect sensitive information, including passwords, payment details, and personal data. 256-bit encryption prevents interception during transmission. The browser padlock indicates a secure connection to visitors."
   },
   {
     icon: Shield,
     title: "Website Authentication",
-    description: "Certificates verify your website identity to visitors. Prevent phishing attacks that impersonate your domain."
+    description: "Certificates verify your website's identity to visitors. Prevent phishing attacks that impersonate your domain. Trust indicators build confidence with customers."
   },
   {
     icon: TrendingUp,
     title: "SEO Benefits",
-    description: "Google prioritizes HTTPS websites in search rankings. Modern browsers flag non-HTTPS sites as insecure."
+    description: "Google prioritizes HTTPS websites in search rankings. Secure connections improve your visibility online. Modern browsers flag non-HTTPS sites as insecure."
   },
   {
     icon: FileCheck,
     title: "Domain Validation Certificates",
-    description: "Quick issuance validates domain ownership only. Affordable option for blogs, small websites, and testing."
+    description: "Quick issuance validates domain ownership only. Affordable option for blogs, small websites, and testing. Installation takes minutes after validation."
   },
   {
     icon: Building,
     title: "Organization Validation Certificates",
-    description: "Verify your organization's legal identity and domain ownership. Higher trust level for business websites."
+    description: "Verify your organization's legal identity and domain ownership. Display the organization name in the certificate details. Higher trust level for business websites."
   },
   {
     icon: Award,
     title: "Extended Validation Certificates",
-    description: "Highest level of authentication with rigorous vetting process. Ideal for e-commerce and financial services."
+    description: "The highest level of authentication with a rigorous vetting process. The browser address bar shows the organization name prominently. Ideal for e-commerce and financial services."
   },
   {
     icon: Globe,
     title: "Wildcard Certificates",
-    description: "Secure unlimited subdomains with single certificate. Cost-effective for organizations with many subdomains."
+    description: "Secure unlimited subdomains with a single certificate. Cost-effective for organizations with many subdomains. Simplifies certificate management."
   },
   {
     icon: Layers,
     title: "Multi-Domain Certificates",
-    description: "Protect multiple different domains with one certificate. Centralized management improves efficiency."
+    description: "Protect multiple domains with one certificate. Reduce costs compared to individual certificates. Centralized management improves efficiency."
   }
 ];
 
@@ -255,31 +258,31 @@ const activationSteps = [
     image: strategicPlanning,
     icon: Brain,
     title: "Strategy and Planning",
-    description: "We assess your domain structure and recommend appropriate certificate types. Our team identifies coverage requirements and validation levels."
+    description: "We assess your domain structure and recommend appropriate certificate types. Our team identifies coverage requirements and validation levels. You get clear guidance on certificate selection."
   },
   {
     image: technicalDeployment,
     icon: Settings,
     title: "Deployment and Integration",
-    description: "Shivaami handles certificate purchase and domain validation. We install certificates on your web servers or load balancers."
+    description: "Shivaami handles certificate purchase and domain validation. We install certificates on your web servers or load balancers. Your website gains HTTPS protection with proper configuration."
   },
   {
     image: securityConfig,
     icon: Shield,
     title: "Security and Compliance",
-    description: "Our experts verify complete certificate chain installation. We configure HTTP to HTTPS redirects properly."
+    description: "Our experts verify complete certificate chain installation. We configure HTTP to HTTPS redirects properly. Security headers enhance protection beyond basic encryption."
   },
   {
     image: teamTraining,
     icon: GraduationCap,
     title: "User Enablement and Adoption",
-    description: "We document certificate details and renewal schedules. Training helps your team understand certificate management."
+    description: "We document certificate details and renewal schedules. Training helps your team understand certificate management. Procedures ensure renewals happen before expiration."
   },
   {
     image: ongoingSupport,
     icon: HeadphonesIcon,
     title: "Ongoing Optimization and Support",
-    description: "Shivaami monitors certificate expiration and handles renewals proactively. We manage certificate updates across your infrastructure."
+    description: "Shivaami monitors certificate expiration and handles renewals proactively. We manage certificate updates across your infrastructure. Regular checks ensure continuous HTTPS availability."
   }
 ];
 
@@ -320,6 +323,10 @@ const CalendarCTASection = () => {
   const consultationLink = region === 'india' 
     ? 'https://calendar.app.google/gV1KaLLVkPR32C1p9'
     : 'https://app.apollo.io/#/meet/40u-obp-ihl/30-min';
+
+
+
+
 
   return (
     <section className="py-20 bg-gradient-to-br from-[#0C4594] via-[#1565C0] to-[#0D47A1]">
@@ -383,18 +390,168 @@ const SSLCertificates = () => {
     return () => document.removeEventListener('openGetStartedDialog', handleOpenDialog);
   }, []);
 
+
+  // FAQ Section
+function FAQSection() {
+  const faqs = [
+    {
+      question: "How will visitors know that my website is secure with SSL?",
+      answer: 'When visitors access an SSL-protected website, their browser displays a padlock icon and "https://" in the URL address bar. Visitors can click the padlock to view the certificate details, issuer information, and validation status for additional assurance.'
+    },
+    {
+      question: "How does someone know they can trust digitally signed code?",
+      answer: "When users attempt to download or run unsigned code, their browser displays a security warning or blocks the content based on security settings. Digitally signed code with a valid Code Signing Certificate shows the publisher's identity and confirms the code hasn't been tampered with."
+    },
+    {
+      question: "After purchasing a Code Signing Certificate, what are the next steps?",
+      answer: "After purchasing a Code Signing Certificate, you need to generate and submit a Certificate Signing Request (CSR). Depending on your platform and use case, you can create the CSR automatically through your system or use certificate management tools to generate it."
+    },
+    {
+      question: "What are the benefits of having an SSL Certificate on my website?",
+      answer: "SSL Certificates encrypt sensitive data, including passwords, credit card details, and personal information, during transmission. They build visitor trust, improve search engine rankings, ensure regulatory compliance, and display visual trust indicators like the padlock icon in browsers."
+    },
+    {
+      question: " Do I need different SSL Certificates for multiple domains?",
+      answer: "It depends on your needs. A standard SSL Certificate covers a single domain, while Multi-Domain (SAN) Certificates can secure multiple domains, and Wildcard SSL Certificates protect a domain and all its subdomains under one certificate."
+    },
+    {
+      question: "How long does it take to activate an SSL Certificate after purchase?",
+      answer: "Domain Validation (DV) SSL Certificates can be issued within minutes to hours. Organization Validation (OV) and Extended Validation (EV) Certificates require business verification and typically take 1-5 business days for issuance after documentation submission."
+    }
+  ];
+
   return (
+    <section className="py-16 bg-[#f8fafc]">
+      <div className="w-full px-8 lg:px-16 xl:px-24">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left - Image */}
+            <motion.div {...fadeInUp} className="relative">
+              <div className="absolute -inset-4 bg-gradient-to-r from-[#0C4594]/20 to-[#38B6FF]/20 rounded-3xl blur-2xl" />
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+                <img 
+                  src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=600&h=500&fit=crop" 
+                  alt="FAQ Support"
+                  className="w-full h-[400px] object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0C4594]/80 via-transparent to-transparent" />
+                <div className="absolute bottom-6 left-6 right-6">
+                  <div className="flex items-center gap-3 text-white">
+                    <div className="w-12 h-12 rounded-xl bg-[#38B6FF] flex items-center justify-center">
+                      <HelpCircle className="w-6 h-6" />
+                    </div>
+                    <div>
+                      <p className="font-semibold text-lg">Need Help?</p>
+                      <p className="text-white/80 text-sm">We're here 24x7</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Right - FAQ */}
+            <motion.div {...fadeInUp}>
+              <h2 className="text-2xl md:text-3xl font-bold text-[#0C4594] mb-6">
+                Frequently Asked Questions
+              </h2>
+              
+              <Accordion type="single" collapsible className="space-y-2">
+                {faqs.map((faq, idx) => (
+                  <AccordionItem 
+                    key={idx} 
+                    value={`item-${idx}`}
+                    className="bg-white border border-[#e2e8f0] rounded-xl px-4 overflow-hidden hover:border-[#38B6FF]/30 transition-colors"
+                  >
+                    <AccordionTrigger className="text-[#0C4594] hover:text-[#38B6FF] text-left py-4 hover:no-underline text-sm">
+                      <span className="font-medium">{faq.question}</span>
+                    </AccordionTrigger>
+                    <AccordionContent className="text-[#64748b] pb-4 text-sm">
+                      {faq.answer}
+                    </AccordionContent>
+                  </AccordionItem>
+                ))}
+              </Accordion>
+
+                </motion.div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+
+
+const faqSchema ={
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [{
+    "@type": "Question",
+    "name": "How will visitors know that my website is secure with SSL?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "When visitors access an SSL-protected website, their browser displays a padlock icon and \"https://\" in the URL address bar. Visitors can click the padlock to view the certificate details, issuer information, and validation status for additional assurance."
+    }
+  },{
+    "@type": "Question",
+    "name": "How does someone know they can trust digitally signed code?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "When users attempt to download or run unsigned code, their browser displays a security warning or blocks the content based on security settings. Digitally signed code with a valid Code Signing Certificate shows the publisher's identity and confirms the code hasn't been tampered with."
+    }
+  },{
+    "@type": "Question",
+    "name": "After purchasing a Code Signing Certificate, what are the next steps?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "After purchasing a Code Signing Certificate, you need to generate and submit a Certificate Signing Request (CSR). Depending on your platform and use case, you can create the CSR automatically through your system or use certificate management tools to generate it."
+    }
+  },{
+    "@type": "Question",
+    "name": "What are the benefits of having an SSL Certificate on my website?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "SSL Certificates encrypt sensitive data, including passwords, credit card details, and personal information, during transmission. They build visitor trust, improve search engine rankings, ensure regulatory compliance, and display visual trust indicators like the padlock icon in browsers."
+    }
+  },{
+    "@type": "Question",
+    "name": "Do I need different SSL Certificates for multiple domains?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "It depends on your needs. A standard SSL Certificate covers a single domain, while Multi-Domain (SAN) Certificates can secure multiple domains, and Wildcard SSL Certificates protect a domain and all its subdomains under one certificate."
+    }
+  },{
+    "@type": "Question",
+    "name": "How long does it take to activate an SSL Certificate after purchase?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Domain Validation (DV) SSL Certificates can be issued within minutes to hours. Organization Validation (OV) and Extended Validation (EV) Certificates require business verification and typically take 1-5 business days for issuance after documentation submission."
+    }
+  }]
+}
+
+
+
+  return (
+    <>
+  <Helmet>
+<title>SSL Certificate Provider in India & USA | Secure Websites by Shivaami</title>
+ <meta name="description" content="Get SSL certificates from Shivaami. Domain validation, organization validation, and EV certificates. Expert installation and certificate management support." />
+<link rel="canonical" href="https://www.shivaami.com/ssl-certificates" />
+ <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
+ </Helmet>
     <div className="min-h-screen bg-white">
       <Header />
       <main>
         <HeroSection />
         <FeaturesSection />
         <ActivationSection />
+        <FAQSection />
         <CalendarCTASection />
       </main>
       <Footer />
       <GetStartedDialog open={dialogOpen} onOpenChange={setDialogOpen} />
-    </div>
+    </div></>
   );
 };
 
