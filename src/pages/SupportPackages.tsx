@@ -223,6 +223,46 @@ function PricingSection() {
         'User Account Management',
         'Monthly Health Reports',
         'Priority Email Support',
+        'Password Reset Assistance',
+        'Software Installation Support',
+        'Browser & Plugin Configuration',
+        'Mobile Device Setup',
+        'Printer & Peripheral Setup',
+        'VPN Configuration',
+        'Cloud Storage Setup',
+        'Calendar & Contacts Sync',
+        'Email Signature Management',
+        'Distribution List Management',
+        'Shared Mailbox Configuration',
+        'Basic Security Awareness',
+        'Spam Filter Configuration',
+        'Out-of-Office Setup',
+        'Email Forwarding Rules',
+        'Archive & Retention Setup',
+        'New User Onboarding',
+        'User Offboarding Support',
+        'License Assignment',
+        'Group Policy Assistance',
+        'Basic Network Troubleshooting',
+        'Wi-Fi Connectivity Support',
+        'File Sharing Configuration',
+        'Collaboration Tools Setup',
+        'Video Conferencing Setup',
+        'Chat & Messaging Configuration',
+        'Document Template Setup',
+        'Form Creation Assistance',
+        'Basic Reporting Setup',
+        'Dashboard Configuration',
+        'Alert & Notification Setup',
+        'Scheduled Task Configuration',
+        'Backup Configuration',
+        'Data Recovery Assistance',
+        'Performance Optimization Tips',
+        'System Health Checks',
+        'Quarterly Business Reviews',
+        'Knowledge Base Access',
+        'Training Resources',
+        'Best Practices Guidance',
       ],
     },
     {
@@ -242,6 +282,44 @@ function PricingSection() {
         'Priority Escalation Path',
         'Software Updates & Patches',
         'Security Incident Response',
+        'Server Administration',
+        'Database Management',
+        'Active Directory Management',
+        'Group Policy Management',
+        'DNS & DHCP Management',
+        'Firewall Configuration',
+        'SSL Certificate Management',
+        'Load Balancer Configuration',
+        'Backup & Disaster Recovery',
+        'Performance Monitoring',
+        'Capacity Planning',
+        'Security Audits',
+        'Vulnerability Assessments',
+        'Compliance Reporting',
+        'Change Management',
+        'Incident Management',
+        'Problem Management',
+        'Service Level Reporting',
+        'Vendor Coordination',
+        'License Management',
+        'Asset Inventory',
+        'Patch Management',
+        'Endpoint Protection',
+        'Data Loss Prevention',
+        'Email Security Gateway',
+        'Web Filtering',
+        'Access Control Management',
+        'Multi-Factor Authentication',
+        'SSO Configuration',
+        'Identity Management',
+        'Cloud Infrastructure Support',
+        'Hybrid Environment Support',
+        'API Integration Support',
+        'Automation & Scripting',
+        'Custom Report Development',
+        'SLA Management',
+        'Executive Reporting',
+        'Strategic IT Planning',
       ],
     },
     {
@@ -261,6 +339,44 @@ function PricingSection() {
         'Real-Time Collaboration',
         'Custom SLA Options',
         'Executive IT Consulting',
+        'Network Cabling Support',
+        'Server Room Management',
+        'Hardware Installation',
+        'Hardware Upgrades',
+        'Workstation Deployment',
+        'Conference Room Setup',
+        'Audio/Video Equipment',
+        'Physical Security Systems',
+        'Badge & Access Systems',
+        'Surveillance Integration',
+        'Power Management',
+        'UPS Maintenance',
+        'Environmental Monitoring',
+        'Inventory Management',
+        'Asset Tagging',
+        'Equipment Disposal',
+        'Vendor Management',
+        'Procurement Assistance',
+        'Project Management',
+        'Office Relocations',
+        'Data Center Operations',
+        'Rack & Stack Services',
+        'Cable Management',
+        'Hot/Cold Aisle Management',
+        'Disaster Recovery Testing',
+        'Business Continuity Planning',
+        'Emergency Response',
+        'After-Hours Support',
+        'Weekend Coverage',
+        'Holiday Support',
+        'Executive Support',
+        'VIP User Support',
+        'Meeting Room Support',
+        'Event Technical Support',
+        'Training & Workshops',
+        'Documentation Services',
+        'Process Improvement',
+        'Technology Roadmapping',
       ],
     },
   ];
@@ -357,15 +473,17 @@ function PricingSection() {
 
                   {/* Features */}
                   <div className="mb-8">
-                    <h4 className="text-white/60 text-xs uppercase tracking-wide mb-4">Included Features</h4>
-                    <ul className="space-y-3">
-                      {pkg.features.map((feature, i) => (
-                        <li key={i} className="flex items-start gap-3">
-                          <CheckCircle2 className="w-4 h-4 text-[#38B6FF] mt-0.5 flex-shrink-0" />
-                          <span className="text-white/80 text-sm">{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
+                    <h4 className="text-white/60 text-xs uppercase tracking-wide mb-4">Included Features ({pkg.features.length})</h4>
+                    <div className="max-h-[300px] overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-white/20 scrollbar-track-transparent">
+                      <ul className="space-y-2">
+                        {pkg.features.map((feature, i) => (
+                          <li key={i} className="flex items-start gap-2">
+                            <CheckCircle2 className="w-4 h-4 text-[#38B6FF] mt-0.5 flex-shrink-0" />
+                            <span className="text-white/80 text-sm">{feature}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
 
                   {/* CTA Button */}
