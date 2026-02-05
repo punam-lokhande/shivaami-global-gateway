@@ -136,7 +136,7 @@ function ImageCard({ icon: Icon, title, desc, image }: { icon: React.ElementType
 
 // Calendar Solutions Section
 function CalendarSolutionsSection() {
-  const calendarFeatures = [
+const calendarFeatures = [
     {
       icon: CalendarDays,
       title: 'Conflict Booking Restriction',
@@ -187,7 +187,7 @@ function CalendarSolutionsSection() {
 
 // Email Solutions Section
 function EmailSolutionsSection() {
-  const emailFeatures = [
+const emailFeatures = [
     {
       icon: Users,
       title: 'Signature Management - HRMS Sync',
@@ -250,7 +250,7 @@ function EmailSolutionsSection() {
 
 // Security & Compliance Section
 function SecurityComplianceSection() {
-  const securityFeatures = [
+const securityFeatures = [
     {
       icon: AlertTriangle,
       title: 'Users Without Recovery',
@@ -337,7 +337,7 @@ function SecurityComplianceSection() {
 
 // Data & Reporting Section
 function DataReportingSection() {
-  const dataFeatures = [
+const dataFeatures = [
     {
       icon: FolderTree,
       title: 'Folder Path Retrieval',
