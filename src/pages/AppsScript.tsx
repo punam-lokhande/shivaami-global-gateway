@@ -1,15 +1,17 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef, useEffect, useState } from 'react';
 import { 
-  ArrowRight, Calendar, CheckCircle2,
-  CalendarDays, Mail, FolderSync, FileText, Users, Clock, Settings, Shield, Ticket, Package, UserCheck, Building
+  ArrowRight, CalendarDays, Mail, FolderSync, FileText, Users, Clock, Shield, 
+  UserCheck, AlertTriangle, Smartphone, Activity, Share2, AppWindow, UserX,
+  FolderTree, ListFilter, Download, Building, Newspaper
 } from 'lucide-react';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import { Button } from '@/components/ui/button';
-import { Link } from 'react-router-dom';
 import GetStartedDialog from '@/components/GetStartedDialog';
 import heroImage from '@/assets/banners/apps-script-banner.jpg';
+import CTASection from '@/components/sections/CTASection';
+import { Helmet } from 'react-helmet-async';
 
 const fadeInUp = {
   initial: { opacity: 0, y: 30 },
@@ -72,9 +74,7 @@ function HeroSection() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="font-display text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-semibold text-white mb-4 sm:mb-6 leading-[1.15] tracking-tight"
           >
-          
             <span className="text-[#38B6FF]">Google Apps Script: Custom</span> Automation for Enterprises
-
           </motion.h1>
 
           <motion.p
@@ -83,10 +83,9 @@ function HeroSection() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-sm sm:text-base lg:text-lg text-white/80 max-w-2xl mb-6 leading-relaxed font-body"
           >
-           Google Apps Script is a low-code platform for automating Google Workspace. Build custom workflows, connect apps and APIs, and create business solutions that boost productivity, no coding expertise required.
+            Google Apps Script is a low-code platform for automating Google Workspace. Build custom workflows, connect apps and APIs, and create business solutions that boost productivity, no coding expertise required.
           </motion.p>
 
-          {/* CTA Button */}
           <motion.div
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
@@ -101,7 +100,6 @@ function HeroSection() {
               <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
             </Button>
           </motion.div>
-
         </div>
       </motion.div>
     </section>
@@ -128,7 +126,7 @@ function CalendarSolutionsSection() {
     },
     {
       icon: Clock,
-      title: 'Maximum Duration Restriction',
+      title: 'Maximum Meeting Duration Restriction',
       desc: 'Delete events scheduled beyond the permissible timeline (e.g., 4 hours) and notify the user automatically.',
     },
   ];
@@ -138,9 +136,11 @@ function CalendarSolutionsSection() {
       <div className="w-full px-8 lg:px-16 xl:px-24">
         <motion.div {...fadeInUp} className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-[#0C4594] mb-4">
-           Calendar Management Automations
+            Calendar Management Automations
           </h2>
-          
+          <p className="text-[#475569] max-w-2xl mx-auto">
+            Smart booking management to optimise your meeting room resources.
+          </p>
         </motion.div>
 
         <motion.div {...staggerContainer} className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -181,12 +181,12 @@ function EmailSolutionsSection() {
     {
       icon: Mail,
       title: 'Signature Management - Auto Update',
-      desc: 'Update user signatures based on their GWS user attributes. Ensures standard signature format for all users with centralised management.',
+      desc: 'Update user signatures based on their Google Workspace user attributes. Ensures standard signature format for all users with centralised management.',
       image: 'https://images.unsplash.com/photo-1596526131083-e8c633c948d2?w=800&auto=format&fit=crop&q=80',
     },
     {
       icon: FolderSync,
-      title: 'Email File Backup to Drive',
+      title: 'Email File Backup',
       desc: 'Save a copy of all attachments from emails to Google Drive. Serves as a backup repository and helps refer to documents easily.',
       image: 'https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=800&auto=format&fit=crop&q=80',
     },
@@ -211,15 +211,14 @@ function EmailSolutionsSection() {
   ];
 
   return (
-    <section className="py-20 bg-[#f8fafc]">
+    <section className="py-20 bg-white">
       <div className="w-full px-8 lg:px-16 xl:px-24">
         <motion.div {...fadeInUp} className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-[#0C4594] mb-4">
-           Email Management Automations
+            Email Management Automations
           </h2>
           <p className="text-[#475569] max-w-2xl mx-auto">
-           Streamline email management and maintain consistent branding.
-
+            Streamline email management and maintain consistent branding.
           </p>
         </motion.div>
 
@@ -235,16 +234,13 @@ function EmailSolutionsSection() {
                 }}
                 className="relative rounded-2xl overflow-hidden group h-[320px] cursor-pointer"
               >
-                {/* Background Image */}
                 <img 
                   src={feature.image} 
                   alt={feature.title}
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
-                {/* Blue Gradient Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0C4594] via-[#0C4594]/80 to-[#0C4594]/50 group-hover:from-[#0C4594] group-hover:via-[#0C4594]/85 group-hover:to-[#0C4594]/60 transition-all duration-300" />
                 
-                {/* Content */}
                 <div className="relative z-10 h-full flex flex-col justify-end p-6">
                   <div className="w-12 h-12 rounded-xl bg-[#38B6FF] flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
                     <Icon className="w-6 h-6 text-white" />
@@ -261,43 +257,58 @@ function EmailSolutionsSection() {
   );
 }
 
-// Business Solutions Section
-function BusinessSolutionsSection() {
-  const businessFeatures = [
+// Security & Compliance Section
+function SecurityComplianceSection() {
+  const securityFeatures = [
     {
-      icon: Settings,
-      title: 'Project Management',
-      desc: 'Manage various projects, assign tasks, and calculate budgets. Dashboard to track project progress with role-based access to respective modules.',
+      icon: AlertTriangle,
+      title: 'Users Without Recovery',
+      desc: 'List of users who did not add a recovery email ID. Helps maintain account security standards.',
     },
     {
-      icon: UserCheck,
-      title: 'Talent Acquisition System',
-      desc: 'Request hiring with approval flow and post job openings on social platforms. Streamlines the internal resource request process.',
-    },
-    {
-      icon: Clock,
-      title: 'Timesheets',
-      desc: 'Help management view employee productivity based on the data they feed. Track time and monitor project progress effectively.',
-    },
-    {
-      icon: Ticket,
-      title: 'Helpdesk Ticketing Solution',
-      desc: 'A ticketing tool centralises support requests, boosting efficiency and collaboration. Automates tasks like assignment and notifications with tracking visibility.',
-    },
-    {
-      icon: Package,
-      title: 'Product Improvement System',
-      desc: 'Review a product across multiple teams. Document feedback with approval flow to accept/reject proposed changes for refund or replacement decisions.',
+      icon: Activity,
+      title: 'Last Login Information',
+      desc: 'Track user last login information from the last 6 months of logs. Helps identify account usage patterns.',
     },
     {
       icon: Shield,
-      title: 'Vendor Management System',
-      desc: 'Streamlines the vendor database with an approval system. Vendor documents are stored in their respective Google Drive folder automatically.',
+      title: '2SV Enablement Status',
+      desc: 'List of users who did not enable 2-step verification. Critical for security compliance.',
     },
     {
-      icon: Building,
-      title: 'Visitor Management System',
-      desc: 'Maintains data for people visiting your premises. Keeps historical data of frequent visitors for security and tracking purposes.',
+      icon: UserCheck,
+      title: 'User Creation & Deletion',
+      desc: 'Lists users created and deleted within a defined time period (last 6 months only). Helps with audit account management.',
+    },
+    {
+      icon: Smartphone,
+      title: 'Device Compliance Logs',
+      desc: 'Helps identify non-compliant devices from where the organisation\'s data is being accessed.',
+    },
+    {
+      icon: Smartphone,
+      title: 'Device OS Logs',
+      desc: 'Fetches the client OS details from where the organisation data is being accessed. Helps maintain device inventory.',
+    },
+    {
+      icon: Activity,
+      title: 'Administrator Activity Logs',
+      desc: 'Fetches admin log events for a defined number of days. Helps focus on limited logs instead of the entire log bank.',
+    },
+    {
+      icon: Share2,
+      title: 'External File Sharing',
+      desc: 'Helps retrieve logs for files shared externally. Critical for data loss prevention.',
+    },
+    {
+      icon: AppWindow,
+      title: 'Third-Party Application Logs',
+      desc: 'Identifies third-party applications connected with user accounts. Critical to assess security posture.',
+    },
+    {
+      icon: UserX,
+      title: 'Inactive Users',
+      desc: 'Helps identify users who have not signed in for a defined time range. Supports license optimisation.',
     },
   ];
 
@@ -306,15 +317,15 @@ function BusinessSolutionsSection() {
       <div className="w-full px-8 lg:px-16 xl:px-24">
         <motion.div {...fadeInUp} className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-[#0C4594] mb-4">
-           Security & Compliance Automations
+            Security & Compliance Automations
           </h2>
           <p className="text-[#475569] max-w-2xl mx-auto">
             Monitor security posture and maintain compliance standards.
           </p>
         </motion.div>
 
-        <motion.div {...staggerContainer} className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {businessFeatures.map((feature, idx) => {
+        <motion.div {...staggerContainer} className="grid md:grid-cols-2 lg:grid-cols-5 gap-6">
+          {securityFeatures.map((feature, idx) => {
             const Icon = feature.icon;
             return (
               <motion.div
@@ -339,8 +350,87 @@ function BusinessSolutionsSection() {
   );
 }
 
-import CTASection from '@/components/sections/CTASection';
-import { Helmet } from 'react-helmet-async';
+// Data & Reporting Section
+function DataReportingSection() {
+  const dataFeatures = [
+    {
+      icon: FolderTree,
+      title: 'Folder Path Retrieval',
+      desc: 'If the user has root folder access, retrieve the file/folder path of subfolders. Simplifies navigation.',
+      image: 'https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?w=800&auto=format&fit=crop&q=80',
+    },
+    {
+      icon: ListFilter,
+      title: 'User Attribute Lists',
+      desc: 'Lists users as per the required user attribute (e.g., designation, location). Helps segment the user base.',
+      image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&auto=format&fit=crop&q=80',
+    },
+    {
+      icon: Download,
+      title: 'Top Drive Users',
+      desc: 'Lists users who have the highest download count. Helps identify heavy data users.',
+      image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&auto=format&fit=crop&q=80',
+    },
+    {
+      icon: Building,
+      title: 'OU Member Count',
+      desc: 'List user count from a specific OU. Helps reduce admin efforts in user management.',
+      image: 'https://images.unsplash.com/photo-1553484771-371a605b060b?w=800&auto=format&fit=crop&q=80',
+    },
+    {
+      icon: Newspaper,
+      title: 'Google Workspace Updates List',
+      desc: 'Fetches Google Workspace updates to a Google Sheet as per the defined time range. Keeps teams informed of platform changes.',
+      image: 'https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=800&auto=format&fit=crop&q=80',
+    },
+  ];
+
+  return (
+    <section className="py-20 bg-white">
+      <div className="w-full px-8 lg:px-16 xl:px-24">
+        <motion.div {...fadeInUp} className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#0C4594] mb-4">
+            Data & Reporting Automations
+          </h2>
+          <p className="text-[#475569] max-w-2xl mx-auto">
+            Generate insights and maintain organised data across your workspace.
+          </p>
+        </motion.div>
+
+        <motion.div {...staggerContainer} className="grid md:grid-cols-2 lg:grid-cols-5 gap-6">
+          {dataFeatures.map((feature, idx) => {
+            const Icon = feature.icon;
+            return (
+              <motion.div
+                key={idx}
+                variants={{
+                  initial: { opacity: 0, y: 20 },
+                  whileInView: { opacity: 1, y: 0 }
+                }}
+                className="relative rounded-2xl overflow-hidden group h-[320px] cursor-pointer"
+              >
+                <img 
+                  src={feature.image} 
+                  alt={feature.title}
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0C4594] via-[#0C4594]/80 to-[#0C4594]/50 group-hover:from-[#0C4594] group-hover:via-[#0C4594]/85 group-hover:to-[#0C4594]/60 transition-all duration-300" />
+                
+                <div className="relative z-10 h-full flex flex-col justify-end p-6">
+                  <div className="w-12 h-12 rounded-xl bg-[#38B6FF] flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                    <Icon className="w-6 h-6 text-white" />
+                  </div>
+                  <h3 className="text-lg font-semibold text-white mb-2">{feature.title}</h3>
+                  <p className="text-white/80 text-sm leading-relaxed">{feature.desc}</p>
+                </div>
+              </motion.div>
+            );
+          })}
+        </motion.div>
+      </div>
+    </section>
+  );
+}
 
 // Main Page Component
 export default function AppsScript() {
@@ -353,25 +443,26 @@ export default function AppsScript() {
   }, []);
 
   return (
+    <>
+      <Helmet>
+        <title>Google Apps Script Solutions for Google Workspace | Shivaami</title>
+        <meta name="description" content="Automate Calendar, Gmail, Drive & more with Shivaami's ready-to-deploy Google Apps Script solutions. Custom scripts built for enterprises. Get started today." />
+        <link rel="canonical" href="https://www.shivaami.com/apps-script" />
+      </Helmet>
 
-<>
- <Helmet>
-<title>Google Apps Script Solutions for Google Workspace | Shivaami</title>
- <meta name="description" content="Automate Calendar, Gmail, Drive & more with Shivaami's ready-to-deploy Google Apps Script solutions. Custom scripts built for enterprises. Get started today." />
-<link rel="canonical" href="https://www.shivaami.com/apps-script" />
- </Helmet>
-
-    <div className="min-h-screen bg-white">
-      <Header />
-      <main>
-        <HeroSection />
-        <CalendarSolutionsSection />
-        <EmailSolutionsSection />
-        <BusinessSolutionsSection />
-        <CTASection />
-      </main>
-      <Footer />
-      <GetStartedDialog open={dialogOpen} onOpenChange={setDialogOpen} />
-    </div></>
+      <div className="min-h-screen bg-white">
+        <Header />
+        <main>
+          <HeroSection />
+          <CalendarSolutionsSection />
+          <EmailSolutionsSection />
+          <SecurityComplianceSection />
+          <DataReportingSection />
+          <CTASection />
+        </main>
+        <Footer />
+        <GetStartedDialog open={dialogOpen} onOpenChange={setDialogOpen} />
+      </div>
+    </>
   );
 }
