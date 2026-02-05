@@ -64,7 +64,9 @@ function HeroSection() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-display font-bold text-white mb-6 leading-tight"
           >
-            Our Support Packages
+            <span className="text-[#38B6FF]"> Support Packages: Flexible</span> Help Desk & Technical Support
+
+          
           </motion.h1>
 
           <motion.p
@@ -73,7 +75,7 @@ function HeroSection() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-base sm:text-lg text-white/80 mb-8 max-w-2xl leading-relaxed"
           >
-            Our Support Packages give you predictable IT assistance at fixed costs. Select the level of support that best suits your business size. We handle daily technical issues, so your team stays productive. Each package includes clear response times and dedicated support channels.
+             Our Support Packages offer predictable IT support at fixed costs, tailored to your needs, with guaranteed response times, dedicated channels, and proactive help to keep your team productive.
           </motion.p>
 
           <motion.div
@@ -157,9 +159,7 @@ function WhatWeHandleSection() {
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-display font-bold text-[#0a1628] mb-4">
             What We Handle for You
           </h2>
-          <p className="text-[#64748b] text-lg max-w-2xl mx-auto">
-            From daily troubleshooting to strategic IT management, our team covers all aspects of your technical needs.
-          </p>
+
         </motion.div>
 
         {/* Services Grid */}
@@ -494,12 +494,12 @@ export default function SupportPackages() {
   return (
     <>
       <Helmet>
-        <title>IT Support Packages | Flexible Help Desk and Technical Support</title>
-        <meta 
-          name="description" 
-          content="Choose IT support that fits your needs and budget. Our packages include help desk, troubleshooting, and maintenance services for businesses in India and the US." 
-        />
-      </Helmet>
+<title>IT Support Packages | Flexible Help Desk and Technical Support</title>
+ <meta name="description" content="Choose IT support that fits your needs and budget. Our packages include help desk, troubleshooting, and maintenance services for businesses in India and the US." />
+<link rel="canonical" href="https://www.shivaami.com/support-packages" />
+
+ </Helmet>
+
       <Header />
       <main>
         <HeroSection />

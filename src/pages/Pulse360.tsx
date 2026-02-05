@@ -19,6 +19,8 @@ import patchesImg from '@/assets/pulse360/patches.jpg';
 import helpdeskImg from '@/assets/pulse360/helpdesk.jpg';
 import capacityImg from '@/assets/pulse360/capacity.jpg';
 import vendorImg from '@/assets/pulse360/vendor.jpg';
+import CTASection from '@/components/sections/CTASection';
+import { Helmet } from 'react-helmet-async';
 
 const fadeInUp = {
   initial: { opacity: 0, y: 30 },
@@ -45,7 +47,7 @@ function HeroSection() {
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
   return (
-    <section ref={ref} className="relative min-h-[55vh] sm:min-h-[60vh] md:min-h-[65vh] lg:min-h-[70vh] max-h-[700px] flex items-center overflow-hidden">
+   <section ref={ref} className="relative min-h-[55vh] sm:min-h-[60vh] max-h-[700px] flex items-center overflow-hidden">
       <motion.div 
         style={{ y }}
         className="absolute inset-0 z-0"
@@ -68,8 +70,8 @@ function HeroSection() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="font-display text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-semibold text-white mb-4 sm:mb-6 leading-[1.15] tracking-tight"
           >
-            Pulse360:<br />
-            <span className="text-[#38B6FF]">24/7</span> System<br />
+           
+            <span className="text-[#38B6FF]">Pulse360: 24/7 </span>System Management
             Management
           </motion.h1>
 
@@ -79,7 +81,7 @@ function HeroSection() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-sm sm:text-base lg:text-lg text-white/80 max-w-2xl mb-6 leading-relaxed font-body"
           >
-            Shivaami gives you a complete IT team without the overhead. We monitor your systems around the clock and fix issues before they impact your business. Our experts handle updates, security, and performance tuning. You get predictable costs and reliable technology every day.
+            Shivaami provides a full IT team without overhead, monitoring systems 24/7, and resolving issues proactively, handling updates, security, and performance with predictable costs and reliable technology.
           </motion.p>
 
           {/* CTA Button */}
@@ -158,9 +160,7 @@ function FeaturesSection() {
           <h2 className="text-3xl md:text-4xl font-bold text-[#0C4594] mb-4">
             What We Handle for You
           </h2>
-          <p className="text-[#475569] max-w-2xl mx-auto">
-            Complete IT management so you can focus on growing your business.
-          </p>
+          
         </motion.div>
 
         <motion.div {...staggerContainer} className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -198,70 +198,8 @@ function FeaturesSection() {
   );
 }
 
-// Calendar CTA Section
-function CalendarCTASection() {
-  const { region } = useRegion();
-  const consultationLink = region === 'india' 
-    ? 'https://calendar.app.google/gV1KaLLVkPR32C1p9'
-    : 'https://app.apollo.io/#/meet/40u-obp-ihl/30-min';
 
-  const demoPoints = [
-    'Infrastructure assessment — we evaluate your current systems and identify improvement areas',
-    'Custom service proposal — get a tailored managed services plan for your business',
-    'Transparent pricing — understand exactly what you\'re getting with no hidden costs',
-    'Implementation timeline — see how quickly we can take over your IT management',
-  ];
 
-  return (
-    <section className="py-20 bg-gradient-to-br from-[#0C4594] via-[#0a3a7a] to-[#082d61]">
-      <div className="w-full px-8 lg:px-16 xl:px-24">
-        <motion.div {...fadeInUp} className="max-w-5xl mx-auto text-center">
-          <div className="w-16 h-16 rounded-2xl bg-[#38B6FF] flex items-center justify-center mx-auto mb-6">
-            <Calendar className="w-8 h-8 text-white" />
-          </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-            Talk to Our Experts
-          </h2>
-          <p className="text-lg text-white/80 mb-8">Schedule a consultation and we'll provide:</p>
-
-          <div className="grid md:grid-cols-2 gap-4 text-left max-w-4xl mx-auto mb-10">
-            {demoPoints.map((point, idx) => (
-              <motion.div
-                key={idx}
-                {...fadeInUp}
-                transition={{ delay: idx * 0.1 }}
-                className="flex items-start gap-3 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-4"
-              >
-                <CheckCircle2 className="w-5 h-5 text-[#38B6FF] flex-shrink-0 mt-0.5" />
-                <span className="text-white/90 text-sm">{point}</span>
-              </motion.div>
-            ))}
-          </div>
-
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button 
-                size="lg" 
-                onClick={() => document.dispatchEvent(new CustomEvent('openGetStartedDialog'))}
-                className="bg-[#38B6FF] hover:bg-[#2da8f0] text-white font-semibold px-8 sm:px-10 py-5 sm:py-6 text-sm sm:text-base lg:text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 group"
-              >
-                Get Started
-                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-              </Button>
-            <a href={consultationLink} target="_blank" rel="noopener noreferrer">
-              <Button
-                size="lg"
-                className="bg-[#38B6FF] hover:bg-[#2da8f0] text-white font-semibold px-10 py-7 text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
-              >
-                Schedule a Consultation
-                <ArrowRight className="w-5 h-5 ml-2" />
-              </Button>
-            </a>
-          </div>
-        </motion.div>
-      </div>
-    </section>
-  );
-}
 
 // Main Page Component
 export default function Pulse360() {
@@ -274,15 +212,24 @@ export default function Pulse360() {
   }, []);
 
   return (
+<>
+<Helmet>
+<title>Managed IT Services | 24/7 System Management by Shivaami</title>
+ <meta name="description" content="Get round-the-clock IT management with Shivaami. We monitor, maintain, and optimize your systems so you can focus on business growth." />
+<link rel="canonical" href="https://www.shivaami.com/pulse360" />
+
+ </Helmet>
+
+    
     <div className="min-h-screen bg-white">
       <Header />
       <main>
         <HeroSection />
         <FeaturesSection />
-        <CalendarCTASection />
+    <CTASection />
       </main>
       <Footer />
       <GetStartedDialog open={dialogOpen} onOpenChange={setDialogOpen} />
-    </div>
+    </div></>
   );
 }

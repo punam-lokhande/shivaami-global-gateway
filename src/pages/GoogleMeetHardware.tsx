@@ -478,11 +478,18 @@ const faqSchema ={
 
   return (
     <>
+
+
+  <Helmet>
+<title>Google Meet Hardware Kit | Video Conferencing Equipment by Shivaami</title>
+ <meta name="description" content="Google Meet Hardware is easy-to-use video conferencing equipment. It consists of a Google Meet compute system, camera, speaker mic, and touchscreen control panel." />
+<link rel="canonical" href="https://www.shivaami.com/google-meet-hardware" />
+ <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
+ </Helmet>
+
+
     <div className="min-h-screen bg-white">
-      <Helmet>
-        <title>Google Meet Hardware India | Video Solutions by Shivaami</title>
-        <meta name="description" content="Deploy Google Meet hardware with Shivaami. Conference room solutions for hybrid work. Authorized Google Meet hardware partner in India." />
-      </Helmet>
+   
       <Header />
     
       <main>

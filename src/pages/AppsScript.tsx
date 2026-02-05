@@ -72,8 +72,8 @@ function HeroSection() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="font-display text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-semibold text-white mb-4 sm:mb-6 leading-[1.15] tracking-tight"
           >
-            Google Apps Script<br />
-            <span className="text-[#38B6FF]">Automation</span> Solutions
+          
+            <span className="text-[#38B6FF]">Google Apps Script:</span> Custom Automation for Enterprises
           </motion.h1>
 
           <motion.p
@@ -82,7 +82,7 @@ function HeroSection() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-sm sm:text-base lg:text-lg text-white/80 max-w-2xl mb-6 leading-relaxed font-body"
           >
-            Google Apps Script is a powerful automation tool that works with Google Workspace apps like Sheets and Gmail. The platform uses JavaScript to create custom scripts that automate tasks and add new features easily. Connect with Google services and external APIs to extend what your apps can do.
+           Google Apps Script is a low-code platform for automating Google Workspace. Build custom workflows, connect apps and APIs, and create business solutions that boost productivity, no coding expertise required.
           </motion.p>
 
           {/* CTA Button */}
@@ -137,11 +137,9 @@ function CalendarSolutionsSection() {
       <div className="w-full px-8 lg:px-16 xl:px-24">
         <motion.div {...fadeInUp} className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-[#0C4594] mb-4">
-            Calendar Automation Solutions
+           Calendar Management Automations
           </h2>
-          <p className="text-[#475569] max-w-2xl mx-auto">
-            Smart booking management to optimize your meeting room resources.
-          </p>
+          
         </motion.div>
 
         <motion.div {...staggerContainer} className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -216,10 +214,11 @@ function EmailSolutionsSection() {
       <div className="w-full px-8 lg:px-16 xl:px-24">
         <motion.div {...fadeInUp} className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-[#0C4594] mb-4">
-            Email & Signature Solutions
+           Email Management Automations
           </h2>
           <p className="text-[#475569] max-w-2xl mx-auto">
-            Streamline email management and maintain consistent branding.
+           Streamline email management and maintain consistent branding.
+
           </p>
         </motion.div>
 
@@ -306,10 +305,10 @@ function BusinessSolutionsSection() {
       <div className="w-full px-8 lg:px-16 xl:px-24">
         <motion.div {...fadeInUp} className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-[#0C4594] mb-4">
-            Business Process Solutions
+           Security & Compliance Automations
           </h2>
           <p className="text-[#475569] max-w-2xl mx-auto">
-            Custom applications to streamline your business operations.
+            Monitor security posture and maintain compliance standards.
           </p>
         </motion.div>
 
@@ -340,6 +339,7 @@ function BusinessSolutionsSection() {
 }
 
 import CTASection from '@/components/sections/CTASection';
+import { Helmet } from 'react-helmet-async';
 
 // Main Page Component
 export default function AppsScript() {
@@ -352,6 +352,14 @@ export default function AppsScript() {
   }, []);
 
   return (
+
+<>
+ <Helmet>
+<title>Google Apps Script Solutions for Google Workspace | Shivaami</title>
+ <meta name="description" content="Automate Calendar, Gmail, Drive & more with Shivaami's ready-to-deploy Google Apps Script solutions. Custom scripts built for enterprises. Get started today." />
+<link rel="canonical" href="https://www.shivaami.com/apps-script" />
+ </Helmet>
+
     <div className="min-h-screen bg-white">
       <Header />
       <main>
@@ -363,6 +371,6 @@ export default function AppsScript() {
       </main>
       <Footer />
       <GetStartedDialog open={dialogOpen} onOpenChange={setDialogOpen} />
-    </div>
+    </div></>
   );
 }

@@ -26,6 +26,8 @@ import appTestingImg from '@/assets/migration/app-testing.jpg';
 import rollbackImg from '@/assets/migration/rollback.jpg';
 import supportImg from '@/assets/migration/support.jpg';
 import securityImg from '@/assets/migration/security.jpg';
+import CTASection from '@/components/sections/CTASection';
+import { Helmet } from 'react-helmet-async';
 
 const fadeInUp = {
   initial: { opacity: 0, y: 30 },
@@ -52,7 +54,7 @@ function HeroSection() {
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
   return (
-    <section ref={ref} className="relative min-h-[55vh] sm:min-h-[60vh] md:min-h-[65vh] lg:min-h-[70vh] max-h-[700px] flex items-center overflow-hidden">
+<section ref={ref} className="relative min-h-[55vh] sm:min-h-[60vh] max-h-[700px] flex items-center overflow-hidden">
       {/* Full-width Background Image */}
       <motion.div 
         style={{ y }}
@@ -79,9 +81,9 @@ function HeroSection() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="font-display text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-semibold text-white mb-4 sm:mb-6 leading-[1.15] tracking-tight"
           >
-            SwiftMove:<br />
-            <span className="text-[#38B6FF]">Seamless</span> IT<br />
-            Migration Services
+        
+            <span className="text-[#38B6FF]">SwiftMove: Seamless </span>IT Migration Services
+
           </motion.h1>
 
           {/* Description */}
@@ -91,7 +93,7 @@ function HeroSection() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-sm sm:text-base lg:text-lg text-white/80 max-w-2xl mb-6 leading-relaxed font-body"
           >
-            Shivaami helps you move your business systems without disruption. We plan every step to keep your operations running smoothly. Our team handles data, applications, and cloud migrations with care. You get a clear timeline and full support from start to finish.
+           Shivaami enables seamless business system migrations without disruption. We manage data, applications, and cloud moves with precision, ensuring smooth operations, clear timelines, and end-to-end support.
           </motion.p>
 
           {/* CTA Button */}
@@ -176,9 +178,7 @@ function FeaturesSection() {
           <h2 className="text-3xl md:text-4xl font-bold text-[#0C4594] mb-4">
             What We Handle for You
           </h2>
-          <p className="text-[#475569] max-w-2xl mx-auto">
-            From planning to execution, we manage every aspect of your migration with precision and care.
-          </p>
+          
         </motion.div>
 
         <motion.div {...staggerContainer} className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -359,70 +359,6 @@ function ActivationSection() {
   );
 }
 
-// Calendar CTA Section
-function CalendarCTASection() {
-  const { region } = useRegion();
-  const consultationLink = region === 'india' 
-    ? 'https://calendar.app.google/gV1KaLLVkPR32C1p9'
-    : 'https://app.apollo.io/#/meet/40u-obp-ihl/30-min';
-
-  const demoPoints = [
-    'Free migration assessment — we evaluate your current infrastructure and requirements',
-    'Custom migration plan — see your personalized roadmap with timelines and milestones',
-    'Risk mitigation strategy — understand how we protect your data and minimize downtime',
-    'Cost estimation — get transparent pricing with no hidden fees',
-  ];
-
-  return (
-    <section className="py-20 bg-gradient-to-br from-[#0C4594] via-[#0a3a7a] to-[#082d61]">
-      <div className="w-full px-8 lg:px-16 xl:px-24">
-        <motion.div {...fadeInUp} className="max-w-5xl mx-auto text-center">
-          <div className="w-16 h-16 rounded-2xl bg-[#38B6FF] flex items-center justify-center mx-auto mb-6">
-            <Calendar className="w-8 h-8 text-white" />
-          </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-            Book a Free Call with Our Team
-          </h2>
-          <p className="text-lg text-white/80 mb-8">Schedule a consultation and we'll show you:</p>
-
-          <div className="grid md:grid-cols-2 gap-4 text-left max-w-4xl mx-auto mb-10">
-            {demoPoints.map((point, idx) => (
-              <motion.div
-                key={idx}
-                {...fadeInUp}
-                transition={{ delay: idx * 0.1 }}
-                className="flex items-start gap-3 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-4"
-              >
-                <CheckCircle2 className="w-5 h-5 text-[#38B6FF] flex-shrink-0 mt-0.5" />
-                <span className="text-white/90 text-sm">{point}</span>
-              </motion.div>
-            ))}
-          </div>
-
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button 
-                size="lg" 
-                onClick={() => document.dispatchEvent(new CustomEvent('openGetStartedDialog'))}
-                className="bg-[#38B6FF] hover:bg-[#2da8f0] text-white font-semibold px-8 sm:px-10 py-5 sm:py-6 text-sm sm:text-base lg:text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 group"
-              >
-                Get Started
-                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-              </Button>
-            <a href={consultationLink} target="_blank" rel="noopener noreferrer">
-              <Button
-                size="lg"
-                className="bg-[#38B6FF] hover:bg-[#2da8f0] text-white font-semibold px-10 py-7 text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
-              >
-                Schedule a Consultation
-                <ArrowRight className="w-5 h-5 ml-2" />
-              </Button>
-            </a>
-          </div>
-        </motion.div>
-      </div>
-    </section>
-  );
-}
 
 // Main Page Component
 export default function SwiftMove() {
@@ -436,15 +372,24 @@ export default function SwiftMove() {
   });
 
   return (
+
+<>
+ <Helmet>
+<title>Migration Services | Seamless IT System Transitions</title>
+ <meta name="description" content="Plan and execute hassle-free IT migrations with Shivaami. We move your data, apps, and infrastructure with zero downtime in India and the US." />
+<link rel="canonical" href="https://www.shivaami.com/swiftmove" />
+
+ </Helmet>
+
     <div className="min-h-screen bg-white">
       <Header />
       <main>
         <HeroSection />
         <FeaturesSection />
-        <CalendarCTASection />
+         <CTASection />
       </main>
       <Footer />
       <GetStartedDialog open={dialogOpen} onOpenChange={setDialogOpen} />
-    </div>
+    </div></>
   );
 }

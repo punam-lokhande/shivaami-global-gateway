@@ -314,6 +314,7 @@ function ActivationSection() {
 
 import CTASection from '@/components/sections/CTASection';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@radix-ui/react-accordion';
+import { Helmet } from 'react-helmet-async';
 
 export default function ChromeOSFlex() {
   const [dialogOpen, setDialogOpen] = useState(false);
@@ -476,6 +477,16 @@ const faqSchema ={
 
 
   return (
+
+<>
+  <Helmet>
+<title>Chrome OS Flex Partner | PC Modernization by Shivaami</title>
+ <meta name="description" content="Deploy Chrome OS Flex with Shivaami. Modernize old PCs and Macs with a cloud-based operating system. Expert implementation and management." />
+<link rel="canonical" href="https://www.shivaami.com/chromeos-flex" />
+ <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
+ </Helmet>
+
+
     <div className="min-h-screen bg-white">
       <Header />
       <main>
@@ -487,6 +498,6 @@ const faqSchema ={
       </main>
       <Footer />
       <GetStartedDialog open={dialogOpen} onOpenChange={setDialogOpen} />
-    </div>
+    </div></>
   );
 }

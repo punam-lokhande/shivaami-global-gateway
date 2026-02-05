@@ -19,6 +19,8 @@ import complianceImg from '@/assets/securesight/compliance.jpg';
 import accessAuditImg from '@/assets/securesight/access-audit.jpg';
 import incidentResponseImg from '@/assets/securesight/incident-response.jpg';
 import executiveReportImg from '@/assets/securesight/executive-report.jpg';
+import { Helmet } from 'react-helmet-async';
+import CTASection from '@/components/sections/CTASection';
 
 const fadeInUp = {
   initial: { opacity: 0, y: 30 },
@@ -45,7 +47,7 @@ function HeroSection() {
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
   return (
-    <section ref={ref} className="relative min-h-[55vh] sm:min-h-[60vh] md:min-h-[65vh] lg:min-h-[70vh] max-h-[700px] flex items-center overflow-hidden">
+    <section ref={ref} className="relative min-h-[55vh] sm:min-h-[60vh] max-h-[700px] flex items-center overflow-hidden">
       <motion.div 
         style={{ y }}
         className="absolute inset-0 z-0"
@@ -68,9 +70,8 @@ function HeroSection() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="font-display text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-semibold text-white mb-4 sm:mb-6 leading-[1.15] tracking-tight"
           >
-            SecureSight:<br />
-            <span className="text-[#38B6FF]">Find & Fix</span><br />
-            Vulnerabilities
+           
+            <span className="text-[#38B6FF]">SecureSight: Find</span> and Fix Vulnerabilities
           </motion.h1>
 
           <motion.p
@@ -79,7 +80,7 @@ function HeroSection() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-sm sm:text-base lg:text-lg text-white/80 max-w-2xl mb-6 leading-relaxed font-body"
           >
-            Shivaami shows you exactly where your security needs attention. We test your systems like an attacker would and report what we find. You get a prioritized list of fixes with clear explanations. Our assessments help you meet compliance requirements and sleep better at night.
+            Shivaami reveals critical security gaps through attacker-style assessments, offering clear reports, prioritized fixes, and compliance-ready insights to strengthen security and ensure peace of mind.
           </motion.p>
 
           {/* CTA Button */}
@@ -198,70 +199,7 @@ function FeaturesSection() {
   );
 }
 
-// Calendar CTA Section
-function CalendarCTASection() {
-  const { region } = useRegion();
-  const consultationLink = region === 'india' 
-    ? 'https://calendar.app.google/gV1KaLLVkPR32C1p9'
-    : 'https://app.apollo.io/#/meet/40u-obp-ihl/30-min';
 
-  const demoPoints = [
-    'Security posture overview — understand your current vulnerability landscape',
-    'Risk prioritization — know which issues to fix first for maximum protection',
-    'Compliance gap analysis — see where you stand against industry requirements',
-    'Remediation roadmap — get a clear action plan with timelines and resources',
-  ];
-
-  return (
-    <section className="py-20 bg-gradient-to-br from-[#0C4594] via-[#0a3a7a] to-[#082d61]">
-      <div className="w-full px-8 lg:px-16 xl:px-24">
-        <motion.div {...fadeInUp} className="max-w-5xl mx-auto text-center">
-          <div className="w-16 h-16 rounded-2xl bg-[#38B6FF] flex items-center justify-center mx-auto mb-6">
-            <Calendar className="w-8 h-8 text-white" />
-          </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-            Book Your Assessment Now
-          </h2>
-          <p className="text-lg text-white/80 mb-8">In our consultation, you'll receive:</p>
-
-          <div className="grid md:grid-cols-2 gap-4 text-left max-w-4xl mx-auto mb-10">
-            {demoPoints.map((point, idx) => (
-              <motion.div
-                key={idx}
-                {...fadeInUp}
-                transition={{ delay: idx * 0.1 }}
-                className="flex items-start gap-3 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-4"
-              >
-                <CheckCircle2 className="w-5 h-5 text-[#38B6FF] flex-shrink-0 mt-0.5" />
-                <span className="text-white/90 text-sm">{point}</span>
-              </motion.div>
-            ))}
-          </div>
-
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button 
-                size="lg" 
-                onClick={() => document.dispatchEvent(new CustomEvent('openGetStartedDialog'))}
-                className="bg-[#38B6FF] hover:bg-[#2da8f0] text-white font-semibold px-8 sm:px-10 py-5 sm:py-6 text-sm sm:text-base lg:text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 group"
-              >
-                Get Started
-                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-              </Button>
-            <a href={consultationLink} target="_blank" rel="noopener noreferrer">
-              <Button
-                size="lg"
-                className="bg-[#38B6FF] hover:bg-[#2da8f0] text-white font-semibold px-10 py-7 text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
-              >
-                Schedule a Consultation
-                <ArrowRight className="w-5 h-5 ml-2" />
-              </Button>
-            </a>
-          </div>
-        </motion.div>
-      </div>
-    </section>
-  );
-}
 
 // Main Page Component
 export default function SecureSight() {
@@ -274,15 +212,26 @@ export default function SecureSight() {
   }, []);
 
   return (
+
+
+    <>
+    <Helmet>
+<title>Security Assessment | Fix Vulnerabilities with Shivaami</title>
+ <meta name="description" content="Discover security gaps before attackers do. SecureSight reveals risks and provides clear action plans. Serving India and the US." />
+<link rel="canonical" href="https://www.shivaami.com/securesight" />
+
+ </Helmet>
+
+    
     <div className="min-h-screen bg-white">
       <Header />
       <main>
         <HeroSection />
         <FeaturesSection />
-        <CalendarCTASection />
+        <CTASection />
       </main>
       <Footer />
       <GetStartedDialog open={dialogOpen} onOpenChange={setDialogOpen} />
-    </div>
+    </div></>
   );
 }
