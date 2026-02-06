@@ -102,13 +102,13 @@ function StorySection() {
               </h2>
               <div className="space-y-4 text-[#475569] leading-relaxed">
                 <p>
-                  At Shivaami, businesses are helped to understand technology's potential for growth. We are an authorized partner for leading technology brands. Our team of experts is directly trained by our partners.
+                 Making your online life easier requires the right technology partners. Shivaami has quickly established itself as a trusted cloud and cybersecurity solutions company. At Shivaami, businesses are helped to understand technology's potential for growth.
                 </p>
                 <p>
-                  Solutions across cloud platforms, AI solutions, cybersecurity tools, and IT management systems are offered by us. Punit Thakkar founded Shivaami in 2004 with a clear vision.
+                 Shivaami is an authorized partner for leading technology brands. Our team of experts is directly trained by our partners. Solutions across cloud platforms, AI solutions, cybersecurity tools, and IT management systems are offered by us.
                 </p>
                 <p>
-                  Companies were to be allowed to drive business growth with flexibility. Today, cloud computing is drastically changing the online business environment. Businesses are helped to run faster at reduced costs.
+                 Punit Thakkar founded Shivaami in 2004 with a clear vision. Companies were to be allowed to drive business growth with flexibility. Today, cloud computing is drastically changing the online business environment. Businesses are helped to run faster at reduced costs.
                 </p>
                 <p>
                   Shivaami combines its commitment to the latest technology with customer satisfaction. Our passion is to fulfill customer needs effectively. Businesses are helped to grow faster and more efficiently through innovative solutions.
@@ -145,13 +145,13 @@ function VisionMissionSection() {
     {
       icon: Lightbulb,
       title: 'Our Vision',
-      description: 'Our vision is to become the most sought-after name as a cloud email solution provider globally. We will do this with passion and relentless commitment to client needs.',
+      description: 'Shivaami’s vision is to be the world’s most trusted partner for secure cloud and AI-powered solutions and services, enabling every organization to work with greater intelligence, security, and agility.',
       gradient: 'from-[#38B6FF] to-[#0C4594]',
     },
     {
       icon: Target,
       title: 'Our Mission',
-      description: "Our company's mission is to enhance people's abilities and the performance of their organizations. With the help of a cloud-based collaboration suite and trained professionals, we help businesses drive growth and achieve more.",
+      description: "Shivaami’s mission is to empower people and organizations to work smarter, safer, and smoother. By combining secure cloud and AI-powered solutions and services, we help businesses unlock sustainable growth.",
       gradient: 'from-[#0C4594] to-[#082d61]',
     },
   ];
