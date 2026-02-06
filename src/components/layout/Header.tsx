@@ -20,6 +20,7 @@ const getNavItems = (shopUrl: string) => [
   { label: 'Industries', hasMenu: true, key: 'industries' },
   { label: 'Resources', hasMenu: true, key: 'resources' },
   { label: 'About Us', hasMenu: true, key: 'about' },
+  { label: 'Become a Partner', hasMenu: false, key: 'partner', href: '/become-partner' },
   { label: 'Shop', hasMenu: false, key: 'shop', href: shopUrl },
 ];
 
@@ -135,14 +136,23 @@ export default function Header() {
                   }}
                 >
                   {item.href ? (
-                    <a
-                      href={item.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-1.5 px-4 py-2.5 text-sm font-medium transition-all duration-200 text-foreground/80 hover:text-primary"
-                    >
-                      {item.label}
-                    </a>
+                    item.href.startsWith('/') ? (
+                      <Link
+                        to={item.href}
+                        className="flex items-center gap-1.5 px-4 py-2.5 text-sm font-medium transition-all duration-200 text-foreground/80 hover:text-primary"
+                      >
+                        {item.label}
+                      </Link>
+                    ) : (
+                      <a
+                        href={item.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-1.5 px-4 py-2.5 text-sm font-medium transition-all duration-200 text-foreground/80 hover:text-primary"
+                      >
+                        {item.label}
+                      </a>
+                    )
                   ) : (
                     <a
                       href={`#${item.key}`}
