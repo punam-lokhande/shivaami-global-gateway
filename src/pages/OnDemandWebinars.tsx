@@ -3,7 +3,7 @@ import Footer from "@/components/layout/Footer";
 import { motion } from "framer-motion";
 import { Play, Calendar, Clock, User, ExternalLink, Sparkles } from "lucide-react";
 import { Link } from "react-router-dom";
-import geminiEnterpriseBanner from "@/assets/gemini-enterprise-banner.jpg";
+import webinarBanner from "@/assets/banners/webinar-online-meeting.jpg";
 import { Button } from "@/components/ui/button";
 
 const webinars = [
@@ -87,24 +87,9 @@ const OnDemandWebinars = () => {
       {/* Hero Section */}
       <section 
         className="relative min-h-[55vh] sm:min-h-[60vh] flex items-center bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `linear-gradient(to right, rgba(12, 69, 148, 0.95) 0%, rgba(12, 69, 148, 0.7) 50%, rgba(12, 69, 148, 0.4) 100%), url(${geminiEnterpriseBanner})` }}
+        style={{ backgroundImage: `url(${webinarBanner})` }}
       >
-        <div className="w-full px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24 pt-24 sm:pt-28 md:pt-32 lg:pt-36 pb-12 sm:pb-16 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="max-w-4xl"
-          >
-            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-4 sm:mb-6 leading-tight">
-              Webinar
-            </h1>
-            
-            <p className="text-sm sm:text-base lg:text-xl text-white/85 leading-relaxed max-w-2xl">
-              Discover Gemini's potential to transform your daily tasks in Google Workspace. Register for our six-part adoption series, available at no cost, presented by our Gemini expert.
-            </p>
-          </motion.div>
-        </div>
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0C4594]/95 via-[#0C4594]/70 to-[#0C4594]/40" />
       </section>
 
 
@@ -226,43 +211,6 @@ const OnDemandWebinars = () => {
       </section>
 
 
-      {/* CTA Section */}
-      <section className="py-16 lg:py-20 bg-gradient-to-br from-[#0C4594] to-[#1a5cb8]">
-        <div className="w-full px-6 sm:px-8 lg:px-16 xl:px-24">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center max-w-3xl mx-auto"
-          >
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full mb-6">
-              <Sparkles className="w-4 h-4 text-[#38B6FF]" />
-              <span className="text-white/90 text-sm font-medium">Bonus Giveaway Alert</span>
-            </div>
-
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4">
-              Participate in All Modules & Win!
-            </h2>
-            <p className="text-white/80 mb-8">
-              We're making this event even more rewarding! Lucky attendees who participate in all modules of the webinar will receive a special giveaway. It's our way of saying thanks for your dedicated engagement.
-            </p>
-
-            <a
-              href="https://www.shivaami.com/gemini-adoption/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Button
-                size="lg"
-                className="bg-white text-[#0C4594] hover:bg-white/90 font-semibold px-8"
-              >
-                View Full Series
-                <ExternalLink className="w-4 h-4 ml-2" />
-              </Button>
-            </a>
-          </motion.div>
-        </div>
-      </section>
 
       <Footer />
     </div>
