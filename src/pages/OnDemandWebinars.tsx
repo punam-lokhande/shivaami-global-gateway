@@ -90,6 +90,22 @@ const OnDemandWebinars = () => {
         style={{ backgroundImage: `url(${webinarBanner})` }}
       >
         <div className="absolute inset-0 bg-gradient-to-r from-[#0C4594]/95 via-[#0C4594]/70 to-[#0C4594]/40" />
+        <div className="w-full px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24 pt-24 sm:pt-28 md:pt-32 lg:pt-36 pb-12 sm:pb-16 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="max-w-4xl"
+          >
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-4 sm:mb-6 leading-tight">
+              Webinar
+            </h1>
+            
+            <p className="text-sm sm:text-base lg:text-xl text-white/85 leading-relaxed max-w-2xl">
+              Discover Gemini's potential to transform your daily tasks in Google Workspace. Register for our six-part adoption series, available at no cost, presented by our Gemini expert.
+            </p>
+          </motion.div>
+        </div>
       </section>
 
 
