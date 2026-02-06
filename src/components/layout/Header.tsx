@@ -112,7 +112,7 @@ export default function Header() {
               <img 
                 src={shivaamiLogo} 
                 alt="Shivaami" 
-                className="h-10 w-auto object-contain"
+                className="h-14 w-auto object-contain"
               />
             </a>
 
