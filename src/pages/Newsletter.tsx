@@ -194,9 +194,8 @@ export default function Newsletter() {
                     className="h-1 bg-gradient-to-r from-[#38B6FF] to-transparent mb-8"
                   />
 
-                  <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-4 sm:mb-6 leading-tight">
-                    Never Miss an update with 
-                    <span className="block text-[#38B6FF]">Shivaami Sphere</span>
+                  <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-4 sm:mb-6 leading-tight text-left">
+                    Never Miss an Update
                   </h1>
 
                   <p className="text-base sm:text-lg lg:text-xl text-white/70 mb-8 sm:mb-10 leading-relaxed">
