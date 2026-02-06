@@ -238,7 +238,7 @@ export default function Footer() {
         <div className="w-full px-6 sm:px-8 lg:px-16 xl:px-24 py-12">
           <div className="flex flex-col items-center text-center gap-6">
             <h3 className="font-display text-base sm:text-lg lg:text-xl font-bold text-foreground whitespace-nowrap">
-              Get the latest cloud insights and industry news delivered to your inbox.
+              Your Source for Cloud Insights & Industry Updates.
             </h3>
             <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto justify-center">
               <Input
@@ -250,7 +250,7 @@ export default function Footer() {
                 className="bg-secondary border-border text-foreground placeholder:text-muted-foreground w-full sm:w-64"
               />
               <Button type="submit" className="bg-primary hover:bg-primary/90 text-primary-foreground whitespace-nowrap">
-                Subscribe
+                Get Newsletter
                 <ArrowRight className="ml-2 w-4 h-4" />
               </Button>
             </form>
