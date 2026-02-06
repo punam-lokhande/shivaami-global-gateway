@@ -179,7 +179,7 @@ export default function Newsletter() {
         {/* Hero Section */}
         <section className="relative pt-24 sm:pt-28 md:pt-32 lg:pt-36 pb-16 sm:pb-20">
           <div className="container mx-auto px-4 sm:px-6 md:px-8 relative z-10">
-            <div className="max-w-5xl mx-auto">
+            <div className="max-w-6xl mx-auto">
               <div className="grid lg:grid-cols-2 gap-12 items-center">
                 {/* Left Content */}
                 <motion.div
@@ -195,8 +195,8 @@ export default function Newsletter() {
                   />
 
                   <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-4 sm:mb-6 leading-tight">
-                    Never Miss an
-                    <span className="block text-[#38B6FF]">Update</span>
+                    Never Miss an update with 
+                    <span className="block text-[#38B6FF]">Shivaami Sphere</span>
                   </h1>
 
                   <p className="text-base sm:text-lg lg:text-xl text-white/70 mb-8 sm:mb-10 leading-relaxed">
