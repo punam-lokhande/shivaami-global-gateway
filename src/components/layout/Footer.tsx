@@ -237,7 +237,7 @@ export default function Footer() {
       <div className="border-t border-t-primary border-b border-border/30">
         <div className="w-full px-6 sm:px-8 lg:px-16 xl:px-24 py-12">
           <div className="flex flex-col items-center text-center gap-6">
-            <h3 className="font-display text-lg sm:text-xl font-bold text-foreground max-w-2xl">
+            <h3 className="font-display text-base sm:text-lg lg:text-xl font-bold text-foreground whitespace-nowrap">
               Get the latest cloud insights and industry news delivered to your inbox.
             </h3>
             <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto justify-center">
