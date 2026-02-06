@@ -841,7 +841,7 @@ export default function PrivacyPolicy() {
                     </div>
                     <div className="flex items-center gap-3 text-muted-foreground">
                       <Phone className="w-5 h-5 text-primary flex-shrink-0" />
-                      <a href="tel:+14083334844" className="hover:text-foreground transition-colors">+1 408 333 4844</a>
+                      <a href="tel:+14083334844" className="hover:text-foreground transition-colors">+1 (408) 333-4844</a>
                     </div>
                   </div>
                 </div>

@@ -54,7 +54,7 @@ const regionData: Record<Region, RegionContent> = {
     },
   },
   usa: {
-    phone: '+1 408 333 4844',
+    phone: '+1 (408) 333-4844',
     currency: 'USD',
     currencySymbol: '$',
     shopUrl: 'https://gaganhub.shivaami.com/',

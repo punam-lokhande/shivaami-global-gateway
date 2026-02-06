@@ -22,9 +22,6 @@ export default function TestimonialsSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <div className="inline-block px-4 py-1.5 rounded-full bg-[#0C4594]/10 text-[#0C4594] text-sm font-medium mb-4">
-            Customer Stories • {region === 'india' ? '🇮🇳 India' : '🇺🇸 USA'}
-          </div>
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-[#0C4594] mb-4">
             What Our <span className="text-[#010203]">Clients Say</span>
           </h2>

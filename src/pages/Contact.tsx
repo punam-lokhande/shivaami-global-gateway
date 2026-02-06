@@ -23,7 +23,7 @@ const offices = [
   {
     region: 'USA',
     flag: '🇺🇸',
-    phone: '+1 408 333 4844',
+    phone: '+1 (408) 333-4844',
     email: 'usa@shivaami.com',
     address: '33 S Wood Avenue, Suite 439, Iselin, New Jersey - 08830',
     office_type: 'Regional Office',
