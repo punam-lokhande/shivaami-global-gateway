@@ -10,6 +10,7 @@ import { Button } from '@/components/ui/button';
 import GetStartedDialog from '@/components/GetStartedDialog';
 import CTASection from '@/components/sections/CTASection';
 import logisticsImage from '@/assets/industries/logistics.jpg';
+import { Helmet } from 'react-helmet-async';
 
 const fadeInUp = {
   initial: { opacity: 0, y: 30 },
@@ -70,7 +71,7 @@ function HeroSection() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-sm sm:text-base lg:text-lg text-white/80 max-w-2xl mb-6 leading-relaxed font-body"
           >
-            Logistics and transportation companies rely on real-time coordination and data availability. Shivaami ensures secure, connected, and resilient operations across the supply chain.
+           Logistics and transportation companies rely on real-time coordination, data availability, and seamless communication across warehouses, fleets, and partner networks. Shivaami ensures secure, connected, and resilient operations that keep your supply chain moving 24/7.
           </motion.p>
 
           {/* CTA Button */}
@@ -255,6 +256,16 @@ export default function TransportationLogistics() {
   }, []);
 
   return (
+
+<>
+<Helmet>
+<title>Logistics & Transportation IT Solutions | Secure Operations</title>
+ <meta name="description" content="Enable secure, connected logistics operations with protected shipment data, fleet management, and resilient IT systems across supply chains." />
+<link rel="canonical" href="https://www.shivaami.com/transportation-logistics" />
+
+ </Helmet>
+
+
     <div className="min-h-screen bg-white">
       <Header />
       <main>
@@ -265,6 +276,6 @@ export default function TransportationLogistics() {
       </main>
       <Footer />
       <GetStartedDialog open={dialogOpen} onOpenChange={setDialogOpen} />
-    </div>
+    </div></>
   );
 }

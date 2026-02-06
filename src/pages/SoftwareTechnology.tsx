@@ -10,6 +10,7 @@ import { Button } from '@/components/ui/button';
 import GetStartedDialog from '@/components/GetStartedDialog';
 import CTASection from '@/components/sections/CTASection';
 import technologyImage from '@/assets/industries/technology.jpg';
+import { Helmet } from 'react-helmet-async';
 
 const fadeInUp = {
   initial: { opacity: 0, y: 30 },
@@ -70,7 +71,7 @@ function HeroSection() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-sm sm:text-base lg:text-lg text-white/80 max-w-2xl mb-6 leading-relaxed font-body"
           >
-            Technology-driven organizations need agility without security gaps. Shivaami enables secure collaboration, identity management, and data protection for modern tech businesses.
+            Technology-driven organizations need agility without security gaps. Whether you're a startup scaling rapidly or an established tech company managing distributed teams, Shivaami enables secure collaboration, identity management, and data protection for modern technology businesses.
           </motion.p>
 
           {/* CTA Button */}
@@ -255,6 +256,16 @@ export default function SoftwareTechnology() {
   }, []);
 
   return (
+
+    <>
+<Helmet>
+<title>IT Solutions for Software & Technology Companies</title>
+ <meta name="description" content="Scalable, secure IT infrastructure for tech companies. Enable remote collaboration, protect code and IP, and support rapid growth." />
+<link rel="canonical" href="https://www.shivaami.com/software-technology" />
+
+ </Helmet>
+
+
     <div className="min-h-screen bg-white">
       <Header />
       <main>
@@ -265,6 +276,6 @@ export default function SoftwareTechnology() {
       </main>
       <Footer />
       <GetStartedDialog open={dialogOpen} onOpenChange={setDialogOpen} />
-    </div>
+    </div></>
   );
 }

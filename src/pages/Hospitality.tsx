@@ -10,6 +10,7 @@ import { Button } from '@/components/ui/button';
 import GetStartedDialog from '@/components/GetStartedDialog';
 import CTASection from '@/components/sections/CTASection';
 import hospitalityImage from '@/assets/industries/hospitality.jpg';
+import { Helmet } from 'react-helmet-async';
 
 const fadeInUp = {
   initial: { opacity: 0, y: 30 },
@@ -255,6 +256,17 @@ export default function Hospitality() {
   }, []);
 
   return (
+<>
+
+
+<Helmet>
+<title>Hospitality IT Solutions for Secure Guest Operations</title>
+ <meta name="description" content="Secure guest data, streamline hotel operations, and protect hospitality systems with reliable IT solutions for exceptional service delivery." />
+<link rel="canonical" href="https://www.shivaami.com/hospitality" />
+ </Helmet>
+
+
+
     <div className="min-h-screen bg-white">
       <Header />
       <main>
@@ -265,6 +277,6 @@ export default function Hospitality() {
       </main>
       <Footer />
       <GetStartedDialog open={dialogOpen} onOpenChange={setDialogOpen} />
-    </div>
+    </div></>
   );
 }

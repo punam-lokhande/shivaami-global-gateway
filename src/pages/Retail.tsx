@@ -10,6 +10,7 @@ import { Button } from '@/components/ui/button';
 import GetStartedDialog from '@/components/GetStartedDialog';
 import CTASection from '@/components/sections/CTASection';
 import retailImage from '@/assets/industries/retail.jpg';
+import { Helmet } from 'react-helmet-async';
 
 const fadeInUp = {
   initial: { opacity: 0, y: 30 },
@@ -70,7 +71,7 @@ function HeroSection() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-sm sm:text-base lg:text-lg text-white/80 max-w-2xl mb-6 leading-relaxed font-body"
           >
-            Retail businesses depend on speed, accuracy, and customer trust. Shivaami helps retailers unify teams, protect customer data, and ensure smooth operations across physical and digital channels.
+            Retail businesses depend on speed, accuracy, and customer trust. From point-of-sale systems to e-commerce platforms, Shivaami helps retailers unify teams, protect customer data, and ensure smooth operations across physical stores and digital channels.
           </motion.p>
 
           {/* CTA Button */}
@@ -255,6 +256,15 @@ export default function Retail() {
   }, []);
 
   return (
+
+<>
+<Helmet>
+<title>Retail IT Solutions for Secure & Connected Operations</title>
+ <meta name="description" content="Enable secure retail operations with protected customer data, PCI-compliant payment systems, and reliable IT infrastructure across all channels." />
+<link rel="canonical" href="https://www.shivaami.com/retail" />
+
+ </Helmet>
+
     <div className="min-h-screen bg-white">
       <Header />
       <main>
@@ -265,6 +275,6 @@ export default function Retail() {
       </main>
       <Footer />
       <GetStartedDialog open={dialogOpen} onOpenChange={setDialogOpen} />
-    </div>
+    </div></>
   );
 }

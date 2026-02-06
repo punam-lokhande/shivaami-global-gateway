@@ -10,6 +10,7 @@ import { Button } from '@/components/ui/button';
 import GetStartedDialog from '@/components/GetStartedDialog';
 import CTASection from '@/components/sections/CTASection';
 import mediaImage from '@/assets/industries/media.jpg';
+import { Helmet } from 'react-helmet-async';
 
 const fadeInUp = {
   initial: { opacity: 0, y: 30 },
@@ -70,7 +71,7 @@ function HeroSection() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-sm sm:text-base lg:text-lg text-white/80 max-w-2xl mb-6 leading-relaxed font-body"
           >
-            Advertising and media organizations thrive on collaboration and content velocity. Shivaami ensures creative freedom without compromising data security.
+           Advertising and media organizations thrive on rapid collaboration and content velocity across agencies, freelancers, and client teams. Shivaami ensures creative freedom and seamless workflows without compromising data security or risking costly IP leaks.
           </motion.p>
 
           {/* CTA Button */}
@@ -255,6 +256,15 @@ export default function AdvertisingMedia() {
   }, []);
 
   return (
+
+    <>
+<Helmet>
+<title>Advertising & Media IT Solutions for Secure Collaboration</title>
+ <meta name="description" content="Protect creative assets and client data with secure collaboration tools, access control, and reliable backup for media and advertising teams." />
+<link rel="canonical" href="https://www.shivaami.com/advertising-media" />
+ </Helmet>
+
+
     <div className="min-h-screen bg-white">
       <Header />
       <main>
@@ -265,6 +275,6 @@ export default function AdvertisingMedia() {
       </main>
       <Footer />
       <GetStartedDialog open={dialogOpen} onOpenChange={setDialogOpen} />
-    </div>
+    </div></>
   );
 }

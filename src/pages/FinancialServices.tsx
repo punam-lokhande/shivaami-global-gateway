@@ -10,6 +10,7 @@ import { Button } from '@/components/ui/button';
 import GetStartedDialog from '@/components/GetStartedDialog';
 import CTASection from '@/components/sections/CTASection';
 import financialImage from '@/assets/industries/financial.jpg';
+import { Helmet } from 'react-helmet-async';
 
 const fadeInUp = {
   initial: { opacity: 0, y: 30 },
@@ -70,7 +71,7 @@ function HeroSection() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-sm sm:text-base lg:text-lg text-white/80 max-w-2xl mb-6 leading-relaxed font-body"
           >
-            Financial institutions operate in high-risk, high-regulation environments. Shivaami helps finance organizations safeguard data, streamline operations, and maintain trust across every digital interaction.
+          Financial institutions operate in high-risk, heavily regulated environments where data breaches can destroy customer trust and trigger severe penalties. Shivaami helps finance organizations safeguard sensitive data, streamline operations, and maintain compliance across every digital interaction.
           </motion.p>
 
           {/* CTA Button */}
@@ -255,6 +256,15 @@ export default function FinancialServices() {
   }, []);
 
   return (
+    <>
+<Helmet>
+<title>Financial IT Security & Infrastructure Solutions | Finance Industry</title>
+ <meta name="description" content="Protect financial data and ensure regulatory compliance with robust IT solutions built for banking, fintech, and financial services organizations." />
+<link rel="canonical" href="https://www.shivaami.com/financial-services" />
+
+ </Helmet>
+
+
     <div className="min-h-screen bg-white">
       <Header />
       <main>
@@ -265,6 +275,6 @@ export default function FinancialServices() {
       </main>
       <Footer />
       <GetStartedDialog open={dialogOpen} onOpenChange={setDialogOpen} />
-    </div>
+    </div></>
   );
 }

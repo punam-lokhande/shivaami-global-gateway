@@ -11,6 +11,7 @@ import GetStartedDialog from '@/components/GetStartedDialog';
 import CTASection from '@/components/sections/CTASection';
 import healthcareBanner from '@/assets/banners/healthcare-pharma-banner.jpg';
 import healthcareImage from '@/assets/industries/healthcare.jpg';
+import { Helmet } from 'react-helmet-async';
 
 const fadeInUp = {
   initial: { opacity: 0, y: 30 },
@@ -61,9 +62,9 @@ function HeroSection() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="font-display text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-semibold text-white mb-4 sm:mb-6 leading-[1.15] tracking-tight"
           >
-            Secure Care.<br />
-            <span className="text-[#38B6FF]">Smarter Collaboration.</span><br />
-            Always Compliant.
+      
+            <span className="text-[#38B6FF]">Secure Care. Smarter</span> Collaboration. Always Compliant.
+
           </motion.h1>
 
           <motion.p
@@ -72,7 +73,7 @@ function HeroSection() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-sm sm:text-base lg:text-lg text-white/80 max-w-2xl mb-6 leading-relaxed font-body"
           >
-            Empowering healthcare teams to protect patient & research data while working seamlessly.
+            Healthcare and pharmaceutical organizations manage sensitive patient data, complex clinical workflows, and strict regulatory requirements. Shivaami helps healthcare teams collaborate securely while protecting patient information and research data at every stage—with HIPAA compliance built in.
           </motion.p>
 
           {/* CTA Button */}
@@ -102,22 +103,22 @@ function TechnologySection() {
     {
       icon: MessageSquare,
       title: 'Secure Communication',
-      desc: 'Secure communication between doctors, labs, pharmacies, and administration teams with encrypted channels.',
+      desc: 'Secure communication between doctors, labs, pharmacies, and administration teams.',
     },
     {
       icon: FileCheck,
       title: 'Role-Based Access',
-      desc: 'Role-based access to patient records, research data, and clinical documentation with granular permissions.',
+      desc: 'Role-based access to patient records, research data, and clinical documentation.',
     },
     {
       icon: Shield,
       title: 'Ransomware Protection',
-      desc: 'Protection against ransomware and data breaches targeting healthcare systems with advanced threat detection.',
+      desc: 'Protection against ransomware and data breaches targeting healthcare system.',
     },
     {
       icon: Database,
       title: 'Automated Backup',
-      desc: 'Automated backup and recovery for critical medical and regulatory data ensuring business continuity.',
+      desc: 'Audit trails and access logs for compliance reporting',
     },
   ];
 
@@ -261,6 +262,18 @@ export default function HealthcarePharma() {
   }, []);
 
   return (
+
+<>
+
+<Helmet>
+<title>Healthcare & Pharma IT Solutions | Secure Digital Enablement</title>
+ <meta name="description" content="HIPAA-compliant IT solutions for healthcare and pharma. Secure collaboration, data protection, audit-ready systems for patient care and clinical research." />
+<link rel="canonical" href="https://www.shivaami.com/healthcare-pharma" />
+ </Helmet>
+
+
+
+
     <div className="min-h-screen bg-white">
       <Header />
       <main>
@@ -271,6 +284,6 @@ export default function HealthcarePharma() {
       </main>
       <Footer />
       <GetStartedDialog open={dialogOpen} onOpenChange={setDialogOpen} />
-    </div>
+    </div></>
   );
 }
