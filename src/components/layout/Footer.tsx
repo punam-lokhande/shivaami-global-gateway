@@ -285,7 +285,7 @@ export default function Footer() {
                 <h5 className="font-semibold text-foreground text-xs uppercase tracking-wide">USA</h5>
                 <a href="tel:+14083334844" className="flex items-center gap-2 hover:text-foreground transition-colors">
                   <Phone className="w-4 h-4 flex-shrink-0" />
-                  <span>+1 408 333 4844</span>
+                  <span>+1 (408) 333-4844</span>
                 </a>
                 <p className="flex items-start gap-2">
                   <MapPin className="w-4 h-4 mt-0.5 flex-shrink-0" />

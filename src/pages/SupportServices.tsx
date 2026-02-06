@@ -209,7 +209,7 @@ function ReachOutSection() {
       title: 'Phone Support',
       items: [
         { label: 'India', value: '+91 775 784 1333', href: 'tel:+917757841333' },
-        { label: 'USA', value: '+1 408 333 4844', href: 'tel:+14083334844' },
+        { label: 'USA', value: '+1 (408) 333-4844', href: 'tel:+14083334844' },
       ],
     },
     {
@@ -277,7 +277,7 @@ function EscalationSection() {
       color: '#38B6FF',
       contacts: [
         { type: 'Email', value: 'support@shivaami.com / usa@shivaami.com' },
-        { type: 'Phone', value: 'India: +91 775 784 1333 (Ext: 2) | USA: +1 408 333 4844' },
+        { type: 'Phone', value: 'India: +91 775 784 1333 (Ext: 2) | USA: +1 (408) 333-4844' },
         { type: 'Google Direct', value: 'India: 1800 108 7879 | USA: +1 650 206 5555' },
       ],
     },
@@ -288,7 +288,7 @@ function EscalationSection() {
       color: '#0C4594',
       managers: [
         { region: 'India', flag: IndiaFlag, name: 'Pratima Attarde', role: 'Manager', phone: '+91 775 784 1333 (Ext: 2)', email: 'pratima.attarde@shivaami.com' },
-        { region: 'USA', flag: USAFlag, name: 'Kunal Thacker', role: 'Director', phone: '+1 408 333 4844 (Ext: 3)', email: 'kunal@shivaami.com' },
+        { region: 'USA', flag: USAFlag, name: 'Kunal Thacker', role: 'Director', phone: '+1 (408) 333-4844 (Ext: 3)', email: 'kunal@shivaami.com' },
       ],
     },
     {
