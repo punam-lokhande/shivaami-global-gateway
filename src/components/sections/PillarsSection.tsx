@@ -9,7 +9,7 @@ const pillars = [
     accentIcon: Sparkles,
     title: 'Smarter Solutions',
     link: '/smarter-solutions',
-    subtitle: 'Intelligence that drives productivity',
+    
     description: 'AI-powered tools and intelligent collaboration platforms that transform how your teams work, communicate, and innovate.',
     items: [
       { name: 'AI Solutions', desc: 'Data-driven decisions with Gemini Enterprise & Glean', link: '/smarter-solutions?category=ai-solutions' },
@@ -25,7 +25,7 @@ const pillars = [
     accentIcon: Lock,
     title: 'Safer Security',
     link: '/safer-security',
-    subtitle: 'Protection you can trust',
+    
     description: 'Enterprise-grade security from identity management to cloud infrastructure, keeping your data and operations secure.',
     items: [
       { name: 'Identity & Device', desc: 'Complete access control across your organization', link: '/safer-security?category=identity-device' },
@@ -45,7 +45,7 @@ const pillars = [
     accentIcon: Rocket,
     title: 'Smoother Services',
     link: '/swiftmove',
-    subtitle: 'Operations without friction',
+    
     description: 'Expert migration, ongoing support, and continuous optimization services that ensure your technology works seamlessly.',
     items: [
       { name: 'SwiftMove – Migration Services', desc: 'Fast, smooth migration service', link: '/swiftmove' },
@@ -82,10 +82,6 @@ export default function PillarsSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-sm font-medium mb-6">
-            <Sparkles className="w-4 h-4 text-primary" />
-            <span className="text-primary">Our Framework</span>
-          </span>
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
             The Shivaami <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">3S Advantage</span>
           </h2>
@@ -135,9 +131,6 @@ export default function PillarsSection() {
                         {pillar.title}
                       </h3>
                     </Link>
-                    <p className={`text-sm font-medium bg-gradient-to-r ${pillar.gradient} bg-clip-text text-transparent mb-4`}>
-                      {pillar.subtitle}
-                    </p>
 
                     {/* Description */}
                     <p className="text-muted-foreground mb-6 leading-relaxed text-sm">

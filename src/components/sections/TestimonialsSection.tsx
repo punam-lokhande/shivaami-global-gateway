@@ -30,24 +30,28 @@ export default function TestimonialsSection() {
           </p>
         </motion.div>
 
-        {/* Auto-scrolling testimonials */}
+        {/* Testimonials - Auto-scrolling for India, Static for USA */}
         <div className="relative overflow-hidden mb-12">
-          {/* Gradient masks */}
-          <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-[#f8fafc] to-transparent z-10" />
-          <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-[#f8fafc] to-transparent z-10" />
+          {/* Gradient masks - only show for scrolling (India) */}
+          {region === 'india' && (
+            <>
+              <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-[#f8fafc] to-transparent z-10" />
+              <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-[#f8fafc] to-transparent z-10" />
+            </>
+          )}
 
           <motion.div
-            className="flex gap-6"
-            animate={{ x: [0, -1600] }}
-            transition={{
+            className={`flex gap-6 ${region === 'usa' ? 'justify-center flex-wrap' : ''}`}
+            animate={region === 'india' ? { x: [0, -1600] } : {}}
+            transition={region === 'india' ? {
               x: {
                 duration: 30,
                 repeat: Infinity,
                 ease: 'linear',
               },
-            }}
+            } : {}}
           >
-            {allTestimonials.map((testimonial, index) => (
+            {(region === 'india' ? allTestimonials : content.testimonials).map((testimonial, index) => (
               <div
                 key={`${testimonial.name}-${index}`}
                 className="flex-shrink-0 w-[400px]"
