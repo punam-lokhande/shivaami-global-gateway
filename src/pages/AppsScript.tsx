@@ -1,11 +1,8 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef, useEffect, useState } from 'react';
 import { 
-  ArrowRight, CalendarDays, Mail, FolderSync, FileText, Users, Clock, Shield, 
-  UserCheck, AlertTriangle, Smartphone, Activity, Share2, AppWindow, UserX,
-  FolderTree, ListFilter, Download, Building, Newspaper, Search, ChevronRight,
-  ChevronDown, Trash2, Tag, Forward, Archive, PenTool, BarChart3, HardDrive,
-  FolderOpen, UserPlus, RefreshCw, UserMinus, Heart, Contact, GitBranch, CheckCheck
+  ArrowRight, CalendarDays, Mail, Shield, Search, ChevronRight,
+  FileText, BarChart3, HardDrive, Users, Contact, GitBranch, Building
 } from 'lucide-react';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
@@ -405,15 +402,11 @@ function AutomationCard({
   );
 }
 
-// Category Section with Automations
-function CategorySection({ 
-  category, 
-  isExpanded, 
-  onToggle 
+// Category Header Component
+function CategoryHeader({ 
+  category 
 }: { 
-  category: typeof automationCategories[0]; 
-  isExpanded: boolean;
-  onToggle: () => void;
+  category: typeof automationCategories[0];
 }) {
   const Icon = category.icon;
 
@@ -422,62 +415,23 @@ function CategorySection({
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      className="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden mb-6"
+      className="bg-white rounded-2xl border border-gray-100 shadow-sm p-6 mb-6"
     >
-      {/* Category Header */}
-      <button
-        onClick={onToggle}
-        className="w-full flex items-center gap-4 p-6 hover:bg-gray-50 transition-colors text-left"
-      >
+      <div className="flex items-start gap-4">
         <div 
           className="w-14 h-14 rounded-xl flex items-center justify-center flex-shrink-0"
           style={{ backgroundColor: category.color, color: '#fff' }}
         >
           <Icon className="w-7 h-7" />
         </div>
-        <div className="flex-1 min-w-0">
-          <h2 className="text-xl font-bold text-[#0C4594] mb-1">{category.name} Automations</h2>
-          <p className="text-gray-600 text-sm line-clamp-2">{category.description}</p>
+        <div className="flex-1">
+          <h2 className="text-xl font-bold text-[#0C4594] mb-2">{category.name} Automations</h2>
+          <p className="text-gray-600 text-sm leading-relaxed">{category.description}</p>
         </div>
-        <div className="flex items-center gap-3 flex-shrink-0">
-          <span className="text-sm font-medium text-gray-500 bg-gray-100 px-3 py-1 rounded-full">
-            {category.automations.length} scripts
-          </span>
-          <ChevronDown 
-            className={`w-5 h-5 text-gray-400 transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`} 
-          />
-        </div>
-      </button>
-
-      {/* Expanded Content */}
-      <motion.div
-        initial={false}
-        animate={{ 
-          height: isExpanded ? 'auto' : 0,
-          opacity: isExpanded ? 1 : 0
-        }}
-        transition={{ duration: 0.3 }}
-        className="overflow-hidden"
-      >
-        <div className="px-6 pb-6">
-          {/* Full Description */}
-          <p className="text-gray-600 mb-6 leading-relaxed border-l-4 pl-4" style={{ borderColor: category.color }}>
-            {category.description}
-          </p>
-          
-          {/* Automation Cards Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-4">
-            {category.automations.map((automation, idx) => (
-              <AutomationCard 
-                key={automation.name} 
-                automation={automation} 
-                category={category}
-                index={idx}
-              />
-            ))}
-          </div>
-        </div>
-      </motion.div>
+        <span className="text-sm font-medium text-gray-500 bg-gray-100 px-3 py-1 rounded-full flex-shrink-0">
+          {category.automations.length} scripts
+        </span>
+      </div>
     </motion.div>
   );
 }
@@ -485,7 +439,6 @@ function CategorySection({
 // Main Content Section
 function AutomationsContent({ selectedCategory }: { selectedCategory: string | null }) {
   const [searchQuery, setSearchQuery] = useState('');
-  const [expandedCategories, setExpandedCategories] = useState<Set<string>>(new Set());
   
   // Filter automations based on category and search
   const filteredCategories = automationCategories
@@ -502,25 +455,10 @@ function AutomationsContent({ selectedCategory }: { selectedCategory: string | n
 
   const totalResults = filteredCategories.reduce((acc, cat) => acc + cat.automations.length, 0);
 
-  const toggleCategory = (categoryId: string) => {
-    setExpandedCategories(prev => {
-      const next = new Set(prev);
-      if (next.has(categoryId)) {
-        next.delete(categoryId);
-      } else {
-        next.add(categoryId);
-      }
-      return next;
-    });
-  };
-
-  const expandAll = () => {
-    setExpandedCategories(new Set(filteredCategories.map(c => c.id)));
-  };
-
-  const collapseAll = () => {
-    setExpandedCategories(new Set());
-  };
+  // Get all filtered automations with their category info for grid display
+  const allFilteredAutomations = filteredCategories.flatMap(cat => 
+    cat.automations.map(auto => ({ ...auto, category: cat }))
+  );
 
   return (
     <div className="flex-1 min-w-0">
@@ -537,8 +475,8 @@ function AutomationsContent({ selectedCategory }: { selectedCategory: string | n
           />
         </div>
         
-        {/* Results count & expand/collapse */}
-        <div className="flex items-center justify-between mt-4">
+        {/* Results count */}
+        <div className="mt-4">
           <p className="text-sm text-gray-500">
             Showing <span className="font-semibold text-[#0C4594]">{totalResults}</span> automation scripts
             {selectedCategory && (
@@ -547,33 +485,27 @@ function AutomationsContent({ selectedCategory }: { selectedCategory: string | n
               </span></>
             )}
           </p>
-          <div className="flex gap-2">
-            <button 
-              onClick={expandAll}
-              className="text-sm text-[#38B6FF] hover:text-[#0C4594] font-medium transition-colors"
-            >
-              Expand All
-            </button>
-            <span className="text-gray-300">|</span>
-            <button 
-              onClick={collapseAll}
-              className="text-sm text-[#38B6FF] hover:text-[#0C4594] font-medium transition-colors"
-            >
-              Collapse All
-            </button>
-          </div>
         </div>
       </div>
 
-      {/* Category Sections */}
-      {filteredCategories.map((category) => (
-        <CategorySection 
-          key={category.id}
-          category={category}
-          isExpanded={expandedCategories.has(category.id)}
-          onToggle={() => toggleCategory(category.id)}
-        />
-      ))}
+      {/* Category Header - Only show when a specific category is selected */}
+      {selectedCategory && filteredCategories.length > 0 && (
+        <CategoryHeader category={filteredCategories[0]} />
+      )}
+
+      {/* Automations Grid */}
+      {allFilteredAutomations.length > 0 && (
+        <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-4">
+          {allFilteredAutomations.map((automation, idx) => (
+            <AutomationCard 
+              key={`${automation.category.id}-${automation.name}`}
+              automation={automation} 
+              category={automation.category}
+              index={idx}
+            />
+          ))}
+        </div>
+      )}
 
       {/* No Results */}
       {filteredCategories.length === 0 && (
