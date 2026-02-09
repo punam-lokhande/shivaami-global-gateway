@@ -1,6 +1,9 @@
-import React, { createContext, useContext, useState, useCallback, ReactNode } from 'react';
+import React, { createContext, useContext, useState, useCallback, useEffect, ReactNode } from 'react';
+import RegionSelectDialog from '@/components/RegionSelectDialog';
 
 type Region = 'india' | 'usa';
+
+const REGION_STORAGE_KEY = 'shivaami_selected_region';
 
 interface RegionContent {
   phone: string;
@@ -90,17 +93,49 @@ interface RegionContextType {
 const RegionContext = createContext<RegionContextType | undefined>(undefined);
 
 export function RegionProvider({ children }: { children: ReactNode }) {
-  const [region, setRegion] = useState<Region>('india');
+  const [region, setRegionState] = useState<Region>('india');
+  const [showDialog, setShowDialog] = useState(false);
+  const [isInitialized, setIsInitialized] = useState(false);
 
-  const toggleRegion = useCallback(() => {
-    setRegion((prev) => (prev === 'india' ? 'usa' : 'india'));
+  // Check localStorage on mount
+  useEffect(() => {
+    const savedRegion = localStorage.getItem(REGION_STORAGE_KEY) as Region | null;
+    if (savedRegion && (savedRegion === 'india' || savedRegion === 'usa')) {
+      setRegionState(savedRegion);
+      setShowDialog(false);
+    } else {
+      // No saved preference, show dialog
+      setShowDialog(true);
+    }
+    setIsInitialized(true);
   }, []);
 
+  const setRegion = useCallback((newRegion: Region) => {
+    setRegionState(newRegion);
+    localStorage.setItem(REGION_STORAGE_KEY, newRegion);
+  }, []);
+
+  const handleDialogSelect = useCallback((selectedRegion: Region) => {
+    setRegion(selectedRegion);
+    setShowDialog(false);
+  }, [setRegion]);
+
+  const toggleRegion = useCallback(() => {
+    const newRegion = region === 'india' ? 'usa' : 'india';
+    setRegion(newRegion);
+  }, [region, setRegion]);
+
   const content = regionData[region];
+
+  // Don't render children until we've checked localStorage
+  if (!isInitialized) {
+    return null;
+  }
 
   return (
     <RegionContext.Provider value={{ region, setRegion, toggleRegion, content }}>
       {children}
+      <RegionSelectDialog isOpen={showDialog} onSelect={handleDialogSelect} />
     </RegionContext.Provider>
   );
 }
