@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useRegion } from '@/contexts/RegionContext';
 
 interface MobileMenuProps {
@@ -17,9 +17,11 @@ const mobileMenuData = [
     sections: [
       {
         title: 'Smarter Solutions',
+        titleHref: '/smarter-solutions',
         items: [
           { 
-            name: 'AI Solutions', 
+            name: 'AI Solutions',
+            href: '/smarter-solutions?category=ai-solutions',
             subItems: [
               { label: 'Gemini Enterprise', href: '/gemini-enterprise' },
               { label: 'Google AI Ultra', href: '/google-ai-ultra' },
@@ -27,7 +29,8 @@ const mobileMenuData = [
             ]
           },
           { 
-            name: 'Email & Collaboration', 
+            name: 'Email & Collaboration',
+            href: '/smarter-solutions?category=email-collaboration',
             subItems: [
               { label: 'Google Workspace', href: '/google-workspace' },
               { label: 'Microsoft 365', href: '/microsoft-365' },
@@ -38,9 +41,11 @@ const mobileMenuData = [
       },
       {
         title: 'Safer Security',
+        titleHref: '/safer-security',
         items: [
           { 
-            name: 'Identity & Device', 
+            name: 'Identity & Device',
+            href: '/safer-security?category=identity-device',
             subItems: [
               { label: 'JumpCloud', href: '/jumpcloud' },
               { label: 'Viami', href: '/viami' },
@@ -51,14 +56,16 @@ const mobileMenuData = [
             ]
           },
           { 
-            name: 'Endpoint Management', 
+            name: 'Endpoint Management',
+            href: '/safer-security?category=endpoint-management',
             subItems: [
               { label: 'SuperOps', href: '/superops' },
               { label: 'Atera', href: '/atera' },
             ]
           },
           { 
-            name: 'Cloud Infrastructure', 
+            name: 'Cloud Infrastructure',
+            href: '/safer-security?category=cloud-infrastructure',
             subItems: [
               { label: 'Google Cloud Platform', href: '/google-cloud-platform' },
               { label: 'AWS', href: '/aws' },
@@ -67,7 +74,8 @@ const mobileMenuData = [
             ]
           },
           { 
-            name: 'Cyber Security', 
+            name: 'Cyber Security',
+            href: '/safer-security?category=cyber-security',
             subItems: [
               { label: 'Palo Alto', href: '/paloalto' },
               { label: 'Wiz', href: '/wiz' },
@@ -76,7 +84,8 @@ const mobileMenuData = [
             ]
           },
           { 
-            name: 'Cloud Security', 
+            name: 'Cloud Security',
+            href: '/safer-security?category=cloud-security',
             subItems: [
               { label: 'SSL Certificates', href: '/ssl-certificates' },
               { label: 'GoSimulator', href: '/gosimulator' },
@@ -85,12 +94,14 @@ const mobileMenuData = [
             ]
           },
           { 
-            name: 'Chrome Solutions', 
+            name: 'Chrome Solutions',
+            href: '/safer-security?category=chrome-solutions',
             subItems: [
               { label: 'Chromebook', href: '/chromebook' },
               { label: 'Chromebox', href: '/chromebox' },
               { label: 'ChromeOS Flex', href: '/chromeos-flex' },
               { label: 'Chrome Enterprise', href: '/chrome-enterprise' },
+              { label: 'Google Meet Hardware', href: '/google-meet-hardware' },
             ]
           },
           { label: 'Cloud Capabilities', href: '/cloud-capabilities' },
@@ -98,14 +109,51 @@ const mobileMenuData = [
       },
       {
         title: 'Smoother Services',
+        titleHref: '/smoother-services',
         items: [
-          { label: 'SwiftMove', href: '/swiftmove' },
-          { label: 'Pulse360', href: '/pulse360' },
-          { label: 'ChangePath', href: '/changepath' },
-          { label: 'SecureSight', href: '/securesight' },
-          { label: 'TalentEdge', href: '/talentedge' },
-          { label: 'Support Packages', href: '/support-packages' },
-          { label: 'Apps Script', href: '/apps-script' },
+          { 
+            name: 'Migration Services',
+            href: '/smoother-services?category=migration-services',
+            subItems: [
+              { label: 'SwiftMove', href: '/swiftmove' },
+            ]
+          },
+          { 
+            name: 'Managed Services',
+            href: '/smoother-services?category=managed-services',
+            subItems: [
+              { label: 'Pulse360', href: '/pulse360' },
+              { label: 'Support Packages', href: '/support-packages' },
+            ]
+          },
+          { 
+            name: 'Change Management',
+            href: '/smoother-services?category=change-management',
+            subItems: [
+              { label: 'ChangePath', href: '/changepath' },
+            ]
+          },
+          { 
+            name: 'Security Services',
+            href: '/smoother-services?category=security-services',
+            subItems: [
+              { label: 'SecureSight', href: '/securesight' },
+            ]
+          },
+          { 
+            name: 'Staffing Services',
+            href: '/smoother-services?category=staffing-services',
+            subItems: [
+              { label: 'TalentEdge', href: '/talentedge' },
+            ]
+          },
+          { 
+            name: 'Development Services',
+            href: '/smoother-services?category=development-services',
+            subItems: [
+              { label: 'Apps Script', href: '/apps-script' },
+            ]
+          },
         ],
       },
     ],
@@ -165,6 +213,7 @@ const mobileMenuData = [
 
 export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
   const { content } = useRegion();
+  const navigate = useNavigate();
   const [expandedMenu, setExpandedMenu] = useState<string | null>(null);
   const [expandedSection, setExpandedSection] = useState<string | null>(null);
   const [expandedSubItem, setExpandedSubItem] = useState<string | null>(null);
@@ -193,6 +242,11 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
 
   const toggleSubItem = (name: string) => {
     setExpandedSubItem(expandedSubItem === name ? null : name);
+  };
+
+  const handleNavigation = (href: string) => {
+    navigate(href);
+    onClose();
   };
 
   return (
@@ -242,17 +296,31 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                     >
                       {menuItem.sections.map((section: any) => (
                         <div key={section.title} className="ml-3 mt-2">
-                          <button
-                            onClick={() => toggleSection(section.title)}
-                            className="flex items-center justify-between w-full py-2 text-sm text-primary font-semibold uppercase tracking-wide"
-                          >
-                            <span>{section.title}</span>
-                            <ChevronDown 
-                              className={`w-4 h-4 transition-transform duration-200 ${
-                                expandedSection === section.title ? 'rotate-180' : ''
-                              }`} 
-                            />
-                          </button>
+                          {/* Section Title - with optional link */}
+                          <div className="flex items-center justify-between">
+                            {section.titleHref ? (
+                              <button
+                                onClick={() => handleNavigation(section.titleHref)}
+                                className="flex-1 text-left py-2 text-sm text-primary font-semibold uppercase tracking-wide hover:text-accent transition-colors"
+                              >
+                                {section.title}
+                              </button>
+                            ) : (
+                              <span className="flex-1 py-2 text-sm text-primary font-semibold uppercase tracking-wide">
+                                {section.title}
+                              </span>
+                            )}
+                            <button
+                              onClick={() => toggleSection(section.title)}
+                              className="p-2"
+                            >
+                              <ChevronDown 
+                                className={`w-4 h-4 text-primary transition-transform duration-200 ${
+                                  expandedSection === section.title ? 'rotate-180' : ''
+                                }`} 
+                              />
+                            </button>
+                          </div>
                           
                           <AnimatePresence>
                             {expandedSection === section.title && (
@@ -284,17 +352,25 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                                   if (item.name && item.subItems) {
                                     return (
                                       <div key={idx}>
-                                        <button
-                                          onClick={() => toggleSubItem(item.name)}
-                                          className="flex items-center justify-between w-full py-2 text-sm text-foreground"
-                                        >
-                                          <span>{item.name}</span>
-                                          <ChevronRight 
-                                            className={`w-4 h-4 transition-transform duration-200 ${
-                                              expandedSubItem === item.name ? 'rotate-90' : ''
-                                            }`} 
-                                          />
-                                        </button>
+                                        <div className="flex items-center justify-between">
+                                          {/* Category name as link */}
+                                          <button
+                                            onClick={() => item.href && handleNavigation(item.href)}
+                                            className="flex-1 text-left py-2 text-sm text-foreground hover:text-primary transition-colors"
+                                          >
+                                            {item.name}
+                                          </button>
+                                          <button
+                                            onClick={() => toggleSubItem(item.name)}
+                                            className="p-2"
+                                          >
+                                            <ChevronRight 
+                                              className={`w-4 h-4 transition-transform duration-200 ${
+                                                expandedSubItem === item.name ? 'rotate-90' : ''
+                                              }`} 
+                                            />
+                                          </button>
+                                        </div>
                                         
                                         <AnimatePresence>
                                           {expandedSubItem === item.name && (
