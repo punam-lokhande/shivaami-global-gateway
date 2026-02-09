@@ -120,6 +120,12 @@ export function RegionProvider({ children }: { children: ReactNode }) {
     setShowDialog(false);
   }, [setRegion]);
 
+  const handleDialogClose = useCallback(() => {
+    // Close without selecting - keep default (india)
+    localStorage.setItem(REGION_STORAGE_KEY, region);
+    setShowDialog(false);
+  }, [region]);
+
   const toggleRegion = useCallback(() => {
     const newRegion = region === 'india' ? 'usa' : 'india';
     setRegion(newRegion);
@@ -135,7 +141,7 @@ export function RegionProvider({ children }: { children: ReactNode }) {
   return (
     <RegionContext.Provider value={{ region, setRegion, toggleRegion, content }}>
       {children}
-      <RegionSelectDialog isOpen={showDialog} onSelect={handleDialogSelect} />
+      <RegionSelectDialog isOpen={showDialog} onSelect={handleDialogSelect} onClose={handleDialogClose} />
     </RegionContext.Provider>
   );
 }
