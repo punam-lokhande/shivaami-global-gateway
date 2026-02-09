@@ -36,12 +36,6 @@ const categories = [
         slug: '/glean',
         icon: Search
       },
-      { 
-        name: 'Book a Domain', 
-        description: 'Secure your digital identity with managed domain services in partnership with GoDaddy.', 
-        slug: '/book-domain',
-        icon: ExternalLink
-      },
     ]
   },
   {
