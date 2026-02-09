@@ -105,10 +105,10 @@ export default function Contact() {
       transition={{ delay: 0.2 }}
       className="bg-white rounded-2xl p-6 md:p-8 shadow-2xl w-full max-w-xl"
     >
-      {region === 'usa' && (
+      {(region === 'usa' || region === 'india') && (
         <div className="mb-6">
           <a
-            href="https://app.apollo.io/#/meet/40u-obp-ihl/30-min"
+            href={region === 'india' ? 'https://calendar.app.google/gV1KaLLVkPR32C1p9' : 'https://app.apollo.io/#/meet/40u-obp-ihl/30-min'}
             target="_blank"
             rel="noopener noreferrer"
           >
