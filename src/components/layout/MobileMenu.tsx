@@ -26,6 +26,7 @@ const mobileMenuData = [
               { label: 'Gemini Enterprise', href: '/gemini-enterprise' },
               { label: 'Google AI Ultra', href: '/google-ai-ultra' },
               { label: 'Glean', href: '/glean' },
+              { label: 'Book a Domain', href: '/book-domain' },
             ]
           },
           { 

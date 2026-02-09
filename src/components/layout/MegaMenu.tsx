@@ -7,7 +7,7 @@ import {
   Megaphone, Leaf, ShoppingCart, Cpu, Banknote, Heart, Hotel, Factory, Truck,
   BookOpen, FileText, Newspaper, Video,
   Award, Users2, Trophy, Briefcase,
-  ChevronRight, Laptop, Box, Smartphone, Layers, Settings, ArrowRight
+  ChevronRight, Laptop, Box, Smartphone, Layers, Settings, ArrowRight, Globe
 } from 'lucide-react';
 
 type AnchorRect = {
@@ -72,6 +72,7 @@ const menuContent: Record<string, MenuContent> = {
               { icon: Brain, label: 'Gemini Enterprise', desc: 'AI-powered productivity', href: '/gemini-enterprise' },
               { icon: Cpu, label: 'Google AI Ultra', desc: 'Advanced AI capabilities', href: '/google-ai-ultra' },
               { icon: Zap, label: 'Glean', desc: 'Enterprise search & knowledge', href: '/glean' },
+              { icon: Globe, label: 'Book a Domain', desc: 'Secure your digital identity', href: '/book-domain' },
             ]
           },
           { 
