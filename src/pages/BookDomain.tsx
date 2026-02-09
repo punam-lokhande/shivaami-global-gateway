@@ -63,10 +63,12 @@ export default function BookDomain() {
 
   return (
     <div className="min-h-screen bg-white">
-      <Helmet>
-        <title>Book a Domain | Secure Your Digital Identity | Shivaami</title>
-        <meta name="description" content="Secure your digital identity with Shivaami's domain management solutions. Managed services, self-service registration, corporate management, and brand protection in partnership with GoDaddy." />
-      </Helmet>
+    <Helmet>
+<title>Domain Name Registration and DNS Hosting Provider | Shivaami</title>
+ <meta name="description" content="Search & buy domain name with suffixes like .IN .Com .Net etc. for your company at Shivaami, a leading domain registration service provider in India and the US." />
+<link rel="canonical" href="https://www.shivaami.com/google-meet-hardware" />
+ </Helmet>
+
 
       <Header />
 
@@ -156,6 +158,9 @@ export default function BookDomain() {
             {offerings.map((offering, index) => {
               const Icon = offering.icon;
               return (
+
+
+                
                 <motion.div
                   key={offering.title}
                   initial={{ opacity: 0, y: 20 }}

@@ -78,8 +78,8 @@ function HeroSection() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="font-display text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-semibold text-white mb-4 sm:mb-6 leading-[1.15] tracking-tight"
           >
-            AppSheet:<br />
-            <span className="text-[#38B6FF]">No-Code App Development Platform</span>
+           
+            <span className="text-[#38B6FF]"> AppSheet:</span> No-Code App Development Platform
           </motion.h1>
 
           <motion.p
@@ -528,12 +528,15 @@ export default function AppSheet() {
 
   return (
     <>
+      
       <Helmet>
-        <title>AppSheet No-Code App Development | Custom Business Apps – Shivaami</title>
-        <meta name="description" content="Build custom mobile and web apps without code using AppSheet. Shivaami helps organisations deploy AppSheet solutions to digitalize workflows and automate processes." />
-        <link rel="canonical" href="https://www.shivaami.com/appsheet" />
-        <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
-      </Helmet>
+<title>AppSheet No-Code Platform | Custom App Development with Shivaami</title>
+ <meta name="description" content="AppSheet is a no-code development platform for building custom mobile and web apps. Connect to your data sources and create business applications without programming." />
+<link rel="canonical" href="https://www.shivaami.com/appsheet" />
+ <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
+ </Helmet>
+
+      
 
       <div className="min-h-screen bg-white">
         <Header />
