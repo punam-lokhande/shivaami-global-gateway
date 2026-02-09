@@ -11,6 +11,7 @@ import NotFound from "./pages/NotFound";
 import GeminiEnterprise from "./pages/GeminiEnterprise";
 import GoogleAIUltra from "./pages/GoogleAIUltra";
 import Glean from "./pages/Glean";
+import BookDomain from "./pages/BookDomain";
 import GoogleWorkspace from "./pages/GoogleWorkspace";
 import Microsoft365 from "./pages/Microsoft365";
 import ZohoMail from "./pages/ZohoMail";
@@ -159,6 +160,7 @@ const App = () => (
               <Route path="/gemini-enterprise" element={<GeminiEnterprise />} />
               <Route path="/google-ai-ultra" element={<GoogleAIUltra />} />
               <Route path="/glean" element={<Glean />} />
+              <Route path="/book-domain" element={<BookDomain />} />
               <Route path="/google-workspace" element={<GoogleWorkspace />} />
               <Route path="/microsoft-365" element={<Microsoft365 />} />
               <Route path="/zoho-mail" element={<ZohoMail />} />

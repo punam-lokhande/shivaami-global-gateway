@@ -1,6 +1,6 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef, useState, useEffect } from 'react';
-import { Search, Brain, Mail, ChevronRight, ExternalLink, ArrowRight, Sparkles, MessageSquare } from 'lucide-react';
+import { Search, Brain, Mail, ChevronRight, ExternalLink, ArrowRight, Sparkles, MessageSquare, Globe } from 'lucide-react';
 import { Link, useSearchParams } from 'react-router-dom';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
@@ -35,6 +35,12 @@ const categories = [
         description: 'Enterprise search & knowledge management that connects all your company\'s information.', 
         slug: '/glean',
         icon: Search
+      },
+      { 
+        name: 'Book a Domain', 
+        description: 'Secure your digital identity with managed domain services in partnership with GoDaddy.', 
+        slug: '/book-domain',
+        icon: ExternalLink
       },
     ]
   },
