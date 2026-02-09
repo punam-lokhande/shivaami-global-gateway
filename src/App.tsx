@@ -131,6 +131,7 @@ import OnDemandGoogleVids from "./pages/OnDemandGoogleVids";
 import ThankYouContact from "./components/ThankYouContact";
 import SmarterSolutions from "./pages/SmarterSolutions";
 import SaferSecurity from "./pages/SaferSecurity";
+import SmootherServices from "./pages/SmootherServices";
 const queryClient = new QueryClient();
 
 // Scroll to top on route change
@@ -279,6 +280,7 @@ const App = () => (
               <Route path="/on-demand-google-vids" element={<OnDemandGoogleVids />} />
               <Route path="/smarter-solutions" element={<SmarterSolutions />} />
               <Route path="/safer-security" element={<SaferSecurity />} />
+              <Route path="/smoother-services" element={<SmootherServices />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>
