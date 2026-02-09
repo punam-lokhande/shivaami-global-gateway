@@ -99,6 +99,7 @@ function PricingSection() {
         usa: { commit: "$7", flex: "$8.4" }
       },
       popular: false,
+      shopUrl: "https://www.shivaami.com/shop/product/google-workspace-business-starter-plan-pricing/",
       features: [
         "30 GB storage per person",
         "Custom business email (you@yourcompany.com)",
@@ -116,6 +117,7 @@ function PricingSection() {
         usa: { commit: "$14", flex: "$16.8" }
       },
       popular: true,
+      shopUrl: "https://www.shivaami.com/shop/product/google-workspace-business-standard-plan-pricing/",
       features: [
         "Everything in Starter, plus:",
         "2 TB storage (65x more than Starter)",
@@ -136,6 +138,7 @@ function PricingSection() {
         usa: { commit: "$22", flex: "$26.4" }
       },
       popular: false,
+      shopUrl: "https://www.shivaami.com/shop/product/google-workspace-business-plus-plan-pricing/",
       features: [
         "Everything in Standard, plus:",
         "5 TB storage (2.5x more than Standard)",
@@ -281,18 +284,33 @@ function PricingSection() {
                   </ul>
 
                   {/* CTA Button */}
-                  <Link to="/contact">
-                    <Button 
-                      className={`w-full py-6 text-base font-semibold transition-all duration-300 ${
-                        plan.popular 
-                          ? 'bg-gradient-to-r from-[#38B6FF] to-[#0C4594] hover:shadow-lg hover:shadow-[#38B6FF]/30 hover:scale-[1.02]' 
-                          : 'bg-[#0C4594] hover:bg-[#0a3d80] hover:shadow-lg'
-                      } text-white rounded-xl`}
-                    >
-                      Get Started
-                      <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                    </Button>
-                  </Link>
+                  {region === 'india' && plan.shopUrl ? (
+                    <a href={plan.shopUrl} target="_blank" rel="noopener noreferrer">
+                      <Button 
+                        className={`w-full py-6 text-base font-semibold transition-all duration-300 ${
+                          plan.popular 
+                            ? 'bg-gradient-to-r from-[#38B6FF] to-[#0C4594] hover:shadow-lg hover:shadow-[#38B6FF]/30 hover:scale-[1.02]' 
+                            : 'bg-[#0C4594] hover:bg-[#0a3d80] hover:shadow-lg'
+                        } text-white rounded-xl`}
+                      >
+                        Buy Now
+                        <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                      </Button>
+                    </a>
+                  ) : (
+                    <Link to="/contact">
+                      <Button 
+                        className={`w-full py-6 text-base font-semibold transition-all duration-300 ${
+                          plan.popular 
+                            ? 'bg-gradient-to-r from-[#38B6FF] to-[#0C4594] hover:shadow-lg hover:shadow-[#38B6FF]/30 hover:scale-[1.02]' 
+                            : 'bg-[#0C4594] hover:bg-[#0a3d80] hover:shadow-lg'
+                        } text-white rounded-xl`}
+                      >
+                        Get Started
+                        <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                      </Button>
+                    </Link>
+                  )}
                 </div>
               </div>
             </motion.div>
