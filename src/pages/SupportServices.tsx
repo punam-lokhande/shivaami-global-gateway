@@ -176,14 +176,11 @@ function RegionalPortals() {
               </p>
               
               <a 
-                href="https://customercare.shivaami.com/" 
-                target="_blank" 
-                rel="noopener noreferrer"
+                href="mailto:na-support@shivaami.com" 
                 className="inline-flex items-center gap-2 bg-[#0C4594] text-white px-6 py-3 rounded-xl font-semibold hover:bg-[#0C4594]/90 transition-all"
               >
-                <Ticket className="w-5 h-5" />
+                <Mail className="w-5 h-5" />
                 Raise a Support Ticket
-                <ExternalLink className="w-4 h-4 ml-1" />
               </a>
             </div>
           </motion.div>
