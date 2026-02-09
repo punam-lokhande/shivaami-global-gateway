@@ -36,6 +36,12 @@ const categories = [
         slug: '/glean',
         icon: Search
       },
+      { 
+        name: 'AppSheet', 
+        description: 'No-code development of custom mobile and web applications using existing data sources.', 
+        slug: '/appsheet',
+        icon: ExternalLink
+      },
     ]
   },
   {
