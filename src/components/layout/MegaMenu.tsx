@@ -177,61 +177,13 @@ const menuContent: Record<string, MenuContent> = {
         title: 'Smoother Services',
         titleHref: '/smoother-services',
         items: [
-          { 
-            icon: Zap, 
-            label: 'Migration Services', 
-            desc: 'Seamless cloud migration',
-            href: '/smoother-services?category=migration-services',
-            subItems: [
-              { icon: Zap, label: 'SwiftMove', desc: 'Zero-downtime migration', href: '/swiftmove' },
-            ]
-          },
-          { 
-            icon: Headphones, 
-            label: 'Managed Services', 
-            desc: 'Comprehensive IT management',
-            href: '/smoother-services?category=managed-services',
-            subItems: [
-              { icon: Headphones, label: 'Pulse360', desc: 'Managed IT services', href: '/pulse360' },
-              { icon: Headphones, label: 'Support Packages', desc: '24/7 enterprise support', href: '/support-packages' },
-            ]
-          },
-          { 
-            icon: FileCheck, 
-            label: 'Change Management', 
-            desc: 'Organizational transformation',
-            href: '/smoother-services?category=change-management',
-            subItems: [
-              { icon: FileCheck, label: 'ChangePath', desc: 'Digital adoption framework', href: '/changepath' },
-            ]
-          },
-          { 
-            icon: Shield, 
-            label: 'Security Services', 
-            desc: 'Assessment & compliance',
-            href: '/smoother-services?category=security-services',
-            subItems: [
-              { icon: Shield, label: 'SecureSight', desc: 'Security assessment', href: '/securesight' },
-            ]
-          },
-          { 
-            icon: Users, 
-            label: 'Staffing Services', 
-            desc: 'Expert talent augmentation',
-            href: '/smoother-services?category=staffing-services',
-            subItems: [
-              { icon: Users, label: 'TalentEdge', desc: 'Staff augmentation', href: '/talentedge' },
-            ]
-          },
-          { 
-            icon: Code, 
-            label: 'Development Services', 
-            desc: 'Custom automation',
-            href: '/smoother-services?category=development-services',
-            subItems: [
-              { icon: Code, label: 'Apps Script', desc: 'Custom integrations', href: '/apps-script' },
-            ]
-          },
+          { icon: Zap, label: 'SwiftMove', desc: 'Zero-downtime migration', isPageLink: true, href: '/swiftmove' },
+          { icon: Headphones, label: 'Pulse360', desc: 'Managed IT services', isPageLink: true, href: '/pulse360' },
+          { icon: Headphones, label: 'Support Packages', desc: '24/7 enterprise support', isPageLink: true, href: '/support-packages' },
+          { icon: FileCheck, label: 'ChangePath', desc: 'Digital adoption framework', isPageLink: true, href: '/changepath' },
+          { icon: Shield, label: 'SecureSight', desc: 'Security assessment', isPageLink: true, href: '/securesight' },
+          { icon: Users, label: 'TalentEdge', desc: 'Staff augmentation', isPageLink: true, href: '/talentedge' },
+          { icon: Code, label: 'Apps Script', desc: 'Custom integrations', isPageLink: true, href: '/apps-script' },
         ],
       },
     ],
