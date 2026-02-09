@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Phone, Mail, MapPin, Send, Loader2 } from 'lucide-react';
+import { Phone, Mail, MapPin, Send, Loader2, Calendar } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -9,6 +9,7 @@ import Footer from '@/components/layout/Footer';
 import { toast } from 'sonner';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useRegion } from '@/contexts/RegionContext';
 import heroImage from '@/assets/banners/contact-hero.jpg';
 
 const offices = [
@@ -32,6 +33,7 @@ const offices = [
 
 export default function Contact() {
   const navigate = useNavigate();
+  const { region } = useRegion();
   const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
@@ -103,6 +105,25 @@ export default function Contact() {
       transition={{ delay: 0.2 }}
       className="bg-white rounded-2xl p-6 md:p-8 shadow-2xl w-full max-w-xl"
     >
+      {region === 'usa' && (
+        <div className="mb-6">
+          <a
+            href="https://app.apollo.io/#/meet/40u-obp-ihl/30-min"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Button className="w-full h-12 bg-[#38B6FF] hover:bg-[#2ba3e8] text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all">
+              <Calendar className="w-5 h-5 mr-2" />
+              Schedule a Consultation
+            </Button>
+          </a>
+          <div className="flex items-center my-4">
+            <div className="flex-1 border-t border-slate-200"></div>
+            <span className="px-4 text-sm text-slate-500">or fill out the form</span>
+            <div className="flex-1 border-t border-slate-200"></div>
+          </div>
+        </div>
+      )}
       <h2 className="text-2xl font-bold text-[#0C4594] mb-6 font-display">
         Send Us a Message
       </h2>
