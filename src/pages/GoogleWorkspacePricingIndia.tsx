@@ -98,7 +98,6 @@ function PricingSection() {
         india: { commit: "₹3,240", flex: "₹3,900" },
         usa: { commit: "$7", flex: "$8.4" }
       },
-      priceNote: "Per User/Year + Tax",
       popular: false,
       features: [
         "30 GB storage per person",
@@ -116,7 +115,6 @@ function PricingSection() {
         india: { commit: "₹12,960", flex: "₹15,600" },
         usa: { commit: "$14", flex: "$16.8" }
       },
-      priceNote: "Per User/Year + Tax",
       popular: true,
       features: [
         "Everything in Starter, plus:",
@@ -137,7 +135,6 @@ function PricingSection() {
         india: { commit: "₹20,400", flex: "₹24,600" },
         usa: { commit: "$22", flex: "$26.4" }
       },
-      priceNote: "Per User/Year + Tax",
       popular: false,
       features: [
         "Everything in Standard, plus:",
@@ -157,7 +154,6 @@ function PricingSection() {
         india: { commit: "Contact Sales", flex: "" },
         usa: { commit: "Contact Sales", flex: "" }
       },
-      priceNote: "Custom Pricing",
       popular: false,
       isEnterprise: true,
       features: [
@@ -175,6 +171,8 @@ function PricingSection() {
       ]
     }
   ];
+
+  const priceNote = region === 'usa' ? "Per User/Month + Tax" : "Per User/Year + Tax";
 
   return (
     <section className="py-20 bg-[#f8fafc]">
@@ -267,7 +265,7 @@ function PricingSection() {
                         </div>
                       </>
                     )}
-                    <p className="text-xs text-[#94a3b8] mt-2 font-medium">{plan.priceNote}</p>
+                    <p className="text-xs text-[#94a3b8] mt-2 font-medium">{plan.isEnterprise ? "Custom Pricing" : priceNote}</p>
                   </div>
 
                   {/* Features */}
