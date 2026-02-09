@@ -6,7 +6,7 @@ const reasons = [
   {
     icon: Award,
     title: 'Google Cloud & OEM-Backed Expertise',
-    description: 'Authorised Partner with direct access to Google and leading technology vendors.',
+    description: 'Authorised Partner with direct access to Google Cloud and leading technology vendors.',
   },
   {
     icon: Building2,
@@ -15,7 +15,7 @@ const reasons = [
   },
   {
     icon: Users,
-    title: 'Any Size, Any Scale',
+    title: 'One Platform, Infinite Scale',
     description: 'From startups to enterprises, we support 1 to 10,000+ users seamlessly.',
   },
   {
