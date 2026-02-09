@@ -41,7 +41,7 @@ export default function TestimonialsSection() {
           )}
 
           <motion.div
-            className={`flex gap-6 ${region === 'usa' ? 'justify-center flex-wrap' : ''}`}
+            className={`flex gap-6 ${region === 'usa' ? 'justify-center flex-wrap max-w-5xl mx-auto' : ''}`}
             animate={region === 'india' ? { x: [0, -1600] } : {}}
             transition={region === 'india' ? {
               x: {
