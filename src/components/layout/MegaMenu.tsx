@@ -40,6 +40,7 @@ interface MenuItem {
 
 interface MenuSection {
   title: string;
+  titleHref?: string;
   items: MenuItem[];
 }
 
@@ -60,11 +61,13 @@ const menuContent: Record<string, MenuContent> = {
     sections: [
       {
         title: 'Smarter Solutions',
+        titleHref: '/smarter-solutions',
         items: [
           { 
             icon: Brain, 
             label: 'AI Solutions', 
             desc: 'Enterprise AI & automation tools',
+            href: '/smarter-solutions?category=ai-solutions',
             subItems: [
               { icon: Brain, label: 'Gemini Enterprise', desc: 'AI-powered productivity', href: '/gemini-enterprise' },
               { icon: Cpu, label: 'Google AI Ultra', desc: 'Advanced AI capabilities', href: '/google-ai-ultra' },
@@ -75,6 +78,7 @@ const menuContent: Record<string, MenuContent> = {
             icon: Mail, 
             label: 'Email & Collaboration', 
             desc: 'Communication & productivity suites',
+            href: '/smarter-solutions?category=email-collaboration',
             subItems: [
               { icon: Mail, label: 'Google Workspace', desc: 'Gmail, Drive, Docs & more', href: '/google-workspace' },
               { icon: Monitor, label: 'Microsoft 365', desc: 'Office apps & Teams', href: '/microsoft-365' },
@@ -85,11 +89,13 @@ const menuContent: Record<string, MenuContent> = {
       },
       {
         title: 'Safer Security',
+        titleHref: '/safer-security',
         items: [
           { 
             icon: Shield, 
             label: 'Identity & Device', 
             desc: 'Identity & device management',
+            href: '/safer-security?category=identity-device',
             subItems: [
               { icon: Shield, label: 'JumpCloud', desc: 'Directory platform', href: '/jumpcloud' },
               { icon: Users, label: 'Viami', desc: 'Digital workplace platform', href: '/viami' },
@@ -103,6 +109,7 @@ const menuContent: Record<string, MenuContent> = {
             icon: Cloud, 
             label: 'Cloud Infrastructure', 
             desc: 'Enterprise cloud platforms',
+            href: '/safer-security?category=cloud-infrastructure',
             subItems: [
               { icon: Cloud, label: 'Google Cloud Platform', desc: 'GCP services', href: '/google-cloud-platform' },
               { icon: Server, label: 'AWS', desc: 'Amazon Web Services', href: '/aws' },
@@ -114,6 +121,7 @@ const menuContent: Record<string, MenuContent> = {
             icon: Lock, 
             label: 'Cyber Security', 
             desc: 'Enterprise security solutions',
+            href: '/safer-security?category=cyber-security',
             subItems: [
               { icon: Shield, label: 'Palo Alto', desc: 'Network security', href: '/paloalto' },
               { icon: Lock, label: 'Wiz', desc: 'Cloud security platform', href: '/wiz' },
@@ -125,6 +133,7 @@ const menuContent: Record<string, MenuContent> = {
             icon: Laptop, 
             label: 'Chrome Solutions', 
             desc: 'Complete Chrome solutions',
+            href: '/safer-security?category=chrome-solutions',
             subItems: [
               { icon: Laptop, label: 'Chromebook', desc: 'Enterprise-grade laptops', href: '/chromebook' },
               { icon: Box, label: 'Chromebox', desc: 'Desktop computing solutions', href: '/chromebox' },
@@ -137,6 +146,7 @@ const menuContent: Record<string, MenuContent> = {
             icon: Lock, 
             label: 'Cloud Security', 
             desc: 'Secure your cloud assets',
+            href: '/safer-security?category=cloud-security',
             subItems: [
               { icon: Shield, label: 'SSL Certificates', desc: 'Secure connections', href: '/ssl-certificates' },
               { icon: Lock, label: 'GoSimulator', desc: 'Security simulation', href: '/gosimulator' },
@@ -148,6 +158,7 @@ const menuContent: Record<string, MenuContent> = {
             icon: Server, 
             label: 'Endpoint Management', 
             desc: 'Manage all endpoints',
+            href: '/safer-security?category=endpoint-management',
             subItems: [
               { icon: Server, label: 'SuperOps', desc: 'RMM & PSA platform', href: '/superops' },
               { icon: Monitor, label: 'Atera', desc: 'IT management platform', href: '/atera' },
@@ -165,13 +176,13 @@ const menuContent: Record<string, MenuContent> = {
       {
         title: 'Smoother Services',
         items: [
-          { icon: Zap, label: 'SwiftMove', desc: 'Seamless cloud migration', href: '/swiftmove' },
-          { icon: Users, label: 'Pulse360', desc: 'Managed IT services', href: '/pulse360' },
-          { icon: FileCheck, label: 'ChangePath', desc: 'Change management', href: '/changepath' },
-          { icon: Shield, label: 'SecureSight', desc: 'Security assessment', href: '/securesight' },
-          { icon: Users, label: 'TalentEdge', desc: 'Staff augmentation services', href: '/talentedge' },
-          { icon: Headphones, label: 'Support Packages', desc: '24/7 enterprise support', href: '/support-packages' },
-          { icon: Code, label: 'Apps Script', desc: 'Custom automation', href: '/apps-script' },
+          { icon: Zap, label: 'SwiftMove', desc: 'Seamless cloud migration', isPageLink: true, href: '/swiftmove' },
+          { icon: Users, label: 'Pulse360', desc: 'Managed IT services', isPageLink: true, href: '/pulse360' },
+          { icon: FileCheck, label: 'ChangePath', desc: 'Change management', isPageLink: true, href: '/changepath' },
+          { icon: Shield, label: 'SecureSight', desc: 'Security assessment', isPageLink: true, href: '/securesight' },
+          { icon: Users, label: 'TalentEdge', desc: 'Staff augmentation services', isPageLink: true, href: '/talentedge' },
+          { icon: Headphones, label: 'Support Packages', desc: '24/7 enterprise support', isPageLink: true, href: '/support-packages' },
+          { icon: Code, label: 'Apps Script', desc: 'Custom automation', isPageLink: true, href: '/apps-script' },
         ],
       },
     ],
@@ -294,9 +305,22 @@ export default function MegaMenu({ activeKey, anchorRect, onClose }: MegaMenuPro
           <div className={`grid gap-6 ${menu.sections.length > 2 ? 'grid-cols-3' : menu.sections.length > 1 ? 'grid-cols-2' : 'grid-cols-1'}`}>
             {menu.sections.map((section, idx) => (
               <div key={idx}>
-                <h3 className="font-display font-semibold text-xs text-primary mb-3 uppercase tracking-wider">
-                  {section.title}
-                </h3>
+                {section.titleHref ? (
+                  <a
+                    href={section.titleHref}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleNavigation(section.titleHref);
+                    }}
+                    className="font-display font-semibold text-xs text-primary mb-3 uppercase tracking-wider block hover:text-accent transition-colors"
+                  >
+                    {section.title}
+                  </a>
+                ) : (
+                  <h3 className="font-display font-semibold text-xs text-primary mb-3 uppercase tracking-wider">
+                    {section.title}
+                  </h3>
+                )}
                 <ul className="space-y-1">
                   {section.items.map((item, itemIdx) => {
                     const Icon = item.icon;
