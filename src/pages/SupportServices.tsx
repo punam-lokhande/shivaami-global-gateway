@@ -282,21 +282,21 @@ function EscalationSection() {
     },
     {
       level: 2,
-      title: 'Manager Support',
+      title: 'Priority Escalation',
       icon: Users,
       color: '#0C4594',
       managers: [
-        { region: 'India', flag: IndiaFlag, name: 'Pratima Attarde', role: 'Manager', phone: '+91 775 784 1333 (Ext: 2)', email: 'pratima.attarde@shivaami.com' },
-        { region: 'USA', flag: USAFlag, name: 'Kunal Thacker', role: 'Director', phone: '+1 (408) 333-4844 (Ext: 3)', email: 'kunal@shivaami.com' },
+        { region: 'India', flag: IndiaFlag, name: 'Pratima Attarde', role: '', phone: '+91 775 784 1333 (Ext: 2)', email: 'pratima.attarde@shivaami.com' },
+        { region: 'USA', flag: USAFlag, name: 'Kunal Thacker', role: 'VP', phone: '+1 (408) 333-4844 (Ext: 3)', email: 'kunal@shivaami.com' },
       ],
     },
     {
       level: 3,
-      title: 'Executive Escalation',
+      title: 'C-Suite Escalation',
       icon: Shield,
       color: '#082d61',
       executives: [
-        { name: 'Chetana Chaudhari', email: 'chetana@shivaami.com' },
+        { name: 'Chetana Chaudhari', role: 'CTO', email: 'chetana@shivaami.com' },
         { name: 'Punit Thakkar', role: 'CEO', email: 'punit@shivaami.com' },
       ],
     },
@@ -385,7 +385,7 @@ function EscalationSection() {
                           </div>
                           <span className="text-white font-medium text-sm">{manager.region}</span>
                         </div>
-                        <p className="text-white/90 font-medium">{manager.name} <span className="text-white/60">- {manager.role}</span></p>
+                        <p className="text-white/90 font-medium">{manager.name} {manager.role && <span className="text-white/60">- {manager.role}</span>}</p>
                         <p className="text-white/70 text-xs mt-1">{manager.phone}</p>
                         <a href={`mailto:${manager.email}`} className="text-[#38B6FF] text-xs hover:underline">{manager.email}</a>
                       </div>
