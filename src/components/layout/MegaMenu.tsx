@@ -72,6 +72,7 @@ const menuContent: Record<string, MenuContent> = {
               { icon: Brain, label: 'Gemini Enterprise', desc: 'AI-powered productivity', href: '/gemini-enterprise' },
               { icon: Cpu, label: 'Google AI Ultra', desc: 'Advanced AI capabilities', href: '/google-ai-ultra' },
               { icon: Zap, label: 'Glean', desc: 'Enterprise search & knowledge', href: '/glean' },
+              { icon: Smartphone, label: 'AppSheet', desc: 'No-code app development', href: '/appsheet' },
             ]
           },
           { 
