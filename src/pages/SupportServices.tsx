@@ -275,10 +275,9 @@ function EscalationSection() {
       title: 'Initial Support',
       icon: MessageSquare,
       color: '#38B6FF',
-      contacts: [
-        { type: 'Email', value: 'support@shivaami.com / usa@shivaami.com' },
-        { type: 'Phone', value: 'India: +91 775 784 1333 (Ext: 2) | USA: +1 (408) 333-4844' },
-        { type: 'Google Direct', value: 'India: 1800 108 7879 | USA: +1 650 206 5555' },
+      regions: [
+        { region: 'India', flag: IndiaFlag, email: 'support@shivaami.com', phone: '+91 775 784 1333 (Ext: 2)', googleDirect: '1800 108 7879' },
+        { region: 'USA', flag: USAFlag, email: 'usa@shivaami.com', phone: '+1 (408) 333-4844', googleDirect: '+1 650 206 5555' },
       ],
     },
     {
@@ -356,12 +355,24 @@ function EscalationSection() {
                 {/* Content */}
                 <div className="p-6 space-y-4">
                   {/* Level 1 */}
-                  {level.contacts && level.contacts.map((contact) => (
-                    <div key={contact.type} className="text-sm">
-                      <span className="text-[#38B6FF] font-medium">{contact.type}:</span>
-                      <p className="text-white/80 mt-1">{contact.value}</p>
-                    </div>
-                  ))}
+                  {level.regions && level.regions.map((r) => {
+                    const Flag = r.flag;
+                    return (
+                      <div key={r.region} className="bg-white/5 rounded-xl p-4">
+                        <div className="flex items-center gap-2 mb-2">
+                          <div className="w-8 h-5 rounded overflow-hidden">
+                            <Flag className="w-full h-full" />
+                          </div>
+                          <span className="text-white font-medium text-sm">{r.region}</span>
+                        </div>
+                        <div className="space-y-1 text-sm">
+                          <p><span className="text-[#38B6FF] font-medium">Email:</span> <a href={`mailto:${r.email}`} className="text-white/80 hover:text-[#38B6FF]">{r.email}</a></p>
+                          <p><span className="text-[#38B6FF] font-medium">Phone:</span> <span className="text-white/80">{r.phone}</span></p>
+                          <p><span className="text-[#38B6FF] font-medium">Google Direct:</span> <span className="text-white/80">{r.googleDirect}</span></p>
+                        </div>
+                      </div>
+                    );
+                  })}
 
                   {/* Level 2 */}
                   {level.managers && level.managers.map((manager) => {
