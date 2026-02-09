@@ -94,19 +94,17 @@ const RegionContext = createContext<RegionContextType | undefined>(undefined);
 
 export function RegionProvider({ children }: { children: ReactNode }) {
   const [region, setRegionState] = useState<Region>('india');
-  const [showDialog, setShowDialog] = useState(false);
+  const [showDialog, setShowDialog] = useState(true); // Always show on load
   const [isInitialized, setIsInitialized] = useState(false);
 
-  // Check localStorage on mount
+  // Check localStorage on mount - but always show dialog
   useEffect(() => {
     const savedRegion = localStorage.getItem(REGION_STORAGE_KEY) as Region | null;
     if (savedRegion && (savedRegion === 'india' || savedRegion === 'usa')) {
       setRegionState(savedRegion);
-      setShowDialog(false);
-    } else {
-      // No saved preference, show dialog
-      setShowDialog(true);
     }
+    // Always show the dialog on page load
+    setShowDialog(true);
     setIsInitialized(true);
   }, []);
 
