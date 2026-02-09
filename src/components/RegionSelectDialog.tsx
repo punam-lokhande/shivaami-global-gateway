@@ -23,20 +23,18 @@ export default function RegionSelectDialog({ isOpen, onSelect, onClose }: Region
             
             <button
               onClick={() => onSelect('india')}
-              className="inline-flex items-center gap-1.5 text-[#2997ff] hover:underline transition-all"
+              className="text-[#2997ff] hover:underline transition-all"
             >
-              <span>🇮🇳</span>
-              <span>India</span>
+              India
             </button>
             
             <span className="text-white/40">|</span>
             
             <button
               onClick={() => onSelect('usa')}
-              className="inline-flex items-center gap-1.5 text-[#2997ff] hover:underline transition-all"
+              className="text-[#2997ff] hover:underline transition-all"
             >
-              <span>🇺🇸</span>
-              <span>USA</span>
+              USA
             </button>
 
             <button
