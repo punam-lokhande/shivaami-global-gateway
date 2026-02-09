@@ -72,7 +72,6 @@ const menuContent: Record<string, MenuContent> = {
               { icon: Brain, label: 'Gemini Enterprise', desc: 'AI-powered productivity', href: '/gemini-enterprise' },
               { icon: Cpu, label: 'Google AI Ultra', desc: 'Advanced AI capabilities', href: '/google-ai-ultra' },
               { icon: Zap, label: 'Glean', desc: 'Enterprise search & knowledge', href: '/glean' },
-              { icon: Globe, label: 'Book a Domain', desc: 'Secure your digital identity', href: '/book-domain' },
             ]
           },
           { 
@@ -153,6 +152,7 @@ const menuContent: Record<string, MenuContent> = {
               { icon: Lock, label: 'GoSimulator', desc: 'Security simulation', href: '/gosimulator' },
               { icon: Mail, label: 'GoDmarc', desc: 'Email authentication', href: '/godmarc' },
               { icon: Shield, label: 'VMC', desc: 'Verified Mark Certificates', href: '/vmc' },
+              { icon: Globe, label: 'Book a Domain', desc: 'Secure your digital identity', href: '/book-domain' },
             ]
           },
           { 
