@@ -49,7 +49,7 @@ export default function BrandsSection() {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={isInView ? { opacity: 1, scale: 1 } : {}}
               transition={{ duration: 0.4, delay: index * 0.05 }}
-              className="flex items-center justify-center p-6 rounded-xl bg-[#f8fafc] border border-[#e2e8f0] hover:border-[#38B6FF]/40 hover:shadow-sm transition-all"
+              className="flex items-center justify-center p-6 rounded-xl bg-[#f8fafc] border border-[#e2e8f0] hover:border-[#1b9dd8]/40 hover:shadow-sm transition-all"
             >
               <span className="text-sm font-medium text-[#475569]">{brand}</span>
             </motion.div>

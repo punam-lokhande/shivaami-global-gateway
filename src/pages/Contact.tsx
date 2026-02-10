@@ -112,7 +112,7 @@ export default function Contact() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Button className="w-full h-12 bg-[#38B6FF] hover:bg-[#2ba3e8] text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all">
+            <Button className="w-full h-12 bg-[#1b9dd8] hover:bg-[#1889bd] text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all">
               <Calendar className="w-5 h-5 mr-2" />
               Schedule a Consultation
             </Button>
@@ -309,14 +309,14 @@ export default function Contact() {
                 <div className="bg-white rounded-2xl p-8 border border-slate-200 hover:border-[#0C4594]/20 hover:shadow-xl transition-all duration-300 h-full">
                   {/* Header */}
                   <div className="flex items-center gap-4 mb-6 pb-6 border-b border-slate-200">
-                    <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#0C4594] to-[#38B6FF] flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform">
+                    <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#0C4594] to-[#1b9dd8] flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform">
                       <span className="text-3xl">{office.flag}</span>
                     </div>
                     <div>
                       <h3 className="text-2xl font-bold text-[#0C4594]">
                         {office.region}
                       </h3>
-                      <p className="text-sm text-[#38B6FF] font-medium">
+                      <p className="text-sm text-[#1b9dd8] font-medium">
                         {office.office_type}
                       </p>
                     </div>
@@ -335,7 +335,7 @@ export default function Contact() {
                         <p className="text-xs text-muted-foreground uppercase tracking-wide mb-0.5">
                           Phone
                         </p>
-                        <p className="text-lg font-semibold text-[#0C4594] group-hover/item:text-[#38B6FF] transition-colors">
+                        <p className="text-lg font-semibold text-[#0C4594] group-hover/item:text-[#1b9dd8] transition-colors">
                           {office.phone}
                         </p>
                       </div>
@@ -352,7 +352,7 @@ export default function Contact() {
                         <p className="text-xs text-muted-foreground uppercase tracking-wide mb-0.5">
                           Email
                         </p>
-                        <p className="text-lg font-semibold text-[#0C4594] group-hover/item:text-[#38B6FF] transition-colors">
+                        <p className="text-lg font-semibold text-[#0C4594] group-hover/item:text-[#1b9dd8] transition-colors">
                           {office.email}
                         </p>
                       </div>

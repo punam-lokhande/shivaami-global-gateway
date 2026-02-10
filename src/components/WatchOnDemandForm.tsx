@@ -49,7 +49,7 @@ const WatchOnDemandForm = ({ moduleName, moduleNumber, youtubeUrl, duration = "~
         </div>
         
         <form onSubmit={handleSubmit} className="p-6 space-y-5">
-          <div className="bg-[#38B6FF]/10 rounded-lg p-4">
+          <div className="bg-[#1b9dd8]/10 rounded-lg p-4">
             <p className="text-sm text-gray-700">
               <strong className="text-[#0C4594]">{moduleNumber}:</strong> {moduleName}
             </p>
@@ -63,7 +63,7 @@ const WatchOnDemandForm = ({ moduleName, moduleNumber, youtubeUrl, duration = "~
             <Input 
               id="name" 
               placeholder="Enter your full name" 
-              className="border-gray-300 focus:border-[#38B6FF] focus:ring-[#38B6FF]"
+              className="border-gray-300 focus:border-[#1b9dd8] focus:ring-[#1b9dd8]"
               required
               value={formData.name}
               onChange={handleInputChange}
@@ -78,7 +78,7 @@ const WatchOnDemandForm = ({ moduleName, moduleNumber, youtubeUrl, duration = "~
               id="email" 
               type="email" 
               placeholder="Enter your business email" 
-              className="border-gray-300 focus:border-[#38B6FF] focus:ring-[#38B6FF]"
+              className="border-gray-300 focus:border-[#1b9dd8] focus:ring-[#1b9dd8]"
               required
               value={formData.email}
               onChange={handleInputChange}
@@ -92,7 +92,7 @@ const WatchOnDemandForm = ({ moduleName, moduleNumber, youtubeUrl, duration = "~
             <Input 
               id="website" 
               placeholder="https://yourcompany.com" 
-              className="border-gray-300 focus:border-[#38B6FF] focus:ring-[#38B6FF]"
+              className="border-gray-300 focus:border-[#1b9dd8] focus:ring-[#1b9dd8]"
               required
               value={formData.website}
               onChange={handleInputChange}
@@ -107,7 +107,7 @@ const WatchOnDemandForm = ({ moduleName, moduleNumber, youtubeUrl, duration = "~
               id="phone" 
               type="tel" 
               placeholder="Enter your phone number" 
-              className="border-gray-300 focus:border-[#38B6FF] focus:ring-[#38B6FF]"
+              className="border-gray-300 focus:border-[#1b9dd8] focus:ring-[#1b9dd8]"
               value={formData.phone}
               onChange={handleInputChange}
             />
@@ -115,7 +115,7 @@ const WatchOnDemandForm = ({ moduleName, moduleNumber, youtubeUrl, duration = "~
           
           <Button 
             type="submit" 
-            className="w-full bg-gradient-to-r from-[#38B6FF] to-[#0C4594] hover:shadow-lg text-white font-semibold py-6"
+            className="w-full bg-gradient-to-r from-[#1b9dd8] to-[#0C4594] hover:shadow-lg text-white font-semibold py-6"
             disabled={isSubmitting}
           >
             {isSubmitting ? "Processing..." : "Get Access Now"}
@@ -140,7 +140,7 @@ const WatchOnDemandForm = ({ moduleName, moduleNumber, youtubeUrl, duration = "~
             <p className="text-gray-700">
               Thank you for your interest! Click the button below to watch the recording.
             </p>
-            <div className="bg-[#38B6FF]/10 rounded-lg p-4">
+            <div className="bg-[#1b9dd8]/10 rounded-lg p-4">
               <p className="text-sm text-gray-700 font-medium">
                 {moduleNumber}: {moduleName}
               </p>
@@ -152,7 +152,7 @@ const WatchOnDemandForm = ({ moduleName, moduleNumber, youtubeUrl, duration = "~
               className="block"
             >
               <Button 
-                className="w-full bg-gradient-to-r from-[#38B6FF] to-[#0C4594] hover:shadow-lg text-white font-semibold py-6"
+                className="w-full bg-gradient-to-r from-[#1b9dd8] to-[#0C4594] hover:shadow-lg text-white font-semibold py-6"
               >
                 <Play className="w-5 h-5 mr-2" />
                 Watch on YouTube

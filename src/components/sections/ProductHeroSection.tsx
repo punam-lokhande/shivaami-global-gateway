@@ -92,7 +92,7 @@ const ProductHeroSection = ({
               <Link to={ctaLink}>
                 <Button
                   size="lg"
-                  className="bg-[#38B6FF] hover:bg-[#0C4594] text-white px-6 sm:px-8 py-5 sm:py-6 text-sm sm:text-base font-semibold shadow-lg transition-all duration-300 w-full sm:w-auto"
+                  className="bg-[#1b9dd8] hover:bg-[#0C4594] text-white px-6 sm:px-8 py-5 sm:py-6 text-sm sm:text-base font-semibold shadow-lg transition-all duration-300 w-full sm:w-auto"
                 >
                   {ctaText}
                   <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
