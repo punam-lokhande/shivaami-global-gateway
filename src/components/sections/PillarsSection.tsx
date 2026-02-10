@@ -2,6 +2,10 @@ import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { Brain, Shield, Zap, ArrowRight, Sparkles, Lock, Rocket, CheckCircle2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import AI from '@/assets/AI.jpg';
+import safer from '@/assets/safer.jpg';
+import smoother from '@/assets/smoother.jpg';
+
 
 const pillars = [
   {
@@ -18,7 +22,7 @@ const pillars = [
     gradient: 'from-blue-600 via-blue-500 to-sky-500',
     lightGradient: 'from-blue-500/10 to-sky-500/10',
     iconColor: 'text-blue-500',
-    image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=400&h=250&fit=crop',
+    image: AI,
   },
   {
     icon: Shield,
@@ -38,13 +42,13 @@ const pillars = [
     gradient: 'from-blue-700 via-blue-600 to-blue-500',
     lightGradient: 'from-blue-600/10 to-blue-400/10',
     iconColor: 'text-blue-600',
-    image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?w=400&h=250&fit=crop',
+    image: safer,
   },
   {
     icon: Zap,
     accentIcon: Rocket,
     title: 'Smoother Services',
-    link: '/swiftmove',
+    link: '/smoother-services',
     
     description: 'Expert migration, ongoing support, and continuous optimization services that ensure your technology works seamlessly.',
     items: [
@@ -59,7 +63,7 @@ const pillars = [
     gradient: 'from-sky-600 via-blue-500 to-indigo-500',
     lightGradient: 'from-sky-500/10 to-indigo-500/10',
     iconColor: 'text-sky-500',
-    image: 'https://images.unsplash.com/photo-1551434678-e076c223a692?w=400&h=250&fit=crop',
+    image: smoother,
   },
 ];
 

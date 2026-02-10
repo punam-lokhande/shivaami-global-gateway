@@ -9,6 +9,7 @@ import {
   Award, Users2, Trophy, Briefcase,
   ChevronRight, Laptop, Box, Smartphone, Layers, Settings, ArrowRight, Globe
 } from 'lucide-react';
+import Solutionimg from '@/assets/Solutionimg.jpg';
 
 type AnchorRect = {
   left: number;
@@ -55,7 +56,7 @@ interface MenuContent {
 const menuContent: Record<string, MenuContent> = {
   solutions: {
     title: 'Solutions & Services',
-    image: 'https://images.unsplash.com/photo-1551434678-e076c223a692?w=400&h=300&fit=crop',
+    image: Solutionimg,
     imageAlt: 'Modern office collaboration',
     cta: undefined,
     sections: [
