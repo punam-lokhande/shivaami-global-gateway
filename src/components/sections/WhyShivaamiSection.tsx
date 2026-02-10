@@ -42,7 +42,7 @@ export default function WhyShivaamiSection() {
   return (
     <section ref={ref} className="py-24 bg-white relative overflow-hidden">
       {/* Clean minimal background */}
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#38B6FF]/5 rounded-full blur-[120px]" />
+      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#1b9dd8]/5 rounded-full blur-[120px]" />
       <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[#0C4594]/5 rounded-full blur-[100px]" />
       
       <div className="container mx-auto px-4 relative z-10">
@@ -72,8 +72,8 @@ export default function WhyShivaamiSection() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="group"
               >
-                <div className="bg-white rounded-2xl p-6 shadow-[0_2px_20px_rgba(0,0,0,0.06)] border border-[#e2e8f0] flex items-start gap-4 h-full hover:shadow-[0_8px_30px_rgba(0,0,0,0.1)] hover:border-[#38B6FF]/30 transition-all duration-300">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#0C4594] to-[#38B6FF] flex items-center justify-center flex-shrink-0">
+                <div className="bg-white rounded-2xl p-6 shadow-[0_2px_20px_rgba(0,0,0,0.06)] border border-[#e2e8f0] flex items-start gap-4 h-full hover:shadow-[0_8px_30px_rgba(0,0,0,0.1)] hover:border-[#1b9dd8]/30 transition-all duration-300">
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#0C4594] to-[#1b9dd8] flex items-center justify-center flex-shrink-0">
                     <Icon className="w-6 h-6 text-white" />
                   </div>
                   <div>

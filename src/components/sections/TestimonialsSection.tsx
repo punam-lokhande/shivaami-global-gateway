@@ -57,12 +57,12 @@ export default function TestimonialsSection() {
                 className="flex-shrink-0 w-[400px]"
               >
                 <div className="bg-white border border-[#e2e8f0] rounded-2xl p-8 h-full flex flex-col shadow-[0_2px_15px_rgba(0,0,0,0.04)]">
-                  <Quote className="w-10 h-10 text-[#38B6FF]/30 mb-4" />
+                  <Quote className="w-10 h-10 text-[#1b9dd8]/30 mb-4" />
                   <p className="text-[#334155] mb-6 flex-grow italic line-clamp-4">
                     "{testimonial.quote}"
                   </p>
                   <div className="flex items-center gap-4 pt-4 border-t border-[#e2e8f0]">
-                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#0C4594] to-[#38B6FF] flex items-center justify-center">
+                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#0C4594] to-[#1b9dd8] flex items-center justify-center">
                       <span className="text-white font-bold text-lg">
                         {testimonial.name.charAt(0)}
                       </span>
