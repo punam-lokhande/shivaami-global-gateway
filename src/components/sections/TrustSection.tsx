@@ -70,7 +70,7 @@ export default function TrustSection() {
           className="text-center mb-16"
         >
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-[#0C4594] mb-4">
-            Trusted. Experienced. <span className="text-[#38B6FF]">Global.</span>
+            Trusted. Experienced. <span className="text-[#1b9dd8]">Global.</span>
           </h2>
           <p className="text-lg text-[#475569] max-w-2xl mx-auto">
             Numbers that reflect our commitment to excellence and customer success

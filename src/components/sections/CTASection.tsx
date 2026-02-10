@@ -22,8 +22,8 @@ export default function CTASection() {
       <section ref={ref} className="py-24 bg-gradient-to-br from-[#0C4594] to-[#0a3a7a] relative overflow-hidden">
         {/* Animated background */}
         <div className="absolute inset-0">
-          <div className="absolute top-1/4 left-0 w-[600px] h-[600px] bg-[#38B6FF]/20 rounded-full blur-[150px]" />
-          <div className="absolute bottom-1/4 right-0 w-[500px] h-[500px] bg-[#38B6FF]/10 rounded-full blur-[150px]" />
+          <div className="absolute top-1/4 left-0 w-[600px] h-[600px] bg-[#1b9dd8]/20 rounded-full blur-[150px]" />
+          <div className="absolute bottom-1/4 right-0 w-[500px] h-[500px] bg-[#1b9dd8]/10 rounded-full blur-[150px]" />
         </div>
 
         <div className="container mx-auto px-4 relative z-10">
@@ -35,7 +35,7 @@ export default function CTASection() {
           >
             <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
               Ready to make work{' '}
-              <span className="text-[#38B6FF]">smarter, safer, and smoother</span>?
+              <span className="text-[#1b9dd8]">smarter, safer, and smoother</span>?
             </h2>
             <p className="text-lg text-white/80 mb-10">
               Let's discuss how Shivaami can transform your organization's IT infrastructure 
@@ -46,7 +46,7 @@ export default function CTASection() {
               <Button 
                 size="lg" 
                 onClick={() => setIsDialogOpen(true)}
-                className="bg-[#38B6FF] text-white hover:bg-[#38B6FF]/90 font-semibold px-8 py-6 text-lg group shadow-lg"
+                className="bg-[#1b9dd8] text-white hover:bg-[#1b9dd8]/90 font-semibold px-8 py-6 text-lg group shadow-lg"
               >
                 Get Started
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />

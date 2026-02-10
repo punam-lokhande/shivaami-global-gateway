@@ -56,7 +56,7 @@ function HeroSection() {
             className="font-display text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-semibold text-white mb-4 sm:mb-6 leading-[1.15] tracking-tight"
           >
             Making Your<br />
-            <span className="text-[#38B6FF]">Online Life</span> Easier
+            <span className="text-[#1b9dd8]">Online Life</span> Easier
           </motion.h1>
 
           <motion.p
@@ -76,7 +76,7 @@ function HeroSection() {
             <Link to="/leadership">
               <Button
                 size="lg"
-                className="bg-[#38B6FF] hover:bg-[#2da8f0] text-white font-semibold px-8 sm:px-10 py-5 sm:py-6 text-sm sm:text-base lg:text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 group"
+                className="bg-[#1b9dd8] hover:bg-[#1889bd] text-white font-semibold px-8 sm:px-10 py-5 sm:py-6 text-sm sm:text-base lg:text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 group"
               >
                 Meet Our Team
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -146,7 +146,7 @@ function VisionMissionSection() {
       icon: Lightbulb,
       title: 'Our Vision',
       description: 'Shivaami’s vision is to be the world’s most trusted partner for secure cloud and AI-powered solutions and services, enabling every organization to work with greater intelligence, security, and agility.',
-      gradient: 'from-[#38B6FF] to-[#0C4594]',
+      gradient: 'from-[#1b9dd8] to-[#0C4594]',
     },
     {
       icon: Target,
@@ -227,7 +227,7 @@ function WhyChooseUsSection() {
                 }}
                 className="bg-[#f8fafc] rounded-2xl p-6 text-center hover:shadow-lg transition-all duration-300 group"
               >
-                <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-[#0C4594] to-[#38B6FF] flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-[#0C4594] to-[#1b9dd8] flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
                   <Icon className="w-7 h-7 text-white" />
                 </div>
                 <h3 className="text-lg font-semibold text-[#0C4594] mb-2">{feature.title}</h3>
@@ -255,13 +255,13 @@ function CTASection() {
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Link to="/contact">
-              <Button size="lg" className="bg-[#38B6FF] hover:bg-[#2da8f0] text-white font-semibold px-10 py-7 text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
+              <Button size="lg" className="bg-[#1b9dd8] hover:bg-[#1889bd] text-white font-semibold px-10 py-7 text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
                 Contact Us
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
             </Link>
             <Link to="/case-studies">
-              <Button size="lg" variant="outline" className="bg-[#38B6FF] hover:bg-[#2da8f0] text-white hover:bg-white/10 font-semibold px-10 py-7 text-lg rounded-xl">
+              <Button size="lg" variant="outline" className="bg-[#1b9dd8] hover:bg-[#1889bd] text-white hover:bg-white/10 font-semibold px-10 py-7 text-lg rounded-xl">
                 View Case Studies
               </Button>
             </Link>

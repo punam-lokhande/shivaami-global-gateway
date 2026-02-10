@@ -18,7 +18,7 @@ export default function AchievementsSection() {
   return (
     <section ref={ref} className="py-24 bg-[#f8fafc] relative overflow-hidden">
       {/* Subtle background */}
-      <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-[#38B6FF]/5 rounded-full blur-[120px]" />
+      <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-[#1b9dd8]/5 rounded-full blur-[120px]" />
       <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-[#0C4594]/5 rounded-full blur-[100px]" />
       
       <div className="w-full px-8 lg:px-16 xl:px-24 relative z-10">
@@ -48,14 +48,14 @@ export default function AchievementsSection() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="group"
               >
-                <div className="bg-white text-center h-full rounded-2xl p-5 border border-[#e2e8f0] shadow-[0_2px_10px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_25px_rgba(0,0,0,0.08)] hover:border-[#38B6FF]/30 transition-all duration-300 relative overflow-hidden">
-                  <div className="w-14 h-14 mx-auto mb-4 rounded-xl bg-gradient-to-br from-[#0C4594] to-[#38B6FF] flex items-center justify-center">
+                <div className="bg-white text-center h-full rounded-2xl p-5 border border-[#e2e8f0] shadow-[0_2px_10px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_25px_rgba(0,0,0,0.08)] hover:border-[#1b9dd8]/30 transition-all duration-300 relative overflow-hidden">
+                  <div className="w-14 h-14 mx-auto mb-4 rounded-xl bg-gradient-to-br from-[#0C4594] to-[#1b9dd8] flex items-center justify-center">
                     <Icon className="w-7 h-7 text-white" />
                   </div>
                   <h3 className="font-semibold text-sm text-[#0C4594] mb-1 line-clamp-2">
                     {achievement.title}
                   </h3>
-                  {/* <span className="text-xs text-[#38B6FF] font-semibold">
+                  {/* <span className="text-xs text-[#1b9dd8] font-semibold">
                     {achievement.year}
                   </span> */}
                 </div>

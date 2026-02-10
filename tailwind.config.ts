@@ -131,11 +131,11 @@ export default {
         },
         "pulse-glow": {
           "0%, 100%": { 
-            boxShadow: "0 0 20px hsl(202 100% 61% / 0.3)",
+            boxShadow: "0 0 20px hsl(199 78% 48% / 0.3)",
             transform: "scale(1)"
           },
           "50%": { 
-            boxShadow: "0 0 40px hsl(202 100% 61% / 0.5)",
+            boxShadow: "0 0 40px hsl(199 78% 48% / 0.5)",
             transform: "scale(1.02)"
           },
         },
@@ -152,8 +152,8 @@ export default {
           "100%": { opacity: "1", transform: "translateY(0)" },
         },
         glow: {
-          "0%, 100%": { boxShadow: "0 0 20px hsl(202 100% 61% / 0.3)" },
-          "50%": { boxShadow: "0 0 40px hsl(202 100% 61% / 0.6)" },
+          "0%, 100%": { boxShadow: "0 0 20px hsl(199 78% 48% / 0.3)" },
+          "50%": { boxShadow: "0 0 40px hsl(199 78% 48% / 0.6)" },
         },
         "glow-pulse": {
           "0%, 100%": { 
@@ -177,10 +177,10 @@ export default {
         },
         "border-glow": {
           "0%, 100%": { 
-            borderColor: "hsl(202 100% 61% / 0.2)"
+            borderColor: "hsl(199 78% 48% / 0.2)"
           },
           "50%": { 
-            borderColor: "hsl(202 100% 61% / 0.5)"
+            borderColor: "hsl(199 78% 48% / 0.5)"
           },
         },
       },
