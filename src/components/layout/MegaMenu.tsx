@@ -214,7 +214,7 @@ const menuContent: Record<string, MenuContent> = {
   },
   resources: {
     title: 'Resources',
-    image: 'https://images.unsplash.com/photo-1553877522-43269d4ea984?w=400&h=300&fit=crop',
+    image: '/images/faq.jpg',
     imageAlt: 'Team collaboration and learning',
     cta: undefined,
     sections: [
