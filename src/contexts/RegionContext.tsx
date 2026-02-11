@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState, useCallback, useEffect, ReactNode } from 'react';
-import RegionSelectDialog from '@/components/RegionSelectDialog';
+
 
 type Region = 'india' | 'usa';
 
@@ -94,17 +94,13 @@ const RegionContext = createContext<RegionContextType | undefined>(undefined);
 
 export function RegionProvider({ children }: { children: ReactNode }) {
   const [region, setRegionState] = useState<Region>('india');
-  const [showDialog, setShowDialog] = useState(true); // Always show on load
   const [isInitialized, setIsInitialized] = useState(false);
 
-  // Check localStorage on mount - but always show dialog
   useEffect(() => {
     const savedRegion = localStorage.getItem(REGION_STORAGE_KEY) as Region | null;
     if (savedRegion && (savedRegion === 'india' || savedRegion === 'usa')) {
       setRegionState(savedRegion);
     }
-    // Always show the dialog on page load
-    setShowDialog(true);
     setIsInitialized(true);
   }, []);
 
@@ -112,17 +108,6 @@ export function RegionProvider({ children }: { children: ReactNode }) {
     setRegionState(newRegion);
     localStorage.setItem(REGION_STORAGE_KEY, newRegion);
   }, []);
-
-  const handleDialogSelect = useCallback((selectedRegion: Region) => {
-    setRegion(selectedRegion);
-    setShowDialog(false);
-  }, [setRegion]);
-
-  const handleDialogClose = useCallback(() => {
-    // Close without selecting - keep default (india)
-    localStorage.setItem(REGION_STORAGE_KEY, region);
-    setShowDialog(false);
-  }, [region]);
 
   const toggleRegion = useCallback(() => {
     const newRegion = region === 'india' ? 'usa' : 'india';
@@ -139,7 +124,6 @@ export function RegionProvider({ children }: { children: ReactNode }) {
   return (
     <RegionContext.Provider value={{ region, setRegion, toggleRegion, content }}>
       {children}
-      <RegionSelectDialog isOpen={showDialog} onSelect={handleDialogSelect} onClose={handleDialogClose} />
     </RegionContext.Provider>
   );
 }
