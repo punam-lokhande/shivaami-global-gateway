@@ -294,7 +294,6 @@ function EscalationSection() {
       color: '#082d61',
       executives: [
         { name: 'Chetana Chaudhari', role: 'CTO', email: 'chetana@shivaami.com' },
-        { name: 'Punit Thakkar', role: 'CEO', email: 'punit@shivaami.com' },
       ],
     },
   ];
