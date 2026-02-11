@@ -366,7 +366,7 @@ function FAQSection() {
               <div className="absolute -inset-4 bg-gradient-to-r from-[#0C4594]/20 to-[#38B6FF]/20 rounded-3xl blur-2xl" />
               <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                 <img 
-                  src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=600&h=500&fit=crop" 
+                  src="/images/faq.jpg" 
                   alt="FAQ Support"
                   className="w-full h-[400px] object-cover"
                 />
