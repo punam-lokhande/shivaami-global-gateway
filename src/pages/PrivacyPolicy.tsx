@@ -272,9 +272,9 @@ export default function PrivacyPolicy() {
                   {
                     title: '2.4 Marketing and Communications',
                     items: [
-                      'Sending service updates, product announcements, and relevant information',
+                      'Sending service updates, product announcements, and relevant information about our offerings',
                       'Providing educational content, webinars, and industry insights',
-                      'Sharing information about new products and services (with your consent)'
+                      'Sharing information about new products and services (with your consent where required)'
                     ]
                   },
                   {
@@ -674,9 +674,12 @@ export default function PrivacyPolicy() {
                   ))}
                 </ul>
                 <p className="text-muted-foreground">
-                  You can control cookie preferences through your browser settings. Note that disabling cookies may 
-                  limit certain website functionality.
-                </p>
+                   You can control cookie preferences through your browser settings. Note that disabling cookies may 
+                   limit certain website functionality.
+                 </p>
+                 <p className="text-muted-foreground mt-4">
+                   For detailed information about our cookie practices, please refer to our Cookie Policy.
+                 </p>
               </motion.div>
             </motion.div>
           </div>
