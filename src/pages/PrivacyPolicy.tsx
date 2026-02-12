@@ -71,23 +71,13 @@ export default function PrivacyPolicy() {
             className="relative z-10 w-full px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24 pt-24 sm:pt-28 md:pt-32 lg:pt-36"
           >
             <div className="max-w-3xl">
-              <motion.div 
-                initial={{ opacity: 0, y: 28 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.1 }}
-                className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full mb-6"
-              >
-                <Shield className="w-5 h-5 text-white" />
-                <span className="text-white/90 text-sm font-medium">Your Privacy Matters</span>
-              </motion.div>
-              
               <motion.h1 
                 initial={{ opacity: 0, y: 28 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
+                transition={{ duration: 0.6, delay: 0.1 }}
                 className="font-display text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-semibold text-white mb-3 sm:mb-4 md:mb-6 leading-[1.15] tracking-tight"
               >
-                Shivaami Cloud Services Private Limited – Privacy Policy
+                Privacy Policy
               </motion.h1>
               
               <motion.p 
@@ -114,7 +104,7 @@ export default function PrivacyPolicy() {
 
         {/* Introduction */}
         <section className="py-16 bg-background">
-          <div className="w-full px-8 lg:px-16 xl:px-24">
+          <div className="w-full px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24">
             <motion.div 
               className=""
               initial={{ opacity: 0, y: 20 }}
@@ -144,7 +134,7 @@ export default function PrivacyPolicy() {
 
         {/* Section Navigation */}
         <section className="py-8 bg-secondary/30 border-y border-border/50 sticky top-16 z-40 backdrop-blur-sm">
-          <div className="w-full px-8 lg:px-16 xl:px-24">
+          <div className="w-full px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24">
             <div className="flex flex-wrap justify-center gap-2 md:gap-4">
               {[
                 { icon: Database, label: 'Collection' },
@@ -168,7 +158,7 @@ export default function PrivacyPolicy() {
 
         {/* Section 1: Information We Collect */}
         <section className="py-16 bg-background">
-          <div className="w-full px-8 lg:px-16 xl:px-24">
+          <div className="w-full px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24">
             <motion.div 
               className=""
               initial="hidden"
@@ -248,7 +238,7 @@ export default function PrivacyPolicy() {
 
         {/* Section 2: How We Use Your Information */}
         <section className="py-16 bg-secondary/20">
-          <div className="w-full px-8 lg:px-16 xl:px-24">
+          <div className="w-full px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24">
             <motion.div 
               className=""
               initial="hidden"
@@ -333,7 +323,7 @@ export default function PrivacyPolicy() {
 
         {/* Section 3: Lawful Basis for Processing */}
         <section className="py-16 bg-background">
-          <div className="w-full px-8 lg:px-16 xl:px-24">
+          <div className="w-full px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24">
             <motion.div 
               className=""
               initial="hidden"
@@ -399,7 +389,7 @@ export default function PrivacyPolicy() {
 
         {/* Section 4: Data Sharing and Disclosure */}
         <section className="py-16 bg-secondary/20">
-          <div className="w-full px-8 lg:px-16 xl:px-24">
+          <div className="w-full px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24">
             <motion.div 
               className=""
               initial="hidden"
@@ -496,7 +486,7 @@ export default function PrivacyPolicy() {
 
         {/* Section 5: Data Security */}
         <section className="py-16 bg-background">
-          <div className="w-full px-8 lg:px-16 xl:px-24">
+          <div className="w-full px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24">
             <motion.div 
               className=""
               initial="hidden"
@@ -542,7 +532,7 @@ export default function PrivacyPolicy() {
 
         {/* Section 6: Data Retention */}
         <section className="py-16 bg-secondary/20">
-          <div className="w-full px-8 lg:px-16 xl:px-24">
+          <div className="w-full px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24">
             <motion.div 
               className=""
               initial="hidden"
@@ -582,7 +572,7 @@ export default function PrivacyPolicy() {
 
         {/* Section 7: Your Rights and Choices */}
         <section className="py-16 bg-background">
-          <div className="w-full px-8 lg:px-16 xl:px-24">
+          <div className="w-full px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24">
             <motion.div 
               className=""
               initial="hidden"
@@ -689,7 +679,7 @@ export default function PrivacyPolicy() {
 
         {/* Section 8: International Data Transfers */}
         <section className="py-16 bg-secondary/20">
-          <div className="w-full px-8 lg:px-16 xl:px-24">
+          <div className="w-full px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24">
             <motion.div 
               className=""
               initial="hidden"
@@ -718,7 +708,7 @@ export default function PrivacyPolicy() {
 
         {/* Section 9: Cookies */}
         <section className="py-16 bg-background">
-          <div className="w-full px-8 lg:px-16 xl:px-24">
+          <div className="w-full px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24">
             <motion.div 
               className=""
               initial="hidden"
@@ -765,7 +755,7 @@ export default function PrivacyPolicy() {
 
         {/* Section 10: Third-Party Links */}
         <section className="py-16 bg-secondary/20">
-          <div className="w-full px-8 lg:px-16 xl:px-24">
+          <div className="w-full px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24">
             <motion.div 
               className=""
               initial="hidden"
@@ -794,7 +784,7 @@ export default function PrivacyPolicy() {
 
         {/* Section 11: Children's Privacy */}
         <section className="py-16 bg-background">
-          <div className="w-full px-8 lg:px-16 xl:px-24">
+          <div className="w-full px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24">
             <motion.div 
               className=""
               initial="hidden"
@@ -826,7 +816,7 @@ export default function PrivacyPolicy() {
 
         {/* Section 12: Updates */}
         <section className="py-16 bg-secondary/20">
-          <div className="w-full px-8 lg:px-16 xl:px-24">
+          <div className="w-full px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24">
             <motion.div 
               className=""
               initial="hidden"
@@ -867,7 +857,7 @@ export default function PrivacyPolicy() {
 
         {/* Section 13 & 14: Contact Information */}
         <section className="py-16 bg-background">
-          <div className="w-full px-8 lg:px-16 xl:px-24">
+          <div className="w-full px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24">
             <motion.div 
               className=""
               initial="hidden"
