@@ -15,6 +15,7 @@ const categories = [
     id: 'ai-solutions',
     name: 'AI Solutions',
     description: 'Enterprise AI & automation tools',
+    longDescription: 'Intelligent automation and productivity tools powered by advanced AI technology. These solutions help teams collaborate better, find information faster, and build custom apps without coding, giving your organization the AI tools needed to work smarter and innovate faster.',
     icon: Brain,
     color: '#8B5CF6',
     products: [
@@ -48,6 +49,7 @@ const categories = [
     id: 'email-collaboration',
     name: 'Email & Collaboration',
     description: 'Communication & productivity suites',
+    longDescription: 'Professional email and collaboration platforms that keep your teams connected and productive. From enterprise-grade email to complete productivity suites, these solutions provide the communication tools your organization needs to collaborate seamlessly across locations and devices.',
     icon: Mail,
     color: '#38B6FF',
     products: [
@@ -352,11 +354,16 @@ function SolutionsContent({ selectedCategory }: { selectedCategory: string | nul
         </motion.div>
       )}
 
-      {/* Results Count */}
-      <p className="text-sm text-gray-500 mb-6">
-        Showing {filteredProducts.length} solution{filteredProducts.length !== 1 ? 's' : ''}
-        {searchQuery && ` for "${searchQuery}"`}
-      </p>
+      {/* Category Description or Results Count */}
+      {activeCategory && !searchQuery ? (
+        <p className="text-sm text-gray-600 mb-6 leading-relaxed">
+          {activeCategory.longDescription}
+        </p>
+      ) : searchQuery ? (
+        <p className="text-sm text-gray-500 mb-6">
+          Showing {filteredProducts.length} solution{filteredProducts.length !== 1 ? 's' : ''} for "{searchQuery}"
+        </p>
+      ) : null}
 
       {/* Products Grid */}
       {filteredProducts.length > 0 ? (
