@@ -1,7 +1,9 @@
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { useRef } from 'react';
 import { Helmet } from 'react-helmet-async';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
+import privacyBanner from '@/assets/banners/privacy-policy-banner.jpg';
 import { 
   Shield, 
   Database, 
@@ -32,6 +34,14 @@ const staggerContainer = {
 };
 
 export default function PrivacyPolicy() {
+  const heroRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ['start start', 'end start'],
+  });
+  const heroY = useTransform(scrollYProgress, [0, 1], ['0%', '30%']);
+  const heroOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+
   return (
     <>
       <Helmet>
@@ -41,24 +51,30 @@ export default function PrivacyPolicy() {
       <Header />
       <main className="min-h-screen bg-background">
         {/* Hero Section */}
-        <section className="relative py-24 md:py-32 bg-gradient-to-br from-[#0C4594] via-[#1a5ab8] to-[#0C4594] overflow-hidden">
-          <div className="absolute inset-0 opacity-10">
-            <div className="absolute inset-0" style={{
-              backgroundImage: `radial-gradient(circle at 20% 50%, rgba(255,255,255,0.1) 0%, transparent 50%),
-                               radial-gradient(circle at 80% 20%, rgba(255,255,255,0.1) 0%, transparent 50%),
-                               radial-gradient(circle at 40% 80%, rgba(255,255,255,0.1) 0%, transparent 50%)`
-            }} />
-          </div>
-          
-          <div className="container mx-auto px-4 relative z-10">
-            <motion.div 
-              className="max-w-4xl mx-auto text-center"
-              initial="hidden"
-              animate="visible"
-              variants={staggerContainer}
-            >
+        <section 
+          ref={heroRef}
+          className="relative min-h-[55vh] sm:min-h-[60vh] md:min-h-[65vh] lg:min-h-[70vh] max-h-[700px] flex items-center overflow-hidden"
+        >
+          <motion.div style={{ y: heroY }} className="absolute inset-0 z-0">
+            <img
+              src={privacyBanner}
+              alt="Privacy and data protection"
+              className="w-full h-full object-cover object-center"
+              loading="eager"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#0C4594]/95 via-[#0C4594]/80 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0C4594]/60 via-transparent to-[#0C4594]/40" />
+          </motion.div>
+
+          <motion.div 
+            style={{ opacity: heroOpacity }}
+            className="relative z-10 w-full px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24 pt-24 sm:pt-28 md:pt-32 lg:pt-36"
+          >
+            <div className="max-w-3xl">
               <motion.div 
-                variants={fadeInUp}
+                initial={{ opacity: 0, y: 28 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.1 }}
                 className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full mb-6"
               >
                 <Shield className="w-5 h-5 text-white" />
@@ -66,35 +82,41 @@ export default function PrivacyPolicy() {
               </motion.div>
               
               <motion.h1 
-                variants={fadeInUp}
-                className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-white mb-6"
+                initial={{ opacity: 0, y: 28 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="font-display text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-semibold text-white mb-3 sm:mb-4 md:mb-6 leading-[1.15] tracking-tight"
               >
                 Shivaami Cloud Services Private Limited – Privacy Policy
               </motion.h1>
               
               <motion.p 
-                variants={fadeInUp}
-                className="text-lg md:text-xl text-white/80 mb-4"
+                initial={{ opacity: 0, y: 28 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                className="text-sm sm:text-base lg:text-lg text-white/80 max-w-2xl mb-6 sm:mb-8 leading-relaxed font-body"
               >
                 Shivaami Cloud Services Pvt. Ltd. is committed to protecting the privacy 
                 and security of your personal information.
               </motion.p>
               
               <motion.p 
-                variants={fadeInUp}
+                initial={{ opacity: 0, y: 28 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
                 className="text-sm text-white/60"
               >
-                Last Updated: January 2025
+                Last Updated: January 2026
               </motion.p>
-            </motion.div>
-          </div>
+            </div>
+          </motion.div>
         </section>
 
         {/* Introduction */}
         <section className="py-16 bg-background">
-          <div className="container mx-auto px-4">
+          <div className="w-full px-8 lg:px-16 xl:px-24">
             <motion.div 
-              className="max-w-4xl mx-auto"
+              className=""
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -122,7 +144,7 @@ export default function PrivacyPolicy() {
 
         {/* Section Navigation */}
         <section className="py-8 bg-secondary/30 border-y border-border/50 sticky top-16 z-40 backdrop-blur-sm">
-          <div className="container mx-auto px-4">
+          <div className="w-full px-8 lg:px-16 xl:px-24">
             <div className="flex flex-wrap justify-center gap-2 md:gap-4">
               {[
                 { icon: Database, label: 'Collection' },
@@ -146,9 +168,9 @@ export default function PrivacyPolicy() {
 
         {/* Section 1: Information We Collect */}
         <section className="py-16 bg-background">
-          <div className="container mx-auto px-4">
+          <div className="w-full px-8 lg:px-16 xl:px-24">
             <motion.div 
-              className="max-w-4xl mx-auto"
+              className=""
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
@@ -226,9 +248,9 @@ export default function PrivacyPolicy() {
 
         {/* Section 2: How We Use Your Information */}
         <section className="py-16 bg-secondary/20">
-          <div className="container mx-auto px-4">
+          <div className="w-full px-8 lg:px-16 xl:px-24">
             <motion.div 
-              className="max-w-4xl mx-auto"
+              className=""
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
@@ -311,9 +333,9 @@ export default function PrivacyPolicy() {
 
         {/* Section 3: Lawful Basis for Processing */}
         <section className="py-16 bg-background">
-          <div className="container mx-auto px-4">
+          <div className="w-full px-8 lg:px-16 xl:px-24">
             <motion.div 
-              className="max-w-4xl mx-auto"
+              className=""
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
@@ -377,9 +399,9 @@ export default function PrivacyPolicy() {
 
         {/* Section 4: Data Sharing and Disclosure */}
         <section className="py-16 bg-secondary/20">
-          <div className="container mx-auto px-4">
+          <div className="w-full px-8 lg:px-16 xl:px-24">
             <motion.div 
-              className="max-w-4xl mx-auto"
+              className=""
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
@@ -474,9 +496,9 @@ export default function PrivacyPolicy() {
 
         {/* Section 5: Data Security */}
         <section className="py-16 bg-background">
-          <div className="container mx-auto px-4">
+          <div className="w-full px-8 lg:px-16 xl:px-24">
             <motion.div 
-              className="max-w-4xl mx-auto"
+              className=""
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
@@ -520,9 +542,9 @@ export default function PrivacyPolicy() {
 
         {/* Section 6: Data Retention */}
         <section className="py-16 bg-secondary/20">
-          <div className="container mx-auto px-4">
+          <div className="w-full px-8 lg:px-16 xl:px-24">
             <motion.div 
-              className="max-w-4xl mx-auto"
+              className=""
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
@@ -560,9 +582,9 @@ export default function PrivacyPolicy() {
 
         {/* Section 7: Your Rights and Choices */}
         <section className="py-16 bg-background">
-          <div className="container mx-auto px-4">
+          <div className="w-full px-8 lg:px-16 xl:px-24">
             <motion.div 
-              className="max-w-4xl mx-auto"
+              className=""
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
@@ -667,9 +689,9 @@ export default function PrivacyPolicy() {
 
         {/* Section 8: International Data Transfers */}
         <section className="py-16 bg-secondary/20">
-          <div className="container mx-auto px-4">
+          <div className="w-full px-8 lg:px-16 xl:px-24">
             <motion.div 
-              className="max-w-4xl mx-auto"
+              className=""
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
@@ -696,9 +718,9 @@ export default function PrivacyPolicy() {
 
         {/* Section 9: Cookies */}
         <section className="py-16 bg-background">
-          <div className="container mx-auto px-4">
+          <div className="w-full px-8 lg:px-16 xl:px-24">
             <motion.div 
-              className="max-w-4xl mx-auto"
+              className=""
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
@@ -743,9 +765,9 @@ export default function PrivacyPolicy() {
 
         {/* Section 10: Third-Party Links */}
         <section className="py-16 bg-secondary/20">
-          <div className="container mx-auto px-4">
+          <div className="w-full px-8 lg:px-16 xl:px-24">
             <motion.div 
-              className="max-w-4xl mx-auto"
+              className=""
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
@@ -772,9 +794,9 @@ export default function PrivacyPolicy() {
 
         {/* Section 11: Children's Privacy */}
         <section className="py-16 bg-background">
-          <div className="container mx-auto px-4">
+          <div className="w-full px-8 lg:px-16 xl:px-24">
             <motion.div 
-              className="max-w-4xl mx-auto"
+              className=""
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
@@ -804,9 +826,9 @@ export default function PrivacyPolicy() {
 
         {/* Section 12: Updates */}
         <section className="py-16 bg-secondary/20">
-          <div className="container mx-auto px-4">
+          <div className="w-full px-8 lg:px-16 xl:px-24">
             <motion.div 
-              className="max-w-4xl mx-auto"
+              className=""
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
@@ -845,9 +867,9 @@ export default function PrivacyPolicy() {
 
         {/* Section 13 & 14: Contact Information */}
         <section className="py-16 bg-background">
-          <div className="container mx-auto px-4">
+          <div className="w-full px-8 lg:px-16 xl:px-24">
             <motion.div 
-              className="max-w-4xl mx-auto"
+              className=""
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
