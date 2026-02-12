@@ -49,7 +49,7 @@ const categories = [
     id: 'email-collaboration',
     name: 'Email & Collaboration',
     description: 'Communication & productivity suites',
-    longDescription: 'Professional email and collaboration platforms that keep your teams connected and productive. From enterprise-grade email to complete productivity suites, these solutions provide the communication tools your organization needs to collaborate seamlessly across locations and devices.',
+    longDescription: 'Complete communication and teamwork platforms that make collaboration simple. These solutions bring together email, file sharing, video calls, and real-time collaboration in one place, helping teams stay connected and productive whether working remotely, in-office, or hybrid.',
     icon: Mail,
     color: '#38B6FF',
     products: [
