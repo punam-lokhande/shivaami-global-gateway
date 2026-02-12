@@ -116,6 +116,7 @@ import TransportationLogistics from "./pages/TransportationLogistics";
 import CloudCapabilities from "./pages/CloudCapabilities";
 import AppsScript from "./pages/AppsScript";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
+import TermsAndConditions from "./pages/TermsAndConditions";
 import GoogleWorkspacePricingIndia from "./pages/GoogleWorkspacePricingIndia";
 import SupportServices from "./pages/SupportServices";
 import SupportPackages from "./pages/SupportPackages";
@@ -267,6 +268,7 @@ const App = () => (
               <Route path="/cloud-capabilities" element={<CloudCapabilities />} />
               <Route path="/apps-script" element={<AppsScript />} />
               <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+              <Route path="/terms-of-service" element={<TermsAndConditions />} />
               <Route path="/google-workspace-pricing-india" element={<GoogleWorkspacePricingIndia />} />
               <Route path="/support" element={<SupportServices />} />
               <Route path="/support-packages" element={<SupportPackages />} />
