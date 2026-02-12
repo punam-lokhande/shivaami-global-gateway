@@ -86,7 +86,7 @@ const OnDemandWebinars = () => {
       
       {/* Hero Section */}
       <section 
-        className="relative min-h-[55vh] sm:min-h-[60vh] flex items-center bg-cover bg-center bg-no-repeat"
+        className="relative min-h-[55vh] sm:min-h-[60vh] flex items-center overflow-hidden"
         style={{ backgroundImage: `url(${webinarBanner})` }}
       >
         <div className="absolute inset-0 bg-gradient-to-r from-[#0C4594]/95 via-[#0C4594]/70 to-[#0C4594]/40" />

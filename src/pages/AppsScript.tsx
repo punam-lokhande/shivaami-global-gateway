@@ -199,7 +199,7 @@ function HeroSection() {
   }, []);
 
   return (
-   <section ref={ref} className="relative min-h-[55vh] sm:min-h-[60vh] max-h-[700px] flex items-center overflow-hidden">
+   <section ref={ref} className="relative min-h-[55vh] sm:min-h-[60vh] flex items-center overflow-hidden">
       <motion.div 
         style={{ y }}
         className="absolute inset-0 z-0"

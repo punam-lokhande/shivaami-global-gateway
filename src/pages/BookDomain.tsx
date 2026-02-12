@@ -73,7 +73,7 @@ export default function BookDomain() {
       <Header />
 
       {/* Hero Section */}
-      <section className="relative min-h-[55vh] sm:min-h-[60vh] md:min-h-[65vh] lg:min-h-[70vh] max-h-[700px] flex items-center overflow-hidden">
+      <section className="relative min-h-[55vh] sm:min-h-[60vh] flex items-center overflow-hidden">
         {/* Background Image */}
         <motion.div 
           initial={{ scale: 1.1 }}

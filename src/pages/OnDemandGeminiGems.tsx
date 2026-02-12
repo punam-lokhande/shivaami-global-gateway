@@ -14,7 +14,7 @@ const OnDemandGeminiGems = () => {
       <Header />
       
       {/* Hero Section with Background Image */}
-      <section className="relative min-h-[50vh] sm:min-h-[55vh] md:min-h-[60vh] max-h-[600px] flex items-center overflow-hidden">
+      <section className="relative min-h-[55vh] sm:min-h-[60vh] flex items-center overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0">
           <img 

@@ -37,7 +37,7 @@ function HeroSection() {
   };
 
   return (
-    <section className="relative min-h-[55vh] md:min-h-[60vh] flex items-center overflow-hidden">
+    <section className="relative min-h-[55vh] sm:min-h-[60vh] flex items-center overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0">
         <img 
