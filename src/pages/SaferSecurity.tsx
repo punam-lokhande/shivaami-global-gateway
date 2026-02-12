@@ -19,6 +19,7 @@ const categories = [
     id: 'identity-device',
     name: 'Identity & Device',
     description: 'Identity and device management solutions',
+    longDescription: 'Centralized tools that make it easy to manage who has access to what and keep devices secure. These platforms handle single sign-on, multi-factor authentication, and device management, ensuring only the right people and approved devices can access your company\'s resources.',
     icon: Users,
     color: '#8B5CF6',
     products: [
@@ -64,6 +65,7 @@ const categories = [
     id: 'endpoint-management',
     name: 'Endpoint Management',
     description: 'IT management and monitoring platforms',
+    longDescription: 'Complete IT management tools that keep your systems running smoothly. These solutions automate updates, monitor performance, manage support tickets, and fix issues proactively, helping IT teams minimize downtime and support devices across your organization efficiently.',
     icon: Settings,
     color: '#10B981',
     products: [
@@ -85,6 +87,7 @@ const categories = [
     id: 'cloud-infrastructure',
     name: 'Cloud Infrastructure',
     description: 'Enterprise cloud platforms and services',
+    longDescription: 'Flexible cloud platforms that help your business grow and adapt quickly. These solutions provide the computing power, storage, and tools you need to build and run applications reliably, whether you\'re using one cloud provider or managing multiple platforms.',
     icon: Cloud,
     color: '#38B6FF',
     products: [
@@ -118,6 +121,7 @@ const categories = [
     id: 'cyber-security',
     name: 'Cyber Security',
     description: 'Network and threat protection solutions',
+    longDescription: 'Powerful security solutions that protect your business from digital threats. These platforms provide advanced firewalls, vulnerability scanning, cloud security monitoring, and threat detection, defending your organization against ransomware, data breaches, and constantly evolving cyber attacks.',
     icon: Shield,
     color: '#EF4444',
     products: [
@@ -151,6 +155,7 @@ const categories = [
     id: 'cloud-security',
     name: 'Cloud Security',
     description: 'Security certificates and email protection',
+    longDescription: 'Specialized security tools designed to protect your email, websites, and cloud systems. These solutions handle SSL certificates, email authentication, phishing training, and cloud security, helping your organization stay safe from email attacks and meet compliance requirements.',
     icon: Lock,
     color: '#F59E0B',
     products: [
@@ -190,6 +195,7 @@ const categories = [
     id: 'chrome-solutions',
     name: 'Chrome Solutions',
     description: 'Enterprise Chrome and ChromeOS devices',
+    longDescription: 'Browser-based management tools that help organizations deploy, secure, and optimize Chrome devices and browsers. These solutions provide centralized policy management, cloud-based administration, and enterprise security controls, making it easy to manage Chromebooks, Chrome browsers, and web applications across your workforce.',
     icon: Chrome,
     color: '#0C4594',
     products: [
@@ -506,11 +512,16 @@ function SolutionsContent({ selectedCategory }: { selectedCategory: string | nul
         </motion.div>
       )}
 
-      {/* Results Count */}
-      <p className="text-sm text-gray-500 mb-6">
-        Showing {filteredProducts.length} solution{filteredProducts.length !== 1 ? 's' : ''}
-        {searchQuery && ` for "${searchQuery}"`}
-      </p>
+      {/* Category Description or Results Count */}
+      {activeCategory && !searchQuery ? (
+        <p className="text-sm text-gray-600 mb-6 leading-relaxed">
+          {activeCategory.longDescription}
+        </p>
+      ) : searchQuery ? (
+        <p className="text-sm text-gray-500 mb-6">
+          Showing {filteredProducts.length} solution{filteredProducts.length !== 1 ? 's' : ''} for "{searchQuery}"
+        </p>
+      ) : null}
 
       {/* Products Grid */}
       {filteredProducts.length > 0 ? (
