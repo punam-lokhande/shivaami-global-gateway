@@ -52,18 +52,6 @@ const RegisterWebinar = () => {
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}
-              className="rounded-2xl overflow-hidden shadow-lg"
-            >
-              <img
-                src={heroBanner}
-                alt="Webinar online meeting"
-                className="w-full h-[300px] lg:h-[360px] object-cover"
-              />
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5, delay: 0.15 }}
               className="space-y-5"
             >
               <h2 className="text-2xl md:text-3xl font-bold text-[#0C4594]">
@@ -86,6 +74,18 @@ const RegisterWebinar = () => {
                   <span>Live Webinar</span>
                 </div>
               </div>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: 0.15 }}
+              className="rounded-2xl overflow-hidden shadow-lg"
+            >
+              <img
+                src={heroBanner}
+                alt="Webinar online meeting"
+                className="w-full h-[300px] lg:h-[360px] object-cover"
+              />
             </motion.div>
           </div>
         </div>
