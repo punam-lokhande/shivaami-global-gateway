@@ -274,7 +274,7 @@ function EscalationSection() {
       color: '#38B6FF',
       regions: [
         { region: 'India', flag: IndiaFlag, email: 'support@shivaami.com', phone: '+91 775 784 1333 (Ext: 2)', googleDirect: '1800 108 7879' },
-        { region: 'USA', flag: USAFlag, email: 'usa@shivaami.com', phone: '+1 (408) 333-4844', googleDirect: '+1 650 206 5555' },
+        { region: 'USA', flag: USAFlag, email: 'na-support@shivaami.com', phone: '+1 (408) 333-4844', googleDirect: '+1 650 206 5555' },
       ],
     },
     {
