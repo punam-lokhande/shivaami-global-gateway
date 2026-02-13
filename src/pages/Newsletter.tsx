@@ -199,7 +199,7 @@ export default function Newsletter() {
                   </h1>
 
                   <p className="text-base sm:text-lg lg:text-xl text-white/70 mb-8 sm:mb-10 leading-relaxed">
-                    Get the latest IT insights and Shivaami news delivered monthly.
+                    Get the latest IT insights and Shivaami news delivered monthly with our newsletter, Shivaami Sphere.
                   </p>
 
                   {/* Benefits List */}
@@ -261,7 +261,7 @@ export default function Newsletter() {
                           type="submit"
                           className="w-full h-14 text-lg font-semibold bg-white text-[#0C4594] hover:bg-[#38B6FF] hover:text-white shadow-xl transition-all duration-300"
                         >
-                          Get Free Insights
+                          Get Latest Insights
                         </Button>
                       </form>
 
