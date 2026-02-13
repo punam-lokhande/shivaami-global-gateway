@@ -9,6 +9,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Link } from "react-router-dom";
 import nikunjPhoto from "@/assets/speakers/nikunj-thakkar.jpg";
 import heroBanner from "@/assets/banners/webinar-online-meeting.jpg";
+import nextGenAiImg from "@/assets/banners/next-gen-ai-webinar.jpg";
 
 const RegisterWebinar = () => {
   return (
@@ -82,8 +83,8 @@ const RegisterWebinar = () => {
               className="rounded-2xl overflow-hidden shadow-lg"
             >
               <img
-                src={heroBanner}
-                alt="Webinar online meeting"
+                src={nextGenAiImg}
+                alt="Next-Generation AI"
                 className="w-full h-[300px] lg:h-[360px] object-cover"
               />
             </motion.div>
