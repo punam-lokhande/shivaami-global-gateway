@@ -60,6 +60,20 @@ const RegisterWebinar = () => {
               <p className="text-gray-600 leading-relaxed">
                 Join Shivaami and Google Cloud for an exclusive webinar designed to show you how to harness the most advanced AI capabilities with Google AI Ultra for Business.
               </p>
+              <div className="space-y-3">
+                <div className="flex items-center gap-3 text-[#0C4594] font-medium">
+                  <Calendar className="w-5 h-5" />
+                  <span>Wednesday, February 19, 2026</span>
+                </div>
+                <div className="flex items-center gap-3 text-gray-700">
+                  <Clock className="w-5 h-5 text-[#0C4594]" />
+                  <span>01:00 PM – 01:45 PM EDT</span>
+                </div>
+                <div className="flex items-center gap-3 text-gray-700">
+                  <MapPin className="w-5 h-5 text-[#0C4594]" />
+                  <span>Webinar</span>
+                </div>
+              </div>
             </motion.div>
             <motion.div
               initial={{ opacity: 0, x: 20 }}
@@ -87,20 +101,6 @@ const RegisterWebinar = () => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}
             >
-              <div className="space-y-3 mb-6">
-                <div className="flex items-center gap-3 text-[#0C4594] font-medium">
-                  <Calendar className="w-5 h-5" />
-                  <span>Wednesday, February 19, 2026</span>
-                </div>
-                <div className="flex items-center gap-3 text-gray-700">
-                  <Clock className="w-5 h-5 text-[#0C4594]" />
-                  <span>01:00 PM – 01:45 PM EDT</span>
-                </div>
-                <div className="flex items-center gap-3 text-gray-700">
-                  <MapPin className="w-5 h-5 text-[#0C4594]" />
-                  <span>Webinar</span>
-                </div>
-              </div>
 
               <div className="bg-gradient-to-r from-[#38B6FF]/10 to-[#0C4594]/10 border border-[#38B6FF]/30 rounded-xl p-4 mb-8">
                 <div className="flex items-start gap-3">
