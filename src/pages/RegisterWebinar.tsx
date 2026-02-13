@@ -60,20 +60,6 @@ const RegisterWebinar = () => {
               <p className="text-gray-600 leading-relaxed">
                 Join Shivaami and Google Cloud for an exclusive webinar designed to show you how to harness the most advanced AI capabilities with Google AI Ultra for Business.
               </p>
-              <div className="flex flex-wrap gap-3">
-                <div className="flex items-center gap-2 bg-[#38B6FF]/10 text-[#0C4594] font-medium text-sm rounded-full px-4 py-2">
-                  <Calendar className="w-4 h-4" />
-                  <span>Feb 19, 2026</span>
-                </div>
-                <div className="flex items-center gap-2 bg-[#38B6FF]/10 text-[#0C4594] font-medium text-sm rounded-full px-4 py-2">
-                  <Clock className="w-4 h-4" />
-                  <span>01:00 PM EDT</span>
-                </div>
-                <div className="flex items-center gap-2 bg-[#38B6FF]/10 text-[#0C4594] font-medium text-sm rounded-full px-4 py-2">
-                  <Play className="w-4 h-4" />
-                  <span>Live Webinar</span>
-                </div>
-              </div>
             </motion.div>
             <motion.div
               initial={{ opacity: 0, x: 20 }}
