@@ -38,9 +38,19 @@ const RegisterWebinar = () => {
             <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-white mb-2 sm:mb-3 leading-tight">
               Beyond the Basics:
             </h1>
-            <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-[#38B6FF] drop-shadow-lg leading-tight">
+            <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-[#38B6FF] drop-shadow-lg leading-tight mb-6">
               Unlocking Next-Generation AI with Google AI Ultra
             </h2>
+            <Button
+              asChild
+              size="lg"
+              className="bg-white hover:bg-white/90 text-[#0C4594] font-semibold px-8 py-6 text-base group rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
+            >
+              <a href="#registration-form">
+                Register Now
+                <ChevronRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </a>
+            </Button>
           </motion.div>
         </div>
       </section>
@@ -236,7 +246,7 @@ const RegisterWebinar = () => {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="lg:sticky lg:top-32 h-fit"
             >
-              <div className="bg-white rounded-2xl shadow-xl border border-gray-200 overflow-hidden">
+              <div id="registration-form" className="bg-white rounded-2xl shadow-xl border border-gray-200 overflow-hidden scroll-mt-28">
                 <div className="bg-gradient-to-r from-[#0C4594] to-[#1a5cb8] p-6">
                   <h3 className="text-xl font-bold text-white">Register Now</h3>
                   <p className="text-white/80 text-sm mt-1">Secure your spot for this exclusive webinar</p>
