@@ -1,6 +1,7 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
-import { Target, Lightbulb, Users, Shield, Zap, ArrowRight, Award, CheckCircle2 } from 'lucide-react';
+import { Target, Lightbulb, ArrowRight } from 'lucide-react';
+import WhyShivaamiSection from '@/components/sections/WhyShivaamiSection';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import { Button } from '@/components/ui/button';
@@ -197,49 +198,6 @@ function VisionMissionSection() {
   );
 }
 
-// Why Choose Us Section
-function WhyChooseUsSection() {
-  const features = [
-    { icon: Shield, title: 'Authorized Partner', desc: 'Certified partnerships with leading technology brands' },
-    { icon: Users, title: 'Expert Team', desc: 'Directly trained by technology partners' },
-    { icon: Zap, title: 'Innovative Solutions', desc: 'Cutting-edge cloud and AI solutions' },
-    { icon: CheckCircle2, title: 'Customer Focus', desc: 'Passion to fulfill customer needs effectively' },
-  ];
-
-  return (
-    <section className="py-20 bg-white">
-      <div className="w-full px-8 lg:px-16 xl:px-24">
-        <motion.div {...fadeInUp} className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#0C4594] mb-4">
-            Why Choose Shivaami
-          </h2>
-        </motion.div>
-
-        <motion.div {...staggerContainer} className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-          {features.map((feature, idx) => {
-            const Icon = feature.icon;
-            return (
-              <motion.div
-                key={idx}
-                variants={{
-                  initial: { opacity: 0, y: 20 },
-                  whileInView: { opacity: 1, y: 0 }
-                }}
-                className="bg-[#f8fafc] rounded-2xl p-6 text-center hover:shadow-lg transition-all duration-300 group"
-              >
-                <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-[#0C4594] to-[#1b9dd8] flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                  <Icon className="w-7 h-7 text-white" />
-                </div>
-                <h3 className="text-lg font-semibold text-[#0C4594] mb-2">{feature.title}</h3>
-                <p className="text-sm text-[#475569]">{feature.desc}</p>
-              </motion.div>
-            );
-          })}
-        </motion.div>
-      </div>
-    </section>
-  );
-}
 
 // CTA Section
 function CTASection() {
@@ -280,7 +238,7 @@ export default function AboutUs() {
         <HeroSection />
         <StorySection />
         <VisionMissionSection />
-        <WhyChooseUsSection />
+        <WhyShivaamiSection />
         <CTASection />
       </main>
       <Footer />
