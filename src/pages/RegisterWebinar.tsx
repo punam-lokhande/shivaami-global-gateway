@@ -44,7 +44,54 @@ const RegisterWebinar = () => {
         </div>
       </section>
 
-      {/* Hero Section - Two Column */}
+      {/* Image + Intro Strip */}
+      <section className="py-10 lg:py-14 bg-white">
+        <div className="w-full px-6 sm:px-8 lg:px-16 xl:px-24">
+          <div className="grid lg:grid-cols-2 gap-10 items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5 }}
+              className="rounded-2xl overflow-hidden shadow-lg"
+            >
+              <img
+                src={heroBanner}
+                alt="Webinar online meeting"
+                className="w-full h-[300px] lg:h-[360px] object-cover"
+              />
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: 0.15 }}
+              className="space-y-5"
+            >
+              <h2 className="text-2xl md:text-3xl font-bold text-[#0C4594]">
+                Beyond the Basics: Unlocking Next-Generation AI
+              </h2>
+              <p className="text-gray-600 leading-relaxed">
+                Join Shivaami and Google Cloud for an exclusive webinar designed to show you how to harness the most advanced AI capabilities with Google AI Ultra for Business.
+              </p>
+              <div className="flex flex-wrap gap-3">
+                <div className="flex items-center gap-2 bg-[#38B6FF]/10 text-[#0C4594] font-medium text-sm rounded-full px-4 py-2">
+                  <Calendar className="w-4 h-4" />
+                  <span>Feb 19, 2026</span>
+                </div>
+                <div className="flex items-center gap-2 bg-[#38B6FF]/10 text-[#0C4594] font-medium text-sm rounded-full px-4 py-2">
+                  <Clock className="w-4 h-4" />
+                  <span>01:00 PM EDT</span>
+                </div>
+                <div className="flex items-center gap-2 bg-[#38B6FF]/10 text-[#0C4594] font-medium text-sm rounded-full px-4 py-2">
+                  <Play className="w-4 h-4" />
+                  <span>Live Webinar</span>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Details + Registration Section */}
       <section className="py-12 lg:py-16 bg-gradient-to-br from-gray-50 to-white">
         <div className="w-full px-6 sm:px-8 lg:px-16 xl:px-24">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
