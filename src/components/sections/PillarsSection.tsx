@@ -39,9 +39,9 @@ const pillars = [
       { name: 'Cloud Security', desc: 'Enterprise-grade protection you can trust', link: '/safer-security?category=cloud-security' },
       { name: 'Chrome Solutions', desc: 'Complete Chrome hardware & enterprise management', link: '/safer-security?category=chrome-solutions' },
     ],
-    gradient: 'from-blue-700 via-blue-600 to-blue-500',
-    lightGradient: 'from-blue-600/10 to-blue-400/10',
-    iconColor: 'text-blue-600',
+    gradient: 'from-teal-600 via-teal-500 to-teal-400',
+    lightGradient: 'from-teal-500/10 to-teal-400/10',
+    iconColor: 'text-teal-500',
     image: safer,
   },
   {
