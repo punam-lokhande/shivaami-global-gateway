@@ -60,9 +60,9 @@ const pillars = [
       { name: 'Support Packages', desc: 'Tailored packages for expert IT support', link: '/support-packages' },
       { name: 'AppScript', desc: 'Custom scripts to automate your applications', link: '/apps-script' },
     ],
-    gradient: 'from-sky-500 via-sky-400 to-teal-400',
-    lightGradient: 'from-sky-400/10 to-teal-400/10',
-    iconColor: 'text-sky-400',
+    gradient: 'from-sky-500 via-cyan-400 to-sky-400',
+    lightGradient: 'from-sky-400/10 to-cyan-400/10',
+    iconColor: 'text-cyan-400',
     image: smoother,
   },
 ];
