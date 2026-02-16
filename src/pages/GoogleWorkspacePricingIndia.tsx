@@ -1,6 +1,7 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef, useState } from 'react';
 import { Check, ArrowRight, HelpCircle, ChevronDown, Phone, MapPin, Award, Users, Clock, Building2, CreditCard, Mail, Shield, Zap, Star, Sparkles, Play } from 'lucide-react';
+import WhyShivaamiSectionShared from '@/components/sections/WhyShivaamiSection';
 import { Button } from '@/components/ui/button';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
@@ -326,68 +327,6 @@ function PricingSection() {
   );
 }
 
-// Why Choose Shivaami Section
-function WhyShivaamiSection() {
-  const strengths = [
-    { icon: Clock, value: "22", label: "Years of cloud technology experience" },
-    { icon: Award, value: "250+", label: "Google Certified Professionals" },
-    { icon: Phone, value: "24x7", label: "Customer support available" },
-    { icon: Building2, value: "5", label: "Offices across India & USA" },
-    { icon: Users, value: "20,000+", label: "Satisfied customers" },
-    { icon: Star, value: "6", label: "Years as Award-winning Google Cloud Partner" },
-  ];
-
-  return (
-    <section className="py-20 bg-white">
-      <div className="w-full px-8 lg:px-16 xl:px-24">
-        <motion.div {...fadeInUp} className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#0C4594] mb-4">
-            Why Choose Shivaami?
-          </h2>
-          <p className="text-[#64748b] max-w-2xl mx-auto">
-            Shivaami is a leading cloud solutions company. We've been helping businesses since 2004. 
-            We're an authorized Google Workspace reseller in India.
-          </p>
-        </motion.div>
-
-        <motion.div {...staggerContainer} className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
-          {strengths.map((item, idx) => {
-            const Icon = item.icon;
-            return (
-              <motion.div
-                key={idx}
-                variants={{
-                  initial: { opacity: 0, y: 20 },
-                  whileInView: { opacity: 1, y: 0 }
-                }}
-                className="flex items-center gap-4 bg-gradient-to-br from-[#f8fafc] to-white p-6 rounded-2xl border border-[#e2e8f0] hover:shadow-lg hover:border-[#38B6FF]/30 transition-all duration-300"
-              >
-                <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-[#0C4594] to-[#38B6FF] flex items-center justify-center flex-shrink-0">
-                  <Icon className="w-7 h-7 text-white" />
-                </div>
-                <div>
-                  <div className="text-3xl font-bold text-[#0C4594]">{item.value}</div>
-                  <p className="text-sm text-[#64748b]">{item.label}</p>
-                </div>
-              </motion.div>
-            );
-          })}
-        </motion.div>
-
-        {/* Office Locations */}
-        <motion.div {...fadeInUp} className="mt-12 text-center">
-          <p className="text-[#475569] flex items-center justify-center gap-2 flex-wrap">
-            <MapPin className="w-5 h-5 text-[#38B6FF]" />
-            <span><strong>India:</strong> Mumbai, Bengaluru, Chennai, Delhi</span>
-            <span className="mx-2">|</span>
-            <span><strong>USA:</strong> New Jersey</span>
-          </p>
-        </motion.div>
-      </div>
-    </section>
-  );
-}
-
 // FAQ Section
 function FAQSection() {
   const faqs = [
@@ -552,7 +491,7 @@ export default function GoogleWorkspacePricingIndia() {
       <main>
         <HeroSection />
         <PricingSection />
-        <WhyShivaamiSection />
+        <WhyShivaamiSectionShared />
         <FAQSection />
         <CTASection />
       </main>
