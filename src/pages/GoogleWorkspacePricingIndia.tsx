@@ -1,6 +1,7 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef, useState } from 'react';
 import { Check, ArrowRight, HelpCircle, ChevronDown, Phone, MapPin, Award, Users, Clock, Building2, CreditCard, Mail, Shield, Zap, Star, Sparkles, Play } from 'lucide-react';
+import CTASectionShared from '@/components/sections/CTASection';
 import WhyShivaamiSectionShared from '@/components/sections/WhyShivaamiSection';
 import { Button } from '@/components/ui/button';
 import Header from '@/components/layout/Header';
@@ -422,62 +423,6 @@ function FAQSection() {
   );
 }
 
-// CTA Section
-function CTASection() {
-  return (
-    <section className="py-20 bg-[#f8fafc]">
-      <div className="w-full px-8 lg:px-16 xl:px-24">
-        <motion.div {...fadeInUp} className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#0C4594] mb-6">
-            Ready to Get Started?
-          </h2>
-          <p className="text-lg text-[#64748b] mb-8">
-            Contact our team today to get personalized pricing and expert guidance for your Google Workspace deployment.
-          </p>
-          
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10">
-            <Link to="/contact">
-              <Button
-                size="lg"
-                className="bg-gradient-to-r from-[#38B6FF] to-[#0C4594] hover:opacity-90 text-white font-semibold px-10 py-6 text-lg group rounded-xl shadow-lg"
-              >
-                Contact Sales
-                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </Button>
-            </Link>
-            <a href="tel:+917757841333">
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-[#0C4594] text-[#0C4594] hover:bg-[#0C4594]/5 font-semibold px-10 py-6 text-lg rounded-xl"
-              >
-                <Phone className="mr-2 w-5 h-5" />
-                +91 775 784 1333
-              </Button>
-            </a>
-          </div>
-
-          {/* Trust badges */}
-          <div className="flex flex-wrap items-center justify-center gap-8 text-sm text-[#64748b]">
-            <div className="flex items-center gap-2">
-              <Shield className="w-5 h-5 text-[#38B6FF]" />
-              <span>Google Cloud Partner</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <Award className="w-5 h-5 text-[#38B6FF]" />
-              <span>6x Award Winner</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <Users className="w-5 h-5 text-[#38B6FF]" />
-              <span>20,000+ Customers</span>
-            </div>
-          </div>
-        </motion.div>
-      </div>
-    </section>
-  );
-}
-
 // Main Page Component
 export default function GoogleWorkspacePricingIndia() {
   return (
@@ -493,7 +438,7 @@ export default function GoogleWorkspacePricingIndia() {
         <PricingSection />
         <WhyShivaamiSectionShared />
         <FAQSection />
-        <CTASection />
+        <CTASectionShared />
       </main>
       <Footer />
     </>
