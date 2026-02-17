@@ -87,7 +87,7 @@ function HeroSection() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-sm sm:text-base lg:text-lg text-white/80 max-w-2xl mb-6 sm:mb-8 leading-relaxed font-body"
           >
-           Google AI Ultra delivers enterprise-grade artificial intelligence across Gmail, Docs, Sheets, and Meet, powering smarter workflows with advanced automation. As a certified Google Cloud partner, Shivaami enables seamless deployment and adoption across organizations.
+           Google AI Ultra delivers enterprise-grade AI across Gmail, Docs, Sheets, and Meet, automating workflows. As a certified Google Cloud partner, Shivaami enables seamless deployment and adoption across organizations.
           </motion.p>
 
           <motion.div
