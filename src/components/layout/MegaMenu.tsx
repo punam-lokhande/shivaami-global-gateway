@@ -151,7 +151,7 @@ const menuContent: Record<string, MenuContent> = {
             href: '/safer-security?category=cloud-security',
             subItems: [
               { icon: Shield, label: 'SSL Certificates', desc: 'Secure connections', href: '/ssl-certificates' },
-              { icon: Lock, label: 'GoSimulator', desc: 'Security simulation', href: '/gosimulator' },
+              
               { icon: Mail, label: 'GoDmarc', desc: 'Email authentication', href: '/godmarc' },
               { icon: Shield, label: 'VMC', desc: 'Verified Mark Certificates', href: '/vmc' },
               { icon: Globe, label: 'Book a Domain', desc: 'Secure your digital identity', href: '/book-domain' },

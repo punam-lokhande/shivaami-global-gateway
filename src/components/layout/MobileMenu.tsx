@@ -89,7 +89,7 @@ const mobileMenuData = [
             href: '/safer-security?category=cloud-security',
             subItems: [
               { label: 'SSL Certificates', href: '/ssl-certificates' },
-              { label: 'GoSimulator', href: '/gosimulator' },
+              
               { label: 'GoDmarc', href: '/godmarc' },
               { label: 'VMC', href: '/vmc' },
               { label: 'Book a Domain', href: '/book-domain' },
