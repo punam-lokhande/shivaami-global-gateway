@@ -1,12 +1,12 @@
 import { motion, useInView } from 'framer-motion';
-import { useRef, useState } from 'react';
+import { useRef, useState, useCallback, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { 
   Heart, Banknote, ShoppingCart, Factory, 
   Megaphone, Cpu, Hotel, Truck,
-  ArrowRight, Sparkles
+  ArrowRight, Sparkles, ChevronLeft, ChevronRight
 } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import useEmblaCarousel from 'embla-carousel-react';
 
 // Import industry images
 import healthcareImg from '@/assets/industries/healthcare.jpg';
@@ -77,14 +77,105 @@ const industries = [
   },
 ];
 
+function IndustryCard({ industry, index, isInView, hoveredIndex, setHoveredIndex }: {
+  industry: typeof industries[0];
+  index: number;
+  isInView: boolean;
+  hoveredIndex: number | null;
+  setHoveredIndex: (i: number | null) => void;
+}) {
+  const Icon = industry.icon;
+  const isHovered = hoveredIndex === index;
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 40 }}
+      animate={isInView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.5, delay: index * 0.08 }}
+      onMouseEnter={() => setHoveredIndex(index)}
+      onMouseLeave={() => setHoveredIndex(null)}
+      className="group h-full"
+    >
+      <Link to={industry.href} className="block h-full">
+        <div className={`
+          bg-card border border-border/50 rounded-2xl h-full cursor-pointer relative overflow-hidden
+          transition-all duration-500 shadow-soft hover:shadow-elevated hover:-translate-y-2
+          ${isHovered ? 'border-primary/30' : ''}
+        `}>
+          {/* Industry Image */}
+          <div className="relative h-36 overflow-visible">
+            <div className="absolute inset-0 overflow-hidden rounded-t-2xl">
+              <img 
+                src={industry.image} 
+                alt={industry.name}
+                className={`w-full h-full object-cover transition-transform duration-700 ${isHovered ? 'scale-110' : 'scale-100'}`}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-blue-600/60 via-blue-500/30 to-transparent" />
+            </div>
+            
+            {/* Floating Icon */}
+            <div className="absolute -bottom-5 left-4 z-10">
+              <div className={`
+                w-10 h-10 rounded-xl flex items-center justify-center shadow-lg ring-4 ring-background
+                transition-all duration-300
+                ${isHovered ? 'bg-gradient-to-br from-primary to-accent scale-110' : 'bg-gradient-to-br from-blue-600 to-sky-500'}
+              `}>
+                <Icon className="w-5 h-5 text-white" />
+              </div>
+            </div>
+          </div>
+
+          {/* Content */}
+          <div className="p-4 pt-7">
+            <h3 className="font-display font-semibold text-foreground mb-1">
+              {industry.name}
+            </h3>
+            <p className={`
+              text-sm text-muted-foreground transition-all duration-300 leading-relaxed
+              ${isHovered ? 'opacity-100' : 'opacity-80'}
+            `}>
+              {industry.description}
+            </p>
+          </div>
+
+          {/* Hover glow effect */}
+          <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
+            <div className="absolute inset-0 bg-gradient-to-t from-primary/5 to-accent/5" />
+          </div>
+        </div>
+      </Link>
+    </motion.div>
+  );
+}
+
 export default function IndustriesSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const [selectedDot, setSelectedDot] = useState(0);
+
+  const [emblaRef, emblaApi] = useEmblaCarousel({ 
+    align: 'start',
+    containScroll: 'trimSnaps',
+    loop: false,
+  });
+
+  const scrollPrev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi]);
+  const scrollNext = useCallback(() => emblaApi?.scrollNext(), [emblaApi]);
+
+  useEffect(() => {
+    if (!emblaApi) return;
+    const onSelect = () => setSelectedDot(emblaApi.selectedScrollSnap());
+    emblaApi.on('select', onSelect);
+    onSelect();
+    return () => { emblaApi.off('select', onSelect); };
+  }, [emblaApi]);
+
+  const dotCount = emblaApi?.scrollSnapList().length || 0;
 
   return (
     <section ref={ref} className="py-24 bg-gradient-to-b from-background via-secondary/20 to-background relative overflow-hidden">
-      {/* Background decoration - matching Pillars section */}
+      {/* Background decoration */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
         <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-accent/5 rounded-full blur-3xl" />
@@ -106,77 +197,57 @@ export default function IndustriesSection() {
           </p>
         </motion.div>
 
-        {/* Bento Grid with Images */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
-          {industries.map((industry, index) => {
-            const Icon = industry.icon;
-            const isHovered = hoveredIndex === index;
-            
-            return (
-              <motion.div
-                key={industry.name}
-                initial={{ opacity: 0, y: 40 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.5, delay: index * 0.08 }}
-                onMouseEnter={() => setHoveredIndex(index)}
-                onMouseLeave={() => setHoveredIndex(null)}
-                className="group"
-              >
-                <Link to={industry.href} className="block h-full">
-                  <div className={`
-                    bg-card border border-border/50 rounded-2xl h-full cursor-pointer relative overflow-hidden
-                    transition-all duration-500 shadow-soft hover:shadow-elevated hover:-translate-y-2
-                    ${isHovered ? 'border-primary/30' : ''}
-                  `}>
-                    {/* Industry Image */}
-                    <div className="relative h-36 overflow-visible">
-                      <div className="absolute inset-0 overflow-hidden rounded-t-2xl">
-                        <img 
-                          src={industry.image} 
-                          alt={industry.name}
-                          className={`w-full h-full object-cover transition-transform duration-700 ${isHovered ? 'scale-110' : 'scale-100'}`}
-                        />
-                        {/* Gradient overlay matching Pillars style */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-blue-600/60 via-blue-500/30 to-transparent" />
-                      </div>
-                      
-                      {/* Floating Icon - matching Pillars style */}
-                      <div className="absolute -bottom-5 left-4 z-10">
-                        <div className={`
-                          w-10 h-10 rounded-xl flex items-center justify-center shadow-lg ring-4 ring-background
-                          transition-all duration-300
-                          ${isHovered ? 'bg-gradient-to-br from-primary to-accent scale-110' : 'bg-gradient-to-br from-blue-600 to-sky-500'}
-                        `}>
-                          <Icon className="w-5 h-5 text-white" />
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Content */}
-                    <div className="p-4 pt-7">
-                      <h3 className="font-display font-semibold text-foreground mb-1">
-                        {industry.name}
-                      </h3>
-
-                      <p className={`
-                        text-sm text-muted-foreground transition-all duration-300 leading-relaxed
-                        ${isHovered ? 'opacity-100' : 'opacity-80'}
-                      `}>
-                        {industry.description}
-                      </p>
-                    </div>
-
-                    {/* Hover glow effect */}
-                    <div className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none`}>
-                      <div className="absolute inset-0 bg-gradient-to-t from-primary/5 to-accent/5" />
-                    </div>
-                  </div>
-                </Link>
-              </motion.div>
-            );
-          })}
+        {/* Desktop Grid - hidden on mobile */}
+        <div className="hidden md:grid md:grid-cols-4 gap-6 mb-12">
+          {industries.map((industry, index) => (
+            <IndustryCard
+              key={industry.name}
+              industry={industry}
+              index={index}
+              isInView={isInView}
+              hoveredIndex={hoveredIndex}
+              setHoveredIndex={setHoveredIndex}
+            />
+          ))}
         </div>
 
+        {/* Mobile Slider - shown only on mobile */}
+        <div className="md:hidden mb-12">
+          <div className="overflow-hidden" ref={emblaRef}>
+            <div className="flex gap-4">
+              {industries.map((industry, index) => (
+                <div key={industry.name} className="flex-[0_0_80%] min-w-0">
+                  <IndustryCard
+                    industry={industry}
+                    index={index}
+                    isInView={isInView}
+                    hoveredIndex={hoveredIndex}
+                    setHoveredIndex={setHoveredIndex}
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Dots + Arrows */}
+          <div className="flex items-center justify-center gap-4 mt-6">
+            <button onClick={scrollPrev} className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-primary/20 transition-colors">
+              <ChevronLeft className="w-4 h-4" />
+            </button>
+            <div className="flex gap-1.5">
+              {Array.from({ length: dotCount }).map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => emblaApi?.scrollTo(i)}
+                  className={`h-2 rounded-full transition-all ${i === selectedDot ? 'w-6 bg-primary' : 'w-2 bg-primary/30'}`}
+                />
+              ))}
+            </div>
+            <button onClick={scrollNext} className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-primary/20 transition-colors">
+              <ChevronRight className="w-4 h-4" />
+            </button>
+          </div>
+        </div>
       </div>
     </section>
   );
