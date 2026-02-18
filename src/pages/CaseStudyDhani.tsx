@@ -39,7 +39,6 @@ const CaseStudyDhani = () => {
     <div className="min-h-screen bg-white">
       <Header />
       
-      {/* Hero Section with Background Image */}
       <section 
         className="relative min-h-[60vh] flex items-center bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `linear-gradient(to right, rgba(12, 69, 148, 0.95) 0%, rgba(12, 69, 148, 0.7) 50%, rgba(12, 69, 148, 0.4) 100%), url(${caseStudiesBanner})` }}
@@ -71,7 +70,6 @@ const CaseStudyDhani = () => {
         </div>
       </section>
 
-      {/* Business Info Strip */}
       <section className="bg-gray-50 border-b border-gray-200">
         <div className="w-full px-8 lg:px-16 xl:px-24">
           <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-gray-200">
@@ -97,58 +95,7 @@ const CaseStudyDhani = () => {
         </div>
       </section>
 
-      {/* Implementation Highlights with Image */}
-      <section className="py-12 sm:py-16">
-        <div className="w-full px-8 lg:px-16 xl:px-24">
-          <div className="grid lg:grid-cols-2 gap-8 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-            >
-              <h2 className="text-2xl sm:text-3xl font-bold text-[#0C4594] mb-3">
-                What We Implemented
-              </h2>
-              <div className="w-16 h-1 bg-gradient-to-r from-[#0C4594] to-[#38B6FF] rounded-full mb-6" />
-              
-              <div className="grid sm:grid-cols-2 gap-3">
-                {highlights.map((item, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, y: 10 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: index * 0.05 }}
-                    className="flex items-start gap-2 p-3 bg-gradient-to-br from-[#0C4594]/5 to-[#38B6FF]/5 rounded-lg border border-[#0C4594]/10"
-                  >
-                    <CheckCircle2 className="w-4 h-4 text-[#38B6FF] flex-shrink-0 mt-0.5" />
-                    <span className="text-sm text-gray-700">{item}</span>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="relative rounded-2xl overflow-hidden shadow-xl"
-            >
-              <img 
-                src={googleWorkspaceBanner} 
-                alt="Google Workspace Healthcare Implementation" 
-                className="w-full h-64 lg:h-80 object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0C4594]/60 to-transparent" />
-              <div className="absolute bottom-4 left-4 right-4">
-                <p className="text-white font-medium text-sm">Enterprise healthcare collaboration</p>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Challenges & Solutions - Compact */}
+      {/* Challenges & Solutions - Now First */}
       <section className="py-12 sm:py-16 bg-gray-50">
         <div className="w-full px-8 lg:px-16 xl:px-24">
           <div className="grid md:grid-cols-2 gap-8">
@@ -235,7 +182,57 @@ const CaseStudyDhani = () => {
         </div>
       </section>
 
-      {/* Results */}
+      {/* What We Implemented - Now Second */}
+      <section className="py-12 sm:py-16">
+        <div className="w-full px-8 lg:px-16 xl:px-24">
+          <div className="grid lg:grid-cols-2 gap-8 items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+            >
+              <h2 className="text-2xl sm:text-3xl font-bold text-[#0C4594] mb-3">
+                What We Implemented
+              </h2>
+              <div className="w-16 h-1 bg-gradient-to-r from-[#0C4594] to-[#38B6FF] rounded-full mb-6" />
+              
+              <div className="grid sm:grid-cols-2 gap-3">
+                {highlights.map((item, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.05 }}
+                    className="flex items-start gap-2 p-3 bg-gradient-to-br from-[#0C4594]/5 to-[#38B6FF]/5 rounded-lg border border-[#0C4594]/10"
+                  >
+                    <CheckCircle2 className="w-4 h-4 text-[#38B6FF] flex-shrink-0 mt-0.5" />
+                    <span className="text-sm text-gray-700">{item}</span>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="relative rounded-2xl overflow-hidden shadow-xl"
+            >
+              <img 
+                src={googleWorkspaceBanner} 
+                alt="Google Workspace Healthcare Implementation" 
+                className="w-full h-64 lg:h-80 object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0C4594]/60 to-transparent" />
+              <div className="absolute bottom-4 left-4 right-4">
+                <p className="text-white font-medium text-sm">Enterprise healthcare collaboration</p>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
       <section className="py-12 sm:py-16 bg-gradient-to-br from-[#0C4594] to-[#1a5cb8]">
         <div className="w-full px-8 lg:px-16 xl:px-24">
           <motion.div
@@ -271,7 +268,6 @@ const CaseStudyDhani = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
       <section className="py-12 sm:py-16">
         <div className="w-full px-8 lg:px-16 xl:px-24">
           <motion.div
