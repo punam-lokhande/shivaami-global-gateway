@@ -300,7 +300,7 @@ export default function MegaMenu({ activeKey, anchorRect, onClose }: MegaMenuPro
       exit={{ opacity: 0, y: -8 }}
       transition={{ duration: 0.2, ease: 'easeOut' }}
       style={{ left: leftPosition, top: topPx, maxWidth: menuWidth }}
-      className="fixed bg-card border border-border rounded-2xl shadow-elevated z-[90] overflow-visible"
+      className="fixed bg-card border border-border rounded-2xl shadow-elevated z-[90] overflow-visible max-h-[calc(100vh-80px)]"
       onMouseLeave={onClose}
     >
       <div className="flex">
@@ -412,13 +412,24 @@ export default function MegaMenu({ activeKey, anchorRect, onClose }: MegaMenuPro
                               const spaceOnRight = hoveredItemRect ? viewportWidth - hoveredItemRect.right : 300;
                               const showOnLeft = spaceOnRight < submenuWidth + 20;
                               
+                              // Calculate vertical position to keep submenu within viewport
+                              const estimatedSubmenuHeight = (item.subItems?.length || 0) * 56 + 48; // approx height per item + header + padding
+                              const viewportHeight = typeof window !== 'undefined' ? window.innerHeight : 768;
+                              const itemTop = hoveredItemRect?.top ?? 0;
+                              const spaceBelow = viewportHeight - itemTop - 16; // 16px bottom margin
+                              let topOffset = 0;
+                              if (spaceBelow < estimatedSubmenuHeight) {
+                                topOffset = Math.max(-(estimatedSubmenuHeight - spaceBelow), -(itemTop - 100));
+                              }
+                              
                               return (
                                 <motion.div
                                   initial={{ opacity: 0, x: showOnLeft ? 10 : -10, scale: 0.95 }}
                                   animate={{ opacity: 1, x: 0, scale: 1 }}
                                   exit={{ opacity: 0, x: showOnLeft ? 10 : -10, scale: 0.95 }}
                                   transition={{ duration: 0.15, ease: 'easeOut' }}
-                                  className={`absolute top-0 w-56 bg-card rounded-xl border border-border shadow-2xl p-2 z-[100] ${
+                                  style={{ top: topOffset }}
+                                  className={`absolute w-56 bg-card rounded-xl border border-border shadow-2xl p-2 z-[100] max-h-[calc(100vh-120px)] overflow-y-auto ${
                                     showOnLeft ? 'right-full mr-2' : 'left-full ml-2'
                                   }`}
                                   onMouseEnter={() => setHoveredItem(itemKey)}
