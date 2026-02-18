@@ -92,7 +92,7 @@ export default function BookDomain() {
         </motion.div>
 
         {/* Content */}
-        <div className="relative z-10 w-full px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24 pt-24 sm:pt-28 md:pt-32 lg:pt-36">
+        <div className="relative z-10 w-full px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24 pt-24 sm:pt-28 md:pt-32 lg:pt-36 pb-16 sm:pb-20 md:pb-24 lg:pb-28">
           <div className="max-w-3xl">
             <motion.h1
               initial={{ opacity: 0, y: 28 }}
