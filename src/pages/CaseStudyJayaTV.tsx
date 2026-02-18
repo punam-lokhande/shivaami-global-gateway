@@ -97,141 +97,47 @@ const CaseStudyJayaTV = () => {
         </div>
       </section>
 
-      {/* Implementation Highlights with Image */}
-      <section className="py-12 sm:py-16">
+      {/* Challenges & Solutions - Now First */}
+      <section className="py-12 sm:py-16 bg-gray-50">
         <div className="w-full px-8 lg:px-16 xl:px-24">
-          <div className="grid lg:grid-cols-2 gap-8 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-            >
-              <h2 className="text-2xl sm:text-3xl font-bold text-[#0C4594] mb-3">
-                What We Implemented
-              </h2>
-              <div className="w-16 h-1 bg-gradient-to-r from-[#0C4594] to-[#38B6FF] rounded-full mb-6" />
-              
-              <div className="grid sm:grid-cols-2 gap-3">
-                {highlights.map((item, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, y: 10 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: index * 0.05 }}
-                    className="flex items-start gap-2 p-3 bg-gradient-to-br from-[#0C4594]/5 to-[#38B6FF]/5 rounded-lg border border-[#0C4594]/10"
-                  >
-                    <CheckCircle2 className="w-4 h-4 text-[#38B6FF] flex-shrink-0 mt-0.5" />
-                    <span className="text-sm text-gray-700">{item}</span>
-                  </motion.div>
-                ))}
+          <div className="grid md:grid-cols-2 gap-8">
+            <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}>
+              <motion.div className="flex items-center gap-2 mb-4" initial={{ opacity: 0, scale: 0.8 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.4 }}>
+                <motion.div className="w-10 h-10 rounded-lg bg-red-100 flex items-center justify-center" whileHover={{ scale: 1.1, rotate: 5 }} transition={{ type: "spring", stiffness: 300 }}><AlertTriangle className="w-5 h-5 text-red-600" /></motion.div>
+                <h2 className="text-xl font-bold text-[#0C4594]">Challenges</h2>
+              </motion.div>
+              <div className="space-y-3">
+                {challenges.map((challenge, index) => (<motion.div key={index} className="p-3 bg-white rounded-lg border-l-4 border-red-400 shadow-sm hover:shadow-md hover:border-red-500 transition-all cursor-default" initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.15, duration: 0.4 }} whileHover={{ x: 5, scale: 1.02 }}><p className="text-sm text-gray-700">{challenge}</p></motion.div>))}
               </div>
             </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="relative rounded-2xl overflow-hidden shadow-xl"
-            >
-              <img 
-                src={googleWorkspaceBanner} 
-                alt="Broadcasting Platform" 
-                className="w-full h-64 lg:h-80 object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0C4594]/60 to-transparent" />
-              <div className="absolute bottom-4 left-4 right-4">
-                <p className="text-white font-medium text-sm">Modern collaboration for regional entertainment</p>
+            <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.2 }}>
+              <motion.div className="flex items-center gap-2 mb-4" initial={{ opacity: 0, scale: 0.8 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: 0.2 }}>
+                <motion.div className="w-10 h-10 rounded-lg bg-green-100 flex items-center justify-center" whileHover={{ scale: 1.1, rotate: -5 }} transition={{ type: "spring", stiffness: 300 }}><Lightbulb className="w-5 h-5 text-green-600" /></motion.div>
+                <h2 className="text-xl font-bold text-[#0C4594]">Solutions</h2>
+              </motion.div>
+              <div className="space-y-3">
+                {solutions.map((solution, index) => (<motion.div key={index} className="p-3 bg-white rounded-lg border-l-4 border-green-500 shadow-sm hover:shadow-md hover:border-green-600 transition-all cursor-default" initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: 0.2 + index * 0.15, duration: 0.4 }} whileHover={{ x: -5, scale: 1.02 }}><p className="text-sm text-gray-700">{solution}</p></motion.div>))}
               </div>
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Challenges & Solutions - Compact */}
-      <section className="py-12 sm:py-16 bg-gray-50">
+      {/* What We Implemented - Now Second */}
+      <section className="py-12 sm:py-16">
         <div className="w-full px-8 lg:px-16 xl:px-24">
-          <div className="grid md:grid-cols-2 gap-8">
-            {/* Challenges */}
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-            >
-              <motion.div 
-                className="flex items-center gap-2 mb-4"
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4 }}
-              >
-                <motion.div 
-                  className="w-10 h-10 rounded-lg bg-red-100 flex items-center justify-center"
-                  whileHover={{ scale: 1.1, rotate: 5 }}
-                  transition={{ type: "spring", stiffness: 300 }}
-                >
-                  <AlertTriangle className="w-5 h-5 text-red-600" />
-                </motion.div>
-                <h2 className="text-xl font-bold text-[#0C4594]">Challenges</h2>
-              </motion.div>
-              
-              <div className="space-y-3">
-                {challenges.map((challenge, index) => (
-                  <motion.div 
-                    key={index} 
-                    className="p-3 bg-white rounded-lg border-l-4 border-red-400 shadow-sm hover:shadow-md hover:border-red-500 transition-all cursor-default"
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: index * 0.15, duration: 0.4 }}
-                    whileHover={{ x: 5, scale: 1.02 }}
-                  >
-                    <p className="text-sm text-gray-700">{challenge}</p>
-                  </motion.div>
-                ))}
+          <div className="grid lg:grid-cols-2 gap-8 items-center">
+            <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
+              <h2 className="text-2xl sm:text-3xl font-bold text-[#0C4594] mb-3">What We Implemented</h2>
+              <div className="w-16 h-1 bg-gradient-to-r from-[#0C4594] to-[#38B6FF] rounded-full mb-6" />
+              <div className="grid sm:grid-cols-2 gap-3">
+                {highlights.map((item, index) => (<motion.div key={index} initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.05 }} className="flex items-start gap-2 p-3 bg-gradient-to-br from-[#0C4594]/5 to-[#38B6FF]/5 rounded-lg border border-[#0C4594]/10"><CheckCircle2 className="w-4 h-4 text-[#38B6FF] flex-shrink-0 mt-0.5" /><span className="text-sm text-gray-700">{item}</span></motion.div>))}
               </div>
             </motion.div>
-
-            {/* Solutions */}
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-            >
-              <motion.div 
-                className="flex items-center gap-2 mb-4"
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: 0.2 }}
-              >
-                <motion.div 
-                  className="w-10 h-10 rounded-lg bg-green-100 flex items-center justify-center"
-                  whileHover={{ scale: 1.1, rotate: -5 }}
-                  transition={{ type: "spring", stiffness: 300 }}
-                >
-                  <Lightbulb className="w-5 h-5 text-green-600" />
-                </motion.div>
-                <h2 className="text-xl font-bold text-[#0C4594]">Solutions</h2>
-              </motion.div>
-              
-              <div className="space-y-3">
-                {solutions.map((solution, index) => (
-                  <motion.div 
-                    key={index} 
-                    className="p-3 bg-white rounded-lg border-l-4 border-green-500 shadow-sm hover:shadow-md hover:border-green-600 transition-all cursor-default"
-                    initial={{ opacity: 0, x: 20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.2 + index * 0.15, duration: 0.4 }}
-                    whileHover={{ x: -5, scale: 1.02 }}
-                  >
-                    <p className="text-sm text-gray-700">{solution}</p>
-                  </motion.div>
-                ))}
-              </div>
+            <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="relative rounded-2xl overflow-hidden shadow-xl">
+              <img src={googleWorkspaceBanner} alt="Broadcasting Platform" className="w-full h-64 lg:h-80 object-cover" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0C4594]/60 to-transparent" />
+              <div className="absolute bottom-4 left-4 right-4"><p className="text-white font-medium text-sm">Modern collaboration for regional entertainment</p></div>
             </motion.div>
           </div>
         </div>
