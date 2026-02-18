@@ -367,7 +367,7 @@ function SolutionsContent({ selectedCategory }: { selectedCategory: string | nul
 
       {/* Products Grid */}
       {filteredProducts.length > 0 ? (
-        <div className="grid sm:grid-cols-2 xl:grid-cols-3 gap-5">
+        <div className="grid sm:grid-cols-2 gap-5">
           {filteredProducts.map((product, index) => (
             <ProductCard
               key={`${product.category.id}-${product.name}`}
