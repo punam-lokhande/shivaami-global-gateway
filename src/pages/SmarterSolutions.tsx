@@ -263,7 +263,7 @@ function ProductCard({
 
           {/* Name & Category Badge */}
           <div className="flex-1 min-w-0">
-            <h3 className="font-bold text-lg text-[#0C4594] group-hover:text-[#38B6FF] transition-colors line-clamp-1">
+            <h3 className="font-bold text-base lg:text-lg text-[#0C4594] group-hover:text-[#38B6FF] transition-colors break-words">
               {product.name}
             </h3>
             <div 
