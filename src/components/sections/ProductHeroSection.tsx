@@ -37,7 +37,7 @@ const ProductHeroSection = ({
   return (
     <section 
       ref={ref} 
-      className="relative min-h-[55vh] sm:min-h-[60vh] md:min-h-[65vh] lg:min-h-[70vh] max-h-[700px] flex items-center overflow-hidden"
+      className="relative min-h-[55vh] sm:min-h-[60vh] md:min-h-[65vh] lg:min-h-[70vh] flex items-center overflow-hidden"
     >
       {/* Full-width Background Image */}
       <motion.div 
@@ -58,7 +58,7 @@ const ProductHeroSection = ({
       {/* Content - Left aligned with full width layout */}
       <motion.div 
         style={{ opacity }} 
-        className="relative z-10 w-full px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24 pt-24 sm:pt-28 md:pt-32 lg:pt-36 pb-12 sm:pb-16 md:pb-20"
+        className="relative z-10 w-full px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24 pt-24 sm:pt-28 md:pt-32 lg:pt-36 pb-16 sm:pb-20 md:pb-24 lg:pb-28"
       >
         <div className="max-w-3xl">
           {/* Headline */}
