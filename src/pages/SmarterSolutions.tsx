@@ -461,11 +461,11 @@ export default function SmarterSolutions() {
             </div>
 
             {/* Mobile Category Filter */}
-            <div className="lg:hidden">
-              <div className="flex gap-2 overflow-x-auto pb-4 -mx-4 px-4">
+            <div className="lg:hidden relative">
+              <div className="flex gap-2 overflow-x-auto pb-4 -mx-4 px-4 scrollbar-hide">
                 <button
                   onClick={() => setSelectedCategory(null)}
-                  className={`flex-shrink-0 px-4 py-2 rounded-full text-sm font-medium transition-all ${
+                  className={`flex-shrink-0 px-4 py-2 rounded-full text-sm font-medium transition-all whitespace-nowrap ${
                     !selectedCategory 
                       ? 'bg-[#0C4594] text-white' 
                       : 'bg-white text-gray-700 border border-gray-200'
@@ -477,7 +477,7 @@ export default function SmarterSolutions() {
                   <button
                     key={category.id}
                     onClick={() => setSelectedCategory(selectedCategory === category.id ? null : category.id)}
-                    className={`flex-shrink-0 px-4 py-2 rounded-full text-sm font-medium transition-all ${
+                    className={`flex-shrink-0 px-4 py-2 rounded-full text-sm font-medium transition-all whitespace-nowrap ${
                       selectedCategory === category.id 
                         ? 'bg-[#0C4594] text-white' 
                         : 'bg-white text-gray-700 border border-gray-200'
@@ -487,6 +487,8 @@ export default function SmarterSolutions() {
                   </button>
                 ))}
               </div>
+              {/* Right fade indicator for scroll hint */}
+              <div className="absolute right-0 top-0 bottom-4 w-8 bg-gradient-to-l from-gray-50 to-transparent pointer-events-none" />
             </div>
 
             {/* Main Content */}
