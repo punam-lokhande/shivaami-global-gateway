@@ -47,7 +47,7 @@ function HeroSection() {
   };
 
   return (
-    <section ref={ref} className="relative min-h-[55vh] sm:min-h-[60vh] flex items-center overflow-hidden">
+    <section ref={ref} className="relative flex items-center overflow-hidden">
       {/* Full-width Background Image */}
       <motion.div 
         style={{ y }}
