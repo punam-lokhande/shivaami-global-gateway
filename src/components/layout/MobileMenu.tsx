@@ -364,10 +364,10 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                                           </button>
                                           <button
                                             onClick={() => toggleSubItem(item.name)}
-                                            className="p-2"
+                                            className="p-2 min-w-[40px] min-h-[40px] flex items-center justify-center"
                                           >
                                             <ChevronRight 
-                                              className={`w-4 h-4 transition-transform duration-200 ${
+                                              className={`w-5 h-5 flex-shrink-0 text-foreground transition-transform duration-200 ${
                                                 expandedSubItem === item.name ? 'rotate-90' : ''
                                               }`} 
                                             />
