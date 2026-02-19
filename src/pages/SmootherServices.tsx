@@ -121,7 +121,7 @@ function HeroSection() {
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
   return (
-    <section ref={ref} className="relative min-h-[55vh] sm:min-h-[60vh] flex items-center overflow-hidden">
+    <section ref={ref} className="relative flex items-center overflow-hidden">
       {/* Background Image */}
       <motion.div style={{ y }} className="absolute inset-0 z-0">
         <img 
@@ -133,7 +133,7 @@ function HeroSection() {
       </motion.div>
 
       {/* Content - Left aligned */}
-      <motion.div style={{ opacity }} className="relative z-10 w-full px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24 pt-24 sm:pt-28 md:pt-32 lg:pt-36 pb-24 sm:pb-28 md:pb-32 lg:pb-36">
+      <motion.div style={{ opacity }} className="relative z-10 w-full px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24 pt-24 sm:pt-28 md:pt-32 lg:pt-36 pb-8 sm:pb-10 md:pb-12 lg:pb-16">
         <div className="max-w-3xl">
           {/* Badge */}
           <motion.div

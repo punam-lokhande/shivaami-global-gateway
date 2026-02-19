@@ -86,11 +86,11 @@ const OnDemandWebinars = () => {
       
       {/* Hero Section */}
       <section 
-        className="relative min-h-[55vh] sm:min-h-[60vh] flex items-center overflow-hidden"
+        className="relative flex items-center overflow-hidden"
         style={{ backgroundImage: `url(${webinarBanner})` }}
       >
         <div className="absolute inset-0 bg-gradient-to-r from-[#0C4594]/95 via-[#0C4594]/70 to-[#0C4594]/40" />
-        <div className="w-full px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24 pt-24 sm:pt-28 md:pt-32 lg:pt-36 pb-24 sm:pb-28 md:pb-32 lg:pb-36 relative z-10">
+        <div className="w-full px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24 pt-24 sm:pt-28 md:pt-32 lg:pt-36 pb-8 sm:pb-10 md:pb-12 lg:pb-16 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}

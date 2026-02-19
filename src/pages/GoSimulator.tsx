@@ -65,7 +65,7 @@ const HeroSection = () => {
   return (
     <section 
       ref={sectionRef}
-      className="relative min-h-[55vh] sm:min-h-[60vh] flex items-center overflow-hidden"
+      className="relative flex items-center overflow-hidden"
     >
       <motion.div 
         className="absolute inset-0 z-0"

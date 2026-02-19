@@ -43,7 +43,7 @@ export default function HeroSection() {
       </motion.div>
 
       {/* Content - Left aligned with proper spacing from nav */}
-      <motion.div style={{ opacity }} className="relative z-10 w-full px-6 sm:px-8 lg:px-16 xl:px-24 pt-24 sm:pt-32 lg:pt-40 xl:pt-44 pb-24 sm:pb-28 md:pb-32 lg:pb-36">
+      <motion.div style={{ opacity }} className="relative z-10 w-full px-6 sm:px-8 lg:px-16 xl:px-24 pt-24 sm:pt-32 lg:pt-40 xl:pt-44 pb-8 sm:pb-10 md:pb-12 lg:pb-16">
         <div className="max-w-3xl xl:max-w-4xl">
 
           {/* Headline */}
