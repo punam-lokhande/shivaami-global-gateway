@@ -81,7 +81,7 @@ const HeroSection = () => {
       </motion.div>
 
       <motion.div 
-        className="relative z-10 w-full px-8 lg:px-16 xl:px-24"
+        className="relative z-10 w-full px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24 pt-24 sm:pt-28 md:pt-32 lg:pt-36 pb-8 sm:pb-10 md:pb-12 lg:pb-16"
         style={{ opacity }}
       >
         <div className="max-w-3xl">
