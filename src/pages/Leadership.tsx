@@ -1,10 +1,11 @@
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { useRef } from 'react';
-import { Users2, ArrowRight, Linkedin, Mail, Quote } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { ArrowRight, Linkedin, Quote } from 'lucide-react';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
+import ProductHeroSection from '@/components/sections/ProductHeroSection';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
+import careersBanner from '@/assets/banners/careers-banner.jpg';
 
 // Import leadership images
 import punitImg from '@/assets/leadership/punit.jpg';
@@ -66,80 +67,7 @@ const leaders = [
 ];
 
 // Hero Section
-function HeroSection() {
-  const ref = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ['start start', 'end start'],
-  });
-
-  const y = useTransform(scrollYProgress, [0, 1], ['0%', '30%']);
-  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
-
-  return (
-    <section ref={ref} className="relative flex items-center overflow-hidden">
-      {/* Gradient Background */}
-      <motion.div 
-        style={{ y }}
-        className="absolute inset-0 z-0"
-      >
-        <div className="absolute inset-0 bg-gradient-to-br from-[#0C4594] via-[#1a5ab8] to-[#38B6FF]" />
-        {/* Abstract pattern */}
-        <div className="absolute inset-0 opacity-20">
-          <div className="absolute top-20 left-20 w-96 h-96 rounded-full bg-white/10 blur-3xl" />
-          <div className="absolute bottom-20 right-20 w-[500px] h-[500px] rounded-full bg-[#38B6FF]/20 blur-3xl" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 rounded-full bg-white/5 blur-2xl" />
-        </div>
-        {/* Grid pattern overlay */}
-        <div className="absolute inset-0 opacity-5" style={{
-          backgroundImage: 'linear-gradient(rgba(255,255,255,.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.1) 1px, transparent 1px)',
-          backgroundSize: '50px 50px'
-        }} />
-      </motion.div>
-
-      {/* Content */}
-      <motion.div style={{ opacity }} className="relative z-10 w-full px-8 lg:px-16 xl:px-24 pt-24 lg:pt-28">
-        <div className="max-w-4xl mx-auto text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 mb-8"
-          >
-            <Users2 className="w-5 h-5 text-[#38B6FF]" />
-            <span className="text-white/90 text-sm font-medium tracking-wide">Our Leadership</span>
-          </motion.div>
-
-          <motion.h1
-            initial={{ opacity: 0, y: 28 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 leading-[1.1] tracking-tight"
-          >
-            Meet Our <span className="text-[#38B6FF]">Leadership</span> Team
-          </motion.h1>
-
-          <motion.p
-            initial={{ opacity: 0, y: 28 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-lg lg:text-xl text-white/80 max-w-2xl mx-auto leading-relaxed font-body"
-          >
-            Visionary leaders with decades of experience driving innovation and excellence in cloud and cybersecurity solutions.
-          </motion.p>
-        </div>
-      </motion.div>
-
-      {/* Bottom wave */}
-      <div className="absolute bottom-0 left-0 right-0">
-        <svg viewBox="0 0 1440 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full">
-          <path d="M0 100L60 91.7C120 83.3 240 66.7 360 58.3C480 50 600 50 720 54.2C840 58.3 960 66.7 1080 70.8C1200 75 1320 75 1380 75L1440 75V100H1380C1320 100 1200 100 1080 100C960 100 840 100 720 100C600 100 480 100 360 100C240 100 120 100 60 100H0Z" fill="#f8fafc"/>
-        </svg>
-      </div>
-    </section>
-  );
-}
-
+// HeroSection removed - using ProductHeroSection instead
 // Featured Leader (CEO) Section
 function FeaturedLeader() {
   const ceo = leaders[0];
@@ -415,7 +343,14 @@ export default function Leadership() {
     <div className="min-h-screen bg-white">
       <Header />
       <main>
-        <HeroSection />
+        <ProductHeroSection
+          title={<>Meet Our <span className="text-[#38B6FF]">Leadership</span> Team</>}
+          description="Visionary leaders with decades of experience driving innovation and excellence in cloud and cybersecurity solutions."
+          backgroundImage={careersBanner}
+          altText="Leadership Team"
+          showCTA={false}
+          showScheduleDemo={false}
+        />
         <FeaturedLeader />
         <LeadershipGrid />
         <ValuesSection />
