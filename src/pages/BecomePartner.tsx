@@ -116,7 +116,7 @@ export default function BecomePartner() {
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background overflow-x-hidden">
       <Helmet>
         <title>Become a Partner | Shivaami Cloud Services</title>
         <meta name="description" content="Join the Shivaami Partner Program. Deploy world-class cloud solutions including Google Workspace, GCP, and AWS without the cost of maintaining a massive internal engineering team." />
@@ -234,19 +234,19 @@ export default function BecomePartner() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="relative order-2 lg:order-1"
+              className="relative order-2 lg:order-1 overflow-hidden"
             >
               <div className="relative rounded-3xl overflow-hidden shadow-2xl h-full">
                 <img
                   src={partnershipImage}
                   alt="Business Partnership"
-                  className="w-full h-full min-h-[400px] object-cover"
+                  className="w-full h-full min-h-[300px] sm:min-h-[400px] object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/40 via-transparent to-transparent" />
               </div>
-              {/* Decorative elements */}
-              <div className="absolute -top-4 -right-4 w-24 h-24 bg-accent/20 rounded-full blur-2xl" />
-              <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-primary/20 rounded-full blur-2xl" />
+              {/* Decorative elements - hidden on mobile to prevent overflow */}
+              <div className="hidden lg:block absolute -top-4 -right-4 w-24 h-24 bg-accent/20 rounded-full blur-2xl" />
+              <div className="hidden lg:block absolute -bottom-4 -left-4 w-32 h-32 bg-primary/20 rounded-full blur-2xl" />
             </motion.div>
 
             {/* Content Side */}
