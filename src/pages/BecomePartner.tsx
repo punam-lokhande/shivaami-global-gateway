@@ -135,7 +135,7 @@ export default function BecomePartner() {
           <div className="absolute inset-0 bg-gradient-to-r from-[rgba(12,69,148,0.95)] via-[rgba(12,69,148,0.85)] to-[rgba(12,69,148,0.6)]" />
         </div>
         
-        <div className="relative z-10 w-full px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24 pt-20 sm:pt-24 lg:pt-28">
+        <div className="relative z-10 w-full px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24 pt-24 sm:pt-28 md:pt-32 lg:pt-36 pb-8 sm:pb-10 md:pb-12 lg:pb-16">
           <div className="max-w-3xl">
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
