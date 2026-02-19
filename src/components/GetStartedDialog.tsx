@@ -132,7 +132,7 @@ const GetStartedDialog = ({ open, onOpenChange }: GetStartedDialogProps) => {
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="sm:max-w-[500px] bg-background">
+      <DialogContent className="w-[calc(100vw-2rem)] max-w-[500px] max-h-[90vh] overflow-y-auto bg-background p-4 sm:p-6">
         <DialogHeader>
           <DialogTitle className="text-xl font-semibold text-foreground">Get Started</DialogTitle>
           <DialogDescription className="text-muted-foreground">
