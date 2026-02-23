@@ -58,7 +58,7 @@ const ProductHeroSection = ({
       {/* Content - Left aligned with full width layout */}
       <motion.div 
         style={{ opacity }} 
-        className="relative z-10 w-full px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24 pt-24 sm:pt-28 md:pt-32 lg:pt-36 pb-8 sm:pb-10 md:pb-12 lg:pb-16"
+        className="relative z-10 w-full px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24 pt-[7.5rem] sm:pt-32 md:pt-32 lg:pt-36 pb-8 sm:pb-10 md:pb-12 lg:pb-16"
       >
         <div className="max-w-3xl">
           {/* Headline */}
@@ -66,7 +66,7 @@ const ProductHeroSection = ({
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="font-display text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-semibold text-white mb-3 sm:mb-4 md:mb-6 leading-[1.15] tracking-tight"
+            className="font-display text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-semibold text-white mb-3 sm:mb-4 md:mb-6 leading-[1.15] tracking-tight"
           >
             {title}
           </motion.h1>
