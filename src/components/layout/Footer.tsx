@@ -167,11 +167,12 @@ export default function Footer() {
   const handleSubscribe = (e: React.FormEvent) => {
     e.preventDefault();
     const zohoEmailInput = document.getElementById('EMBED_FORM_EMAIL_LABEL') as HTMLInputElement;
-    const zohoSubmitButton = document.getElementById('zcWebOptin') as HTMLInputElement;
-
-    if (zohoEmailInput && zohoSubmitButton) {
+    // const zohoSubmitButton = document.getElementById('zcWebOptin') as HTMLInputElement;
+    const zohoForm = document.getElementById('zcampaignOptinForm') as HTMLFormElement;
+    if (zohoEmailInput && zohoForm) {
       zohoEmailInput.value = email;
-      zohoSubmitButton.click();
+      
+      zohoForm.submit();
     } else {
       console.error('Zoho form elements not found.');
     }
