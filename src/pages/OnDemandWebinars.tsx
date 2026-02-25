@@ -126,56 +126,17 @@ const OnDemandWebinars = () => {
             </p>
           </motion.div>
 
-          {/* Upcoming Webinars Row */}
-          {webinars.filter(w => w.status === 'upcoming').length > 0 && (
+          {/* Upcoming Webinars Row - Hidden for now */}
+          {/* {webinars.filter(w => w.status === 'upcoming').length > 0 && (
             <>
               <h3 className="text-xl font-semibold text-[#0C4594] mb-6">Upcoming Sessions</h3>
               <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
                 {webinars.filter(w => w.status === 'upcoming').map((webinar, index) => (
-                  <motion.div
-                    key={webinar.id}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: index * 0.1 }}
-                    className="group rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden bg-gradient-to-br from-[#38B6FF]/10 to-[#0C4594]/10 border-2 border-[#38B6FF] ring-2 ring-[#38B6FF]/20"
-                  >
-                    <div className="p-4 bg-gradient-to-r from-[#38B6FF] to-[#0C4594]">
-                      <div className="flex items-center justify-between">
-                        <span className="text-white/80 text-xs font-medium">{webinar.module}</span>
-                        <span className="px-2 py-0.5 rounded-full text-xs font-semibold bg-white text-[#0C4594] animate-pulse">
-                          🟢 Live Soon
-                        </span>
-                      </div>
-                      <h3 className="text-lg font-bold text-white mt-2 line-clamp-2">
-                        {webinar.title}
-                      </h3>
-                    </div>
-                    <div className="p-5">
-                      <p className="text-gray-600 text-sm mb-4 line-clamp-2">
-                        {webinar.description}
-                      </p>
-                      <div className="space-y-2 mb-5">
-                        <div className="flex items-center gap-2 text-sm text-gray-500">
-                          <Calendar className="w-4 h-4 text-[#0C4594]" />
-                          <span>{webinar.date}</span>
-                        </div>
-                        <div className="flex items-center gap-2 text-sm text-gray-500">
-                          <Clock className="w-4 h-4 text-[#0C4594]" />
-                          <span>{webinar.time}</span>
-                        </div>
-                      </div>
-                      <Link to="/register-webinar">
-                        <Button className="w-full bg-gradient-to-r from-[#38B6FF] to-[#0C4594] hover:shadow-lg text-white">
-                          Register Now
-                        </Button>
-                      </Link>
-                    </div>
-                  </motion.div>
+                  ...
                 ))}
               </div>
             </>
-          )}
+          )} */}
 
           {/* On-Demand Webinars Row */}
           <h3 className="text-xl font-semibold text-[#0C4594] mb-6">On-Demand Sessions</h3>
