@@ -27,6 +27,10 @@ import technicalDeployment from "@/assets/activation/technical-deployment.jpg";
 import securityConfig from "@/assets/activation/security-config.jpg";
 import teamTraining from "@/assets/activation/team-training.jpg";
 import ongoingSupport from "@/assets/activation/ongoing-support.jpg";
+import checkpointMssp from "@/assets/badges/checkpoint-mssp-partner.jpg";
+import checkpointHarmonyWorkspace from "@/assets/badges/checkpoint-harmony-workspace.jpg";
+import checkpointHarmonySase from "@/assets/badges/checkpoint-harmony-sase.jpg";
+import checkpointAdvanced from "@/assets/badges/checkpoint-advanced-partner.jpg";
 import GetStartedDialog from "@/components/GetStartedDialog";
 
 const fadeInUp = {
@@ -311,6 +315,112 @@ const ActivationSection = () => (
   </section>
 );
 
+const CheckPointBadgesSection = () => {
+  const badges = [
+    { src: checkpointMssp, alt: 'Check Point MSSP Partner 2026', label: 'MSSP Partner' },
+    { src: checkpointHarmonyWorkspace, alt: 'Check Point Harmony Workspace Partner 2026', label: 'Harmony Workspace' },
+    { src: checkpointHarmonySase, alt: 'Check Point Harmony SASE Partner 2026', label: 'Harmony SASE' },
+    { src: checkpointAdvanced, alt: 'Check Point Advanced Partner', label: 'Advanced Partner' },
+  ];
+
+  return (
+    <section className="py-24 relative overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-br from-[#f8fafc] via-white to-[#f1f5f9]" />
+      
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-gradient-to-br from-[#38B6FF]/8 to-transparent rounded-full blur-[100px]" />
+        <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-gradient-to-br from-[#0C4594]/6 to-transparent rounded-full blur-[80px]" />
+        
+        <div className="absolute inset-0 opacity-[0.015]" style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, #0C4594 1px, transparent 0)', backgroundSize: '32px 32px' }} />
+        
+        <motion.div 
+          initial={{ scaleY: 0 }}
+          whileInView={{ scaleY: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1 }}
+          className="absolute left-8 top-20 bottom-20 w-px bg-gradient-to-b from-transparent via-[#38B6FF]/20 to-transparent origin-top"
+        />
+        <motion.div 
+          initial={{ scaleY: 0 }}
+          whileInView={{ scaleY: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1, delay: 0.2 }}
+          className="absolute right-8 top-20 bottom-20 w-px bg-gradient-to-b from-transparent via-[#0C4594]/20 to-transparent origin-top"
+        />
+      </div>
+      
+      <div className="w-full px-6 sm:px-8 lg:px-16 xl:px-24 relative z-10">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 leading-tight">
+            <span className="text-[#0C4594]">Certified to Protect.</span>{' '}
+            <span className="bg-gradient-to-r from-[#38B6FF] to-[#0C4594] bg-clip-text text-transparent">Trusted to Deliver.</span>
+          </h2>
+          
+          <p className="text-[#475569] max-w-2xl mx-auto text-lg leading-relaxed">
+            Shivaami carries Check Point's most prestigious partner designations, so when it comes to securing your business, you're backed by verified expertise, not just promises.
+          </p>
+          
+          <motion.div 
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="w-24 h-1 bg-gradient-to-r from-[#0C4594] to-[#38B6FF] rounded-full mx-auto mt-8"
+          />
+        </motion.div>
+
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-5 lg:gap-6 max-w-4xl mx-auto">
+          {badges.map((badge, idx) => (
+            <motion.div
+              key={idx}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: idx * 0.08 }}
+              whileHover={{ y: -8 }}
+              className="group"
+            >
+              <div className="relative h-full">
+                <div className="absolute -inset-1 bg-gradient-to-br from-[#38B6FF]/30 to-[#0C4594]/30 rounded-2xl blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                
+                <div className="relative h-full bg-white rounded-2xl p-5 shadow-[0_4px_20px_rgba(0,0,0,0.06)] hover:shadow-[0_12px_40px_rgba(56,182,255,0.15)] transition-all duration-500 border border-[#e2e8f0] hover:border-[#38B6FF]/40 overflow-hidden">
+                  <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#0C4594] via-[#38B6FF] to-[#0C4594] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  
+                  <motion.div 
+                    initial={{ x: '-100%' }}
+                    whileHover={{ x: '200%' }}
+                    transition={{ duration: 0.8 }}
+                    className="absolute inset-0 bg-gradient-to-r from-transparent via-white/60 to-transparent skew-x-12 opacity-0 group-hover:opacity-100"
+                  />
+                  
+                  <div className="relative z-10 aspect-square flex items-center justify-center mb-3">
+                    <img 
+                      src={badge.src} 
+                      alt={badge.alt}
+                      className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
+                      loading="lazy"
+                    />
+                  </div>
+                  
+                  <div className="text-center">
+                    <span className="text-xs font-medium text-[#64748b] group-hover:text-[#0C4594] transition-colors duration-300">{badge.label}</span>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
 import CTASection from '@/components/sections/CTASection';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@radix-ui/react-accordion";
 import { Helmet } from "react-helmet-async";
@@ -484,6 +594,7 @@ const faqSchema ={
         <HeroSection />
         <FeaturesSection />
         <ActivationSection />
+        <CheckPointBadgesSection />
         <FAQSection />
         <CTASection />
       </main>
