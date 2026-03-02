@@ -325,27 +325,27 @@ const CheckPointBadgesSection = () => {
 
   return (
     <section className="py-24 relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-[#f8fafc] via-white to-[#f1f5f9]" />
+      <div className="absolute inset-0 bg-gradient-to-br from-[#0C4594] via-[#0a3a7d] to-[#062556]" />
       
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-gradient-to-br from-[#38B6FF]/8 to-transparent rounded-full blur-[100px]" />
-        <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-gradient-to-br from-[#0C4594]/6 to-transparent rounded-full blur-[80px]" />
+        <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-gradient-to-br from-[#38B6FF]/15 to-transparent rounded-full blur-[100px]" />
+        <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-gradient-to-br from-[#38B6FF]/10 to-transparent rounded-full blur-[80px]" />
         
-        <div className="absolute inset-0 opacity-[0.015]" style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, #0C4594 1px, transparent 0)', backgroundSize: '32px 32px' }} />
+        <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, #38B6FF 1px, transparent 0)', backgroundSize: '32px 32px' }} />
         
         <motion.div 
           initial={{ scaleY: 0 }}
           whileInView={{ scaleY: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 1 }}
-          className="absolute left-8 top-20 bottom-20 w-px bg-gradient-to-b from-transparent via-[#38B6FF]/20 to-transparent origin-top"
+          className="absolute left-8 top-20 bottom-20 w-px bg-gradient-to-b from-transparent via-[#38B6FF]/30 to-transparent origin-top"
         />
         <motion.div 
           initial={{ scaleY: 0 }}
           whileInView={{ scaleY: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 1, delay: 0.2 }}
-          className="absolute right-8 top-20 bottom-20 w-px bg-gradient-to-b from-transparent via-[#0C4594]/20 to-transparent origin-top"
+          className="absolute right-8 top-20 bottom-20 w-px bg-gradient-to-b from-transparent via-[#38B6FF]/30 to-transparent origin-top"
         />
       </div>
       
@@ -358,11 +358,11 @@ const CheckPointBadgesSection = () => {
           className="text-center mb-16"
         >
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 leading-tight">
-            <span className="text-[#0C4594]">Certified to Protect.</span>{' '}
-            <span className="bg-gradient-to-r from-[#38B6FF] to-[#0C4594] bg-clip-text text-transparent">Trusted to Deliver.</span>
+            <span className="text-white">Certified to Protect.</span>{' '}
+            <span className="bg-gradient-to-r from-[#38B6FF] to-[#7dd3fc] bg-clip-text text-transparent">Trusted to Deliver.</span>
           </h2>
           
-          <p className="text-[#475569] max-w-2xl mx-auto text-lg leading-relaxed">
+          <p className="text-white/75 text-lg leading-relaxed">
             Shivaami carries Check Point's most prestigious partner designations, so when it comes to securing your business, you're backed by verified expertise, not just promises.
           </p>
           
@@ -371,7 +371,7 @@ const CheckPointBadgesSection = () => {
             whileInView={{ scaleX: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="w-24 h-1 bg-gradient-to-r from-[#0C4594] to-[#38B6FF] rounded-full mx-auto mt-8"
+            className="w-24 h-1 bg-gradient-to-r from-[#38B6FF] to-[#7dd3fc] rounded-full mx-auto mt-8"
           />
         </motion.div>
 
@@ -387,16 +387,16 @@ const CheckPointBadgesSection = () => {
               className="group"
             >
               <div className="relative h-full">
-                <div className="absolute -inset-1 bg-gradient-to-br from-[#38B6FF]/30 to-[#0C4594]/30 rounded-2xl blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute -inset-1 bg-gradient-to-br from-[#38B6FF]/30 to-white/20 rounded-2xl blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 
-                <div className="relative h-full bg-white rounded-2xl p-5 shadow-[0_4px_20px_rgba(0,0,0,0.06)] hover:shadow-[0_12px_40px_rgba(56,182,255,0.15)] transition-all duration-500 border border-[#e2e8f0] hover:border-[#38B6FF]/40 overflow-hidden">
-                  <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#0C4594] via-[#38B6FF] to-[#0C4594] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="relative h-full bg-white/10 backdrop-blur-sm rounded-2xl p-5 shadow-[0_4px_20px_rgba(0,0,0,0.2)] hover:shadow-[0_12px_40px_rgba(56,182,255,0.25)] transition-all duration-500 border border-white/20 hover:border-[#38B6FF]/50 overflow-hidden">
+                  <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#38B6FF] via-white to-[#38B6FF] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   
                   <motion.div 
                     initial={{ x: '-100%' }}
                     whileHover={{ x: '200%' }}
                     transition={{ duration: 0.8 }}
-                    className="absolute inset-0 bg-gradient-to-r from-transparent via-white/60 to-transparent skew-x-12 opacity-0 group-hover:opacity-100"
+                    className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-12 opacity-0 group-hover:opacity-100"
                   />
                   
                   <div className="relative z-10 aspect-square flex items-center justify-center mb-3">
@@ -409,7 +409,7 @@ const CheckPointBadgesSection = () => {
                   </div>
                   
                   <div className="text-center">
-                    <span className="text-xs font-medium text-[#64748b] group-hover:text-[#0C4594] transition-colors duration-300">{badge.label}</span>
+                    <span className="text-xs font-medium text-white/70 group-hover:text-[#38B6FF] transition-colors duration-300">{badge.label}</span>
                   </div>
                 </div>
               </div>
