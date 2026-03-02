@@ -32,7 +32,7 @@ const leaders = [
     name: 'Punit Thakkar',
     role: 'CEO & MD',
     image: punitImg,
-    bio: "He earned his MBA from Welingkar Institute of Management, Matunga, and is deeply influenced by his association with the Brahma Kumaris World Spiritual University. Combining entrepreneurial drive with strong spiritual values, Punit is committed to making a positive difference in the lives of one lakh people during his lifetime.",
+    bio: "Punit established Shivaami in 1997 as an internet services company, building it into a trusted digital partner serving over 20,000 clients across industries. He has a strong ability to understand varied business needs and craft solutions that deliver meaningful impact. A firm believer in the power of the internet and marketing, Punit champions digital innovation as a catalyst for long-term, sustainable growth. He earned his MBA from Welingkar Institute of Management, Matunga, and is deeply influenced by his association with the Brahma Kumaris World Spiritual University. Combining entrepreneurial drive with strong spiritual values, Punit is committed to making a positive difference in the lives of one lakh people during his lifetime.",
     color: 'from-[#0C4594] to-[#38B6FF]',
     quote: "The purpose of Shivaami is to bring positive change in the lives of people we connect, by offering solutions and services which brings profit and happiness.",
     linkedinUrl: 'https://www.linkedin.com/in/punitshivaami/',
