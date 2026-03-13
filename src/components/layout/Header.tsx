@@ -69,15 +69,10 @@ export default function Header() {
               <span className="hidden sm:inline">Login</span>
             </a>
             
-            <a 
-              href={region === 'india' ? 'https://customercare.shivaami.com/' : 'mailto:support@shivaami.com'}
-              target={region === 'india' ? '_blank' : undefined}
-              rel={region === 'india' ? 'noopener noreferrer' : undefined}
-              className="flex items-center gap-2 text-primary hover:text-accent transition-colors"
-            >
+            <Link to="/support" className="flex items-center gap-2 text-primary hover:text-accent transition-colors">
               <HelpCircle className="w-4 h-4" />
               <span className="hidden sm:inline">Support</span>
-            </a>
+            </Link>
             
             {/* Region Toggle */}
             <div className="flex items-center gap-0.5 ml-4 bg-secondary/10 rounded-full p-0.5 border border-primary/20">
