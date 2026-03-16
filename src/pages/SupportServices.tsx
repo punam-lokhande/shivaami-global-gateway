@@ -333,23 +333,14 @@ function EscalationSection() {
                 {/* Content */}
                 <div className="p-6 space-y-4">
                   {/* Level 1 */}
-                  {level.regions && level.regions.map((r) => {
-                    const Flag = r.flag;
-                    return (
+                  {level.regions && level.regions.map((r) => (
                       <div key={r.region} className="bg-white/5 rounded-xl p-4">
-                        <div className="flex items-center gap-2 mb-2">
-                          <div className="w-8 h-5 rounded overflow-hidden">
-                            <Flag className="w-full h-full" />
-                          </div>
-                          <span className="text-white font-medium text-sm">{r.region}</span>
-                        </div>
                         <div className="space-y-1 text-sm">
                           <p><span className="text-[#38B6FF] font-medium">Email:</span> <a href={`mailto:${r.email}`} className="text-white/80 hover:text-[#38B6FF]">{r.email}</a></p>
                           <p><span className="text-[#38B6FF] font-medium">Phone:</span> <span className="text-white/80">{r.phone}</span></p>
                         </div>
                       </div>
-                    );
-                  })}
+                    ))}
 
                   {/* Level 2 */}
                   {level.managers && level.managers.map((manager) => {
