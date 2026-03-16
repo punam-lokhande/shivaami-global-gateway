@@ -215,7 +215,7 @@ function ReachOutSection() {
           <p className="text-muted-foreground">Multiple ways to connect with our support team</p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
           {channels.map((channel, index) => {
             const Icon = channel.icon;
             return (
