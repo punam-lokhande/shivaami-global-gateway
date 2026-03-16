@@ -281,7 +281,7 @@ function EscalationSection() {
       icon: Shield,
       color: '#082d61',
       executives: [
-        { name: 'Chetana Chaudhari', role: 'CTO', email: 'chetana@shivaami.com' },
+        { name: 'Chetana Chaudhari', role: 'CTO', email: 'cto@shivaami.com' },
       ],
     },
   ];
