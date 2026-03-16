@@ -205,13 +205,6 @@ function ReachOutSection() {
         { label: 'India', value: '+91 775 784 1333', href: 'tel:+917757841333' },
       ],
     },
-    {
-      icon: Ticket,
-      title: 'Support Portal',
-      items: [
-        { label: 'Raise a Ticket', value: 'Response within 24 hours', href: 'https://customercare.shivaami.com/', external: true },
-      ],
-    },
   ];
 
   return (
