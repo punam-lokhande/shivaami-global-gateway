@@ -6,6 +6,7 @@ import Footer from '@/components/layout/Footer';
 import { Button } from '@/components/ui/button';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
+import { useRegion } from '@/contexts/RegionContext';
 import heroImage from '@/assets/banners/support-banner.jpg';
 
 // Flag components as SVG for crisp rendering
