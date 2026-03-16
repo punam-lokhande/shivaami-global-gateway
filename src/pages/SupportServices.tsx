@@ -352,7 +352,6 @@ function EscalationSection() {
                         <div className="space-y-1 text-sm">
                           <p><span className="text-[#38B6FF] font-medium">Email:</span> <a href={`mailto:${r.email}`} className="text-white/80 hover:text-[#38B6FF]">{r.email}</a></p>
                           <p><span className="text-[#38B6FF] font-medium">Phone:</span> <span className="text-white/80">{r.phone}</span></p>
-                          <p><span className="text-[#38B6FF] font-medium">Google Direct:</span> <span className="text-white/80">{r.googleDirect}</span></p>
                         </div>
                       </div>
                     );
