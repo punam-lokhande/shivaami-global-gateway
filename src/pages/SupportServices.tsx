@@ -273,7 +273,6 @@ function EscalationSection() {
       color: '#0C4594',
       managers: [
         { region: 'India', flag: IndiaFlag, name: 'Pratima Attarde', role: '', phone: '+91 775 784 1333 (Ext: 2)', email: 'pratima.attarde@shivaami.com' },
-        { region: 'USA', flag: USAFlag, name: 'Kunal Thacker', role: 'VP', phone: '+1 (408) 333-4844 (Ext: 3)', email: 'kunal@shivaami.com' },
       ],
     },
     {
