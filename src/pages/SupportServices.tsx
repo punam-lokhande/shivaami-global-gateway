@@ -198,7 +198,7 @@ function ReachOutSection() {
       title: 'Email Support',
       items: [
         { label: 'India', value: 'support@shivaami.com', href: 'mailto:support@shivaami.com' },
-        { label: 'USA', value: 'usa@shivaami.com', href: 'mailto:usa@shivaami.com' },
+        { label: 'USA', value: 'na-support@shivaami.com', href: 'mailto:na-support@shivaami.com' },
       ],
     },
     {
@@ -206,7 +206,6 @@ function ReachOutSection() {
       title: 'Phone Support',
       items: [
         { label: 'India', value: '+91 775 784 1333', href: 'tel:+917757841333' },
-        { label: 'USA', value: '+1 (408) 333-4844', href: 'tel:+14083334844' },
       ],
     },
     {
