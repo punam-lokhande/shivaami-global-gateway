@@ -120,14 +120,11 @@ function RegionalPortals() {
               </p>
               
               <a 
-                href="https://customercare.shivaami.com/" 
-                target="_blank" 
-                rel="noopener noreferrer"
+                href="mailto:support@shivaami.com"
                 className="inline-flex items-center gap-2 bg-[#0C4594] text-white px-6 py-3 rounded-xl font-semibold hover:bg-[#0C4594]/90 transition-all mb-6"
               >
-                <Ticket className="w-5 h-5" />
+                <Mail className="w-5 h-5" />
                 Raise a Support Ticket
-                <ExternalLink className="w-4 h-4 ml-1" />
               </a>
               
               <div className="border-t border-border/50 pt-6">
@@ -208,13 +205,6 @@ function ReachOutSection() {
         { label: 'India', value: '+91 775 784 1333', href: 'tel:+917757841333' },
       ],
     },
-    {
-      icon: Ticket,
-      title: 'Support Portal',
-      items: [
-        { label: 'Raise a Ticket', value: 'Response within 24 hours', href: 'https://customercare.shivaami.com/', external: true },
-      ],
-    },
   ];
 
   return (
@@ -225,7 +215,7 @@ function ReachOutSection() {
           <p className="text-muted-foreground">Multiple ways to connect with our support team</p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
           {channels.map((channel, index) => {
             const Icon = channel.icon;
             return (
@@ -244,13 +234,10 @@ function ReachOutSection() {
                     <a 
                       key={item.label} 
                       href={item.href}
-                      target={item.external ? '_blank' : undefined}
-                      rel={item.external ? 'noopener noreferrer' : undefined}
                       className="block text-muted-foreground hover:text-[#0C4594] transition-colors"
                     >
                       <span className="font-medium text-foreground">{item.label}: </span>
                       <span className="text-[#0C4594]">{item.value}</span>
-                      {item.external && <ExternalLink className="w-3 h-3 inline ml-1" />}
                     </a>
                   ))}
                 </div>
@@ -272,8 +259,8 @@ function EscalationSection() {
       icon: MessageSquare,
       color: '#38B6FF',
       regions: [
-        { region: 'India', flag: IndiaFlag, email: 'support@shivaami.com', phone: '+91 775 784 1333 (Ext: 2)', googleDirect: '1800 108 7879' },
-        { region: 'USA', flag: USAFlag, email: 'na-support@shivaami.com', phone: '+1 (408) 333-4844', googleDirect: '+1 650 206 5555' },
+        { region: 'India', flag: IndiaFlag, email: 'support@shivaami.com', phone: '+91 775 784 1333 (Ext: 2)' },
+        { region: 'USA', flag: USAFlag, email: 'na-support@shivaami.com', phone: '+1 (408) 333-4844' },
       ],
     },
     {
@@ -283,7 +270,6 @@ function EscalationSection() {
       color: '#0C4594',
       managers: [
         { region: 'India', flag: IndiaFlag, name: 'Pratima Attarde', role: '', phone: '+91 775 784 1333 (Ext: 2)', email: 'pratima.attarde@shivaami.com' },
-        { region: 'USA', flag: USAFlag, name: 'Kunal Thacker', role: 'VP', phone: '+1 (408) 333-4844 (Ext: 3)', email: 'kunal@shivaami.com' },
       ],
     },
     {
@@ -292,7 +278,7 @@ function EscalationSection() {
       icon: Shield,
       color: '#082d61',
       executives: [
-        { name: 'Chetana Chaudhari', role: 'CTO', email: 'chetana@shivaami.com' },
+        { name: 'Chetana Chaudhari', role: 'CTO', email: 'cto@shivaami.com' },
       ],
     },
   ];
@@ -363,7 +349,6 @@ function EscalationSection() {
                         <div className="space-y-1 text-sm">
                           <p><span className="text-[#38B6FF] font-medium">Email:</span> <a href={`mailto:${r.email}`} className="text-white/80 hover:text-[#38B6FF]">{r.email}</a></p>
                           <p><span className="text-[#38B6FF] font-medium">Phone:</span> <span className="text-white/80">{r.phone}</span></p>
-                          <p><span className="text-[#38B6FF] font-medium">Google Direct:</span> <span className="text-white/80">{r.googleDirect}</span></p>
                         </div>
                       </div>
                     );
