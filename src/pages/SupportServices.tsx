@@ -246,16 +246,19 @@ function ReachOutSection() {
 
 // Support Escalation - Compact Timeline
 function EscalationSection() {
+  const { region } = useRegion();
+
+  const level1Regions = region === 'india'
+    ? [{ region: 'India', flag: IndiaFlag, email: 'support@shivaami.com', phone: '+91 775 784 1333 (Ext: 2)' }]
+    : [{ region: 'USA', flag: USAFlag, email: 'na-support@shivaami.com', phone: '+1 (408) 333-4844' }];
+
   const levels = [
     {
       level: 1,
       title: 'Initial Support',
       icon: MessageSquare,
       color: '#38B6FF',
-      regions: [
-        { region: 'India', flag: IndiaFlag, email: 'support@shivaami.com', phone: '+91 775 784 1333 (Ext: 2)' },
-        { region: 'USA', flag: USAFlag, email: 'na-support@shivaami.com', phone: '+1 (408) 333-4844' },
-      ],
+      regions: level1Regions,
     },
     {
       level: 2,
@@ -263,7 +266,7 @@ function EscalationSection() {
       icon: Users,
       color: '#0C4594',
       managers: [
-        { region: 'India', flag: IndiaFlag, name: 'Pratima Attarde', role: '', phone: '+91 775 784 1333 (Ext: 2)', email: 'pratima.attarde@shivaami.com' },
+        { region: 'Escalation Manager', flag: region === 'india' ? IndiaFlag : USAFlag, name: 'Pratima Attarde', role: '', phone: '+91 775 784 1333 (Ext: 2)', email: 'pratima.attarde@shivaami.com' },
       ],
     },
     {
