@@ -93,95 +93,85 @@ function HeroSection() {
 
 // Regional Support Portals
 function RegionalPortals() {
+  const { region } = useRegion();
+
   return (
     <section className="py-16 bg-[#f8fafc]">
       <div className="w-full px-8 lg:px-16 xl:px-24">
-        <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-          {/* India Portal */}
-          <motion.div
-            {...fadeInUp}
-            className="bg-white rounded-2xl border border-border/50 p-8 shadow-lg hover:shadow-xl transition-all relative overflow-hidden group"
-          >
-            {/* Decorative gradient */}
-            <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-[#FF9933]/20 via-white/10 to-[#138808]/20 rounded-bl-full" />
-            
-            <div className="relative z-10">
-              <div className="flex items-center gap-4 mb-6">
-                <div className="w-16 h-12 rounded-lg overflow-hidden shadow-md border border-gray-200">
-                  <IndiaFlag className="w-full h-full" />
+        <div className="max-w-3xl mx-auto">
+          {region === 'india' ? (
+            <motion.div
+              key="india"
+              {...fadeInUp}
+              className="bg-white rounded-2xl border border-border/50 p-8 shadow-lg hover:shadow-xl transition-all relative overflow-hidden group"
+            >
+              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-[#FF9933]/20 via-white/10 to-[#138808]/20 rounded-bl-full" />
+              <div className="relative z-10">
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="w-16 h-12 rounded-lg overflow-hidden shadow-md border border-gray-200">
+                    <IndiaFlag className="w-full h-full" />
+                  </div>
+                  <div>
+                    <h2 className="font-display text-2xl font-bold text-[#0C4594]">India Customers</h2>
+                    <p className="text-muted-foreground text-sm">Dedicated support portal</p>
+                  </div>
                 </div>
-                <div>
-                  <h2 className="font-display text-2xl font-bold text-[#0C4594]">India Customers</h2>
-                  <p className="text-muted-foreground text-sm">Dedicated support portal</p>
-                </div>
-              </div>
-              
-              <p className="text-muted-foreground mb-6 leading-relaxed">
-                Access our dedicated support portal for Indian customers. Get comprehensive domain management, transaction history, and license management all in one place.
-              </p>
-              
-              <a 
-                href="mailto:support@shivaami.com"
-                className="inline-flex items-center gap-2 bg-[#0C4594] text-white px-6 py-3 rounded-xl font-semibold hover:bg-[#0C4594]/90 transition-all mb-6"
-              >
-                <Mail className="w-5 h-5" />
-                Raise a Support Ticket
-              </a>
-              
-              <div className="border-t border-border/50 pt-6">
-                <h3 className="font-semibold text-foreground mb-4 flex items-center gap-2">
-                  <CheckCircle2 className="w-5 h-5 text-[#138808]" />
-                  What You Can Do:
-                </h3>
-                <ul className="space-y-2">
-                  {[
-                    'View complete domain summary and details',
-                    'Access full transaction history',
-                    'Add licenses anytime as needed',
-                  ].map((item) => (
-                    <li key={item} className="flex items-start gap-2 text-muted-foreground text-sm">
-                      <ArrowRight className="w-4 h-4 text-[#0C4594] flex-shrink-0 mt-0.5" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* USA Portal */}
-          <motion.div
-            {...fadeInUp}
-            transition={{ delay: 0.1 }}
-            className="bg-white rounded-2xl border border-border/50 p-8 shadow-lg hover:shadow-xl transition-all relative overflow-hidden group"
-          >
-            {/* Decorative gradient */}
-            <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-[#B22234]/20 via-white/10 to-[#3C3B6E]/20 rounded-bl-full" />
-            
-            <div className="relative z-10">
-              <div className="flex items-center gap-4 mb-6">
-                <div className="w-16 h-12 rounded-lg overflow-hidden shadow-md border border-gray-200">
-                  <USAFlag className="w-full h-full" />
-                </div>
-                <div>
-                  <h2 className="font-display text-2xl font-bold text-[#0C4594]">USA Customers</h2>
-                  <p className="text-muted-foreground text-sm">Dedicated support portal</p>
+                <p className="text-muted-foreground mb-6 leading-relaxed">
+                  Access our dedicated support portal for Indian customers. Get comprehensive domain management, transaction history, and license management all in one place.
+                </p>
+                <a 
+                  href="mailto:support@shivaami.com"
+                  className="inline-flex items-center gap-2 bg-[#0C4594] text-white px-6 py-3 rounded-xl font-semibold hover:bg-[#0C4594]/90 transition-all mb-6"
+                >
+                  <Mail className="w-5 h-5" />
+                  Raise a Support Ticket
+                </a>
+                <div className="border-t border-border/50 pt-6">
+                  <h3 className="font-semibold text-foreground mb-4 flex items-center gap-2">
+                    <CheckCircle2 className="w-5 h-5 text-[#138808]" />
+                    What You Can Do:
+                  </h3>
+                  <ul className="space-y-2">
+                    {['View complete domain summary and details', 'Access full transaction history', 'Add licenses anytime as needed'].map((item) => (
+                      <li key={item} className="flex items-start gap-2 text-muted-foreground text-sm">
+                        <ArrowRight className="w-4 h-4 text-[#0C4594] flex-shrink-0 mt-0.5" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </div>
-              
-              <p className="text-muted-foreground mb-6 leading-relaxed">
-                Our dedicated support portal for US-based customers. Get quick access to all your support needs in one convenient location.
-              </p>
-              
-              <a 
-                href="mailto:na-support@shivaami.com" 
-                className="inline-flex items-center gap-2 bg-[#0C4594] text-white px-6 py-3 rounded-xl font-semibold hover:bg-[#0C4594]/90 transition-all"
-              >
-                <Mail className="w-5 h-5" />
-                Raise a Support Ticket
-              </a>
-            </div>
-          </motion.div>
+            </motion.div>
+          ) : (
+            <motion.div
+              key="usa"
+              {...fadeInUp}
+              className="bg-white rounded-2xl border border-border/50 p-8 shadow-lg hover:shadow-xl transition-all relative overflow-hidden group"
+            >
+              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-[#B22234]/20 via-white/10 to-[#3C3B6E]/20 rounded-bl-full" />
+              <div className="relative z-10">
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="w-16 h-12 rounded-lg overflow-hidden shadow-md border border-gray-200">
+                    <USAFlag className="w-full h-full" />
+                  </div>
+                  <div>
+                    <h2 className="font-display text-2xl font-bold text-[#0C4594]">USA Customers</h2>
+                    <p className="text-muted-foreground text-sm">Dedicated support portal</p>
+                  </div>
+                </div>
+                <p className="text-muted-foreground mb-6 leading-relaxed">
+                  Our dedicated support portal for US-based customers. Get quick access to all your support needs in one convenient location.
+                </p>
+                <a 
+                  href="mailto:na-support@shivaami.com" 
+                  className="inline-flex items-center gap-2 bg-[#0C4594] text-white px-6 py-3 rounded-xl font-semibold hover:bg-[#0C4594]/90 transition-all"
+                >
+                  <Mail className="w-5 h-5" />
+                  Raise a Support Ticket
+                </a>
+              </div>
+            </motion.div>
+          )}
         </div>
       </div>
     </section>
