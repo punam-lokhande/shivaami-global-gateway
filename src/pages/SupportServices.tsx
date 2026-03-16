@@ -343,22 +343,13 @@ function EscalationSection() {
                     ))}
 
                   {/* Level 2 */}
-                  {level.managers && level.managers.map((manager) => {
-                    const Flag = manager.flag;
-                    return (
-                      <div key={manager.region} className="bg-white/5 rounded-xl p-4">
-                        <div className="flex items-center gap-2 mb-2">
-                          <div className="w-8 h-5 rounded overflow-hidden">
-                            <Flag className="w-full h-full" />
-                          </div>
-                          <span className="text-white font-medium text-sm">{manager.region}</span>
-                        </div>
+                  {level.managers && level.managers.map((manager) => (
+                      <div key={manager.name} className="bg-white/5 rounded-xl p-4">
                         <p className="text-white/90 font-medium">{manager.name} {manager.role && <span className="text-white/60">- {manager.role}</span>}</p>
                         <p className="text-white/70 text-xs mt-1">{manager.phone}</p>
                         <a href={`mailto:${manager.email}`} className="text-[#38B6FF] text-xs hover:underline">{manager.email}</a>
                       </div>
-                    );
-                  })}
+                    ))}
 
                   {/* Level 3 */}
                   {level.executives && (
