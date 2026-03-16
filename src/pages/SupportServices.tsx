@@ -180,21 +180,24 @@ function RegionalPortals() {
 
 // Reach Out Section - Compact
 function ReachOutSection() {
-  const channels = [
+  const { region } = useRegion();
+
+  const channels = region === 'india' ? [
     {
       icon: Mail,
       title: 'Email Support',
-      items: [
-        { label: 'India', value: 'support@shivaami.com', href: 'mailto:support@shivaami.com' },
-        { label: 'USA', value: 'na-support@shivaami.com', href: 'mailto:na-support@shivaami.com' },
-      ],
+      items: [{ label: 'India', value: 'support@shivaami.com', href: 'mailto:support@shivaami.com' }],
     },
     {
       icon: Phone,
       title: 'Phone Support',
-      items: [
-        { label: 'India', value: '+91 775 784 1333', href: 'tel:+917757841333' },
-      ],
+      items: [{ label: 'India', value: '+91 775 784 1333', href: 'tel:+917757841333' }],
+    },
+  ] : [
+    {
+      icon: Mail,
+      title: 'Email Support',
+      items: [{ label: 'USA', value: 'na-support@shivaami.com', href: 'mailto:na-support@shivaami.com' }],
     },
   ];
 
