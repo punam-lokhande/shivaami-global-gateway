@@ -234,13 +234,10 @@ function ReachOutSection() {
                     <a 
                       key={item.label} 
                       href={item.href}
-                      target={item.external ? '_blank' : undefined}
-                      rel={item.external ? 'noopener noreferrer' : undefined}
                       className="block text-muted-foreground hover:text-[#0C4594] transition-colors"
                     >
                       <span className="font-medium text-foreground">{item.label}: </span>
                       <span className="text-[#0C4594]">{item.value}</span>
-                      {item.external && <ExternalLink className="w-3 h-3 inline ml-1" />}
                     </a>
                   ))}
                 </div>
