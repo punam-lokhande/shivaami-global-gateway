@@ -26,7 +26,7 @@ const awardsData: YearData[] = [
   {
     year: '2026',
     awards: [
-      { title: 'Partner of the Year – APAC / VAR (India) - JumpCloud', image: jumpcloudPartner2026 },
+      { title: 'Partner of the Year – APAC / VAR (India) - JumpCloud', image: 'https://www.shivaami.com/assets/images/award/jumpcloud-partner-2026.jpg' },
     ],
   },
   {
