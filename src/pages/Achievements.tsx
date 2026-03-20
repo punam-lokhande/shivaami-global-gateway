@@ -33,6 +33,7 @@ const awardsData: YearData[] = [
       { title: 'Gemini Pipeline Champion 2024 at APAC Partner Gemini Competition 2024', image: 'https://www.shivaami.com/assets/images/award/Gemini-Pipeline-Champion-2024.jpg' },
       { title: 'Partner of the Year – APAC VAR by JumpCloud', image: 'https://www.shivaami.com/assets/images/award/APAC-VAR-JumpCloud.jpg' },
       { title: 'VARINDIA INFOTECH FORUM - Most Promising Partner in India 2025', image: 'https://www.shivaami.com/assets/images/award/VARINDIA-25.jpg' },
+      { title: 'Partner of the Year – APAC / VAR - JumpCloud', image: jumpcloudPartner2026 },
     ],
   },
   {
