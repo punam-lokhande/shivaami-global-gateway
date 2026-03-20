@@ -218,7 +218,7 @@ function HeroSection() {
 }
 
 export default function Achievements() {
-  const [selectedYear, setSelectedYear] = useState('2025');
+  const [selectedYear, setSelectedYear] = useState('2026');
   const [selectedImage, setSelectedImage] = useState<AwardItem | null>(null);
 
   const currentYearData = awardsData.find(y => y.year === selectedYear) || awardsData[0];
