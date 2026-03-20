@@ -24,9 +24,14 @@ interface YearData {
 
 const awardsData: YearData[] = [
   {
-    year: '2025',
+    year: '2026',
     awards: [
       { title: 'Partner of the Year – APAC / VAR (India) - JumpCloud', image: jumpcloudPartner2026 },
+    ],
+  },
+  {
+    year: '2025',
+    awards: [
       { title: 'Best Cloud Solution Partner – VARINDIA 24th Star Nite Awards, 2025', image: 'https://www.shivaami.com/assets/images/award/VARINDIA-Star-Nite-Awards-2025.jpg' },
       { title: 'Google Workspace Partner of the Year - APAC, awarded at Google Cloud Next \'25 in Las Vegas', image: 'https://www.shivaami.com/assets/images/award/Google-Cloud-Partner-Award-2025.jpg' },
       { title: 'Top 20 DivHERsity Champions 2025 by herkey', image: 'https://www.shivaami.com/assets/images/award/DivHERsity-Award.jpg' },
@@ -213,7 +218,7 @@ function HeroSection() {
 }
 
 export default function Achievements() {
-  const [selectedYear, setSelectedYear] = useState('2025');
+  const [selectedYear, setSelectedYear] = useState('2026');
   const [selectedImage, setSelectedImage] = useState<AwardItem | null>(null);
 
   const currentYearData = awardsData.find(y => y.year === selectedYear) || awardsData[0];
