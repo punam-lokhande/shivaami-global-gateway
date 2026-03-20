@@ -10,6 +10,7 @@ import { Dialog, DialogContent } from '@/components/ui/dialog';
 // Banner image
 import achievementsBanner from '@/assets/banners/achievements-banner.jpg';
 import googleEnterprise2013 from '@/assets/awards/google-enterprise-2013-sf.jpg';
+import jumpcloudPartner2026 from '@/assets/awards/jumpcloud-partner-2026.jpg';
 
 interface AwardItem {
   title: string;
@@ -32,6 +33,7 @@ const awardsData: YearData[] = [
       { title: 'Gemini Pipeline Champion 2024 at APAC Partner Gemini Competition 2024', image: 'https://www.shivaami.com/assets/images/award/Gemini-Pipeline-Champion-2024.jpg' },
       { title: 'Partner of the Year – APAC VAR by JumpCloud', image: 'https://www.shivaami.com/assets/images/award/APAC-VAR-JumpCloud.jpg' },
       { title: 'VARINDIA INFOTECH FORUM - Most Promising Partner in India 2025', image: 'https://www.shivaami.com/assets/images/award/VARINDIA-25.jpg' },
+      { title: 'Partner of the Year – APAC / VAR - JumpCloud', image: jumpcloudPartner2026 },
     ],
   },
   {
