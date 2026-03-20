@@ -10,6 +10,7 @@ import { Dialog, DialogContent } from '@/components/ui/dialog';
 // Banner image
 import achievementsBanner from '@/assets/banners/achievements-banner.jpg';
 import googleEnterprise2013 from '@/assets/awards/google-enterprise-2013-sf.jpg';
+import jumpcloudPartner2026 from '@/assets/awards/jumpcloud-partner-2026.jpg';
 
 interface AwardItem {
   title: string;
