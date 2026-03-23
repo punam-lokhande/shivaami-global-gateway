@@ -9,12 +9,19 @@
     content="Shivaami - Transform your organization's IT infrastructure with enterprise-grade solutions" />
   <meta name="author" content="Shivaami" />
 
-  <!-- Brand Fonts: Montserrat & Roboto -->
+  <!-- Brand Fonts: Montserrat & Roboto - optimized loading -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style"
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Roboto:wght@400;500&display=swap">
   <link
-    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Roboto:wght@300;400;500;700&display=swap"
-    rel="stylesheet">
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Roboto:wght@400;500&display=swap"
+    rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Roboto:wght@400;500&display=swap"
+      rel="stylesheet">
+  </noscript>
 
   <meta property="og:title" content="Shivaami - Enterprise IT Solutions" />
   <meta property="og:description"
@@ -25,25 +32,30 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@Shivaami" />
   <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
-  <!-- Google Tag Manager -->
-  <script>(function (w, d, s, l, i) {
-      w[l] = w[l] || []; w[l].push({
-        'gtm.start':
-          new Date().getTime(), event: 'gtm.js'
-      }); var f = d.getElementsByTagName(s)[0],
-        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
-          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
-    })(window, document, 'script', 'dataLayer', 'GTM-5WLXZ92');</script>
-  <!-- End Google Tag Manager -->
-  <!-- Global site tag (gtag.js) - Google Ads: 997885813 -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-997885813"></script>
+  <!-- Google Tag Manager - deferred to reduce TBT -->
   <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
+    window.addEventListener('load', function() {
+      setTimeout(function() {
+        (function (w, d, s, l, i) {
+          w[l] = w[l] || []; w[l].push({
+            'gtm.start': new Date().getTime(), event: 'gtm.js'
+          }); var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+              'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-5WLXZ92');
 
-
-    gtag('config', 'AW-997885813');
+        var g = document.createElement('script');
+        g.async = true;
+        g.src = 'https://www.googletagmanager.com/gtag/js?id=AW-997885813';
+        document.head.appendChild(g);
+        g.onload = function() {
+          window.dataLayer = window.dataLayer || [];
+          function gtag() { dataLayer.push(arguments); }
+          gtag('js', new Date());
+          gtag('config', 'AW-997885813');
+        };
+      }, 2000);
+    });
   </script>
 
 
@@ -56,10 +68,19 @@
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5WLXZ92" height="0" width="0"
       style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
-  <script>window.$zoho = window.$zoho || {}; $zoho.salesiq = $zoho.salesiq || { ready: function () { } }</script>
-  <script id="zsiqscript"
-    src="https://salesiq.zohopublic.com/widget?wc=siq2b453f80114adc50fd82af38ae8a4e984ee86467241b9a5e7790632d06c5e9dc"
-    defer></script>
+  <!-- Zoho SalesIQ - deferred to reduce TBT -->
+  <script>
+    window.addEventListener('load', function() {
+      setTimeout(function() {
+        window.$zoho = window.$zoho || {}; $zoho.salesiq = $zoho.salesiq || { ready: function () { } };
+        var z = document.createElement('script');
+        z.id = 'zsiqscript';
+        z.src = 'https://salesiq.zohopublic.com/widget?wc=siq2b453f80114adc50fd82af38ae8a4e984ee86467241b9a5e7790632d06c5e9dc';
+        z.defer = true;
+        document.body.appendChild(z);
+      }, 3000);
+    });
+  </script>
 
 </body>
 

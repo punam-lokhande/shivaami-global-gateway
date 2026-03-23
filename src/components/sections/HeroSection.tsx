@@ -32,6 +32,10 @@ export default function HeroSection() {
           alt="Enterprise cloud and AI solutions"
           className="w-full h-full object-cover object-center sm:object-center md:object-[70%_center] lg:object-center"
           loading="eager"
+          fetchPriority="high"
+          width={1920}
+          height={1080}
+          decoding="async"
         />
         {/* Blue transparent gradient overlay - darker from left for text readability */}
         <div 
