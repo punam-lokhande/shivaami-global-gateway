@@ -93,6 +93,9 @@ export default function PartnersSection() {
                   src={partner.logo} 
                   alt={partner.name}
                   className="h-10 w-auto object-contain max-w-[140px]"
+                  loading="lazy"
+                  width={140}
+                  height={40}
                 />
               </div>
             ))}
