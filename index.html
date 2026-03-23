@@ -68,10 +68,19 @@
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5WLXZ92" height="0" width="0"
       style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
-  <script>window.$zoho = window.$zoho || {}; $zoho.salesiq = $zoho.salesiq || { ready: function () { } }</script>
-  <script id="zsiqscript"
-    src="https://salesiq.zohopublic.com/widget?wc=siq2b453f80114adc50fd82af38ae8a4e984ee86467241b9a5e7790632d06c5e9dc"
-    defer></script>
+  <!-- Zoho SalesIQ - deferred to reduce TBT -->
+  <script>
+    window.addEventListener('load', function() {
+      setTimeout(function() {
+        window.$zoho = window.$zoho || {}; $zoho.salesiq = $zoho.salesiq || { ready: function () { } };
+        var z = document.createElement('script');
+        z.id = 'zsiqscript';
+        z.src = 'https://salesiq.zohopublic.com/widget?wc=siq2b453f80114adc50fd82af38ae8a4e984ee86467241b9a5e7790632d06c5e9dc';
+        z.defer = true;
+        document.body.appendChild(z);
+      }, 3000);
+    });
+  </script>
 
 </body>
 
