@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Clock, MapPin, ArrowRight, Users, Zap, Heart, TrendingUp, Send } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
@@ -59,24 +59,22 @@ const benefits = [
   },
 ];
 
-const generateCaptcha = () => {
-  const num1 = Math.floor(Math.random() * 10) + 1;
-  const num2 = Math.floor(Math.random() * 10) + 1;
-  return { num1, num2, answer: num1 + num2 };
-};
+declare global {
+  interface Window {
+    grecaptcha: any;
+  }
+}
 
 export default function Careers() {
   const navigate = useNavigate();
   const { toast } = useToast();
   const formRef = useRef<HTMLDivElement>(null);
-  const [captcha, setCaptcha] = useState(generateCaptcha());
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     phone: '',
     profile: '',
     message: '',
-    captchaAnswer: '',
   });
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -84,6 +82,17 @@ export default function Careers() {
   const scrollToForm = () => {
     formRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
+
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = "https://www.google.com/recaptcha/enterprise.js";
+    script.async = true;
+    script.defer = true;
+    document.body.appendChild(script);
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
 
   const handleInputChange = (field: string, value: string) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
@@ -113,11 +122,6 @@ export default function Careers() {
     }
     if (!formData.profile) newErrors.profile = 'Please select a profile';
     if (!formData.message.trim()) newErrors.message = 'Message is required';
-    if (!formData.captchaAnswer.trim()) {
-      newErrors.captchaAnswer = 'Please solve the captcha';
-    } else if (parseInt(formData.captchaAnswer) !== captcha.answer) {
-      newErrors.captchaAnswer = 'Incorrect answer';
-    }
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -398,32 +402,8 @@ export default function Careers() {
                   {errors.message && <p className="text-destructive text-xs mt-1">{errors.message}</p>}
                 </div>
 
-                {/* Captcha */}
-                <div>
-                  <Label className="text-sm font-medium mb-2 block">
-                    Security Check <span className="text-destructive">*</span>
-                  </Label>
-                  <div className="flex items-center gap-3">
-                    <div className="bg-secondary px-4 py-2 rounded-lg font-mono text-lg">
-                      {captcha.num1} + {captcha.num2} = ?
-                    </div>
-                    <Input
-                      placeholder="Answer"
-                      value={formData.captchaAnswer}
-                      onChange={(e) => handleInputChange('captchaAnswer', e.target.value)}
-                      className={`w-24 ${errors.captchaAnswer ? 'border-destructive' : ''}`}
-                    />
-                    <Button
-                      type="button"
-                      variant="ghost"
-                      size="sm"
-                      onClick={() => setCaptcha(generateCaptcha())}
-                      className="text-xs"
-                    >
-                      Refresh
-                    </Button>
-                  </div>
-                  {errors.captchaAnswer && <p className="text-destructive text-xs mt-1">{errors.captchaAnswer}</p>}
+                <div className="g-recaptcha" data-sitekey="6LddEpcsAAAAAE_gNNaqY7cFXIeqctqXHcXPUAcU" data-action="careers">
+
                 </div>
 
                 {/* Submit */}
