@@ -1,15 +1,15 @@
 import { motion } from 'framer-motion';
 import { Phone, Mail, MapPin, Send, Loader2, Calendar } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
+import { Input } from "@/components/ui/input";
 import { Textarea } from '@/components/ui/textarea';
 import { API_ENDPOINTS } from '@/utils/api';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import { toast } from 'sonner';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useRegion } from '@/contexts/RegionContext';
+import { useRegion } from "@/contexts/RegionContext";
 import heroImage from '@/assets/banners/contact-hero.jpg';
 
 const offices = [
@@ -31,6 +31,7 @@ const offices = [
   },
 ];
 
+declare global {  interface Window {    grecaptcha: any;  }}
 export default function Contact() {
   const navigate = useNavigate();
   const { region } = useRegion();
@@ -41,6 +42,10 @@ export default function Contact() {
   const [message, setMessage] = useState('');
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
   const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    const script = document.createElement('script');    script.src = "https://www.google.com/recaptcha/enterprise.js";    script.async = true;    script.defer = true;    document.body.appendChild(script);    return () => {      document.body.removeChild(script);    };  }, []);
+
 
   const validate = () => {
     const newErrors: { [key: string]: string } = {};
@@ -205,6 +210,9 @@ export default function Contact() {
           {errors.message && (
             <p className="text-xs text-red-500 mt-1">{errors.message}</p>
           )}
+        </div>
+        <div className="g-recaptcha" data-sitekey="6LddEpcsAAAAAE_gNNaqY7cFXIeqctqXHcXPUAcU" data-action="contact_us">
+
         </div>
 
         <Button
@@ -382,4 +390,7 @@ export default function Contact() {
       <Footer />
     </div>
   );
+
+
 }
+

@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import {
   TrendingUp, Rocket, Clock, Users, Headphones,
@@ -62,6 +62,12 @@ const shivaamiAdvantage = [
   },
 ];
 
+declare global {
+  interface Window {
+    grecaptcha: any;
+  }
+}
+
 export default function BecomePartner() {
   const formRef = useRef<HTMLDivElement>(null);
   const { toast } = useToast();
@@ -76,6 +82,17 @@ export default function BecomePartner() {
     products: '',
     reason: '',
   });
+
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = "https://www.google.com/recaptcha/enterprise.js";
+    script.async = true;
+    script.defer = true;
+    document.body.appendChild(script);
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
 
   const scrollToForm = () => {
     formRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -390,6 +407,10 @@ export default function BecomePartner() {
                   rows={4}
                   className="bg-background"
                 />
+              </div>
+
+              <div className="g-recaptcha mt-6" data-sitekey="6LddEpcsAAAAAE_gNNaqY7cFXIeqctqXHcXPUAcU" data-action="become_a_partner">
+
               </div>
 
               <div className="mt-6 sm:mt-8">
