@@ -102,12 +102,19 @@ export default function BecomePartner() {
     e.preventDefault();
     setIsSubmitting(true);
     try {
+      if (!window.grecaptcha) {
+        throw new Error('reCAPTCHA not loaded');
+      }
+      const token = await window.grecaptcha.enterprise.execute('6LddEpcsAAAAAE_gNNaqY7cFXIeqctqXHcXPUAcU', { action: 'become_a_partner' });
+
+      const body = { ...formData, captchaToken: token };
+
       const response = await fetch(API_ENDPOINTS.STORE_PARTNERWTHUS_DETAILS, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(body),
       });
 
       if (!response.ok) {

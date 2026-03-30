@@ -63,9 +63,8 @@ export default function Contact() {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const formData = { fullName, email, phone, company, subject: '', message };
 
     if (!validate()) {
       toast.error('Please fill in all required fields.');
@@ -73,33 +72,37 @@ export default function Contact() {
     }
 
     setIsLoading(true);
+    try {
+      if (!window.grecaptcha) {
+        throw new Error('reCAPTCHA not loaded');
+      }
+      const token = await window.grecaptcha.enterprise.execute('6LddEpcsAAAAAE_gNNaqY7cFXIeqctqXHcXPUAcU', { action: 'contact_us' });
 
-    fetch(API_ENDPOINTS.STORE_CONTACTUS_DETAILS, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(formData),
-    })
-      .then((response) => {
-        if (!response.ok) throw new Error('Network response was not ok');
-        return response.json();
-      })
-      .then(() => {
-        toast.success('Message sent successfully!');
-        setFullName('');
-        setEmail('');
-        setPhone('');
-        setCompany('');
-        setMessage('');
-        setErrors({});
-        navigate('/contact-us-thankyou');
-      })
-      .catch((error) => {
-        toast.error('Failed to send message. Please try again.');
-        console.error('Error submitting form:', error);
-      })
-      .finally(() => {
-        setIsLoading(false);
+      const formData = { fullName, email, phone, company, subject: '', message, captchaToken: token };
+
+      const response = await fetch(API_ENDPOINTS.STORE_CONTACTUS_DETAILS, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
       });
+
+        if (!response.ok) throw new Error('Network response was not ok');
+      await response.json();
+
+      toast.success('Message sent successfully!');
+      setFullName('');
+      setEmail('');
+      setPhone('');
+      setCompany('');
+      setMessage('');
+      setErrors({});
+      navigate('/contact-us-thankyou');
+    } catch (error) {
+      toast.error('Failed to send message. Please try again.');
+      console.error('Error submitting form:', error);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   // Contact Form Component (used once, positioned absolutely on desktop)
@@ -393,4 +396,3 @@ export default function Contact() {
 
 
 }
-
