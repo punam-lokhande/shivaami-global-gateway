@@ -7,10 +7,11 @@ import { API_ENDPOINTS } from '@/utils/api';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import { toast } from 'sonner';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useRegion } from "@/contexts/RegionContext";
 import heroImage from '@/assets/banners/contact-hero.jpg';
+import ReCAPTCHA from "react-google-recaptcha";
 
 const offices = [
   {
@@ -42,6 +43,8 @@ export default function Contact() {
   const [message, setMessage] = useState('');
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
   const [isLoading, setIsLoading] = useState(false);
+  const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
+  const recaptchaRef = useRef<ReCAPTCHA>(null);
 
   useEffect(() => {
     const script = document.createElement('script');    script.src = "https://www.google.com/recaptcha/enterprise.js";    script.async = true;    script.defer = true;    document.body.appendChild(script);    return () => {      document.body.removeChild(script);    };  }, []);
@@ -76,9 +79,9 @@ export default function Contact() {
       if (!window.grecaptcha) {
         throw new Error('reCAPTCHA not loaded');
       }
-      const token = await window.grecaptcha.enterprise.execute('6LddEpcsAAAAAE_gNNaqY7cFXIeqctqXHcXPUAcU', { action: 'contact_us' });
+      
 
-      const formData = { fullName, email, phone, company, subject: '', message, captchaToken: token };
+      const formData = { fullName, email, phone, company, subject: '', message, 'grecaptcharesponse': recaptchaToken };
 
       const response = await fetch(API_ENDPOINTS.STORE_CONTACTUS_DETAILS, {
         method: 'POST',
@@ -214,13 +217,16 @@ export default function Contact() {
             <p className="text-xs text-red-500 mt-1">{errors.message}</p>
           )}
         </div>
-        <div className="g-recaptcha" data-sitekey="6LddEpcsAAAAAE_gNNaqY7cFXIeqctqXHcXPUAcU" data-action="contact_us">
-
-        </div>
+         <ReCAPTCHA
+                    ref={recaptchaRef}
+                    sitekey="6LddEpcsAAAAAE_gNNaqY7cFXIeqctqXHcXPUAcU" // <-- IMPORTANT: Replace with your Site Key
+                    onChange={(token) => setRecaptchaToken(token)}
+                    onExpired={() => setRecaptchaToken(null)}
+                  />
 
         <Button
           type="submit"
-          disabled={isLoading}
+          disabled={isLoading || !recaptchaToken}
           className="w-full h-12 bg-[#0C4594] hover:bg-[#0a3670] text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all"
         >
           {isLoading ? (
@@ -230,7 +236,7 @@ export default function Contact() {
             </>
           ) : (
             <>
-              <Send className="w-4 h-4 mr-2" />
+              <Send className="w-4 h-4 mr-2"  />
               Send Message
             </>
           )}

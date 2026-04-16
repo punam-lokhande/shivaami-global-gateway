@@ -15,6 +15,7 @@ import { useToast } from '@/hooks/use-toast';
 import partnerBanner from '@/assets/banners/changepath-banner.jpg';
 import partnershipImage from '@/assets/banners/partnership-handshake.jpg';
 import { API_ENDPOINTS } from '@/utils/api';
+import ReCAPTCHA from "react-google-recaptcha";
 
 const whyPartner = [
   {
@@ -82,7 +83,8 @@ export default function BecomePartner() {
     products: '',
     reason: '',
   });
-
+  const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
+  const recaptchaRef = useRef<ReCAPTCHA>(null);
   useEffect(() => {
     const script = document.createElement('script');
     script.src = "https://www.google.com/recaptcha/enterprise.js";
@@ -105,9 +107,9 @@ export default function BecomePartner() {
       if (!window.grecaptcha) {
         throw new Error('reCAPTCHA not loaded');
       }
-      const token = await window.grecaptcha.enterprise.execute('6LddEpcsAAAAAE_gNNaqY7cFXIeqctqXHcXPUAcU', { action: 'become_a_partner' });
+      // const token = await window.grecaptcha.enterprise.execute('6LddEpcsAAAAAE_gNNaqY7cFXIeqctqXHcXPUAcU', { action: 'become_a_partner' });
 
-      const body = { ...formData, captchaToken: token };
+      const body = { ...formData, 'g-recaptcha-response': recaptchaToken };
 
       const response = await fetch(API_ENDPOINTS.STORE_PARTNERWTHUS_DETAILS, {
         method: 'POST',
@@ -145,9 +147,9 @@ export default function BecomePartner() {
         <title>Become a Partner | Shivaami Cloud Services</title>
         <meta name="description" content="Join the Shivaami Partner Program. Deploy world-class cloud solutions including Google Workspace, GCP, and AWS without the cost of maintaining a massive internal engineering team." />
       </Helmet>
-      
+
       <Header />
-      
+
       {/* Hero Section */}
       <section className="relative flex items-center overflow-hidden">
         <div className="absolute inset-0">
@@ -158,7 +160,7 @@ export default function BecomePartner() {
           />
           <div className="absolute inset-0 bg-gradient-to-r from-[rgba(12,69,148,0.95)] via-[rgba(12,69,148,0.85)] to-[rgba(12,69,148,0.6)]" />
         </div>
-        
+
         <div className="relative z-10 w-full px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24 pt-24 sm:pt-28 md:pt-32 lg:pt-36 pb-8 sm:pb-10 md:pb-12 lg:pb-16">
           <div className="max-w-3xl">
             <motion.h1
@@ -184,8 +186,8 @@ export default function BecomePartner() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
             >
-              <Button 
-                size="lg" 
+              <Button
+                size="lg"
                 onClick={scrollToForm}
                 className="bg-white text-primary hover:bg-white/90 font-semibold px-6 sm:px-8"
               >
@@ -403,7 +405,7 @@ export default function BecomePartner() {
                   />
                 </div>
               </div>
-              
+
               <div className="mt-4 sm:mt-6">
                 <label className="block text-sm font-medium text-foreground mb-2">Why do you want to partner with Shivaami?</label>
                 <Textarea
@@ -416,9 +418,17 @@ export default function BecomePartner() {
                 />
               </div>
 
-              <div className="g-recaptcha mt-6" data-sitekey="6LddEpcsAAAAAE_gNNaqY7cFXIeqctqXHcXPUAcU" data-action="become_a_partner">
+              {/* <div className="g-recaptcha mt-6" data-sitekey="6LddEpcsAAAAAE_gNNaqY7cFXIeqctqXHcXPUAcU" data-action="become_a_partner">
 
-              </div>
+              </div> */}
+              <br></br>
+              <ReCAPTCHA
+                ref={recaptchaRef}
+                sitekey="6LddEpcsAAAAAE_gNNaqY7cFXIeqctqXHcXPUAcU" // <-- IMPORTANT: Replace with your Site Key
+                onChange={(token) => setRecaptchaToken(token)}
+                onExpired={() => setRecaptchaToken(null)}
+              />
+
 
               <div className="mt-6 sm:mt-8">
                 <Button type="submit" size="lg" className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold" disabled={isSubmitting}>
