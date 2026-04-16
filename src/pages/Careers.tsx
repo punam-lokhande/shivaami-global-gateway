@@ -12,7 +12,7 @@ import { Label } from '@/components/ui/label';
 import { useToast } from '@/hooks/use-toast';
 import { API_ENDPOINTS } from '@/utils/api';
 import careersBanner from '@/assets/banners/careers-banner.jpg';
-import ReCAPTCHA from "react-google-recaptcha";
+import { executeCaptcha } from '@/captcha';
 
 const jobOpenings = [
   {
@@ -79,8 +79,6 @@ export default function Careers() {
   });
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
-  const recaptchaRef = useRef<ReCAPTCHA>(null);
   const scrollToForm = () => {
     formRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
@@ -136,12 +134,8 @@ export default function Careers() {
     setIsSubmitting(true);
 
     try {
-      if (!window.grecaptcha) {
-        throw new Error('reCAPTCHA not loaded');
-      }
-      // const token = await window.grecaptcha.enterprise.execute('6LddEpcsAAAAAE_gNNaqY7cFXIeqctqXHcXPUAcU', { action: 'careers' });
-
-      const body = { ...formData, 'g-recaptcha-response': recaptchaToken };
+     const captchaToken = await executeCaptcha('career_page');
+      const body = { ...formData, 'captcha_token': captchaToken };
 
       const response = await fetch(API_ENDPOINTS.STORE_CAREER_DETAILS, {
         method: 'POST',
@@ -410,16 +404,7 @@ export default function Careers() {
                   {errors.message && <p className="text-destructive text-xs mt-1">{errors.message}</p>}
                 </div>
 
-                {/* <div className="g-recaptcha" data-sitekey="6LddEpcsAAAAAE_gNNaqY7cFXIeqctqXHcXPUAcU" data-action="careers">
-
-                </div> */}
-                <br></br>
-                <ReCAPTCHA
-                  ref={recaptchaRef}
-                  sitekey="6LddEpcsAAAAAE_gNNaqY7cFXIeqctqXHcXPUAcU" // <-- IMPORTANT: Replace with your Site Key
-                  onChange={(token) => setRecaptchaToken(token)}
-                  onExpired={() => setRecaptchaToken(null)}
-                />
+                
 
 
                 {/* Submit */}

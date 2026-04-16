@@ -12,6 +12,7 @@ import { useNavigate } from 'react-router-dom';
 import { useRegion } from "@/contexts/RegionContext";
 import heroImage from '@/assets/banners/contact-hero.jpg';
 import ReCAPTCHA from "react-google-recaptcha";
+import { executeCaptcha } from '@/captcha';
 
 const offices = [
   {
@@ -76,12 +77,12 @@ export default function Contact() {
 
     setIsLoading(true);
     try {
-      if (!window.grecaptcha) {
-        throw new Error('reCAPTCHA not loaded');
-      }
+      // if (!window.grecaptcha) {
+      //   throw new Error('reCAPTCHA not loaded');
+      // }
       
-
-      const formData = { fullName, email, phone, company, subject: '', message, 'grecaptcharesponse': recaptchaToken };
+       const captchaToken = await executeCaptcha('contact_us');
+      const formData = { fullName, email, phone, company, subject: '', message, 'captcha_token': captchaToken };
 
       const response = await fetch(API_ENDPOINTS.STORE_CONTACTUS_DETAILS, {
         method: 'POST',
@@ -217,16 +218,16 @@ export default function Contact() {
             <p className="text-xs text-red-500 mt-1">{errors.message}</p>
           )}
         </div>
-         <ReCAPTCHA
+         {/* <ReCAPTCHA
                     ref={recaptchaRef}
                     sitekey="6LddEpcsAAAAAE_gNNaqY7cFXIeqctqXHcXPUAcU" // <-- IMPORTANT: Replace with your Site Key
                     onChange={(token) => setRecaptchaToken(token)}
                     onExpired={() => setRecaptchaToken(null)}
-                  />
+                  /> */}
 
         <Button
           type="submit"
-          disabled={isLoading || !recaptchaToken}
+          
           className="w-full h-12 bg-[#0C4594] hover:bg-[#0a3670] text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all"
         >
           {isLoading ? (

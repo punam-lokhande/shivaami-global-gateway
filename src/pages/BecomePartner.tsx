@@ -15,7 +15,7 @@ import { useToast } from '@/hooks/use-toast';
 import partnerBanner from '@/assets/banners/changepath-banner.jpg';
 import partnershipImage from '@/assets/banners/partnership-handshake.jpg';
 import { API_ENDPOINTS } from '@/utils/api';
-import ReCAPTCHA from "react-google-recaptcha";
+import { executeCaptcha } from '@/captcha';
 
 const whyPartner = [
   {
@@ -83,8 +83,6 @@ export default function BecomePartner() {
     products: '',
     reason: '',
   });
-  const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
-  const recaptchaRef = useRef<ReCAPTCHA>(null);
   useEffect(() => {
     const script = document.createElement('script');
     script.src = "https://www.google.com/recaptcha/enterprise.js";
@@ -104,12 +102,8 @@ export default function BecomePartner() {
     e.preventDefault();
     setIsSubmitting(true);
     try {
-      if (!window.grecaptcha) {
-        throw new Error('reCAPTCHA not loaded');
-      }
-      // const token = await window.grecaptcha.enterprise.execute('6LddEpcsAAAAAE_gNNaqY7cFXIeqctqXHcXPUAcU', { action: 'become_a_partner' });
-
-      const body = { ...formData, 'g-recaptcha-response': recaptchaToken };
+      const captchaToken = await executeCaptcha('become_partner');
+      const body = { ...formData, 'captcha_token': captchaToken };
 
       const response = await fetch(API_ENDPOINTS.STORE_PARTNERWTHUS_DETAILS, {
         method: 'POST',
@@ -417,18 +411,6 @@ export default function BecomePartner() {
                   className="bg-background"
                 />
               </div>
-
-              {/* <div className="g-recaptcha mt-6" data-sitekey="6LddEpcsAAAAAE_gNNaqY7cFXIeqctqXHcXPUAcU" data-action="become_a_partner">
-
-              </div> */}
-              <br></br>
-              <ReCAPTCHA
-                ref={recaptchaRef}
-                sitekey="6LddEpcsAAAAAE_gNNaqY7cFXIeqctqXHcXPUAcU" // <-- IMPORTANT: Replace with your Site Key
-                onChange={(token) => setRecaptchaToken(token)}
-                onExpired={() => setRecaptchaToken(null)}
-              />
-
 
               <div className="mt-6 sm:mt-8">
                 <Button type="submit" size="lg" className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold" disabled={isSubmitting}>
