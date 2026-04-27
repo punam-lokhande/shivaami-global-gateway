@@ -12,6 +12,7 @@ import { Label } from '@/components/ui/label';
 import { useToast } from '@/hooks/use-toast';
 import { API_ENDPOINTS } from '@/utils/api';
 import careersBanner from '@/assets/banners/careers-banner.jpg';
+import { executeCaptcha } from '@/captcha';
 
 const jobOpenings = [
   {
@@ -78,7 +79,6 @@ export default function Careers() {
   });
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
-
   const scrollToForm = () => {
     formRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
@@ -130,17 +130,19 @@ export default function Careers() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!validateForm()) return;
-    console.log(JSON.stringify(formData, null, 2));
 
     setIsSubmitting(true);
 
     try {
+     const captchaToken = await executeCaptcha('career_page');
+      const body = { ...formData, 'captcha_token': captchaToken };
+
       const response = await fetch(API_ENDPOINTS.STORE_CAREER_DETAILS, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(body),
       });
 
       if (!response.ok) {
@@ -168,7 +170,7 @@ export default function Careers() {
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      
+
       {/* Hero Section */}
       <section className="relative flex items-center overflow-hidden">
         {/* Background Image */}
@@ -180,7 +182,7 @@ export default function Careers() {
           />
           <div className="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/80 to-primary/60" />
         </div>
-        
+
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-24 md:pt-32 pb-12 md:pb-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -192,7 +194,7 @@ export default function Careers() {
               Build Your Career with Shivaami
             </h1>
             <p className="text-base sm:text-lg md:text-xl text-white/90">
-              Join a team of passionate professionals transforming businesses through cloud technology. 
+              Join a team of passionate professionals transforming businesses through cloud technology.
               Discover opportunities that match your skills and ambitions.
             </p>
           </motion.div>
@@ -277,7 +279,7 @@ export default function Careers() {
                         </span>
                       </div>
                     </div>
-                    <Button 
+                    <Button
                       className="bg-primary hover:bg-primary/90 text-primary-foreground shrink-0 group/btn text-sm"
                       onClick={() => handleApplyClick(job.title)}
                     >
@@ -402,14 +404,13 @@ export default function Careers() {
                   {errors.message && <p className="text-destructive text-xs mt-1">{errors.message}</p>}
                 </div>
 
-                <div className="g-recaptcha" data-sitekey="6LddEpcsAAAAAE_gNNaqY7cFXIeqctqXHcXPUAcU" data-action="careers">
+                
 
-                </div>
 
                 {/* Submit */}
-                <Button 
-                  type="submit" 
-                  size="lg" 
+                <Button
+                  type="submit"
+                  size="lg"
                   className="w-full mt-2"
                   disabled={isSubmitting}
                 >
@@ -443,7 +444,7 @@ export default function Careers() {
             <p className="text-white/80 mb-6 md:mb-8 text-sm md:text-base">
               We're always looking for talented individuals. Send us your resume and we'll keep you in mind for future opportunities.
             </p>
-            <Button 
+            <Button
               size="lg"
               variant="secondary"
               className="bg-white text-primary hover:bg-white/90"

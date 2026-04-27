@@ -7,10 +7,12 @@ import { API_ENDPOINTS } from '@/utils/api';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import { toast } from 'sonner';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useRegion } from "@/contexts/RegionContext";
 import heroImage from '@/assets/banners/contact-hero.jpg';
+import ReCAPTCHA from "react-google-recaptcha";
+import { executeCaptcha } from '@/captcha';
 
 const offices = [
   {
@@ -42,6 +44,8 @@ export default function Contact() {
   const [message, setMessage] = useState('');
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
   const [isLoading, setIsLoading] = useState(false);
+  const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
+  const recaptchaRef = useRef<ReCAPTCHA>(null);
 
   useEffect(() => {
     const script = document.createElement('script');    script.src = "https://www.google.com/recaptcha/enterprise.js";    script.async = true;    script.defer = true;    document.body.appendChild(script);    return () => {      document.body.removeChild(script);    };  }, []);
@@ -63,9 +67,8 @@ export default function Contact() {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const formData = { fullName, email, phone, company, subject: '', message };
 
     if (!validate()) {
       toast.error('Please fill in all required fields.');
@@ -73,33 +76,37 @@ export default function Contact() {
     }
 
     setIsLoading(true);
+    try {
+      // if (!window.grecaptcha) {
+      //   throw new Error('reCAPTCHA not loaded');
+      // }
+      
+       const captchaToken = await executeCaptcha('contact_us');
+      const formData = { fullName, email, phone, company, subject: '', message, 'captcha_token': captchaToken };
 
-    fetch(API_ENDPOINTS.STORE_CONTACTUS_DETAILS, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(formData),
-    })
-      .then((response) => {
-        if (!response.ok) throw new Error('Network response was not ok');
-        return response.json();
-      })
-      .then(() => {
-        toast.success('Message sent successfully!');
-        setFullName('');
-        setEmail('');
-        setPhone('');
-        setCompany('');
-        setMessage('');
-        setErrors({});
-        navigate('/contact-us-thankyou');
-      })
-      .catch((error) => {
-        toast.error('Failed to send message. Please try again.');
-        console.error('Error submitting form:', error);
-      })
-      .finally(() => {
-        setIsLoading(false);
+      const response = await fetch(API_ENDPOINTS.STORE_CONTACTUS_DETAILS, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
       });
+
+        if (!response.ok) throw new Error('Network response was not ok');
+      await response.json();
+
+      toast.success('Message sent successfully!');
+      setFullName('');
+      setEmail('');
+      setPhone('');
+      setCompany('');
+      setMessage('');
+      setErrors({});
+      navigate('/contact-us-thankyou');
+    } catch (error) {
+      toast.error('Failed to send message. Please try again.');
+      console.error('Error submitting form:', error);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   // Contact Form Component (used once, positioned absolutely on desktop)
@@ -211,13 +218,16 @@ export default function Contact() {
             <p className="text-xs text-red-500 mt-1">{errors.message}</p>
           )}
         </div>
-        <div className="g-recaptcha" data-sitekey="6LddEpcsAAAAAE_gNNaqY7cFXIeqctqXHcXPUAcU" data-action="contact_us">
-
-        </div>
+         {/* <ReCAPTCHA
+                    ref={recaptchaRef}
+                    sitekey="6LddEpcsAAAAAE_gNNaqY7cFXIeqctqXHcXPUAcU" // <-- IMPORTANT: Replace with your Site Key
+                    onChange={(token) => setRecaptchaToken(token)}
+                    onExpired={() => setRecaptchaToken(null)}
+                  /> */}
 
         <Button
           type="submit"
-          disabled={isLoading}
+          
           className="w-full h-12 bg-[#0C4594] hover:bg-[#0a3670] text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all"
         >
           {isLoading ? (
@@ -227,7 +237,7 @@ export default function Contact() {
             </>
           ) : (
             <>
-              <Send className="w-4 h-4 mr-2" />
+              <Send className="w-4 h-4 mr-2"  />
               Send Message
             </>
           )}
@@ -393,4 +403,3 @@ export default function Contact() {
 
 
 }
-

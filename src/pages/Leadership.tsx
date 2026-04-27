@@ -9,7 +9,7 @@ import careersBanner from '@/assets/banners/careers-banner.jpg';
 
 // Import leadership images
 import punitImg from '@/assets/leadership/punit.jpg';
-import priyankaImg from '@/assets/leadership/priyanka.jpg';
+import priyankaImg from '@/assets/leadership/priyanka-mrTtk3qE.jpg';
 import chetanaImg from '@/assets/leadership/chetana.jpg';
 import ameeImg from '@/assets/leadership/amee.jpg';
 
