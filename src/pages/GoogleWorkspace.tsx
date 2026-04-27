@@ -600,7 +600,7 @@ function ProvenExcellenceSection() {
             {/* Description - properly aligned */}
             <div className="max-w-3xl mx-auto space-y-4">
               <p className="text-base sm:text-lg md:text-xl text-white/70 leading-relaxed">
-                We're a <span className="text-white font-semibold">6X Google Workspace Partner of the Year</span> with 
+                We're a <span className="text-white font-semibold">7X Google Cloud Partner of the Year</span> with 
                 Diamond Co-Sell and Services Partner recognition.
               </p>
               <p className="text-base sm:text-lg md:text-xl text-white/70 leading-relaxed">
