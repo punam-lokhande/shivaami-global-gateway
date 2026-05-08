@@ -198,197 +198,35 @@ function WhatWeHandleSection() {
   );
 }
 
-// Pricing Section
+// Pricing Section — categorized by Google Workspace and IAM with segment tabs
 function PricingSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
-  const { region } = useRegion();
+  const [category, setCategory] = useState<'gws' | 'iam'>('gws');
+  const [segmentKey, setSegmentKey] = useState<string>('micro');
 
-  const handleGetStarted = () => {
-    document.dispatchEvent(new CustomEvent('openGetStartedDialog'));
+  const cat = supportPackagesData[category];
+  const segment: PackageSegment =
+    cat.segments.find((s) => s.key === segmentKey) || cat.segments[0];
+
+  const handleCategoryChange = (k: 'gws' | 'iam') => {
+    setCategory(k);
+    setSegmentKey(supportPackagesData[k].segments[0].key);
   };
 
-  const packages = [
-    {
-      name: 'Enterprise Support',
-      subtitle: 'Shared Resources',
-      timing: 'Monday to Friday\n10am-7pm (2 hours a day)',
-      supportType: 'Shared Dedicated Resource',
-      channels: 'Call, Email and Remote Support',
-      note: 'Onsite Support for Critical issues impacting business',
-      popular: false,
-      features: [
-        'Migration Support',
-        'Email Configuration',
-        'Basic Troubleshooting',
-        'User Account Management',
-        'Monthly Health Reports',
-        'Priority Email Support',
-        'Password Reset Assistance',
-        'Software Installation Support',
-        'Browser & Plugin Configuration',
-        'Mobile Device Setup',
-        'Printer & Peripheral Setup',
-        'VPN Configuration',
-        'Cloud Storage Setup',
-        'Calendar & Contacts Sync',
-        'Email Signature Management',
-        'Distribution List Management',
-        'Shared Mailbox Configuration',
-        'Basic Security Awareness',
-        'Spam Filter Configuration',
-        'Out-of-Office Setup',
-        'Email Forwarding Rules',
-        'Archive & Retention Setup',
-        'New User Onboarding',
-        'User Offboarding Support',
-        'License Assignment',
-        'Group Policy Assistance',
-        'Basic Network Troubleshooting',
-        'Wi-Fi Connectivity Support',
-        'File Sharing Configuration',
-        'Collaboration Tools Setup',
-        'Video Conferencing Setup',
-        'Chat & Messaging Configuration',
-        'Document Template Setup',
-        'Form Creation Assistance',
-        'Basic Reporting Setup',
-        'Dashboard Configuration',
-        'Alert & Notification Setup',
-        'Scheduled Task Configuration',
-        'Backup Configuration',
-        'Data Recovery Assistance',
-        'Performance Optimization Tips',
-        'System Health Checks',
-        'Quarterly Business Reviews',
-        'Knowledge Base Access',
-        'Training Resources',
-        'Best Practices Guidance',
-      ],
-    },
-    {
-      name: 'Managed Service',
-      subtitle: 'Remote Support',
-      timing: '8 hours window between 8:30AM to 8:30PM\n(Monday-Friday)',
-      supportType: 'Dedicated Resource',
-      channels: 'Call, Email and Remote Support',
-      note: 'Onsite Support for Critical issues impacting business\nNight shift charges will be applied additionally',
-      popular: true,
-      features: [
-        'Everything in Enterprise Support',
-        'Dedicated Support Engineer',
-        '8-Hour Response Window',
-        'Proactive System Monitoring',
-        'Weekly Status Reports',
-        'Priority Escalation Path',
-        'Software Updates & Patches',
-        'Security Incident Response',
-        'Server Administration',
-        'Database Management',
-        'Active Directory Management',
-        'Group Policy Management',
-        'DNS & DHCP Management',
-        'Firewall Configuration',
-        'SSL Certificate Management',
-        'Load Balancer Configuration',
-        'Backup & Disaster Recovery',
-        'Performance Monitoring',
-        'Capacity Planning',
-        'Security Audits',
-        'Vulnerability Assessments',
-        'Compliance Reporting',
-        'Change Management',
-        'Incident Management',
-        'Problem Management',
-        'Service Level Reporting',
-        'Vendor Coordination',
-        'License Management',
-        'Asset Inventory',
-        'Patch Management',
-        'Endpoint Protection',
-        'Data Loss Prevention',
-        'Email Security Gateway',
-        'Web Filtering',
-        'Access Control Management',
-        'Multi-Factor Authentication',
-        'SSO Configuration',
-        'Identity Management',
-        'Cloud Infrastructure Support',
-        'Hybrid Environment Support',
-        'API Integration Support',
-        'Automation & Scripting',
-        'Custom Report Development',
-        'SLA Management',
-        'Executive Reporting',
-        'Strategic IT Planning',
-      ],
-    },
-    {
-      name: 'Managed Service',
-      subtitle: 'Onsite Support',
-      timing: 'Any 8 hours in between 8:30AM to 8:30PM\n(Monday-Friday)',
-      supportType: 'Dedicated Onsite Support',
-      channels: 'Full Onsite Presence',
-      note: 'Night shift charges will be applied additionally',
-      popular: false,
-      features: [
-        'Everything in Remote Support',
-        'Full-Time Onsite Engineer',
-        'Immediate Issue Resolution',
-        'Hardware Troubleshooting',
-        'Physical Infrastructure Support',
-        'Real-Time Collaboration',
-        'Custom SLA Options',
-        'Executive IT Consulting',
-        'Network Cabling Support',
-        'Server Room Management',
-        'Hardware Installation',
-        'Hardware Upgrades',
-        'Workstation Deployment',
-        'Conference Room Setup',
-        'Audio/Video Equipment',
-        'Physical Security Systems',
-        'Badge & Access Systems',
-        'Surveillance Integration',
-        'Power Management',
-        'UPS Maintenance',
-        'Environmental Monitoring',
-        'Inventory Management',
-        'Asset Tagging',
-        'Equipment Disposal',
-        'Vendor Management',
-        'Procurement Assistance',
-        'Project Management',
-        'Office Relocations',
-        'Data Center Operations',
-        'Rack & Stack Services',
-        'Cable Management',
-        'Hot/Cold Aisle Management',
-        'Disaster Recovery Testing',
-        'Business Continuity Planning',
-        'Emergency Response',
-        'After-Hours Support',
-        'Weekend Coverage',
-        'Holiday Support',
-        'Executive Support',
-        'VIP User Support',
-        'Meeting Room Support',
-        'Event Technical Support',
-        'Training & Workshops',
-        'Documentation Services',
-        'Process Improvement',
-        'Technology Roadmapping',
-      ],
-    },
-  ];
+  const tierCount = segment.tiers.length;
+  const gridCols =
+    tierCount === 4
+      ? 'lg:grid-cols-4'
+      : tierCount === 3
+      ? 'lg:grid-cols-3'
+      : 'lg:grid-cols-2';
 
   return (
     <section ref={ref} className="py-20 lg:py-24 bg-gradient-to-b from-[#0a1628] via-[#0f2847] to-[#0a1628] relative overflow-hidden">
-      {/* Background Elements */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-20 left-10 w-72 h-72 bg-[#38B6FF]/10 rounded-full blur-3xl" />
         <div className="absolute bottom-20 right-10 w-96 h-96 bg-[#0C4594]/20 rounded-full blur-3xl" />
-        {/* Grid pattern */}
         <div className="absolute inset-0 opacity-[0.03]" style={{
           backgroundImage: `linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
                            linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)`,
@@ -397,12 +235,11 @@ function PricingSection() {
       </div>
 
       <div className="relative w-full px-6 sm:px-8 lg:px-16 xl:px-24">
-        {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-10"
         >
           <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#38B6FF]/10 border border-[#38B6FF]/30 text-[#38B6FF] text-sm font-medium mb-4">
             <Building2 className="w-4 h-4" />
@@ -416,96 +253,104 @@ function PricingSection() {
           </p>
         </motion.div>
 
-        {/* Pricing Cards */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
-          {packages.map((pkg, index) => (
-            <motion.div
-              key={`${pkg.name}-${pkg.subtitle}`}
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: index * 0.15 }}
-              className={`relative group ${pkg.popular ? 'lg:-mt-4 lg:mb-4' : ''}`}
+        {/* Main Category Tabs */}
+        <div className="flex flex-wrap justify-center gap-3 mb-6">
+          {(['gws', 'iam'] as const).map((k) => (
+            <button
+              key={k}
+              onClick={() => handleCategoryChange(k)}
+              className={`px-5 py-3 rounded-xl text-sm md:text-base font-semibold transition-all duration-300 border ${
+                category === k
+                  ? 'bg-gradient-to-r from-[#38B6FF] to-[#0C4594] text-white border-transparent shadow-lg shadow-[#38B6FF]/25'
+                  : 'bg-white/5 text-white/80 border-white/10 hover:bg-white/10'
+              }`}
             >
-              {/* Popular Badge */}
-              {pkg.popular && (
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-10">
-                  <span className="px-4 py-1.5 bg-gradient-to-r from-[#38B6FF] to-[#0C4594] text-white text-sm font-semibold rounded-full shadow-lg">
-                    Most Popular
-                  </span>
-                </div>
-              )}
-
-              <div className={`relative h-full bg-white/5 backdrop-blur-sm rounded-2xl border ${pkg.popular ? 'border-[#38B6FF]/50' : 'border-white/10'} p-6 lg:p-8 transition-all duration-300 hover:border-[#38B6FF]/60 hover:bg-white/10`}>
-                {/* Glow effect for popular */}
-                {pkg.popular && (
-                  <div className="absolute inset-0 bg-gradient-to-b from-[#38B6FF]/10 to-transparent rounded-2xl pointer-events-none" />
-                )}
-
-                <div className="relative">
-                  {/* Package Name */}
-                  <div className="mb-6 pb-6 border-b border-white/10">
-                    <h3 className="text-xl font-bold text-white mb-1">{pkg.name}</h3>
-                    <p className="text-[#38B6FF] font-medium">{pkg.subtitle}</p>
-                  </div>
-
-                  {/* Timing */}
-                  <div className="mb-6">
-                    <div className="flex items-start gap-3">
-                      <Clock className="w-5 h-5 text-[#38B6FF] mt-0.5 flex-shrink-0" />
-                      <div className="text-white/80 text-sm whitespace-pre-line">{pkg.timing}</div>
-                    </div>
-                  </div>
-
-                  {/* Support Type */}
-                  <div className="mb-4">
-                    <div className="flex items-start gap-3">
-                      <Users className="w-5 h-5 text-[#38B6FF] mt-0.5 flex-shrink-0" />
-                      <div>
-                        <p className="text-white font-medium">{pkg.supportType}</p>
-                        <p className="text-white/60 text-sm">{pkg.channels}</p>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Note */}
-                  <div className="mb-6 p-3 bg-white/5 rounded-lg">
-                    <p className="text-white/60 text-xs whitespace-pre-line">{pkg.note}</p>
-                  </div>
-
-                  {/* Features */}
-                  <div className="mb-8">
-                    <h4 className="text-white/60 text-xs uppercase tracking-wide mb-4">Included Features ({pkg.features.length})</h4>
-                    <div className="max-h-[300px] overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-white/20 scrollbar-track-transparent">
-                      <ul className="space-y-2">
-                        {pkg.features.map((feature, i) => (
-                          <li key={i} className="flex items-start gap-2">
-                            <CheckCircle2 className="w-4 h-4 text-[#38B6FF] mt-0.5 flex-shrink-0" />
-                            <span className="text-white/80 text-sm">{feature}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-
-                  {/* CTA Button */}
-                  {/* <Button 
-                    onClick={handleGetStarted}
-                    className={`w-full py-6 rounded-xl font-semibold transition-all duration-300 ${
-                      pkg.popular 
-                        ? 'bg-gradient-to-r from-[#38B6FF] to-[#0C4594] text-white hover:shadow-lg hover:shadow-[#38B6FF]/30' 
-                        : 'bg-white/10 text-white border border-white/20 hover:bg-white/20'
-                    }`}
-                  >
-                    Choose Plan
-                    <ArrowRight className="ml-2 w-4 h-4" />
-                  </Button> */}
-                </div>
-              </div>
-            </motion.div>
+              {supportPackagesData[k].label}
+            </button>
           ))}
         </div>
 
-        {/* Contact Note */}
+        {/* Segment Sub-tabs */}
+        <div className="flex flex-wrap justify-center gap-2 mb-12 overflow-x-auto">
+          {cat.segments.map((s) => (
+            <button
+              key={s.key}
+              onClick={() => setSegmentKey(s.key)}
+              className={`px-4 py-2 rounded-full text-xs md:text-sm font-medium transition-all whitespace-nowrap border ${
+                segmentKey === s.key
+                  ? 'bg-[#38B6FF] text-white border-[#38B6FF]'
+                  : 'bg-transparent text-white/70 border-white/15 hover:border-[#38B6FF]/50 hover:text-white'
+              }`}
+            >
+              {s.label}
+            </button>
+          ))}
+        </div>
+
+        {/* Tier Cards */}
+        <motion.div
+          key={`${category}-${segmentKey}`}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4 }}
+          className={`grid grid-cols-1 md:grid-cols-2 ${gridCols} gap-6 lg:gap-8`}
+        >
+          {segment.tiers.map((tier, idx) => {
+            const popular = idx === 1 && tierCount >= 3;
+            return (
+              <div
+                key={`${segment.key}-${tier}-${idx}`}
+                className={`relative h-full bg-white/5 backdrop-blur-sm rounded-2xl border ${
+                  popular ? 'border-[#38B6FF]/50' : 'border-white/10'
+                } p-6 transition-all duration-300 hover:border-[#38B6FF]/60 hover:bg-white/10 flex flex-col`}
+              >
+                {popular && (
+                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 z-10">
+                    <span className="px-3 py-1 bg-gradient-to-r from-[#38B6FF] to-[#0C4594] text-white text-xs font-semibold rounded-full shadow">
+                      Most Popular
+                    </span>
+                  </div>
+                )}
+
+                <div className="mb-4 pb-4 border-b border-white/10">
+                  <p className="text-[#38B6FF] text-xs font-mono mb-1">{segment.codes[idx]}</p>
+                  <h3 className="text-xl font-bold text-white mb-1">{tier}</h3>
+                  <p className="text-white/60 text-sm">{segment.skus[idx]}</p>
+                </div>
+
+                <div className="flex-1 max-h-[480px] overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-white/20 scrollbar-track-transparent">
+                  {segment.groups.map((group) => (
+                    <div key={group.title} className="mb-5">
+                      <h4 className="text-white/60 text-[11px] uppercase tracking-wider mb-2 font-semibold">
+                        {group.title}
+                      </h4>
+                      <ul className="space-y-2">
+                        {group.rows.map((row, ri) => {
+                          const label = row[0];
+                          const value = row[idx + 1] ?? '';
+                          if (!label && !value) return null;
+                          return (
+                            <li key={ri} className="flex items-start gap-2 text-sm">
+                              <CheckCircle2 className="w-4 h-4 text-[#38B6FF] mt-0.5 flex-shrink-0" />
+                              <div className="flex-1">
+                                {label && (
+                                  <span className="text-white/90 font-medium">{label}</span>
+                                )}
+                                {label && value && <span className="text-white/40"> — </span>}
+                                <span className="text-white/70">{value}</span>
+                              </div>
+                            </li>
+                          );
+                        })}
+                      </ul>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            );
+          })}
+        </motion.div>
+
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
