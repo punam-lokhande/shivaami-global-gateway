@@ -27,6 +27,7 @@ import { Button } from '@/components/ui/button';
 import { useRegion } from '@/contexts/RegionContext';
 import heroImage from '@/assets/banners/support-banner.jpg';
 import GetStartedDialog from '@/components/GetStartedDialog';
+import { supportPackagesData, type PackageSegment } from '@/data/supportPackagesData';
 
 
 // Hero Section
