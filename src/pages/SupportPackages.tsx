@@ -1,4 +1,4 @@
-import { useRef, useState, useEffect } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
@@ -215,12 +215,6 @@ function PricingSection() {
   };
 
   const tierCount = segment.tiers.length;
-  const gridCols =
-    tierCount === 4
-      ? 'lg:grid-cols-4'
-      : tierCount === 3
-      ? 'lg:grid-cols-3'
-      : 'lg:grid-cols-2';
 
   return (
     <section ref={ref} className="py-20 lg:py-24 bg-gradient-to-b from-[#0a1628] via-[#0f2847] to-[#0a1628] relative overflow-hidden">
@@ -287,68 +281,89 @@ function PricingSection() {
           ))}
         </div>
 
-        {/* Tier Cards */}
+        {/* Comparison Table */}
         <motion.div
           key={`${category}-${segmentKey}`}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4 }}
-          className={`grid grid-cols-1 md:grid-cols-2 ${gridCols} gap-6 lg:gap-8`}
+          className="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm overflow-hidden"
         >
-          {segment.tiers.map((tier, idx) => {
-            const popular = idx === 1 && tierCount >= 3;
-            return (
-              <div
-                key={`${segment.key}-${tier}-${idx}`}
-                className={`relative h-full bg-white/5 backdrop-blur-sm rounded-2xl border ${
-                  popular ? 'border-[#38B6FF]/50' : 'border-white/10'
-                } p-6 transition-all duration-300 hover:border-[#38B6FF]/60 hover:bg-white/10 flex flex-col`}
-              >
-                {popular && (
-                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 z-10">
-                    <span className="px-3 py-1 bg-gradient-to-r from-[#38B6FF] to-[#0C4594] text-white text-xs font-semibold rounded-full shadow">
-                      Most Popular
-                    </span>
-                  </div>
-                )}
-
-                <div className="mb-4 pb-4 border-b border-white/10">
-                  <p className="text-[#38B6FF] text-xs font-mono mb-1">{segment.codes[idx]}</p>
-                  <h3 className="text-xl font-bold text-white mb-1">{tier}</h3>
-                  <p className="text-white/60 text-sm">{segment.skus[idx]}</p>
-                </div>
-
-                <div className="flex-1 max-h-[480px] overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-white/20 scrollbar-track-transparent">
-                  {segment.groups.map((group) => (
-                    <div key={group.title} className="mb-5">
-                      <h4 className="text-white/60 text-[11px] uppercase tracking-wider mb-2 font-semibold">
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm border-collapse min-w-[720px]">
+              <thead>
+                <tr className="bg-gradient-to-r from-[#0C4594]/60 to-[#38B6FF]/30 border-b border-white/10">
+                  <th className="text-left p-4 text-white/70 font-semibold text-xs uppercase tracking-wider w-[28%] sticky left-0 bg-[#0a1628]/95 backdrop-blur-sm z-10">
+                    Feature
+                  </th>
+                  {segment.tiers.map((tier, idx) => {
+                    const popular = idx === 1 && tierCount >= 3;
+                    return (
+                      <th
+                        key={`${tier}-${idx}`}
+                        className={`text-left p-4 align-top ${
+                          popular ? 'bg-[#38B6FF]/10' : ''
+                        }`}
+                      >
+                        <div className="flex flex-col gap-1">
+                          {popular && (
+                            <span className="self-start px-2 py-0.5 bg-gradient-to-r from-[#38B6FF] to-[#0C4594] text-white text-[10px] font-semibold rounded-full">
+                              Most Popular
+                            </span>
+                          )}
+                          <span className="text-[#38B6FF] text-[11px] font-mono">{segment.codes[idx]}</span>
+                          <span className="text-white text-base font-bold">{tier}</span>
+                          <span className="text-white/60 text-xs font-normal">{segment.skus[idx]}</span>
+                        </div>
+                      </th>
+                    );
+                  })}
+                </tr>
+              </thead>
+              <tbody>
+                {segment.groups.map((group) => (
+                  <React.Fragment key={group.title}>
+                    <tr className="bg-white/[0.03] border-y border-white/10">
+                      <td
+                        colSpan={tierCount + 1}
+                        className="px-4 py-2 text-[#38B6FF] text-[11px] uppercase tracking-wider font-semibold"
+                      >
                         {group.title}
-                      </h4>
-                      <ul className="space-y-2">
-                        {group.rows.map((row, ri) => {
-                          const label = row[0];
-                          const value = row[idx + 1] ?? '';
-                          if (!label && !value) return null;
-                          return (
-                            <li key={ri} className="flex items-start gap-2 text-sm">
-                              <CheckCircle2 className="w-4 h-4 text-[#38B6FF] mt-0.5 flex-shrink-0" />
-                              <div className="flex-1">
-                                {label && (
-                                  <span className="text-white/90 font-medium">{label}</span>
-                                )}
-                                {label && value && <span className="text-white/40"> — </span>}
-                                <span className="text-white/70">{value}</span>
-                              </div>
-                            </li>
-                          );
-                        })}
-                      </ul>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            );
-          })}
+                      </td>
+                    </tr>
+                    {group.rows.map((row, ri) => {
+                      const label = row[0];
+                      if (!label) return null;
+                      return (
+                        <tr
+                          key={`${group.title}-${ri}`}
+                          className="border-b border-white/5 hover:bg-white/[0.04] transition-colors"
+                        >
+                          <td className="px-4 py-3 text-white/90 font-medium align-top sticky left-0 bg-[#0a1628]/95 backdrop-blur-sm z-10 border-r border-white/5">
+                            {label}
+                          </td>
+                          {segment.tiers.map((_, idx) => {
+                            const popular = idx === 1 && tierCount >= 3;
+                            const value = row[idx + 1] ?? '';
+                            return (
+                              <td
+                                key={idx}
+                                className={`px-4 py-3 text-white/75 align-top ${
+                                  popular ? 'bg-[#38B6FF]/[0.06]' : ''
+                                }`}
+                              >
+                                {value || <span className="text-white/30">—</span>}
+                              </td>
+                            );
+                          })}
+                        </tr>
+                      );
+                    })}
+                  </React.Fragment>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </motion.div>
 
         <motion.div
