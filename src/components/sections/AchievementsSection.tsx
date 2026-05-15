@@ -4,7 +4,7 @@ import { Award, BadgeCheck, Shield, Star, ChevronLeft, ChevronRight } from 'luci
 import useEmblaCarousel from 'embla-carousel-react';
 
 const achievements = [
-  { icon: Award, title: '6X Google Cloud Partner of the Year', year: '2024' },
+  { icon: Award, title: '7X Google Cloud Partner of the Year', year: '2024' },
   { icon: BadgeCheck, title: 'ISO 27001 Certified', year: '2023' },
   { icon: Shield, title: 'SOC 2 Type II Compliant', year: '2023' },
   { icon: Star, title: 'JumpCloud Partner of the Year - APAC', year: '10+ Years' },

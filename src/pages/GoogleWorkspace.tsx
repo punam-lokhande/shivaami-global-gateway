@@ -600,7 +600,7 @@ function ProvenExcellenceSection() {
             {/* Description - properly aligned */}
             <div className="max-w-3xl mx-auto space-y-4">
               <p className="text-base sm:text-lg md:text-xl text-white/70 leading-relaxed">
-                We're a <span className="text-white font-semibold">6X Google Workspace Partner of the Year</span> with 
+                We're a <span className="text-white font-semibold">7X Google Cloud Partner of the Year</span> with 
                 Diamond Co-Sell and Services Partner recognition.
               </p>
               <p className="text-base sm:text-lg md:text-xl text-white/70 leading-relaxed">
@@ -627,7 +627,7 @@ function ProvenExcellenceSection() {
             transition={{ duration: 0.5 }}
             className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16 lg:gap-24"
           >
-            {/* 6X Award Badge */}
+            {/* 7X Award Badge */}
             <motion.div
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -657,13 +657,13 @@ function ProvenExcellenceSection() {
                   
                   {/* Badge label */}
                   <div className="absolute top-4 left-4 px-3 py-1 bg-gradient-to-r from-[#38B6FF] to-[#0ea5e9] rounded-full">
-                    <span className="text-white text-xs font-semibold">6X Winner</span>
+                    <span className="text-white text-xs font-semibold">7X Winner</span>
                   </div>
                   
                   <div className="relative z-10 pt-4">
                     <img 
-                      src="/badges/6x-award.png" 
-                      alt="6X Google Workspace Partner of the Year APAC 2025"
+                      src="/badges/7x-award.png" 
+                      alt="7X Google Cloud Partner of the Year APAC 2025"
                       className="w-[240px] sm:w-[280px] md:w-[320px] h-auto object-contain mx-auto"
                       loading="lazy"
                     />
