@@ -297,7 +297,7 @@ function PricingSection() {
                     Feature
                   </th>
                   {segment.tiers.map((tier, idx) => {
-                    const popular = category !== 'iam' && idx === 1 && tierCount >= 3;
+                    const popular = false;
                     return (
                       <th
                         key={`${tier}-${idx}`}
@@ -310,9 +310,6 @@ function PricingSection() {
                             <span className="self-start px-2 py-0.5 bg-gradient-to-r from-[#38B6FF] to-[#0C4594] text-white text-[10px] font-semibold rounded-full">
                               Most Popular
                             </span>
-                          )}
-                          {category !== 'iam' && (
-                            <span className="text-[#38B6FF] text-[11px] font-mono">{segment.codes[idx]}</span>
                           )}
                           <span className="text-white text-base font-bold">{tier}</span>
                           <span className="text-white/60 text-xs font-normal">{segment.skus[idx]}</span>
@@ -345,7 +342,7 @@ function PricingSection() {
                             {label}
                           </td>
                           {segment.tiers.map((_, idx) => {
-                              const popular = category !== 'iam' && idx === 1 && tierCount >= 3;
+                              const popular = false;
                             const value = row[idx + 1] ?? '';
                             return (
                               <td
