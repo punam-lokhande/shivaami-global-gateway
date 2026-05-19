@@ -1810,17 +1810,6 @@ export const supportPackagesData: { gws: PackageCategory; iam: PackageCategory }
                 "Basic manual backup, troubleshooting, Automated backup for key apps, Automated backup, scheduled audits, Export Insights data into SIEM tools (optional if using a 3rd party SIEM)"
               ]
             ]
-          },
-          {
-            "title": "Pricing",
-            "rows": [
-              [
-                "Recommended Charges / month (Rs.)",
-                "Min 3K",
-                "Min 5K",
-                "Min 10K"
-              ]
-            ]
           }
         ]
       },
@@ -2065,17 +2054,6 @@ export const supportPackagesData: { gws: PackageCategory; iam: PackageCategory }
                 "Basic manual backup, troubleshooting, Automated backup for key apps, Automated backup, scheduled audits, Export Insights data into SIEM tools (optional if using a 3rd party SIEM)"
               ]
             ]
-          },
-          {
-            "title": "Pricing",
-            "rows": [
-              [
-                "Recommended Charges / month (Rs.)",
-                "Min 10K",
-                "Min 20K",
-                "Min 40K"
-              ]
-            ]
           }
         ]
       },
@@ -2318,17 +2296,6 @@ export const supportPackagesData: { gws: PackageCategory; iam: PackageCategory }
                 "Basic manual backup, troubleshooting",
                 "Basic manual backup, troubleshooting, Automated backup for key apps",
                 "Basic manual backup, troubleshooting, Automated backup for key apps, Automated backup, scheduled audits, Export Insights data into SIEM tools (optional if using a 3rd party SIEM)"
-              ]
-            ]
-          },
-          {
-            "title": "Pricing",
-            "rows": [
-              [
-                "Recommended Charges / month (Rs.)",
-                "Min 50K",
-                "Min 80K",
-                "Min 1.5 Lakhs"
               ]
             ]
           }
