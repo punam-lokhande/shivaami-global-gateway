@@ -1,4 +1,4 @@
-// Auto-generated from Shivaami support packages spreadsheets
+// Auto-generated from Shivaami support packages spreadsheet
 export type PackageGroup = { title: string; rows: string[][] };
 export type PackageSegment = { key: string; label: string; tiers: string[]; skus: string[]; codes: string[]; groups: PackageGroup[] };
 export type PackageCategory = { label: string; segments: PackageSegment[] };
@@ -16,14 +16,14 @@ export const supportPackagesData: { gws: PackageCategory; iam: PackageCategory }
           "Professional"
         ],
         "skus": [
-          "Business Starter / Standard",
-          "Business Plus",
-          "Business Plus / Enterprise Starter"
+          "Business Starter/Standard",
+          "Business Starter/Standard",
+          "Business Plus+"
         ],
         "codes": [
-          "GWS-SMB-BSC",
-          "GWS-SMB-STD",
-          "GWS-SMB-PRO"
+          "GWS-MICRO-BSC",
+          "GWS-MICRO-STD",
+          "GWS-MICRO-PRO"
         ],
         "groups": [
           {
@@ -127,16 +127,16 @@ export const supportPackagesData: { gws: PackageCategory; iam: PackageCategory }
                 "Security assessment / adoption report",
                 "—",
                 "-",
-                "Once a year (at 6 Months)"
+                "Once a year"
               ],
               [
                 "GWS adoption report sharing",
                 "—",
-                "Once a year (at 6 Months)",
-                "Once a year (at 6 Months)"
+                "Once a year",
+                "Once a year"
               ],
               [
-                "GWS training sessions per year",
+                "GWS training sessions per year (admin & end user - any type can be taken)",
                 "1",
                 "2",
                 "3"
@@ -145,7 +145,7 @@ export const supportPackagesData: { gws: PackageCategory; iam: PackageCategory }
                 "Management connects (Mgr/CXO)",
                 "—",
                 "—",
-                "Once a year (6th month)"
+                "Once a year"
               ],
               [
                 "Live webinars",
@@ -196,9 +196,9 @@ export const supportPackagesData: { gws: PackageCategory; iam: PackageCategory }
               ],
               [
                 "Onsite technical visit",
-                "Chargeable (₹10K/visit)",
-                "Chargeable (₹10K/visit)",
-                "Chargeable (₹10K/visit)"
+                "Chargeable",
+                "Chargeable",
+                "Chargeable"
               ],
               [
                 "Third-party integration support",
@@ -260,17 +260,6 @@ export const supportPackagesData: { gws: PackageCategory; iam: PackageCategory }
                 "Advanced collaboration (Drive, Meet, Calendar)"
               ]
             ]
-          },
-          {
-            "title": "Pricing",
-            "rows": [
-              [
-                "Recommended Charges / month (Rs.)",
-                "Min 2K",
-                "Min 3K",
-                "Min 5K"
-              ]
-            ]
           }
         ]
       },
@@ -283,9 +272,9 @@ export const supportPackagesData: { gws: PackageCategory; iam: PackageCategory }
           "Professional"
         ],
         "skus": [
-          "Business Starter / Standard",
+          "Business Starter/Standard",
           "Business Plus",
-          "Business Plus / Enterprise Starter"
+          "Business Plus+"
         ],
         "codes": [
           "GWS-SMB-BSC",
@@ -364,14 +353,14 @@ export const supportPackagesData: { gws: PackageCategory; iam: PackageCategory }
               [
                 "Yearly ticket quota",
                 "60 tickets",
-                "240 tickets",
-                "600 tickets"
+                "120 tickets",
+                "180 tickets"
               ],
               [
-                "Additional tickets (beyond quota per year)",
+                "Additional tickets  (beyond quota per year)",
+                "10",
                 "20",
-                "40",
-                "80"
+                "40"
               ],
               [
                 "Google support ticket quota",
@@ -387,23 +376,23 @@ export const supportPackagesData: { gws: PackageCategory; iam: PackageCategory }
               [
                 "Cadence calls",
                 "—",
-                "Bi-yearly (90 Days after CS Handover & 180 days after last call)",
-                "Bi-yearly (90 Days after CS Handover & 180 Days after last call)"
+                "Twice a Year",
+                "Twice a Year"
               ],
               [
                 "Security assessment / adoption report",
                 "—",
-                "Once a year (at 6 Months)",
-                "Once a year (at 6 Months)"
+                "Once a year",
+                "Once a year"
               ],
               [
                 "GWS adoption report sharing",
                 "—",
-                "Bi-yearly (90 Days after CS Handover & 180 days after last call)",
-                "Bi-yearly (90 Days after CS Handover & 180 days after last call)"
+                "Twice a Year",
+                "Twice a Year"
               ],
               [
-                "GWS training sessions per year",
+                "GWS training sessions per year (admin & end user - any type can be taken)",
                 "2",
                 "3",
                 "4"
@@ -412,7 +401,7 @@ export const supportPackagesData: { gws: PackageCategory; iam: PackageCategory }
                 "Management connects (Mgr/CXO)",
                 "—",
                 "—",
-                "Once a year (6th month)"
+                "Once a year"
               ],
               [
                 "Live webinars",
@@ -463,9 +452,9 @@ export const supportPackagesData: { gws: PackageCategory; iam: PackageCategory }
               ],
               [
                 "Onsite technical visit",
-                "Chargeable (₹10K/visit)",
-                "Chargeable (₹10K/visit)",
-                "Chargeable (₹10K/visit)"
+                "Chargeable",
+                "Chargeable",
+                "Chargeable"
               ],
               [
                 "Third-party integration support",
@@ -527,22 +516,11 @@ export const supportPackagesData: { gws: PackageCategory; iam: PackageCategory }
                 "Advanced collaboration (Drive, Meet, Calendar)"
               ]
             ]
-          },
-          {
-            "title": "Pricing",
-            "rows": [
-              [
-                "Recommended Charges / month (Rs.)",
-                "Min 5K",
-                "Min 10K",
-                "Min 20K"
-              ]
-            ]
           }
         ]
       },
       {
-        "key": "mid",
+        "key": "midmarket",
         "label": "Mid-Market",
         "tiers": [
           "Basic",
@@ -550,9 +528,9 @@ export const supportPackagesData: { gws: PackageCategory; iam: PackageCategory }
           "Professional"
         ],
         "skus": [
-          "Business Starter / Standard",
-          "Business Plus / Enterprise Starter",
-          "Enterprise Standard / Plus"
+          "Business SKUs",
+          "Business Plus",
+          "Enterprise Starter"
         ],
         "codes": [
           "GWS-MM-BSC",
@@ -631,8 +609,8 @@ export const supportPackagesData: { gws: PackageCategory; iam: PackageCategory }
               [
                 "Yearly ticket quota",
                 "120 tickets",
-                "240 tickets",
-                "360 tickets"
+                "180 tickets",
+                "240 tickets"
               ],
               [
                 "Additional tickets (beyond quota per year)",
@@ -653,33 +631,33 @@ export const supportPackagesData: { gws: PackageCategory; iam: PackageCategory }
             "rows": [
               [
                 "Cadence calls",
-                "Bi-yearly (4th & 10th month after handover to CS)",
-                "Quarterly (middle of every quarter)",
-                "Monthly (mid month)"
+                "Twice a year",
+                "Quarterly",
+                "Monthly"
               ],
               [
                 "Security assessment / adoption report",
-                "Once a year (at 6th month after handover to CS)",
-                "Twice a year (3rd & 9th month after handover to CS)",
-                "Quarterly (2nd, 5th, 8th, 11th month after handover to CS)"
+                "Once a year",
+                "Twice a year",
+                "Quarterly"
               ],
               [
                 "GWS adoption report sharing",
-                "Bi-yearly (4th & 10th month after handover to CS)",
-                "Quarterly (middle of every quarter)",
-                "Monthly (mid month)"
+                "Twice a year",
+                "Quarterly",
+                "Monthly"
               ],
               [
-                "GWS training sessions per year",
+                "GWS training sessions per year (admin & end user - any type can be taken)",
                 "3",
                 "4",
                 "6"
               ],
               [
                 "Management connects (Mgr/CXO)",
-                "Once a year (6th Month)",
-                "Once a year (6th Month)",
-                "Once a year (6th Month)"
+                "Once a year",
+                "Once a year",
+                "Once a year"
               ],
               [
                 "Live webinars",
@@ -730,8 +708,8 @@ export const supportPackagesData: { gws: PackageCategory; iam: PackageCategory }
               ],
               [
                 "Onsite technical visit",
-                "Chargeable (₹10K/visit)",
-                "Chargeable (₹10K/visit)",
+                "Chargeable",
+                "Chargeable",
                 "1 free visit/year"
               ],
               [
@@ -794,17 +772,6 @@ export const supportPackagesData: { gws: PackageCategory; iam: PackageCategory }
                 "Custom collaborative workflows across departments"
               ]
             ]
-          },
-          {
-            "title": "Pricing",
-            "rows": [
-              [
-                "Recommended Charges / month (Rs.)",
-                "Min 10K",
-                "Min 20K",
-                "Min 30K"
-              ]
-            ]
           }
         ]
       },
@@ -817,9 +784,9 @@ export const supportPackagesData: { gws: PackageCategory; iam: PackageCategory }
           "Professional"
         ],
         "skus": [
-          "Enterprise Starter / Enterprise Std",
-          "Enterprise Standard / Plus",
-          "Enterprise Std / Enterprise Plus"
+          "Enterprise Starter",
+          "Enterprise Standard",
+          "Enterprise Plus"
         ],
         "codes": [
           "GWS-ENT-BSC",
@@ -845,8 +812,8 @@ export const supportPackagesData: { gws: PackageCategory; iam: PackageCategory }
               [
                 "TAM (Technical Account Manager)",
                 "-",
-                "Space assistance with any available resource",
-                "Shared SPOC"
+                "Space assitance with any available resource",
+                "Shared Spoc"
               ],
               [
                 "First response – Critical",
@@ -902,7 +869,7 @@ export const supportPackagesData: { gws: PackageCategory; iam: PackageCategory }
                 "600 tickets"
               ],
               [
-                "Additional tickets (beyond quota per year)",
+                "Additional tickets  (beyond quota per year)",
                 "50",
                 "100",
                 "150"
@@ -920,21 +887,21 @@ export const supportPackagesData: { gws: PackageCategory; iam: PackageCategory }
             "rows": [
               [
                 "Cadence calls",
-                "Monthly (mid of the month)",
-                "Monthly (mid of the month)",
-                "Monthly (mid of the month)"
+                "Monthly",
+                "Monthly",
+                "Monthly"
               ],
               [
                 "Security assessment / adoption report",
-                "Quarterly (2nd, 5th, 8th, 11th month after handover to CS)",
-                "Quarterly (2nd, 5th, 8th, 11th month after handover to CS)",
-                "Quarterly (2nd, 5th, 8th, 11th month after handover to CS)"
+                "Quarterly",
+                "Quarterly",
+                "Quarterly"
               ],
               [
                 "GWS adoption report sharing",
-                "Monthly (mid month)",
-                "Monthly (mid month)",
-                "Monthly (mid month)"
+                "Monthly",
+                "Monthly",
+                "Monthly"
               ],
               [
                 "GWS training sessions per year",
@@ -944,9 +911,9 @@ export const supportPackagesData: { gws: PackageCategory; iam: PackageCategory }
               ],
               [
                 "Management connects (Mgr/CXO)",
-                "Once a year (6th Month)",
-                "Once a year (6th Month)",
-                "Once a year (6th Month)"
+                "Once a year",
+                "Once a year",
+                "Once a year"
               ],
               [
                 "Live webinars",
@@ -967,7 +934,7 @@ export const supportPackagesData: { gws: PackageCategory; iam: PackageCategory }
               ],
               [
                 "AppSheet",
-                "Custom app dev & integrations (max 2 mandays); ₹10K/manday beyond",
+                "Custom app dev & integrations (max 2 mandays)",
                 "Custom app dev & integrations (max 4 mandays)",
                 "Custom app dev & integrations (max 4 mandays)"
               ],
@@ -1061,17 +1028,6 @@ export const supportPackagesData: { gws: PackageCategory; iam: PackageCategory }
                 "Custom collaborative workflows, cross-platform integrations, data syncing"
               ]
             ]
-          },
-          {
-            "title": "Pricing",
-            "rows": [
-              [
-                "Recommended Charges / month (Rs.)",
-                "Min 30K",
-                "Min 40K",
-                "60K"
-              ]
-            ]
           }
         ]
       },
@@ -1085,10 +1041,10 @@ export const supportPackagesData: { gws: PackageCategory; iam: PackageCategory }
           "Dedicated Onsite"
         ],
         "skus": [
-          "Enterprise Standard",
-          "Enterprise Std, Enterprise Plus",
-          "Enterprise Standard / Plus",
-          "Enterprise Std / Enterprise Plus"
+          "Shared Remote",
+          "Hybrid/Bi-weekly",
+          "Dedicated Remote",
+          "Dedicated Onsite"
         ],
         "codes": [
           "GWS-MS-BSC",
@@ -1159,7 +1115,7 @@ export const supportPackagesData: { gws: PackageCategory; iam: PackageCategory }
               [
                 "Hours of support",
                 "Mon–Fri, any 4 hrs (8am–8pm)",
-                "26 hours working Hours (2 working days a week)",
+                "26 hours workinng Hours \n(2 working days a week)",
                 "Mon–Fri, any 8 hrs (8am–8pm)",
                 "Mon–Fri, 5 days/week onsite"
               ],
@@ -1257,8 +1213,8 @@ export const supportPackagesData: { gws: PackageCategory; iam: PackageCategory }
               ],
               [
                 "AppSheet",
-                "Custom app dev & integrations (max 2 mandays); ₹10K/manday beyond",
-                "Custom app dev & integrations (max 2 mandays); ₹10K/manday beyond",
+                "Custom app dev & integrations (max 2 mandays)",
+                "Custom app dev & integrations (max 2 mandays)",
                 "Custom app dev & integrations (max 4 mandays)",
                 "Custom app dev & integrations (max 4 mandays)"
               ],
@@ -1366,23 +1322,249 @@ export const supportPackagesData: { gws: PackageCategory; iam: PackageCategory }
                 "Custom collaborative workflows, cross-platform integrations, data syncing"
               ],
               [
-                "Third Party Assistance",
+                "Third Party Assitance",
                 "-",
-                "Communication / followups for integration with GWS",
-                "Communication / followups for integration with GWS",
-                "Communication / followups for integration with GWS"
+                "Communication / follwups for intergation with GWS",
+                "Communication / followups for intergation with GWS",
+                "Communication / followups for intergation with GWS"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "key": "free",
+        "label": "Free Trial (1 Year)",
+        "tiers": [
+          "Free"
+        ],
+        "skus": [
+          "Trial — 365 days"
+        ],
+        "codes": [
+          "GWS-FREE"
+        ],
+        "groups": [
+          {
+            "title": "Support Access",
+            "rows": [
+              [
+                "Support channels",
+                "Email only"
+              ],
+              [
+                "KAM (Key Account Manager)",
+                "— Not included"
+              ],
+              [
+                "TAM (Technical Account Manager)",
+                "— Not included"
+              ],
+              [
+                "First response time",
+                "8 business hours"
+              ],
+              [
+                "Hours of support",
+                "Mon–Fri, 10am–7pm IST"
+              ],
+              [
+                "Weekend support",
+                "— Not included"
               ]
             ]
           },
           {
-            "title": "Pricing",
+            "title": "Quotas & Capacity",
             "rows": [
               [
-                "Recommended Charges / month (Rs.)",
-                "Min 50K",
-                "Min 80K",
-                "Min 1Lakh",
-                "Min 1.5 Lakhs"
+                "Trial duration",
+                "365 days (no auto-renewal)"
+              ],
+              [
+                "Ticket quota",
+                "25 tickets (non-renewable during trial)"
+              ],
+              [
+                "Google support ticket escalation",
+                "— Not included"
+              ],
+              [
+                "Additional tickets beyond quota",
+                "— Not available in trial"
+              ]
+            ]
+          },
+          {
+            "title": "Engagement & Reviews",
+            "rows": [
+              [
+                "Onboarding call",
+                "1 × 30-min session"
+              ],
+              [
+                "Cadence / check-in calls",
+                "1 × mid-trial check-in"
+              ],
+              [
+                "Live webinar",
+                "1 × group webinar access"
+              ],
+              [
+                "GWS adoption snapshot report",
+                "1 × one-time report"
+              ],
+              [
+                "Security assessment",
+                "— Not included"
+              ],
+              [
+                "Management connects (Mgr/CXO)",
+                "— Not included"
+              ],
+              [
+                "GWS training sessions",
+                "— Not included"
+              ]
+            ]
+          },
+          {
+            "title": "Value Adds",
+            "rows": [
+              [
+                "Knowledge base / e-learning portal",
+                "✓ Full access during trial period"
+              ],
+              [
+                "Google certification guidance",
+                "✓ Resource materials for 1 certification path"
+              ],
+              [
+                "Self-service licence portal",
+                "✓ Add/manage licences independently"
+              ],
+              [
+                "Voice bot on board lines",
+                "✓ Available"
+              ],
+              [
+                "AppScripts",
+                "— Not included (from Professional tier)"
+              ],
+              [
+                "AppSheet",
+                "— Not included (from Professional tier)"
+              ],
+              [
+                "Onsite technical visit",
+                "— Not included"
+              ],
+              [
+                "Third-party integration support",
+                "— Articles only (self-serve)"
+              ]
+            ]
+          },
+          {
+            "title": "Technical Coverage (Email Support Only)",
+            "rows": [
+              [
+                "Gmail",
+                "Basic troubleshooting — sending/receiving, filters & labels"
+              ],
+              [
+                "Google Drive",
+                "File sharing & permission issues, sync troubleshooting"
+              ],
+              [
+                "Google Meet",
+                "Basic meeting setup & connection troubleshooting"
+              ],
+              [
+                "Google Calendar",
+                "Creating & sharing events, basic reminders"
+              ],
+              [
+                "Admin Console",
+                "Basic user setup, password reset, app access"
+              ],
+              [
+                "Security features (DLP, Vault)",
+                "— Not included"
+              ],
+              [
+                "Data backup & recovery",
+                "— Not included"
+              ],
+              [
+                "Advanced integrations",
+                "— Not included"
+              ]
+            ]
+          },
+          {
+            "title": "Trial Journey Milestones",
+            "rows": [
+              [
+                "Day 1",
+                "Onboarding call — understand your GWS environment & pain points"
+              ],
+              [
+                "Day 7",
+                "Mid-trial check-in + group webinar access"
+              ],
+              [
+                "Day 21",
+                "GWS adoption snapshot report delivered"
+              ],
+              [
+                "Day 28",
+                "Upgrade offer presented with ROI summary"
+              ]
+            ]
+          },
+          {
+            "title": "Unlock on Upgrade to Paid Plan",
+            "rows": [
+              [
+                "Phone & chat support",
+                "Available from Standard tier"
+              ],
+              [
+                "Dedicated KAM",
+                "Available from Standard tier"
+              ],
+              [
+                "TAM (shared or dedicated)",
+                "Available from Professional / Enterprise tier"
+              ],
+              [
+                "Faster SLAs (Critical: 1 hr)",
+                "Available from Standard tier"
+              ],
+              [
+                "AppScripts & AppSheet",
+                "Available from Professional tier"
+              ],
+              [
+                "Regular cadence calls",
+                "Bi-yearly from Standard; Monthly from Enterprise"
+              ],
+              [
+                "Google ticket escalation",
+                "Available from Standard tier"
+              ],
+              [
+                "Recurring adoption reports",
+                "Quarterly / Monthly on paid plans"
+              ],
+              [
+                "Onsite technical visit",
+                "Chargeable from Basic; Free from Enterprise"
+              ],
+              [
+                "GWS training sessions",
+                "2–10 sessions/year depending on tier"
               ]
             ]
           }
