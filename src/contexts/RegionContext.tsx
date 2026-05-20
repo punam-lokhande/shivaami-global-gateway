@@ -94,13 +94,11 @@ const RegionContext = createContext<RegionContextType | undefined>(undefined);
 
 export function RegionProvider({ children }: { children: ReactNode }) {
   const [region, setRegionState] = useState<Region>('india');
-  const [isInitialized, setIsInitialized] = useState(false);
 
   useEffect(() => {
     const savedRegion = localStorage.getItem(REGION_STORAGE_KEY) as Region | null;
     if (savedRegion && (savedRegion === 'india' || savedRegion === 'usa')) {
       setRegionState(savedRegion);
-      setIsInitialized(true);
       return;
     }
 
@@ -122,9 +120,7 @@ export function RegionProvider({ children }: { children: ReactNode }) {
         setRegionState('usa');
         localStorage.setItem(REGION_STORAGE_KEY, 'usa');
       })
-      .finally(() => {
-        if (!cancelled) setIsInitialized(true);
-      });
+      ;
 
     return () => {
       cancelled = true;
@@ -144,11 +140,6 @@ export function RegionProvider({ children }: { children: ReactNode }) {
   }, [region, setRegion]);
 
   const content = regionData[region];
-
-  // Don't render children until we've checked localStorage
-  if (!isInitialized) {
-    return null;
-  }
 
   return (
     <RegionContext.Provider value={{ region, setRegion, toggleRegion, content }}>
