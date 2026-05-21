@@ -2071,15 +2071,207 @@ export const supportPackagesData: { gws: PackageCategory; iam: PackageCategory; 
       {
         "key": "smb",
         "label": "SMB",
-        "tiers": ["Basic Tier", "Standard Tier", "Professional/Enterprise Tier"],
-        "skus": ["Business Basic/Standard", "Business Standard/Premium", "Business Premium"],
-        "codes": ["", "", ""],
+        "tiers": [
+          "Basic",
+          "Standard",
+          "Professional"
+        ],
+        "skus": [
+          "Microsoft 365 Business Basic / Business Standard",
+          "Microsoft 365 Business Standard",
+          "Microsoft 365 Business Premium"
+        ],
+        "codes": [
+          "",
+          "",
+          ""
+        ],
         "groups": [
           {
-            "title": "Support Coverage",
+            "title": "Support Access",
             "rows": [
-              ["Tickets", "60 tickets", "80 tickets", "150 tickets"],
-              ["Channels", "Email only", "Email + Phone + KAM", "Chat/Phone + TAM"]
+              [
+                "Support channels",
+                "Email, Articles",
+                "Email, Phone",
+                "Email, Chat, Phone"
+              ],
+              [
+                "KAM (Key Account Manager)",
+                "—",
+                "✓",
+                "✓"
+              ],
+              [
+                "TAM (Technical Account Manager)",
+                "—",
+                "—",
+                "Any available resource"
+              ],
+              [
+                "First response – Critical",
+                "8 hours",
+                "2 hours",
+                "1 hour"
+              ],
+              [
+                "First response – High",
+                "24–48 hours",
+                "4 hours",
+                "2 hours"
+              ],
+              [
+                "Hours of support",
+                "Mon–Fri, 10am–7pm",
+                "Mon–Fri, 10am–7pm",
+                "Mon–Fri, 10am–7pm"
+              ],
+              [
+                "Weekend support",
+                "Additional charges",
+                "Additional charges",
+                "Additional charges"
+              ]
+            ]
+          },
+          {
+            "title": "Quotas & Capacity",
+            "rows": [
+              [
+                "Yearly ticket quota",
+                "60 tickets",
+                "80 tickets",
+                "150 tickets"
+              ],
+              [
+                "Microsoft support ticket escalation",
+                "4",
+                "8",
+                "12"
+              ]
+            ]
+          },
+          {
+            "title": "Engagement & Reviews",
+            "rows": [
+              [
+                "Cadence calls",
+                "—",
+                "Twice a Year",
+                "Twice a Year"
+              ],
+              [
+                "M365 adoption report",
+                "—",
+                "Twice a Year",
+                "Twice a Year"
+              ],
+              [
+                "Security assessment",
+                "—",
+                "Once a year",
+                "Once a year"
+              ],
+              [
+                "M365 training sessions/year",
+                "2",
+                "3",
+                "4"
+              ],
+              [
+                "Management connects",
+                "—",
+                "—",
+                "Once a year"
+              ],
+              [
+                "Live webinars",
+                "—",
+                "—",
+                "✓"
+              ]
+            ]
+          },
+          {
+            "title": "Value Adds",
+            "rows": [
+              [
+                "Power Automate flows / automation",
+                "—",
+                "Basic flows (2/year)",
+                "Custom flows (4/year, max 4 days)"
+              ],
+              [
+                "Power Apps",
+                "—",
+                "—",
+                "Workflow setup (2 mandays)"
+              ],
+              [
+                "Microsoft certification guidance",
+                "—",
+                "✓",
+                "✓"
+              ],
+              [
+                "Onsite technical visit",
+                "Chargeable",
+                "Chargeable",
+                "Chargeable"
+              ],
+              [
+                "Third-party integration support",
+                "Articles only",
+                "Most integrations",
+                "Comprehensive support"
+              ]
+            ]
+          },
+          {
+            "title": "Technical Coverage",
+            "rows": [
+              [
+                "Outlook / Exchange Online",
+                "Basic email troubleshooting, filters & rules",
+                "Advanced mail flow, connectors, policies",
+                "Email disaster recovery, DLP, compliance (GDPR/HIPAA)"
+              ],
+              [
+                "OneDrive / SharePoint",
+                "File sharing & permission issues",
+                "Advanced permissions, versioning, sync",
+                "Storage optimisation, large migration, advanced reporting"
+              ],
+              [
+                "Microsoft Teams",
+                "Basic meeting setup & troubleshooting",
+                "Meeting policies, channels, guest access",
+                "Enterprise voice, live events, compliance recording"
+              ],
+              [
+                "Microsoft 365 Admin Center",
+                "Basic user setup, password reset",
+                "Custom roles, group policies, app management",
+                "Advanced security (MFA, Conditional Access, SSO)"
+              ],
+              [
+                "Security (Defender, Purview)",
+                "Basic 2FA, password policies",
+                "Defender for Office 365, DLP setup",
+                "Full threat protection, Purview compliance, eDiscovery"
+              ],
+              [
+                "Data backup & recovery",
+                "Basic manual backup guidance",
+                "Automated backup config, retention policies",
+                "Full disaster recovery, Microsoft 365 Backup integration"
+              ],
+              [
+                "Intune / Device Management",
+                "—",
+                "Basic MDM policy setup",
+                "Full Intune device compliance & app management"
+              ]
             ]
           }
         ]
@@ -2087,15 +2279,207 @@ export const supportPackagesData: { gws: PackageCategory; iam: PackageCategory; 
       {
         "key": "mid",
         "label": "Mid-Market",
-        "tiers": ["Basic Tier", "Standard Tier", "Professional/Enterprise Tier"],
-        "skus": ["Business Premium", "Enterprise E1/E3", "Enterprise E3"],
-        "codes": ["", "", ""],
+        "tiers": [
+          "Basic",
+          "Standard",
+          "Professional"
+        ],
+        "skus": [
+          "Microsoft 365 Business Premium",
+          "Microsoft 365 E1 / E3",
+          "Microsoft 365 E3"
+        ],
+        "codes": [
+          "",
+          "",
+          ""
+        ],
         "groups": [
           {
-            "title": "Support Coverage",
+            "title": "Support Access",
             "rows": [
-              ["Tickets", "160 tickets", "200 tickets", "250 tickets"],
-              ["Channels", "Email + Phone", "Chat/Phone + TAM", "Shared SPOC | 15-min SLA"]
+              [
+                "Support channels",
+                "Email, Phone",
+                "Email, Chat, Phone",
+                "Email, Chat, Phone"
+              ],
+              [
+                "KAM (Key Account Manager)",
+                "✓",
+                "✓",
+                "✓"
+              ],
+              [
+                "TAM (Technical Account Manager)",
+                "—",
+                "Any available resource",
+                "Shared SPOC"
+              ],
+              [
+                "First response – Critical",
+                "2 hours",
+                "1 hour",
+                "15 minutes"
+              ],
+              [
+                "First response – High",
+                "4 hours",
+                "2 hours",
+                "30 minutes"
+              ],
+              [
+                "Hours of support",
+                "Mon–Fri, 10am–7pm",
+                "Mon–Fri, 10am–7pm",
+                "Mon–Fri, any 4 hrs (8am–8pm)"
+              ],
+              [
+                "Weekend support",
+                "Additional charges",
+                "Additional charges",
+                "Additional charges"
+              ]
+            ]
+          },
+          {
+            "title": "Quotas & Capacity",
+            "rows": [
+              [
+                "Yearly ticket quota",
+                "160 tickets",
+                "200 tickets",
+                "250 tickets"
+              ],
+              [
+                "Microsoft support ticket escalation",
+                "8",
+                "12",
+                "20"
+              ]
+            ]
+          },
+          {
+            "title": "Engagement & Reviews",
+            "rows": [
+              [
+                "Cadence calls",
+                "Twice a Year",
+                "Quarterly",
+                "Monthly"
+              ],
+              [
+                "M365 adoption report",
+                "Twice a Year",
+                "Quarterly",
+                "Monthly"
+              ],
+              [
+                "Security assessment",
+                "Once a year",
+                "Twice a year",
+                "Quarterly"
+              ],
+              [
+                "M365 training sessions/year",
+                "3",
+                "4",
+                "6"
+              ],
+              [
+                "Management connects",
+                "Once a year",
+                "Once a year",
+                "Once a year"
+              ],
+              [
+                "Live webinars",
+                "✓",
+                "✓",
+                "✓"
+              ]
+            ]
+          },
+          {
+            "title": "Value Adds",
+            "rows": [
+              [
+                "Power Automate flows / automation",
+                "Basic flows (2/year)",
+                "Custom flows (4/year, max 4 days)",
+                "Custom flows (max 10 days)"
+              ],
+              [
+                "Power Apps",
+                "Workflow setup (2 mandays)",
+                "Custom app dev (4 mandays)",
+                "Custom app dev (4 mandays); extra at ₹10K/manday"
+              ],
+              [
+                "Microsoft certification guidance",
+                "✓",
+                "✓",
+                "✓"
+              ],
+              [
+                "Onsite technical visit",
+                "Chargeable",
+                "Chargeable",
+                "1 free visit/year"
+              ],
+              [
+                "Third-party integration support",
+                "Most integrations",
+                "Comprehensive support",
+                "Comprehensive + optimised"
+              ]
+            ]
+          },
+          {
+            "title": "Technical Coverage",
+            "rows": [
+              [
+                "Outlook / Exchange Online",
+                "Advanced mail flow, connectors, policies",
+                "Email disaster recovery, DLP, GDPR/HIPAA",
+                "Full compliance, archiving, litigation hold"
+              ],
+              [
+                "OneDrive / SharePoint",
+                "Advanced permissions, versioning, sync",
+                "Large data migration, advanced reporting",
+                "Cross-site governance, retention policies"
+              ],
+              [
+                "Microsoft Teams",
+                "Meeting policies, channels, guest access",
+                "Enterprise voice, live events, compliance recording",
+                "Full Teams Phone, device rooms, advanced meeting rooms"
+              ],
+              [
+                "Microsoft 365 Admin Center",
+                "Custom roles, group policies, app management",
+                "Advanced security (MFA, Conditional Access, SSO)",
+                "Security audits, policy enforcement, detailed reporting"
+              ],
+              [
+                "Security (Defender, Purview)",
+                "Defender for Office 365, DLP setup",
+                "Full threat protection, Purview compliance",
+                "Proactive monitoring, incident management, GDPR/HIPAA"
+              ],
+              [
+                "Data backup & recovery",
+                "Automated backup, retention policies",
+                "Full disaster recovery, M365 Backup",
+                "Cloud DR, scheduled audits, recovery drills"
+              ],
+              [
+                "Intune / Device Management",
+                "Basic MDM policy setup",
+                "Full Intune compliance & app management",
+                "Zero-trust device policies, BYOD & corporate device mgmt"
+              ]
             ]
           }
         ]
@@ -2103,15 +2487,213 @@ export const supportPackagesData: { gws: PackageCategory; iam: PackageCategory; 
       {
         "key": "ent",
         "label": "Enterprise",
-        "tiers": ["Basic Tier", "Standard Tier", "Professional/Enterprise Tier"],
-        "skus": ["Enterprise E3", "Enterprise E5", "Enterprise E5/E7"],
-        "codes": ["", "", ""],
+        "tiers": [
+          "Standard",
+          "Enterprise",
+          "Managed Services"
+        ],
+        "skus": [
+          "Microsoft 365 E3",
+          "Microsoft 365 E5",
+          "Microsoft 365 E5"
+        ],
+        "codes": [
+          "",
+          "",
+          ""
+        ],
         "groups": [
           {
-            "title": "Support Coverage",
+            "title": "Support Access",
             "rows": [
-              ["Tickets", "280 tickets", "340 tickets", "400 tickets"],
-              ["Channels", "Shared SPOC TAM", "Dedicated TAM | Immediate", "Onsite TAM | Immediate"]
+              [
+                "Support channels",
+                "Email, Chat, Phone",
+                "Email, Chat, Phone",
+                "Email, Chat, Phone"
+              ],
+              [
+                "KAM (Key Account Manager)",
+                "✓",
+                "✓",
+                "✓"
+              ],
+              [
+                "TAM (Technical Account Manager)",
+                "Shared SPOC",
+                "Dedicated",
+                "Dedicated (onsite)"
+              ],
+              [
+                "First response – Critical",
+                "15 minutes",
+                "Immediate",
+                "Immediate"
+              ],
+              [
+                "First response – High",
+                "30 minutes",
+                "Immediate",
+                "Immediate"
+              ],
+              [
+                "Hours of support",
+                "Mon–Fri, any 4 hrs (8am–8pm)",
+                "Mon–Fri, any 8 hrs (8am–8pm)",
+                "Mon–Fri, 5 days/week onsite"
+              ],
+              [
+                "Weekend support",
+                "Additional charges",
+                "Additional charges",
+                "Additional charges"
+              ]
+            ]
+          },
+          {
+            "title": "Quotas & Capacity",
+            "rows": [
+              [
+                "Yearly ticket quota",
+                "280 tickets",
+                "340 tickets",
+                "400 tickets"
+              ],
+              [
+                "Microsoft support ticket escalation",
+                "20",
+                "30",
+                "30"
+              ]
+            ]
+          },
+          {
+            "title": "Engagement & Reviews",
+            "rows": [
+              [
+                "Cadence calls",
+                "Monthly",
+                "Monthly",
+                "Monthly"
+              ],
+              [
+                "M365 adoption report",
+                "Monthly",
+                "Monthly",
+                "Monthly"
+              ],
+              [
+                "Security assessment",
+                "Quarterly",
+                "Quarterly",
+                "Quarterly"
+              ],
+              [
+                "M365 training sessions/year",
+                "6",
+                "8",
+                "10"
+              ],
+              [
+                "Management connects",
+                "Once a year",
+                "Once a year",
+                "Once a year"
+              ],
+              [
+                "Live webinars",
+                "✓",
+                "✓",
+                "✓"
+              ]
+            ]
+          },
+          {
+            "title": "Value Adds",
+            "rows": [
+              [
+                "Power Automate flows / automation",
+                "Custom flows (max 10 days)",
+                "Custom flows (max 10 days)",
+                "Custom flows (max 10 days)"
+              ],
+              [
+                "Power Apps",
+                "Custom app dev (4 mandays); extra at ₹10K/manday",
+                "Custom app dev (4 mandays)",
+                "Custom app dev (4 mandays)"
+              ],
+              [
+                "Copilot for M365 adoption guidance",
+                "✓",
+                "✓",
+                "✓"
+              ],
+              [
+                "Microsoft certification guidance",
+                "✓",
+                "✓",
+                "✓"
+              ],
+              [
+                "Onsite technical visit",
+                "1 free visit/year",
+                "2 free visits/year",
+                "All 5 days/week (included)"
+              ],
+              [
+                "Third-party integration support",
+                "Comprehensive + optimised",
+                "Comprehensive + optimised",
+                "Comprehensive + optimised"
+              ]
+            ]
+          },
+          {
+            "title": "Technical Coverage",
+            "rows": [
+              [
+                "Outlook / Exchange Online",
+                "Full compliance, archiving, litigation hold",
+                "Full compliance, eDiscovery, advanced archiving",
+                "Full compliance, proactive monitoring, advanced eDiscovery"
+              ],
+              [
+                "OneDrive / SharePoint",
+                "Cross-site governance, retention policies",
+                "Large migration, governance, advanced analytics",
+                "Full governance, migration, Viva Connections setup"
+              ],
+              [
+                "Microsoft Teams",
+                "Teams Phone, rooms, advanced meetings",
+                "Full Teams Phone, Rooms, compliance recording",
+                "Full Teams Phone, Rooms, Operator Connect, live events"
+              ],
+              [
+                "Microsoft 365 Admin Center",
+                "Security audits, policy enforcement, reporting",
+                "Advanced auditing, detailed insights, automation",
+                "Full admin automation, compliance centre, Intune+Entra"
+              ],
+              [
+                "Security (Defender, Purview)",
+                "Proactive monitoring, incident mgmt, GDPR/HIPAA",
+                "Full Defender stack, Purview, eDiscovery, compliance",
+                "Full stack, Sentinel integration, 24/7 monitoring readiness"
+              ],
+              [
+                "Data backup & recovery",
+                "Cloud DR, scheduled audits, recovery drills",
+                "Full DR strategy, M365 Backup, compliance holds",
+                "Full DR, backup strategy, BCP planning, recovery testing"
+              ],
+              [
+                "Intune / Device Management",
+                "Zero-trust device policies, BYOD & corporate mgmt",
+                "Full Intune, Autopilot, compliance reporting",
+                "Full Intune + Entra ID, Autopilot, advanced device compliance"
+              ]
             ]
           }
         ]
