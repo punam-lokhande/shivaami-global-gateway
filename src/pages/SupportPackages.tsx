@@ -202,14 +202,14 @@ function WhatWeHandleSection() {
 function PricingSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
-  const [category, setCategory] = useState<'gws' | 'iam' | 'm365'>('gws');
+  const [category, setCategory] = useState<'gws' | 'm365' | 'iam'>('gws');
   const [segmentKey, setSegmentKey] = useState<string>('micro');
 
   const cat = supportPackagesData[category];
   const segment: PackageSegment =
     cat.segments.find((s) => s.key === segmentKey) || cat.segments[0];
 
-  const handleCategoryChange = (k: 'gws' | 'iam' | 'm365') => {
+  const handleCategoryChange = (k: 'gws' | 'm365' | 'iam') => {
     setCategory(k);
     setSegmentKey(supportPackagesData[k].segments[0].key);
   };
@@ -249,7 +249,7 @@ function PricingSection() {
 
         {/* Main Category Tabs */}
         <div className="flex flex-wrap justify-center gap-3 mb-6">
-          {(['gws', 'iam', 'm365'] as const).map((k) => (
+          {(['gws', 'm365', 'iam'] as const).map((k) => (
             <button
               key={k}
               onClick={() => handleCategoryChange(k)}
