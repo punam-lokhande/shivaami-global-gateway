@@ -3,7 +3,7 @@ export type PackageGroup = { title: string; rows: string[][] };
 export type PackageSegment = { key: string; label: string; tiers: string[]; skus: string[]; codes: string[]; groups: PackageGroup[] };
 export type PackageCategory = { label: string; segments: PackageSegment[] };
 
-export const supportPackagesData: { gws: PackageCategory; iam: PackageCategory } = {
+export const supportPackagesData: { gws: PackageCategory; iam: PackageCategory; m365: PackageCategory } = {
   "gws": {
     "label": "Google Workspace Support Packages",
     "segments": [
@@ -2059,6 +2059,59 @@ export const supportPackagesData: { gws: PackageCategory; iam: PackageCategory }
                 "Basic manual backup, troubleshooting, Automated backup for key apps",
                 "Basic manual backup, troubleshooting, Automated backup for key apps, Automated backup, scheduled audits, Export Insights data into SIEM tools (optional if using a 3rd party SIEM)"
               ]
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "m365": {
+    "label": "Microsoft 365 Support Packages",
+    "segments": [
+      {
+        "key": "smb",
+        "label": "SMB",
+        "tiers": ["Basic Tier", "Standard Tier", "Professional/Enterprise Tier"],
+        "skus": ["Business Basic/Standard", "Business Standard/Premium", "Business Premium"],
+        "codes": ["", "", ""],
+        "groups": [
+          {
+            "title": "Support Coverage",
+            "rows": [
+              ["Tickets", "60 tickets", "80 tickets", "150 tickets"],
+              ["Channels", "Email only", "Email + Phone + KAM", "Chat/Phone + TAM"]
+            ]
+          }
+        ]
+      },
+      {
+        "key": "mid",
+        "label": "Mid-Market",
+        "tiers": ["Basic Tier", "Standard Tier", "Professional/Enterprise Tier"],
+        "skus": ["Business Premium", "Enterprise E1/E3", "Enterprise E3"],
+        "codes": ["", "", ""],
+        "groups": [
+          {
+            "title": "Support Coverage",
+            "rows": [
+              ["Tickets", "160 tickets", "200 tickets", "250 tickets"],
+              ["Channels", "Email + Phone", "Chat/Phone + TAM", "Shared SPOC | 15-min SLA"]
+            ]
+          }
+        ]
+      },
+      {
+        "key": "ent",
+        "label": "Enterprise",
+        "tiers": ["Basic Tier", "Standard Tier", "Professional/Enterprise Tier"],
+        "skus": ["Enterprise E3", "Enterprise E5", "Enterprise E5/E7"],
+        "codes": ["", "", ""],
+        "groups": [
+          {
+            "title": "Support Coverage",
+            "rows": [
+              ["Tickets", "280 tickets", "340 tickets", "400 tickets"],
+              ["Channels", "Shared SPOC TAM", "Dedicated TAM | Immediate", "Onsite TAM | Immediate"]
             ]
           }
         ]
