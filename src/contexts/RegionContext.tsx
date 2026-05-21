@@ -94,14 +94,39 @@ const RegionContext = createContext<RegionContextType | undefined>(undefined);
 
 export function RegionProvider({ children }: { children: ReactNode }) {
   const [region, setRegionState] = useState<Region>('india');
-  const [isInitialized, setIsInitialized] = useState(false);
 
   useEffect(() => {
     const savedRegion = localStorage.getItem(REGION_STORAGE_KEY) as Region | null;
     if (savedRegion && (savedRegion === 'india' || savedRegion === 'usa')) {
       setRegionState(savedRegion);
+      return;
     }
-    setIsInitialized(true);
+
+    // Auto-detect region via IP geolocation on first visit
+    let cancelled = false;
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 4000);
+
+    fetch('https://ipapi.co/json/', { signal: controller.signal })
+      .then((res) => (res.ok ? res.json() : Promise.reject(new Error('IP lookup failed'))))
+      .then((data: { country_code?: string }) => {
+        if (cancelled) return;
+        const detected: Region = data?.country_code === 'IN' ? 'india' : 'usa';
+        setRegionState(detected);
+        localStorage.setItem(REGION_STORAGE_KEY, detected);
+      })
+      .catch(() => {
+        if (cancelled) return;
+        setRegionState('usa');
+        localStorage.setItem(REGION_STORAGE_KEY, 'usa');
+      })
+      ;
+
+    return () => {
+      cancelled = true;
+      clearTimeout(timeout);
+      controller.abort();
+    };
   }, []);
 
   const setRegion = useCallback((newRegion: Region) => {
@@ -115,11 +140,6 @@ export function RegionProvider({ children }: { children: ReactNode }) {
   }, [region, setRegion]);
 
   const content = regionData[region];
-
-  // Don't render children until we've checked localStorage
-  if (!isInitialized) {
-    return null;
-  }
 
   return (
     <RegionContext.Provider value={{ region, setRegion, toggleRegion, content }}>
