@@ -2619,7 +2619,7 @@ export const supportPackagesData: { gws: PackageCategory; iam: PackageCategory; 
               ],
               [
                 "Power Apps",
-                "Custom app dev (4 mandays); extra at ₹10K/manday",
+                "Custom app dev (4 mandays); Extra Mandays chargeable as per Scope",
                 "Custom app dev (4 mandays)",
                 "Custom app dev (4 mandays)"
               ],
