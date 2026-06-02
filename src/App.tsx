@@ -298,6 +298,7 @@ const App = () => (
                 <Route path="/on-demand-notebooklm" element={<OnDemandNotebookLM />} />
                 <Route path="/on-demand-google-vids" element={<OnDemandGoogleVids />} />
                 <Route path="/on-demand-glean" element={<OnDemandGlean />} />
+                <Route path="/on-demand-gemini-enterprise" element={<OnDemandGeminiEnterprise />} />
                 <Route path="/smarter-solutions" element={<SmarterSolutions />} />
                 <Route path="/safer-security" element={<SaferSecurity />} />
                 <Route path="/smoother-services" element={<SmootherServices />} />
