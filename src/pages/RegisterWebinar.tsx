@@ -1,7 +1,7 @@
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { motion } from "framer-motion";
-import { MapPin, Calendar, Clock, Gift, ChevronRight, Sparkles, Target, ShieldCheck, FileText, LineChart } from "lucide-react";
+import { MapPin, Calendar, Clock, Gift, Sparkles, Target, ShieldCheck, FileText, LineChart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -39,16 +39,6 @@ const RegisterWebinar = () => {
             <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-[#38B6FF] drop-shadow-lg leading-tight mb-6">
               with Gemini Enterprise — 3 Hour 1:1 Workshop
             </h2>
-            <Button
-              asChild
-              size="lg"
-              className="bg-white hover:bg-white/90 text-[#0C4594] font-semibold px-8 py-6 text-base group rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
-            >
-              <a href="#registration-form">
-                Register Now
-                <ChevronRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </a>
-            </Button>
           </motion.div>
         </div>
       </section>
