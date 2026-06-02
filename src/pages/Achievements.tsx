@@ -12,6 +12,9 @@ import achievementsBanner from '@/assets/banners/achievements-banner.jpg';
 import googleEnterprise2013 from '@/assets/awards/google-enterprise-2013-sf.jpg';
 import jumpcloudPartner2026 from '@/assets/awards/jumpcloud-partner-2026.jpg';
 import googleCloudPartner2026 from '@/assets/awards/google-cloud-partner-2026.jpg';
+import pipelinePowerhouse2025 from '@/assets/awards/pipeline-powerhouse-2025.png.asset.json';
+import newTitanChampion2025 from '@/assets/awards/new-titan-champion-2025.png.asset.json';
+import newFrontiersChampion2025 from '@/assets/awards/new-frontiers-champion-2025.png.asset.json';
 
 interface AwardItem {
   title: string;
@@ -34,6 +37,9 @@ const awardsData: YearData[] = [
   {
     year: '2025',
     awards: [
+      { title: 'Google Cloud APAC Leaderboard Champions - Pipeline Powerhouse 2025', image: pipelinePowerhouse2025.url },
+      { title: 'Google Cloud APAC Leaderboard Champions - New Titan Champion 2025', image: newTitanChampion2025.url },
+      { title: 'Google Cloud APAC Leaderboard Champions - New Frontiers Champion 2025', image: newFrontiersChampion2025.url },
       { title: 'Best Cloud Solution Partner – VARINDIA 24th Star Nite Awards, 2025', image: 'https://www.shivaami.com/assets/images/award/VARINDIA-Star-Nite-Awards-2025.jpg' },
       { title: 'Google Workspace Partner of the Year - APAC, awarded at Google Cloud Next \'25 in Las Vegas', image: 'https://www.shivaami.com/assets/images/award/Google-Cloud-Partner-Award-2025.jpg' },
       { title: 'Top 20 DivHERsity Champions 2025 by herkey', image: 'https://www.shivaami.com/assets/images/award/DivHERsity-Award.jpg' },
