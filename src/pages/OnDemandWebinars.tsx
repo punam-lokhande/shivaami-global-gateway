@@ -168,7 +168,7 @@ const OnDemandWebinars = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="group rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden bg-[#38B6FF]/10 border border-[#38B6FF]/30"
+                className="group rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden bg-[#38B6FF]/10 border border-[#38B6FF]/30 h-full flex flex-col"
               >
                 <div className="p-4 bg-[#38B6FF]/30">
                   <div className="flex items-center justify-end">
@@ -176,29 +176,31 @@ const OnDemandWebinars = () => {
                       On-Demand
                     </span>
                   </div>
-                  <h3 className="text-lg font-bold text-[#0C4594] mt-2 line-clamp-2">
+                  <h3 className="text-lg font-bold text-[#0C4594] mt-2 line-clamp-2 min-h-[3.5rem]">
                     {webinar.title}
                   </h3>
                 </div>
-                <div className="p-5">
-                  <p className="text-gray-600 text-sm mb-4 line-clamp-2">
+                <div className="p-5 flex flex-col flex-grow">
+                  <p className="text-gray-600 text-sm mb-4 line-clamp-3 min-h-[3.75rem]">
                     {webinar.description}
                   </p>
                   <div className="space-y-2 mb-5">
                       <div className="flex items-center gap-2 text-sm text-[#0C4594]/70">
-                          <Calendar className="w-4 h-4 text-[#0C4594]" />
+                          <Calendar className="w-4 h-4 text-[#0C4594] flex-shrink-0" />
                           <span>{webinar.date}</span>
                     </div>
                       <div className="flex items-center gap-2 text-sm text-[#0C4594]/70">
-                          <Clock className="w-4 h-4 text-[#0C4594]" />
+                          <Clock className="w-4 h-4 text-[#0C4594] flex-shrink-0" />
                           <span>{webinar.time}</span>
                         </div>
                       </div>
-                      <Link to={webinar.link}>
-                        <Button className="w-full bg-gradient-to-r from-[#38B6FF] to-[#0C4594] hover:shadow-lg text-white">
-                          Watch On-Demand
-                        </Button>
-                      </Link>
+                      <div className="mt-auto">
+                        <Link to={webinar.link}>
+                          <Button className="w-full bg-gradient-to-r from-[#38B6FF] to-[#0C4594] hover:shadow-lg text-white">
+                            Watch On-Demand
+                          </Button>
+                        </Link>
+                      </div>
                 </div>
               </motion.div>
             ))}
