@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  
+
   <script src="https://www.google.com/recaptcha/enterprise.js?render=6LfJH7osAAAAAMJE8t9HDp4DfFZX42DFnB8dH-33"></script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -36,8 +36,8 @@
   <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
   <!-- Google Tag Manager - deferred to reduce TBT -->
   <script>
-    window.addEventListener('load', function() {
-      setTimeout(function() {
+    window.addEventListener('load', function () {
+      setTimeout(function () {
         (function (w, d, s, l, i) {
           w[l] = w[l] || []; w[l].push({
             'gtm.start': new Date().getTime(), event: 'gtm.js'
@@ -50,7 +50,7 @@
         g.async = true;
         g.src = 'https://www.googletagmanager.com/gtag/js?id=AW-997885813';
         document.head.appendChild(g);
-        g.onload = function() {
+        g.onload = function () {
           window.dataLayer = window.dataLayer || [];
           function gtag() { dataLayer.push(arguments); }
           gtag('js', new Date());
@@ -71,7 +71,7 @@
       style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
   <!-- Zoho SalesIQ - deferred to reduce TBT -->
-  <script>
+  <!-- <script>
     window.addEventListener('load', function() {
       setTimeout(function() {
         window.$zoho = window.$zoho || {}; $zoho.salesiq = $zoho.salesiq || { ready: function () { } };
@@ -82,7 +82,11 @@
         document.body.appendChild(z);
       }, 3000);
     });
-  </script>
+  </script> -->
+  <script>window.$zoho = window.$zoho || {}; $zoho.salesiq = $zoho.salesiq || { ready: function () { } }</script>
+  <script id="zsiqscript"
+    src="https://salesiq.zohopublic.com/widget?wc=siq2b453f80114adc50fd82af38ae8a4e984ee86467241b9a5e7790632d06c5e9dc"
+    defer></script>
 
 </body>
 
