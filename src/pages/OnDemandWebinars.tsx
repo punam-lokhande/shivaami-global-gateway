@@ -68,6 +68,16 @@ const webinars = [
     module: "Module 5"
   },
   {
+    id: 9,
+    title: "Gemini Enterprise: Build Your Agentic Workforce",
+    description: "Join Shivaami and Google Cloud for an executive deep dive on building, deploying, and scaling AI agents to enhance your organization's productivity.",
+    date: "Wednesday, May 13, 2026",
+    time: "1:00 PM - 2:00 PM EDT",
+    status: "on-demand",
+    link: "/on-demand-gemini-enterprise",
+    module: "Gemini Enterprise"
+  },
+  {
     id: 8,
     title: "Glean: Beyond Search",
     description: "Learn to build autonomous AI agents. Connect over 100 enterprise connectors to transform your scattered data into a unified, active workforce.",
