@@ -68,6 +68,16 @@ const webinars = [
     module: "Module 5"
   },
   {
+    id: 8,
+    title: "Glean: Beyond Search",
+    description: "Learn to build autonomous AI agents. Connect over 100 enterprise connectors to transform your scattered data into a unified, active workforce.",
+    date: "Wednesday, February 11, 2026",
+    time: "1:00 PM - 1:45 PM EST",
+    status: "on-demand",
+    link: "/on-demand-glean",
+    module: "Glean"
+  },
+  {
     id: 7,
     title: "Google AI Ultra",
     description: "Explore advanced AI capabilities with Google AI Ultra for enterprise-grade solutions.",
@@ -151,8 +161,7 @@ const OnDemandWebinars = () => {
                 className="group rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden bg-[#38B6FF]/10 border border-[#38B6FF]/30"
               >
                 <div className="p-4 bg-[#38B6FF]/30">
-                  <div className="flex items-center justify-between">
-                    <span className="text-[#0C4594] text-xs font-medium">{webinar.module}</span>
+                  <div className="flex items-center justify-end">
                     <span className="px-2 py-0.5 rounded-full text-xs font-medium bg-[#0C4594] text-white">
                       On-Demand
                     </span>
