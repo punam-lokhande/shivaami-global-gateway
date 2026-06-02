@@ -219,7 +219,7 @@ const OnDemandWebinars = () => {
           {/* On-Demand Webinars Row */}
           <h3 className="text-xl font-semibold text-[#0C4594] mb-6">On-Demand Sessions</h3>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {webinars.filter(w => w.status === 'on-demand').reverse().map((webinar, index) => (
+            {webinars.filter(w => w.status === 'on-demand').sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()).map((webinar, index) => (
               <motion.div
                 key={webinar.id}
                 initial={{ opacity: 0, y: 20 }}
