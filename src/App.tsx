@@ -136,6 +136,7 @@ const OnDemandGeminiGems = lazy(() => import("./pages/OnDemandGeminiGems"));
 const OnDemandNotebookLM = lazy(() => import("./pages/OnDemandNotebookLM"));
 const OnDemandGoogleVids = lazy(() => import("./pages/OnDemandGoogleVids"));
 const OnDemandGlean = lazy(() => import("./pages/OnDemandGlean"));
+const OnDemandGeminiEnterprise = lazy(() => import("./pages/OnDemandGeminiEnterprise"));
 const ThankYouContact = lazy(() => import("./components/ThankYouContact"));
 const SmarterSolutions = lazy(() => import("./pages/SmarterSolutions"));
 const SaferSecurity = lazy(() => import("./pages/SaferSecurity"));
