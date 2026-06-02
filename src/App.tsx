@@ -135,6 +135,8 @@ const OnDemandPromptEngineering = lazy(() => import("./pages/OnDemandPromptEngin
 const OnDemandGeminiGems = lazy(() => import("./pages/OnDemandGeminiGems"));
 const OnDemandNotebookLM = lazy(() => import("./pages/OnDemandNotebookLM"));
 const OnDemandGoogleVids = lazy(() => import("./pages/OnDemandGoogleVids"));
+const OnDemandGlean = lazy(() => import("./pages/OnDemandGlean"));
+const OnDemandGeminiEnterprise = lazy(() => import("./pages/OnDemandGeminiEnterprise"));
 const ThankYouContact = lazy(() => import("./components/ThankYouContact"));
 const SmarterSolutions = lazy(() => import("./pages/SmarterSolutions"));
 const SaferSecurity = lazy(() => import("./pages/SaferSecurity"));
@@ -295,6 +297,8 @@ const App = () => (
                 <Route path="/on-demand-gemini-gems" element={<OnDemandGeminiGems />} />
                 <Route path="/on-demand-notebooklm" element={<OnDemandNotebookLM />} />
                 <Route path="/on-demand-google-vids" element={<OnDemandGoogleVids />} />
+                <Route path="/on-demand-glean" element={<OnDemandGlean />} />
+                <Route path="/on-demand-gemini-enterprise" element={<OnDemandGeminiEnterprise />} />
                 <Route path="/smarter-solutions" element={<SmarterSolutions />} />
                 <Route path="/safer-security" element={<SaferSecurity />} />
                 <Route path="/smoother-services" element={<SmootherServices />} />

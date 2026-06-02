@@ -1,7 +1,7 @@
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { motion } from "framer-motion";
-import { Play, Calendar, Clock, User, ExternalLink, Sparkles } from "lucide-react";
+import { Play, Calendar, Clock, User, ExternalLink, Sparkles, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import webinarBanner from "@/assets/banners/webinar-online-meeting.jpg";
 import { Button } from "@/components/ui/button";
@@ -68,14 +68,44 @@ const webinars = [
     module: "Module 5"
   },
   {
+    id: 9,
+    title: "Gemini Enterprise: Build Your Agentic Workforce",
+    description: "Join Shivaami and Google Cloud for an executive deep dive on building, deploying, and scaling AI agents to enhance your organization's productivity.",
+    date: "Wednesday, May 13, 2026",
+    time: "1:00 PM - 2:00 PM EDT",
+    status: "on-demand",
+    link: "/on-demand-gemini-enterprise",
+    module: "Gemini Enterprise"
+  },
+  {
+    id: 8,
+    title: "Glean: Beyond Search",
+    description: "Learn to build autonomous AI agents. Connect over 100 enterprise connectors to transform your scattered data into a unified, active workforce.",
+    date: "Wednesday, February 11, 2026",
+    time: "1:00 PM - 1:45 PM EST",
+    status: "on-demand",
+    link: "/on-demand-glean",
+    module: "Glean"
+  },
+  {
     id: 7,
     title: "Google AI Ultra",
     description: "Explore advanced AI capabilities with Google AI Ultra for enterprise-grade solutions.",
     date: "Wednesday, February 19, 2026",
     time: "1:00 PM – 1:45 PM EDT",
-    status: "upcoming",
+    status: "on-demand",
     link: "/register-webinar",
     module: "Module 6"
+  },
+  {
+    id: 10,
+    title: "Gemini Enterprise for Education",
+    description: "An intensive 3-hour 1:1 workshop to design, build, and validate AI agents that deliver immediate, measurable value — curated around your use cases and industry. Google-funded, no cost.",
+    date: "Flexible scheduling",
+    time: "3-Hour 1:1 Workshop",
+    status: "upcoming",
+    link: "/register-webinar",
+    module: "Gemini Enterprise"
   },
 ];
 
@@ -126,60 +156,109 @@ const OnDemandWebinars = () => {
             </p>
           </motion.div>
 
-          {/* Upcoming Webinars Row - Hidden for now */}
-          {/* {webinars.filter(w => w.status === 'upcoming').length > 0 && (
-            <>
+          {/* Upcoming Webinars Row */}
+          {webinars.filter(w => w.status === 'upcoming').length > 0 && (
+            <div className="mb-12">
               <h3 className="text-xl font-semibold text-[#0C4594] mb-6">Upcoming Sessions</h3>
-              <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+              <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 {webinars.filter(w => w.status === 'upcoming').map((webinar, index) => (
-                  ...
+                  <motion.div
+                    key={webinar.id}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.1 }}
+                    className="group rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden bg-gradient-to-br from-[#0C4594] to-[#1b9dd8] text-white h-full flex flex-col"
+                  >
+                    <div className="p-4 bg-white/10">
+                      <div className="flex items-center justify-end">
+                        <span className="px-2 py-0.5 rounded-full text-xs font-medium bg-white text-[#0C4594]">
+                          Upcoming
+                        </span>
+                      </div>
+                      <h3 className="text-lg font-bold text-white mt-2 line-clamp-2 min-h-[3.5rem]">
+                        {webinar.title}
+                      </h3>
+                    </div>
+                    <div className="p-5 flex flex-col flex-grow">
+                      <p className="text-white/85 text-sm mb-4 line-clamp-3 min-h-[3.75rem]">
+                        {webinar.description}
+                      </p>
+                      <div className="space-y-2 mb-5">
+                        <div className="flex items-center gap-2 text-sm text-white/80">
+                          <Calendar className="w-4 h-4 text-white flex-shrink-0" />
+                          <span>{webinar.date}</span>
+                        </div>
+                        <div className="flex items-center gap-2 text-sm text-white/80">
+                          <Clock className="w-4 h-4 text-white flex-shrink-0" />
+                          <span>{webinar.time}</span>
+                        </div>
+                      </div>
+                      <div className="mt-auto">
+                        {webinar.link.startsWith("http") ? (
+                          <a href={webinar.link} target="_blank" rel="noopener noreferrer">
+                            <Button className="w-full bg-white text-[#0C4594] hover:bg-white/90">
+                              Register Now <ArrowRight className="ml-2 w-4 h-4" />
+                            </Button>
+                          </a>
+                        ) : (
+                          <Link to={webinar.link}>
+                            <Button className="w-full bg-white text-[#0C4594] hover:bg-white/90">
+                              Register Now <ArrowRight className="ml-2 w-4 h-4" />
+                            </Button>
+                          </Link>
+                        )}
+                      </div>
+                    </div>
+                  </motion.div>
                 ))}
               </div>
-            </>
-          )} */}
+            </div>
+          )}
 
           {/* On-Demand Webinars Row */}
           <h3 className="text-xl font-semibold text-[#0C4594] mb-6">On-Demand Sessions</h3>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {webinars.filter(w => w.status === 'on-demand').map((webinar, index) => (
+            {webinars.filter(w => w.status === 'on-demand').sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()).map((webinar, index) => (
               <motion.div
                 key={webinar.id}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="group rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden bg-[#38B6FF]/10 border border-[#38B6FF]/30"
+                className="group rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden bg-[#38B6FF]/10 border border-[#38B6FF]/30 h-full flex flex-col"
               >
                 <div className="p-4 bg-[#38B6FF]/30">
-                  <div className="flex items-center justify-between">
-                    <span className="text-[#0C4594] text-xs font-medium">{webinar.module}</span>
+                  <div className="flex items-center justify-end">
                     <span className="px-2 py-0.5 rounded-full text-xs font-medium bg-[#0C4594] text-white">
                       On-Demand
                     </span>
                   </div>
-                  <h3 className="text-lg font-bold text-[#0C4594] mt-2 line-clamp-2">
+                  <h3 className="text-lg font-bold text-[#0C4594] mt-2 line-clamp-2 min-h-[3.5rem]">
                     {webinar.title}
                   </h3>
                 </div>
-                <div className="p-5">
-                  <p className="text-gray-600 text-sm mb-4 line-clamp-2">
+                <div className="p-5 flex flex-col flex-grow">
+                  <p className="text-gray-600 text-sm mb-4 line-clamp-3 min-h-[3.75rem]">
                     {webinar.description}
                   </p>
                   <div className="space-y-2 mb-5">
                       <div className="flex items-center gap-2 text-sm text-[#0C4594]/70">
-                          <Calendar className="w-4 h-4 text-[#0C4594]" />
+                          <Calendar className="w-4 h-4 text-[#0C4594] flex-shrink-0" />
                           <span>{webinar.date}</span>
                     </div>
                       <div className="flex items-center gap-2 text-sm text-[#0C4594]/70">
-                          <Clock className="w-4 h-4 text-[#0C4594]" />
+                          <Clock className="w-4 h-4 text-[#0C4594] flex-shrink-0" />
                           <span>{webinar.time}</span>
                         </div>
                       </div>
-                      <Link to={webinar.link}>
-                        <Button className="w-full bg-gradient-to-r from-[#38B6FF] to-[#0C4594] hover:shadow-lg text-white">
-                          Watch On-Demand
-                        </Button>
-                      </Link>
+                      <div className="mt-auto">
+                        <Link to={webinar.link}>
+                          <Button className="w-full bg-gradient-to-r from-[#38B6FF] to-[#0C4594] hover:shadow-lg text-white">
+                            Watch On-Demand
+                          </Button>
+                        </Link>
+                      </div>
                 </div>
               </motion.div>
             ))}

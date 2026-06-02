@@ -1,13 +1,11 @@
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { motion } from "framer-motion";
-import { MapPin, Calendar, Clock, Gift, ChevronRight, Play, Sparkles } from "lucide-react";
+import { MapPin, Calendar, Clock, Gift, Sparkles, Target, ShieldCheck, FileText, LineChart, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Link } from "react-router-dom";
-import nikunjPhoto from "@/assets/speakers/nikunj-thakkar.jpg";
 import heroBanner from "@/assets/banners/webinar-online-meeting.jpg";
 import nextGenAiImg from "@/assets/banners/next-gen-ai-webinar.jpg";
 
@@ -36,19 +34,18 @@ const RegisterWebinar = () => {
             className="max-w-4xl"
           >
             <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-white mb-2 sm:mb-3 leading-tight">
-              Beyond the Basics:
+              Agentic Workplace Transformation
             </h1>
             <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-[#38B6FF] drop-shadow-lg leading-tight mb-6">
-              Unlocking Next-Generation AI with Google AI Ultra
+              with Gemini Enterprise — 3 Hour 1:1 Workshop
             </h2>
-            <Button
+            <Button 
               asChild
-              size="lg"
-              className="bg-white hover:bg-white/90 text-[#0C4594] font-semibold px-8 py-6 text-base group rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
+              className="bg-[#38B6FF] hover:bg-[#1b9dd8] text-white font-semibold px-6 py-5 text-base rounded-lg shadow-lg hover:shadow-xl transition-all"
             >
               <a href="#registration-form">
                 Register Now
-                <ChevronRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                <ChevronRight className="w-5 h-5 ml-1" />
               </a>
             </Button>
           </motion.div>
@@ -66,23 +63,23 @@ const RegisterWebinar = () => {
               className="space-y-5"
             >
               <h2 className="text-2xl md:text-3xl font-bold text-[#0C4594]">
-                Beyond the Basics: Unlocking Next-Generation AI
+                3 hours. Working agents. Real ROI.
               </h2>
               <p className="text-gray-600 leading-relaxed">
-                Join Shivaami and Google Cloud for an exclusive webinar designed to show you how to harness the most advanced AI capabilities with Google AI Ultra for Business.
+                An intensive 3 hour 1:1 workshop with Shivaami's Gemini Enterprise team to design, build and validate AI agents that deliver immediate, measurable value — curated around your use cases and your industry. Available for individual leaders and full teams. You leave with working agents, a production blueprint, and a costed business case in hand.
               </p>
               <div className="space-y-3">
                 <div className="flex items-center gap-3 text-[#0C4594] font-medium">
                   <Calendar className="w-5 h-5" />
-                  <span>Wednesday, February 19, 2026</span>
+                  <span>Flexible scheduling — book your slot</span>
                 </div>
                 <div className="flex items-center gap-3 text-gray-700">
                   <Clock className="w-5 h-5 text-[#0C4594]" />
-                  <span>01:00 PM – 01:45 PM EDT</span>
+                  <span>3 Hour 1:1 Workshop</span>
                 </div>
                 <div className="flex items-center gap-3 text-gray-700">
                   <MapPin className="w-5 h-5 text-[#0C4594]" />
-                  <span>Webinar</span>
+                  <span>Online · Google funded · No cost</span>
                 </div>
               </div>
             </motion.div>
@@ -94,7 +91,7 @@ const RegisterWebinar = () => {
             >
               <img
                 src={nextGenAiImg}
-                alt="Next-Generation AI"
+                alt="Enterprise team working through AI agent design in a hands-on workshop"
                 className="w-full h-[300px] lg:h-[360px] object-cover"
               />
             </motion.div>
@@ -117,7 +114,7 @@ const RegisterWebinar = () => {
                 <div className="flex items-start gap-3">
                   <Gift className="w-5 h-5 text-[#38B6FF] mt-0.5 flex-shrink-0" />
                   <p className="text-sm text-gray-700">
-                    Webinar attendees will be eligible to receive a <strong className="text-[#0C4594]">50% discount*</strong> on the first three months of Google AI Ultra membership. <span className="text-gray-500">*T&C apply.</span>
+                    <strong className="text-[#0C4594]">Google funded · No cost to your organization.</strong> Every hour invested ties back to measurable value, with agents shaped around your use cases and industry.
                   </p>
                 </div>
               </div>
@@ -138,45 +135,51 @@ const RegisterWebinar = () => {
                     Agenda
                   </TabsTrigger>
                   <TabsTrigger 
-                    value="speakers"
+                    value="audience"
                     className="rounded-none border-b-2 border-transparent data-[state=active]:border-[#0C4594] data-[state=active]:bg-transparent data-[state=active]:text-[#0C4594] px-0 pb-3 font-medium"
                   >
-                    Speakers
+                    Who It's For
                   </TabsTrigger>
                 </TabsList>
 
                 <TabsContent value="overview" className="mt-6">
                   <div className="space-y-4 text-gray-700">
                     <p>
-                      Join Shivaami and Google Cloud for an exclusive webinar designed to show you how to harness the most advanced AI capabilities with Google AI Ultra for Business.
+                      Many organizations have a clear vision for agentic AI but face a critical execution gap. The primary hurdles are validating technical feasibility with existing enterprise systems (like Salesforce or SAP) and building a concrete business case to justify investment. A theoretical plan is not enough; you need tangible proof of what's possible.
                     </p>
-                    
-                    <h3 className="text-lg font-semibold text-gray-900 pt-2">Overview</h3>
+
                     <p>
-                      This session is for businesses with creatives, developers, researchers, and other AI super-users who need to tackle their most ambitious projects. We'll explore how your teams can accelerate video creation, visualize new ideas, and automate complex research tasks faster than ever before.
+                      Shivaami's Gemini Enterprise 3 Hour Workshop is the answer — a dedicated working session focused entirely on building, testing and planning deployment of AI agents shaped around the use cases and industry context that matter most to your organization.
                     </p>
-                    
-                    <p className="font-medium text-gray-900">
-                      We will dive deep into three groundbreaking Labs tools, available exclusively through the Google AI Ultra add-on:
+
+                    <h3 className="text-lg font-semibold text-gray-900 pt-2">The Value You Walk Away With</h3>
+                    <p>
+                      Three hours. Working agents. Outcomes tied to your business. Every outcome is shaped around your use cases and industry, not a generic demo.
                     </p>
-                    
-                    <ul className="space-y-3">
+
+                    <ul className="space-y-4">
                       <li className="flex items-start gap-3">
-                        <div className="w-2 h-2 bg-[#38B6FF] rounded-full mt-2 flex-shrink-0" />
+                        <Target className="w-5 h-5 text-[#38B6FF] mt-0.5 flex-shrink-0" />
                         <div>
-                          <strong className="text-[#0C4594]">Flow:</strong> Discover a state-of-the-art AI filmmaking tool that allows you to create cinematic scenes and stories with incredible consistency.
+                          <strong className="text-[#0C4594]">Accelerate Your Agentic AI Initiative:</strong> Move directly from concept to functioning Proof of Concept agents shaped around your use cases. Build momentum and show stakeholders progress they can see in a single session.
                         </div>
                       </li>
                       <li className="flex items-start gap-3">
-                        <div className="w-2 h-2 bg-[#38B6FF] rounded-full mt-2 flex-shrink-0" />
+                        <ShieldCheck className="w-5 h-5 text-[#38B6FF] mt-0.5 flex-shrink-0" />
                         <div>
-                          <strong className="text-[#0C4594]">Whisk:</strong> Learn how to quickly explore and visualize new ideas with an AI tool that generates and animates images using both text and image prompts.
+                          <strong className="text-[#0C4594]">Mitigate Implementation Risk:</strong> By building and testing agents in a simulated version of your environment, you confirm technical viability for your industry's systems before committing significant budget or engineering time.
                         </div>
                       </li>
                       <li className="flex items-start gap-3">
-                        <div className="w-2 h-2 bg-[#38B6FF] rounded-full mt-2 flex-shrink-0" />
+                        <FileText className="w-5 h-5 text-[#38B6FF] mt-0.5 flex-shrink-0" />
                         <div>
-                          <strong className="text-[#0C4594]">Project Mariner:</strong> See how to streamline time-consuming tasks like research and data entry by assigning them to AI agents that work in the background.
+                          <strong className="text-[#0C4594]">Custom Production Blueprint:</strong> Receive a comprehensive Technical Design Document and a roadmap tailored to your organization and industry, giving your team a clear path from PoC to production deployment.
+                        </div>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <LineChart className="w-5 h-5 text-[#38B6FF] mt-0.5 flex-shrink-0" />
+                        <div>
+                          <strong className="text-[#0C4594]">Data Driven Business Case:</strong> The workshop concludes with a detailed cost analysis for building and running your agents, providing the precise data needed to forecast budgets and secure executive buy-in.
                         </div>
                       </li>
                     </ul>
@@ -185,10 +188,10 @@ const RegisterWebinar = () => {
                     <div className="mt-6 bg-gradient-to-r from-[#0C4594] to-[#1a5cb8] rounded-xl p-5 text-white">
                       <div className="flex items-center gap-2 mb-2">
                         <Sparkles className="w-5 h-5 text-[#38B6FF]" />
-                        <span className="font-semibold">Bonus Giveaway Alert:</span>
+                        <span className="font-semibold">Close the gap between vision and value</span>
                       </div>
                       <p className="text-white/90 text-sm">
-                        We're making this event even more rewarding! Lucky attendee who participates in all modules of the webinar will receive a special giveaway. It's our way of saying thanks for your dedicated engagement. Don't miss out on this chance to win!
+                        Every board has issued the agentic AI mandate, but most teams are stuck at step one. Walk away with working agents, a production blueprint, and a costed business case — in just three focused hours.
                       </p>
                     </div>
                   </div>
@@ -197,42 +200,39 @@ const RegisterWebinar = () => {
                 <TabsContent value="agenda" className="mt-6">
                   <div className="space-y-4">
                     <div className="flex gap-4 p-4 bg-gray-50 rounded-lg border-l-4 border-[#38B6FF]">
-                      <div className="text-sm font-medium text-[#0C4594] whitespace-nowrap">
-                        01:00 pm – 01:20 pm
-                      </div>
+                      <div className="text-sm font-medium text-[#0C4594] whitespace-nowrap">Hour 1</div>
                       <div className="text-gray-700">
-                        Introduction to Google AI Ultra for Business
+                        Discovery & Use Case Shaping — align on your industry context, prioritize workflows, and define the agents to build.
                       </div>
                     </div>
                     <div className="flex gap-4 p-4 bg-gray-50 rounded-lg border-l-4 border-[#38B6FF]">
-                      <div className="text-sm font-medium text-[#0C4594] whitespace-nowrap">
-                        01:20 pm – 01:35 pm
-                      </div>
+                      <div className="text-sm font-medium text-[#0C4594] whitespace-nowrap">Hour 2</div>
                       <div className="text-gray-700">
-                        Flow, Whisk & Mariner in Action | Demo
+                        Build & Test — construct PoC agents on Gemini Enterprise and validate them in a simulated version of your environment.
                       </div>
                     </div>
                     <div className="flex gap-4 p-4 bg-gray-50 rounded-lg border-l-4 border-[#38B6FF]">
-                      <div className="text-sm font-medium text-[#0C4594] whitespace-nowrap">
-                        01:35 pm – 01:45 pm
-                      </div>
+                      <div className="text-sm font-medium text-[#0C4594] whitespace-nowrap">Hour 3</div>
                       <div className="text-gray-700">
-                        Live Q&A Session
+                        Production Blueprint & Business Case — Technical Design Document, deployment roadmap, and a detailed cost analysis for budgeting.
                       </div>
                     </div>
                   </div>
                 </TabsContent>
 
-                <TabsContent value="speakers" className="mt-6">
-                  <div className="flex items-center gap-6">
-                    <img 
-                      src={nikunjPhoto} 
-                      alt="Nikunj Thakkar" 
-                      className="w-24 h-24 rounded-full object-cover border-4 border-[#38B6FF]/30"
-                    />
-                    <div>
-                      <h3 className="text-xl font-bold text-gray-900">Nikunj Thakkar</h3>
-                      <p className="text-[#0C4594]">Customer Engineer, Shivaami</p>
+                <TabsContent value="audience" className="mt-6">
+                  <div className="space-y-4">
+                    <div className="p-4 bg-gray-50 rounded-lg border-l-4 border-[#38B6FF]">
+                      <h4 className="font-semibold text-[#0C4594] mb-1">Agentic AI Strategy Owners</h4>
+                      <p className="text-gray-700 text-sm">Leaders responsible for driving the organization's agentic AI implementation strategy from vision to rollout.</p>
+                    </div>
+                    <div className="p-4 bg-gray-50 rounded-lg border-l-4 border-[#38B6FF]">
+                      <h4 className="font-semibold text-[#0C4594] mb-1">ROI & Viability Champions</h4>
+                      <p className="text-gray-700 text-sm">Decision makers tasked with proving the ROI and technical viability of new automation technologies before scaling investment.</p>
+                    </div>
+                    <div className="p-4 bg-gray-50 rounded-lg border-l-4 border-[#38B6FF]">
+                      <h4 className="font-semibold text-[#0C4594] mb-1">Production Systems Leaders</h4>
+                      <p className="text-gray-700 text-sm">Architects and engineering leaders responsible for the design of production grade, integrated AI systems across the enterprise stack.</p>
                     </div>
                   </div>
                 </TabsContent>
@@ -305,7 +305,7 @@ const RegisterWebinar = () => {
                   <div className="pt-2">
                     <div className="bg-[#38B6FF]/10 rounded-lg p-3 mb-4">
                       <p className="text-sm text-[#0C4594] font-medium">
-                        📅 Google AI Ultra - Wednesday, February 19, 2026
+                        🎯 Gemini Enterprise · 3 Hour 1:1 Workshop · Google funded
                       </p>
                     </div>
                   </div>
@@ -330,7 +330,7 @@ const RegisterWebinar = () => {
                     <Gift className="w-5 h-5 text-white" />
                   </div>
                   <p className="text-sm text-gray-700">
-                    Get <strong className="text-[#0C4594]">50% off</strong> your first 3 months of Google AI Ultra membership!
+                    <strong className="text-[#0C4594]">Google funded · No cost.</strong> Walk away with working agents, a production blueprint, and a costed business case.
                   </p>
                 </div>
               </div>
