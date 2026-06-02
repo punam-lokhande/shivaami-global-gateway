@@ -39,6 +39,15 @@ const RegisterWebinar = () => {
             <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-[#38B6FF] drop-shadow-lg leading-tight mb-6">
               with Gemini Enterprise — 3 Hour 1:1 Workshop
             </h2>
+            <Button 
+              asChild
+              className="bg-[#38B6FF] hover:bg-[#1b9dd8] text-white font-semibold px-6 py-5 text-base rounded-lg shadow-lg hover:shadow-xl transition-all"
+            >
+              <a href="#registration-form">
+                Register Now
+                <ChevronRight className="w-5 h-5 ml-1" />
+              </a>
+            </Button>
           </motion.div>
         </div>
       </section>
