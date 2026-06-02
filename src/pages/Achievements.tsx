@@ -32,14 +32,14 @@ const awardsData: YearData[] = [
     awards: [
       { title: 'Google Cloud Partner of the Year - 2026', image: googleCloudPartner2026 },
       { title: 'Partner of the Year – APAC / VAR (India) - JumpCloud', image: 'https://www.shivaami.com/assets/images/award/jumpcloud-partner-2026.jpg' },
+      { title: 'Google Cloud APAC Leaderboard Champions - Pipeline Powerhouse 2025', image: pipelinePowerhouse2025.url },
+      { title: 'Google Cloud APAC Leaderboard Champions - New Titan Champion 2025', image: newTitanChampion2025.url },
+      { title: 'Google Cloud APAC Leaderboard Champions - New Frontiers Champion 2025', image: newFrontiersChampion2025.url },
     ],
   },
   {
     year: '2025',
     awards: [
-      { title: 'Google Cloud APAC Leaderboard Champions - Pipeline Powerhouse 2025', image: pipelinePowerhouse2025.url },
-      { title: 'Google Cloud APAC Leaderboard Champions - New Titan Champion 2025', image: newTitanChampion2025.url },
-      { title: 'Google Cloud APAC Leaderboard Champions - New Frontiers Champion 2025', image: newFrontiersChampion2025.url },
       { title: 'Best Cloud Solution Partner – VARINDIA 24th Star Nite Awards, 2025', image: 'https://www.shivaami.com/assets/images/award/VARINDIA-Star-Nite-Awards-2025.jpg' },
       { title: 'Google Workspace Partner of the Year - APAC, awarded at Google Cloud Next \'25 in Las Vegas', image: 'https://www.shivaami.com/assets/images/award/Google-Cloud-Partner-Award-2025.jpg' },
       { title: 'Top 20 DivHERsity Champions 2025 by herkey', image: 'https://www.shivaami.com/assets/images/award/DivHERsity-Award.jpg' },
