@@ -104,7 +104,7 @@ const webinars = [
     date: "Flexible scheduling",
     time: "3-Hour 1:1 Workshop",
     status: "upcoming",
-    link: "https://events.shivaami.com",
+    link: "/register-webinar",
     module: "Gemini Enterprise"
   },
 ];
