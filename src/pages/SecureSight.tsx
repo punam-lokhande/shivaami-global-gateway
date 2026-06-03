@@ -204,10 +204,6 @@ function FeaturesSection() {
 
 
 
-// Main Page Component
-export default function SecureSight() {
-}
-
 // Brochure Section (SecureSight Chrome Extension)
 function BrochureSection({ onRequestAccess }: { onRequestAccess: () => void }) {
   const valueProps = [
@@ -326,7 +322,8 @@ function BrochureSection({ onRequestAccess }: { onRequestAccess: () => void }) {
   );
 }
 
-function SecureSightMainContinued() {
+// Main Page Component
+export default function SecureSight() {
   const [dialogOpen, setDialogOpen] = useState(false);
   const [accessDialogOpen, setAccessDialogOpen] = useState(false);
 
