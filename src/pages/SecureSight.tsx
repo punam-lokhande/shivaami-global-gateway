@@ -295,17 +295,25 @@ function BrochureSection({ onRequestAccess }: { onRequestAccess: () => void }) {
         <motion.div {...fadeInUp} className="text-center mb-10">
           <h3 className="text-2xl md:text-3xl font-bold text-[#0C4594]">How It Works</h3>
         </motion.div>
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-12 relative">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-12">
           {steps.map((s, i) => {
             const Icon = s.icon;
             return (
-              <motion.div key={i} {...fadeInUp} className="text-center">
+              <motion.div
+                key={i}
+                {...fadeInUp}
+                className="bg-white rounded-2xl border border-[#e5e7eb] p-5 sm:p-6 text-center shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+              >
                 <div className="relative inline-flex items-center justify-center mb-4">
-                  <div className="w-16 h-16 rounded-full bg-[#1b9dd8] text-white text-2xl font-bold flex items-center justify-center shadow-lg">{i + 1}</div>
+                  <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-[#1b9dd8]/10 flex items-center justify-center">
+                    <Icon className="w-7 h-7 sm:w-8 sm:h-8 text-[#1b9dd8]" />
+                  </div>
+                  <span className="absolute -top-1 -right-1 w-6 h-6 rounded-full bg-[#0C4594] text-white text-xs font-bold flex items-center justify-center shadow-md">
+                    {i + 1}
+                  </span>
                 </div>
-                <Icon className="w-6 h-6 text-[#0C4594] mx-auto mb-2" />
-                <h4 className="font-bold text-[#0C4594] mb-1">{s.title}</h4>
-                <p className="text-sm text-[#475569]">{s.desc}</p>
+                <h4 className="font-bold text-[#0C4594] mb-1 text-sm sm:text-base">{s.title}</h4>
+                <p className="text-xs sm:text-sm text-[#475569]">{s.desc}</p>
               </motion.div>
             );
           })}
