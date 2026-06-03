@@ -141,6 +141,7 @@ const ThankYouContact = lazy(() => import("./components/ThankYouContact"));
 const SmarterSolutions = lazy(() => import("./pages/SmarterSolutions"));
 const SaferSecurity = lazy(() => import("./pages/SaferSecurity"));
 const SmootherServices = lazy(() => import("./pages/SmootherServices"));
+const AgenticAICalculator = lazy(() => import("./pages/AgenticAICalculator"));
 
 const queryClient = new QueryClient();
 
@@ -302,6 +303,7 @@ const App = () => (
                 <Route path="/smarter-solutions" element={<SmarterSolutions />} />
                 <Route path="/safer-security" element={<SaferSecurity />} />
                 <Route path="/smoother-services" element={<SmootherServices />} />
+                <Route path="/agentic-ai-calculator" element={<AgenticAICalculator />} />
                 {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
                 <Route path="*" element={<NotFound />} />
               </Routes>
