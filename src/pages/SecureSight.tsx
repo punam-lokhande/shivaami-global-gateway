@@ -205,6 +205,8 @@ function FeaturesSection() {
 
 // Main Page Component
 export default function SecureSight() {
+  // placeholder line below replaced
+}
   const [dialogOpen, setDialogOpen] = useState(false);
   const [accessDialogOpen, setAccessDialogOpen] = useState(false);
 
