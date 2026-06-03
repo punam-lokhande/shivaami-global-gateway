@@ -99,10 +99,10 @@ const webinars = [
   },
   {
     id: 10,
-    title: "Gemini Enterprise for Education",
-    description: "An intensive 3-hour 1:1 workshop to design, build, and validate AI agents that deliver immediate, measurable value — curated around your use cases and industry. Google-funded, no cost.",
-    date: "Flexible scheduling",
-    time: "3-Hour 1:1 Workshop",
+    title: "Build Your Agentic Workforce with Gemini Enterprise for Education",
+    description: "Join Google Cloud and Shivaami for a deep dive session on how to scale secure, context-aware AI agents across your campus ecosystem.",
+    date: "Wednesday, June 10",
+    time: "1:00 PM – 1:45 PM EDT",
     status: "upcoming",
     link: "/register-webinar",
     module: "Gemini Enterprise"
