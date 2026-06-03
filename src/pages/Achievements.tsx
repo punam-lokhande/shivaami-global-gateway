@@ -12,9 +12,10 @@ import achievementsBanner from '@/assets/banners/achievements-banner.jpg';
 import googleEnterprise2013 from '@/assets/awards/google-enterprise-2013-sf.jpg';
 import jumpcloudPartner2026 from '@/assets/awards/jumpcloud-partner-2026.jpg';
 import googleCloudPartner2026 from '@/assets/awards/google-cloud-partner-2026.jpg';
-import pipelinePowerhouse2025 from '@/assets/awards/pipeline-powerhouse-2025.png.asset.json';
-import newTitanChampion2025 from '@/assets/awards/new-titan-champion-2025.png.asset.json';
-import newFrontiersChampion2025 from '@/assets/awards/new-frontiers-champion-2025.png.asset.json';
+import pipelinePowerhouse2025 from '@/assets/awards/Pipeline Powerhouse 2025.png';
+import newTitanChampion2025 from '@/assets/awards/New Titan Champion 2025.png';
+import newFrontiersChampion2025 from '@/assets/awards/New Frontiers Champion 2025.png';
+
 
 interface AwardItem {
   title: string;
@@ -32,9 +33,9 @@ const awardsData: YearData[] = [
     awards: [
       { title: 'Google Cloud Partner of the Year - 2026', image: googleCloudPartner2026 },
       { title: 'Partner of the Year – APAC / VAR (India) - JumpCloud', image: 'https://www.shivaami.com/assets/images/award/jumpcloud-partner-2026.jpg' },
-      { title: 'Google Cloud APAC Leaderboard Champions - Pipeline Powerhouse 2025', image: pipelinePowerhouse2025.url },
-      { title: 'Google Cloud APAC Leaderboard Champions - New Titan Champion 2025', image: newTitanChampion2025.url },
-      { title: 'Google Cloud APAC Leaderboard Champions - New Frontiers Champion 2025', image: newFrontiersChampion2025.url },
+      { title: 'Google Cloud APAC Leaderboard Champions - Pipeline Powerhouse 2025', image: pipelinePowerhouse2025 },
+      { title: 'Google Cloud APAC Leaderboard Champions - New Titan Champion 2025', image: newTitanChampion2025 },
+      { title: 'Google Cloud APAC Leaderboard Champions - New Frontiers Champion 2025', image: newFrontiersChampion2025 },
     ],
   },
   {
