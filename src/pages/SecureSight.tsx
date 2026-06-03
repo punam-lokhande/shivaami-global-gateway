@@ -313,7 +313,7 @@ function BrochureSection({ onRequestAccess }: { onRequestAccess: () => void }) {
             size="lg"
             className="bg-[#0C4594] hover:bg-[#1a5ab8] text-white px-8 py-6 text-base font-semibold shadow-lg"
           >
-            Request Early Access
+            Get your free scan
             <ArrowRight className="ml-2 h-5 w-5" />
           </Button>
         </motion.div>
