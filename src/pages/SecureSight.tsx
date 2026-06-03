@@ -280,8 +280,13 @@ function BrochureSection({ onRequestAccess }: { onRequestAccess: () => void }) {
 
           <motion.div {...fadeInUp} className="lg:sticky lg:top-24">
             <h3 className="text-2xl md:text-3xl font-bold text-[#0C4594] mb-6 text-center">Extension Preview</h3>
-            <div className="rounded-2xl border border-[#e5e7eb] shadow-xl p-4 bg-white">
-              <img src={extensionPreview} alt="SecureSight Extension Preview" className="w-full h-auto rounded-lg" loading="lazy" />
+            <div className="rounded-2xl border border-[#e5e7eb] shadow-xl p-4 bg-white flex items-center justify-center">
+              <img
+                src={extensionPreview}
+                alt="SecureSight Extension Preview"
+                className="w-auto max-w-full max-h-[520px] object-contain rounded-lg"
+                loading="lazy"
+              />
             </div>
           </motion.div>
         </div>
