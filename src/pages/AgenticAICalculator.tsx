@@ -181,7 +181,7 @@ export default function AgenticAICalculator() {
       </Helmet>
       <Header />
 
-      <main className="flex-1 pt-24 md:pt-32 pb-16 pt-[120px] md:pt-32">
+      <main className="flex-1 pt-[120px] md:pt-32 pb-16">
         <div ref={topRef} />
         <div className="container max-w-5xl px-4">
 
