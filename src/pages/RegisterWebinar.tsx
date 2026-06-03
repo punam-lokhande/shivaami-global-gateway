@@ -7,7 +7,10 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import heroBanner from "@/assets/banners/webinar-online-meeting.jpg";
-import nextGenAiImg from "@/assets/banners/next-gen-ai-webinar.jpg";
+import webinarHeroEdu from "@/assets/banners/webinar-hero-edu.jpg.asset.json";
+import speakerBrian from "@/assets/speakers/speaker-brian.jpg.asset.json";
+import speakerKunal from "@/assets/speakers/speaker-kunal.png.asset.json";
+import speakerNikunj from "@/assets/speakers/speaker-nikunj.png.asset.json";
 
 const RegisterWebinar = () => {
   return (
@@ -19,7 +22,7 @@ const RegisterWebinar = () => {
         {/* Background Image */}
         <div className="absolute inset-0">
           <img 
-            src={heroBanner} 
+            src={webinarHeroEdu.url}
             alt="Online Meeting Webinar" 
             className="w-full h-full object-cover"
           />
@@ -96,8 +99,8 @@ const RegisterWebinar = () => {
               className="rounded-2xl overflow-hidden shadow-lg"
             >
               <img
-                src={nextGenAiImg}
-                alt="Enterprise team working through AI agent design in a hands-on workshop"
+                src={webinarHeroEdu.url}
+                alt="Education leaders joining the Gemini Enterprise for Education webinar"
                 className="w-full h-[300px] lg:h-[360px] object-cover"
               />
             </motion.div>
@@ -239,17 +242,26 @@ const RegisterWebinar = () => {
 
                 <TabsContent value="audience" className="mt-6">
                   <div className="space-y-4">
-                    <div className="p-4 bg-gray-50 rounded-lg border-l-4 border-[#38B6FF]">
-                      <h4 className="font-semibold text-[#0C4594] mb-1">Brian Seifert — Head of Sales, Public Sector (State, Local, Education), Google Cloud</h4>
-                      <p className="text-gray-700 text-sm">Integral part of the Google Cloud team, partnering with higher education and K-12 customers to bring Gemini Enterprise for Education to life and automate campus processes.</p>
+                    <div className="flex gap-4 p-4 bg-gray-50 rounded-lg border-l-4 border-[#38B6FF]">
+                      <img src={speakerBrian.url} alt="Brian Seifert" className="w-20 h-20 rounded-full object-cover flex-shrink-0" />
+                      <div>
+                        <h4 className="font-semibold text-[#0C4594] mb-1">Brian Seifert — Head of Sales, Public Sector (State, Local, Education), Google Cloud</h4>
+                        <p className="text-gray-700 text-sm">Integral part of the Google Cloud team, partnering with higher education and K-12 customers to bring Gemini Enterprise for Education to life and automate campus processes.</p>
+                      </div>
                     </div>
-                    <div className="p-4 bg-gray-50 rounded-lg border-l-4 border-[#38B6FF]">
-                      <h4 className="font-semibold text-[#0C4594] mb-1">Kunal Thacker — Vice President, Shivaami</h4>
-                      <p className="text-gray-700 text-sm">11+ years in the cloud and AI industry at Shivaami, partnering with leaders on both strategy and hands-on execution to turn ambitious AI mandates into shipped outcomes.</p>
+                    <div className="flex gap-4 p-4 bg-gray-50 rounded-lg border-l-4 border-[#38B6FF]">
+                      <img src={speakerKunal.url} alt="Kunal Thacker" className="w-20 h-20 rounded-full object-cover flex-shrink-0" />
+                      <div>
+                        <h4 className="font-semibold text-[#0C4594] mb-1">Kunal Thacker — Vice President, Shivaami</h4>
+                        <p className="text-gray-700 text-sm">11+ years in the cloud and AI industry at Shivaami, partnering with leaders on both strategy and hands-on execution to turn ambitious AI mandates into shipped outcomes.</p>
+                      </div>
                     </div>
-                    <div className="p-4 bg-gray-50 rounded-lg border-l-4 border-[#38B6FF]">
-                      <h4 className="font-semibold text-[#0C4594] mb-1">Nikunj Thakkar — Customer Engineer, Shivaami</h4>
-                      <p className="text-gray-700 text-sm">Google-certified professional and agentic AI expert at Shivaami, with a track record of helping customers solve complex problems and deliver measurable success.</p>
+                    <div className="flex gap-4 p-4 bg-gray-50 rounded-lg border-l-4 border-[#38B6FF]">
+                      <img src={speakerNikunj.url} alt="Nikunj Thakkar" className="w-20 h-20 rounded-full object-cover flex-shrink-0" />
+                      <div>
+                        <h4 className="font-semibold text-[#0C4594] mb-1">Nikunj Thakkar — Customer Engineer, Shivaami</h4>
+                        <p className="text-gray-700 text-sm">Google-certified professional and agentic AI expert at Shivaami, with a track record of helping customers solve complex problems and deliver measurable success.</p>
+                      </div>
                     </div>
                   </div>
                 </TabsContent>
