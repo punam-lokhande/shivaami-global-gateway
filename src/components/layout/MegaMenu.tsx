@@ -7,7 +7,7 @@ import {
   Megaphone, Leaf, ShoppingCart, Cpu, Banknote, Heart, Hotel, Factory, Truck,
   BookOpen, FileText, Newspaper, Video,
   Award, Users2, Trophy, Briefcase,
-  ChevronRight, Laptop, Box, Smartphone, Layers, Settings, ArrowRight, Globe
+  ChevronRight, Laptop, Box, Smartphone, Layers, Settings, ArrowRight, Globe, Calculator
 } from 'lucide-react';
 import Solutionimg from '@/assets/Solutionimg.jpg';
 
