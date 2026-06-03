@@ -887,8 +887,8 @@ const faqSchema = {
 
   return (
     <>  <Helmet>
-<title>Google Workspace Partner in India & USA | Shivaami</title>
- <meta name="description" content="Google Workspace (Formerly G Suite) includes communication, collaboration, and productivity apps. Contact Shivaami, a trusted Google Workspace partner in India & the USA." />
+<title>Authorised Google Workspace Reseller in India & USA | Shivaami</title>
+ <meta name="description" content="Google Workspace (Formerly G Suite) includes communication, collaboration, and productivity apps. Contact Shivaami your trusted Google Workspace reseller in India & USA to know more." />
 <link rel="canonical" href="https://www.shivaami.com/google-workspace" />
  <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
  </Helmet>
