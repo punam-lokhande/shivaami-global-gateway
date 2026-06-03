@@ -307,8 +307,8 @@ function BrochureSection({ onRequestAccess }: { onRequestAccess: () => void }) {
                 <div className="w-8 h-8 rounded-full bg-[#0C4594] text-white text-sm font-bold flex items-center justify-center mb-3 mx-auto">
                   {i + 1}
                 </div>
-                <div className="flex flex-col items-center gap-3 mb-3">
-                  <div className="w-10 h-10 rounded-full bg-[#1b9dd8]/10 flex items-center justify-center shrink-0">
+                <div className="flex items-center justify-center gap-2 mb-3">
+                  <div className="w-9 h-9 rounded-full bg-[#1b9dd8]/10 flex items-center justify-center shrink-0">
                     <Icon className="w-5 h-5 text-[#1b9dd8]" />
                   </div>
                   <h4 className="font-bold text-[#0C4594] text-base sm:text-lg leading-tight">{s.title}</h4>
