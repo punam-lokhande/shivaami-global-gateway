@@ -1,16 +1,7 @@
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { motion } from "framer-motion";
-import { MapPin, Calendar, Clock, Gift, Sparkles, Target, ShieldCheck, FileText, LineChart, ChevronRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import heroBanner from "@/assets/banners/webinar-online-meeting.jpg";
 import webinarHeroEdu from "@/assets/banners/webinar-hero-edu.jpg";
-import speakerBrian from "@/assets/speakers/speaker-brian.jpeg";
-import speakerKunal from "@/assets/speakers/speaker-kunal.png";
-import speakerNikunj from "@/assets/speakers/speaker-nikunj.jpg";
 
 const RegisterWebinar = () => {
   return (
@@ -39,24 +30,16 @@ const RegisterWebinar = () => {
             <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-white mb-2 sm:mb-3 leading-tight">
               Build Your Agentic Workforce with Gemini Enterprise for Education
             </h1>
-            <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-[#38B6FF] drop-shadow-lg leading-tight mb-6">
-              Join Google Cloud and Shivaami for a deep dive session on how to scale secure, context-aware AI agents across your campus ecosystem
-            </h2>
-            <p className="text-base sm:text-lg text-white/90 mb-6 max-w-3xl">
-              Automate the processes and workflows that slow your institution down.
-            </p>
-            <Button 
-              asChild
-              className="bg-[#38B6FF] hover:bg-[#1b9dd8] text-white font-semibold px-6 py-5 text-base rounded-lg shadow-lg hover:shadow-xl transition-all"
-            >
-              <a href="#registration-form">
-                Register Now
-                <ChevronRight className="w-5 h-5 ml-1" />
-              </a>
-            </Button>
           </motion.div>
         </div>
       </section>
+
+      <Footer />
+    </div>
+  );
+};
+
+export default RegisterWebinar;
 
       {/* Image + Intro Strip */}
       <section className="py-10 lg:py-14 bg-white">
