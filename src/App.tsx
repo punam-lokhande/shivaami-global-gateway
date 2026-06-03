@@ -141,6 +141,7 @@ const ThankYouContact = lazy(() => import("./components/ThankYouContact"));
 const SmarterSolutions = lazy(() => import("./pages/SmarterSolutions"));
 const SaferSecurity = lazy(() => import("./pages/SaferSecurity"));
 const SmootherServices = lazy(() => import("./pages/SmootherServices"));
+const AgenticAICalculator = lazy(() => import("./pages/AgenticAICalculator"));
 
 const queryClient = new QueryClient();
 
