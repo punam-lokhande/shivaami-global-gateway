@@ -302,12 +302,12 @@ function BrochureSection({ onRequestAccess }: { onRequestAccess: () => void }) {
               <motion.div
                 key={i}
                 {...fadeInUp}
-                className="bg-white rounded-2xl border border-[#e5e7eb] p-5 sm:p-6 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+                className="bg-white rounded-2xl border border-[#e5e7eb] p-5 sm:p-6 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 text-center"
               >
-                <div className="w-8 h-8 rounded-full bg-[#0C4594] text-white text-sm font-bold flex items-center justify-center mb-3">
+                <div className="w-8 h-8 rounded-full bg-[#0C4594] text-white text-sm font-bold flex items-center justify-center mb-3 mx-auto">
                   {i + 1}
                 </div>
-                <div className="flex items-center gap-3 mb-3">
+                <div className="flex flex-col items-center gap-3 mb-3">
                   <div className="w-10 h-10 rounded-full bg-[#1b9dd8]/10 flex items-center justify-center shrink-0">
                     <Icon className="w-5 h-5 text-[#1b9dd8]" />
                   </div>
