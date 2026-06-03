@@ -11,6 +11,8 @@ import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import GetStartedDialog from '@/components/GetStartedDialog';
 import heroImage from '@/assets/banners/securesight-banner.jpg';
+import SecureSightAccessDialog from '@/components/SecureSightAccessDialog';
+import extensionPreview from '@/assets/securesight/extension-preview.jpg.asset.json';
 // Feature images
 import riskScanningImg from '@/assets/securesight/risk-scanning.jpg';
 import pentestImg from '@/assets/securesight/pentest.jpg';
@@ -204,6 +206,7 @@ function FeaturesSection() {
 // Main Page Component
 export default function SecureSight() {
   const [dialogOpen, setDialogOpen] = useState(false);
+  const [accessDialogOpen, setAccessDialogOpen] = useState(false);
 
   useEffect(() => {
     const handler = () => setDialogOpen(true);
@@ -228,10 +231,12 @@ export default function SecureSight() {
       <main>
         <HeroSection />
         <FeaturesSection />
+        <BrochureSection onRequestAccess={() => setAccessDialogOpen(true)} />
         <CTASection />
       </main>
       <Footer />
       <GetStartedDialog open={dialogOpen} onOpenChange={setDialogOpen} />
+      <SecureSightAccessDialog open={accessDialogOpen} onOpenChange={setAccessDialogOpen} />
     </div></>
   );
 }
