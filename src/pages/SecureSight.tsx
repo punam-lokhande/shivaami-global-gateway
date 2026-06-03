@@ -11,6 +11,9 @@ import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import GetStartedDialog from '@/components/GetStartedDialog';
 import heroImage from '@/assets/banners/securesight-banner.jpg';
+import SecureSightAccessDialog from '@/components/SecureSightAccessDialog';
+import extensionPreview from '@/assets/securesight/extension-preview.jpg.asset.json';
+import { DollarSign, Infinity as InfinityIcon, LayoutGrid, ShieldCheck, EyeOff, Smartphone, Download, PiggyBank, FileCheck2, Chrome, LogIn, ScanLine, Wrench } from 'lucide-react';
 // Feature images
 import riskScanningImg from '@/assets/securesight/risk-scanning.jpg';
 import pentestImg from '@/assets/securesight/pentest.jpg';
@@ -201,9 +204,128 @@ function FeaturesSection() {
 
 
 
+// Brochure Section (SecureSight Chrome Extension)
+function BrochureSection({ onRequestAccess }: { onRequestAccess: () => void }) {
+  const valueProps = [
+    { icon: DollarSign, title: 'Stop Paying $1,000s for Security Audits', desc: 'Google Workspace security assessments cost $3K–$10K+ each. SecureSight delivers continuous expert-level insight — at zero cost.', color: 'bg-red-500' },
+    { icon: InfinityIcon, title: 'Check Your Score Anytime, Instantly', desc: 'Live Trust Score (0–100) from 30+ automated checks. Full security posture in seconds — not weeks.', color: 'bg-[#1b9dd8]' },
+    { icon: LayoutGrid, title: 'Security Checks, Simplified', desc: 'Everything you actually need, without the clutter. Trust Score, Shadow IT, and compliance in one sleek extension.', color: 'bg-green-500' },
+  ];
+
+  const covers = [
+    { icon: ShieldCheck, title: 'Trust Score', desc: 'Dynamic 0–100 score — 2SV, DNS, admin health & data sharing events', color: 'bg-red-500' },
+    { icon: EyeOff, title: 'Shadow IT', desc: 'Identify and manage unauthorized AI tools and apps used by your team without IT oversight.', color: 'bg-orange-500' },
+    { icon: Smartphone, title: 'Identity & Mobile', desc: 'Ghost admin detection, 2SV coverage & unencrypted device alerts', color: 'bg-[#1b9dd8]' },
+    { icon: Download, title: 'Data Exfiltration', desc: 'Detects mass deletions, external downloads & sensitive file shares', color: 'bg-green-500' },
+    { icon: PiggyBank, title: 'Cost Optimization', desc: 'Flags dormant users on paid licenses with monthly savings estimate', color: 'bg-[#0C4594]' },
+    { icon: FileCheck2, title: 'Compliance', desc: 'HIPAA / ISO 27001 / GDPR audit modules built in', color: 'bg-purple-600' },
+  ];
+
+  const steps = [
+    { icon: Chrome, title: 'Install for Free', desc: 'Chrome Web Store' },
+    { icon: LogIn, title: 'Sign In', desc: 'Google Workspace Super Admin' },
+    { icon: ScanLine, title: 'Instant Scan', desc: '30+ checks in < 60s' },
+    { icon: Wrench, title: 'Resolve', desc: 'One-click fix links' },
+  ];
+
+  return (
+    <section className="py-20 bg-white">
+      <div className="w-full px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24">
+        <motion.div {...fadeInUp} className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#0C4594] mb-3">
+            <span className="text-[#0C4594]">Secure</span><span className="text-red-500">Sight</span> Chrome Extension
+          </h2>
+          <p className="text-[#475569] max-w-3xl mx-auto">
+            The first-of-its-kind Google Workspace Security Chrome Extension that cuts through the noise — see the only alerts that matter, always visible, completely free.
+          </p>
+        </motion.div>
+
+        {/* Value props */}
+        <div className="grid md:grid-cols-3 gap-6 mb-16">
+          {valueProps.map((v, i) => {
+            const Icon = v.icon;
+            return (
+              <motion.div key={i} {...fadeInUp} className="rounded-2xl border-2 border-[#e5e7eb] p-6 hover:shadow-lg transition-shadow">
+                <div className={`w-12 h-12 rounded-full ${v.color} flex items-center justify-center mb-4`}>
+                  <Icon className="w-6 h-6 text-white" />
+                </div>
+                <h3 className="font-bold text-[#0C4594] mb-2">{v.title}</h3>
+                <p className="text-sm text-[#475569] leading-relaxed">{v.desc}</p>
+              </motion.div>
+            );
+          })}
+        </div>
+
+        {/* What it Covers + Extension Preview */}
+        <div className="grid lg:grid-cols-2 gap-10 items-start mb-16">
+          <div>
+            <h3 className="text-2xl md:text-3xl font-bold text-[#0C4594] mb-6">What SecureSight Covers For You</h3>
+            <div className="space-y-3">
+              {covers.map((c, i) => {
+                const Icon = c.icon;
+                return (
+                  <motion.div key={i} {...fadeInUp} className="flex gap-4 p-4 rounded-lg border-l-4 bg-[#f8fafc]" style={{ borderLeftColor: c.color.includes('red') ? '#ef4444' : c.color.includes('orange') ? '#f97316' : c.color.includes('1b9dd8') ? '#1b9dd8' : c.color.includes('green') ? '#22c55e' : c.color.includes('0C4594') ? '#0C4594' : '#9333ea' }}>
+                    <div className={`w-10 h-10 rounded-lg ${c.color} flex-shrink-0 flex items-center justify-center`}>
+                      <Icon className="w-5 h-5 text-white" />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-[#0C4594] mb-1">{c.title}</h4>
+                      <p className="text-sm text-[#475569]">{c.desc}</p>
+                    </div>
+                  </motion.div>
+                );
+              })}
+            </div>
+          </div>
+
+          <motion.div {...fadeInUp} className="lg:sticky lg:top-24">
+            <h3 className="text-2xl md:text-3xl font-bold text-[#0C4594] mb-6 text-center">Extension Preview</h3>
+            <div className="rounded-2xl border border-[#e5e7eb] shadow-xl p-4 bg-white">
+              <img src={extensionPreview.url} alt="SecureSight Extension Preview" className="w-full h-auto rounded-lg" loading="lazy" />
+            </div>
+          </motion.div>
+        </div>
+
+        {/* How it Works */}
+        <motion.div {...fadeInUp} className="text-center mb-10">
+          <h3 className="text-2xl md:text-3xl font-bold text-[#0C4594]">How It Works</h3>
+        </motion.div>
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-12 relative">
+          {steps.map((s, i) => {
+            const Icon = s.icon;
+            return (
+              <motion.div key={i} {...fadeInUp} className="text-center">
+                <div className="relative inline-flex items-center justify-center mb-4">
+                  <div className="w-16 h-16 rounded-full bg-[#1b9dd8] text-white text-2xl font-bold flex items-center justify-center shadow-lg">{i + 1}</div>
+                </div>
+                <Icon className="w-6 h-6 text-[#0C4594] mx-auto mb-2" />
+                <h4 className="font-bold text-[#0C4594] mb-1">{s.title}</h4>
+                <p className="text-sm text-[#475569]">{s.desc}</p>
+              </motion.div>
+            );
+          })}
+        </div>
+
+        {/* CTA Button */}
+        <motion.div {...fadeInUp} className="text-center">
+          <Button
+            onClick={onRequestAccess}
+            size="lg"
+            className="bg-[#0C4594] hover:bg-[#1a5ab8] text-white px-8 py-6 text-base font-semibold shadow-lg"
+          >
+            Request Early Access
+            <ArrowRight className="ml-2 h-5 w-5" />
+          </Button>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+
 // Main Page Component
 export default function SecureSight() {
   const [dialogOpen, setDialogOpen] = useState(false);
+  const [accessDialogOpen, setAccessDialogOpen] = useState(false);
 
   useEffect(() => {
     const handler = () => setDialogOpen(true);
@@ -228,10 +350,12 @@ export default function SecureSight() {
       <main>
         <HeroSection />
         <FeaturesSection />
+        <BrochureSection onRequestAccess={() => setAccessDialogOpen(true)} />
         <CTASection />
       </main>
       <Footer />
       <GetStartedDialog open={dialogOpen} onOpenChange={setDialogOpen} />
+      <SecureSightAccessDialog open={accessDialogOpen} onOpenChange={setAccessDialogOpen} />
     </div></>
   );
 }
