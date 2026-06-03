@@ -12,7 +12,7 @@ import { Link } from 'react-router-dom';
 import GetStartedDialog from '@/components/GetStartedDialog';
 import heroImage from '@/assets/banners/securesight-banner.jpg';
 import SecureSightAccessDialog from '@/components/SecureSightAccessDialog';
-import extensionPreview from '@/assets/securesight/extension-preview.jpg.asset.json';
+import extensionPreview from '@/assets/securesight/extension-preview.png';
 import { DollarSign, Infinity as InfinityIcon, LayoutGrid, ShieldCheck, EyeOff, Smartphone, Download, PiggyBank, FileCheck2, Chrome, LogIn, ScanLine, Wrench } from 'lucide-react';
 // Feature images
 import riskScanningImg from '@/assets/securesight/risk-scanning.jpg';
@@ -281,7 +281,7 @@ function BrochureSection({ onRequestAccess }: { onRequestAccess: () => void }) {
           <motion.div {...fadeInUp} className="lg:sticky lg:top-24">
             <h3 className="text-2xl md:text-3xl font-bold text-[#0C4594] mb-6 text-center">Extension Preview</h3>
             <div className="rounded-2xl border border-[#e5e7eb] shadow-xl p-4 bg-white">
-              <img src={extensionPreview.url} alt="SecureSight Extension Preview" className="w-full h-auto rounded-lg" loading="lazy" />
+              <img src={extensionPreview} alt="SecureSight Extension Preview" className="w-full h-auto rounded-lg" loading="lazy" />
             </div>
           </motion.div>
         </div>
