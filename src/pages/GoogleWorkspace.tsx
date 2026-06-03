@@ -82,7 +82,7 @@ function HeroSection() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-sm sm:text-base lg:text-lg text-white/80 max-w-2xl mb-6 sm:mb-8 leading-relaxed font-body"
           >
-          Google Workspace delivers cloud productivity via Gmail, Drive, Meet, Docs, and Sheets for secure collaboration. Shivaami, a certified Google Workspace partner in India and USA, helps organizations deploy and scale.
+          Google Workspace delivers cloud productivity via Gmail, Drive, Meet, Docs, and Sheets for secure collaboration. Shivaami, a certified Google Workspace reseller in India and USA, helps organizations deploy and scale.
 
           </motion.p>
 
@@ -887,8 +887,8 @@ const faqSchema = {
 
   return (
     <>  <Helmet>
-<title>Google Workspace Partner in India & USA | Shivaami</title>
- <meta name="description" content="Google Workspace (Formerly G Suite) includes communication, collaboration, and productivity apps. Contact Shivaami, a trusted Google Workspace partner in India & the USA." />
+<title>Authorised Google Workspace Reseller in India & USA | Shivaami</title>
+ <meta name="description" content="Google Workspace (Formerly G Suite) includes communication, collaboration, and productivity apps. Contact Shivaami your trusted Google Workspace reseller in India & USA to know more." />
 <link rel="canonical" href="https://www.shivaami.com/google-workspace" />
  <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
  </Helmet>

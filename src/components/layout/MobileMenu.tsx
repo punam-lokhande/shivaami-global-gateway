@@ -186,6 +186,7 @@ const mobileMenuData = [
       {
         title: 'Learn & Explore',
         items: [
+          { label: 'Agentic AI Calculator', href: '/agentic-ai-calculator' },
           { label: 'Case Studies', href: '/case-studies' },
           { label: 'Blog', href: 'https://www.shivaami.com/blog/', external: true },
           { label: 'Webinar', href: '/webinar' },
