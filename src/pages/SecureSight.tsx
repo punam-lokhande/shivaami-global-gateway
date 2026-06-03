@@ -13,6 +13,7 @@ import GetStartedDialog from '@/components/GetStartedDialog';
 import heroImage from '@/assets/banners/securesight-banner.jpg';
 import SecureSightAccessDialog from '@/components/SecureSightAccessDialog';
 import extensionPreview from '@/assets/securesight/extension-preview.jpg.asset.json';
+import { DollarSign, Infinity as InfinityIcon, LayoutGrid, ShieldCheck, EyeOff, Smartphone, Download, PiggyBank, FileCheck2, Chrome, LogIn, ScanLine, Wrench } from 'lucide-react';
 // Feature images
 import riskScanningImg from '@/assets/securesight/risk-scanning.jpg';
 import pentestImg from '@/assets/securesight/pentest.jpg';
