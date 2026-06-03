@@ -7,7 +7,10 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import heroBanner from "@/assets/banners/webinar-online-meeting.jpg";
-import nextGenAiImg from "@/assets/banners/next-gen-ai-webinar.jpg";
+import webinarHeroEdu from "@/assets/banners/webinar-hero-edu.jpg";
+import speakerBrian from "@/assets/speakers/speaker-brian.jpeg";
+import speakerKunal from "@/assets/speakers/speaker-kunal.png";
+import speakerNikunj from "@/assets/speakers/speaker-nikunj.jpg";
 
 const RegisterWebinar = () => {
   return (
@@ -19,7 +22,7 @@ const RegisterWebinar = () => {
         {/* Background Image */}
         <div className="absolute inset-0">
           <img 
-            src={heroBanner} 
+            src={webinarHeroEdu}
             alt="Online Meeting Webinar" 
             className="w-full h-full object-cover"
           />
@@ -34,11 +37,14 @@ const RegisterWebinar = () => {
             className="max-w-4xl"
           >
             <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-white mb-2 sm:mb-3 leading-tight">
-              Agentic Workplace Transformation
+              Build Your Agentic Workforce with Gemini Enterprise for Education
             </h1>
             <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-[#38B6FF] drop-shadow-lg leading-tight mb-6">
-              with Gemini Enterprise — 3 Hour 1:1 Workshop
+              Join Google Cloud and Shivaami for a deep dive session on how to scale secure, context-aware AI agents across your campus ecosystem
             </h2>
+            <p className="text-base sm:text-lg text-white/90 mb-6 max-w-3xl">
+              Automate the processes and workflows that slow your institution down.
+            </p>
             <Button 
               asChild
               className="bg-[#38B6FF] hover:bg-[#1b9dd8] text-white font-semibold px-6 py-5 text-base rounded-lg shadow-lg hover:shadow-xl transition-all"
@@ -63,23 +69,26 @@ const RegisterWebinar = () => {
               className="space-y-5"
             >
               <h2 className="text-2xl md:text-3xl font-bold text-[#0C4594]">
-                3 hours. Working agents. Real ROI.
+                Webinar
               </h2>
+              <p className="text-[#1b9dd8] font-semibold">
+                Wednesday, June 10 · 1:00 to 1:45 PM EDT
+              </p>
               <p className="text-gray-600 leading-relaxed">
-                An intensive 3 hour 1:1 workshop with Shivaami's Gemini Enterprise team to design, build and validate AI agents that deliver immediate, measurable value — curated around your use cases and your industry. Available for individual leaders and full teams. You leave with working agents, a production blueprint, and a costed business case in hand.
+                Join Google Cloud and Shivaami for a deep dive session on how to scale secure, context-aware AI agents across your campus ecosystem, transforming institutional efficiency while keeping student data completely locked down. Learn to build AI agents that ease the load on your teams, simplify everyday workflows, and automate the busy work by connecting with 250+ connectors.
               </p>
               <div className="space-y-3">
                 <div className="flex items-center gap-3 text-[#0C4594] font-medium">
                   <Calendar className="w-5 h-5" />
-                  <span>Flexible scheduling — book your slot</span>
+                  <span>Wednesday, June 10</span>
                 </div>
                 <div className="flex items-center gap-3 text-gray-700">
                   <Clock className="w-5 h-5 text-[#0C4594]" />
-                  <span>3 Hour 1:1 Workshop</span>
+                  <span>1:00 to 1:45 PM EDT</span>
                 </div>
                 <div className="flex items-center gap-3 text-gray-700">
                   <MapPin className="w-5 h-5 text-[#0C4594]" />
-                  <span>Online · Google funded · No cost</span>
+                  <span>Webinar — Google Meet invite shared upon registration</span>
                 </div>
               </div>
             </motion.div>
@@ -90,8 +99,8 @@ const RegisterWebinar = () => {
               className="rounded-2xl overflow-hidden shadow-lg"
             >
               <img
-                src={nextGenAiImg}
-                alt="Enterprise team working through AI agent design in a hands-on workshop"
+                src={webinarHeroEdu}
+                alt="Education leaders joining the Gemini Enterprise for Education webinar"
                 className="w-full h-[300px] lg:h-[360px] object-cover"
               />
             </motion.div>
@@ -114,7 +123,7 @@ const RegisterWebinar = () => {
                 <div className="flex items-start gap-3">
                   <Gift className="w-5 h-5 text-[#38B6FF] mt-0.5 flex-shrink-0" />
                   <p className="text-sm text-gray-700">
-                    <strong className="text-[#0C4594]">Google funded · No cost to your organization.</strong> Every hour invested ties back to measurable value, with agents shaped around your use cases and industry.
+                    <strong className="text-[#0C4594]">Bonus.</strong> Webinar attendees will be eligible for receiving Gemini Enterprise free 30-day trial with organization-specific hands-on agent build sessions. Two custom Gems will be shared with all attendees: the Gemini Enterprise Use Case Validator Gem and ROI Calculator Gem.
                   </p>
                 </div>
               </div>
@@ -138,48 +147,59 @@ const RegisterWebinar = () => {
                     value="audience"
                     className="rounded-none border-b-2 border-transparent data-[state=active]:border-[#0C4594] data-[state=active]:bg-transparent data-[state=active]:text-[#0C4594] px-0 pb-3 font-medium"
                   >
-                    Who It's For
+                    Speakers
                   </TabsTrigger>
                 </TabsList>
 
                 <TabsContent value="overview" className="mt-6">
                   <div className="space-y-4 text-gray-700">
                     <p>
-                      Many organizations have a clear vision for agentic AI but face a critical execution gap. The primary hurdles are validating technical feasibility with existing enterprise systems (like Salesforce or SAP) and building a concrete business case to justify investment. A theoretical plan is not enough; you need tangible proof of what's possible.
+                      <strong className="text-[#0C4594]">Webinar:</strong> Gemini Enterprise live demo.
+                    </p>
+                    <p>
+                      <strong className="text-[#0C4594]">Interactive Q&A:</strong> Q&A with Google Cloud and Shivaami experts.
                     </p>
 
+                    <h3 className="text-lg font-semibold text-gray-900 pt-2">The Agenda</h3>
                     <p>
-                      Shivaami's Gemini Enterprise 3 Hour Workshop is the answer — a dedicated working session focused entirely on building, testing and planning deployment of AI agents shaped around the use cases and industry context that matter most to your organization.
+                      Tight, crisp, and built to send you back with a clear next move, learn how to build, deploy, and scale AI agents for your institution.
                     </p>
 
-                    <h3 className="text-lg font-semibold text-gray-900 pt-2">The Value You Walk Away With</h3>
+                    <h3 className="text-lg font-semibold text-gray-900 pt-2">When &amp; Where</h3>
+                    <ul className="text-gray-700 space-y-1 list-disc pl-5">
+                      <li>Wednesday, June 10</li>
+                      <li>1:00 PM to 1:45 PM EDT</li>
+                      <li>Webinar, Google Meet invite shared upon registration</li>
+                    </ul>
+
+                    <h3 className="text-lg font-semibold text-gray-900 pt-2">What You'll Learn</h3>
                     <p>
-                      Three hours. Working agents. Outcomes tied to your business. Every outcome is shaped around your use cases and industry, not a generic demo.
+                      A session worth your time, designed for education leaders ready to put AI agents to work, not just talk about them.
                     </p>
 
                     <ul className="space-y-4">
                       <li className="flex items-start gap-3">
                         <Target className="w-5 h-5 text-[#38B6FF] mt-0.5 flex-shrink-0" />
                         <div>
-                          <strong className="text-[#0C4594]">Accelerate Your Agentic AI Initiative:</strong> Move directly from concept to functioning Proof of Concept agents shaped around your use cases. Build momentum and show stakeholders progress they can see in a single session.
-                        </div>
-                      </li>
-                      <li className="flex items-start gap-3">
-                        <ShieldCheck className="w-5 h-5 text-[#38B6FF] mt-0.5 flex-shrink-0" />
-                        <div>
-                          <strong className="text-[#0C4594]">Mitigate Implementation Risk:</strong> By building and testing agents in a simulated version of your environment, you confirm technical viability for your industry's systems before committing significant budget or engineering time.
-                        </div>
-                      </li>
-                      <li className="flex items-start gap-3">
-                        <FileText className="w-5 h-5 text-[#38B6FF] mt-0.5 flex-shrink-0" />
-                        <div>
-                          <strong className="text-[#0C4594]">Custom Production Blueprint:</strong> Receive a comprehensive Technical Design Document and a roadmap tailored to your organization and industry, giving your team a clear path from PoC to production deployment.
+                          <strong className="text-[#0C4594]">A leader's playbook for AI agents in education:</strong> See where AI agents make the biggest difference, easing day-to-day workloads, speeding up learner onboarding, and giving faculty and staff time back, with a clear plan you can take to your leadership or cabinet.
                         </div>
                       </li>
                       <li className="flex items-start gap-3">
                         <LineChart className="w-5 h-5 text-[#38B6FF] mt-0.5 flex-shrink-0" />
                         <div>
-                          <strong className="text-[#0C4594]">Data Driven Business Case:</strong> The workshop concludes with a detailed cost analysis for building and running your agents, providing the precise data needed to forecast budgets and secure executive buy-in.
+                          <strong className="text-[#0C4594]">Gemini Enterprise for Education: Live Demo.</strong> Watch an AI agent come together step by step, connecting to the tools your institution already uses like Gmail, Outlook, ServiceNow, Canvas, and more, no heavy lifting required.
+                        </div>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <ShieldCheck className="w-5 h-5 text-[#38B6FF] mt-0.5 flex-shrink-0" />
+                        <div>
+                          <strong className="text-[#0C4594]">Student Privacy Protections Under FERPA by Design:</strong> Make sure agents only share what each learner, faculty member, or staff role should see, with every action tracked and student data protected under FERPA from day one.
+                        </div>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <FileText className="w-5 h-5 text-[#38B6FF] mt-0.5 flex-shrink-0" />
+                        <div>
+                          <strong className="text-[#0C4594]">Leave with more than just notes:</strong> To help you immediately apply these insights, all attendees will receive two custom-built Gems — the Gemini Enterprise Use Case Validator (a simple yes/no framework to instantly qualify your project ideas) and the Gemini Enterprise ROI Calculator (a practical tool to forecast and measure the impact of your initiatives).
                         </div>
                       </li>
                     </ul>
@@ -188,10 +208,10 @@ const RegisterWebinar = () => {
                     <div className="mt-6 bg-gradient-to-r from-[#0C4594] to-[#1a5cb8] rounded-xl p-5 text-white">
                       <div className="flex items-center gap-2 mb-2">
                         <Sparkles className="w-5 h-5 text-[#38B6FF]" />
-                        <span className="font-semibold">Close the gap between vision and value</span>
+                        <span className="font-semibold">About Shivaami</span>
                       </div>
                       <p className="text-white/90 text-sm">
-                        Every board has issued the agentic AI mandate, but most teams are stuck at step one. Walk away with working agents, a production blueprint, and a costed business case — in just three focused hours.
+                        Shivaami is a premier Google Cloud Partner with a team of experts trained by Google. With 22 years of experience, Shivaami has served over 20,000 customers across diverse industries, empowering organisations to make their IT ecosystem smarter, safer and smoother through secure Cloud and AI solutions.
                       </p>
                     </div>
                   </div>
@@ -200,21 +220,21 @@ const RegisterWebinar = () => {
                 <TabsContent value="agenda" className="mt-6">
                   <div className="space-y-4">
                     <div className="flex gap-4 p-4 bg-gray-50 rounded-lg border-l-4 border-[#38B6FF]">
-                      <div className="text-sm font-medium text-[#0C4594] whitespace-nowrap">Hour 1</div>
+                      <div className="text-sm font-medium text-[#0C4594] whitespace-nowrap">1:00 PM</div>
                       <div className="text-gray-700">
-                        Discovery & Use Case Shaping — align on your industry context, prioritize workflows, and define the agents to build.
+                        <strong className="text-[#0C4594]">The AI Agent Mandate for Education.</strong> From overstretched teams to disconnected systems, education leaders are being asked to do more with less. We unpack where AI agents create the biggest wins, how they differ from chatbots and AI assistants, and the approaches leading universities and districts are using right now.
                       </div>
                     </div>
                     <div className="flex gap-4 p-4 bg-gray-50 rounded-lg border-l-4 border-[#38B6FF]">
-                      <div className="text-sm font-medium text-[#0C4594] whitespace-nowrap">Hour 2</div>
+                      <div className="text-sm font-medium text-[#0C4594] whitespace-nowrap">1:10 PM</div>
                       <div className="text-gray-700">
-                        Build & Test — construct PoC agents on Gemini Enterprise and validate them in a simulated version of your environment.
+                        <strong className="text-[#0C4594]">Gemini Enterprise Live Demo.</strong> Watch a hands-on demo showing how an AI agent can answer common questions, automate everyday workflows, and connect to the tools you already use like Gmail, Outlook, ServiceNow, Canvas, and more, with privacy and trust built in.
                       </div>
                     </div>
                     <div className="flex gap-4 p-4 bg-gray-50 rounded-lg border-l-4 border-[#38B6FF]">
-                      <div className="text-sm font-medium text-[#0C4594] whitespace-nowrap">Hour 3</div>
+                      <div className="text-sm font-medium text-[#0C4594] whitespace-nowrap">1:35 PM</div>
                       <div className="text-gray-700">
-                        Production Blueprint & Business Case — Technical Design Document, deployment roadmap, and a detailed cost analysis for budgeting.
+                        <strong className="text-[#0C4594]">Deep Dive Question and Answer: Bring Your Challenges.</strong> An open conversation from 1:35 to 1:45 PM. Share your real-world blockers around data privacy, connecting systems, governance, and team capacity, and get tactical input from peers and our experts.
                       </div>
                     </div>
                   </div>
@@ -222,17 +242,26 @@ const RegisterWebinar = () => {
 
                 <TabsContent value="audience" className="mt-6">
                   <div className="space-y-4">
-                    <div className="p-4 bg-gray-50 rounded-lg border-l-4 border-[#38B6FF]">
-                      <h4 className="font-semibold text-[#0C4594] mb-1">Agentic AI Strategy Owners</h4>
-                      <p className="text-gray-700 text-sm">Leaders responsible for driving the organization's agentic AI implementation strategy from vision to rollout.</p>
+                    <div className="flex gap-4 p-4 bg-gray-50 rounded-lg border-l-4 border-[#38B6FF]">
+                      <img src={speakerBrian} alt="Brian Seifert" className="w-20 h-20 rounded-full object-cover flex-shrink-0" />
+                      <div>
+                        <h4 className="font-semibold text-[#0C4594] mb-1">Brian Seifert — Head of Sales, Public Sector (State, Local, Education), Google Cloud</h4>
+                        <p className="text-gray-700 text-sm">Integral part of the Google Cloud team, partnering with higher education and K-12 customers to bring Gemini Enterprise for Education to life and automate campus processes.</p>
+                      </div>
                     </div>
-                    <div className="p-4 bg-gray-50 rounded-lg border-l-4 border-[#38B6FF]">
-                      <h4 className="font-semibold text-[#0C4594] mb-1">ROI & Viability Champions</h4>
-                      <p className="text-gray-700 text-sm">Decision makers tasked with proving the ROI and technical viability of new automation technologies before scaling investment.</p>
+                    <div className="flex gap-4 p-4 bg-gray-50 rounded-lg border-l-4 border-[#38B6FF]">
+                      <img src={speakerKunal} alt="Kunal Thacker" className="w-20 h-20 rounded-full object-cover flex-shrink-0" />
+                      <div>
+                        <h4 className="font-semibold text-[#0C4594] mb-1">Kunal Thacker — Vice President, Shivaami</h4>
+                        <p className="text-gray-700 text-sm">11+ years in the cloud and AI industry at Shivaami, partnering with leaders on both strategy and hands-on execution to turn ambitious AI mandates into shipped outcomes.</p>
+                      </div>
                     </div>
-                    <div className="p-4 bg-gray-50 rounded-lg border-l-4 border-[#38B6FF]">
-                      <h4 className="font-semibold text-[#0C4594] mb-1">Production Systems Leaders</h4>
-                      <p className="text-gray-700 text-sm">Architects and engineering leaders responsible for the design of production grade, integrated AI systems across the enterprise stack.</p>
+                    <div className="flex gap-4 p-4 bg-gray-50 rounded-lg border-l-4 border-[#38B6FF]">
+                      <img src={speakerNikunj} alt="Nikunj Thakkar" className="w-20 h-20 rounded-full object-cover flex-shrink-0" />
+                      <div>
+                        <h4 className="font-semibold text-[#0C4594] mb-1">Nikunj Thakkar — Customer Engineer, Shivaami</h4>
+                        <p className="text-gray-700 text-sm">Google-certified professional and agentic AI expert at Shivaami, with a track record of helping customers solve complex problems and deliver measurable success.</p>
+                      </div>
                     </div>
                   </div>
                 </TabsContent>
@@ -248,11 +277,14 @@ const RegisterWebinar = () => {
             >
               <div id="registration-form" className="bg-white rounded-2xl shadow-xl border border-gray-200 overflow-hidden scroll-mt-28">
                 <div className="bg-gradient-to-r from-[#0C4594] to-[#1a5cb8] p-6">
-                  <h3 className="text-xl font-bold text-white">Register Now</h3>
-                  <p className="text-white/80 text-sm mt-1">Secure your spot for this exclusive webinar</p>
+                  <h3 className="text-xl font-bold text-white">Register now to secure your spot.</h3>
+                  <p className="text-white/80 text-sm mt-1">Google Meet webinar link sent upon registration.</p>
                 </div>
                 
                 <form className="p-6 space-y-5">
+                  <p className="text-sm font-semibold text-[#0C4594]">
+                    Webinar: Build Your Agentic Workforce with Gemini Enterprise
+                  </p>
                   <div className="space-y-2">
                     <Label htmlFor="name" className="text-gray-700">
                       Name (First Name, Last Name) <span className="text-red-500">*</span>
@@ -292,20 +324,21 @@ const RegisterWebinar = () => {
                   
                   <div className="space-y-2">
                     <Label htmlFor="phone" className="text-gray-700">
-                      Phone Number
+                      Phone Number <span className="text-red-500">*</span>
                     </Label>
                     <Input 
                       id="phone" 
                       type="tel" 
                       placeholder="Enter your phone number" 
                       className="border-gray-300 focus:border-[#38B6FF] focus:ring-[#38B6FF]"
+                      required
                     />
                   </div>
 
                   <div className="pt-2">
                     <div className="bg-[#38B6FF]/10 rounded-lg p-3 mb-4">
                       <p className="text-sm text-[#0C4594] font-medium">
-                        🎯 Gemini Enterprise · 3 Hour 1:1 Workshop · Google funded
+                        🎯 Webinar · Wednesday, June 10 · 1:00 to 1:45 PM EDT
                       </p>
                     </div>
                   </div>
@@ -314,11 +347,11 @@ const RegisterWebinar = () => {
                     type="submit" 
                     className="w-full bg-gradient-to-r from-[#38B6FF] to-[#0C4594] hover:shadow-lg text-white font-semibold py-6"
                   >
-                    Register Now
+                    Register
                   </Button>
                   
                   <p className="text-xs text-gray-500 text-center">
-                    By registering, you agree to our Privacy Policy and Terms of Service.
+                    By selecting "Yes," you provide express written consent for Shivaami LLC to contact you with marketing via automated technology or AI/prerecorded voice at the number provided. Consent is not a condition of purchase.
                   </p>
                 </form>
               </div>
@@ -330,7 +363,7 @@ const RegisterWebinar = () => {
                     <Gift className="w-5 h-5 text-white" />
                   </div>
                   <p className="text-sm text-gray-700">
-                    <strong className="text-[#0C4594]">Google funded · No cost.</strong> Walk away with working agents, a production blueprint, and a costed business case.
+                    <strong className="text-[#0C4594]">Bonus:</strong> Free 30-day Gemini Enterprise trial with organization-specific hands-on agent build sessions, plus two custom Gems — the Use Case Validator and the ROI Calculator.
                   </p>
                 </div>
               </div>

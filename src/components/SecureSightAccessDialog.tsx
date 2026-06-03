@@ -74,14 +74,15 @@ const SecureSightAccessDialog = ({ open, onOpenChange }: Props) => {
     }
     setIsSubmitting(true);
     try {
-      const res = await fetch(API_ENDPOINTS.STORE_PRODUCTFORM_ENQUIRYDETAILS, {
+      const res = await fetch(API_ENDPOINTS.STORE_SECURESIGHT_CUSTOMERDETAILS, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           email,
           website: companyDomain,
-          name: adminEmails,
-          phone: employeeCount,
+          emailids: adminEmails,
+          emoloyeecounts: employeeCount,
+          licenses: allLicenses.join(', '),
           message: `Admin Emails: ${adminEmails}\nEmployee Count: ${employeeCount}\nGWS Licenses: ${allLicenses.join(', ')}`,
           productName: 'SecureSight Early Access',
           submittedFrom: '/securesight',
