@@ -1,4 +1,5 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
+import { Helmet } from 'react-helmet-async';
 import { useRef, useState, useEffect } from 'react';
 import { Search, Brain, Mail, ChevronRight, ExternalLink, ArrowRight, Sparkles, MessageSquare, Globe } from 'lucide-react';
 import { Link, useSearchParams } from 'react-router-dom';
@@ -88,6 +89,9 @@ function HeroSection() {
 
   return (
     <section ref={ref} className="relative flex items-center overflow-hidden">
+      <Helmet>
+        <link rel="canonical" href="https://www.shivaami.com/smarter-solutions" />
+      </Helmet>
       {/* Background Image */}
       <motion.div style={{ y }} className="absolute inset-0 z-0">
         <img 

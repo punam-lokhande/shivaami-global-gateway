@@ -64,6 +64,7 @@ export default function ReferralProgram() {
   return (
     <div className="min-h-screen bg-background">
       <Helmet>
+        <link rel="canonical" href="https://www.shivaami.com/referral-program" />
         <title>Shivaami Referral Program | Earn $500 Per Referral</title>
         <meta
           name="description"

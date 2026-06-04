@@ -45,6 +45,7 @@ export default function TermsAndConditions() {
   return (
     <>
       <Helmet>
+        <link rel="canonical" href="https://www.shivaami.com/terms-of-service" />
         <title>Terms and Conditions | Shivaami Cloud Services</title>
         <meta name="description" content="Read the Terms and Conditions for using Shivaami Cloud Services website and services." />
       </Helmet>

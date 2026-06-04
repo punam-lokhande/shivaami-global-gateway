@@ -1,4 +1,5 @@
 import Header from '@/components/layout/Header';
+import { Helmet } from 'react-helmet-async';
 import Footer from '@/components/layout/Footer';
 import HeroSection from '@/components/sections/HeroSection';
 import GetStartedDialog from '@/components/GetStartedDialog';
@@ -27,6 +28,9 @@ const Index = () => {
 
   return (
     <div className="min-h-screen scroll-smooth">
+      <Helmet>
+        <link rel="canonical" href="https://www.shivaami.com/" />
+      </Helmet>
       <Header />
       <main>
         <HeroSection />

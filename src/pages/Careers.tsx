@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { Clock, MapPin, ArrowRight, Users, Zap, Heart, TrendingUp, Send } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
@@ -169,6 +170,9 @@ export default function Careers() {
 
   return (
     <div className="min-h-screen bg-background">
+      <Helmet>
+        <link rel="canonical" href="https://www.shivaami.com/careers" />
+      </Helmet>
       <Header />
 
       {/* Hero Section */}

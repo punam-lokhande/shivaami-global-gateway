@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { Helmet } from 'react-helmet-async';
 import { ArrowRight, Linkedin, Quote } from 'lucide-react';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
@@ -74,6 +75,9 @@ function FeaturedLeader() {
   
   return (
     <section className="py-20 bg-[#f8fafc]">
+      <Helmet>
+        <link rel="canonical" href="https://www.shivaami.com/leadership" />
+      </Helmet>
       <div className="w-full px-8 lg:px-16 xl:px-24">
         <motion.div 
           {...fadeInUp}

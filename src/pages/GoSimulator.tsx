@@ -1,4 +1,5 @@
 import { motion, useScroll, useTransform } from "framer-motion";
+import { Helmet } from 'react-helmet-async';
 import { useRef, useState, useEffect } from "react";
 import { useRegion } from '@/contexts/RegionContext';
 import { Button } from "@/components/ui/button";
@@ -67,6 +68,9 @@ const HeroSection = () => {
       ref={sectionRef}
       className="relative flex items-center overflow-hidden"
     >
+      <Helmet>
+        <link rel="canonical" href="https://www.shivaami.com/gosimulator" />
+      </Helmet>
       <motion.div 
         className="absolute inset-0 z-0"
         style={{ y }}

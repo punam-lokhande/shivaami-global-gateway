@@ -1,4 +1,5 @@
 import Header from "@/components/layout/Header";
+import { Helmet } from 'react-helmet-async';
 import Footer from "@/components/layout/Footer";
 import { motion } from "framer-motion";
 import { ArrowLeft, CheckCircle2, Shield, Cloud, Smartphone, Settings, Lock, AlertTriangle, Lightbulb, TrendingUp, Database, Archive } from "lucide-react";
@@ -52,6 +53,9 @@ const CaseStudyKredX = () => {
 
   return (
     <div className="min-h-screen bg-white">
+      <Helmet>
+        <link rel="canonical" href="https://www.shivaami.com/case-studies/kredx" />
+      </Helmet>
       <Header />
       
       {/* Hero Section */}

@@ -138,6 +138,7 @@ export default function BecomePartner() {
   return (
     <div className="min-h-screen bg-background overflow-x-hidden">
       <Helmet>
+        <link rel="canonical" href="https://www.shivaami.com/become-partner" />
         <title>Become a Partner | Shivaami Cloud Services</title>
         <meta name="description" content="Join the Shivaami Partner Program. Deploy world-class cloud solutions including Google Workspace, GCP, and AWS without the cost of maintaining a massive internal engineering team." />
       </Helmet>

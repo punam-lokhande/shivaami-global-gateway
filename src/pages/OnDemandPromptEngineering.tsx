@@ -1,4 +1,5 @@
 import Header from "@/components/layout/Header";
+import { Helmet } from 'react-helmet-async';
 import Footer from "@/components/layout/Footer";
 import { motion } from "framer-motion";
 import { MapPin, Calendar, Clock, Sparkles, ArrowLeft, CheckCircle } from "lucide-react";
@@ -11,6 +12,9 @@ import WatchOnDemandForm from "@/components/WatchOnDemandForm";
 const OnDemandPromptEngineering = () => {
   return (
     <div className="min-h-screen bg-white">
+      <Helmet>
+        <link rel="canonical" href="https://www.shivaami.com/on-demand-prompt-engineering" />
+      </Helmet>
       <Header />
       
       {/* Hero Section with Background Image */}

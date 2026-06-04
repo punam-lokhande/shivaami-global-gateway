@@ -235,6 +235,7 @@ export default function Achievements() {
   return (
     <>
       <Helmet>
+        <link rel="canonical" href="https://www.shivaami.com/achievements" />
         <title>Awards & Achievements | Shivaami Cloud Services</title>
         <meta name="description" content="Explore Shivaami's journey of excellence through our awards and recognitions. From Google Cloud Partner of the Year to industry-leading accolades." />
       </Helmet>

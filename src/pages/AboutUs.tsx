@@ -1,4 +1,5 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
+import { Helmet } from 'react-helmet-async';
 import { useRef } from 'react';
 import { Target, Lightbulb, ArrowRight } from 'lucide-react';
 import WhyShivaamiSection from '@/components/sections/WhyShivaamiSection';
@@ -33,6 +34,9 @@ function HeroSection() {
 
   return (
     <section ref={ref} className="relative max-h-[700px] flex items-center overflow-hidden">
+      <Helmet>
+        <link rel="canonical" href="https://www.shivaami.com/about-us" />
+      </Helmet>
       {/* Hero Image Background */}
       <motion.div 
         style={{ y }}

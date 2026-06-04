@@ -1,4 +1,5 @@
 import Header from "@/components/layout/Header";
+import { Helmet } from 'react-helmet-async';
 import Footer from "@/components/layout/Footer";
 import { motion } from "framer-motion";
 import { ArrowLeft, CheckCircle2, Users, Mail, Shield, Cloud, Monitor, Key, Settings, AlertTriangle, Lightbulb, TrendingUp, GraduationCap, Lock, Database } from "lucide-react";
@@ -60,6 +61,9 @@ const CaseStudyPWLive = () => {
 
   return (
     <div className="min-h-screen bg-white">
+      <Helmet>
+        <link rel="canonical" href="https://www.shivaami.com/case-studies/pw-live" />
+      </Helmet>
       <Header />
       
       {/* Hero Section */}

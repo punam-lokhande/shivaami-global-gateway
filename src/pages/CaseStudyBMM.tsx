@@ -1,4 +1,5 @@
 import Header from "@/components/layout/Header";
+import { Helmet } from 'react-helmet-async';
 import Footer from "@/components/layout/Footer";
 import { motion } from "framer-motion";
 import { ArrowLeft, CheckCircle2, Shield, Cloud, Mail, Settings, Users, Lock, AlertTriangle, Lightbulb, TrendingUp, Smartphone, Database } from "lucide-react";
@@ -50,6 +51,9 @@ const CaseStudyBMM = () => {
 
   return (
     <div className="min-h-screen bg-white">
+      <Helmet>
+        <link rel="canonical" href="https://www.shivaami.com/case-studies/bmm" />
+      </Helmet>
       <Header />
       
       {/* Hero Section */}

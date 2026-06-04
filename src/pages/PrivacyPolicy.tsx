@@ -45,6 +45,7 @@ export default function PrivacyPolicy() {
   return (
     <>
       <Helmet>
+        <link rel="canonical" href="https://www.shivaami.com/privacy-policy" />
         <title>Privacy Policy | Shivaami Cloud Services</title>
         <meta name="description" content="Learn how Shivaami Cloud Services protects your privacy and handles your personal information. Read our comprehensive privacy policy." />
       </Helmet>

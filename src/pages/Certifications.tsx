@@ -347,6 +347,7 @@ export default function Certifications() {
   return (
     <>
       <Helmet>
+        <link rel="canonical" href="https://www.shivaami.com/certifications" />
         <title>ISO Certifications | Shivaami Cloud Services</title>
         <meta name="description" content="Shivaami holds ISO 9001:2015, ISO/IEC 20000-1:2018, and ISO/IEC 27001:2013 certifications, demonstrating commitment to quality, service management, and information security." />
       </Helmet>
