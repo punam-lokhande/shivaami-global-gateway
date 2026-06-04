@@ -215,7 +215,7 @@ const mobileMenuData = [
 ];
 
 export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
-  const { content } = useRegion();
+  const { content, region } = useRegion();
   const navigate = useNavigate();
   const [expandedMenu, setExpandedMenu] = useState<string | null>(null);
   const [expandedSection, setExpandedSection] = useState<string | null>(null);
@@ -223,7 +223,16 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
 
   // Generate menu data with dynamic shop URL
   const mobileMenuWithShop = [
-    ...mobileMenuData,
+    ...mobileMenuData.map((m) => {
+      if (m.key !== 'resources' || region !== 'usa') return m;
+      return {
+        ...m,
+        sections: m.sections!.map((s) => ({
+          ...s,
+          items: [...s.items, { label: 'Referral Program', href: '/referral-program' }],
+        })),
+      };
+    }),
     {
       key: 'shop',
       label: 'Shop',
