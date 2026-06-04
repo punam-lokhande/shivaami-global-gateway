@@ -156,6 +156,27 @@ function ScrollToTop() {
   return null;
 }
 
+// Manages a single <link rel="canonical"> tag per route for SEO.
+// Uses direct DOM mutation so it dedupes with any per-page <link rel="canonical"> from Helmet.
+function CanonicalTag() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    const BASE_URL = "https://www.shivaami.com";
+    const href = `${BASE_URL}${pathname}`;
+    // Remove any existing canonical tags (from index.html or Helmet) to avoid duplicates
+    document
+      .querySelectorAll('link[rel="canonical"]')
+      .forEach((el) => el.parentNode?.removeChild(el));
+    const link = document.createElement("link");
+    link.setAttribute("rel", "canonical");
+    link.setAttribute("href", href);
+    document.head.appendChild(link);
+  }, [pathname]);
+
+  return null;
+}
+
 // Minimal loading fallback to prevent CLS
 const PageFallback = () => (
   <div className="min-h-screen bg-background" />
@@ -170,6 +191,7 @@ const App = () => (
           <Sonner />
           <BrowserRouter>
             <ScrollToTop />
+            <CanonicalTag />
             <Suspense fallback={<PageFallback />}>
               <Routes>
                 <Route path="/" element={<Index />} />
