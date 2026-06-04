@@ -487,6 +487,7 @@ const faqSchema =
 
   return (
     <>   <Helmet>
+        <link rel="canonical" href="https://www.shivaami.com/viami" />
 <title>Google AI Ultra for Business - Most Powerful AI | Shivaami</title>
  <meta name="description" content="Unleash Google AI Ultra's full potential with Shivaami. Get exclusive access to the Gemini app, Veo 3 video generation, Deep Research, and 30TB storage. Transform your enterprise." />
  <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>

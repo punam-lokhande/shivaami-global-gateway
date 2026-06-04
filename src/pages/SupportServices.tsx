@@ -400,6 +400,7 @@ export default function SupportServices() {
   return (
     <>
       <Helmet>
+        <link rel="canonical" href="https://www.shivaami.com/support" />
         <title>Support Services | Shivaami Cloud Services</title>
         <meta name="description" content="Get comprehensive support from Shivaami. Access our dedicated support portals for India and USA customers, raise tickets, and get help from our expert team." />
       </Helmet>

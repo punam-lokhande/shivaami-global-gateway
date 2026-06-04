@@ -428,6 +428,7 @@ export default function GoogleWorkspacePricingIndia() {
   return (
     <>
       <Helmet>
+        <link rel="canonical" href="https://www.shivaami.com/google-workspace-pricing-india" />
         <title>Google Workspace Pricing India | Plans & Pricing | Shivaami</title>
         <meta name="description" content="Google Workspace pricing for Indian businesses. Compare Business Starter, Standard, Plus & Enterprise plans. Get local support from Shivaami - India's trusted Google Cloud Partner." />
         
