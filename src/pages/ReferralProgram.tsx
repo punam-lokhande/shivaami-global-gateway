@@ -208,14 +208,14 @@ export default function ReferralProgram() {
           <div className="container mx-auto px-4 lg:px-8 max-w-5xl">
             <div className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-primary to-accent text-primary-foreground p-10 md:p-14">
               <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_80%_20%,white,transparent_60%)]" />
-              <div className="relative max-w-3xl">
+              <div className="relative max-w-3xl mx-auto text-center">
                 <h2 className="font-display text-3xl md:text-4xl font-bold mb-4">
                   How to Make a Referral
                 </h2>
                 <p className="text-base md:text-lg text-primary-foreground/90 mb-8">
                   Simply facilitate an introduction by contacting our team via email or phone.
                 </p>
-                <div className="flex flex-col sm:flex-row gap-4">
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <a
                     href="mailto:contactus@shivaami.com?subject=Shivaami%20Referral%20Program"
                     className="inline-flex items-center gap-3 px-6 py-4 rounded-xl bg-white text-primary font-semibold hover:bg-white/90 transition-colors"
