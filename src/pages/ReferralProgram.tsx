@@ -6,6 +6,7 @@ import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import { Button } from '@/components/ui/button';
 import { useRegion } from '@/contexts/RegionContext';
+import referralHeroImage from '@/assets/banners/referral-program-hero.jpg';
 import {
   Gift,
   Infinity as InfinityIcon,
