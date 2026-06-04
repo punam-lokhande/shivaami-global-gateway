@@ -6,6 +6,7 @@ import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import { Button } from '@/components/ui/button';
 import { useRegion } from '@/contexts/RegionContext';
+import referralHeroImage from '@/assets/banners/referral-program-hero.jpg';
 import {
   Gift,
   Infinity as InfinityIcon,
@@ -76,37 +77,55 @@ export default function ReferralProgram() {
         <section className="relative pt-[120px] md:pt-32 pb-12 md:pb-16 bg-gradient-to-br from-primary/5 via-background to-accent/5 overflow-hidden">
           <div className="absolute inset-0 -z-10 opacity-30 bg-[radial-gradient(circle_at_30%_20%,hsl(var(--primary)/0.15),transparent_50%),radial-gradient(circle_at_70%_80%,hsl(var(--accent)/0.15),transparent_50%)]" />
           <div className="container mx-auto px-4 lg:px-8 max-w-6xl">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="max-w-3xl"
-            >
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-semibold tracking-wider uppercase mb-6">
-                <Gift className="w-3.5 h-3.5" /> Shivaami Referral Program
-              </div>
-              <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight mb-5">
-                Help Businesses Work{' '}
-                <span className="text-primary">Smarter, Safer, Smoother</span>
-              </h1>
-              <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-8">
-                When you introduce a business seeking help with AI, Cloud, and Collaboration solutions
-                and services, you create an opportunity for them to thrive. To thank you for facilitating
-                this new partnership, we will issue a <span className="font-semibold text-foreground">$500 reward</span>.
-              </p>
-              <div className="flex flex-wrap gap-3">
-                <a href="mailto:contactus@shivaami.com?subject=Shivaami%20Referral%20Program">
-                  <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold">
-                    <Mail className="w-4 h-4" /> Refer via Email
-                  </Button>
-                </a>
-                <a href="tel:+14083334844">
-                  <Button size="lg" variant="outline">
-                    <Phone className="w-4 h-4" /> +1 (408) 333-4844
-                  </Button>
-                </a>
-              </div>
-            </motion.div>
+            <div className="grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+              >
+                <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-semibold tracking-wider uppercase mb-6">
+                  <Gift className="w-3.5 h-3.5" /> Shivaami Referral Program
+                </div>
+                <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight mb-5">
+                  Help Businesses Work{' '}
+                  <span className="text-primary">Smarter, Safer, Smoother</span>
+                </h1>
+                <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-8">
+                  When you introduce a business seeking help with AI, Cloud, and Collaboration solutions
+                  and services, you create an opportunity for them to thrive. To thank you for facilitating
+                  this new partnership, we will issue a <span className="font-semibold text-foreground">$500 reward</span>.
+                </p>
+                <div className="flex flex-wrap gap-3">
+                  <a href="mailto:contactus@shivaami.com?subject=Shivaami%20Referral%20Program">
+                    <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold">
+                      <Mail className="w-4 h-4" /> Refer via Email
+                    </Button>
+                  </a>
+                  <a href="tel:+14083334844">
+                    <Button size="lg" variant="outline">
+                      <Phone className="w-4 h-4" /> +1 (408) 333-4844
+                    </Button>
+                  </a>
+                </div>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="hidden lg:flex items-center justify-center"
+              >
+                <div className="relative w-full max-w-lg">
+                  <div className="absolute -inset-4 bg-gradient-to-br from-primary/20 to-accent/20 rounded-3xl blur-2xl opacity-60" />
+                  <img
+                    src={referralHeroImage}
+                    alt="Shivaami Referral Program - Business Partnership"
+                    className="relative w-full h-auto rounded-2xl shadow-2xl object-cover"
+                    loading="eager"
+                  />
+                </div>
+              </motion.div>
+            </div>
           </div>
         </section>
 
