@@ -76,7 +76,7 @@ export default function ReferralProgram() {
         {/* Hero */}
         <section className="relative pt-[120px] md:pt-32 pb-12 md:pb-16 bg-gradient-to-br from-primary/5 via-background to-accent/5 overflow-hidden">
           <div className="absolute inset-0 -z-10 opacity-30 bg-[radial-gradient(circle_at_30%_20%,hsl(var(--primary)/0.15),transparent_50%),radial-gradient(circle_at_70%_80%,hsl(var(--accent)/0.15),transparent_50%)]" />
-          <div className="container mx-auto px-4 lg:px-8 max-w-6xl">
+          <div className="w-full px-8 lg:px-16 xl:px-24">
             <div className="grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -128,7 +128,7 @@ export default function ReferralProgram() {
 
         {/* How it works / Benefits */}
         <section className="py-16 md:py-20">
-          <div className="container mx-auto px-4 lg:px-8 max-w-6xl">
+          <div className="w-full px-8 lg:px-16 xl:px-24">
             <div className="max-w-3xl mb-12">
               <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-4">
                 How does the referral program work?
@@ -166,7 +166,7 @@ export default function ReferralProgram() {
 
         {/* Who to Refer */}
         <section className="py-16 md:py-20 bg-secondary/30">
-          <div className="container mx-auto px-4 lg:px-8 max-w-6xl">
+          <div className="w-full px-8 lg:px-16 xl:px-24">
             <div className="max-w-2xl mb-12">
               <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-3">
                 Who to Refer?
@@ -205,7 +205,7 @@ export default function ReferralProgram() {
 
         {/* How to make a referral / CTA */}
         <section className="py-16 md:py-20">
-          <div className="container mx-auto px-4 lg:px-8 max-w-5xl">
+          <div className="w-full px-8 lg:px-16 xl:px-24">
             <div className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-primary to-accent text-primary-foreground p-10 md:p-14">
               <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_80%_20%,white,transparent_60%)]" />
               <div className="relative max-w-3xl mx-auto text-center">
