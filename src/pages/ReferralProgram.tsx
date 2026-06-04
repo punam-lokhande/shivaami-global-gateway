@@ -87,13 +87,10 @@ export default function ReferralProgram() {
                   <Gift className="w-3.5 h-3.5" /> Shivaami Referral Program
                 </div>
                 <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight mb-5">
-                  Help Businesses Work{' '}
-                  <span className="text-primary">Smarter, Safer, Smoother</span>
+                  Shivaami <span className="text-primary">Referral Program</span>
                 </h1>
                 <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-8">
-                  When you introduce a business seeking help with AI, Cloud, and Collaboration solutions
-                  and services, you create an opportunity for them to thrive. To thank you for facilitating
-                  this new partnership, we will issue a <span className="font-semibold text-foreground">$500 reward</span>.
+                  Refer a business to Shivaami and earn a <span className="font-semibold text-foreground">$500 reward</span> for every successful introduction.
                 </p>
                 <div className="flex flex-wrap gap-3">
                   <a href="mailto:contactus@shivaami.com?subject=Shivaami%20Referral%20Program">
@@ -136,9 +133,6 @@ export default function ReferralProgram() {
               <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-3">
                 How does the referral program work?
               </h2>
-              <p className="text-muted-foreground">
-                Three simple benefits make our referral program one of the most rewarding in the industry.
-              </p>
             </div>
 
             <div className="grid md:grid-cols-3 gap-6">
