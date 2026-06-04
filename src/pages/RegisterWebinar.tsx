@@ -39,15 +39,9 @@ const RegisterWebinar = () => {
             <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-white mb-2 sm:mb-3 leading-tight">
               Build Your Agentic Workforce with Gemini Enterprise for Education
             </h1>
-            <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-[#38B6FF] drop-shadow-lg leading-tight mb-6">
-              Join Google Cloud and Shivaami for a deep dive session on how to scale secure, context-aware AI agents across your campus ecosystem
-            </h2>
-            <p className="text-base sm:text-lg text-white/90 mb-6 max-w-3xl">
-              Automate the processes and workflows that slow your institution down.
-            </p>
-            <Button 
+            <Button
               asChild
-              className="bg-[#38B6FF] hover:bg-[#1b9dd8] text-white font-semibold px-6 py-5 text-base rounded-lg shadow-lg hover:shadow-xl transition-all"
+              className="mt-6 bg-[#38B6FF] hover:bg-[#1b9dd8] text-white font-semibold px-6 py-5 text-base rounded-lg shadow-lg hover:shadow-xl transition-all"
             >
               <a href="#registration-form">
                 Register Now

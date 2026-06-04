@@ -280,8 +280,13 @@ function BrochureSection({ onRequestAccess }: { onRequestAccess: () => void }) {
 
           <motion.div {...fadeInUp} className="lg:sticky lg:top-24">
             <h3 className="text-2xl md:text-3xl font-bold text-[#0C4594] mb-6 text-center">Extension Preview</h3>
-            <div className="rounded-2xl border border-[#e5e7eb] shadow-xl p-4 bg-white">
-              <img src={extensionPreview} alt="SecureSight Extension Preview" className="w-full h-auto rounded-lg" loading="lazy" />
+            <div className="rounded-2xl border border-[#e5e7eb] shadow-xl p-3 sm:p-4 bg-white flex items-center justify-center overflow-hidden">
+              <img
+                src={extensionPreview}
+                alt="SecureSight Extension Preview"
+                className="w-auto max-w-full max-h-[320px] sm:max-h-[400px] md:max-h-[480px] lg:max-h-[500px] object-contain rounded-lg"
+                loading="lazy"
+              />
             </div>
           </motion.div>
         </div>
@@ -290,16 +295,24 @@ function BrochureSection({ onRequestAccess }: { onRequestAccess: () => void }) {
         <motion.div {...fadeInUp} className="text-center mb-10">
           <h3 className="text-2xl md:text-3xl font-bold text-[#0C4594]">How It Works</h3>
         </motion.div>
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-12 relative">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-12">
           {steps.map((s, i) => {
             const Icon = s.icon;
             return (
-              <motion.div key={i} {...fadeInUp} className="text-center">
-                <div className="relative inline-flex items-center justify-center mb-4">
-                  <div className="w-16 h-16 rounded-full bg-[#1b9dd8] text-white text-2xl font-bold flex items-center justify-center shadow-lg">{i + 1}</div>
+              <motion.div
+                key={i}
+                {...fadeInUp}
+                className="bg-white rounded-2xl border border-[#e5e7eb] p-5 sm:p-6 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 text-center"
+              >
+                <div className="w-8 h-8 rounded-full bg-[#0C4594] text-white text-sm font-bold flex items-center justify-center mb-3 mx-auto">
+                  {i + 1}
                 </div>
-                <Icon className="w-6 h-6 text-[#0C4594] mx-auto mb-2" />
-                <h4 className="font-bold text-[#0C4594] mb-1">{s.title}</h4>
+                <div className="flex items-center justify-center gap-2 mb-3">
+                  <div className="w-9 h-9 rounded-full bg-[#1b9dd8]/10 flex items-center justify-center shrink-0">
+                    <Icon className="w-5 h-5 text-[#1b9dd8]" />
+                  </div>
+                  <h4 className="font-bold text-[#0C4594] text-base sm:text-lg leading-tight">{s.title}</h4>
+                </div>
                 <p className="text-sm text-[#475569]">{s.desc}</p>
               </motion.div>
             );
