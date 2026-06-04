@@ -86,7 +86,7 @@ export default function ReferralProgram() {
                 <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-semibold tracking-wider uppercase mb-6">
                   <Gift className="w-3.5 h-3.5" /> Shivaami Referral Program
                 </div>
-                <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight mb-3">
+                <h1 className="font-display text-4xl md:text-5xl font-bold text-foreground leading-tight mb-4">
                   Shivaami <span className="text-primary">Referral Program</span>
                 </h1>
                 <p className="text-lg md:text-xl font-semibold text-foreground mb-5">
