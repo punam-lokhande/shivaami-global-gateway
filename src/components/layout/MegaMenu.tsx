@@ -1,13 +1,14 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useRegion } from '@/contexts/RegionContext';
 import { 
   Brain, Mail, Shield, Server, Cloud, Lock, Monitor, 
   Zap, Users, FileCheck, Headphones, Code,
   Megaphone, Leaf, ShoppingCart, Cpu, Banknote, Heart, Hotel, Factory, Truck,
   BookOpen, FileText, Newspaper, Video,
   Award, Users2, Trophy, Briefcase,
-  ChevronRight, Laptop, Box, Smartphone, Layers, Settings, ArrowRight, Globe, Calculator
+  ChevronRight, Laptop, Box, Smartphone, Layers, Settings, ArrowRight, Globe, Calculator, Gift
 } from 'lucide-react';
 import Solutionimg from '@/assets/Solutionimg.jpg';
 
@@ -255,7 +256,28 @@ export default function MegaMenu({ activeKey, anchorRect, onClose }: MegaMenuPro
   const [hoveredItemRect, setHoveredItemRect] = useState<{ right: number; top: number } | null>(null);
   const [viewportWidth, setViewportWidth] = useState(() => (typeof window !== 'undefined' ? window.innerWidth : 1440));
   const navigate = useNavigate();
-  const menu = menuContent[activeKey];
+  const { region } = useRegion();
+  const baseMenu = menuContent[activeKey];
+
+  // Inject US-only Referral Program link into Resources menu
+  const menu = baseMenu && activeKey === 'resources' && region === 'usa'
+    ? {
+        ...baseMenu,
+        sections: baseMenu.sections.map((s) => ({
+          ...s,
+          items: [
+            ...s.items,
+            {
+              icon: Gift,
+              label: 'Referral Program',
+              desc: 'Earn $500 per successful referral',
+              isPageLink: true,
+              href: '/referral-program',
+            } as MenuItem,
+          ],
+        })),
+      }
+    : baseMenu;
 
   useEffect(() => {
     const onResize = () => setViewportWidth(window.innerWidth);
