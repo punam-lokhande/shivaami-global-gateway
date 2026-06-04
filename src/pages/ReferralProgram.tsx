@@ -36,7 +36,7 @@ const benefits = [
   {
     icon: Wallet,
     title: 'Choice of Reward',
-    desc: 'Receive your reward as a direct electronic payment or as a credit applied to your Shivaami account for future services.',
+    desc: 'You can choose how to receive your reward: as a direct electronic payment or as a credit applied to your Shivaami account for future services.',
   },
 ];
 
@@ -86,11 +86,11 @@ export default function ReferralProgram() {
                 <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-semibold tracking-wider uppercase mb-6">
                   <Gift className="w-3.5 h-3.5" /> Shivaami Referral Program
                 </div>
-                <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight mb-5">
+                <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight mb-3">
                   Shivaami <span className="text-primary">Referral Program</span>
                 </h1>
-                <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-8">
-                  Refer a business to Shivaami and earn a <span className="font-semibold text-foreground">$500 reward</span> for every successful introduction.
+                <p className="text-lg md:text-xl font-semibold text-foreground mb-5">
+                  Help Businesses Work Smarter, Safer, Smoother
                 </p>
                 <div className="flex flex-wrap gap-3">
                   <a href="mailto:contactus@shivaami.com?subject=Shivaami%20Referral%20Program">
@@ -129,10 +129,13 @@ export default function ReferralProgram() {
         {/* How it works / Benefits */}
         <section className="py-16 md:py-20">
           <div className="container mx-auto px-4 lg:px-8 max-w-6xl">
-            <div className="max-w-2xl mb-12">
-              <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-3">
+            <div className="max-w-3xl mb-12">
+              <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-4">
                 How does the referral program work?
               </h2>
+              <p className="text-muted-foreground leading-relaxed">
+                When you introduce a business seeking help with AI, Cloud, Collaboration solutions and services, you create an opportunity for them to thrive. To thank you for facilitating this new partnership, we will issue a <span className="font-semibold text-foreground">$500 reward</span>.
+              </p>
             </div>
 
             <div className="grid md:grid-cols-3 gap-6">
