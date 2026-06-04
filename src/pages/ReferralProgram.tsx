@@ -86,11 +86,11 @@ export default function ReferralProgram() {
                 <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-semibold tracking-wider uppercase mb-6">
                   <Gift className="w-3.5 h-3.5" /> Shivaami Referral Program
                 </div>
-                <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight mb-5">
+                <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight mb-3">
                   Shivaami <span className="text-primary">Referral Program</span>
                 </h1>
-                <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-8">
-                  Refer a business to Shivaami and earn a <span className="font-semibold text-foreground">$500 reward</span> for every successful introduction.
+                <p className="text-lg md:text-xl font-semibold text-foreground mb-5">
+                  Help Businesses Work Smarter, Safer, Smoother
                 </p>
                 <div className="flex flex-wrap gap-3">
                   <a href="mailto:contactus@shivaami.com?subject=Shivaami%20Referral%20Program">
