@@ -1,4 +1,5 @@
 import Header from "@/components/layout/Header";
+import { Helmet } from 'react-helmet-async';
 import Footer from "@/components/layout/Footer";
 import { motion } from "framer-motion";
 import { ArrowLeft, CheckCircle2, Shield, Cloud, Server, Globe, Lock, AlertTriangle, Lightbulb, TrendingUp, Zap, Users } from "lucide-react";
@@ -55,6 +56,9 @@ const CaseStudyRSPL = () => {
 
   return (
     <div className="min-h-screen bg-white">
+      <Helmet>
+        <link rel="canonical" href="https://www.shivaami.com/case-studies/rspl" />
+      </Helmet>
       <Header />
       
       {/* Hero Section */}

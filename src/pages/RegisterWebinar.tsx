@@ -1,4 +1,5 @@
 import Header from "@/components/layout/Header";
+import { Helmet } from 'react-helmet-async';
 import Footer from "@/components/layout/Footer";
 import { motion } from "framer-motion";
 import { MapPin, Calendar, Clock, Gift, Sparkles, Target, ShieldCheck, FileText, LineChart, ChevronRight } from "lucide-react";
@@ -15,6 +16,9 @@ import speakerNikunj from "@/assets/speakers/speaker-nikunj.jpg";
 const RegisterWebinar = () => {
   return (
     <div className="min-h-screen bg-white">
+      <Helmet>
+        <link rel="canonical" href="https://www.shivaami.com/register-webinar" />
+      </Helmet>
       <Header />
       
       {/* Hero Section with Background Image */}

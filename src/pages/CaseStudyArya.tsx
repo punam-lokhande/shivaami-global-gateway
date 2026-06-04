@@ -1,4 +1,5 @@
 import Header from "@/components/layout/Header";
+import { Helmet } from 'react-helmet-async';
 import Footer from "@/components/layout/Footer";
 import { motion } from "framer-motion";
 import { ArrowLeft, CheckCircle2, AlertTriangle, Lightbulb, TrendingUp, Leaf, Database, Shield, Cloud, Lock, Zap, Eye } from "lucide-react";
@@ -14,6 +15,9 @@ const CaseStudyArya = () => {
 
   return (
     <div className="min-h-screen bg-white">
+      <Helmet>
+        <link rel="canonical" href="https://www.shivaami.com/case-studies/arya" />
+      </Helmet>
       <Header />
       <section className="relative min-h-[60vh] flex items-center bg-cover bg-center bg-no-repeat" style={{ backgroundImage: `linear-gradient(to right, rgba(12, 69, 148, 0.95) 0%, rgba(12, 69, 148, 0.7) 50%, rgba(12, 69, 148, 0.4) 100%), url(${caseStudiesBanner})` }}>
         <div className="w-full px-8 lg:px-16 xl:px-24 pt-32 pb-16">

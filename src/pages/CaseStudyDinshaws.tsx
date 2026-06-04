@@ -1,4 +1,5 @@
 import Header from "@/components/layout/Header";
+import { Helmet } from 'react-helmet-async';
 import Footer from "@/components/layout/Footer";
 import { motion } from "framer-motion";
 import { ArrowLeft, CheckCircle2, AlertTriangle, Lightbulb, TrendingUp } from "lucide-react";
@@ -37,6 +38,9 @@ const CaseStudyDinshaws = () => {
 
   return (
     <div className="min-h-screen bg-white">
+      <Helmet>
+        <link rel="canonical" href="https://www.shivaami.com/case-studies/dinshaws" />
+      </Helmet>
       <Header />
       
       <section 

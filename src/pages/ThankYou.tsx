@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { Helmet } from 'react-helmet-async';
 import { CheckCircle, ArrowLeft, Mail, Phone } from 'lucide-react';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
@@ -10,6 +11,9 @@ export default function ThankYou() {
 
   return (
     <div className="min-h-screen bg-background">
+      <Helmet>
+        <link rel="canonical" href="https://www.shivaami.com/thank-you" />
+      </Helmet>
       <Header />
       
       <section className="pt-32 pb-20 min-h-[80vh] flex items-center relative overflow-hidden">

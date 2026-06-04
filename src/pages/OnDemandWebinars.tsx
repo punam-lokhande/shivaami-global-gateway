@@ -1,4 +1,5 @@
 import Header from "@/components/layout/Header";
+import { Helmet } from 'react-helmet-async';
 import Footer from "@/components/layout/Footer";
 import { motion } from "framer-motion";
 import { Play, Calendar, Clock, User, ExternalLink, Sparkles, ArrowRight } from "lucide-react";
@@ -112,6 +113,9 @@ const webinars = [
 const OnDemandWebinars = () => {
   return (
     <div className="min-h-screen bg-white">
+      <Helmet>
+        <link rel="canonical" href="https://www.shivaami.com/on-demand-webinars" />
+      </Helmet>
       <Header />
       
       {/* Hero Section */}
