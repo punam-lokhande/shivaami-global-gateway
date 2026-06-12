@@ -362,8 +362,8 @@ export default function SecureSight() {
       <Header />
       <main>
         <HeroSection />
-        <FeaturesSection />
         <BrochureSection onRequestAccess={() => setAccessDialogOpen(true)} />
+        <FeaturesSection />
         <CTASection />
       </main>
       <Footer />
