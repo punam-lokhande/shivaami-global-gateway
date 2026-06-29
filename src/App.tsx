@@ -167,9 +167,7 @@ function CanonicalTag() {
     const BASE_URL = "https://www.shivaami.com";
     const href = `${BASE_URL}${pathname}`;
     // Remove any existing canonical tags (from index.html or Helmet) to avoid duplicates
-    document
-      .querySelectorAll('link[rel="canonical"]')
-      .forEach((el) => el.parentNode?.removeChild(el));
+    document.querySelectorAll('link[rel="canonical"]').forEach((el) => el.parentNode?.removeChild(el));
     const link = document.createElement("link");
     link.setAttribute("rel", "canonical");
     link.setAttribute("href", href);
@@ -180,9 +178,7 @@ function CanonicalTag() {
 }
 
 // Minimal loading fallback to prevent CLS
-const PageFallback = () => (
-  <div className="min-h-screen bg-background" />
-);
+const PageFallback = () => <div className="min-h-screen bg-background" />;
 
 const App = () => (
   <HelmetProvider>
@@ -329,7 +325,7 @@ const App = () => (
                 <Route path="/smoother-services" element={<SmootherServices />} />
                 <Route path="/agentic-ai-calculator" element={<AgenticAICalculator />} />
                 <Route path="/referral-program" element={<ReferralProgram />} />
-                <Route path="/sales-sync" element={<SalesSync />} />
+                <Route path="/ge-usa" element={<SalesSync />} />
                 {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
                 <Route path="*" element={<NotFound />} />
               </Routes>
