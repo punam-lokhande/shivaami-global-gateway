@@ -143,6 +143,7 @@ const SaferSecurity = lazy(() => import("./pages/SaferSecurity"));
 const SmootherServices = lazy(() => import("./pages/SmootherServices"));
 const AgenticAICalculator = lazy(() => import("./pages/AgenticAICalculator"));
 const ReferralProgram = lazy(() => import("./pages/ReferralProgram"));
+const SalesSync = lazy(() => import("./pages/SalesSync"));
 
 const queryClient = new QueryClient();
 
@@ -328,6 +329,7 @@ const App = () => (
                 <Route path="/smoother-services" element={<SmootherServices />} />
                 <Route path="/agentic-ai-calculator" element={<AgenticAICalculator />} />
                 <Route path="/referral-program" element={<ReferralProgram />} />
+                <Route path="/sales-sync" element={<SalesSync />} />
                 {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
                 <Route path="*" element={<NotFound />} />
               </Routes>
