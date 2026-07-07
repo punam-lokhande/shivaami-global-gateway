@@ -4,7 +4,13 @@ import { Phone, Mail, MapPin, Send, Loader2, Calendar } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from "@/components/ui/input";
 import { Textarea } from '@/components/ui/textarea';
-import { Checkbox } from '@/components/ui/checkbox';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { API_ENDPOINTS } from '@/utils/api';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
