@@ -4,6 +4,7 @@ import { Phone, Mail, MapPin, Send, Loader2, Calendar } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from "@/components/ui/input";
 import { Textarea } from '@/components/ui/textarea';
+import { Checkbox } from '@/components/ui/checkbox';
 import { API_ENDPOINTS } from '@/utils/api';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
@@ -43,6 +44,8 @@ export default function Contact() {
   const [phone, setPhone] = useState('');
   const [company, setCompany] = useState('');
   const [message, setMessage] = useState('');
+  const [sources, setSources] = useState<string[]>([]);
+  const [otherSource, setOtherSource] = useState('');
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
   const [isLoading, setIsLoading] = useState(false);
   const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
@@ -83,7 +86,20 @@ export default function Contact() {
       // }
       
        const captchaToken = await executeCaptcha('contact_us');
-      const formData = { fullName, email, phone, company, subject: '', message, 'captcha_token': captchaToken };
+      const learnedFrom = [
+        ...sources.filter((s) => s !== 'Other'),
+        ...(sources.includes('Other') && otherSource.trim() ? [otherSource.trim()] : []),
+      ];
+      const formData = {
+        fullName,
+        email,
+        phone,
+        company,
+        subject: '',
+        message,
+        learned_from: learnedFrom,
+        'captcha_token': captchaToken,
+      };
 
       const response = await fetch(API_ENDPOINTS.STORE_CONTACTUS_DETAILS, {
         method: 'POST',
@@ -100,6 +116,8 @@ export default function Contact() {
       setPhone('');
       setCompany('');
       setMessage('');
+      setSources([]);
+      setOtherSource('');
       setErrors({});
       navigate('/contact-us-thankyou');
     } catch (error) {
@@ -218,6 +236,47 @@ export default function Contact() {
           {errors.message && (
             <p className="text-xs text-red-500 mt-1">{errors.message}</p>
           )}
+        </div>
+
+        <div>
+          <label className="block text-sm font-medium text-slate-700 mb-2">
+            How did you learn about Shivaami?
+          </label>
+          <div className="space-y-2">
+            {['Google Search', 'LinkedIn', 'Referral', 'Youtube', 'Webinar/ Event/ Conference', 'Email', 'Other'].map((opt) => {
+              const checked = sources.includes(opt);
+              return (
+                <div key={opt} className="flex items-center gap-2">
+                  <Checkbox
+                    id={`src-${opt}`}
+                    checked={checked}
+                    onCheckedChange={(v) => {
+                      setSources((prev) =>
+                        v ? [...prev, opt] : prev.filter((s) => s !== opt)
+                      );
+                    }}
+                  />
+                  {opt === 'Other' ? (
+                    <Input
+                      placeholder="Other"
+                      value={otherSource}
+                      onChange={(e) => {
+                        setOtherSource(e.target.value);
+                        if (e.target.value && !sources.includes('Other')) {
+                          setSources((prev) => [...prev, 'Other']);
+                        }
+                      }}
+                      className="h-9 bg-slate-50 border-slate-200 focus:bg-white focus:border-[#0C4594]"
+                    />
+                  ) : (
+                    <label htmlFor={`src-${opt}`} className="text-sm text-slate-700 cursor-pointer">
+                      {opt}
+                    </label>
+                  )}
+                </div>
+              );
+            })}
+          </div>
         </div>
          {/* <ReCAPTCHA
                     ref={recaptchaRef}
