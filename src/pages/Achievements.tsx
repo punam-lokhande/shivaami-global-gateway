@@ -15,7 +15,7 @@ import googleCloudPartner2026 from '@/assets/awards/google-cloud-partner-2026.jp
 import pipelinePowerhouse2025 from '@/assets/awards/Pipeline Powerhouse 2025.png';
 import newTitanChampion2025 from '@/assets/awards/New Titan Champion 2025.png';
 import newFrontiersChampion2025 from '@/assets/awards/New Frontiers Champion 2025.png';
-import etEdgeBestOrganisations2026 from '@/assets/awards/ET-Edge-The-Best-Organisations-to-Work-2026.jpg.asset.json';
+import etEdgeBestOrganisations2026 from '@/assets/awards/ET-Edge-The-Best-Organisations-to-Work-2026.jpg';
 
 
 interface AwardItem {
@@ -34,7 +34,7 @@ const awardsData: YearData[] = [
     awards: [
       { title: 'Google Cloud Partner of the Year - 2026', image: googleCloudPartner2026 },
       { title: 'Partner of the Year – APAC / VAR (India) - JumpCloud', image: 'https://www.shivaami.com/assets/images/award/jumpcloud-partner-2026.jpg' },
-      { title: 'ET Edge - The Best Organisations to Work 2026 by ET Edge - The Times Group', image: etEdgeBestOrganisations2026.url },
+      { title: 'ET Edge - The Best Organisations to Work 2026 by ET Edge - The Times Group', image: etEdgeBestOrganisations2026 },
       { title: 'Google Cloud APAC Leaderboard Champions - Pipeline Powerhouse 2025', image: pipelinePowerhouse2025 },
       { title: 'Google Cloud APAC Leaderboard Champions - New Titan Champion 2025', image: newTitanChampion2025 },
       { title: 'Google Cloud APAC Leaderboard Champions - New Frontiers Champion 2025', image: newFrontiersChampion2025 },
