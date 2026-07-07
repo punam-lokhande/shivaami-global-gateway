@@ -4,6 +4,13 @@ import { Phone, Mail, MapPin, Send, Loader2, Calendar } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from "@/components/ui/input";
 import { Textarea } from '@/components/ui/textarea';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { API_ENDPOINTS } from '@/utils/api';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
@@ -43,6 +50,8 @@ export default function Contact() {
   const [phone, setPhone] = useState('');
   const [company, setCompany] = useState('');
   const [message, setMessage] = useState('');
+  const [source, setSource] = useState('');
+  const [otherSource, setOtherSource] = useState('');
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
   const [isLoading, setIsLoading] = useState(false);
   const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
@@ -82,8 +91,22 @@ export default function Contact() {
       //   throw new Error('reCAPTCHA not loaded');
       // }
       
-       const captchaToken = await executeCaptcha('contact_us');
-      const formData = { fullName, email, phone, company, subject: '', message, 'captcha_token': captchaToken };
+      const captchaToken = await executeCaptcha('contact_us');
+      const learnedFrom = source === 'Other' && otherSource.trim()
+        ? [otherSource.trim()]
+        : source
+        ? [source]
+        : [];
+      const formData = {
+        fullName,
+        email,
+        phone,
+        company,
+        subject: '',
+        message,
+        learned_from: learnedFrom,
+        'captcha_token': captchaToken,
+      };
 
       const response = await fetch(API_ENDPOINTS.STORE_CONTACTUS_DETAILS, {
         method: 'POST',
@@ -100,6 +123,8 @@ export default function Contact() {
       setPhone('');
       setCompany('');
       setMessage('');
+      setSource('');
+      setOtherSource('');
       setErrors({});
       navigate('/contact-us-thankyou');
     } catch (error) {
@@ -217,6 +242,32 @@ export default function Contact() {
           />
           {errors.message && (
             <p className="text-xs text-red-500 mt-1">{errors.message}</p>
+          )}
+        </div>
+
+        <div>
+          <label className="block text-sm font-medium text-slate-700 mb-1.5">
+            How did you learn about Shivaami?
+          </label>
+          <Select value={source} onValueChange={setSource}>
+            <SelectTrigger className="h-11 bg-slate-50 border-slate-200 focus:bg-white focus:border-[#0C4594] w-full">
+              <SelectValue placeholder="Select an option" />
+            </SelectTrigger>
+            <SelectContent>
+              {['Google Search', 'LinkedIn', 'Referral', 'Youtube', 'Webinar/ Event/ Conference', 'Email', 'Other'].map((opt) => (
+                <SelectItem key={opt} value={opt}>
+                  {opt}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+          {source === 'Other' && (
+            <Input
+              placeholder="Please specify"
+              value={otherSource}
+              onChange={(e) => setOtherSource(e.target.value)}
+              className="h-11 mt-3 bg-slate-50 border-slate-200 focus:bg-white focus:border-[#0C4594]"
+            />
           )}
         </div>
          {/* <ReCAPTCHA
