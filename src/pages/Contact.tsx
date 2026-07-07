@@ -237,6 +237,47 @@ export default function Contact() {
             <p className="text-xs text-red-500 mt-1">{errors.message}</p>
           )}
         </div>
+
+        <div>
+          <label className="block text-sm font-medium text-slate-700 mb-2">
+            How did you learn about Shivaami?
+          </label>
+          <div className="space-y-2">
+            {['Google Search', 'LinkedIn', 'Referral', 'Youtube', 'Webinar/ Event/ Conference', 'Email', 'Other'].map((opt) => {
+              const checked = sources.includes(opt);
+              return (
+                <div key={opt} className="flex items-center gap-2">
+                  <Checkbox
+                    id={`src-${opt}`}
+                    checked={checked}
+                    onCheckedChange={(v) => {
+                      setSources((prev) =>
+                        v ? [...prev, opt] : prev.filter((s) => s !== opt)
+                      );
+                    }}
+                  />
+                  {opt === 'Other' ? (
+                    <Input
+                      placeholder="Other"
+                      value={otherSource}
+                      onChange={(e) => {
+                        setOtherSource(e.target.value);
+                        if (e.target.value && !sources.includes('Other')) {
+                          setSources((prev) => [...prev, 'Other']);
+                        }
+                      }}
+                      className="h-9 bg-slate-50 border-slate-200 focus:bg-white focus:border-[#0C4594]"
+                    />
+                  ) : (
+                    <label htmlFor={`src-${opt}`} className="text-sm text-slate-700 cursor-pointer">
+                      {opt}
+                    </label>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+        </div>
          {/* <ReCAPTCHA
                     ref={recaptchaRef}
                     sitekey="6LddEpcsAAAAAE_gNNaqY7cFXIeqctqXHcXPUAcU" // <-- IMPORTANT: Replace with your Site Key
