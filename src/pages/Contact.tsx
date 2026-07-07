@@ -91,11 +91,12 @@ export default function Contact() {
       //   throw new Error('reCAPTCHA not loaded');
       // }
       
-       const captchaToken = await executeCaptcha('contact_us');
-      const learnedFrom = [
-        ...sources.filter((s) => s !== 'Other'),
-        ...(sources.includes('Other') && otherSource.trim() ? [otherSource.trim()] : []),
-      ];
+      const captchaToken = await executeCaptcha('contact_us');
+      const learnedFrom = source === 'Other' && otherSource.trim()
+        ? [otherSource.trim()]
+        : source
+        ? [source]
+        : [];
       const formData = {
         fullName,
         email,
