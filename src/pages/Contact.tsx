@@ -4,6 +4,7 @@ import { Phone, Mail, MapPin, Send, Loader2, Calendar } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from "@/components/ui/input";
 import { Textarea } from '@/components/ui/textarea';
+import { Checkbox } from '@/components/ui/checkbox';
 import { API_ENDPOINTS } from '@/utils/api';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
@@ -43,6 +44,8 @@ export default function Contact() {
   const [phone, setPhone] = useState('');
   const [company, setCompany] = useState('');
   const [message, setMessage] = useState('');
+  const [sources, setSources] = useState<string[]>([]);
+  const [otherSource, setOtherSource] = useState('');
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
   const [isLoading, setIsLoading] = useState(false);
   const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
@@ -83,7 +86,20 @@ export default function Contact() {
       // }
       
        const captchaToken = await executeCaptcha('contact_us');
-      const formData = { fullName, email, phone, company, subject: '', message, 'captcha_token': captchaToken };
+      const learnedFrom = [
+        ...sources.filter((s) => s !== 'Other'),
+        ...(sources.includes('Other') && otherSource.trim() ? [otherSource.trim()] : []),
+      ];
+      const formData = {
+        fullName,
+        email,
+        phone,
+        company,
+        subject: '',
+        message,
+        learned_from: learnedFrom,
+        'captcha_token': captchaToken,
+      };
 
       const response = await fetch(API_ENDPOINTS.STORE_CONTACTUS_DETAILS, {
         method: 'POST',
@@ -100,6 +116,8 @@ export default function Contact() {
       setPhone('');
       setCompany('');
       setMessage('');
+      setSources([]);
+      setOtherSource('');
       setErrors({});
       navigate('/contact-us-thankyou');
     } catch (error) {
