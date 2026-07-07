@@ -123,7 +123,7 @@ export default function Contact() {
       setPhone('');
       setCompany('');
       setMessage('');
-      setSources([]);
+      setSource('');
       setOtherSource('');
       setErrors({});
       navigate('/contact-us-thankyou');
