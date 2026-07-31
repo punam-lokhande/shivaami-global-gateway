@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { useEffect, lazy, Suspense } from "react";
 import { RegionProvider } from "@/contexts/RegionContext";
 import { HelmetProvider } from "react-helmet-async";
+import ApolloTracker from "./components/ApolloTracker";
 
 // Only the landing page is eagerly loaded for FCP/LCP
 import Index from "./pages/Index";
@@ -145,6 +146,7 @@ const AgenticAICalculator = lazy(() => import("./pages/AgenticAICalculator"));
 const ReferralProgram = lazy(() => import("./pages/ReferralProgram"));
 const SalesSync = lazy(() => import("./pages/SalesSync"));
 
+
 const queryClient = new QueryClient();
 
 // Scroll to top on route change
@@ -156,6 +158,14 @@ function ScrollToTop() {
   }, [pathname]);
 
   return null;
+}
+
+declare global {
+  interface Window {
+    trackingFunctions?: {
+      onLoad: (config: { appId: string }) => void;
+    };
+  }
 }
 
 // Manages a single <link rel="canonical"> tag per route for SEO.
@@ -181,7 +191,10 @@ function CanonicalTag() {
 const PageFallback = () => <div className="min-h-screen bg-background" />;
 
 const App = () => (
+
+  
   <HelmetProvider>
+    <ApolloTracker/>
     <QueryClientProvider client={queryClient}>
       <RegionProvider>
         <TooltipProvider>
