@@ -73,8 +73,7 @@ export default function HeroSection() {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="text-base sm:text-lg lg:text-xl text-white/90 max-w-2xl mb-8 sm:mb-10 leading-relaxed font-body"
           >
-            Empower your teams with secure cloud and AI solutions. We combine the right solutions with expert
-            services to simplify your productivity, security, and automation challenges.
+            Google Workspace pricing varies based on the plan, features, and storage requirements. Shivaami helps businesses choose and implement the right Google Workspace plan for their needs.
           </motion.p>
 
           {/* Single CTA */}
