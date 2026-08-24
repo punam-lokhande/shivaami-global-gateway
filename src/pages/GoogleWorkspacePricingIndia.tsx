@@ -349,6 +349,10 @@ function FAQSection() {
       answer: "We accept Net Banking, Credit/Debit Cards, Razorpay, Cheque, DD, or NEFT/RTGS."
     },
     {
+      question: "Can I get a customised Google Workspace pricing quote for my business?",
+      answer: "Yes. Shivaami can provide a customised Google Workspace pricing quote based on your number of users, preferred plan, and business needs."
+    },
+    {
       question: "What counts as a Google Workspace user?",
       answer: "One user equals one email address. Group aliases like info@ or support@ are free."
     },
