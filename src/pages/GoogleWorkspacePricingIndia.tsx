@@ -85,8 +85,7 @@ function HeroSection() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-base lg:text-lg text-white/80 max-w-2xl mb-8 leading-relaxed font-body"
           >
-            Google Workspace is a cloud-based productivity suite that helps teams connect and work from anywhere. 
-            Shivaami helps Indian businesses use Google Workspace effectively with the right plan for your needs.
+            {heroDesc}
           </motion.p>
         </div>
       </motion.div>
