@@ -103,13 +103,15 @@ function PricingSection() {
       popular: false,
       shopUrl: "https://www.shivaami.com/shop/product/google-workspace-business-starter-plan-pricing/",
       features: [
-        "30 GB storage per person",
-        "Custom business email (you@yourcompany.com)",
+        "Starter includes:",
+        "30 GB — pooled storage per person*",
+        "Secure custom business email",
+        "you@your-company.com",
         "Gemini AI assistant in Gmail",
-        "Video meetings with 100 participants",
-        "Google Vids video creator",
-        "Security and management controls",
-        "Standard support"
+        "Chat with AI in the Gemini app",
+        "Video meetings, 100 participants",
+        "Google Vids AI-powered video creator and editor",
+        "Security and management controls"
       ]
     },
     {
@@ -121,17 +123,19 @@ function PricingSection() {
       popular: true,
       shopUrl: "https://www.shivaami.com/shop/product/google-workspace-business-standard-plan-pricing/",
       features: [
-        "Everything in Starter, plus:",
-        "2 TB storage (65x more than Starter)",
-        "Custom email layouts and mail merge",
-        "Gemini AI in Gmail, Docs, and Meet",
-        "NotebookLM with expanded features",
-        "Video meetings with 150 participants",
-        "Meeting recording and noise cancellation",
+        "All of Starter, and:",
+        "2 TB — 65x more than Starter*",
+        "Secure custom business email",
+        "+ custom layouts and mail merge",
+        "Gemini AI assistant in Gmail, Docs, Meet, and more",
+        "Gemini Notebook with expanded access to features",
+        "Chat with AI in the Gemini app with expanded access to models and features",
+        "Video meetings with recording, noise cancellation, 150 participants",
         "Appointment booking pages",
-        "eSignature in Docs and PDFs",
-        "Data migration tool"
+        "eSignature with Docs and PDFs",
+        "Google Workspace Migrate tool for data migration"
       ]
+
     },
     {
       name: "Business Plus",
