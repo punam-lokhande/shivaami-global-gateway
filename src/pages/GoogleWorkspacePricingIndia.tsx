@@ -142,15 +142,18 @@ function PricingSection() {
       popular: false,
       shopUrl: "https://www.shivaami.com/shop/product/google-workspace-business-plus-plan-pricing/",
       features: [
-        "Everything in Standard, plus:",
-        "5 TB storage (2.5x more than Standard)",
-        "Custom email with eDiscovery",
-        "Video meetings with 500 participants",
-        "Meeting attendance tracking",
-        "Vault for data retention and search",
+        "All of Standard, and:",
+        "5 TB — 2.5x more than Standard*",
+        "AI-powered features:",
+        "Everything included from Starter and Standard",
+        "Secure custom business email",
+        "eDiscovery",
+        "Video meetings with attendance tracking, 500 participants",
+        "Google Vault — Retain, archive and search business data",
         "Secure LDAP",
         "Advanced endpoint management",
-        "Enhanced security controls"
+        "Enhanced security and management controls",
+        "Add and manage up to 300 users"
       ]
     },
     {
