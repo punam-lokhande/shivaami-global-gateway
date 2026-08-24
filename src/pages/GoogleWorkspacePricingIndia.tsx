@@ -43,9 +43,7 @@ function HeroSection() {
   const y = useTransform(scrollYProgress, [0, 1], ['0%', '30%']);
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
-  const heroDesc = region === 'usa'
-    ? "Google Workspace is a cloud-based productivity suite that helps teams connect and work from anywhere. Shivaami helps businesses use Google Workspace effectively with the right plan for your needs."
-    : "Google Workspace is a cloud-based productivity suite that helps teams connect and work from anywhere. Shivaami helps Indian businesses use Google Workspace effectively with the right plan for your needs.";
+  const heroDesc = "Google Workspace pricing varies based on the plan, features, and storage requirements. Shivaami helps businesses choose and implement the right Google Workspace plan for their needs.";
 
   return (
     <section ref={ref} className="relative flex items-center overflow-hidden">
