@@ -193,7 +193,7 @@ function PricingSection() {
             Compare Google Workspace Pricing & Plans
           </h2>
           <p className="text-[#64748b] max-w-2xl mx-auto">
-            Each plan includes Gmail, Drive, Meet, Calendar, Docs, Sheets, Slides, and Forms. Gemini for Google Workspace is available as an add-on.
+            Each plan includes Gmail, Drive, Meet, Calendar, Docs, Sheets, Slides, and Forms.
           </p>
         </motion.div>
 
