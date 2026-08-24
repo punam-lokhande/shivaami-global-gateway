@@ -106,7 +106,7 @@ function PricingSection() {
       },
       popular: false,
       shopUrl: "https://www.shivaami.com/shop/product/google-workspace-business-starter-plan-pricing/",
-      featureIntro: "All of Base, and:",
+      featureIntro: "",
       features: [
         "30 GB 1.5x more than Base*",
         "Secure custom business email — you@your-company.com + Gemini AI assistant in Gmail",
