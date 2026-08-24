@@ -169,17 +169,19 @@ function PricingSection() {
       popular: false,
       isEnterprise: true,
       features: [
-        "All features above, plus:",
-        "5 TB storage or more",
-        "Custom email with S/MIME encryption",
-        "Video meetings with 1,000 participants",
-        "In-domain live streaming",
+        "All features mentioned, and:",
+        "5 TB — or upgrade for more*",
+        "Secure custom business email",
+        "+ S/MIME encryption",
+        "Video meetings with in-domain live streaming, 1000 participants",
         "Data loss prevention (DLP)",
         "Context-aware access",
         "Enterprise data regions",
         "Cloud Identity Premium",
-        "AI Classification for Drive",
-        "Enhanced support"
+        "Enterprise endpoint management",
+        "AI Classification for Google Drive",
+        "Assured Controls & AI Classification available add-on",
+        "Enhanced Support for faster response times for critical issues"
       ]
     }
   ];
