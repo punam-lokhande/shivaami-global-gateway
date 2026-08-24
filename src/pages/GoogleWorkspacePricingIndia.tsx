@@ -32,6 +32,7 @@ const staggerContainer = {
 
 // Hero Section with Banner Image
 function HeroSection() {
+  const { region } = useRegion();
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -40,6 +41,10 @@ function HeroSection() {
 
   const y = useTransform(scrollYProgress, [0, 1], ['0%', '30%']);
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+
+  const heroDesc = region === 'usa'
+    ? "Google Workspace is a cloud-based productivity suite that helps teams connect and work from anywhere. Shivaami helps businesses use Google Workspace effectively with the right plan for your needs."
+    : "Google Workspace is a cloud-based productivity suite that helps teams connect and work from anywhere. Shivaami helps Indian businesses use Google Workspace effectively with the right plan for your needs.";
 
   return (
     <section ref={ref} className="relative flex items-center overflow-hidden">
@@ -50,7 +55,7 @@ function HeroSection() {
       >
         <img
           src={heroImage}
-          alt="Google Workspace Pricing India"
+          alt={region === 'usa' ? "Google Workspace Pricing USA" : "Google Workspace Pricing India"}
           className="w-full h-full object-cover object-center"
           loading="eager"
         />
@@ -80,8 +85,7 @@ function HeroSection() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-base lg:text-lg text-white/80 max-w-2xl mb-8 leading-relaxed font-body"
           >
-            Google Workspace is a cloud-based productivity suite that helps teams connect and work from anywhere. 
-            Shivaami helps Indian businesses use Google Workspace effectively with the right plan for your needs.
+            {heroDesc}
           </motion.p>
         </div>
       </motion.div>
