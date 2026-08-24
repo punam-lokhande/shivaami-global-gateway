@@ -106,12 +106,10 @@ function PricingSection() {
       },
       popular: false,
       shopUrl: "https://www.shivaami.com/shop/product/google-workspace-business-starter-plan-pricing/",
+      featureIntro: "Starter includes:",
       features: [
-        "Starter includes:",
-        "30 GB",
-        "pooled storage per person*",
-        "Secure custom business email",
-        "you@your-company.com",
+        "30 GB pooled storage per person*",
+        "Secure custom business email — you@your-company.com",
         "Gemini AI assistant in Gmail",
         "Chat with AI in the Gemini app",
         "Video meetings, 100 participants",
@@ -127,12 +125,10 @@ function PricingSection() {
       },
       popular: true,
       shopUrl: "https://www.shivaami.com/shop/product/google-workspace-business-standard-plan-pricing/",
+      featureIntro: "All of Starter, and:",
       features: [
-        "All of Starter, and:",
-        "2 TB",
-        "65x more than Starter*",
-        "Secure custom business email",
-        "+ custom layouts and mail merge",
+        "2 TB — 65x more than Starter*",
+        "Secure custom business email — custom layouts and mail merge",
         "Gemini AI assistant in Gmail, Docs, Meet, and more",
         "Gemini Notebook with expanded access to features",
         "Chat with AI in the Gemini app with expanded access to models and features",
@@ -151,19 +147,15 @@ function PricingSection() {
       },
       popular: false,
       shopUrl: "https://www.shivaami.com/shop/product/google-workspace-business-plus-plan-pricing/",
+      featureIntro: "All of Standard, and:",
       features: [
-        "All of Standard, and:",
         "5 TB — 2.5x more than Standard*",
-        "AI-powered features:",
-        "Everything included from Starter and Standard",
-        "Secure custom business email",
-        "eDiscovery",
+        "Secure custom business email — eDiscovery",
         "Video meetings with attendance tracking, 500 participants",
-        "Google Vault — Retain, archive and search business data",
+        "Vault to retain, archive, and search data",
         "Secure LDAP",
         "Advanced endpoint management",
-        "Enhanced security and management controls",
-        "Add and manage up to 300 users"
+        "Enhanced security and management controls"
       ]
     },
     {
@@ -174,12 +166,10 @@ function PricingSection() {
       },
       popular: false,
       isEnterprise: true,
+      featureIntro: "All features mentioned, and:",
       features: [
-        "All features mentioned, and:",
-        "5 TB",
-        "or upgrade for more*",
-        "Secure custom business email",
-        "+ S/MIME encryption",
+        "5 TB — or upgrade for more*",
+        "Secure custom business email — S/MIME encryption",
         "Video meetings with in-domain live streaming, 1000 participants",
         "Data loss prevention (DLP)",
         "Context-aware access",
@@ -290,6 +280,7 @@ function PricingSection() {
                   </div>
 
                   {/* Features */}
+                  <p className="mb-3 text-sm font-semibold text-[#0C4594]">{plan.featureIntro}</p>
                   <ul className="space-y-3 mb-6">
                     {plan.features.map((feature, fidx) => (
                       <li key={fidx} className="flex items-start gap-3">
