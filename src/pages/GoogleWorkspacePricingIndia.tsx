@@ -3,6 +3,7 @@ import { useRef, useState } from 'react';
 import { Check, ArrowRight, HelpCircle, ChevronDown, Phone, MapPin, Award, Users, Clock, Building2, CreditCard, Mail, Shield, Zap, Star, Sparkles, Play } from 'lucide-react';
 import CTASectionShared from '@/components/sections/CTASection';
 import WhyShivaamiSectionShared from '@/components/sections/WhyShivaamiSection';
+import ProvenExcellenceSection from '@/components/sections/ProvenExcellenceSection';
 import { Button } from '@/components/ui/button';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
@@ -450,6 +451,7 @@ export default function GoogleWorkspacePricingIndia() {
         <HeroSection />
         <PricingSection />
         <WhyShivaamiSectionShared />
+        <ProvenExcellenceSection />
         <FAQSection />
         <CTASectionShared />
       </main>
