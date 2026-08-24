@@ -108,7 +108,7 @@ function PricingSection() {
       shopUrl: "https://www.shivaami.com/shop/product/google-workspace-business-starter-plan-pricing/",
       featureIntro: "",
       features: [
-        "30 GB 1.5x more than Base*",
+        "30 GB pooled storage per person*",
         "Secure custom business email — you@your-company.com + Gemini AI assistant in Gmail",
         "Chat with AI in the Gemini app, with enterprise-grade security & privacy",
         "Gemini Notebook AI research assistant, with enterprise-grade security & privacy",
