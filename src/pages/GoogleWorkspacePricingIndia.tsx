@@ -108,7 +108,8 @@ function PricingSection() {
       shopUrl: "https://www.shivaami.com/shop/product/google-workspace-business-starter-plan-pricing/",
       features: [
         "Starter includes:",
-        "30 GB — pooled storage per person*",
+        "30 GB",
+        "pooled storage per person*",
         "Secure custom business email",
         "you@your-company.com",
         "Gemini AI assistant in Gmail",
@@ -128,7 +129,8 @@ function PricingSection() {
       shopUrl: "https://www.shivaami.com/shop/product/google-workspace-business-standard-plan-pricing/",
       features: [
         "All of Starter, and:",
-        "2 TB — 65x more than Starter*",
+        "2 TB",
+        "65x more than Starter*",
         "Secure custom business email",
         "+ custom layouts and mail merge",
         "Gemini AI assistant in Gmail, Docs, Meet, and more",
@@ -174,7 +176,8 @@ function PricingSection() {
       isEnterprise: true,
       features: [
         "All features mentioned, and:",
-        "5 TB — or upgrade for more*",
+        "5 TB",
+        "or upgrade for more*",
         "Secure custom business email",
         "+ S/MIME encryption",
         "Video meetings with in-domain live streaming, 1000 participants",
