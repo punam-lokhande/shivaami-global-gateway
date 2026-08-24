@@ -106,15 +106,15 @@ function PricingSection() {
       },
       popular: false,
       shopUrl: "https://www.shivaami.com/shop/product/google-workspace-business-starter-plan-pricing/",
-      featureIntro: "Starter includes:",
+      featureIntro: "All of Base, and:",
       features: [
-        "30 GB pooled storage per person*",
-        "Secure custom business email — you@your-company.com",
-        "Gemini AI assistant in Gmail",
-        "Chat with AI in the Gemini app",
-        "Video meetings, 100 participants",
+        "30 GB 1.5x more than Base*",
+        "Secure custom business email — you@your-company.com + Gemini AI assistant in Gmail",
+        "Chat with AI in the Gemini app, with enterprise-grade security & privacy",
+        "Gemini Notebook AI research assistant, with enterprise-grade security & privacy",
+        "Automate everyday work — Create AI-powered flows across Workspace apps with Studio",
         "Google Vids AI-powered video creator and editor",
-        "Security and management controls"
+        "Add and manage up to 300 users"
       ]
     },
     {
@@ -127,7 +127,7 @@ function PricingSection() {
       shopUrl: "https://www.shivaami.com/shop/product/google-workspace-business-standard-plan-pricing/",
       featureIntro: "All of Starter, and:",
       features: [
-        "2 TB — 65x more than Starter*",
+        "2 TB 65x more than Starter*",
         "Secure custom business email — custom layouts and mail merge",
         "Gemini AI assistant in Gmail, Docs, Meet, and more",
         "Gemini Notebook with expanded access to features",
@@ -168,7 +168,7 @@ function PricingSection() {
       isEnterprise: true,
       featureIntro: "All features mentioned, and:",
       features: [
-        "5 TB — or upgrade for more*",
+        "5 TB or upgrade for more*",
         "Secure custom business email — S/MIME encryption",
         "Video meetings with in-domain live streaming, 1000 participants",
         "Data loss prevention (DLP)",
@@ -178,7 +178,8 @@ function PricingSection() {
         "Enterprise endpoint management",
         "AI Classification for Google Drive",
         "Assured Controls & AI Classification available add-on",
-        "Enhanced Support for faster response times for critical issues"
+        "Enhanced Support for faster response times for critical issues",
+        "No minimum or maximum user limit"
       ]
     }
   ];
