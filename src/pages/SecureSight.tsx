@@ -329,6 +329,11 @@ function BrochureSection({ onRequestAccess }: { onRequestAccess: () => void }) {
             Get your free scan
             <ArrowRight className="ml-2 h-5 w-5" />
           </Button>
+          <div className="mt-4">
+            <Link to="/securesight-privacy-policy" className="text-sm text-[#475569] hover:text-[#0C4594] underline underline-offset-4 transition-colors">
+              Securesight Privacy Policy
+            </Link>
+          </div>
         </motion.div>
       </div>
     </section>
