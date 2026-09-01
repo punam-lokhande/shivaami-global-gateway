@@ -121,6 +121,7 @@ const TransportationLogistics = lazy(() => import("./pages/TransportationLogisti
 const CloudCapabilities = lazy(() => import("./pages/CloudCapabilities"));
 const AppsScript = lazy(() => import("./pages/AppsScript"));
 const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
+const SecureSightPrivacyPolicy = lazy(() => import("./pages/SecureSightPrivacyPolicy"));
 const TermsAndConditions = lazy(() => import("./pages/TermsAndConditions"));
 const GoogleWorkspacePricingIndia = lazy(() => import("./pages/GoogleWorkspacePricingIndia"));
 const SupportServices = lazy(() => import("./pages/SupportServices"));
@@ -315,6 +316,7 @@ const App = () => (
                 <Route path="/cloud-capabilities" element={<CloudCapabilities />} />
                 <Route path="/apps-script" element={<AppsScript />} />
                 <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+                <Route path="/securesight-privacy-policy" element={<SecureSightPrivacyPolicy />} />
                 <Route path="/terms-of-service" element={<TermsAndConditions />} />
                 <Route path="/google-workspace-pricing-india" element={<GoogleWorkspacePricingIndia />} />
                 <Route path="/support" element={<SupportServices />} />
