@@ -673,6 +673,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.shivaami.com/securesight-privacy-policy</loc>
+    <lastmod>2026-09-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://www.shivaami.com/smarter-solutions</loc>
     <lastmod>2026-06-04</lastmod>
     <changefreq>weekly</changefreq>
