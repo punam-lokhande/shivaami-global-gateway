@@ -15,6 +15,7 @@ import {
   Mail,
   Phone,
   MapPin,
+  Smartphone,
   CheckCircle2
 } from 'lucide-react';
 
@@ -950,6 +951,80 @@ export default function PrivacyPolicy() {
                     We are committed to addressing grievances and complaints in a timely and transparent manner within the timelines prescribed under the DPDP Act and applicable rules. If you are not satisfied with the resolution provided by the Grievance Officer, you may have the right to escalate your complaint to the Data Protection Board of India in accordance with the DPDP Act and its implementing rules.
                   </p>
                 </div>
+              </motion.div>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* Section 15: Enterprise Mobile Applications Addendum */}
+        <section className="py-16 bg-secondary/20">
+          <div className="w-full px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24">
+            <motion.div 
+              className=""
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={staggerContainer}
+            >
+              <motion.div variants={fadeInUp} className="flex items-center gap-3 mb-6">
+                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
+                  <Smartphone className="w-6 h-6 text-primary" />
+                </div>
+                <h2 className="text-3xl font-display font-bold text-foreground">15. Enterprise Mobile Applications Addendum: Viami MDM & Viami MDM (UAT)</h2>
+              </motion.div>
+
+              <motion.div variants={fadeInUp} className="bg-background rounded-2xl p-6 border border-border/50 mb-6">
+                <h3 className="text-xl font-semibold text-foreground mb-4">1. Scope & Applicability</h3>
+                <p className="text-muted-foreground">
+                  This section specifically governs the processing of data collected through the mobile applications “Viami MDM” and “Viami MDM (UAT)” (collectively, the "Applications"), published and operated by Shivaami Cloud Services Pvt. Ltd. (“Company,” “we,” “us,” or “our”). The Applications operate as enterprise Mobile Device Management (MDM) solutions utilized in conjunction with an organization’s managed device environment.
+                </p>
+              </motion.div>
+
+              <motion.div variants={fadeInUp} className="bg-background rounded-2xl p-6 border border-border/50 mb-6">
+                <h3 className="text-xl font-semibold text-foreground mb-4">2. Categories of Data Processed</h3>
+                <p className="text-muted-foreground mb-4">
+                  Depending on the specific configurations established by your organization (acting as the Data Controller), the Applications may collect and process the following categories of technical and personal information strictly for deployment, compliance, and security management:
+                </p>
+                <ul className="space-y-3">
+                  {[
+                    { title: 'Work Account Identifiers', desc: 'Professional email addresses, enterprise usernames, or corporate directory IDs required to authenticate users and assign devices.' },
+                    { title: 'Device Identifiers & Posture Data', desc: 'Hardware and software identification metrics (e.g., Device ID, serial numbers, operating system build, enrollment status) required to verify device trust and enforce security compliance.' },
+                    { title: 'Application Diagnostics & Activity', desc: 'Performance metrics, crash logs, and app diagnostic data processed solely to ensure system stability, facilitate technical support, and audit security compliance.' },
+                    { title: 'Network & Security Parameters', desc: 'Work-network metadata, Wi-Fi configuration details, and VPN-related technical logs utilized exclusively to safeguard organizational infrastructure and secure data transit.' },
+                  ].map((item, index) => (
+                    <li key={index} className="flex items-start gap-3">
+                      <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                      <span className="text-muted-foreground">
+                        <strong className="text-foreground">{item.title}:</strong> {item.desc}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+
+              <motion.div variants={fadeInUp} className="bg-background rounded-2xl p-6 border border-border/50 mb-6">
+                <h3 className="text-xl font-semibold text-foreground mb-4">3. Purpose of Processing & Non-Sale Commitment</h3>
+                <p className="text-muted-foreground mb-4">
+                  All data collected through the Applications is processed strictly to provide Mobile Device Management functionality, maintain endpoint security, support IT operations, and verify organizational compliance.
+                </p>
+                <ul className="space-y-2">
+                  {[
+                    'No Data Monetization: We do not sell, rent, or trade personal or technical data.',
+                    'No Commercial Advertising: Information collected within or via the Applications is never used for commercial marketing, behavioral tracking, or targeted advertising.',
+                  ].map((item, index) => (
+                    <li key={index} className="flex items-start gap-2 text-sm text-muted-foreground">
+                      <CheckCircle2 className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+
+              <motion.div variants={fadeInUp} className="bg-background rounded-2xl p-6 border border-border/50">
+                <h3 className="text-xl font-semibold text-foreground mb-4">4. Target Audience & Contact Information</h3>
+                <p className="text-muted-foreground">
+                  The Applications are intended exclusively for authorized organizational users operating under the management of their respective enterprise administrators. For inquiries regarding data protection practices, data access requests, or privacy rights, please contact us at <a href="mailto:info@shivaami.com" className="text-primary hover:underline">info@shivaami.com</a>.
+                </p>
               </motion.div>
             </motion.div>
           </div>
