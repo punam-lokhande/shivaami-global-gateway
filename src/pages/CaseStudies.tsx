@@ -113,9 +113,10 @@ const industries = [
     icon: Truck,
     color: '#22C55E',
     caseStudies: [
-      { name: 'Arya.ag', description: 'Connecting agri-produce buyers and sellers with quality assurance.', logo: aryaLogo, slug: 'arya' },
+      { name: 'Arya.ag', description: 'Connecting agri-produce buyers and sellers with quality assurance.', logo: aryaLogo, externalLink: 'https://cloud.google.com/customers/arya?hl=en' },
       { name: 'Payal Group', description: 'Leading agricultural solutions with R&D focus.', slug: 'payal-group' },
     ]
+
   },
   {
     id: 'media',
