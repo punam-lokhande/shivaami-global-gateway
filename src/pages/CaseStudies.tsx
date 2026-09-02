@@ -113,9 +113,10 @@ const industries = [
     icon: Truck,
     color: '#22C55E',
     caseStudies: [
-      { name: 'Arya.ag', description: 'Connecting agri-produce buyers and sellers with quality assurance.', logo: aryaLogo, slug: 'arya' },
+      { name: 'Arya.ag', description: 'Connecting agri-produce buyers and sellers with quality assurance.', logo: aryaLogo, externalLink: 'https://cloud.google.com/customers/arya?hl=en' },
       { name: 'Payal Group', description: 'Leading agricultural solutions with R&D focus.', slug: 'payal-group' },
     ]
+
   },
   {
     id: 'media',
@@ -298,11 +299,12 @@ function CaseStudyCard({
   industry, 
   index 
 }: { 
-  study: { name: string; description: string; slug?: string; logo?: string }; 
+  study: { name: string; description: string; slug?: string; externalLink?: string; logo?: string }; 
   industry: typeof industries[0];
   index: number;
 }) {
   const Icon = industry.icon;
+  const isExternal = Boolean(study.externalLink);
   
   const cardContent = (
     <motion.div
@@ -347,7 +349,7 @@ function CaseStudyCard({
         </div>
 
         {/* Arrow */}
-        {study.slug && (
+        {(study.slug || isExternal) && (
           <ExternalLink className="w-4 h-4 text-gray-300 group-hover:text-[#38B6FF] transition-colors flex-shrink-0" />
         )}
       </div>
@@ -358,10 +360,10 @@ function CaseStudyCard({
       </p>
 
       {/* Read More */}
-      {study.slug && (
+      {(study.slug || isExternal) && (
         <div className="mt-4 pt-4 border-t border-gray-100">
           <span className="text-sm font-medium text-[#38B6FF] group-hover:text-[#0C4594] flex items-center gap-1 transition-colors">
-            Read Case Study
+            {isExternal ? 'View Google Cloud Story' : 'Read Case Study'}
             <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
           </span>
         </div>
@@ -369,12 +371,17 @@ function CaseStudyCard({
     </motion.div>
   );
 
+  if (isExternal) {
+    return <a href={study.externalLink} target="_blank" rel="noopener noreferrer" className="block h-full">{cardContent}</a>;
+  }
+
   if (study.slug) {
     return <Link to={`/case-studies/${study.slug}`} className="block h-full">{cardContent}</Link>;
   }
   
   return cardContent;
 }
+
 
 // Main Content Grid
 function CaseStudiesContent({ selectedIndustry }: { selectedIndustry: string | null }) {
