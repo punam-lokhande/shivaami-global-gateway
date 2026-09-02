@@ -60,7 +60,7 @@ export default function Header() {
             </a>
             
             <a 
-              href="https://customercare.shivaami.com/" 
+              href={content.portalUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 text-primary hover:text-accent transition-colors"
