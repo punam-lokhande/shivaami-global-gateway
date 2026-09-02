@@ -154,7 +154,14 @@ export function RegionProvider({ children }: { children: ReactNode }) {
 export function useRegion() {
   const context = useContext(RegionContext);
   if (context === undefined) {
-    throw new Error('useRegion must be used within a RegionProvider');
+    // Fallback (e.g. during hot-reload when the provider module is re-evaluated)
+    console.warn('useRegion used outside RegionProvider — falling back to default region.');
+    return {
+      region: 'india' as Region,
+      setRegion: () => {},
+      toggleRegion: () => {},
+      content: regionData.india,
+    } satisfies RegionContextType;
   }
   return context;
 }
