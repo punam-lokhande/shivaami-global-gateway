@@ -10,6 +10,7 @@ interface RegionContent {
   currency: string;
   currencySymbol: string;
   shopUrl: string;
+  portalUrl: string;
   testimonials: Array<{
     name: string;
     company: string;
@@ -30,6 +31,7 @@ const regionData: Record<Region, RegionContent> = {
     currency: 'INR',
     currencySymbol: '₹',
     shopUrl: 'https://www.shivaami.com/shop/',
+    portalUrl: 'https://shop.shivaami.com/',
     testimonials: [
       {
         name: 'Rajesh Kumar',
@@ -61,6 +63,7 @@ const regionData: Record<Region, RegionContent> = {
     currency: 'USD',
     currencySymbol: '$',
     shopUrl: 'https://gaganhub.shivaami.com/',
+    portalUrl: 'https://gaganhub.shivaami.com/',
     testimonials: [
       {
         name: 'Eric Morhenn',
