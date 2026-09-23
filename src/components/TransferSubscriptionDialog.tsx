@@ -25,6 +25,7 @@ const formSchema = z.object({
   name: z.string().trim().min(1, "Required").max(100),
   email: z.string().trim().email("Invalid email").max(255),
   contact: z.string().trim().min(1, "Required").max(20),
+  country: z.string().trim().min(1, "Required"),
   message: z.string().trim().min(1, "Required").max(1000),
 });
 
