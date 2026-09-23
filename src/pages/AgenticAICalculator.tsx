@@ -50,6 +50,7 @@ const contactSchema = z.object({
     .refine((v) => /^(https?:\/\/)?([\w-]+\.)+[\w-]{2,}([/?#].*)?$/i.test(v), 'Enter a valid URL'),
   phone: z.string().trim().max(40).optional().or(z.literal('')),
   jobTitle: z.string().trim().min(1, 'Required').max(120),
+  country: z.string().trim().min(1, 'Required'),
 });
 
 type Step = 1 | 2 | 3;
