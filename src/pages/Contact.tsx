@@ -125,6 +125,7 @@ export default function Contact() {
       setEmail('');
       setPhone('');
       setCompany('');
+      setCountry('');
       setMessage('');
       setSource('');
       setOtherSource('');
