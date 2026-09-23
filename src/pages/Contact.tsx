@@ -72,6 +72,7 @@ export default function Contact() {
     }
     if (!phone) newErrors.phone = 'Phone number is required.';
     if (!company) newErrors.company = 'Company name is required.';
+    if (!country) newErrors.country = 'Country is required.';
     if (!message) newErrors.message = 'Message is required.';
 
     setErrors(newErrors);
