@@ -87,7 +87,7 @@ export default function TransferSubscriptionDialog({ open, onOpenChange }: Trans
       description: "We'll contact you shortly regarding your subscription transfer.",
     });
 
-    setFormData({ name: '', email: '', contact: '', message: '' });
+    setFormData({ name: '', email: '', contact: '', country: '', message: '' });
     setCaptchaInput('');
     refreshCaptcha();
     setIsSubmitting(false);
