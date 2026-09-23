@@ -44,6 +44,7 @@ const GetStartedDialog = ({ open, onOpenChange }: GetStartedDialogProps) => {
     email: '',
     phone: '',
     website: '',
+    country: '',
     message: '',
     captchaAnswer: '',
   });
@@ -57,6 +58,7 @@ const GetStartedDialog = ({ open, onOpenChange }: GetStartedDialogProps) => {
         email: '',
         phone: '',
         website: '',
+        country: '',
         message: '',
         captchaAnswer: '',
       });
