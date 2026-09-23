@@ -46,6 +46,7 @@ const SecureSightAccessDialog = ({ open, onOpenChange }: Props) => {
   const { toast } = useToast();
   const [email, setEmail] = useState('');
   const [companyDomain, setCompanyDomain] = useState('');
+  const [country, setCountry] = useState('');
   const [adminEmails, setAdminEmails] = useState('');
   const [employeeCount, setEmployeeCount] = useState('');
   const [licenses, setLicenses] = useState<string[]>([]);
@@ -57,6 +58,7 @@ const SecureSightAccessDialog = ({ open, onOpenChange }: Props) => {
     if (open) {
       setEmail('');
       setCompanyDomain('');
+      setCountry('');
       setAdminEmails('');
       setEmployeeCount('');
       setLicenses([]);
