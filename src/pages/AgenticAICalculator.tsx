@@ -162,7 +162,7 @@ export default function AgenticAICalculator() {
     setIndustry(''); setRegion(''); setFte(''); setRedundantSpend('');
     setMeetHrs(null); setDocHrs(null); setResearchHrs(null);
     setFullName(''); setWorkEmail(''); setCompanyName(''); setCompanyWebsite('');
-    setPhone(''); setJobTitle(''); setErrors({});
+    setPhone(''); setJobTitle(''); setCountry(''); setErrors({});
     scrollToTop();
   };
 
