@@ -12,9 +12,17 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Checkbox } from '@/components/ui/checkbox';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select';
 import { useToast } from '@/hooks/use-toast';
 import { Send } from 'lucide-react';
 import { API_ENDPOINTS } from '@/utils/api';
+import { COUNTRY_OPTIONS } from '@/lib/countries';
 
 interface Props {
   open: boolean;
