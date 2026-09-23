@@ -104,6 +104,7 @@ export default function Contact() {
         email,
         phone,
         company,
+        country,
         subject: '',
         message,
         learned_from: learnedFrom,
