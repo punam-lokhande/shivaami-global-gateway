@@ -16,6 +16,8 @@ import pipelinePowerhouse2025 from '@/assets/awards/Pipeline Powerhouse 2025.png
 import newTitanChampion2025 from '@/assets/awards/New Titan Champion 2025.png';
 import newFrontiersChampion2025 from '@/assets/awards/New Frontiers Champion 2025.png';
 import etEdgeBestOrganisations2026 from '@/assets/awards/ET-Edge-The-Best-Organisations-to-Work-2026.jpg';
+import geminiWhisperer2026 from '@/assets/awards/gemini-whisperer-2026.jpg.asset.json';
+
 
 
 interface AwardItem {
