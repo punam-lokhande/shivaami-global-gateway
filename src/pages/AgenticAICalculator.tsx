@@ -19,6 +19,7 @@ import {
 import { submitLead } from '@/lib/leadWebhook';
 import { useToast } from '@/hooks/use-toast';
 import { cn } from '@/lib/utils';
+import { COUNTRY_OPTIONS } from '@/lib/countries';
 
 // CTA URLs — replace with final Apollo & Zoho links when provided.
 const APOLLO_URL = 'https://meetings.apollo.io/meet/shivaami-team/30min';
