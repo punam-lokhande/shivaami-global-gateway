@@ -42,7 +42,7 @@ function generateCaptcha() {
 
 export default function TransferSubscriptionDialog({ open, onOpenChange }: TransferSubscriptionDialogProps) {
   const { toast } = useToast();
-  const [formData, setFormData] = useState({ name: '', email: '', contact: '', message: '' });
+  const [formData, setFormData] = useState({ name: '', email: '', contact: '', country: '', message: '' });
   const [captchaInput, setCaptchaInput] = useState('');
   const [captcha, setCaptcha] = useState(generateCaptcha);
   const [errors, setErrors] = useState<Record<string, string>>({});
