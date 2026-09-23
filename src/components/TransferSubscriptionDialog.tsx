@@ -148,6 +148,27 @@ export default function TransferSubscriptionDialog({ open, onOpenChange }: Trans
             {errors.email && <p className="text-red-500 text-[10px] mt-0.5">{errors.email}</p>}
           </div>
 
+          {/* Country */}
+          <div>
+            <Select
+              value={formData.country}
+              onValueChange={(value) => {
+                setFormData(prev => ({ ...prev, country: value }));
+                if (errors.country) setErrors(prev => ({ ...prev, country: '' }));
+              }}
+            >
+              <SelectTrigger className={`h-10 text-sm border-slate-200 focus:border-[#1b9dd8] focus:ring-[#1b9dd8]/20 w-full ${errors.country ? 'border-red-400' : ''}`}>
+                <SelectValue placeholder="Country *" />
+              </SelectTrigger>
+              <SelectContent>
+                {COUNTRY_OPTIONS.map((c) => (
+                  <SelectItem key={c} value={c}>{c}</SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+            {errors.country && <p className="text-red-500 text-[10px] mt-0.5">{errors.country}</p>}
+          </div>
+
           {/* Message */}
           <div>
             <Textarea
