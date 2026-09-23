@@ -126,6 +126,25 @@ const WatchOnDemandForm = ({ moduleName, moduleNumber, youtubeUrl, duration = "~
             />
           </div>
           
+          <div className="space-y-2">
+            <Label htmlFor="country" className="text-gray-700">
+              Country <span className="text-red-500">*</span>
+            </Label>
+            <Select 
+              value={formData.country} 
+              onValueChange={(value) => setFormData(prev => ({ ...prev, country: value }))}
+            >
+              <SelectTrigger id="country" className="border-gray-300 focus:border-[#1b9dd8] focus:ring-[#1b9dd8] w-full">
+                <SelectValue placeholder="Select your country" />
+              </SelectTrigger>
+              <SelectContent>
+                {COUNTRY_OPTIONS.map((c) => (
+                  <SelectItem key={c} value={c}>{c}</SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          </div>
+          
           <Button 
             type="submit" 
             className="w-full bg-gradient-to-r from-[#1b9dd8] to-[#0C4594] hover:shadow-lg text-white font-semibold py-6"
