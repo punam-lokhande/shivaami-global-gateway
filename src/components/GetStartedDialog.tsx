@@ -215,6 +215,23 @@ const GetStartedDialog = ({ open, onOpenChange }: GetStartedDialogProps) => {
           </div>
           
           <div className="space-y-2 md:col-span-2">
+            <Label htmlFor="country" className="text-foreground">Country *</Label>
+            <Select
+              value={formData.country}
+              onValueChange={(value) => setFormData(prev => ({ ...prev, country: value }))}
+            >
+              <SelectTrigger className="bg-background border-border w-full">
+                <SelectValue placeholder="Select your country" />
+              </SelectTrigger>
+              <SelectContent>
+                {COUNTRY_OPTIONS.map((c) => (
+                  <SelectItem key={c} value={c}>{c}</SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          </div>
+          
+          <div className="space-y-2 md:col-span-2">
             <Label htmlFor="message" className="text-foreground">Message *</Label>
             <Textarea
               id="message"
