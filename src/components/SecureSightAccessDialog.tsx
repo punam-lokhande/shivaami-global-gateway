@@ -12,9 +12,17 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Checkbox } from '@/components/ui/checkbox';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select';
 import { useToast } from '@/hooks/use-toast';
 import { Send } from 'lucide-react';
 import { API_ENDPOINTS } from '@/utils/api';
+import { COUNTRY_OPTIONS } from '@/lib/countries';
 
 interface Props {
   open: boolean;
@@ -38,6 +46,7 @@ const SecureSightAccessDialog = ({ open, onOpenChange }: Props) => {
   const { toast } = useToast();
   const [email, setEmail] = useState('');
   const [companyDomain, setCompanyDomain] = useState('');
+  const [country, setCountry] = useState('');
   const [adminEmails, setAdminEmails] = useState('');
   const [employeeCount, setEmployeeCount] = useState('');
   const [licenses, setLicenses] = useState<string[]>([]);
@@ -49,6 +58,7 @@ const SecureSightAccessDialog = ({ open, onOpenChange }: Props) => {
     if (open) {
       setEmail('');
       setCompanyDomain('');
+      setCountry('');
       setAdminEmails('');
       setEmployeeCount('');
       setLicenses([]);
@@ -63,6 +73,10 @@ const SecureSightAccessDialog = ({ open, onOpenChange }: Props) => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!country) {
+      toast({ title: 'Please select your country', variant: 'destructive' });
+      return;
+    }
     if (!employeeCount) {
       toast({ title: 'Please select employee count', variant: 'destructive' });
       return;
@@ -80,6 +94,7 @@ const SecureSightAccessDialog = ({ open, onOpenChange }: Props) => {
         body: JSON.stringify({
           email,
           website: companyDomain,
+          country,
           emailids: adminEmails,
           emoloyeecounts: employeeCount,
           licenses: allLicenses.join(', '),
@@ -117,6 +132,19 @@ const SecureSightAccessDialog = ({ open, onOpenChange }: Props) => {
           <div className="space-y-2">
             <Label htmlFor="ss-domain">Company Domain *</Label>
             <Input id="ss-domain" value={companyDomain} onChange={e => setCompanyDomain(e.target.value)} required placeholder="company.com" />
+          </div>
+          <div className="space-y-2">
+            <Label htmlFor="ss-country">Country *</Label>
+            <Select value={country} onValueChange={setCountry}>
+              <SelectTrigger id="ss-country" className="w-full">
+                <SelectValue placeholder="Select your country" />
+              </SelectTrigger>
+              <SelectContent>
+                {COUNTRY_OPTIONS.map((c) => (
+                  <SelectItem key={c} value={c}>{c}</SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
           </div>
           <div className="space-y-2">
             <Label htmlFor="ss-admins">Admin Email IDs *</Label>

@@ -11,6 +11,7 @@ export interface LeadPayload {
   companyWebsite: string;
   phone?: string;
   jobTitle: string;
+  country: string;
   industry: string;
   region: string;
   fte: number;

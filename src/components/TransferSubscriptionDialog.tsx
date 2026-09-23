@@ -5,6 +5,13 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select';
+import {
   Dialog,
   DialogContent,
   DialogHeader,
@@ -12,11 +19,13 @@ import {
 } from '@/components/ui/dialog';
 import { useToast } from '@/hooks/use-toast';
 import { z } from 'zod';
+import { COUNTRY_OPTIONS } from '@/lib/countries';
 
 const formSchema = z.object({
   name: z.string().trim().min(1, "Required").max(100),
   email: z.string().trim().email("Invalid email").max(255),
   contact: z.string().trim().min(1, "Required").max(20),
+  country: z.string().trim().min(1, "Required"),
   message: z.string().trim().min(1, "Required").max(1000),
 });
 
@@ -33,7 +42,7 @@ function generateCaptcha() {
 
 export default function TransferSubscriptionDialog({ open, onOpenChange }: TransferSubscriptionDialogProps) {
   const { toast } = useToast();
-  const [formData, setFormData] = useState({ name: '', email: '', contact: '', message: '' });
+  const [formData, setFormData] = useState({ name: '', email: '', contact: '', country: '', message: '' });
   const [captchaInput, setCaptchaInput] = useState('');
   const [captcha, setCaptcha] = useState(generateCaptcha);
   const [errors, setErrors] = useState<Record<string, string>>({});
@@ -78,7 +87,7 @@ export default function TransferSubscriptionDialog({ open, onOpenChange }: Trans
       description: "We'll contact you shortly regarding your subscription transfer.",
     });
 
-    setFormData({ name: '', email: '', contact: '', message: '' });
+    setFormData({ name: '', email: '', contact: '', country: '', message: '' });
     setCaptchaInput('');
     refreshCaptcha();
     setIsSubmitting(false);
@@ -137,6 +146,27 @@ export default function TransferSubscriptionDialog({ open, onOpenChange }: Trans
               className={`h-10 text-sm border-slate-200 focus:border-[#1b9dd8] focus:ring-[#1b9dd8]/20 ${errors.email ? 'border-red-400' : ''}`}
             />
             {errors.email && <p className="text-red-500 text-[10px] mt-0.5">{errors.email}</p>}
+          </div>
+
+          {/* Country */}
+          <div>
+            <Select
+              value={formData.country}
+              onValueChange={(value) => {
+                setFormData(prev => ({ ...prev, country: value }));
+                if (errors.country) setErrors(prev => ({ ...prev, country: '' }));
+              }}
+            >
+              <SelectTrigger className={`h-10 text-sm border-slate-200 focus:border-[#1b9dd8] focus:ring-[#1b9dd8]/20 w-full ${errors.country ? 'border-red-400' : ''}`}>
+                <SelectValue placeholder="Country *" />
+              </SelectTrigger>
+              <SelectContent>
+                {COUNTRY_OPTIONS.map((c) => (
+                  <SelectItem key={c} value={c}>{c}</SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+            {errors.country && <p className="text-red-500 text-[10px] mt-0.5">{errors.country}</p>}
           </div>
 
           {/* Message */}

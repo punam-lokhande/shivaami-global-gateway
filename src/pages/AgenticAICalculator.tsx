@@ -19,6 +19,7 @@ import {
 import { submitLead } from '@/lib/leadWebhook';
 import { useToast } from '@/hooks/use-toast';
 import { cn } from '@/lib/utils';
+import { COUNTRY_OPTIONS } from '@/lib/countries';
 
 // CTA URLs — replace with final Apollo & Zoho links when provided.
 const APOLLO_URL = 'https://meetings.apollo.io/meet/shivaami-team/30min';
@@ -49,6 +50,7 @@ const contactSchema = z.object({
     .refine((v) => /^(https?:\/\/)?([\w-]+\.)+[\w-]{2,}([/?#].*)?$/i.test(v), 'Enter a valid URL'),
   phone: z.string().trim().max(40).optional().or(z.literal('')),
   jobTitle: z.string().trim().min(1, 'Required').max(120),
+  country: z.string().trim().min(1, 'Required'),
 });
 
 type Step = 1 | 2 | 3;
@@ -84,6 +86,7 @@ export default function AgenticAICalculator() {
   const [companyWebsite, setCompanyWebsite] = useState('');
   const [phone, setPhone] = useState('');
   const [jobTitle, setJobTitle] = useState('');
+  const [country, setCountry] = useState('');
   const [errors, setErrors] = useState<Record<string, string>>({});
 
   const inputs: ROIInputs | null = useMemo(() => {
@@ -126,7 +129,7 @@ export default function AgenticAICalculator() {
       toast({ title: 'Please answer all work-profile questions', variant: 'destructive' });
       return;
     }
-    const parsed = contactSchema.safeParse({ fullName, workEmail, companyName, companyWebsite, phone, jobTitle });
+    const parsed = contactSchema.safeParse({ fullName, workEmail, companyName, companyWebsite, phone, jobTitle, country });
     if (!parsed.success) {
       const errs: Record<string, string> = {};
       parsed.error.issues.forEach((iss) => { errs[String(iss.path[0])] = iss.message; });
@@ -139,7 +142,7 @@ export default function AgenticAICalculator() {
     // Fire-and-forget lead capture
     submitLead({
       timestamp: new Date().toISOString(),
-      fullName, workEmail, companyName, companyWebsite, phone, jobTitle,
+      fullName, workEmail, companyName, companyWebsite, phone, jobTitle, country,
       industry: industry as string,
       region: region as string,
       fte: Number(fte) || 0,
@@ -159,7 +162,7 @@ export default function AgenticAICalculator() {
     setIndustry(''); setRegion(''); setFte(''); setRedundantSpend('');
     setMeetHrs(null); setDocHrs(null); setResearchHrs(null);
     setFullName(''); setWorkEmail(''); setCompanyName(''); setCompanyWebsite('');
-    setPhone(''); setJobTitle(''); setErrors({});
+    setPhone(''); setJobTitle(''); setCountry(''); setErrors({});
     scrollToTop();
   };
 
@@ -327,6 +330,16 @@ export default function AgenticAICalculator() {
                   </Field>
                   <Field label="Job Title *" error={errors.jobTitle}>
                     <Input value={jobTitle} onChange={(e) => setJobTitle(e.target.value)} className="text-base" />
+                  </Field>
+                  <Field label="Country *" error={errors.country}>
+                    <Select value={country} onValueChange={setCountry}>
+                      <SelectTrigger className="text-base w-full"><SelectValue placeholder="Select your country" /></SelectTrigger>
+                      <SelectContent>
+                        {COUNTRY_OPTIONS.map((c) => (
+                          <SelectItem key={c} value={c}>{c}</SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
                   </Field>
                 </div>
 

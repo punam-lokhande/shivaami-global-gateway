@@ -11,9 +11,17 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select';
 import { useToast } from '@/hooks/use-toast';
 import { Send } from 'lucide-react';
 import { API_ENDPOINTS } from '@/utils/api';
+import { COUNTRY_OPTIONS } from '@/lib/countries';
 
 interface GetStartedDialogProps {
   open: boolean;
@@ -36,6 +44,7 @@ const GetStartedDialog = ({ open, onOpenChange }: GetStartedDialogProps) => {
     email: '',
     phone: '',
     website: '',
+    country: '',
     message: '',
     captchaAnswer: '',
   });
@@ -49,6 +58,7 @@ const GetStartedDialog = ({ open, onOpenChange }: GetStartedDialogProps) => {
         email: '',
         phone: '',
         website: '',
+        country: '',
         message: '',
         captchaAnswer: '',
       });
@@ -62,6 +72,15 @@ const GetStartedDialog = ({ open, onOpenChange }: GetStartedDialogProps) => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    if (!formData.country) {
+      toast({
+        title: 'Country required',
+        description: 'Please select your country.',
+        variant: 'destructive',
+      });
+      return;
+    }
     
     if (parseInt(formData.captchaAnswer) !== captcha.answer) {
       toast({
@@ -193,6 +212,23 @@ const GetStartedDialog = ({ open, onOpenChange }: GetStartedDialogProps) => {
               placeholder="yourcompany.com"
               className="bg-background border-border"
             />
+          </div>
+          
+          <div className="space-y-2 md:col-span-2">
+            <Label htmlFor="country" className="text-foreground">Country *</Label>
+            <Select
+              value={formData.country}
+              onValueChange={(value) => setFormData(prev => ({ ...prev, country: value }))}
+            >
+              <SelectTrigger className="bg-background border-border w-full">
+                <SelectValue placeholder="Select your country" />
+              </SelectTrigger>
+              <SelectContent>
+                {COUNTRY_OPTIONS.map((c) => (
+                  <SelectItem key={c} value={c}>{c}</SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
           </div>
           
           <div className="space-y-2 md:col-span-2">

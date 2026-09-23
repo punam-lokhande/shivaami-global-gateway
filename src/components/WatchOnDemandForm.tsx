@@ -2,8 +2,16 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Play, CheckCircle } from "lucide-react";
+import { COUNTRY_OPTIONS } from "@/lib/countries";
 
 interface WatchOnDemandFormProps {
   moduleName: string;
@@ -17,13 +25,18 @@ const WatchOnDemandForm = ({ moduleName, moduleNumber, youtubeUrl, duration = "~
     name: "",
     email: "",
     website: "",
-    phone: ""
+    phone: "",
+    country: ""
   });
   const [showSuccessDialog, setShowSuccessDialog] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    if (!formData.country) {
+      alert("Please select your country.");
+      return;
+    }
     setIsSubmitting(true);
     
     // Simulate form submission
@@ -111,6 +124,25 @@ const WatchOnDemandForm = ({ moduleName, moduleNumber, youtubeUrl, duration = "~
               value={formData.phone}
               onChange={handleInputChange}
             />
+          </div>
+          
+          <div className="space-y-2">
+            <Label htmlFor="country" className="text-gray-700">
+              Country <span className="text-red-500">*</span>
+            </Label>
+            <Select 
+              value={formData.country} 
+              onValueChange={(value) => setFormData(prev => ({ ...prev, country: value }))}
+            >
+              <SelectTrigger id="country" className="border-gray-300 focus:border-[#1b9dd8] focus:ring-[#1b9dd8] w-full">
+                <SelectValue placeholder="Select your country" />
+              </SelectTrigger>
+              <SelectContent>
+                {COUNTRY_OPTIONS.map((c) => (
+                  <SelectItem key={c} value={c}>{c}</SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
           </div>
           
           <Button 
