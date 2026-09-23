@@ -50,6 +50,7 @@ export default function Contact() {
   const [phone, setPhone] = useState('');
   const [company, setCompany] = useState('');
   const [message, setMessage] = useState('');
+  const [country, setCountry] = useState('');
   const [source, setSource] = useState('');
   const [otherSource, setOtherSource] = useState('');
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
