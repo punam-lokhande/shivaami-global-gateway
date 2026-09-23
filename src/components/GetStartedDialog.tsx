@@ -72,6 +72,15 @@ const GetStartedDialog = ({ open, onOpenChange }: GetStartedDialogProps) => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    if (!formData.country) {
+      toast({
+        title: 'Country required',
+        description: 'Please select your country.',
+        variant: 'destructive',
+      });
+      return;
+    }
     
     if (parseInt(formData.captchaAnswer) !== captcha.answer) {
       toast({
