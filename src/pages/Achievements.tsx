@@ -34,7 +34,8 @@ const awardsData: YearData[] = [
   {
     year: '2026',
     awards: [
-      { title: '2026 Gemini Enterprise MVP of the Year – “Gemini Whisperer', image: geminiWhisperer2026 },
+      { title: '2026 Gemini Enterprise MVP of the Year – “Gemini Whisperer', image: geminiWhisperer2026.url },
+
       { title: 'Google Cloud Partner of the Year - 2026', image: googleCloudPartner2026 },
 
       { title: 'Partner of the Year – APAC / VAR (India) - JumpCloud', image: 'https://www.shivaami.com/assets/images/award/jumpcloud-partner-2026.jpg' },
