@@ -129,7 +129,7 @@ export default function AgenticAICalculator() {
       toast({ title: 'Please answer all work-profile questions', variant: 'destructive' });
       return;
     }
-    const parsed = contactSchema.safeParse({ fullName, workEmail, companyName, companyWebsite, phone, jobTitle });
+    const parsed = contactSchema.safeParse({ fullName, workEmail, companyName, companyWebsite, phone, jobTitle, country });
     if (!parsed.success) {
       const errs: Record<string, string> = {};
       parsed.error.issues.forEach((iss) => { errs[String(iss.path[0])] = iss.message; });
@@ -142,7 +142,7 @@ export default function AgenticAICalculator() {
     // Fire-and-forget lead capture
     submitLead({
       timestamp: new Date().toISOString(),
-      fullName, workEmail, companyName, companyWebsite, phone, jobTitle,
+      fullName, workEmail, companyName, companyWebsite, phone, jobTitle, country,
       industry: industry as string,
       region: region as string,
       fte: Number(fte) || 0,
