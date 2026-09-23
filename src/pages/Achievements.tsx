@@ -34,7 +34,9 @@ const awardsData: YearData[] = [
   {
     year: '2026',
     awards: [
+      { title: '2026 Gemini Enterprise MVP of the Year – “Gemini Whisperer', image: geminiWhisperer2026 },
       { title: 'Google Cloud Partner of the Year - 2026', image: googleCloudPartner2026 },
+
       { title: 'Partner of the Year – APAC / VAR (India) - JumpCloud', image: 'https://www.shivaami.com/assets/images/award/jumpcloud-partner-2026.jpg' },
       { title: 'ET Edge - The Best Organisations to Work 2026 by ET Edge - The Times Group', image: etEdgeBestOrganisations2026 },
       { title: 'Google Cloud APAC Leaderboard Champions - Pipeline Powerhouse 2025', image: pipelinePowerhouse2025 },
