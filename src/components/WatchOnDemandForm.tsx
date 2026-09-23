@@ -25,13 +25,18 @@ const WatchOnDemandForm = ({ moduleName, moduleNumber, youtubeUrl, duration = "~
     name: "",
     email: "",
     website: "",
-    phone: ""
+    phone: "",
+    country: ""
   });
   const [showSuccessDialog, setShowSuccessDialog] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    if (!formData.country) {
+      alert("Please select your country.");
+      return;
+    }
     setIsSubmitting(true);
     
     // Simulate form submission
