@@ -134,6 +134,19 @@ const SecureSightAccessDialog = ({ open, onOpenChange }: Props) => {
             <Input id="ss-domain" value={companyDomain} onChange={e => setCompanyDomain(e.target.value)} required placeholder="company.com" />
           </div>
           <div className="space-y-2">
+            <Label htmlFor="ss-country">Country *</Label>
+            <Select value={country} onValueChange={setCountry}>
+              <SelectTrigger id="ss-country" className="w-full">
+                <SelectValue placeholder="Select your country" />
+              </SelectTrigger>
+              <SelectContent>
+                {COUNTRY_OPTIONS.map((c) => (
+                  <SelectItem key={c} value={c}>{c}</SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          </div>
+          <div className="space-y-2">
             <Label htmlFor="ss-admins">Admin Email IDs *</Label>
             <p className="text-xs text-muted-foreground">
               Please list the email addresses of the team members who have SuperAdmin access to Google Workspace, separated by commas (e.g., admin1@company.com, admin2@company.com).
