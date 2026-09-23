@@ -86,6 +86,7 @@ export default function AgenticAICalculator() {
   const [companyWebsite, setCompanyWebsite] = useState('');
   const [phone, setPhone] = useState('');
   const [jobTitle, setJobTitle] = useState('');
+  const [country, setCountry] = useState('');
   const [errors, setErrors] = useState<Record<string, string>>({});
 
   const inputs: ROIInputs | null = useMemo(() => {
