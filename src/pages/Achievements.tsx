@@ -16,6 +16,8 @@ import pipelinePowerhouse2025 from '@/assets/awards/Pipeline Powerhouse 2025.png
 import newTitanChampion2025 from '@/assets/awards/New Titan Champion 2025.png';
 import newFrontiersChampion2025 from '@/assets/awards/New Frontiers Champion 2025.png';
 import etEdgeBestOrganisations2026 from '@/assets/awards/ET-Edge-The-Best-Organisations-to-Work-2026.jpg';
+import geminiWhisperer2026 from '@/assets/awards/gemini-whisperer-2026.jpg.asset.json';
+
 
 
 interface AwardItem {
@@ -32,7 +34,10 @@ const awardsData: YearData[] = [
   {
     year: '2026',
     awards: [
+      { title: '2026 Gemini Enterprise MVP of the Year – “Gemini Whisperer', image: geminiWhisperer2026.url },
+
       { title: 'Google Cloud Partner of the Year - 2026', image: googleCloudPartner2026 },
+
       { title: 'Partner of the Year – APAC / VAR (India) - JumpCloud', image: 'https://www.shivaami.com/assets/images/award/jumpcloud-partner-2026.jpg' },
       { title: 'ET Edge - The Best Organisations to Work 2026 by ET Edge - The Times Group', image: etEdgeBestOrganisations2026 },
       { title: 'Google Cloud APAC Leaderboard Champions - Pipeline Powerhouse 2025', image: pipelinePowerhouse2025 },
