@@ -73,6 +73,10 @@ const SecureSightAccessDialog = ({ open, onOpenChange }: Props) => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!country) {
+      toast({ title: 'Please select your country', variant: 'destructive' });
+      return;
+    }
     if (!employeeCount) {
       toast({ title: 'Please select employee count', variant: 'destructive' });
       return;
@@ -90,6 +94,7 @@ const SecureSightAccessDialog = ({ open, onOpenChange }: Props) => {
         body: JSON.stringify({
           email,
           website: companyDomain,
+          country,
           emailids: adminEmails,
           emoloyeecounts: employeeCount,
           licenses: allLicenses.join(', '),
