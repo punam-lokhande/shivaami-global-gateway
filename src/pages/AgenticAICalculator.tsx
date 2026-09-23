@@ -331,6 +331,16 @@ export default function AgenticAICalculator() {
                   <Field label="Job Title *" error={errors.jobTitle}>
                     <Input value={jobTitle} onChange={(e) => setJobTitle(e.target.value)} className="text-base" />
                   </Field>
+                  <Field label="Country *" error={errors.country}>
+                    <Select value={country} onValueChange={setCountry}>
+                      <SelectTrigger className="text-base w-full"><SelectValue placeholder="Select your country" /></SelectTrigger>
+                      <SelectContent>
+                        {COUNTRY_OPTIONS.map((c) => (
+                          <SelectItem key={c} value={c}>{c}</SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                  </Field>
                 </div>
 
                 <div className="mt-8 flex flex-col-reverse md:flex-row md:justify-between gap-3">
