@@ -105,8 +105,17 @@ export default function BecomePartner() {
     e.preventDefault();
     setIsSubmitting(true);
     try {
+      if (!country) {
+        toast({
+          title: "Country required",
+          description: "Please select your country before submitting.",
+          variant: "destructive",
+        });
+        setIsSubmitting(false);
+        return;
+      }
       const captchaToken = await executeCaptcha('become_partner');
-      const body = { ...formData, 'captcha_token': captchaToken };
+      const body = { ...formData, country, 'captcha_token': captchaToken };
 
       const response = await fetch(API_ENDPOINTS.STORE_PARTNERWTHUS_DETAILS, {
         method: 'POST',
