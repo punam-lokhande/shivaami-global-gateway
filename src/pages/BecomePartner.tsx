@@ -402,6 +402,19 @@ export default function BecomePartner() {
                   />
                 </div>
                 <div>
+                  <label className="block text-sm font-medium text-foreground mb-2">Country *</label>
+                  <Select value={country} onValueChange={setCountry}>
+                    <SelectTrigger className="bg-background w-full">
+                      <SelectValue placeholder="Select your country" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {COUNTRY_OPTIONS.map((c) => (
+                        <SelectItem key={c} value={c}>{c}</SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                </div>
+                <div>
                   <label className="block text-sm font-medium text-foreground mb-2">Featured Products and Services</label>
                   <Input
                     name="products"
