@@ -14,6 +14,8 @@ import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
 import partnerBanner from '@/assets/banners/changepath-banner.jpg';
 import partnershipImage from '@/assets/banners/partnership-handshake.jpg';
+import { COUNTRY_OPTIONS } from '@/lib/countries';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { API_ENDPOINTS } from '@/utils/api';
 import { executeCaptcha } from '@/captcha';
 
@@ -83,6 +85,7 @@ export default function BecomePartner() {
     products: '',
     reason: '',
   });
+  const [country, setCountry] = useState('');
   useEffect(() => {
     const script = document.createElement('script');
     script.src = "https://www.google.com/recaptcha/enterprise.js";
@@ -102,8 +105,17 @@ export default function BecomePartner() {
     e.preventDefault();
     setIsSubmitting(true);
     try {
+      if (!country) {
+        toast({
+          title: "Country required",
+          description: "Please select your country before submitting.",
+          variant: "destructive",
+        });
+        setIsSubmitting(false);
+        return;
+      }
       const captchaToken = await executeCaptcha('become_partner');
-      const body = { ...formData, 'captcha_token': captchaToken };
+      const body = { ...formData, country, 'captcha_token': captchaToken };
 
       const response = await fetch(API_ENDPOINTS.STORE_PARTNERWTHUS_DETAILS, {
         method: 'POST',
@@ -388,6 +400,19 @@ export default function BecomePartner() {
                     required
                     className="bg-background"
                   />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-foreground mb-2">Country *</label>
+                  <Select value={country} onValueChange={setCountry}>
+                    <SelectTrigger className="bg-background w-full">
+                      <SelectValue placeholder="Select your country" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {COUNTRY_OPTIONS.map((c) => (
+                        <SelectItem key={c} value={c}>{c}</SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-foreground mb-2">Featured Products and Services</label>
