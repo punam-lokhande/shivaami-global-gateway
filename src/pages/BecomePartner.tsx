@@ -14,6 +14,8 @@ import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
 import partnerBanner from '@/assets/banners/changepath-banner.jpg';
 import partnershipImage from '@/assets/banners/partnership-handshake.jpg';
+import { COUNTRY_OPTIONS } from '@/lib/countries';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { API_ENDPOINTS } from '@/utils/api';
 import { executeCaptcha } from '@/captcha';
 
