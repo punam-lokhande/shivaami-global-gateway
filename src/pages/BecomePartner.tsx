@@ -414,7 +414,7 @@ export default function BecomePartner() {
                     </SelectContent>
                   </Select>
                 </div>
-                <div>
+                <div className="sm:col-span-2">
                   <label className="block text-sm font-medium text-foreground mb-2">Featured Products and Services</label>
                   <Input
                     name="products"
