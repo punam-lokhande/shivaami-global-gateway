@@ -85,6 +85,7 @@ export default function BecomePartner() {
     products: '',
     reason: '',
   });
+  const [country, setCountry] = useState('');
   useEffect(() => {
     const script = document.createElement('script');
     script.src = "https://www.google.com/recaptcha/enterprise.js";
