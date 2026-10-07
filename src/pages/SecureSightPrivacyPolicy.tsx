@@ -409,8 +409,53 @@ export default function SecureSightPrivacyPolicy() {
           </div>
         </section>
 
-        {/* Section 8: Contact Information */}
+        {/* Section 8: Data Protection Mechanisms for Sensitive Google User Data */}
         <section className="py-16 bg-background">
+          <div className="w-full px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24">
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={staggerContainer}
+            >
+              <motion.div variants={fadeInUp} className="flex items-center gap-3 mb-6">
+                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
+                  <Shield className="w-6 h-6 text-primary" />
+                </div>
+                <h2 className="text-3xl font-display font-bold text-foreground">8. Data Protection Mechanisms for Sensitive Google User Data</h2>
+              </motion.div>
+
+              <motion.div variants={fadeInUp} className="bg-secondary/30 rounded-2xl p-6 border border-border/50 mb-6">
+                <p className="text-muted-foreground leading-relaxed">
+                  SecureSight accesses Google Workspace APIs strictly to perform security audits and configuration checks. We enforce the following security controls:
+                </p>
+              </motion.div>
+
+              <motion.div variants={fadeInUp} className="grid md:grid-cols-2 gap-6">
+                {[
+                  { icon: ServerOff, title: 'Client-Side Architecture & Zero Server Storage', desc: 'SecureSight operates locally within the user\'s browser. All data retrieved via Google APIs (including Directory, Reports, and Licensing metadata) is processed in-memory on the client device and is never transmitted to, stored on, or saved in any external servers or databases.' },
+                  { icon: Lock, title: 'Encryption in Transit', desc: 'All API communications between the Chrome Extension and Google Workspace APIs are conducted strictly over secure, encrypted channels using TLS 1.2 or higher (HTTPS).' },
+                  { icon: Trash2, title: 'Data Retention & Access Limits', desc: 'Because no Google Workspace user data or OAuth tokens are stored externally, data retention is limited strictly to the active browser session. User data and tokens are automatically purged when the user logs out or uninstalls the extension.' },
+                  { icon: FileText, title: 'Limited Use Compliance', desc: 'Our use and transfer to any other app of information received from Google APIs will adhere to the Google API Services User Data Policy, including the Limited Use requirements.' },
+                  { icon: EyeOff, title: 'No Third-Party Sharing or AI Training', desc: 'Google user data is never sold, shared with third parties, or used for advertising. Furthermore, data obtained via Google APIs is never used to train, tune, or improve generalized AI or machine learning models' }
+                ].map((item, index) => (
+                  <div key={index} className={`bg-secondary/30 rounded-2xl p-6 border border-border/50 ${index === 4 ? 'md:col-span-2' : ''}`}>
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                        <item.icon className="w-5 h-5 text-primary" />
+                      </div>
+                      <h3 className="text-lg font-semibold text-foreground">{item.title}</h3>
+                    </div>
+                    <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
+                  </div>
+                ))}
+              </motion.div>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* Section 9: Contact Information */}
+        <section className="py-16 bg-secondary/20">
           <div className="w-full px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24">
             <motion.div
               initial="hidden"
@@ -422,7 +467,7 @@ export default function SecureSightPrivacyPolicy() {
                 <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
                   <Mail className="w-6 h-6 text-primary" />
                 </div>
-                <h2 className="text-3xl font-display font-bold text-foreground">8. Contact Information</h2>
+                <h2 className="text-3xl font-display font-bold text-foreground">9. Contact Information</h2>
               </motion.div>
 
               <motion.div variants={fadeInUp} className="bg-secondary/30 rounded-2xl p-6 border border-border/50">
