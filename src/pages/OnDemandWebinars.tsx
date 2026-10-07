@@ -9,6 +9,16 @@ import { Button } from "@/components/ui/button";
 
 const webinars = [
   {
+    id: 11,
+    title: "Build, Scale, and Secure your Multi-agent Ecosystem",
+    description: "Join Google Cloud and Shivaami AI experts to learn how the Gemini Enterprise Assistant and Agent Platform turn core workflows into governed agents that maximize ROI.",
+    date: "Wednesday, Oct 21, 2026",
+    time: "01:00 PM – 01:45 PM EDT",
+    status: "upcoming",
+    link: "/register-webinar",
+    module: "Gemini Enterprise"
+  },
+  {
     id: 1,
     title: "Security & Privacy",
     description: "Learn about security and privacy best practices when using Gemini in Google Workspace.",
