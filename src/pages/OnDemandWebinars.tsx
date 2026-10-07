@@ -102,10 +102,10 @@ const webinars = [
     id: 10,
     title: "Build Your Agentic Workforce with Gemini Enterprise for Education",
     description: "Join Google Cloud and Shivaami for a deep dive session on how to scale secure, context-aware AI agents across your campus ecosystem.",
-    date: "Wednesday, June 10",
+    date: "Wednesday, June 10, 2026",
     time: "1:00 PM – 1:45 PM EDT",
-    status: "upcoming",
-    link: "/register-webinar",
+    status: "on-demand",
+    link: "/on-demand-gemini-enterprise-education",
     module: "Gemini Enterprise"
   },
 ];
