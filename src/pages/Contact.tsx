@@ -74,6 +74,7 @@ export default function Contact() {
     if (!phone) newErrors.phone = 'Phone number is required.';
     if (!company) newErrors.company = 'Company name is required.';
     if (!country) newErrors.country = 'Country is required.';
+    if (!source) newErrors.source = 'Please select an option.';
     if (!message) newErrors.message = 'Message is required.';
 
     setErrors(newErrors);
@@ -271,20 +272,23 @@ export default function Contact() {
 
         <div>
           <label className="block text-sm font-medium text-slate-700 mb-1.5">
-            How did you learn about Shivaami?
+            How did you hear about us? <span className="text-red-500">*</span>
           </label>
           <Select value={source} onValueChange={setSource}>
-            <SelectTrigger className="h-11 bg-slate-50 border-slate-200 focus:bg-white focus:border-[#0C4594] w-full">
+            <SelectTrigger className={`h-11 bg-slate-50 border-slate-200 focus:bg-white focus:border-[#0C4594] w-full ${errors.source ? 'border-red-500' : ''}`}>
               <SelectValue placeholder="Select an option" />
             </SelectTrigger>
             <SelectContent>
-              {['Google Search', 'LinkedIn', 'Referral', 'Youtube', 'Webinar/ Event/ Conference', 'Email', 'Other'].map((opt) => (
+              {['Google Search', 'Gemini / ChatGPT / Claude', 'LinkedIn', 'Referral', 'Youtube', 'Webinar/ Event/ Conference', 'Email', 'Other'].map((opt) => (
                 <SelectItem key={opt} value={opt}>
                   {opt}
                 </SelectItem>
               ))}
             </SelectContent>
           </Select>
+          {errors.source && (
+            <p className="text-xs text-red-500 mt-1">{errors.source}</p>
+          )}
           {source === 'Other' && (
             <Input
               placeholder="Please specify"
