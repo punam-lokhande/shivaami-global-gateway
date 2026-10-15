@@ -2,7 +2,10 @@ import Header from "@/components/layout/Header";
 import { Helmet } from 'react-helmet-async';
 import Footer from "@/components/layout/Footer";
 import { motion } from "framer-motion";
-import { MapPin, Calendar, Clock, Sparkles, Target, ShieldCheck, FileText, LineChart, ChevronRight } from "lucide-react";
+import { MapPin, Calendar, Clock, Sparkles, Target, ShieldCheck, FileText, LineChart, ChevronRight, Loader2 } from "lucide-react";
+import { useState } from "react";
+import { toast } from "sonner";
+import { API_ENDPOINTS } from "@/utils/api";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -13,7 +16,66 @@ import speakerDaniel from "@/assets/speakers/Daniel.jpg";
 import speakerSteve from "@/assets/speakers/Steve.jpg";
 import speakerKunal from "@/assets/speakers/Kunal.jpg";
 
+const WEBINAR_NAME = "Build, Scale, and Secure your Multi-agent Ecosystem";
+const WEBINAR_DATE = "Wednesday, Oct 21, 2026 · 01:00 PM – 01:45 PM EDT";
+
 const RegisterWebinar = () => {
+  const [formData, setFormData] = useState({ name: "", email: "", website: "", phone: "" });
+  const [errors, setErrors] = useState<{ [key: string]: string }>({});
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleChange = (field: keyof typeof formData) => (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFormData((prev) => ({ ...prev, [field]: e.target.value }));
+    if (errors[field]) setErrors((prev) => ({ ...prev, [field]: "" }));
+  };
+
+  const validate = () => {
+    const newErrors: { [key: string]: string } = {};
+    if (!formData.name) newErrors.name = "Name is required.";
+    if (!formData.email) {
+      newErrors.email = "Email is required.";
+    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+      newErrors.email = "Email is invalid.";
+    }
+    if (!formData.website) newErrors.website = "Company website is required.";
+    if (!formData.phone) newErrors.phone = "Phone number is required.";
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!validate()) {
+      toast.error("Please fill in all required fields.");
+      return;
+    }
+    setIsLoading(true);
+    try {
+      const response = await fetch(API_ENDPOINTS.STORE_WEBINAR_REGISTRATION, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          webinarname: WEBINAR_NAME,
+          webinardate: WEBINAR_DATE,
+          name: formData.name,
+          emailid: formData.email,
+          website: formData.website,
+          phonenumber: formData.phone,
+        }),
+      });
+      if (!response.ok) throw new Error("Network response was not ok");
+      await response.json();
+      toast.success("Registration successful! See you at the webinar.");
+      setFormData({ name: "", email: "", website: "", phone: "" });
+      setErrors({});
+    } catch (error) {
+      toast.error("Failed to register. Please try again.");
+      console.error("Error submitting webinar registration:", error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-white">
       <Helmet>
@@ -269,7 +331,7 @@ const RegisterWebinar = () => {
                   <p className="text-white/80 text-sm mt-1">Limited spots - Book your spot now</p>
                 </div>
                 
-                <form className="p-6 space-y-5">
+                <form onSubmit={handleSubmit} noValidate className="p-6 space-y-5">
                   <p className="text-sm font-semibold text-[#0C4594]">
                     Webinar: Build, Scale, and Secure your Multi-agent Ecosystem
                   </p>
@@ -277,50 +339,62 @@ const RegisterWebinar = () => {
                     <Label htmlFor="name" className="text-gray-700">
                       Name (First Name, Last Name) <span className="text-red-500">*</span>
                     </Label>
-                    <Input 
-                      id="name" 
-                      placeholder="Enter your full name" 
-                      className="border-gray-300 focus:border-[#38B6FF] focus:ring-[#38B6FF]"
+                    <Input
+                      id="name"
+                      placeholder="Enter your full name"
+                      className={`border-gray-300 focus:border-[#38B6FF] focus:ring-[#38B6FF] ${errors.name ? "border-red-500" : ""}`}
+                      value={formData.name}
+                      onChange={handleChange("name")}
                       required
                     />
+                    {errors.name && <p className="text-xs text-red-500">{errors.name}</p>}
                   </div>
                   
                   <div className="space-y-2">
                     <Label htmlFor="email" className="text-gray-700">
                       Business Email <span className="text-red-500">*</span>
                     </Label>
-                    <Input 
-                      id="email" 
-                      type="email" 
-                      placeholder="Enter your business email" 
-                      className="border-gray-300 focus:border-[#38B6FF] focus:ring-[#38B6FF]"
+                    <Input
+                      id="email"
+                      type="email"
+                      placeholder="Enter your business email"
+                      className={`border-gray-300 focus:border-[#38B6FF] focus:ring-[#38B6FF] ${errors.email ? "border-red-500" : ""}`}
+                      value={formData.email}
+                      onChange={handleChange("email")}
                       required
                     />
+                    {errors.email && <p className="text-xs text-red-500">{errors.email}</p>}
                   </div>
                   
                   <div className="space-y-2">
                     <Label htmlFor="website" className="text-gray-700">
                       Company Website <span className="text-red-500">*</span>
                     </Label>
-                    <Input 
-                      id="website" 
-                      placeholder="https://yourcompany.com" 
-                      className="border-gray-300 focus:border-[#38B6FF] focus:ring-[#38B6FF]"
+                    <Input
+                      id="website"
+                      placeholder="https://yourcompany.com"
+                      className={`border-gray-300 focus:border-[#38B6FF] focus:ring-[#38B6FF] ${errors.website ? "border-red-500" : ""}`}
+                      value={formData.website}
+                      onChange={handleChange("website")}
                       required
                     />
+                    {errors.website && <p className="text-xs text-red-500">{errors.website}</p>}
                   </div>
                   
                   <div className="space-y-2">
                     <Label htmlFor="phone" className="text-gray-700">
                       Phone Number <span className="text-red-500">*</span>
                     </Label>
-                    <Input 
-                      id="phone" 
-                      type="tel" 
-                      placeholder="Enter your phone number" 
-                      className="border-gray-300 focus:border-[#38B6FF] focus:ring-[#38B6FF]"
+                    <Input
+                      id="phone"
+                      type="tel"
+                      placeholder="Enter your phone number"
+                      className={`border-gray-300 focus:border-[#38B6FF] focus:ring-[#38B6FF] ${errors.phone ? "border-red-500" : ""}`}
+                      value={formData.phone}
+                      onChange={handleChange("phone")}
                       required
                     />
+                    {errors.phone && <p className="text-xs text-red-500">{errors.phone}</p>}
                   </div>
 
                   <div className="pt-2">
@@ -331,11 +405,19 @@ const RegisterWebinar = () => {
                     </div>
                   </div>
                   
-                  <Button 
-                    type="submit" 
+                  <Button
+                    type="submit"
+                    disabled={isLoading}
                     className="w-full bg-gradient-to-r from-[#38B6FF] to-[#0C4594] hover:shadow-lg text-white font-semibold py-6"
                   >
-                    Register
+                    {isLoading ? (
+                      <>
+                        <Loader2 className="w-5 h-5 mr-2 animate-spin" />
+                        Registering...
+                      </>
+                    ) : (
+                      "Register"
+                    )}
                   </Button>
                   
                   <p className="text-xs text-gray-500 text-center">
