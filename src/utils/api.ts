@@ -9,6 +9,8 @@ export const API_ENDPOINTS = {
   STORE_PARTNERWTHUS_DETAILS: `${API_BASE_URL}/store_partnerwthus_details/`,
   STORE_CAREER_DETAILS: `${API_BASE_URL}/store_career_details/`,
   STORE_SECURESIGHT_CUSTOMERDETAILS: `${API_BASE_URL}/store_securesight_customerdetails/`,
+  STORE_WEBINAR_REGISTRATION: `${API_BASE_URL}/store_webinar_registration/`,
+
   
   
 
