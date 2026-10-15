@@ -24,18 +24,18 @@ const PAGES: Array<{ path: string; title: string; category: string }> = [
   { path: "/azure", title: "Azure", category: "Product" },
   { path: "/microsoft-365", title: "Microsoft 365", category: "Product" },
   { path: "/securesight", title: "SecureSight", category: "Product" },
-  { path: "/sales-sync", title: "Gemini + Salesforce Sync", category: "Product" },
+  { path: "/ge-usa", title: "Gemini + Salesforce Sync", category: "Product" },
   { path: "/smarter-solutions", title: "Smarter Solutions", category: "Hub" },
   { path: "/safer-security", title: "Safer Security", category: "Hub" },
   { path: "/smoother-services", title: "Smoother Services", category: "Hub" },
   { path: "/support-packages", title: "Support Packages", category: "Support" },
-  { path: "/support-services", title: "Support Services", category: "Support" },
+  { path: "/support", title: "Support Services", category: "Support" },
   { path: "/case-studies", title: "Case Studies", category: "Resources" },
   { path: "/newsletter", title: "Newsletter", category: "Resources" },
   { path: "/become-partner", title: "Become a Partner", category: "Company" },
   { path: "/referral-program", title: "Referral Program", category: "Company" },
   { path: "/privacy-policy", title: "Privacy Policy", category: "Legal" },
-  { path: "/terms-and-conditions", title: "Terms & Conditions", category: "Legal" },
+  { path: "/terms-of-service", title: "Terms & Conditions", category: "Legal" },
 ];
 
 export default defineTool({
