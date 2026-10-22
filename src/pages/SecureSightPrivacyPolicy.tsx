@@ -445,7 +445,7 @@ export default function SecureSightPrivacyPolicy() {
                     icon: Database,
                     title: 'Secure Local Caching',
                     points: [
-                      <>All data required for the extension to function, including Google API responses, is cached locally on your specific device using your browser\'s secure local storage environment.</>,
+                      <>All data required for the extension to function, including Google API responses, is cached locally on your specific device using your browser's secure local storage environment.</>,
                       <>Because your data never leaves your device (except to communicate directly with Google), it is protected against external server data breaches.</>
                     ]
                   },
@@ -453,7 +453,7 @@ export default function SecureSightPrivacyPolicy() {
                     icon: Lock,
                     title: 'Data Encryption in Transit',
                     points: [
-                      <>All communication between the SecureSight Chrome extension and Google\'s API services is strictly encrypted in transit using industry-standard Transport Layer Security (HTTPS/TLS).</>
+                      <>All communication between the SecureSight Chrome extension and Google's API services is strictly encrypted in transit using industry-standard Transport Layer Security (HTTPS/TLS).</>
                     ]
                   },
                   {
@@ -468,7 +468,7 @@ export default function SecureSightPrivacyPolicy() {
                     icon: FileText,
                     title: 'Google API Limited Use Disclosure',
                     points: [
-                      <>SecureSight\'s use and transfer to any other app of information received from Google APIs will adhere to the{' '}
+                      <>SecureSight's use and transfer to any other app of information received from Google APIs will adhere to the{' '}
                         <a
                           href="https://developers.google.com/terms/api-services-user-data-policy"
                           target="_blank"
