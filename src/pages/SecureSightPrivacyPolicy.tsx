@@ -409,7 +409,7 @@ export default function SecureSightPrivacyPolicy() {
           </div>
         </section>
 
-        {/* Section 8: Data Protection Mechanisms for Sensitive Google User Data */}
+        {/* Section 8: Data Protection Mechanisms for Sensitive Data */}
         <section className="py-16 bg-background">
           <div className="w-full px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24">
             <motion.div
@@ -422,31 +422,83 @@ export default function SecureSightPrivacyPolicy() {
                 <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
                   <Shield className="w-6 h-6 text-primary" />
                 </div>
-                <h2 className="text-3xl font-display font-bold text-foreground">8. Data Protection Mechanisms for Sensitive Google User Data</h2>
+                <h2 className="text-3xl font-display font-bold text-foreground">8. Data Protection Mechanisms for Sensitive Data</h2>
               </motion.div>
 
               <motion.div variants={fadeInUp} className="bg-secondary/30 rounded-2xl p-6 border border-border/50 mb-6">
                 <p className="text-muted-foreground leading-relaxed">
-                  SecureSight accesses Google Workspace APIs strictly to perform security audits and configuration checks. We enforce the following security controls:
+                  SecureSight takes the security and confidentiality of your data seriously. We operate on a strict data minimization model, meaning your sensitive information and Google user data remain entirely under your control. We protect your data through the following mechanisms:
                 </p>
               </motion.div>
 
               <motion.div variants={fadeInUp} className="grid md:grid-cols-2 gap-6">
                 {[
-                  { icon: ServerOff, title: 'Client-Side Architecture & Zero Server Storage', desc: 'SecureSight operates locally within the user\'s browser. All data retrieved via Google APIs (including Directory, Reports, and Licensing metadata) is processed in-memory on the client device and is never transmitted to, stored on, or saved in any external servers or databases.' },
-                  { icon: Lock, title: 'Encryption in Transit', desc: 'All API communications between the Chrome Extension and Google Workspace APIs are conducted strictly over secure, encrypted channels using TLS 1.2 or higher (HTTPS).' },
-                  { icon: Trash2, title: 'Data Retention & Access Limits', desc: 'Because no Google Workspace user data or OAuth tokens are stored externally, data retention is limited strictly to the active browser session. User data and tokens are automatically purged when the user logs out or uninstalls the extension.' },
-                  { icon: FileText, title: 'Limited Use Compliance', desc: 'Our use and transfer to any other app of information received from Google APIs will adhere to the Google API Services User Data Policy, including the Limited Use requirements.' },
-                  { icon: EyeOff, title: 'No Third-Party Sharing or AI Training', desc: 'Google user data is never sold, shared with third parties, or used for advertising. Furthermore, data obtained via Google APIs is never used to train, tune, or improve generalized AI or machine learning models' }
+                  {
+                    icon: ServerOff,
+                    title: 'No Server-Side Data Storage or Access',
+                    points: [
+                      <>SecureSight operates completely on the client side (within your browser). We <strong className="text-foreground">do not</strong> transmit, process, or store any of your sensitive information, Google user data, or API responses on our own servers.</>,
+                      <>The Shivaami/SecureSight development team has <strong className="text-foreground">zero access</strong> to your data or authentication credentials.</>
+                    ]
+                  },
+                  {
+                    icon: Database,
+                    title: 'Secure Local Caching',
+                    points: [
+                      <>All data required for the extension to function, including Google API responses, is cached locally on your specific device using your browser\'s secure local storage environment.</>,
+                      <>Because your data never leaves your device (except to communicate directly with Google), it is protected against external server data breaches.</>
+                    ]
+                  },
+                  {
+                    icon: Lock,
+                    title: 'Data Encryption in Transit',
+                    points: [
+                      <>All communication between the SecureSight Chrome extension and Google\'s API services is strictly encrypted in transit using industry-standard Transport Layer Security (HTTPS/TLS).</>
+                    ]
+                  },
+                  {
+                    icon: Trash2,
+                    title: 'Token Management & Data Purging',
+                    points: [
+                      <>Google OAuth access tokens are securely managed locally within your browser.</>,
+                      <>When you sign out, revoke permissions, or uninstall the SecureSight extension, all locally cached data and OAuth tokens are immediately purged from your device.</>
+                    ]
+                  },
+                  {
+                    icon: FileText,
+                    title: 'Google API Limited Use Disclosure',
+                    points: [
+                      <>SecureSight\'s use and transfer to any other app of information received from Google APIs will adhere to the{' '}
+                        <a
+                          href="https://developers.google.com/terms/api-services-user-data-policy"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-primary font-medium hover:underline"
+                        >
+                          Google API Services User Data Policy
+                        </a>
+                        , including the Limited Use requirements.
+                      </>
+                    ]
+                  }
                 ].map((item, index) => (
                   <div key={index} className={`bg-secondary/30 rounded-2xl p-6 border border-border/50 ${index === 4 ? 'md:col-span-2' : ''}`}>
                     <div className="flex items-center gap-3 mb-3">
                       <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
                         <item.icon className="w-5 h-5 text-primary" />
                       </div>
-                      <h3 className="text-lg font-semibold text-foreground">{item.title}</h3>
+                      <h3 className="text-lg font-semibold text-foreground">
+                        <span className="text-primary">{index + 1}.</span> {item.title}
+                      </h3>
                     </div>
-                    <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
+                    <ul className="space-y-3">
+                      {item.points.map((point, pIndex) => (
+                        <li key={pIndex} className="flex items-start gap-3 text-sm text-muted-foreground leading-relaxed">
+                          <span className="w-1.5 h-1.5 bg-primary/60 rounded-full mt-2 flex-shrink-0" />
+                          <span>{point}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
                 ))}
               </motion.div>
