@@ -17,23 +17,27 @@ import { executeCaptcha } from '@/captcha';
 
 const jobOpenings = [
   {
-    title: 'Operations Executive – Accounts & Renewals',
-    experience: '2 years to 4 years',
-    description: 'We are seeking a detail-oriented Operations Executive – Accounts & Renewals to manage domain renewals, billing coordination, refunds, credit adjustments, and operational reporting. The role involves cross-functional coordination, issue resolution, maintaining accurate records, tracking approvals, and ensuring smooth renewal operations, timely follow-ups, and efficient customer support.',
+    title: 'Inside Sales Executive',
+    experience: '1 – 4 years',
+    location: 'Mulund, Mumbai',
+    description: 'Shivaami Cloud Services Pvt. Ltd. is hiring Inside Sales Representatives at Mulund, Mumbai (1 – 4 years). Responsibilities include lead generation, cold calling, email outreach, and identifying potential customers for IT and cloud solutions. Candidates should have good communication skills and a target-driven mindset; HSC/Graduates can apply. Benefits: 5-day working, incentives, medical insurance, lunch, snacks, and career growth. Immediate joiners preferred!',
   },
   {
     title: 'Inside Sales Representative',
     experience: '0-2 years (Freshers can also apply)',
+    location: 'Mumbai, India',
     description: 'Looking for individuals who will actively source new sales opportunities through emailing and cold-calling. Individuals who will understand consumer needs and identify sales opportunities. Should be able to handle customer queries and keep themselves updated on all the products and services for lead generation. Excellent communication and interpersonal skills are a must. Should be proficient in Google Workspace, Microsoft Office, and CRM software.',
   },
   {
     title: 'Business Development Executive',
     experience: '1-2 years',
+    location: 'Mumbai, India',
     description: 'We are seeking individuals who will communicate with potential clients, make outbound calls, and follow up on leads. Keep themselves updated about the products and services for lead generation and also keep an update on competing products. Create a pipeline of opportunities for the organization. Should be proficient in Google Workspace, Microsoft Office, and CRM software. A multi-tasker with strong listening and sales skills.',
   },
   {
     title: 'Assistant Sales Manager',
     experience: '4-5 years',
+    location: 'Mumbai, India',
     description: 'We are looking for experienced individuals who can expand the sales opportunities within the region and look for new opportunities. Individuals should be able to organize, supervise, and direct the work of the Sales team. The person must participate in operational and strategic planning and development of an annual budget for the business. Should be able to coordinate with the marketing department on lead generation.',
   },
 ];
@@ -279,7 +283,7 @@ export default function Careers() {
                         </span>
                         <span className="flex items-center gap-1.5">
                           <MapPin className="w-3.5 h-3.5 md:w-4 md:h-4" />
-                          Mumbai, India
+                          {job.location}
                         </span>
                       </div>
                     </div>
