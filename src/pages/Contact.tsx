@@ -152,7 +152,7 @@ export default function Contact() {
       {(region === 'usa' || region === 'india') && (
         <div className="mb-6">
           <a
-            href={region === 'india' ? 'https://calendar.app.google/gV1KaLLVkPR32C1p9' : 'https://app.apollo.io/#/meet/40u-obp-ihl/30-min'}
+            href={region === 'india' ? 'https://calendar.app.google/w3NdTFN4EYP4hkn98' : 'https://app.apollo.io/#/meet/40u-obp-ihl/30-min'}
             target="_blank"
             rel="noopener noreferrer"
           >

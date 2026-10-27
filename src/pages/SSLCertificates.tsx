@@ -321,7 +321,7 @@ const ActivationSection = () => (
 const CalendarCTASection = () => {
   const { region } = useRegion();
   const consultationLink = region === 'india' 
-    ? 'https://calendar.app.google/gV1KaLLVkPR32C1p9'
+    ? 'https://calendar.app.google/w3NdTFN4EYP4hkn98'
     : 'https://app.apollo.io/#/meet/40u-obp-ihl/30-min';
 
 
