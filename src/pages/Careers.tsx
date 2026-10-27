@@ -17,9 +17,9 @@ import { executeCaptcha } from '@/captcha';
 
 const jobOpenings = [
   {
-    title: 'Social Media Manager',
-    experience: '3-5 years',
-    description: 'We are looking for a creative Social Media Manager to drive B2B strategies, manage paid campaigns, create thought-leadership content for CXOs, and oversee leadership LinkedIn profiles. You\'ll collaborate with marketing, explore influencer and podcast partnerships, track analytics, and ensure measurable results, while aligning storytelling with business goals.',
+    title: 'Operations Executive – Accounts & Renewals',
+    experience: '2 years to 4 years',
+    description: 'We are seeking a detail-oriented Operations Executive – Accounts & Renewals to manage domain renewals, billing coordination, refunds, credit adjustments, and operational reporting. The role involves cross-functional coordination, issue resolution, maintaining accurate records, tracking approvals, and ensuring smooth renewal operations, timely follow-ups, and efficient customer support.',
   },
   {
     title: 'Inside Sales Representative',
