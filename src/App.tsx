@@ -184,6 +184,14 @@ function CanonicalTag() {
     link.setAttribute("rel", "canonical");
     link.setAttribute("href", href);
     document.head.appendChild(link);
+    // Keep og:url pointing at the current page
+    let ogUrl = document.querySelector('meta[property="og:url"]');
+    if (!ogUrl) {
+      ogUrl = document.createElement("meta");
+      ogUrl.setAttribute("property", "og:url");
+      document.head.appendChild(ogUrl);
+    }
+    ogUrl.setAttribute("content", href);
   }, [pathname]);
 
   return null;
