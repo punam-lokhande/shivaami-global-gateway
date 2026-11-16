@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { MapPin, Calendar, Clock, Sparkles, ArrowLeft, CheckCircle } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Link } from "react-router-dom";
-import nikunjAsset from "@/assets/speakers/speaker-nikunj.png.asset.json";
+import nikunjAsset from "@/assets/speakers/speaker-nikunj.png";
 import heroBanner from "@/assets/banners/google-vids-webinar.jpg";
 import WatchOnDemandForm from "@/components/WatchOnDemandForm";
 
@@ -189,7 +189,7 @@ const OnDemandGoogleVids = () => {
                   <div className="space-y-6">
                     <div className="flex items-center gap-6">
                       <img 
-                        src={nikunjAsset.url} 
+                        src={nikunjAsset} 
                         alt="Nikunj Thakkar" 
                         className="w-24 h-24 rounded-full object-cover border-4 border-[#38B6FF]/30"
                       />

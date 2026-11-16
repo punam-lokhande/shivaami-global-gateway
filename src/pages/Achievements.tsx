@@ -16,8 +16,8 @@ import pipelinePowerhouse2025 from '@/assets/awards/Pipeline Powerhouse 2025.png
 import newTitanChampion2025 from '@/assets/awards/New Titan Champion 2025.png';
 import newFrontiersChampion2025 from '@/assets/awards/New Frontiers Champion 2025.png';
 import etEdgeBestOrganisations2026 from '@/assets/awards/ET-Edge-The-Best-Organisations-to-Work-2026.jpg';
-import geminiWhisperer2026 from '@/assets/awards/Gemini-Whisperer2026-2.jpg.asset.json';
-import googleCloudDistinguishedPartner2026 from '@/assets/awards/GoogleCloudDistinguishedPartnerAward2026.jpg.asset.json';
+import geminiWhisperer2026 from '@/assets/awards/gemini-whisperer-2026-award.jpg';
+import googleCloudDistinguishedPartner2026 from '@/assets/awards/google-cloud-distinguished-partner-2026.jpg';
 
 
 
@@ -35,8 +35,8 @@ const awardsData: YearData[] = [
   {
     year: '2026',
     awards: [
-      { title: 'Distinguished Partner Leader from Google at the Google Cloud Partner AI Conference 2026', image: googleCloudDistinguishedPartner2026.url },
-      { title: '2026 Gemini Enterprise MVP of the Year – “Gemini Whisperer”', image: geminiWhisperer2026.url },
+      { title: 'Distinguished Partner Leader from Google at the Google Cloud Partner AI Conference 2026', image: googleCloudDistinguishedPartner2026 },
+      { title: '2026 Gemini Enterprise MVP of the Year – “Gemini Whisperer”', image: geminiWhisperer2026 },
 
       { title: 'Google Cloud Partner of the Year - 2026', image: googleCloudPartner2026 },
 
