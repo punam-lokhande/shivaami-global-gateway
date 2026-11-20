@@ -1058,7 +1058,7 @@ export const supportPackagesData: { gws: PackageCategory; iam: PackageCategory; 
             "rows": [
               [
                 "Support channels",
-                "33",
+                "Email only",
                 "Email, Chat, Phone",
                 "Email, Chat, Phone",
                 "Email, Chat, Phone"
