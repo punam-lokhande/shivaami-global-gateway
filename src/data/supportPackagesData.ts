@@ -31,7 +31,7 @@ export const supportPackagesData: { gws: PackageCategory; iam: PackageCategory; 
             "rows": [
               [
                 "Support channels",
-                "Email, Articles",
+                "Email",
                 "Email, Phone",
                 "Email, Chat, Phone"
               ],
@@ -287,7 +287,7 @@ export const supportPackagesData: { gws: PackageCategory; iam: PackageCategory; 
             "rows": [
               [
                 "Support channels",
-                "Email, Articles",
+                "Email",
                 "Email, Phone",
                 "Email, Chat, Phone"
               ],
@@ -1361,7 +1361,7 @@ export const supportPackagesData: { gws: PackageCategory; iam: PackageCategory; 
             "rows": [
               [
                 "Support channels",
-                "Email, Articles",
+                "Email",
                 "Email, Phone",
                 "Email, Chat, Phone, GMeet"
               ],
@@ -2092,7 +2092,7 @@ export const supportPackagesData: { gws: PackageCategory; iam: PackageCategory; 
             "rows": [
               [
                 "Support channels",
-                "Email, Articles",
+                "Email",
                 "Email, Phone",
                 "Email, Chat, Phone"
               ],
