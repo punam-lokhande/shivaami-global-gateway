@@ -426,6 +426,13 @@ function PricingSection() {
             </div>
           ))}
         </motion.div>
+
+        <motion.p
+          {...fadeInUp}
+          className="mt-10 text-center text-sm md:text-base text-[#475569] leading-relaxed max-w-4xl mx-auto"
+        >
+          Whether you are a growing business or a large enterprise, Shivaami helps you understand available Gemini Enterprise plans, evaluate licensing requirements and identify the right solution for your organisation. Get expert assistance with plan selection, subscription options and deployment to maximise the value of your AI investment.
+        </motion.p>
       </div>
     </section>
   );
