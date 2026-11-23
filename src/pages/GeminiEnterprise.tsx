@@ -446,8 +446,8 @@ function FAQSection() {
       answer: "Gemini Enterprise is Google's advanced AI agent platform that transforms how organizations leverage artificial intelligence. It provides enterprise-grade AI capabilities, enabling businesses to deploy intelligent agents across teams without complex infrastructure management or technical expertise."
     },
     {
-      question: "Is Gemini Enterprise the same as Gemini for Google Workspace? ",
-      answer: "No. Gemini Enterprise is a standalone Google Cloud AI platform with comprehensive agent-building capabilities and enterprise features. It differs from Gemini for Google Workspace, which is an add-on for productivity apps like Gmail, Docs, and Sheets."
+      question: "How can I find a Gemini Enterprise partner?",
+      answer: "You can work with a Gemini Enterprise partner like Shivaami for licensing guidance, implementation assistance, AI adoption consultation and employee enablement."
     },
     {
       question: "Do I need technical expertise to build AI agents in Gemini Enterprise? ",
