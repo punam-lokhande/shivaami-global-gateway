@@ -9,6 +9,7 @@ import {
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import GetStartedDialog from '@/components/GetStartedDialog';
+import { useRegion } from '@/contexts/RegionContext';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import heroImage from '@/assets/gemini-enterprise-banner.jpg';
@@ -316,8 +317,11 @@ function ActivationSection() {
   );
 }
 
-// Gemini Enterprise Plans & Pricing Section
+// Gemini Enterprise Plans & Pricing Section (India only)
 function PricingSection() {
+  const { region } = useRegion();
+  if (region !== 'india') return null;
+
   const plans = [
     'Gemini Enterprise Emerging Market',
     'Gemini Enterprise Standard',
