@@ -316,6 +316,121 @@ function ActivationSection() {
   );
 }
 
+// Gemini Enterprise Plans & Pricing Section
+function PricingSection() {
+  const plans = [
+    'Gemini Enterprise Emerging Market',
+    'Gemini Enterprise Standard',
+    'Plus',
+    'Frontline Starter',
+  ];
+
+  const rows = [
+    { feature: 'Annual Price / User', values: ['₹9,120', '₹31,200', '₹52,800', '₹6,360'] },
+    { feature: 'Storage & Data Indexing', values: ['10 GiB', '30 GiB', '75 GiB', '2 GiB'] },
+    { feature: 'Assistant', values: ['40 queries/day', '160 queries/day', '200 queries/day', '20 queries/day'] },
+    { feature: 'Custom AI Agent Creation', values: ['1 agent/day', '1 agent/day', '10 agents/day', 'Not available'] },
+    { feature: 'Deep Research', values: ['1/day', '3/day', '10/day', 'Not available'] },
+    { feature: 'Image Generation', values: ['Not included', '5 images/day', '10 images/day', 'Not available'] },
+    { feature: 'Video Generation', values: ['Not included', '2 requests/day', '3 requests/day', 'Not available'] },
+    { feature: 'Enterprise Data Connectors', values: ['Select connectors', 'Full connector ecosystem', 'Full connector ecosystem', 'Full connector ecosystem'] },
+    { feature: 'Enterprise Data Grounding', values: ['Included', 'Included', 'Included', 'Included'] },
+    { feature: 'Google Search & Web Grounding', values: ['Included', 'Included', 'Included', 'Included'] },
+  ];
+
+  const isUnavailable = (value: string) => value === 'Not available' || value === 'Not included';
+
+  return (
+    <section className="py-16 bg-white">
+      <div className="w-full px-8 lg:px-16 xl:px-24">
+        <motion.div {...fadeInUp} className="text-center mb-12">
+          <h2 className="text-2xl md:text-3xl font-bold text-[#0C4594]">
+            {"Gemini Enterprise Plans & Pricing"}
+          </h2>
+        </motion.div>
+
+        {/* Desktop & tablet: comparison table */}
+        <motion.div {...fadeInUp} className="hidden md:block overflow-x-auto rounded-2xl border border-[#e2e8f0] shadow-lg">
+          <table className="w-full min-w-[880px] border-collapse text-left">
+            <thead>
+              <tr className="bg-gradient-to-r from-[#0C4594] to-[#38B6FF]">
+                <th className="px-6 py-5 text-sm font-semibold text-white whitespace-nowrap">
+                  Features
+                </th>
+                {plans.map((plan) => (
+                  <th
+                    key={plan}
+                    className="px-6 py-5 text-sm font-semibold text-white whitespace-nowrap"
+                  >
+                    {plan}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {rows.map((row, idx) => (
+                <tr key={row.feature} className={idx % 2 === 0 ? 'bg-white' : 'bg-[#f8fafc]'}>
+                  <th
+                    scope="row"
+                    className="px-6 py-4 text-sm font-medium text-[#0C4594] whitespace-nowrap border-t border-[#e2e8f0]"
+                  >
+                    {row.feature}
+                  </th>
+                  {row.values.map((value, vIdx) => (
+                    <td
+                      key={vIdx}
+                      className={`px-6 py-4 text-sm whitespace-nowrap border-t border-[#e2e8f0] ${
+                        isUnavailable(value)
+                          ? 'text-[#94a3b8]'
+                          : idx === 0
+                            ? 'font-semibold text-[#0C4594]'
+                            : 'text-[#475569]'
+                      }`}
+                    >
+                      {value}
+                    </td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </motion.div>
+
+        {/* Mobile: one card per plan */}
+        <motion.div {...fadeInUp} className="md:hidden space-y-4">
+          {plans.map((plan, pIdx) => (
+            <div
+              key={plan}
+              className="rounded-2xl border border-[#e2e8f0] overflow-hidden shadow-md"
+            >
+              <div className="bg-gradient-to-r from-[#0C4594] to-[#38B6FF] px-4 py-3">
+                <h3 className="text-sm font-semibold text-white">{plan}</h3>
+              </div>
+              <div className="divide-y divide-[#e2e8f0]">
+                {rows.map((row) => (
+                  <div
+                    key={row.feature}
+                    className="flex items-start justify-between gap-3 px-4 py-3"
+                  >
+                    <span className="text-xs font-medium text-[#0C4594]">{row.feature}</span>
+                    <span
+                      className={`text-xs text-right ${
+                        isUnavailable(row.values[pIdx]) ? 'text-[#94a3b8]' : 'text-[#475569]'
+                      }`}
+                    >
+                      {row.values[pIdx]}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+
 // FAQ Section
 function FAQSection() {
   const faqs = [
@@ -496,6 +611,7 @@ export default function GeminiEnterprise() {
         <HeroSection />
         <FeaturesSection />
         <ActivationSection />
+        <PricingSection />
         <FAQSection/>
         <CTASection />
        
