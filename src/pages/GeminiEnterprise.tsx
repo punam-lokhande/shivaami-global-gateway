@@ -606,8 +606,8 @@ export default function GeminiEnterprise() {
   return (
 <>
 <Helmet>
-<title>Gemini Enterprise Onboarding Partner | AI Agents for Enterprise – Shivaami</title>
- <meta name="description" content="Deploy AI agents across your enterprise with Gemini Enterprise. Shivaami, an official Google onboarding partner, helps you scale AI for marketing, sales, HR & more." />
+<title>Gemini Enterprise Onboarding Partner - Plans & Pricing | Shivaami</title>
+ <meta name="description" content="Explore Gemini Enterprise pricing, plans and AI agent capabilities. Partner with Shivaami for expert consulting, implementation, and AI adoption." />
 <link rel="canonical" href="https://www.shivaami.com/gemini-enterprise" />
  <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
  </Helmet>
