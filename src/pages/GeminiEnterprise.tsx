@@ -433,7 +433,7 @@ function PricingSection() {
 
         <motion.p
           {...fadeInUp}
-          className="mt-10 text-center text-sm md:text-base text-[#475569] leading-relaxed max-w-4xl mx-auto"
+          className="mt-10 text-center text-sm md:text-base text-[#475569] leading-relaxed w-full"
         >
           Whether you are a growing business or a large enterprise, Shivaami helps you understand available Gemini Enterprise plans, evaluate licensing requirements and identify the right solution for your organisation. Get expert assistance with plan selection, subscription options and deployment to maximise the value of your AI investment.
         </motion.p>
@@ -477,7 +477,7 @@ function FAQSection() {
   return (
     <section className="py-16 bg-[#f8fafc]">
       <div className="w-full px-8 lg:px-16 xl:px-24">
-        <div className="max-w-6xl mx-auto">
+        <div className="w-full">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left - Image */}
             <motion.div {...fadeInUp} className="relative">
