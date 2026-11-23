@@ -350,17 +350,17 @@ function PricingSection() {
         </motion.div>
 
         {/* Desktop & tablet: comparison table */}
-        <motion.div {...fadeInUp} className="hidden md:block overflow-x-auto rounded-2xl border border-[#e2e8f0] shadow-lg">
-          <table className="w-full min-w-[880px] border-collapse text-left">
+        <motion.div {...fadeInUp} className="hidden md:block rounded-2xl border border-[#e2e8f0] shadow-lg overflow-hidden">
+          <table className="w-full table-fixed border-collapse text-left">
             <thead>
               <tr className="bg-gradient-to-r from-[#0C4594] to-[#38B6FF]">
-                <th className="px-6 py-5 text-sm font-semibold text-white whitespace-nowrap">
+                <th className="w-[22%] px-4 lg:px-6 py-5 text-sm font-semibold text-white">
                   Features
                 </th>
                 {plans.map((plan) => (
                   <th
                     key={plan}
-                    className="px-6 py-5 text-sm font-semibold text-white whitespace-nowrap"
+                    className="px-3 lg:px-6 py-5 text-sm font-semibold text-white"
                   >
                     {plan}
                   </th>
@@ -372,14 +372,14 @@ function PricingSection() {
                 <tr key={row.feature} className={idx % 2 === 0 ? 'bg-white' : 'bg-[#f8fafc]'}>
                   <th
                     scope="row"
-                    className="px-6 py-4 text-sm font-medium text-[#0C4594] whitespace-nowrap border-t border-[#e2e8f0]"
+                    className="px-4 lg:px-6 py-4 text-sm font-medium text-[#0C4594] border-t border-[#e2e8f0]"
                   >
                     {row.feature}
                   </th>
                   {row.values.map((value, vIdx) => (
                     <td
                       key={vIdx}
-                      className={`px-6 py-4 text-sm whitespace-nowrap border-t border-[#e2e8f0] ${
+                      className={`px-3 lg:px-6 py-4 text-sm border-t border-[#e2e8f0] ${
                         isUnavailable(value)
                           ? 'text-[#94a3b8]'
                           : idx === 0
